@@ -2,4 +2,5 @@
 
 ## 3.0.0 - By Blood Alone Update
 
-- Xp Cap changed from 500 to 1000
+- Xp cap changed from 500 to 1000
+- Xp cost to change battalion set to 0

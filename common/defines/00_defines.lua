@@ -738,10 +738,10 @@ NDefines = {
         MAX_DIVISION_BRIGADE_HEIGHT = 5,		-- Max height of regiments in division designer.
         MAX_DIVISION_SUPPORT_WIDTH = 1,			-- Max width of support in division designer.
         MAX_DIVISION_SUPPORT_HEIGHT = 5,		-- Max height of support in division designer.
-    
-        BASE_DIVISION_BRIGADE_GROUP_COST = 20, 	--Base cost to unlock a regiment slot,
-        BASE_DIVISION_BRIGADE_CHANGE_COST = 5,	--Base cost to change a regiment column.
-        BASE_DIVISION_SUPPORT_SLOT_COST = 10, 	--Base cost to unlock a support slot
+        --SPTChange Xp cost to 0
+        BASE_DIVISION_BRIGADE_GROUP_COST = 0, 	--Base cost to unlock a regiment slot,
+        BASE_DIVISION_BRIGADE_CHANGE_COST = 0,	--Base cost to change a regiment column.
+        BASE_DIVISION_SUPPORT_SLOT_COST = 0, 	--Base cost to unlock a support slot
         --SPTChange Xp from 500 to 1000
         MAX_ARMY_EXPERIENCE = 1000,			--Max army experience a country can store
         MAX_NAVY_EXPERIENCE = 1000,			--Max navy experience a country can store
