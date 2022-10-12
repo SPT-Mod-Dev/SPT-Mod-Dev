@@ -16,3 +16,4 @@
 - Total Mobilisation can only be selected it Germany is at war with Soviet Union
 - Set agency upgrade cost to 0
 - Made Finland AI always refuse Soviet's ultimatum
+- Set first land, navy and air doctrine cost to 0
