@@ -10,4 +10,4 @@
 - Added 50% more building slots in each state
 - Added impassable terrain around Gibraltar
 - Removed adapatable trait
-- Removed mine laying/sweeping focuses
+- Removed mine laying/sweeping technology focuses and jet technology focuses
