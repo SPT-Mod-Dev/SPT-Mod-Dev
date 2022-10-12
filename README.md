@@ -17,3 +17,4 @@
 - Set agency upgrade cost to 0
 - Made Finland AI always refuse Soviet's ultimatum
 - Set first land, navy and air doctrine cost to 0
+- Increased special force min cap to 64 battalions
