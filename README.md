@@ -15,3 +15,4 @@
 - Nerfed air production continuous focus by 50%
 - Total Mobilisation can only be selected it Germany is at war with Soviet Union
 - Set agency upgrade cost to 0
+- Made Finland AI always refuse Soviet's ultimatum
