@@ -6,3 +6,4 @@
 - Xp cost to change battalion set to 0
 - Cuba, Haiti, Dominican Republic, Guatemala, Honduras, El Salvador, Nicaragua, Costa Rica, Panama, Colombia, Venezuela, Ecuador, Peru, Bolivia, Chile & Paraguay has been merged into American Trade Federation (Neutral Trade Nation)
 - Uruguay has been annexed and cored into Argentina
+-Ahistorical focus paths of playable countries have been hidden.
