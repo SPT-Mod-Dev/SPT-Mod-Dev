@@ -12,3 +12,4 @@
 - Removed adapatable trait
 - Removed mine laying/sweeping technology focuses and jet technology focuses
 - Hid ahistorical political advisors
+- Nerfed air production continuous focus by 50%
