@@ -30,3 +30,9 @@
 - Changed refinery IC cost to 10800
 - Tripled the cost of all plane airframes
 - Replaced civil war when grand council get total control with -50% stability
+
+### Australia Changes
+- Support appeasement focus gives a silent workhorse for free
+- Citizen Military Forces focus ups your conscription by 1
+- You can now annex New Zealand if it's AI via decision
+- Australia can now go free with the "Fight, Work or Perish" focus
