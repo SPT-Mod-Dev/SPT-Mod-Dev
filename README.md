@@ -58,3 +58,7 @@
 
 ### Romania
 - Carol's empty accounts for Romania in the fascist path now last 60 days (previously 360 days)
+
+### Soviet Union
+- Claim Bessarabia and Secure Leningrad are now 7 day focuses 
+- Turkish straits event gives Russia 10% war support (so it can do War Economy much earlier)
