@@ -62,3 +62,9 @@
 ### Soviet Union
 - Claim Bessarabia and Secure Leningrad are now 7 day focuses 
 - Turkish straits event gives Russia 10% war support (so it can do War Economy much earlier)
+
+### Italy
+- Italian oil focuses give a bit more oil
+- Removed the bypass from Ethiopian War Logistics focus 
+- Navy focuses are now 35 days
+- Italy has been given a decision which boosts supply hub and railway construction speed for 6 months if they control Libya and Matrouh
