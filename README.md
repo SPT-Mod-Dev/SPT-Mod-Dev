@@ -44,3 +44,9 @@
 #### New Zealand
 - Slight buffs to most focus-given modifiers
 - 2NZEF focus ups your conscription by 1 now along with the vanilla buff it gives
+
+#### South Africa
+- Slight buffs to some focuses
+- Expand the cape corps focus ups your conscription by 1 now along with the vanilla buff it gives
+- All focuses in the army branch are now 35 days
+- South Africa can now go free with the "Secure Interests in Africa" focus

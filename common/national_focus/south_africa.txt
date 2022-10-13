@@ -238,6 +238,16 @@
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		completion_reward = {
 			remove_ideas = SAF_history_of_segregation_2
+			#SPTChange upped 1 conscription
+			if = {
+				limit = {
+					has_idea = volunteer_only
+				}
+				add_ideas = limited_conscription
+			}
+			else = {
+				add_ideas = extensive_conscription
+			}
 		}
 	}
 
@@ -519,7 +529,8 @@
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 
 		completion_reward = {
-		ENG = { custom_effect_tooltip = needs_approval 
+			OVERLORD = { set_autonomy = { target = ROOT autonomy_state = autonomy_free } } #SPTChange Set Saf free
+			ENG = { custom_effect_tooltip = needs_approval 
 				country_event = tfv_south_africa.1
 				}
 		}
@@ -2542,7 +2553,7 @@
 		x = 14
 		y = 0
 
-		cost = 10
+		cost = 5 #SPTChange 10 to 5
 
 		ai_will_do = {
 			factor = 1
@@ -2580,7 +2591,7 @@
 		y = 1
 		relative_position_id = SAF_special_service_battalion
 
-		cost = 10
+		cost = 5 #SPTChange 10 to 5
 
 		ai_will_do = {
 			factor = 1
@@ -2617,7 +2628,7 @@
 		y = 1
 		relative_position_id = SAF_special_service_battalion
 
-		cost = 10
+		cost = 5 #SPTChange 10 to 5
 
 		ai_will_do = {
 			factor = 1
@@ -2658,7 +2669,7 @@
 		y = 2
 		relative_position_id = SAF_special_service_battalion
 
-		cost = 10
+		cost = 5 #SPTChange 10 to 5
 
 		ai_will_do = {
 			factor = 1
@@ -2696,7 +2707,7 @@
 		y = 3
 		relative_position_id = SAF_special_service_battalion
 
-		cost = 10
+		cost = 5 #SPTChange 10 to 5
 
 		ai_will_do = {
 			factor = 1
@@ -2733,7 +2744,7 @@
 		y = 3
 		relative_position_id = SAF_special_service_battalion
 
-		cost = 10
+		cost = 5 #SPTChange 10 to 5
 
 		ai_will_do = {
 			factor = 1
@@ -2770,7 +2781,7 @@
 		y = 4
 		relative_position_id = SAF_special_service_battalion
 
-		cost = 10
+		cost = 5 #SPTChange 10 to 5
 
 		ai_will_do = {
 			factor = 1
@@ -2808,7 +2819,7 @@
 		y = 5
 		relative_position_id = SAF_special_service_battalion
 
-		cost = 10
+		cost = 5 #SPTChange 10 to 5
 
 		ai_will_do = {
 			factor = 1
@@ -2845,7 +2856,7 @@
 		y = 5
 		relative_position_id = SAF_special_service_battalion
 
-		cost = 10
+		cost = 5 #SPTChange 10 to 5
 
 		ai_will_do = {
 			factor = 1
@@ -2884,7 +2895,7 @@
 		y = 6
 		relative_position_id = SAF_special_service_battalion
 
-		cost = 10
+		cost = 5 #SPTChange 10 to 5
 
 		ai_will_do = {
 			factor = 1
