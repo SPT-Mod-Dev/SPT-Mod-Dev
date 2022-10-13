@@ -40,3 +40,7 @@
 #### Canada
 - Crown corporations gives you a captain of industry instead of just unlocking one
 - Some focuses have been reduced from 70 to 35 days
+
+#### New Zealand
+- Slight buffs to most focus-given modifiers
+- 2NZEF focus ups your conscription by 1 now along with the vanilla buff it gives
