@@ -26,3 +26,4 @@
 - Removed some ahistorical event options
 - Added 50 width training division to each player
 - Researched basic trains for all players
+- Removed all starting guarantees
