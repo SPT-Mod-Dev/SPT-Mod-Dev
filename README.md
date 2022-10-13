@@ -24,3 +24,4 @@
 - Sinkiang, Xibei San Ma, Communist China, Shanxi, Yunnan, Guangxi Clique has been annexed and cored into China
 - China has been renamed to Chinese United Front
 - Removed some ahistorical event options
+- Added 50 width training division to each player
