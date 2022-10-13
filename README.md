@@ -27,3 +27,5 @@
 - Added 50 width training division to each player
 - Researched basic trains for all players
 - Removed all starting guarantees
+- Changed refinery IC cost to 10800
+- Tripled the cost of all plane airframes
