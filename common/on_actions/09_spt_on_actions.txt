@@ -46,4 +46,22 @@ on_actions = {
 			}
 		}
 	}
+	
+	#Researches trains for all players
+	on_startup = {
+		effect = {
+			every_country = {
+				limit = {
+					is_ai = no
+					NOT = {has_tech = basic_train}
+				}
+				set_technology = {
+					basic_train = 1
+					popup = no
+				}
+
+			}
+			
+		}
+	}
 }

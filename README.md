@@ -25,3 +25,4 @@
 - China has been renamed to Chinese United Front
 - Removed some ahistorical event options
 - Added 50 width training division to each player
+- Researched basic trains for all players
