@@ -50,3 +50,8 @@
 - Expand the cape corps focus ups your conscription by 1 now along with the vanilla buff it gives
 - All focuses in the army branch are now 35 days
 - South Africa can now go free with the "Secure Interests in Africa" focus
+
+### British Raj
+- Slight buffs to some focuses
+- Some focuses have been reduced from 70 to 56/35 days 
+- Removed Pakistani cores so when India becomes free, it retains all of the Raj territory
