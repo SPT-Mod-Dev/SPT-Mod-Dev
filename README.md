@@ -21,3 +21,5 @@
 - Made Finland AI always refuse Soviet's ultimatum
 - Set first land, navy and air doctrine cost to 0
 - Increased special force min cap to 64 battalions
+- Sinkiang, Xibei San Ma, Communist China, Shanxi, Yunnan, Guangxi Clique has been annexed and cored into China
+- China has been renamed to Chinese United Front
