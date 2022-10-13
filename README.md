@@ -55,3 +55,6 @@
 - Slight buffs to some focuses
 - Some focuses have been reduced from 70 to 56/35 days 
 - Removed Pakistani cores so when India becomes free, it retains all of the Raj territory
+
+### Romania
+- Carol's empty accounts for Romania in the fascist path now last 60 days (previously 360 days)
