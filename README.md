@@ -31,8 +31,12 @@
 - Tripled the cost of all plane airframes
 - Replaced civil war when grand council get total control with -50% stability
 
-#### Australia Changes
+#### Australia
 - Support appeasement focus gives a silent workhorse for free
 - Citizen Military Forces focus ups your conscription by 1
 - You can now annex New Zealand if it's AI via decision
 - Australia can now go free with the "Fight, Work or Perish" focus
+
+#### Canada
+- Crown corporations gives you a captain of industry instead of just unlocking one
+- Some focuses have been reduced from 70 to 35 days
