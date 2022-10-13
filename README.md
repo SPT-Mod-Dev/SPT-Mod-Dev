@@ -29,3 +29,4 @@
 - Removed all starting guarantees
 - Changed refinery IC cost to 10800
 - Tripled the cost of all plane airframes
+- Replaced civil war when grand council get total control with -50% stability
