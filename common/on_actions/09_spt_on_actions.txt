@@ -183,33 +183,71 @@ on_actions = {
 			}
 		}
 	}
-	#Check for state change
+	
 	on_state_control_changed = {
 		effect = {
+			#Checks axis take oslo
 			if = {
 				limit = {
-					FROM.FROM = 666
+					FROM.FROM = {
+						state = 110
+					}
 					OR = {
-						ROOT = GER
+						ROOT = {original_tag = GER}
 						ROOT = {is_ally_with = GER}
 					}
 				}
 				
-				country_event = { id = spt.1 }
+				country_event = {
+					days =  7 
+					id = spt.1 
+				}
 			}
+			#Checks axis lose oslo
 			if = {
 				limit = {
-					FROM.FROM = 666
+					FROM.FROM = {
+						state = 110
+					}
 					OR = {
-						FROM = GER
+						FROM = {original_tag = GER}
 						FROM = {is_ally_with = GER}
 					}
 				}
 				
-				country_event = { id = spt.2 }
+				GER = {
+					days = 3
+					country_event = { id = spt.2 }
+				}
 			}
 		}
 	}
 
+	on_capitulation = {
+		effect = {
+			#Checks axis cap Denmark
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = DEN
+					}
+					FROM = {
+						OR = {
+							original_tag = GER
+							is_ally_with = GER
+						}
+					}
+					101 = {
+						is_owned_by = DEN
+					}
+
+				}
+				USA = {
+					days = 7 
+					country_event = {id = spt.3} 
+				}
+			}
+		}
+	}
 
 }

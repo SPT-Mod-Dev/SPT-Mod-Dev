@@ -91,9 +91,12 @@
 - Tibet & Bhutan has been merged into Himalayan Trade Federation (Neutral Trade Nation)
 
 #### Germany
-- Added Llapland mechanic which grants germany resource rights to Llapland if they control oslo
+- Added Llapland event which grants germany resource rights to Llapland if they control oslo
 - Befriend Turkey focus removed from the focus tree
 - USSR wargoal focus now takes 14 days
 - Befriend Japan takes 7 days 
 - Rudolf Hess now gives +25% political power instead of 15%
 - Jaegernotprogramm for is now constantly visible, lasts 1 year (90 days in vanilla) and only requires you to be at war
+
+#### USA
+- Added event when Greenland caps which transfers control to USA from Denmark
