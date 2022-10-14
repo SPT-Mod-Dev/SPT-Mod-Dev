@@ -8,7 +8,7 @@
 - Added 50% more building slots in each state
 - Added impassable terrain around Gibraltar
 - Removed adapatable trait
-- Removed mine laying/sweeping technology focuses and jet technology focuses
+- Removed mine laying/sweeping technology focuses
 - Hid ahistorical political advisors
 - Nerfed air production continuous -10% -> -5%
 - Total Mobilisation can only be selected it Germany is at war with Soviet Union (Japan is an exception)
