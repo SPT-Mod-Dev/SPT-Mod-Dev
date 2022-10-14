@@ -155,7 +155,7 @@ on_actions = {
 			}
 		}
 	}
-
+	#Remove Pakistan cores
 	on_startup = {
 		effect = {
 			RAJ = {
@@ -183,4 +183,33 @@ on_actions = {
 			}
 		}
 	}
+	#Check for state change
+	on_state_control_changed = {
+		effect = {
+			if = {
+				limit = {
+					FROM.FROM = 666
+					OR = {
+						ROOT = GER
+						ROOT = {is_ally_with = GER}
+					}
+				}
+				
+				country_event = { id = spt.1 }
+			}
+			if = {
+				limit = {
+					FROM.FROM = 666
+					OR = {
+						FROM = GER
+						FROM = {is_ally_with = GER}
+					}
+				}
+				
+				country_event = { id = spt.2 }
+			}
+		}
+	}
+
+
 }

@@ -40,17 +40,27 @@
 - Some focuses have been reduced from 70 to 35 days
 
 #### New Zealand
-- Slight buffs to most focus-given modifiers
+- Slight buffs to some focuses:
+    - First labour goverment 2% -> 5% buffs
+    - NZL manpower act 7% -> 10% recruitable factor
+    - New zealand steel 10 -> 24 steel added
+    - Taranki oil 5 -> 12 oil added
 - 2NZEF focus ups your conscription by 1 now along with the vanilla buff it gives
 
 #### South Africa
-- Slight buffs to some focuses
+- Slight buffs to some focuses:
+    - Emergency workers 7% -> 10% buffs
+    - Native laws amendment 3% -> 5% factory output
+    - Work for all poor -3% -> -5% consumer goods
+    - Outlaw strikes 6% -> 10% factory output and consumer goods
 - Expand the cape corps focus ups your conscription by 1 now along with the vanilla buff it gives
 - All focuses in the army branch are now 35 days
 - South Africa can now go free with the "Secure Interests in Africa" focus
 
 #### British Raj
-- Slight buffs to some focuses
+- Slight buffs to some focuses: 
+    - Indian Ghurkhas 3% -> 5% recruitable factor 
+    - Princely donations -2% -> -5% consumer goods
 - Some focuses have been reduced from 70 to 56/35 days 
 - Removed Pakistani cores so when India becomes free, it retains all of the Raj territory
 - Nepal has been annexed and cored into British Raj
