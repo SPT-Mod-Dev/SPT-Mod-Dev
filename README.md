@@ -27,3 +27,5 @@
 - Added 50 width training division to each player
 - Researched basic trains for all players
 - Removed all starting guarantees
+- Moved #1143 and #12764 provinces into "Matrouh"(#452) state
+- Moved #1060 and #11951 provinces into "Cyrenaica"(#663) state
