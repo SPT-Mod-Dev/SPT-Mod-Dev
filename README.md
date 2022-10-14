@@ -4,11 +4,6 @@
 
 - Xp cap changed 500 -> 1000
 - Xp cost to change battalion set to 0
-- Cuba, Haiti, Dominican Republic, Guatemala, Honduras, El Salvador, Nicaragua, Costa Rica, Panama, Colombia, Venezuela, Ecuador, Peru, Bolivia, Chile & Paraguay has been merged into American Trade Federation (Neutral Trade Nation)
-- Saudi Arabia, Yemen & Oman has been merged into Middle East Trade Federation (Neutral Trade Nation)
-- Tibet & Bhutan has been merged into Himalayan Trade Federation (Neutral Trade Nation)
-- Uruguay has been annexed and cored into Argentina
-- Nepal has been annexed and cored into British Raj
 - Ahistorical focus paths of playable countries have been hidden
 - Added 50% more building slots in each state
 - Added impassable terrain around Gibraltar
@@ -21,8 +16,6 @@
 - Made Finland AI always refuse Soviet's ultimatum
 - First land, navy and air doctrine cost set to 0
 - Increased special force min cap 24 -> 64 battalions
-- Sinkiang, Xibei San Ma, Communist China, Shanxi, Yunnan, Guangxi Clique has been annexed and cored into China
-- China has been renamed to Chinese United Front
 - Removed some ahistorical event options
 - Added 50 width training division to each player
 - Researched basic trains for all players
@@ -57,6 +50,7 @@
 - Slight buffs to some focuses
 - Some focuses have been reduced from 70 to 56/35 days 
 - Removed Pakistani cores so when India becomes free, it retains all of the Raj territory
+- Nepal has been annexed and cored into British Raj
 
 #### Romania
 - Carol's empty accounts for Romania in the fascist path now last 60 days (previously 360 days)
@@ -70,3 +64,15 @@
 - Removed the bypass from Ethiopian War Logistics focus 
 - Navy focuses are now 35 days
 - Italy has been given a decision which boosts supply hub and railway construction speed for 6 months if they control Libya and Matrouh
+
+#### China
+- Sinkiang, Xibei San Ma, Communist China, Shanxi, Yunnan, Guangxi Clique has been annexed and cored into China
+- China has been renamed to Chinese United Front
+
+#### Argentina
+- Uruguay has been annexed and cored into Argentina
+
+#### Trade Federations
+- Cuba, Haiti, Dominican Republic, Guatemala, Honduras, El Salvador, Nicaragua, Costa Rica, Panama, Colombia, Venezuela, Ecuador, Peru, Bolivia, Chile & Paraguay has been merged into American Trade Federation (Neutral Trade Nation)
+- Saudi Arabia, Yemen & Oman has been merged into Middle East Trade Federation (Neutral Trade Nation)
+- Tibet & Bhutan has been merged into Himalayan Trade Federation (Neutral Trade Nation)
