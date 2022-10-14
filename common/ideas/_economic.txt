@@ -359,8 +359,17 @@ ideas = {
 						ratio > 0.5
 					}
 				}
-				#SPTChange ger must be at war with sov
-				GER = {has_war_with = SOV}
+				#SPTChange Germany must be at war with Soviet Union (Japan is an exception)
+				if = {
+					limit = {
+						NOT = {
+							tag = Jap
+						}
+					}
+					GER = { 
+						has_war_with = SOV
+					}
+				}
 				
 				if = {
 					limit = {
