@@ -2478,6 +2478,15 @@
 		available_if_capitulated = yes
 
 		completion_reward = {
+			#SPTChange upped conscription law
+			if = {
+				limit = { has_idea = volunteer_only }
+				add_ideas = limited_conscription
+			}
+		
+			else = {
+				add_ideas = extensive_conscription
+			}
 			add_ideas = AST_citizen_military_forces
 		}
 	}
@@ -2654,6 +2663,14 @@
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
+			#SPTChange sets ast free
+			OVERLORD = {
+				set_autonomy = {
+					target = ROOT
+					autonomy_state = autonomy_free
+				}
+			}
+			
 			#if effect is there for the tooltips sake
 			if = {
 				limit = { has_idea = AST_great_depression_1 }
@@ -2976,6 +2993,7 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {			
+			add_ideas = AST_herbert_v_evatt	#SPTChange added silent workhorse
 			modify_tech_sharing_bonus = {
  				id = commonwealth_research
  				bonus = 0.03

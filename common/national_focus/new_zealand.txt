@@ -902,7 +902,7 @@
 			284 = {
 				add_resource = {
 					type = steel
-					amount = 10
+					amount = 10 #SPTChange 10 to 24
 				}
 			}
 		}
@@ -939,7 +939,7 @@
 			284 = {
 				add_resource = {
 					type = oil
-					amount = 5
+					amount = 12  #SPTChange 5 to 12
 				}
 			}
 		}
@@ -2197,6 +2197,17 @@
 
 		completion_reward = {
 			add_ideas = NZL_2nzef
+			#SPTChange upped conscription by 1
+			if = {
+				limit = {
+					has_idea = volunteer_only
+				}
+				add_ideas = limited_conscription
+			}
+			else = {
+				add_ideas = extensive_conscription
+			}
+			
 		}
 	}
 
