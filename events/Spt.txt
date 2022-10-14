@@ -52,3 +52,73 @@ country_event = {
 		}
 	}
 }
+
+#Siam requests indo china
+country_event = {
+	id = spt.4
+	title = spt.4.t
+	desc = spt.4.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_japanese_siam_politicians
+
+	#accept
+	option = {
+		name = spt.4.a
+		SIA = {
+			country_event = {
+				id = spt.5
+				days = 3
+			}
+		}
+	}
+	#reject
+	option = {
+		name = spt.4.b
+		SIA = {
+			country_event = {
+				id = spt.6
+				days = 3
+			}
+		}
+	}
+
+}
+#Japan accepts
+country_event = {
+	id = spt.5
+	title = spt.5.t
+	desc = spt.5.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_chinese_japanese_handshake
+
+
+	option = {
+		name = spt.5.a
+		670 = {
+			transfer_state_to = SIA
+		}
+		671 = {
+			transfer_state_to = SIA
+		}
+		741 = {
+			transfer_state_to = SIA
+		}
+		286 = {
+			transfer_state_to = SIA
+		}
+	}
+}
+#Japan denies
+country_event = {
+	id = spt.6
+	title = spt.6.t
+	desc = spt.6.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_japanese_reply
+
+
+	option = {
+		name = spt.6.a
+	}
+}
+

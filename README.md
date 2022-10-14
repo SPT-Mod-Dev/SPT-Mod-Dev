@@ -100,3 +100,6 @@
 
 #### USA
 - Added event when Greenland caps which transfers control to USA from Denmark
+
+#### Siam
+- Added decision and corresponding event chain for Siam requesting Indochina from Japan
