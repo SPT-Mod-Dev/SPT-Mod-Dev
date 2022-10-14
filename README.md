@@ -32,6 +32,9 @@
 - Changed refinery IC cost 14500 -> 10800
 - Tripled the cost of all plane airframes
 - Replaced civil war when grand council get total control with -50% stability
+- Removed Blueprint Stealing operations
+- Removed Blueprint Stealing upgrade
+- Removed No Garrison occupation law
 
 #### Australia
 - Support appeasement focus gives a silent workhorse for free
