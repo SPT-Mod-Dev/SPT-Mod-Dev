@@ -173,3 +173,6 @@
 
 #### Bulgaria
 - Bulgaria can get their claimed territory by doing the "Approach Germany" focus
+
+#### Yugoslavia
+- Removed Anti-German military spirit 
