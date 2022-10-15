@@ -286,4 +286,17 @@ on_actions = {
 		}
 	}
 
+	on_declare_war = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = { tag = JAP }
+					FROM = { is_in_faction_with = ENG }
+				}
+				JAP = {
+					add_ideas = JAP_tora_tora_tora_idea
+				}
+			}
+		}
+	}
 }

@@ -229,3 +229,7 @@
 - "State Shintoism" spirit now gives +20% attack & defence bonus on core territory
 - "Militarism" spirit now gives +15% building speed for military factories & dockyards
 - "Zaibatsus" spirit no longer has +5% consumer goods debuff
+- "Tora Tora Tora" spirit is added once Japan declares war on Allies
+- Added decision to declare war on Allies
+- "Secure the Philippines" focus has been removed
+- "Strike On The Southern Resource Area" focus has been removed
