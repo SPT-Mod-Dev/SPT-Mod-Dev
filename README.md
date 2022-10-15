@@ -31,7 +31,8 @@
 - Removed No Garrison occupation law
 - Last stand and force attack org loss -100% -> -90%
 - Designing ships no longer costs naval xp
-- Extra fuel tank IC cost +5% -> +25% of total IC
+- Naval fuel tank IC cost +5% -> +25% of total IC
+- Added continuous focus which gives 1000 manpower a week
 
 #### Army Spirit
 #####  20 XP
