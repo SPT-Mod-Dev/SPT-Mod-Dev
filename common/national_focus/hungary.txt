@@ -2183,18 +2183,6 @@ focus_tree = {
 				limit = {
 					SLO = {
 						exists = yes
-						is_puppet = no
-						NOT = {
-							has_war_with = ROOT
-						}
-					}
-				}
-				SLO = { country_event = { id = DOD_hungary.107 hours = 3 } }
-			}
-			if = {
-				limit = {
-					SLO = {
-						exists = yes
 						is_puppet = yes
 						NOT = {
 							has_war_with = ROOT
@@ -3426,7 +3414,7 @@ focus_tree = {
 		y = 3
 		relative_position_id = HUN_announce_the_gyor_program
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 40
@@ -3516,6 +3504,12 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = HUN_secret_rearmament
 			custom_effect_tooltip = HUN_secret_rearmament_tt
+			if = {
+				limit = {
+					has_idea = civilian_economy
+				}
+				add_ideas = low_economic_mobilisation
+			}
 		}
 	}
 
@@ -3527,7 +3521,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = HUN_secret_rearmament
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 70
@@ -3558,7 +3552,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = HUN_secret_rearmament
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 70
@@ -3660,7 +3654,7 @@ focus_tree = {
 		id = HUN_establish_the_air_force
 		icon = GFX_goal_generic_build_airforce
 		prerequisite = { focus = HUN_bled_agreement }
-		x = -5
+		x = -4
 		y = 3
 		relative_position_id = HUN_secret_rearmament
 
@@ -3701,7 +3695,7 @@ focus_tree = {
 		prerequisite = { focus = HUN_boost_hungarian_aviation_industry }
 		mutually_exclusive = { focus = HUN_license_foreign_designs }
 		mutually_exclusive = { focus = HUN_joint_air_development }
-		x = -2
+		x = -3
 		y = 5
 		relative_position_id = HUN_establish_the_air_force
 
@@ -3891,7 +3885,7 @@ focus_tree = {
 		prerequisite = { focus = HUN_establish_the_air_force }
 		mutually_exclusive = { focus = HUN_indigenous_designs }
 		mutually_exclusive = { focus = HUN_joint_air_development }
-		x = 5
+		x = 3
 		y = 5
 		relative_position_id = HUN_establish_the_air_force
 
@@ -4114,7 +4108,7 @@ focus_tree = {
 		prerequisite = { focus = HUN_establish_the_air_force }
 		mutually_exclusive = { focus = HUN_license_foreign_designs }
 		mutually_exclusive = { focus = HUN_indigenous_designs }
-		x = 2
+		x = 0
 		y = 5
 		relative_position_id = HUN_establish_the_air_force
 
@@ -4156,7 +4150,7 @@ focus_tree = {
 		id = HUN_army_maneuvers
 		icon = GFX_goal_generic_army_doctrines
 		prerequisite = { focus = HUN_bled_agreement }
-		x = 6
+		x = 4
 		y = 1
 		relative_position_id = HUN_bled_agreement
 
@@ -4741,7 +4735,7 @@ focus_tree = {
 		id = HUN_naval_warfare
 		icon = GFX_goal_generic_build_navy
 		prerequisite = { focus = HUN_secret_rearmament }
-		x = 12
+		x = 10
 		y = 1
 		relative_position_id = HUN_secret_rearmament
 

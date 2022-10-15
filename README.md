@@ -68,6 +68,14 @@
 - Navy focuses are now 35 days
 - Italy has been given a decision which boosts supply hub and railway construction speed for 6 months if they control Libya and Matrouh
 
+#### Hungary
+- Secret Rearmament gives Early Mobilisation
+- Some National focus days have been reduced:
+    - Synthetic Industry 70 -> 35
+    - War Games 70 -> 35
+    - Theoretical Air Efforts 70 -> 35
+- 
+
 #### China
 - Sinkiang, Xibei San Ma, Communist China, Shanxi, Yunnan, Guangxi Clique has been annexed and cored into China
 - China has been renamed to Chinese United Front
