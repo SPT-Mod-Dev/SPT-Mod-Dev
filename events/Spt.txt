@@ -182,3 +182,87 @@ country_event = {
 	}
 }
 
+#Hungary demands Slovakia
+country_event = {
+	id = spt.10
+	title = DOD_hungary.107.t
+	picture = GFX_report_event_lithuania_army
+	desc = DOD_hungary.107.desc_SLO_puppet
+	
+	is_triggered_only = yes
+
+	option = {# transfer Slovakia
+		name = spt.10.a
+		ai_chance = {
+			factor = 50
+		}
+		HUN = { country_event = spt.11 }
+		hidden_effect = {
+			news_event = { id = news.310 days = 1 }
+		}
+	}
+
+	option = {# refuse
+		name = spt.10.b
+		ai_chance = {
+			factor = 50
+			modifier = {
+				is_in_faction = yes
+				HUN = { is_in_faction = no }
+				factor = 5
+			}
+		}
+		HUN = { country_event = DOD_hungary.109 }
+	}
+}
+
+#Germany gives Slovakia
+country_event = {
+	id = spt.11
+	title = DOD_hungary.108.t
+	desc = DOD_hungary.108.desc 
+	picture = GFX_report_event_generic_read_write
+	
+	is_triggered_only = yes
+
+	option = {# good
+		name = DOD_hungary.108.a
+		HUN = {
+			if = {
+				limit = {
+					73 = {
+						NOT = { is_core_of = HUN }
+					}
+				}
+				73 = { add_core_of = HUN }
+			}
+			if = {
+				limit = {
+					664 = {
+						NOT = { is_core_of = HUN }
+					}
+				}
+				664 = { add_core_of = HUN }
+			}
+			if = {
+				limit = {
+					71 = {
+						NOT = { is_core_of = HUN }
+					}
+				}
+				71 = { add_core_of = HUN }
+			}
+			if = {
+				limit = {
+					70 = {
+						NOT = { is_core_of = HUN }
+					}
+				}
+				70 = { add_core_of = HUN }
+			}
+			annex_country = {
+				target = SLO
+			}
+		}
+	}
+}
