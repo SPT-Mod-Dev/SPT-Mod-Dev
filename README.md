@@ -211,3 +211,8 @@
 - Manchukuo's low legitimacy can be fully removed by taking the "Chinese leadership" focus
 - "Hoanyoku" focus for Manchukuo gives China -30% surrender limit, the AI cannot pick the focus  
 
+#### UK
+- Can develop New Zealand without developing Australia now
+- Some focuses shortened from 70 to 56, 35, 28 and 14 days
+- Indian Independence focus from UK focus tree removed
+- UK's Imperial Conference focus no longer has autonomy prerequisites
