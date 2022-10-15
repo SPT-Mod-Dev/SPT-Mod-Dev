@@ -470,6 +470,11 @@
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			add_political_power = 120
+			#SPTChange get cores of all china
+			every_state = {
+				limit = { is_core_of = CHI }
+				add_core_of = ROOT
+			}
 		}
 	}
 
@@ -488,7 +493,9 @@
 		}
 
 		available = {
-
+			hidden_trigger = {
+				is_ai = no #SPTChange prevents ai taking it
+			}
 		}
 
 		bypass = {
@@ -504,6 +511,10 @@
 
 		completion_reward = {
 			add_stability = 0.1
+			#SPTChange add colab thingy
+			CHI = {
+				add_ideas = CHI_illegitimate_government
+			}
 		}
 	}
 
@@ -1089,7 +1100,16 @@
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			MAN_low_legitimacy_level_down = yes
+			#Removed low legitamacy
+			#MAN_low_legitimacy_level_down = yes
+			if = {
+				limit = {
+					MAN = {
+						has_idea = MAN_low_legitimacy_5
+					}
+				}
+				remove_ideas = MAN_low_legitimacy_5
+			}
 		}
 	}
 

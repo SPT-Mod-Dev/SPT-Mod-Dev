@@ -108,7 +108,7 @@
     - War bonds -3% -> -5% consumber goods
     - Resources mobilisation act %2 -> 5% factory output
     - Bits and peaces -> %2 -> 5% factory output
-    
+
 
 
 #### New Zealand
@@ -197,4 +197,10 @@
 
 #### Vichy France
 - Removed options to form Vichy France
+
+#### Manchuko
+- Manchukuo starts with Mengukuo annexed and the focus to annex it removed
+- Manchurian focus to core China has been removed, Manchukuo gets cores on China via "Obedience" focus 
+- Manchukuo's low legitimacy can be fully removed by taking the "Chinese leadership" focus
+- "Hoanyoku" focus for Manchukuo gives China -30% surrender limit, the AI cannot pick the focus  
 
