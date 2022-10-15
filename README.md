@@ -124,7 +124,7 @@
     - Indian Ghurkhas 3% -> 5% recruitable factor 
     - Princely donations -2% -> -5% consumer goods
 - Some focuses have been reduced from 70 to 56/35 days 
-- Removed Pakistani cores so when India becomes free, it retains all of the Raj territory
+- Removed Pakistani, Burmanese and Bangladesh cores
 - Nepal has been annexed and cored into British Raj
 
 #### Romania
