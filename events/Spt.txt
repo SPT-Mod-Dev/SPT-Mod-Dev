@@ -122,3 +122,63 @@ country_event = {
 	}
 }
 
+#Argentina requests falkland islands
+country_event = {
+	id = spt.7
+	title = spt.7.t
+	desc = spt.7.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_japanese_siam_politicians
+
+	#accept
+	option = {
+		name = spt.7.a
+		ARG = {
+			country_event = {
+				id = spt.8
+				days = 3
+			}
+		}
+	}
+	#reject
+	option = {
+		name = spt.7.b
+		ARG = {
+			country_event = {
+				id = spt.9
+				days = 3
+			}
+		}
+	}
+
+}
+#UK accepts
+country_event = {
+	id = spt.8
+	title = spt.8.t
+	desc = spt.8.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_chinese_japanese_handshake
+
+
+	option = {
+		name = spt.8.a
+		299 = {
+			transfer_state_to = ARG
+		}
+	}
+}
+#UK denies
+country_event = {
+	id = spt.9
+	title = spt.9.t
+	desc = spt.9.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_japanese_reply
+
+
+	option = {
+		name = spt.9.a
+	}
+}
+

@@ -151,6 +151,8 @@
 
 #### Argentina
 - Uruguay has been annexed and cored into Argentina
+- Added decision and corresponding event chain for Argentina requesting Falkland Islands from UK
+- Set game rule to not be able to join factions
 
 #### Trade Federations
 - Cuba, Haiti, Dominican Republic, Guatemala, Honduras, El Salvador, Nicaragua, Costa Rica, Panama, Colombia, Venezuela, Ecuador, Peru, Bolivia, Chile & Paraguay has been merged into American Trade Federation (Neutral Trade Nation)
@@ -176,3 +178,4 @@
 
 #### Yugoslavia
 - Removed Anti-German military spirit 
+
