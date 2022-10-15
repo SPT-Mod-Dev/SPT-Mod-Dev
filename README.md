@@ -95,79 +95,77 @@
 - Brave Commanders - added +10% damage, -5% -> -15% retreat chance, 15% -> 25% critical score chance, added +10% critical receiver chance, added +50% morale
 
 #### Tank Designer
-    - Removed all dismantle costs
+- Removed all dismantle costs
     
-    - Engine upgrade - -1.5% -> -2.5% reliability
-    - Armour upgrade - added +1 chromium and +1 steel for 10+ levels, added +2 chromium and +1 steel for 15+, -1.5% -> -2.5% reliability, +8.5% -> +5% armour, removed +1.25 breakthrough
+- Engine upgrade - -1.5% -> -2.5% reliability
+- Armour upgrade - added +1 chromium and +1 steel for 10+ levels, added +2 chromium and +1 steel for 15+, -1.5% -> -2.5% reliability, +8.5% -> +5% armour, removed +1.25 breakthrough
 
-    - Gasoline engine - +1 -> +1.5 ic cost, +2 -> +3 fuel consumption, +0.5 -> +1 max speed, +15% -> +20% max speed, -10% reliability
-    - Diesel engine - +2 -> +1.5 fuel consumption, +25% -> +15% reliability
-    - Petrol engine - -50% -> -25% reliability, 2 -> 5 breakthrough and defense, +15% -> +25% breakthrough and defense, +15% -> +20% -> ic cost,
-    - Turbine engine - +3 -> +2 ic, +4 -> +5 fuel consumption, +0.5 -> +2 max speed, +25% -> +40% max speed
+- Gasoline engine - +1 -> +1.5 ic cost, +2 -> +3 fuel consumption, +0.5 -> +1 max speed, +15% -> +20% max speed, -10% reliability
+- Diesel engine - +2 -> +1.5 fuel consumption, +25% -> +15% reliability
+- Petrol engine - -50% -> -25% reliability, 2 -> 5 breakthrough and defense, +15% -> +25% breakthrough and defense, +15% -> +20% -> ic cost,
+- Turbine engine - +3 -> +2 ic, +4 -> +5 fuel consumption, +0.5 -> +2 max speed, +25% -> +40% max speed
     
-    - Riveted armour - removed -20% ic cost
-    - Welded armour - +2 -> +3 breakthrough and defense, added +10% build cost, +40% -> +25% armour value
+- Riveted armour - removed -20% ic cost
+- Welded armour - +2 -> +3 breakthrough and defense, added +10% build cost, +40% -> +25% armour value
     
-    - Bogie suspension - added +0.5 ic cost
-    - Interleaved suspension - +1 -> +1.5 ic cost, +4 -> +10 breakthrough, removed conversion from torsion bar
-    - Wheeled suspension - added +50% speed,
-    - Half track suspension - added +0.25 build cost, added +25% max speed
+- Bogie suspension - added +0.5 ic cost
+- Interleaved suspension - +1 -> +1.5 ic cost, +4 -> +10 breakthrough, removed conversion from torsion bar
+- Wheeled suspension - added +50% speed,
+- Half track suspension - added +0.25 build cost, added +25% max speed
     
-    - Light turrets forbid medium, heavy, super armaments and anti tank
-    - Light one man turret - added +0.25 max speed
-    - Light fixed turret - forbids AA type, removed conversion from light turret
-    - Medium turrets forbid heavy and super armaments
-    - Medium one man turret - +1 -> +2 ic cost, added +0.1 max speed, removed -25% hard and soft attack
-    - Medium two man turret - +1.5 -> +2.5 ic cost, added -0.1 max speed
-    - Medium three man turret - +2 -> +3 ic cost, -0.25 -> -0.3 max speed
-    - Medium fixed turret - forbids AA type, removed conversion from medium turret
-    - Heavy turrets forbid super armaments
-    - Heavy two man turret - added -0.4 max speed, added +5% soft and hard attack
-    - Heavy three man turret - -0.25 -> -0.5 max speed, added +10% soft and hard attack
-    - Heavy turret - forbids AA type, removed conversion from heavy turret
-    - Super heavy three man turret - +10 -> +12 ic cost, -0.2 -> -0.5 max speed, +24 -> +35 breakthrough, -10% -> +15% hard attack, added +15% hard attack
-    - Super heavy four man turret - +12 -> +10 ic cost, -0.5 -> -0.2 max speed, +35 -> +24 breakthrough, added +20% soft and hard attack
-    - Modern turret - added +15% soft and hard attack
-
-    - Heavy MG - +5 -> +12 soft attack, +2 -> +1 hard attack, removed build cost, +10 -> +7.5 piercing, added +6 breakthrough, +0.5 -> +1 conversion cost
-    - Flamethrower - +5 -> +20 soft attack, +0.5 -> +1 conversion cost
-    - Auto cannon - +15 -> +24 soft attack, +5 -> +2 hard attack, +20 -> +15 piercing,  added +2 breakthrough, added +1 steel, +1.5 -> +3 conversion cost
-    - Auto cannon 2 - +20 -> +36 soft attack, +7 -> +5 hard attack, +35 -> +30 piercing,  added +18 breakthrough, added +2 steel, -0.1 -> -0.2 max speedm -10% - -15% reliability, +2 -> +3.5 conversion cost
-    - Anti air cannon - +16 -> +20 air attack,  +2 -> +4 conversion cost
-    - Anti air cannon 2 - +32 -> +40 air attack,  +3 -> +5 conversion cost, -10% -> -15% reliability, removed +2 steel
-    - Anti air cannon 3 - +43 -> +53 air attack,  +4 -> +6 conversion cost, -10% -> -20% reliability, removed +3 steel, added +1 chromium
-    - Small cannon - +10 -> +12.5 soft attack, +6 -> +10 hard attack, +25 -> +30 piercing, +1.5 -> +0.75 ic cost, -0.15 -> -0.1 max speed
-    - Small cannon 2 - +15 -> +19 soft attack, +15 -> +10 hard attack, +50 -> +30 piercing, +3 -> +1.5 ic cost, -20% -> -15% max speed, -10% -> -15% reliability, +3 -> +5 conversion cost
-    - Close support gun - +25 -> +38.5 soft attack, added +9.5 breakthrough, -0.2 -> -0.3 max speed, -10% -> 15% reliability, +4 -> +5 conversion cost, removed steel and added +1 tungsten
-    - Medium cannon - +20 -> +22.5 soft attack, +60 -> +45 piercing, removed +2 breakthrough, +3 -> +5 conversion, removed steel, +1 -> +2 tungsten
-    - Medium cannon 2 - +32 -> +25.5 soft attack, +20 -> +16.5 hard attack, +90 -> +68 piercing, removed +4 breakthrough, +4 -> +5 conversion, removed steel, +1 -> +3 tungsten, -15% -> -20% reliability
-    - Medium howitzer - +35 -> +45 soft attack, +1 -> +3 hard attack, removed -2 breakthrough, +4 -> +6 conversion cost, removed steel, +1 -> +2 tungsten, added +1 chromium
-    - Medium howitzer 2 - +45 -> +51 soft attack, +2 -> +6 hard attack, removed -2 breakthrough, -20% -> -25% reliability, +5.5 -> +7.5 conversion cost, removed steel, +1 -> +3 tungsten, +1 -> +2 chromium,
-    - Rocket launcher - +35 -> +66.5 soft attack, -10% -> -20% reliability, removed -4 breakthrough, +5 -> +4.5 conversion cost, +2 -> +3 tungsten
-    - High velocity cannon - +10 -> +12.5 soft attack, +26 -> +20 hard attack, +68 -> +90 piercing, -5% -> -10% reliability, +3 -> +4 conversion cost, +2 -> +1 steel
-    - High velocity cannon 2 - +20 -> +15 soft attack, +35 -> +22 hard attack, +125 -> +135 piercing, -17.5% -> -15% reliability, -0.3 -> -0.2 max speed, +5 -> +7 conversion cost, +2 -> +1 steel, +2 -> +3 tungsten
-    - High velocity cannon 3 - +25 -> +17 soft attack, +45 -> +40 hard attack, +200 -> +188 piercing, -0.4 -> -0.3 max speed, +7 -> +9 conversion cost, +3 -> +1 steel, +2 -> +4 tungsten
-    - Heavy cannon - +20 -> +31 soft attack, +20 -> +25 hard attack, +90 -> +60 piercing, +6 -> +7.5 conversion cost, +1 -> +2 chromium, removed +2 steel
-    - Heavy cannon 2 - +25 -> +37.5 soft attack, +35 -> +27.5 hard attack, +125 -> +90 piercing, -25% -> -30% reliability, +7 -> +9 conversion cost, +1 -> +2 chromium, removed +2 steel
-    - Heavy cannon 3 - +30 -> +42.5 soft attack, +40 -> +37.5 hard attack, +170 -> +125 piercing, -30% -> -35% reliability, +8 -> +11 conversion cost, +1 -> +2 chromium, removed +3 steel
-    - Heavy howitzer - +55 -> +68 soft attack, +2 -> +6 hard attack, removed -4 breakthrough, conversion cost 7 -> 8, +1 -> +2 tungsten, +1 -> +3 chromium, removed +3 steel
-    - Super heavt cannon -> +35 -> +51 soft attack, +225 -> +188 piercing attack, -35% reliability -> -40% reliability, +5 -> +3 tungsten, +2 -> +4 chromium
-
-    - Radio - +15% -> +25% breakthrough
-    - Radio 2 - +30% -> +50% breakthroughm, +45% -> +50% defense
-    - Radio 3 - +45% -> +76 breakthroughm, +65% -> +75% defense
-    - Secondary hmg - +1 -> +2 ic cost, +3 -> +5 soft attack, +1 -> +2 hard attack, removed +1 breakthrough, added +3 defense, -5% -> -7.5% reliability
-    - Secondary small cannon - +3 -> +6 hard attack, +2 -> +4 ic cost, -0.25 -> -0.3 max speed, -10% -> -15% reliability, removed 2 breakthrough, -5% -> -10% armour
-    - Sloped armour - +10 -> +1 xp cost
-    - Stabiliser - +2 -> +2.5 ic cost, +5 -> +7.5 breakthrough, added +3 soft and hard attack
-    - Smoke launcher - +0.5 -> +0.25 ic cost, +2 -> +5 defense, +1 -> +2 breakthrough, -10% -> -5% reliability, removed +2 breakthrough, removed +4 defense, added +10% soft and hard attack, added -10% defense and breakthrough
-    - Wet ammo storage - +1 -> +1.5 ic cost, -10% soft and hard attack
-    - Squeezebore adapter - added +5% hard attack, added -5% soft attack
-    - Armour skirts - +2 -> +5 armour, +3 -> +2 breakthrough, +0.5 -> +2 ic cost, added +3 defense, added +5% hardness
-    - Dozer blades - +1 -> +1.5 ic cost, added +2 defense, added +2.5% hardness, added -10% max speed
-    - Auto loader - +2.5 -> +3 ic cost, +4 -> +6 breakthrough, removed +4 defense, +25% soft and hard attack
-    - Easy maintenance - +10% -> +20% reliability
-    - Additional machine guns - +2 -> +1 defense, +0.5 -> +0.75 ic cost
+- Light turrets forbid medium, heavy, super armaments and anti tank
+- Light one man turret - added +0.25 max speed
+- Light fixed turret - forbids AA type, removed conversion from light turret
+- Medium turrets forbid heavy and super armaments
+- Medium one man turret - +1 -> +2 ic cost, added +0.1 max speed, removed -25% hard and soft attack
+- Medium two man turret - +1.5 -> +2.5 ic cost, added -0.1 max speed
+- Medium three man turret - +2 -> +3 ic cost, -0.25 -> -0.3 max speed
+- Medium fixed turret - forbids AA type, removed conversion from medium turret
+- Heavy turrets forbid super armaments
+- Heavy two man turret - added -0.4 max speed, added +5% soft and hard attack
+- Heavy three man turret - -0.25 -> -0.5 max speed, added +10% soft and hard attack
+- Heavy turret - forbids AA type, removed conversion from heavy turret
+- Super heavy three man turret - +10 -> +12 ic cost, -0.2 -> -0.5 max speed, +24 -> +35 breakthrough, -10% -> +15% hard attack, added +15%hard attack
+- Super heavy four man turret - +12 -> +10 ic cost, -0.5 -> -0.2 max speed, +35 -> +24 breakthrough, added +20% soft and hard attack
+- Modern turret - added +15% soft and hard attack
+- Heavy MG - +5 -> +12 soft attack, +2 -> +1 hard attack, removed build cost, +10 -> +7.5 piercing, added +6 breakthrough, +0.5 -> +1conversion cost
+- Flamethrower - +5 -> +20 soft attack, +0.5 -> +1 conversion cost
+- Auto cannon - +15 -> +24 soft attack, +5 -> +2 hard attack, +20 -> +15 piercing,  added +2 breakthrough, added +1 steel, +1.5 -> +3conversion cost
+- Auto cannon 2 - +20 -> +36 soft attack, +7 -> +5 hard attack, +35 -> +30 piercing,  added +18 breakthrough, added +2 steel, -0.1 -> -0.2max speedm -10% - -15% reliability, +2 -> +3.5 conversion cost
+- Anti air cannon - +16 -> +20 air attack,  +2 -> +4 conversion cost
+- Anti air cannon 2 - +32 -> +40 air attack,  +3 -> +5 conversion cost, -10% -> -15% reliability, removed +2 steel
+- Anti air cannon 3 - +43 -> +53 air attack,  +4 -> +6 conversion cost, -10% -> -20% reliability, removed +3 steel, added +1 chromium
+- Small cannon - +10 -> +12.5 soft attack, +6 -> +10 hard attack, +25 -> +30 piercing, +1.5 -> +0.75 ic cost, -0.15 -> -0.1 max speed
+- Small cannon 2 - +15 -> +19 soft attack, +15 -> +10 hard attack, +50 -> +30 piercing, +3 -> +1.5 ic cost, -20% -> -15% max speed, -10%-> -15% reliability, +3 -> +5 conversion cost
+- Close support gun - +25 -> +38.5 soft attack, added +9.5 breakthrough, -0.2 -> -0.3 max speed, -10% -> 15% reliability, +4 -> +5conversion cost, removed steel and added +1 tungsten
+- Medium cannon - +20 -> +22.5 soft attack, +60 -> +45 piercing, removed +2 breakthrough, +3 -> +5 conversion, removed steel, +1 -> +2tungsten
+- Medium cannon 2 - +32 -> +25.5 soft attack, +20 -> +16.5 hard attack, +90 -> +68 piercing, removed +4 breakthrough, +4 -> +5 conversion,removed steel, +1 -> +3 tungsten, -15% -> -20% reliability
+- Medium howitzer - +35 -> +45 soft attack, +1 -> +3 hard attack, removed -2 breakthrough, +4 -> +6 conversion cost, removed steel, +1 ->+2 tungsten, added +1 chromium
+- Medium howitzer 2 - +45 -> +51 soft attack, +2 -> +6 hard attack, removed -2 breakthrough, -20% -> -25% reliability, +5.5 -> +7.5conversion cost, removed steel, +1 -> +3 tungsten, +1 -> +2 chromium,
+- Rocket launcher - +35 -> +66.5 soft attack, -10% -> -20% reliability, removed -4 breakthrough, +5 -> +4.5 conversion cost, +2 -> +3tungsten
+- High velocity cannon - +10 -> +12.5 soft attack, +26 -> +20 hard attack, +68 -> +90 piercing, -5% -> -10% reliability, +3 -> +4conversion cost, +2 -> +1 steel
+- High velocity cannon 2 - +20 -> +15 soft attack, +35 -> +22 hard attack, +125 -> +135 piercing, -17.5% -> -15% reliability, -0.3 -> -0.2max speed, +5 -> +7 conversion cost, +2 -> +1 steel, +2 -> +3 tungsten
+- High velocity cannon 3 - +25 -> +17 soft attack, +45 -> +40 hard attack, +200 -> +188 piercing, -0.4 -> -0.3 max speed, +7 -> +9conversion cost, +3 -> +1 steel, +2 -> +4 tungsten
+- Heavy cannon - +20 -> +31 soft attack, +20 -> +25 hard attack, +90 -> +60 piercing, +6 -> +7.5 conversion cost, +1 -> +2 chromium,removed +2 steel
+- Heavy cannon 2 - +25 -> +37.5 soft attack, +35 -> +27.5 hard attack, +125 -> +90 piercing, -25% -> -30% reliability, +7 -> +9 conversioncost, +1 -> +2 chromium, removed +2 steel
+- Heavy cannon 3 - +30 -> +42.5 soft attack, +40 -> +37.5 hard attack, +170 -> +125 piercing, -30% -> -35% reliability, +8 -> +11conversion cost, +1 -> +2 chromium, removed +3 steel
+- Heavy howitzer - +55 -> +68 soft attack, +2 -> +6 hard attack, removed -4 breakthrough, conversion cost 7 -> 8, +1 -> +2 tungsten, +1 ->+3 chromium, removed +3 steel
+- Super heavt cannon -> +35 -> +51 soft attack, +225 -> +188 piercing attack, -35% reliability -> -40% reliability, +5 -> +3 tungsten, +2-> +4 chromium
+- Radio - +15% -> +25% breakthrough
+- Radio 2 - +30% -> +50% breakthroughm, +45% -> +50% defense
+- Radio 3 - +45% -> +76 breakthroughm, +65% -> +75% defense
+- Secondary hmg - +1 -> +2 ic cost, +3 -> +5 soft attack, +1 -> +2 hard attack, removed +1 breakthrough, added +3 defense, -5% -> -7.5%reliability
+- Secondary small cannon - +3 -> +6 hard attack, +2 -> +4 ic cost, -0.25 -> -0.3 max speed, -10% -> -15% reliability, removed 2breakthrough, -5% -> -10% armour
+- Sloped armour - +10 -> +1 xp cost
+- Stabiliser - +2 -> +2.5 ic cost, +5 -> +7.5 breakthrough, added +3 soft and hard attack
+- Smoke launcher - +0.5 -> +0.25 ic cost, +2 -> +5 defense, +1 -> +2 breakthrough, -10% -> -5% reliability, removed +2 breakthrough,removed +4 defense, added +10% soft and hard attack, added -10% defense and breakthrough
+- Wet ammo storage - +1 -> +1.5 ic cost, -10% soft and hard attack
+- Squeezebore adapter - added +5% hard attack, added -5% soft attack
+- Armour skirts - +2 -> +5 armour, +3 -> +2 breakthrough, +0.5 -> +2 ic cost, added +3 defense, added +5% hardness
+- Dozer blades - +1 -> +1.5 ic cost, added +2 defense, added +2.5% hardness, added -10% max speed
+- Auto loader - +2.5 -> +3 ic cost, +4 -> +6 breakthrough, removed +4 defense, +25% soft and hard attack
+- Easy maintenance - +10% -> +20% reliability
+- Additional machine guns - +2 -> +1 defense, +0.5 -> +0.75 ic cost
 
 
  
