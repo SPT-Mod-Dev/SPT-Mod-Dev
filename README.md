@@ -277,6 +277,7 @@
 #### Mexico
 - Mexico gets the bank instead of just unlocking it with the focus
 - Wargoal option removed from Mexican nationalization of oil events
+- Added event to object to Anschluss
 
 #### France
 - Gets the humble appeaser with Buy time focus instead of just unlocking it
