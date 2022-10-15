@@ -104,6 +104,12 @@
 #### Canada
 - Crown corporations gives you a captain of industry instead of just unlocking one
 - Some focuses have been reduced from 70 to 35 days
+- Slight buffs to some focuses:
+    - War bonds -3% -> -5% consumber goods
+    - Resources mobilisation act %2 -> 5% factory output
+    - Bits and peaces -> %2 -> 5% factory output
+    
+
 
 #### New Zealand
 - Slight buffs to some focuses:
