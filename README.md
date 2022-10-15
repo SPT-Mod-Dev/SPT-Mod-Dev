@@ -133,12 +133,14 @@
 #### Soviet Union
 - Claim Bessarabia and Secure Leningrad are now 7 day focuses 
 - Turkish straits event gives Russia 10% war support (so it can do War Economy much earlier)
+- Invade iran focus can only be picked when WW2 has begun
 
 #### Italy
 - Italian oil focuses give a bit more oil
 - Removed the bypass from Ethiopian War Logistics focus 
 - Navy focuses are now 35 days
 - Italy has been given a decision which boosts supply hub and railway construction speed for 6 months if they control Libya and Matrouh
+- Added a decision to increase compliance by 80 in the occupied territories of yugoslavia
 
 #### China
 - Sinkiang, Xibei San Ma, Communist China, Shanxi, Yunnan, Guangxi Clique has been annexed and cored into China
@@ -165,3 +167,6 @@
 
 #### Siam
 - Added decision and corresponding event chain for Siam requesting Indochina from Japan
+
+#### Bulgaria
+- Bulgaria can get their claimed territory by doing the "Approach Germany" focus
