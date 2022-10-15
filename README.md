@@ -29,6 +29,68 @@
 - Removed Blueprint Stealing upgrade
 - Removed No Garrison occupation law
 
+#### Army Spirit Changes
+#####  20 XP
+    - Meticulous Preparation - +10% -> +7.5% max planning 
+    - Engineering Schools - unlockable via grand battleplan, +5% -> +10% entrenchment speed and max entrenchment, +20% -> +100% engineer xp gain, +100% -> +50% fortress buster and scavenger xp gain, added +15% entrenchment speed, added +5% max entrenchment
+    - Political Loyalty - -50% -> -90% military leader cost
+
+##### 35 XP
+    - Professional Officer Corps - -5% -> -10% doctrine cost
+    - Elevated Engineering Corps - removed 50% xp gain towards engineer trait,added 10% max entrenchment, 20% -> 100% railway gun bombardment bonus 
+    - Proper Heritage - added +25% recon, +5% -> +45% cavalry attack, added +50% cavalry defense, removed supply on core territory bonus 
+    - State Serves the Military - added -25% army advisor cost
+    - Tip of the Spear - +10 -> +20 naval invasion capacity, added +5% land night attack, added -10% special forces cap limit, removed special forces design cost factor, +24 -> +72 supply grace, removed max planning, +20% -> +25% naval invasion planning speed
+    - Overwhelming Firepower - +25% -> +100% artillery experience gain, added +5% breakthrough, added +15% artillery attack, added +5% supply consumption, removed design cost factors
+    - Motorization Drive - added +15% motorised attack/defense,added +10% mechanised attack/defense, added +20% supply truck attrition, added +5% breakthrough, +10% -> +25% motorised/mechanised experience gain, removed design cost factors
+    - Ideological Loyalty - -20% -> -25% encirclement penalty, added +20% division recovery rate
+    - Quick Improvisation - -20% -> -25% commander ability cost, +20% -> 25% command power gain, +20% -> +50% planning speed
+
+##### 50 XP
+    - Aggressive Reconnaisance - 15% -> 50% reconaissance, +100% -> +200% infiltration assault pick chance, 15% -> 50% intel from combat, added +10% land night attack, added +10% terrain penalty reduction, added +10% supply consumption
+    - Victory or Death - +100% -> +200% human wave defense pick chance, -15% -> -50% org loss at low org, added +10% army attack, added -20% army defense
+    - Maneuver Warfare - added +10% armor max speed, +100% -> +200% unexpected thrust pick chance, removed +5% army speed, 5% -> 20% coordination, added +10% breakthrough, added -40% org loss when moving, added +15% supply consumption, added +30% truck attrition, added +10% out of supply penalties, added +10% army fuel consumption factor
+    - Smoke and Fire -  +100% -> +200% supressive barrage pick chance, added +30% artillery attack, added +10% coordination, added +15% supply consumption, added +5% army defense
+    - Logistical Focus - +100% -> +200% well planned attack pick chance, -5% -> -20% supply/fuel consumption, added +72 no supply grace, added -10% out of supply factor, added -10% supply penalities on core
+    - Operational Reserves - +100% -> +200% relentless assault pick chance, +10% -> +25% hp, added -10% reinforce rate, added +15% army defense, added +15% cas damage reduction
+
+#### Air Spirit Changes
+##### 20 XP
+    - Dive Bombing - +5% -> +25% cas research speed, added +25% naval bomber research speedm
+    - Material Destruction - +5% -> +25% tactical bomber research speed
+    - Industrial Destruction - +5% -> +25% strategic bomber research speed, added +25% tactical bomber research speed
+
+##### 50 XP
+    - Battlefield Air Interdiction - removed +5% ground attack,removed +5% escort efficiency, added  +20% organization damage to divisions from CAS
+    - Centralized Control - +10% -> +20% fighter detection, +10% -> 5% air mission efficiency
+    - Home Defence - added +15% air home defence factor, added +10% damage reduction against CAS, added +10% air defense, removed +50% ace effectiveness
+    - Veteran Air Instructors - added +25% ace generation chance, -25% -> -50% air xp loss when ace killed
+    - Steel Wings, Steel Hearts - -33% -> -50% untrained pilot penalty, added +20% air home defence factor, added +10% ace generation chance, added +15% damage reduction against CAS, added +10% air defense
+    - Air Power Projection - +10% -> +25% air power projection factor, added +25% air range
+    - Continuous Strike - added +25% organization damage to divisions from CAS, added +25% ground attack
+
+#### Navy Spirit Changes
+##### 20 XP
+
+    - Signals Training - added +10% positioning, added +10% coordination
+    - Grand Fleet - +20% -> +100% -. ironside and tactician xp gain, added +5% capital ship attack
+    - Convoy Warfare - +20% -> +100% -. seawolf and blockade runner xp gain, added +5% submarine attack
+    - Integrated Air Arm - +20% -> +100% -. air controller and fleet protector, added +20% carrier attack
+
+##### 35 XP
+    - Naval Refit Yards - +15% -> +25% ship repair speed
+    - Global Presence - +20% -> +25% battleship and cruiser research speed, added -10% visibility, added -25% naval attrition, added +10% capital ship attack, removed heavy hull design cost
+    - Submarine Primacy -  added +25% submarine combat xp gain, +20% -> +25% submarine research speed, added +20% sub retreat speed, added +10% submarine attackm removed submarine design cost
+    - Mobile Force - +20% -> +25% carrier research speed, added +50% xp gain for the traits,added  +25% naval air attack/targetubg/agility from carriers, added +25% sortie efficency, removed carrier design cost
+
+##### 50 XP
+    - Surprise Attacks - removed retreat after initial combat buffs, added +50% naval invasion speed, added +30% coordination, added -20% enemy retreat chance, added +50% ships at start of battle, no longer locked behind base strike
+    - Efficient Communications - added +15% fleet coordination, +15% -> +20% positioning, added -25% invasion preparation time, added +25% naval invasion speed
+    - Surface Raiders - +20% -> +25% screening without ships, +10% -> +25% retreat speed and decision chance, added +30% convoy raiding efficiency, added +15% capital ship attack, added -20% submarine attack and retreat speed
+    - Decisive Battle - added +25% attack and defense for all ships, added -10% convoy escort efficiency, added -20% convoy retreat speed, removed +10% hit chance, -10% -> -25% retreat speed and chance, added +10% screening efficiency, added -25% strike force movement org loss, added +5% attack when with pride of fleet 
+    - Inclement Weather Experience - now locked behind base strike, -40% -> -50% bad weather penalty, added -25% accident chance, added +25% sortie efficiency, added +20% spotting speed
+    - Brave Commanders - added +10% damage, -5% -> -15% retreat chance, 15% -> 25% critical score chance, added +10% critical receiver chance, added +50% morale
+
 #### Australia
 - Support appeasement focus gives a silent workhorse for free
 - Citizen Military Forces focus ups your conscription by 1
