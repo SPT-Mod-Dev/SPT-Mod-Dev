@@ -29,6 +29,7 @@
 - Removed Blueprint Stealing upgrade
 - Removed No Garrison occupation law
 - Last stand and force attack org loss -100% -> -90%
+- Designing ships no longer costs naval xp
 
 #### Army Spirit Changes
 #####  20 XP
