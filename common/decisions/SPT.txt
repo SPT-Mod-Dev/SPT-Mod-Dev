@@ -21,9 +21,10 @@ spt_category = {
 	}
 
 	ITA_supply_spirit_decision = {
-
+		allowed = {
+			original_tag = ITA
+		}
 		available = {
-			tag = ITA
 			ITA = {
 				controls_state = 448
 				controls_state = 661
@@ -49,6 +50,87 @@ spt_category = {
 		ai_will_do = {
 			factor = 1
 		}
+	}
 
+	SIA_request_indochina_decision = {
+		allowed = {
+			original_tag = SIA
+		}
+		available = {
+			hidden_trigger = {
+				is_ai = no
+			}
+			JAP = {
+				controls_state = 670
+				controls_state = 671
+				controls_state = 741
+				controls_state = 286	
+			}
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			JAP ={
+				country_event = {
+					id = spt.4
+					days = 3
+				}
+			} 
+		}
+	}
 	
+	ITA_pacify_yugoslavia_decision = {
+		allowed = {
+			original_tag = ITA
+		}
+		available = {
+			has_war_with_non_exiled_country = no
+			any_owned_state = {
+				is_core_of = YUG
+				NOT = {is_core_of=ITA}
+				NOT = {state = 163}
+			}
+			
+		}
+		fire_only_once = yes
+		complete_effect = {
+			every_owned_state = {
+				limit = {
+					is_core_of = YUG
+					NOT = {is_core_of=ITA}
+					NOT = {state = 163}
+				}
+				add_compliance = 80
+			}
+		}
+	}
+
+	ARG_request_falkland_islands = {
+		allowed = {
+			original_tag = ARG
+		}
+		available = {
+			ENG = {
+				has_war_with = GER
+				controls_state = 299
+			}
+			hidden_trigger = {
+				is_ai = no
+			}
+		}
+		fire_only_once = yes
+
+		complete_effect = {
+			ENG = {
+				country_event = {
+					days = 3
+					id = spt.7
+				}
+			}
+		}
+
+
+	}
+
 }

@@ -1,0 +1,184 @@
+add_namespace = spt
+
+#Ger gain control of Oslo
+country_event = {
+	id = spt.1
+	title = spt.1.t
+	desc = spt.1.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_hitler_handshake
+
+	option = {
+		name = spt.1.a
+		SWE = {
+			give_resource_rights = {
+				receiver = GER
+				state = 666
+			}
+		}
+	}
+}
+
+#Ger lose control of Oslo
+country_event = {
+	id = spt.2
+	title = spt.2.t
+	desc = spt.2.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_rally
+
+
+	option = {
+		name = spt.2.a
+		GER = {
+			remove_resource_rights = 666
+		}
+	}
+}
+
+#USA gets control of greenland
+country_event = {
+	id = spt.3
+	title = spt.3.t
+	desc = spt.3.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_usa_treaty
+
+
+	option = {
+		name = spt.3.a
+		101 = {
+			transfer_state_to = USA
+		}
+	}
+}
+
+#Siam requests indo china
+country_event = {
+	id = spt.4
+	title = spt.4.t
+	desc = spt.4.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_japanese_siam_politicians
+
+	#accept
+	option = {
+		name = spt.4.a
+		SIA = {
+			country_event = {
+				id = spt.5
+				days = 3
+			}
+		}
+	}
+	#reject
+	option = {
+		name = spt.4.b
+		SIA = {
+			country_event = {
+				id = spt.6
+				days = 3
+			}
+		}
+	}
+
+}
+#Japan accepts
+country_event = {
+	id = spt.5
+	title = spt.5.t
+	desc = spt.5.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_chinese_japanese_handshake
+
+
+	option = {
+		name = spt.5.a
+		670 = {
+			transfer_state_to = SIA
+		}
+		671 = {
+			transfer_state_to = SIA
+		}
+		741 = {
+			transfer_state_to = SIA
+		}
+		286 = {
+			transfer_state_to = SIA
+		}
+	}
+}
+#Japan denies
+country_event = {
+	id = spt.6
+	title = spt.6.t
+	desc = spt.6.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_japanese_reply
+
+
+	option = {
+		name = spt.6.a
+	}
+}
+
+#Argentina requests falkland islands
+country_event = {
+	id = spt.7
+	title = spt.7.t
+	desc = spt.7.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_read_write
+
+	#accept
+	option = {
+		name = spt.7.a
+		ARG = {
+			country_event = {
+				id = spt.8
+				days = 3
+			}
+		}
+	}
+	#reject
+	option = {
+		name = spt.7.b
+		ARG = {
+			country_event = {
+				id = spt.9
+				days = 3
+			}
+		}
+	}
+
+}
+#UK accepts
+country_event = {
+	id = spt.8
+	title = spt.8.t
+	desc = spt.8.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_molotov_ribentrop_handshake
+
+
+	option = {
+		name = spt.8.a
+		299 = {
+			transfer_state_to = ARG
+		}
+	}
+}
+#UK denies
+country_event = {
+	id = spt.9
+	title = spt.9.t
+	desc = spt.9.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_degaulle_churchill
+
+
+	option = {
+		name = spt.9.a
+	}
+}
+
