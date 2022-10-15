@@ -179,3 +179,7 @@
 #### Yugoslavia
 - Removed Anti-German military spirit 
 
+#### Mexico
+- Mexico gets the bank instead of just unlocking it with the focus
+- Wargoal option removed from Mexican nationalization of oil events
+
