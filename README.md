@@ -28,6 +28,7 @@
 - Removed Blueprint Stealing operations
 - Removed Blueprint Stealing upgrade
 - Removed No Garrison occupation law
+- Last stand and force attack org loss -100% -> -90%
 
 #### Army Spirit Changes
 #####  20 XP
