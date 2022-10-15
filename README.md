@@ -184,6 +184,11 @@
 - Mexico gets the bank instead of just unlocking it with the focus
 - Wargoal option removed from Mexican nationalization of oil events
 
+#### France
+- Gets the humble appeaser with Buy time focus instead of just unlocking it
+- Gets the Free French focus tree upon capitulation
+- 20 -> 100 army xp from Support the Finns focus
+
 #### Vichy France
 - Removed options to form Vichy France
 
