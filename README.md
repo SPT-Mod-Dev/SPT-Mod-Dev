@@ -33,6 +33,7 @@
 - Designing ships no longer costs naval xp
 - Naval fuel tank IC cost +5% -> +25% of total IC
 - Added continuous focus which gives 1000 manpower a week
+- Merged starting navies of majors
 
 #### Army Spirit
 #####  20 XP
