@@ -216,3 +216,16 @@
 - Some focuses shortened from 70 to 56, 35, 28 and 14 days
 - Indian Independence focus from UK focus tree removed
 - UK's Imperial Conference focus no longer has autonomy prerequisites
+
+#### Japan
+- "Secure China" focus has been removed
+- "Supremacy of Technology" spirit's infantry research has been buffed +5% -> +10%
+- "Strengthen the Divine Wind" no longer requires Jet technology
+- "Alliance With Siam" now annexes Siam if it is AI
+- "Chinese Resources" focus is available if any country in faction with Japan controls the required states
+- "Agility Focus" now removes "Duplicate Research Efforts" spirit
+- "Unified Fighter Development" no longer removes "Duplicate Research Efforts" spirit
+- "Unified Fighter Development" now gives a 100% research boost for fighter models AND heavy fighter models
+- "State Shintoism" spirit now gives +20% attack & defence bonus on core territory
+- "Militarism" spirit now gives +15% building speed for military factories & dockyards
+- "Zaibatsus" spirit no longer has +5% consumer goods debuff

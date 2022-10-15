@@ -1225,9 +1225,23 @@
 			factor = 4
 		}
 
-		available = {
-			has_full_control_of_state = 605
-			has_full_control_of_state = 325
+		available = { #SPTChange
+			605 = { 
+				controller = {
+					AND = {
+						has_full_control_of_state = 605
+						is_in_faction_with = JAP
+					}
+				} 
+			}
+			325 = { 
+				controller = {
+					AND = {
+						has_full_control_of_state = 325
+						is_in_faction_with = JAP
+					}
+				} 
+			}
 		}
 
 		bypass = {
@@ -1687,7 +1701,19 @@
 
 
 		completion_reward = {
-			SIA = { country_event = generic.5 }
+			if = {
+				limit = { 
+					SIA = { 
+						is_ai = yes 
+					} 
+				}
+				annex_country = {
+					target = SIA
+				}
+			}
+			else = {
+				SIA = { country_event = generic.5 }
+			}
 			add_ai_strategy = {
 				type = protect
 				id = "SIA"
@@ -2435,7 +2461,7 @@
 		}
 
 		available = {
-			has_tech = rocket_engines
+			#SPTChange - removed has_tech = rocket_engines
 		}
 
 		bypass = {
@@ -4882,6 +4908,7 @@
 		completion_reward = {
 			custom_effect_tooltip = available_designer
 			show_ideas_tooltip = mitsubishi
+			remove_ideas = JAP_duplicate_research_efforts #SPTChange
 		}
 	}
 
@@ -5051,7 +5078,19 @@
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
-			remove_ideas = JAP_duplicate_research_efforts
+			#SPTChange - removed remove_ideas = JAP_duplicate_research_efforts
+			add_tech_bonus = {
+				name = JAP_fighter_modernization
+				bonus = 1.0
+				uses = 1
+				category = light_fighter		
+			}
+			add_tech_bonus = {
+				name = JAP_fighter_modernization
+				bonus = 1.0
+				uses = 1
+				category = cat_heavy_fighter	
+			}
 		}
 	}
 
