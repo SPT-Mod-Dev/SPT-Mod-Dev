@@ -35,37 +35,16 @@
 - Added continuous focus which gives 1000 manpower a week
 - Merged starting navies of majors
 
+#### Argentina
+- Uruguay has been annexed and cored into Argentina
+- Added decision and corresponding event chain for Argentina requesting Falkland Islands from UK
+- Set game rule to not be able to join factions
+
 #### Australia
 - Support appeasement focus gives a silent workhorse for free
 - Citizen Military Forces focus ups your conscription by 1
 - You can now annex New Zealand if it's AI via decision
 - Australia can now go free with the "Fight, Work or Perish" focus
-
-#### Canada
-- Crown corporations gives you a captain of industry instead of just unlocking one
-- Some focuses have been reduced from 70 to 35 days
-- Slight buffs to some focuses:
-    - War bonds -3% -> -5% consumber goods
-    - Resources mobilisation act %2 -> 5% factory output
-    - Bits and peaces -> %2 -> 5% factory output
-
-#### New Zealand
-- Slight buffs to some focuses:
-    - First labour goverment 2% -> 5% buffs
-    - NZL manpower act 7% -> 10% recruitable factor
-    - New zealand steel 10 -> 24 steel added
-    - Taranki oil 5 -> 12 oil added
-- 2NZEF focus ups your conscription by 1 now along with the vanilla buff it gives
-
-#### South Africa
-- Slight buffs to some focuses:
-    - Emergency workers 7% -> 10% buffs
-    - Native laws amendment 3% -> 5% factory output
-    - Work for all poor -3% -> -5% consumer goods
-    - Outlaw strikes 6% -> 10% factory output and consumer goods
-- Expand the cape corps focus ups your conscription by 1 now along with the vanilla buff it gives
-- All focuses in the army branch are now 35 days
-- South Africa can now go free with the "Secure Interests in Africa" focus
 
 #### British Raj
 - Slight buffs to some focuses: 
@@ -75,20 +54,33 @@
 - Removed Pakistani, Burmanese and Bangladesh cores
 - Nepal has been annexed and cored into British Raj
 
-#### Romania
-- Carol's empty accounts for Romania in the fascist path now last 60 days (previously 360 days)
+#### Bulgaria
+- Bulgaria can get their claimed territory by doing the "Approach Germany" focus
 
-#### Soviet Union
-- Claim Bessarabia and Secure Leningrad are now 7 day focuses 
-- Turkish straits event gives Russia 10% war support (so it can do War Economy much earlier)
-- Invade iran focus can only be picked when WW2 has begun
+#### Canada
+- Crown corporations gives you a captain of industry instead of just unlocking one
+- Some focuses have been reduced from 70 to 35 days
+- Slight buffs to some focuses:
+    - War bonds -3% -> -5% consumber goods
+    - Resources mobilisation act %2 -> 5% factory output
+    - Bits and peaces -> %2 -> 5% factory output
 
-#### Italy
-- Italian oil focuses give a bit more oil
-- Removed the bypass from Ethiopian War Logistics focus 
-- Navy focuses are now 35 days
-- Italy has been given a decision which boosts supply hub and railway construction speed for 6 months if they control Libya and Matrouh
-- Added a decision to increase compliance by 80 in the occupied territories of yugoslavia
+#### China
+- Sinkiang, Xibei San Ma, Communist China, Shanxi, Yunnan, Guangxi Clique has been annexed and cored into China
+- China has been renamed to Chinese United Front
+
+#### France
+- Gets the humble appeaser with Buy time focus instead of just unlocking it
+- Gets the Free French focus tree upon capitulation
+- 20 -> 100 army xp from Support the Finns focus
+
+#### Germany
+- Added Llapland event which grants germany resource rights to Llapland if they control oslo
+- Befriend Turkey focus removed from the focus tree
+- USSR wargoal focus now takes 14 days
+- Befriend Japan takes 7 days 
+- Rudolf Hess now gives +25% political power instead of 15%
+- Jaegernotprogramm for is now constantly visible, lasts 1 year (90 days in vanilla) and only requires you to be at war
 
 #### Hungary
 - Secret Rearmament gives Early Mobilisation
@@ -100,64 +92,13 @@
 - "Claim Overlordship Over Slovakia" gives Hungary Slovakia as cores only if Germany agrees
 - "Strengthen the Fascists" spirit daily fascism has been increased +0.03 -> +0.05
 
-#### China
-- Sinkiang, Xibei San Ma, Communist China, Shanxi, Yunnan, Guangxi Clique has been annexed and cored into China
-- China has been renamed to Chinese United Front
-
-#### Argentina
-- Uruguay has been annexed and cored into Argentina
-- Added decision and corresponding event chain for Argentina requesting Falkland Islands from UK
-- Set game rule to not be able to join factions
-
-#### Trade Federations
-- Cuba, Haiti, Dominican Republic, Guatemala, Honduras, El Salvador, Nicaragua, Costa Rica, Panama, Colombia, Venezuela, Ecuador, Peru, Bolivia, Chile & Paraguay has been merged into American Trade Federation (Neutral Trade Nation)
-- Saudi Arabia, Yemen & Oman has been merged into Middle East Trade Federation (Neutral Trade Nation)
-- Tibet & Bhutan has been merged into Himalayan Trade Federation (Neutral Trade Nation)
-
-#### Germany
-- Added Llapland event which grants germany resource rights to Llapland if they control oslo
-- Befriend Turkey focus removed from the focus tree
-- USSR wargoal focus now takes 14 days
-- Befriend Japan takes 7 days 
-- Rudolf Hess now gives +25% political power instead of 15%
-- Jaegernotprogramm for is now constantly visible, lasts 1 year (90 days in vanilla) and only requires you to be at war
-
-#### USA
-- Added event when Greenland caps which transfers control to USA from Denmark
-
-#### Siam
-- Added decision and corresponding event chain for Siam requesting Indochina from Japan
-
-#### Bulgaria
-- Bulgaria can get their claimed territory by doing the "Approach Germany" focus
-
-#### Yugoslavia
-- Removed Anti-German military spirit 
-
-#### Mexico
-- Mexico gets the bank instead of just unlocking it with the focus
-- Wargoal option removed from Mexican nationalization of oil events
-- Added event to object to Anschluss
-
-#### France
-- Gets the humble appeaser with Buy time focus instead of just unlocking it
-- Gets the Free French focus tree upon capitulation
-- 20 -> 100 army xp from Support the Finns focus
-
-#### Vichy France
-- Removed options to form Vichy France
-
-#### Manchuko
-- Manchukuo starts with Mengukuo annexed and the focus to annex it removed
-- Manchurian focus to core China has been removed, Manchukuo gets cores on China via "Obedience" focus 
-- Manchukuo's low legitimacy can be fully removed by taking the "Chinese leadership" focus
-- "Hoanyoku" focus for Manchukuo gives China -30% surrender limit, the AI cannot pick the focus  
-
-#### UK
-- Can develop New Zealand without developing Australia now
-- Some focuses shortened from 70 to 56, 35, 28 and 14 days
-- Indian Independence focus from UK focus tree removed
-- UK's Imperial Conference focus no longer has autonomy prerequisites
+#### Italy
+- Italian oil focuses give a bit more oil
+- Removed the bypass from Ethiopian War Logistics focus 
+- Navy focuses are now 35 days
+- Italy has been given a decision which boosts supply hub and railway construction speed for 6 months if they control Libya and Matrouh
+- Added a decision to increase compliance by 80 in the occupied territories of yugoslavia
+- Replaced civil war triggering when the council get fall control with -50% stability loss
 
 #### Japan
 - "Secure China" focus has been removed
@@ -176,6 +117,67 @@
 - "Secure the Philippines" focus has been removed
 - "Strike On The Southern Resource Area" focus has been removed
 
+#### Manchuko
+- Manchukuo starts with Mengukuo annexed and the focus to annex it removed
+- Manchurian focus to core China has been removed, Manchukuo gets cores on China via "Obedience" focus 
+- Manchukuo's low legitimacy can be fully removed by taking the "Chinese leadership" focus
+- "Hoanyoku" focus for Manchukuo gives China -30% surrender limit, the AI cannot pick the focus
+
+#### Mexico
+- Mexico gets the bank instead of just unlocking it with the focus
+- Wargoal option removed from Mexican nationalization of oil events
+- Added event to object to Anschluss
+
+#### New Zealand
+- Slight buffs to some focuses:
+    - First labour goverment 2% -> 5% buffs
+    - NZL manpower act 7% -> 10% recruitable factor
+    - New zealand steel 10 -> 24 steel added
+    - Taranki oil 5 -> 12 oil added
+- 2NZEF focus ups your conscription by 1 now along with the vanilla buff it gives
+
+#### Romania
+- Carol's empty accounts for Romania in the fascist path now last 60 days (previously 360 days)
+
+#### Siam
+- Added decision and corresponding event chain for Siam requesting Indochina from Japan
+
+#### South Africa
+- Slight buffs to some focuses:
+    - Emergency workers 7% -> 10% buffs
+    - Native laws amendment 3% -> 5% factory output
+    - Work for all poor -3% -> -5% consumer goods
+    - Outlaw strikes 6% -> 10% factory output and consumer goods
+- Expand the cape corps focus ups your conscription by 1 now along with the vanilla buff it gives
+- All focuses in the army branch are now 35 days
+- South Africa can now go free with the "Secure Interests in Africa" focus
+
+#### Soviet Union
+- Claim Bessarabia and Secure Leningrad are now 7 day focuses 
+- Turkish straits event gives Russia 10% war support (so it can do War Economy much earlier)
+- Invade iran focus can only be picked when WW2 has begun
+
+
+
+#### Trade Federations
+- Cuba, Haiti, Dominican Republic, Guatemala, Honduras, El Salvador, Nicaragua, Costa Rica, Panama, Colombia, Venezuela, Ecuador, Peru, Bolivia, Chile & Paraguay has been merged into American Trade Federation (Neutral Trade Nation)
+- Saudi Arabia, Yemen & Oman has been merged into Middle East Trade Federation (Neutral Trade Nation)
+- Tibet & Bhutan has been merged into Himalayan Trade Federation (Neutral Trade Nation)
+
+#### UK
+- Can develop New Zealand without developing Australia now
+- Some focuses shortened from 70 to 56, 35, 28 and 14 days
+- Indian Independence focus from UK focus tree removed
+- UK's Imperial Conference focus no longer has autonomy prerequisites
+
+#### USA
+- Added event when Greenland caps which transfers control to USA from Denmark
+
+#### Vichy France
+- Removed options to form Vichy France
+
+#### Yugoslavia
+- Removed Anti-German military spirit 
 
 #### Army Spirit
 #####  20 XP
