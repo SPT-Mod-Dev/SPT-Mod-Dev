@@ -240,23 +240,23 @@
 
 #### Tank Designer
 - Removed all dismantle costs
-    
+##### Upgrades
 - Engine upgrade - -1.5% -> -2.5% reliability
 - Armour upgrade - added +1 chromium and +1 steel for 10+ levels, added +2 chromium and +1 steel for 15+, -1.5% -> -2.5% reliability, +8.5% -> +5% armour, removed +1.25 breakthrough
-
+##### Engines
 - Gasoline engine - +1 -> +1.5 ic cost, +2 -> +3 fuel consumption, +0.5 -> +1 max speed, +15% -> +20% max speed, -10% reliability
 - Diesel engine - +2 -> +1.5 fuel consumption, +25% -> +15% reliability
 - Petrol engine - -50% -> -25% reliability, 2 -> 5 breakthrough and defense, +15% -> +25% breakthrough and defense, +15% -> +20% -> ic cost,
 - Turbine engine - +3 -> +2 ic, +4 -> +5 fuel consumption, +0.5 -> +2 max speed, +25% -> +40% max speed
-    
+##### Armour
 - Riveted armour - removed -20% ic cost
 - Welded armour - +2 -> +3 breakthrough and defense, added +10% build cost, +40% -> +25% armour value
-    
+##### Suspension
 - Bogie suspension - added +0.5 ic cost
 - Interleaved suspension - +1 -> +1.5 ic cost, +4 -> +10 breakthrough, removed conversion from torsion bar
 - Wheeled suspension - added +50% speed,
 - Half track suspension - added +0.25 build cost, added +25% max speed
-    
+##### Turrets
 - Light turrets forbid medium, heavy, super armaments and anti tank
 - Light one man turret - added +0.25 max speed
 - Light fixed turret - forbids AA type, removed conversion from light turret
@@ -272,6 +272,7 @@
 - Super heavy three man turret - +10 -> +12 ic cost, -0.2 -> -0.5 max speed, +24 -> +35 breakthrough, -10% -> +15% hard attack, added +15%hard attack
 - Super heavy four man turret - +12 -> +10 ic cost, -0.5 -> -0.2 max speed, +35 -> +24 breakthrough, added +20% soft and hard attack
 - Modern turret - added +15% soft and hard attack
+##### Cannons
 - Heavy MG - +5 -> +12 soft attack, +2 -> +1 hard attack, removed build cost, +10 -> +7.5 piercing, added +6 breakthrough, +0.5 -> +1conversion cost
 - Flamethrower - +5 -> +20 soft attack, +0.5 -> +1 conversion cost
 - Auto cannon - +15 -> +24 soft attack, +5 -> +2 hard attack, +20 -> +15 piercing,  added +2 breakthrough, added +1 steel, +1.5 -> +3conversion cost
@@ -295,6 +296,7 @@
 - Heavy cannon 3 - +30 -> +42.5 soft attack, +40 -> +37.5 hard attack, +170 -> +125 piercing, -30% -> -35% reliability, +8 -> +11conversion cost, +1 -> +2 chromium, removed +3 steel
 - Heavy howitzer - +55 -> +68 soft attack, +2 -> +6 hard attack, removed -4 breakthrough, conversion cost 7 -> 8, +1 -> +2 tungsten, +1 ->+3 chromium, removed +3 steel
 - Super heavt cannon -> +35 -> +51 soft attack, +225 -> +188 piercing attack, -35% reliability -> -40% reliability, +5 -> +3 tungsten, +2-> +4 chromium
+##### Modules
 - Radio - +15% -> +25% breakthrough
 - Radio 2 - +30% -> +50% breakthroughm, +45% -> +50% defense
 - Radio 3 - +45% -> +76 breakthroughm, +65% -> +75% defense
