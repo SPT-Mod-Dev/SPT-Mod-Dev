@@ -33,7 +33,6 @@
 - Designing ships no longer costs naval xp
 - Extra fuel tank IC cost +5% -> +25% of total IC
 - Added new Loading Screens
-- Naval fuel tank IC cost +5% -> +25% of total IC
 - Added continuous focus which gives 1000 manpower a week
 - Merged starting navies of majors
 - Incorporated the Modifier Icons mod
