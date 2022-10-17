@@ -1,185 +1,219 @@
 # Saving Private Tryin' Historical MP MOD V.3.0.0
-
+***
 ### 3.0.0 - By Blood Alone Update
 
-- Xp cap changed 500 -> 1000
-- Xp cost to change battalion set to 0
+- XP cap increased `500 → 1000`
+- Division template XP cost removed:
+  - Battalion `5 → 0`
+  - Support company `10 → 0`
 - Ahistorical focus paths of playable countries have been hidden
 - Added 50% more building slots in each state
 - Added impassable terrain around Gibraltar
-- Removed adapatable trait
-- Removed mine laying research
+- Removed adaptable trait
+- Removed mine research
 - Removed mine laying/sweeping technology focuses 
 - Hid ahistorical political advisors
-- Nerfed air production continuous -10% -> -5%
-- Total Mobilisation can only be selected it Germany is at war with Soviet Union (Japan is an exception)
-- Set agency upgrade cost to 0
+- Nerfed air production continuous focus `-10% → -5%`
+- Total Mobilisation can only be selected if Germany is at war with the Soviet Union (Japan is an exception)
+- Set agency upgrade cost to `0`
 - Made Finland AI always refuse Soviet's ultimatum
-- First land, navy and air doctrine cost set to 0
-- Increased special force min cap 24 -> 64 battalions
+- First land, navy, and air doctrine cost removed `100 → 0`
+- Increased special forces battalion minimum cap `24 → 64`
 - Removed some ahistorical event options
-- Added 50 width training division to each player
+- Added 50-width training division to each player
 - Researched basic trains for all players
 - Removed all starting guarantees
 - Moved #1143 and #12764 provinces into "Matrouh"(#452) state
 - Moved #1060 and #11951 provinces into "Cyrenaica"(#663) state
-- Changed refinery IC cost 14500 -> 10800
+- Changed refinery IC cost `14500 → 10800`
 - Tripled the cost of all plane airframes
 - Replaced civil war when grand council get total control with -50% stability
 - Removed Blueprint Stealing operations
 - Removed Blueprint Stealing upgrade
 - Removed No Garrison occupation law
-- Last stand and force attack org loss -100% -> -90%
+- Last stand and force attack org loss reduced `-100% → -90%`
 - Designing ships no longer costs naval xp
-- Extra fuel tank IC cost +5% -> +25% of total IC
+- Extra fuel tank IC cost increased `+5% → +25%` of total IC
 - Added new Loading Screens
 - Added continuous focus which gives 1000 manpower a week
 - Merged starting navies of majors
 - Incorporated the Modifier Icons mod
+
+#### Australia
+- "Support the Policy of Appeasement" focus gives a silent workhorse for free
+- "Citizen Military Forces focus" ups your conscription by `1`
+- You can now annex New Zealand if it's AI via decision
+- Australia can now go free with the "Fight, Work or Perish" focus
+
+#### Canada
+- "Crown Corporations" focus gives you a captain of industry instead of just unlocking one
+- Some focus days have been reduced:
+  - "Crown Corporations" `70 → 35`
+  - "Canadian Pacific Railway" `70 → 35`
+  - "Maritime Colonial Railway" `70 → 35`
+  - "Camp X" `70 → 35`
+- "Imperial Oil" focus oil reward increased `14 → 28`
+- Slight buffs to some spirits:
+    - "War Bonds" consumer goods increased `-3% → -5%`
+    - "Resources Mobilisation Act" factory output increased `2% → 5%`
+    - "Bits and Peaces Program" factory output increased `2% → 5%`
+
+#### New Zealand
+- Slight buffs to some spirits:
+    - "First labor government" consumer goods increased `-2% → -5%`
+    - "First labor government" efficiency growth increased `2% → 5%`
+    - "First labor government" factory output increased `2% → 5%`
+    - "New Zealand Manpower Act" recruitable population factor increased `7% → 10%`
+- Slight buff to some focuses:
+    - "New Zealand Steel" steel reward increased `10 → 24`
+    - "Taranaki Oil" oil reward increased `5 → 12`
+    - 2NZEF focus ups your conscription by `1` now along with the vanilla buff it gives
+
+#### South Africa
+- Slight buffs to some spirits:
+    - "Emergency Workers" civilian factory, military factory, infrastructure construction speed increased `7% → 10%`
+    - "Cheap Labour 1" military factory & dockyard output increased `3% → 5%`
+    - "Cheap Labour 2" military factory & dockyard output increased `3% → 5%`
+    - "Cheap Labour 2" consumer goods increased `-3% → -5%`
+    - "Cheap Labour 3" military factory & dockyard output increased `6% → 10%`
+    - "Cheap Labour 3" consumer goods increased `-8% → -10%`
+- "Expand the Cape Corps" focus ups your conscription by `1` now along with the vanilla buff it gives
+- All army branch focus days are decreased `70 → 35`
+- South Africa can now go free with the "Secure Interests in Africa" focus
+
+#### British Raj
+- Slight buffs to some spirits: 
+    - "Indian Ghurkhas" recruitable population factor increased `2% → 5%`
+    - "Princely States Donations" consumer goods factor increased `-3% → -5%`
+    - "Princely States Donations Troops" consumer goods factor increased `-3% → -5%`
+- Some focus days have been reduced:
+    - "Indian Ghurkas" `70 → 56`
+    - "Lions of the Great War" `70 → 56`
+    - "Indian Gentlement Officers" `70 → 35`
+    - "Revive the Screw Guns" `70 → 35`
+    - "Expand Air Bases" `70 → 35`
+- Removed Pakistani, Burmese, and Bangladesh cores
+- Nepal has been annexed and cored into British Raj
+
+#### Romania
+- "King Carol's Empty Accounts" spirit days reduced `360 → 60`
+
+#### Soviet Union
+- Some focus days have been reduced:
+    - "Claim Bessarabia" `70 → 7`
+    - "Secure Leningrad" `70 → 7`
+- "Turkey Seizes Control Over the Bosporus" event added war support for the Soviet Union increased `5% → 10%`
+- Invade Iran focus can only be picked when World War 2 has begun
+
+#### Italy
+- "Prospect For Oil" oil reward increased `8 → 24`
+- "Libyan Refineries" oil reward increased `4 → 12`
+- "Albanian Oil" oil reward increased `2 → 16`
+- Removed the bypass from "Ethiopian War Logistics" focus 
+- All navy branch focus days have been reduced `70 → 35`
+- Italy has been given a decision that boosts supply hub and railway construction speed for 6 months if they control Libya and Matrouh
+- Added a decision to increase compliance by `80` in the occupied territories of Yugoslavia
+
+#### Hungary
+- "Secret Rearmament" focus gives Early Mobilisation
+- Some focus days have been reduced:
+    - "Synthetic Industry" `70 → 35`
+    - "War Games" `70 → 35`
+    - "Theoretical Air Efforts" `70 → 35`
+- "Claim Overlordship Over Slovakia" can be done if Slovakia exists
+- "Claim Overlordship Over Slovakia" gives Hungary Slovakia as cores only if Germany agrees
+- "Strengthen the Fascists" spirit daily fascism has been increased `+0.03 → +0.05`
+
+#### China
+- Sinkiang, Xibei San Ma, Communist China, Shanxi, Yunnan, Guangxi Clique has been annexed and cored into China
+- China has been renamed to Chinese United Front
 
 #### Argentina
 - Uruguay has been annexed and cored into Argentina
 - Added decision and corresponding event chain for Argentina requesting Falkland Islands from UK
 - Set game rule to not be able to join factions
 
-#### Australia
-- Support appeasement focus gives a silent workhorse for free
-- Citizen Military Forces focus ups your conscription by 1
-- You can now annex New Zealand if it's AI via decision
-- Australia can now go free with the "Fight, Work or Perish" focus
-
-#### British Raj
-- Slight buffs to some focuses: 
-    - Indian Ghurkhas 3% -> 5% recruitable factor 
-    - Princely donations -2% -> -5% consumer goods
-- Some focuses have been reduced from 70 to 56/35 days 
-- Removed Pakistani, Burmanese and Bangladesh cores
-- Nepal has been annexed and cored into British Raj
-
-#### Bulgaria
-- Bulgaria can get their claimed territory by doing the "Approach Germany" focus
-
-#### Canada
-- Crown corporations gives you a captain of industry instead of just unlocking one
-- Some focuses have been reduced from 70 to 35 days
-- Slight buffs to some focuses:
-    - War bonds -3% -> -5% consumber goods
-    - Resources mobilisation act 2% -> 5% factory output
-    - Bits and peaces -> 2% -> 5% factory output
-
-#### China
-- Sinkiang, Xibei San Ma, Communist China, Shanxi, Yunnan, Guangxi Clique has been annexed and cored into China
-- China has been renamed to Chinese United Front
-
-#### France
-- Gets the humble appeaser with Buy time focus instead of just unlocking it
-- Gets the Free French focus tree upon capitulation
-- "Support the Finns" focus has been buffed +20 Army XP -> +50 Army XP
-
-#### Germany
-- Added Llapland event which grants germany resource rights to Llapland if they control oslo
-- Befriend Turkey focus removed from the focus tree
-- USSR wargoal focus now takes 14 days
-- Befriend Japan takes 7 days 
-- Rudolf Hess now gives +25% political power instead of 15%
-- Jaegernotprogramm for is now constantly visible, lasts 1 year (90 days in vanilla) and only requires you to be at war
-
-#### Hungary
-- Secret Rearmament gives Early Mobilisation
-- Some National focus days have been reduced:
-    - Synthetic Industry 70 -> 35
-    - War Games 70 -> 35
-    - Theoretical Air Efforts 70 -> 35
-- "Claim Overlordship Over Slovakia" can be done if Slovakia exists
-- "Claim Overlordship Over Slovakia" gives Hungary Slovakia as cores only if Germany agrees
-- "Strengthen the Fascists" spirit daily fascism has been increased +0.03 -> +0.05
-
-#### Italy
-- Italian oil focuses give a bit more oil
-- Removed the bypass from Ethiopian War Logistics focus 
-- Navy focuses are now 35 days
-- Italy has been given a decision which boosts supply hub and railway construction speed for 6 months if they control Libya and Matrouh
-- Added a decision to increase compliance by 80 in the occupied territories of yugoslavia
-- Replaced civil war triggering when the council get fall control with -50% stability loss
-
-#### Japan
-- "Secure China" focus has been removed
-- "Supremacy of Technology" spirit's infantry research has been buffed +5% -> +10%
-- "Strengthen the Divine Wind" no longer requires Jet technology
-- "Alliance With Siam" now annexes Siam if it is AI
-- "Chinese Resources" focus is available if any country in faction with Japan controls the required states
-- "Agility Focus" now removes "Duplicate Research Efforts" spirit
-- "Unified Fighter Development" no longer removes "Duplicate Research Efforts" spirit
-- "Unified Fighter Development" now gives a 100% research boost for fighter models AND heavy fighter models
-- "State Shintoism" spirit now gives +20% attack & defence bonus on core territory
-- "Militarism" spirit now gives +15% building speed for military factories & dockyards
-- "Zaibatsus" spirit no longer has +5% consumer goods debuff
-- "Tora Tora Tora" spirit is added once Japan declares war on Allies
-- Added decision to declare war on Allies
-- "Secure the Philippines" focus has been removed
-- "Strike On The Southern Resource Area" focus has been removed
-
-#### Manchuko
-- Manchukuo starts with Mengukuo annexed and the focus to annex it removed
-- Manchurian focus to core China has been removed, Manchukuo gets cores on China via "Obedience" focus 
-- Manchukuo's low legitimacy can be fully removed by taking the "Chinese leadership" focus
-- "Hoanyoku" focus for Manchukuo gives China -30% surrender limit, the AI cannot pick the focus
-
-#### Mexico
-- Mexico gets the bank instead of just unlocking it with the focus
-- Wargoal option removed from Mexican nationalization of oil events
-- Added event to object to Anschluss
-
-#### New Zealand
-- Slight buffs to some focuses:
-    - First labour goverment 2% -> 5% buffs
-    - NZL manpower act 7% -> 10% recruitable factor
-    - New zealand steel 10 -> 24 steel added
-    - Taranki oil 5 -> 12 oil added
-- 2NZEF focus ups your conscription by 1 now along with the vanilla buff it gives
-
-#### Romania
-- Carol's empty accounts for Romania in the fascist path now last 60 days (previously 360 days)
-
-#### Siam
-- Added decision and corresponding event chain for Siam requesting Indochina from Japan
-
-#### South Africa
-- Slight buffs to some focuses:
-    - Emergency workers 7% -> 10% buffs
-    - Native laws amendment 3% -> 5% factory output
-    - Work for all poor -3% -> -5% consumer goods
-    - Outlaw strikes 6% -> 10% factory output and consumer goods
-- Expand the cape corps focus ups your conscription by 1 now along with the vanilla buff it gives
-- All focuses in the army branch are now 35 days
-- South Africa can now go free with the "Secure Interests in Africa" focus
-
-#### Soviet Union
-- Claim Bessarabia and Secure Leningrad are now 7 day focuses 
-- Turkish straits event gives Russia 10% war support (so it can do War Economy much earlier)
-- Invade iran focus can only be picked when WW2 has begun
-
-
-
 #### Trade Federations
 - Cuba, Haiti, Dominican Republic, Guatemala, Honduras, El Salvador, Nicaragua, Costa Rica, Panama, Colombia, Venezuela, Ecuador, Peru, Bolivia, Chile & Paraguay has been merged into American Trade Federation (Neutral Trade Nation)
 - Saudi Arabia, Yemen & Oman has been merged into Middle East Trade Federation (Neutral Trade Nation)
 - Tibet & Bhutan has been merged into Himalayan Trade Federation (Neutral Trade Nation)
 
-#### UK
-- Can develop New Zealand without developing Australia now
-- Some focuses shortened from 70 to 56, 35, 28 and 14 days
-- Indian Independence focus from UK focus tree removed
-- UK's Imperial Conference focus no longer has autonomy prerequisites
+#### Germany
+- Added Lapland event which grants Germany resource rights to Lapland if they control Oslo
+- Befriend Turkey focus removed from the focus tree
+- Some focus days have been reduced:
+    - "War with USSR" `70 → 14`
+    - "Befriend Japan" `70 → 7`
+- Rudolf Hess political power bonus increased `+15% → +25%`
+- Jaegernotprogramm is now constantly visible, duration increased `90 → 365`, and only requires you to be at war
 
 #### USA
-- Added event when Greenland caps which transfers control to USA from Denmark
+- Added event when Denmark capitulates, Greenland gets transferred to USA
+
+#### Siam
+- Added decision and corresponding event chain for Siam requesting Indochina from Japan
+
+#### Bulgaria
+- Bulgaria can get their claimed territory by doing the "Approach Germany" focus
+
+#### Yugoslavia
+- Removed Anti-German military spirit 
+
+#### Mexico
+- "National Bank" focus now gives "Banco de Mexico" spirit instead of just unlocking it
+- Wargoal option removed from Mexican nationalization of oil events
+- Added event to object to Anschluss
+
+#### France
+- "Buy Time" focus gives the humble appeaser instead of just unlocking it
+- Gets the Free French focus tree upon capitulation
+- "Support the Finns" focus XP reward increased `20 → 100`
 
 #### Vichy France
 - Removed options to form Vichy France
 
-#### Yugoslavia
-- Removed Anti-German military spirit 
+#### Manchukuo
+- Manchukuo starts with Mengukuo annexed and the focus to annex it removed
+- Manchurian focus to core China has been removed, Manchukuo gets cores on China via "Obedience" focus 
+- Manchukuo's low legitimacy can be fully removed by taking the "Chinese leadership" focus
+- "Hoanyoku" focus for Manchukuo gives China -30% surrender limit, the AI cannot pick the focus  
+
+#### UK
+- Can develop New Zealand without developing Australia now
+- Some focus days have been reduced:
+    - "Crypto Bomb" `70 → 14`
+    - "Vanguard" `70 → 28`
+    - "Fortify the Rock" `70 → 35`
+    - "Protect Suez" `70 → 35`
+    - "Fortify Malta" `70 → 35`
+    - "Sanction Japan" `70 → 35`
+    - "The Singapore Strategy" `70 → 35`
+    - "Landward Fortifications" `70 → 35`
+    - "Peninsular War" `70 → 35`
+    - "Hold Hong Kong" `70 → 35`
+    - "Air Defenses" `70 → 35`
+    - "Steady as She Goes" `70 → 35`
+    - "Secure Iraq" `70 → 7`
+    - "Secure Iran" `70 → 7`
+- Indian Independence focus from UK focus tree removed
+- UK's Imperial Conference focus no longer has autonomy prerequisites
+
+#### Japan
+- "Secure China" focus has been removed
+- "Supremacy of Technology" spirit's infantry research has been buffed `+5% → +10%`
+- "Strengthen the Divine Wind" no longer requires Jet technology
+- "Alliance With Siam" now annexes Siam if it is AI
+- "Chinese Resources" focus is available if any country in a faction with Japan controls the required states
+- "Agility Focus" now removes the "Duplicate Research Efforts" spirit
+- "Unified Fighter Development" no longer removes the "Duplicate Research Efforts" spirit
+- "Unified Fighter Development" now gives a `100%` research boost for fighter models AND heavy fighter models
+- "State Shintoism" spirit now gives a `+20%` attack & defense bonus on core territory
+- "Militarism" spirit now gives `+15%` building speed for military factories & dockyards
+- "Zaibatsus" spirit no longer has `+5%` consumer goods debuff
+- "Tora Tora Tora" spirit is added once Japan declares war on the Allies
+- Added decision to declare war on Allies
+- "Secure the Philippines" focus has been removed
+- "Strike On The Southern Resource Area" focus has been removed
 
 #### Army Spirit
 #####  20 XP
@@ -315,4 +349,4 @@
 - Dozer blades - +1 -> +1.5 ic cost, added +2 defense, added +2.5% hardness, added -10% max speed
 - Auto loader - +2.5 -> +3 ic cost, +4 -> +6 breakthrough, removed +4 defense, +25% soft and hard attack
 - Easy maintenance - +10% -> +20% reliability
-- Additional machine guns - +2 -> +1 defense, +0.5 -> +0.75 ic cost
+- Additional machine guns - +2 -> +1 defense, +0.5 -> +0.75 ic cost> 
