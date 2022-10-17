@@ -65,8 +65,8 @@
 - Some focuses have been reduced from 70 to 35 days
 - Slight buffs to some focuses:
     - War bonds -3% -> -5% consumber goods
-    - Resources mobilisation act %2 -> 5% factory output
-    - Bits and peaces -> %2 -> 5% factory output
+    - Resources mobilisation act 2% -> 5% factory output
+    - Bits and peaces -> 2% -> 5% factory output
 
 #### China
 - Sinkiang, Xibei San Ma, Communist China, Shanxi, Yunnan, Guangxi Clique has been annexed and cored into China
@@ -75,7 +75,7 @@
 #### France
 - Gets the humble appeaser with Buy time focus instead of just unlocking it
 - Gets the Free French focus tree upon capitulation
-- 20 -> 100 army xp from Support the Finns focus
+- "Support the Finns" focus has been buffed +20 Army XP -> +50 Army XP
 
 #### Germany
 - Added Llapland event which grants germany resource rights to Llapland if they control oslo
