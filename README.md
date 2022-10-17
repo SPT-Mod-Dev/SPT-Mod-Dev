@@ -8,7 +8,7 @@
 - Added 50% more building slots in each state
 - Added impassable terrain around Gibraltar
 - Removed adapatable trait
-- Removed mine and sub 3/4 research
+- Removed mine laying research
 - Removed mine laying/sweeping technology focuses 
 - Hid ahistorical political advisors
 - Nerfed air production continuous -10% -> -5%
