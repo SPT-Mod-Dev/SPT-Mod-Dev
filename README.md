@@ -32,6 +32,7 @@
 - Last stand and force attack org loss -100% -> -90%
 - Designing ships no longer costs naval xp
 - Extra fuel tank IC cost +5% -> +25% of total IC
+- Added new Loading Screens
 
 #### Army Spirit Changes
 #####  20 XP
