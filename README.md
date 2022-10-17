@@ -36,6 +36,7 @@
 - Naval fuel tank IC cost +5% -> +25% of total IC
 - Added continuous focus which gives 1000 manpower a week
 - Merged starting navies of majors
+- Incorporated the Modifier Icons mod
 
 #### Argentina
 - Uruguay has been annexed and cored into Argentina
