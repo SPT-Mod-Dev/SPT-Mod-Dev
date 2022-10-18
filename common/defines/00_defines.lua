@@ -335,7 +335,7 @@ NDefines = {
         HEROES_BEING_KILLED_WEEKLY_WAR_SUPPORT_PENALTY_DECAY = 0.001,	-- Weekly decay of war heroes manpower lost war support penalty
         MAX_HEROES_BEING_KILLED_WAR_SUPPORT_IMPACT = -0.3,				-- Max total penalty from war heroes manpower lost
         WAR_SUPPORT_FROM_CASUALTIES = 0.025,							-- Base value (inverted) for calculating heroes being killed
-        
+    
         CONVOYS_BEING_RAIDED_WAR_SUPPORT_PENALTY_SCALE = -0.05,			-- Scaling of trade convoy raided to war support impact, will be added weekly as a war support penalty
         MAX_CONVOYS_BEING_RAIDED_WEEKLY_WAR_SUPPORT_PENALTY = -0.006,	-- Max penalty that will gained per week from trade convoy raided
         CONVOYS_BEING_RAIDED_WEEKLY_WAR_SUPPORT_PENALTY_DECAY = 0.001,	-- Weekly decay of trade convoy raided war support penalty
@@ -362,7 +362,7 @@ NDefines = {
         PROPAGANDA_WAR_SUPPORT_DAILY_DECAY = 0.001,		-- Amount of war support recovered daily from war support effort
     
         NUM_DAYS_TO_FULLY_DELETE_STOCKPILED_EQUIPMENT = 90,	 -- time in days to fully delete equipments from stockpile. when you delete an equipment, they go to a temporary hidden pool which still can be seized
-        AIR_SUPPLY_CONVERSION_SCALE = 0.0005,				-- Conversion scale for planes to air supply
+        AIR_SUPPLY_CONVERSION_SCALE = 0.002,				-- Conversion scale for planes to air supply
         AIR_SUPPLY_DROP_EXPIRATION_HOURS = 168,			-- Air drop length after being dropped
         STARTING_COMMAND_POWER = 0.0,					-- starting command power for every country
         BASE_MAX_COMMAND_POWER = 200.0,					-- base value for maximum command power
@@ -372,7 +372,7 @@ NDefines = {
         ATTACHE_XP_SHARE = 0.15,						-- Country received xp from attaches
         SPECIAL_FORCES_CAP_BASE = 0.05,					-- Max ammount of special forces battalions is total number of non-special forces battalions multiplied by this and modified by a country modifier
         --SPTChange set cap from 24 to 64
-        SPECIAL_FORCES_CAP_MIN = 64,					-- You can have a minimum of this many special forces battalions, regardless of the number of non-special forces battalions you have, this can also be modified by a country modifier
+        SPECIAL_FORCES_CAP_MIN = 64,					-- You can have a minimum of this many special forces battalions, regardless of the number of non-special forces battalions 
         DAYS_OF_WAR_BEFORE_SURRENDER = 7,				-- Number of days a war has to have existed before anyone can surrender in it
     
         FUEL_LEASE_CONVOY_RATIO = 0.0005,				-- num convoys needed per fuel land lease
@@ -390,7 +390,8 @@ NDefines = {
         GIE_MAX_LEGITIMACY = 100, 								--Legitimacy max of a GiE
         GIE_CAPITULATE_MAX_STOCKPILE_TRANSFER = 0.1, 			-- 0-1 Transfers ratio of stockpile. from 0 to this define depending on starting legitimacy on capitulation.
         GIE_CAPITULATE_MIN_LEGIT_FOR_TRANSFER = 5, -- 0-100 Minimum starting legitimacy to transfer any equipment at all.
-        GIE_CAPITULATION_WARSCORE_LEGITIMACY_FACTOR = 1.0, 	--Multiplies accumulated warscore with this factor for part of starting legitimacy.
+        GIE_CAPITULATION_LEGITIMACY_WARSCORE_FACTOR = 0.5,      -- Multiplies war contribution percent with this factor for part of starting legitimacy. (0.5 would mean a 50 % war contribution gives 25 more legitimacy)
+        GIE_CAPITULATION_LEGITIMACY_WARLENGTH_FACTOR = 1.0,     -- Multiplies war length (nr of weeks) with this factor for part of starting legitimacy. (1.0 would mean a war length of 30 weeks gives 30 more legitimacy)
         GIE_WARSCORE_GAIN_LEGITIMACY_FACTOR = 1,		 		--Factor on how much legitimacy is gained from warscore earned by GiE units.
         GIE_HOST_CIC_FROM_LEGITIMACY_MAX = 5, 					--Host will receive from 0 to this value in CIC.
         GIE_HOST_MIC_FROM_LEGITIMACY_MAX = 5,					--Host will receive from 0 to this value in MIC.
@@ -658,10 +659,10 @@ NDefines = {
     
         SOFT_ATTACK_TARGETING_FACTOR = 1.0,		-- How much we care about potential soft attacks when evaluating priority combat target
         HARD_ATTACK_TARGETING_FACTOR = 1.2,		-- How much we care about potential hard attacks when evaluating priority combat target
-        
+    
         CASUALTIES_WS_P_PENALTY_DIVISOR = 200,							--Divisor for casualties WS penalty
         CASUALTIES_WS_A_PENALTY_DIVISOR = 600,							--Divisor for casualties WS penalty
-        
+    
         PIERCING_THRESHOLDS = {					-- Our piercing / their armor must be this value to deal damage fraction equal to the index in the array below [higher number = higher penetration]. If armor is 0, 1.00 will be returned.
             1.00,
             0.75,
@@ -709,7 +710,7 @@ NDefines = {
         HISTORY_OPERATION_RANDOM_MAX = 24,			-- max random int to roll when determining whether to grant an awardable entry for operations. 1/N chances.
         CASUALTY_COUNT_FOR_HISTORY_ENTRY = 40000,	-- number of received casualties to receive a history entry (one only)
         FIELD_OFFICER_PROMOTION_PENALTY = 0.25,		--Amount of division experience lost when promoting a commander (reduced by modifiers)
-        
+    
         HISTORICAL_ORDER_NAME_EXHAUSTION = false,	-- Do historically chosen order instances exhaust their case names? If false ie, Operation Barbarossa will appear for any orders fulfilling the conditions for Germany
     
         WAR_SCORE_LOSSES_RATIO = 0.5,								-- war score gained for every 1000 casualties
@@ -720,11 +721,11 @@ NDefines = {
         WAR_SCORE_LAND_DAMAGE_FACTOR = 0.1,          				-- war score gained for every strengh damage done to an enemy's army
         WAR_SCORE_ATTACKER_AND_WINNER_FACTOR = 1.2,					-- factor applied to war score gained for strength damage done when being the attacker and the winner
         WAR_SCORE_LAND_IC_LOSS_FACTOR = 0.1,         				-- war score gained for every IC damage done to an enemy's army
-        WAR_SCORE_PROVINCE_FACTOR = 0.3,							-- war score gained when capturing a province for the first time, multiplied by province's worth
-        WAR_SCORE_LEND_LEASE_GIVEN_IC_FACTOR = 0.1,  				-- war score gained for every IC of lend lease sent to allies
-        WAR_SCORE_LEND_LEASE_GIVEN_FUEL_FACTOR = 0.01,  				-- war score gained for every unit of fuel lend lease sent to allies
-        WAR_SCORE_LEND_LEASE_RECEIVED_IC_FACTOR = 0.1,  			-- war score deducted for every IC of lend lease received from allies
-        WAR_SCORE_LEND_LEASE_RECEIVED_FUEL_FACTOR = 0.01, 			-- war score deducted for every unit of fuel lend lease received from allies
+        WAR_SCORE_PROVINCE_FACTOR = 2.0,							-- war score gained when capturing a province for the first time, multiplied by province's worth
+        WAR_SCORE_LEND_LEASE_GIVEN_IC_FACTOR = 0.001,  				-- war score gained for every IC of lend lease sent to allies
+        WAR_SCORE_LEND_LEASE_GIVEN_FUEL_FACTOR = 0.001,  			-- war score gained for every 100 units of fuel lend lease sent to allies
+        WAR_SCORE_LEND_LEASE_RECEIVED_IC_FACTOR = 0.001,  			-- war score deducted for every IC of lend lease received from allies
+        WAR_SCORE_LEND_LEASE_RECEIVED_FUEL_FACTOR = 0.001, 		-- war score deducted for every 100 units of fuel lend lease received from allies
     
         CORPS_COMMANDER_DIVISIONS_CAP = 24,			-- how many divisions a corps commander is limited to. 0 = inf, < 0 = blocked
         DIVISION_SIZE_FOR_XP = 8,                   -- how many battalions should a division have to count as a full divisions when calculating XP stuff
@@ -1119,7 +1120,7 @@ NDefines = {
         AIR_WING_MAX_STATS_BOMBING = 100,
         AIR_WING_MAX_SIZE = 1000, 							-- Max amount of airplanes in wing
         AIR_WING_AVERAGE_SIZE = 100, 						-- Eyeballed average amount of airplanes in wing. Used when calculating air volunteer.
-        AIR_WING_BOMB_DAMAGE_FACTOR = 2,					-- Used to balance the damage done while bombing.	
+        AIR_WING_BOMB_DAMAGE_FACTOR = 2,					-- Used to balance the damage done while bombing.
         BIGGEST_AGILITY_FACTOR_DIFF = 3.0,					-- biggest factor difference in agility for doing damage (caps to this)
         BIGGEST_SPEED_FACTOR_DIFF = 2.5,					-- biggest factor difference in speed for doing damage (caps to this)
         TOP_SPEED_DAMAGE_BONUS_FACTOR = 0.025,				-- A factor for scaling the top speed of a plane into damage buff. If an attacking wing has a speed advantage of any form their speed value will be converted into a percentage bonus with this modifier
@@ -1161,11 +1162,11 @@ NDefines = {
         EXPERIENCE_SCALE_ATTACK_LOGISTICS_NO_TRUCK_CONSUMERS = 0.0001, -- How much country experinence gained by attacking consumers who aren't motorized
         EXPERIENCE_SCALE_ATTACK_LOGISTICS_NODE_AND_TRAINS = 0.0002,    -- How much country experinence gained by attacking node/trains
         EXPERIENCE_SCALE_ATTACK_LOGISTICS_TRUCKS = 0.0002,             -- How much country experinence gained by attacking trucks
-        
+    
         FIELD_EXPERIENCE_FACTOR = 0.7,						-- Factor all air experience gain from missions by this
-        
-        AI_ALLOWED_PLANES_KEPT_IN_RESERVE = 0.10,			--AI allowed planes is reduced by this percentage. Overflow will be distributed to the next valid order. Worst case, this will result in this % of planes no being assigned any order. 
-        
+    
+        AI_ALLOWED_PLANES_KEPT_IN_RESERVE = 0.10,			--AI allowed planes is reduced by this percentage. Overflow will be distributed to the next valid order. Worst case, this will result in this % of planes no being assigned any order.
+    
         ACCIDENT_CHANCE_BASE = 0.05,							-- Base chance % (0 - 100) for accident to happen. Reduced with higher reliability stat.
         ACCIDENT_CHANCE_CARRIER_MULT = 2.0,					-- The total accident chance is scaled up when it happens on the carrier ship.
         ACCIDENT_CHANCE_BALANCE_MULT = 0.5,					-- Multiplier for balancing how often the air accident really happens. The higher mult, the more often.
@@ -1342,10 +1343,10 @@ NDefines = {
     
     NNavy = {
         -- Peace Conference
-        WAR_SCORE_GAIN_FOR_SUNK_SHIP_MANPOWER_FACTOR = 0.02,			-- war score gained for every manpower killed when sinking a ship
-        WAR_SCORE_GAIN_FOR_SUNK_SHIP_PRODUCTION_COST_FACTOR = 0.04,		-- war score gained for every IC of the sunk ship
-        WAR_SCORE_GAIN_FOR_SUNK_CONVOY = 10.0,							-- war score gained for every sunk convoy
-        WAR_SCORE_DECAY_FOR_BUILT_CONVOY = 5.0,  						-- war score deducted when convoy-raided enemy produces one new convoy
+        WAR_SCORE_GAIN_FOR_SUNK_SHIP_MANPOWER_FACTOR = 0.001,			-- war score gained for every manpower killed when sinking a ship
+        WAR_SCORE_GAIN_FOR_SUNK_SHIP_PRODUCTION_COST_FACTOR = 0.004,		-- war score gained for every IC of the sunk ship
+        WAR_SCORE_GAIN_FOR_SUNK_CONVOY = 0.05,							-- war score gained for every sunk convoy
+        WAR_SCORE_DECAY_FOR_BUILT_CONVOY = 0.03,  						-- war score deducted when convoy-raided enemy produces one new convoy
     
         -- Convoy Priorities START
         NAVAL_INVASION_PRIORITY = 1,									-- Default convoy priority for naval invasions
@@ -3843,8 +3844,6 @@ NDefines = {
         DAYS_TO_START_GIVING_FULL_SUPPLY_AFTER_MOVING_SUPPLY_CAPITAL =  21, -- the country will reach max supply after this many days moving its capital
     
         MIN_DIFF_FOR_AUTO_UPDATING_EXISTING_RAILWAYS = 5, -- while building railways, the system will prefer updating existing railway if new railway is close enough to existing one
-    
-        LOCAL_SUPPLY_PER_AIR_MISSION = 0.2, -- each assigned plane gives this much supply at full efficiency
     
         -- reinforcements depends on distance to capital and following defines are used for calculating reinforcement time
         SUPPLY_PATH_MAX_DISTANCE = 15,	-- max time it can take
