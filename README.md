@@ -1,6 +1,6 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.0.1
+### 3.0.1 - Pacific Front Update
 
 #### Italy
  - Prevented "Supremacy in the skies" to give a variant with a jet engine unless jet engines have been researched
