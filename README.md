@@ -2,6 +2,8 @@
 
 ### 3.0.1
 
+#### Italy
+ - Prevented "Supremacy in the skies" to give a variant with a jet engine unless jet engines have been researched
 
 
 ### 3.0.0 - By Blood Alone Update
