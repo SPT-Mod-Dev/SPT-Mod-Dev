@@ -1,8 +1,8 @@
 on_actions = {
-	
-	#Gives all players training division
+		
 	on_startup = {
 		effect = {
+			#Gives all players training division
 			every_country = {
 				limit = {
 					is_ai = no
@@ -44,12 +44,8 @@ on_actions = {
 				
 
 			}
-		}
-	}
-	
-	#Researches trains for all players
-	on_startup = {
-		effect = {
+
+			#Researches trains for all players
 			every_country = {
 				limit = {
 					is_ai = no
@@ -62,12 +58,8 @@ on_actions = {
 
 			}
 			
-		}
-	}
-
-	#Removed starting guarantees
-	on_startup = {
-		effect = {
+		
+			#Removed starting guarantees
 			FRA = {
 				diplomatic_relation = {
 					country = ROM
@@ -153,11 +145,8 @@ on_actions = {
 					active = no
 				}
 			}
-		}
-	}
-	#Remove Pakistan cores
-	on_startup = {
-		effect = {
+
+			#Remove Pakistan cores
 			RAJ = {
 				443 = {
 					remove_core_of = PAK
@@ -191,25 +180,32 @@ on_actions = {
 					remove_core_of = BRM
 				}
 			}
-		}
-	}
 
-	#Remove yugos anti german idea
-	on_startup = {
-		effect = {
+			
+			#Remove yugos anti german idea
 			YUG = {
 				remove_ideas = anti_german_military
 			}
-		}
-	}
 
-
-	#Prevents argentina joining factions
-	on_startup = {
-		effect = {
+			#Prevents argentina joining factions
 			ARG = {
 				set_rule = {
 					can_join_factions = no
+				}
+			}
+			#Set power balances
+			USA = {
+				set_power_balance = {
+					id = USA_PAC_pacific_front
+					left_side = USA_PAC_jap_side
+					right_side = USA_PAC_usa_side
+				}
+			}
+			JAP = {
+				set_power_balance = {
+					id = JAP_PAC_pacific_front
+					left_side = JAP_PAC_usa_side
+					right_side = JAP_PAC_jap_side 
 				}
 			}
 		}
@@ -254,6 +250,102 @@ on_actions = {
 					}
 				}
 			}
+			#Pacific front checks
+			#USA takes island
+			if = {
+				limit = {
+					FROM.FROM = {
+						OR = {
+							state = 526
+							state = 524
+							state = 645
+							state = 648
+							state = 646
+							state = 629
+							state = 630
+							state = 631
+							state = 632
+							state = 638
+							state = 327
+						}
+					}
+					OR = {
+						ROOT = {original_tag = USA}
+						ROOT = {is_ally_with = USA}
+					}
+					OR = {
+						FROM = {original_tag = JAP}
+						FROM = {is_ally_with = JAP} 
+					}
+						
+				}
+				JAP = {
+					set_power_balance = {
+						id = JAP_PAC_pacific_front
+						set_value = -0.2
+					}
+					country_event = {
+						id = spt.13
+						days = 3
+					}
+				}
+				USA = {
+					set_power_balance = {
+						id = USA_PAC_pacific_front
+						set_value = 0.2
+					}
+					set_country_flag = USA_captured_island
+				}
+
+
+				
+			}
+			#Japan takes island
+			if = {
+				limit = {
+					FROM.FROM = {
+						OR = {
+							state = 526
+							state = 524
+							state = 645
+							state = 648
+							state = 646
+							state = 629
+							state = 630
+							state = 631
+							state = 632
+							state = 638
+							state = 327
+						}
+					}
+					OR = {
+						ROOT = {original_tag = JAP}
+						ROOT = {is_ally_with = JAP}
+					}
+					OR = {
+						FROM = {original_tag = USA}
+						FROM = {is_ally_with = USA} 
+					}
+						
+				}
+				JAP = {
+					set_power_balance = {
+						id = JAP_PAC_pacific_front
+						set_value = 0.2
+					}
+					set_country_flag = JAP_captured_island
+				}
+				USA = {
+					set_power_balance = {
+						id = USA_PAC_pacific_front
+						set_value = -0.2
+					}
+					country_event = spt.13
+				}
+				
+			}
+			
+
 		}
 	}
 

@@ -1,0 +1,138 @@
+
+USA_PAC_pacific_front = {
+	initial_value = 0
+	left_side = USA_PAC_jap_side
+	right_side = USA_PAC_usa_side
+	decision_category = USA_PAC_category
+
+	### Neutral status
+	range = {
+		id = USA_PAC_balance_range
+		min = -0.25
+		max = 0.25
+		modifier = {
+
+		}
+		on_activate = {
+
+		}
+		on_deactivate = {
+			
+		}
+	}
+
+	### Jap side for usa
+	side = {
+		id = USA_PAC_jap_side
+		icon = GFX_bop_PAC_jap_side
+
+		range = {
+			id = USA_PAC_low_jap_dominance
+			min = -0.5
+			max = -0.25
+			modifier = {
+				army_attack_factor = -0.05
+				stability_factor = -0.1
+			}
+			on_activate = {
+				
+			}
+			on_deactivate = {
+				
+			}
+		}
+
+		range = {
+			id = USA_PAC_medium_jap_dominance
+			min = -0.75
+			max = -0.5
+			modifier = {
+				army_attack_factor = -0.1
+				stability_factor = -0.2
+			}
+			on_activate = {
+				
+			}
+			on_deactivate = {
+				
+			}
+		}
+
+		range = {
+			id = USA_PAC_total_jap_dominance
+			min = -1
+			max = -0.75
+			modifier = {
+				army_attack_factor = -0.20
+				stability_factor = -0.3	
+			}
+			on_activate = {
+				
+			}
+			on_deactivate = {
+				
+			}
+		}
+
+		
+	}
+	### Usa side for usa
+	side = {
+		id = USA_PAC_usa_side
+		icon = GFX_bop_PAC_usa_side
+
+		range = {
+			id = USA_PAC_low_usa_dominance
+			min = 0.25
+			max = 0.5
+			modifier = {
+				army_attack_factor = 0.05
+				war_support_factor = 0.1
+			}
+			on_activate = {
+				
+			}
+			on_deactivate = {
+				
+			}
+		}
+
+		range = {
+			id = USA_PAC_medium_usa_dominance
+			min = 0.5
+			max = 0.75
+			modifier = {
+				army_attack_factor = 0.1
+				war_support_factor = 0.2
+				naval_invasion_penalty = 0.05
+			}
+			on_activate = {
+				
+			}
+			on_deactivate = {
+				
+			}
+		}
+
+		range = {
+			id = USA_PAC_total_usa_dominance
+			min = 0.75
+			max = 1
+			modifier = {
+				army_attack_factor = 0.2
+				war_support_factor = 0.3
+				naval_invasion_penalty = 0.1
+			}
+			on_activate = {
+				
+			}
+			on_deactivate = {
+				
+			}
+		}
+
+		
+	}
+		
+}
+
