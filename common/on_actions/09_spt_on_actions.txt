@@ -360,6 +360,24 @@ on_actions = {
 					} 
 				}
 			}
+			#Checks if jap or usa cap each other
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							ROOT = {original_tag = JAP}
+							FROM = {original_tag = USA}
+						}
+						AND = {
+							ROOT = {original_tag = USA}
+							FROM = {original_tag = JAP}
+						}
+					}
+				}
+				FROM = {
+					add_ideas = PAC_total_victory
+				}
+			}
 		}
 	}
 
