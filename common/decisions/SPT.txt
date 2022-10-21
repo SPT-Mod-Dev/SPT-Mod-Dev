@@ -227,7 +227,9 @@ USA_PAC_category = {
 		}
 		cancel_trigger = {
 			hidden_trigger = {
-				has_war_with = JAP
+				NOT = {
+					has_war_with = JAP
+				}
 			}
 		}
 		timeout_effect = {
@@ -244,7 +246,6 @@ USA_PAC_category = {
 				
 		}
 
-		days_re_enable = 1
 		is_good = no
 		days_mission_timeout = 60
 		
@@ -327,13 +328,11 @@ JAP_PAC_category = {
 			}
 			
 		}
-
-		visible = {
-			has_idea = JAP_PAC_assault
-		}
 		cancel_trigger = {
-			hidden_trigger = {
-				has_war_with = USA
+			NOT = {
+				hidden_trigger = {
+					has_war_with = USA
+				}
 			}
 		}
 		timeout_effect = {

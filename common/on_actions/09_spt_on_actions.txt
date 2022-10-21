@@ -193,21 +193,6 @@ on_actions = {
 					can_join_factions = no
 				}
 			}
-			#Set power balances
-			USA = {
-				set_power_balance = {
-					id = USA_PAC_pacific_front
-					left_side = USA_PAC_jap_side
-					right_side = USA_PAC_usa_side
-				}
-			}
-			JAP = {
-				set_power_balance = {
-					id = JAP_PAC_pacific_front
-					left_side = JAP_PAC_usa_side
-					right_side = JAP_PAC_jap_side 
-				}
-			}
 		}
 	}
 
@@ -387,6 +372,68 @@ on_actions = {
 				}
 				JAP = {
 					add_ideas = JAP_tora_tora_tora_idea
+				}
+			}
+
+		}
+	}
+
+	on_war = {
+		effect = {
+			#Check if usa is at war with jap and add bop
+			if = {
+				limit = {
+					USA = {
+						has_war_with = JAP
+						NOT = {
+							has_power_balance = {
+								id = USA_PAC_pacific_front 
+							}
+						}
+					}
+				}
+
+				USA = {
+					set_power_balance = {
+						id = USA_PAC_pacific_front
+						left_side = USA_PAC_jap_side
+						right_side = USA_PAC_usa_side
+					}
+				}
+				JAP = {
+					set_power_balance = {
+						id = JAP_PAC_pacific_front
+						left_side = JAP_PAC_usa_side
+						right_side = JAP_PAC_jap_side 
+					}
+				}
+			}
+		}
+	}
+	on_peace = {
+		effect = {
+			#Check if usa is at war with jap and add bop
+			if = {
+				limit = {
+					USA = {
+						NOT = {
+							has_war_with = JAP	
+						}
+						has_power_balance = {
+							id = USA_PAC_pacific_front 
+						}
+					}
+				}
+
+				USA = {
+					remove_power_balance = {
+						id = USA_PAC_pacific_front
+					}
+				}
+				JAP = {
+					remove_power_balance = {
+						id = JAP_PAC_pacific_front
+					}
 				}
 			}
 		}
