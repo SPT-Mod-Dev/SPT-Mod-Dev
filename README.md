@@ -31,52 +31,100 @@
 
 - Added an event when one of the defensive targets is lost [To ensure the player is aware they are losing targets]
 - Added a state modifier to the Japanese homeland and the USA west coast that initially gives `+60%` core attack and defense.
-- There are 7 ranges within the bop and the effects apply to both Japan and USA. For example if Japan have total dominance they will get the buffs from "Total Japanese Dominance" and USA will get the nerfs from "Total Japanese Dominance" on their bop. The bop for Usa will be the opposite of this one for Japan
+- Bop ranges
     - Stalemate (`25% - 0% - 25%`)
-        - "Impenetrable Home Defense" which gives
+        - For Japan and USA "Impenetrable Home Defense" which gives
             - `+60%` core attack
             - `+60%` core defense
     - Low Japanese Dominance (`25% - 50%`)
-        - `+5%` recovery rate
-        - `+5%` division attack
-        - `+5%` division defense
-        - `+10%` war support
-        - Replaces "Impenetrable Home Defense" with "Strong Home Defense" which gives
-            - `+40%` core attack
-            - `+40%` core defense
+        - Japan:
+            - `+5%` recovery rate
+            - `+5%` division attack
+            - `+5%` division defense
+            - `+10%` war support
+            - For USA replaces "Impenetrable Home Defense" with "Strong Home Defense" which gives
+                - `+40%` core attack
+                - `+40%` core defense
+        - USA:
+            - `-5%` recovery rate
+            - `-5%` division attack
+            - `-5%` division defense
+            - `-10%` stability
     - Medium Japanese Dominance (`50% - 75%`)
-        - `+10%` recovery rate
-        - `+10%` division attack
-        - `+10%` division defense
-        - `+20%` war support
-        - `+10%` political power gain
-        - Replaces "Strong Home Defense" with "Weakened Home Defense" which gives
-            - `+20%` core attack
-            - `+20%` core defense
+        - Japan:
+            - `+10%` recovery rate
+            - `+10%` division attack
+            - `+10%` division defense
+            - `+20%` war support
+            - `+10%` political power gain
+            - For USA Replaces "Strong Home Defense" with "Weakened Home Defense" which gives
+                - `+20%` core attack
+                - `+20%` core defense
+        - USA:
+            - `-10%` recovery rate
+            - `-10%` division attack
+            - `-10%` division defense
+            - `-20%` stability
+
     - Total Japanese Dominance (`75% - 100%`)
-        - `+20%` recovery rate
-        - `+20%` division attack
-        - `+20%` division defense
-        - `+30%` war support
-        - `+20%` political power gain
-        - `-15%` resistance activity
-        - Removed "Weakened Home Defense"
+        - Japan:
+            - `+20%` recovery rate
+            - `+20%` division attack
+            - `+20%` division defense
+            - `+30%` war support
+            - `+20%` political power gain
+            - `-15%` resistance activity
+            - Removed "Weakened Home Defense"
+        - USA:
+            - `-20%` recovery rate
+            - `-20%` division attack
+            - `-20%` division defense
+            - `-30%` stability
+            - `-10%` political power gain
     - Low American Dominance (`25% - 50%`)
-        - `-5%` recovery rate
-        - `-5%` division attack
-        - `-5%` division defense
-        - `-10%` stability
+        - Japan:
+            - `-5%` recovery rate
+            - `-5%` division attack
+            - `-5%` division defense
+            - `-10%` stability
+        - USA:
+            - `+5%` recovery rate
+            - `+5%` division attack
+            - `+5%` division defense
+            - `+10%` war support
+            - For Japan replaces "Impenetrable Home Defense" with "Strong Home Defense" which gives
+                - `+40%` core attack
+                - `+40%` core defense
     - Medium American Dominance (`50% - 75%`)
-        - `-10%` recovery rate
-        - `-10%` division attack
-        - `-10%` division defense
-        - `-20%` stability
+        - Japan:
+            - `-10%` recovery rate
+            - `-10%` division attack
+            - `-10%` division defense
+            - `-20%` stability
+        - USA:
+            - `+10%` recovery rate
+            - `+10%` division attack
+            - `+10%` division defense
+            - `+20%` war support
+            - `+10%` political power gain
+            - For Japan Replaces "Strong Home Defense" with "Weakened Home Defense" which gives
+                - `+20%` core attack
+                - `+20%` core defense
     - Total American Dominance (`75% - 100%`)
-        - `-20%` recovery rate
-        - `-20%` division attack
-        - `-20%` division defense
-        - `-30%` stability
-        - `-10%` political power gain
+        - Japan:
+            - `+20%` recovery rate
+            - `+20%` division attack
+            - `+20%` division defense
+            - `+30%` war support
+            - `+20%` political power gain
+            - `-15%` resistance activity
+            - Removed "Weakened Home Defense"
+        - USA:
+            - `-20%` recovery rate
+            - `-20%` division attack
+            - `-20%` division defense
+            - `-30%` stability
+            - `-10%` political power gain
 
 - Added "Offensive targets" and "Defensive targets" dummy decisions to show which islands should be attacked and defended
 - Added "Prepare assault" decision
