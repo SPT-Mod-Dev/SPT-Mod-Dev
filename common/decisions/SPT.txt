@@ -154,8 +154,6 @@ spt_category = {
     }
 
 
-
-
 }
 
 USA_PAC_category = {
@@ -167,6 +165,12 @@ USA_PAC_category = {
 			controls_state = 645
 			controls_state = 648
 			controls_state = 646
+			controls_state = 684
+			controls_state = 647
+			controls_state = 633
+			controls_state = 591
+			controls_state = 555
+			
 			hidden_trigger = {
 				always = no
 			}
@@ -179,16 +183,18 @@ USA_PAC_category = {
 	USA_PAC_island_defense = {
 
 		available = {
-			NOT = {
-				JAP = {
-					controls_state = 629
-					controls_state = 630
-					controls_state = 631
-					controls_state = 632
-					controls_state = 638
-					controls_state = 327
-				}
-			}
+			
+			controls_state = 629
+			controls_state = 630
+			controls_state = 631
+			controls_state = 632
+			controls_state = 638
+			PHI = {controls_state = 327}
+			PHI = {controls_state = 627}
+			AST = {controls_state = 634}
+			AST = {controls_state = 523}
+			AST = {controls_state = 737}
+			
 	
 			hidden_trigger = {
 				always = no
@@ -202,15 +208,48 @@ USA_PAC_category = {
 	USA_PAC_prepare_assault = {
 		days_remove = 30
 		cost = 50
-		days_re_enable = 130
+		days_re_enable = 90
 		modifier = {
-			naval_invasion_prep_speed = 1
 			invasion_preparation = -0.5
 			naval_invasion_planning_bonus_speed = 1
 		}
 		remove_effect = {
 			activate_mission = USA_PAC_secure_island
-			add_ideas = USA_PAC_assault
+			every_state = {
+				limit = {
+					controller = {
+						OR = {
+							original_tag = JAP
+							is_ally_with = JAP
+						}
+					}
+					OR = {
+						state = 629
+						state = 630
+						state = 631
+						state = 632
+						state = 638
+						state = 327
+						state = 627
+						state = 634
+						state = 523
+						state = 737
+						state = 526
+						state = 524
+						state = 645
+						state = 648
+						state = 646
+						state = 684
+						state = 647
+						state = 633
+						state = 591
+						state = 555
+					} 
+				}
+				add_dynamic_modifier = {
+					modifier = USA_impending_assault
+				}
+			}
 		}
 				
 	}
@@ -235,20 +274,38 @@ USA_PAC_category = {
 		}
 		timeout_effect = {
 			hidden_effect = {
-				remove_ideas = USA_PAC_assault
+				every_state = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = USA_impending_assault
+						}
+					}
+					remove_dynamic_modifier = {
+						modifier = USA_impending_assault
+					}
+				}
 			}
 			pacific_balance_jap_5_effect = yes
 		}
 		complete_effect = {
 			clr_country_flag = USA_captured_island
 			hidden_effect = {
-				remove_ideas = USA_PAC_assault
+				every_state = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = USA_impending_assault
+						}
+					}
+					remove_dynamic_modifier = {
+						modifier = USA_impending_assault
+					}
+				}
 			}
 				
 		}
 
 		is_good = no
-		days_mission_timeout = 60
+		days_mission_timeout = 30
 		
 	}
 
@@ -273,6 +330,11 @@ JAP_PAC_category = {
 			controls_state = 632
 			controls_state = 638
 			controls_state = 327
+			controls_state = 627
+			controls_state = 634
+			controls_state = 523
+			controls_state = 737
+			
 			hidden_trigger = {
 				always = no
 			}
@@ -286,40 +348,78 @@ JAP_PAC_category = {
 	JAP_PAC_island_defense = {
 
 		available = {
-			NOT = {
-				USA = {
-					controls_state = 526
-					controls_state = 524
-					controls_state = 645
-					controls_state = 648
-					controls_state = 646
-				}
+
+			controls_state = 526
+			controls_state = 524
+			controls_state = 645
+			controls_state = 648
+			controls_state = 646
+			controls_state = 684
+			controls_state = 647
+			controls_state = 633
+			controls_state = 555
+			OR = {
+				controls_state = 591
+				MAN = {controls_state = 591}
 			}
+			
 			
 			hidden_trigger = {
 				always = no
 			}
+		
 		}
-
 		icon = mission_icon
 
 	}
 
 	JAP_PAC_prepare_assault = {
-		days_remove = 30 
+		days_remove = 30
 		cost = 50
-		days_re_enable = 130
+		days_re_enable = 90
 		modifier = {
-			naval_invasion_prep_speed = 1
 			invasion_preparation = -0.5
 			naval_invasion_planning_bonus_speed = 1
 		}
 		remove_effect = {
 			activate_mission = JAP_PAC_secure_island
-			add_ideas = JAP_PAC_assault
-		}
-				
-	}
+			every_state = {
+				limit = {
+					controller = {
+						OR = {
+							original_tag = USA
+							is_ally_with = USA
+						}
+					}
+					OR = {
+						state = 629
+						state = 630
+						state = 631
+						state = 632
+						state = 638
+						state = 327
+						state = 627
+						state = 634
+						state = 523
+						state = 737
+						state = 526
+						state = 524
+						state = 645
+						state = 648
+						state = 646
+						state = 684
+						state = 647
+						state = 633
+						state = 591
+						state = 555
+					} 
+				}
+				add_dynamic_modifier = {
+					modifier = JAP_impending_assault
+				}
+			}
+		}		
+	}		
 
 	JAP_PAC_secure_island = {
 		activation = {
@@ -341,21 +441,38 @@ JAP_PAC_category = {
 		}
 		timeout_effect = {
 			hidden_effect = {
-				remove_ideas = JAP_PAC_assault
-				remove_mission = JAP_PAC_secure_island
+				every_state = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = JAP_impending_assault
+						}
+					}
+					remove_dynamic_modifier = {
+						modifier = JAP_impending_assault
+					}
+				}
 			}
 			pacific_balance_usa_5_effect = yes
 		}
 		complete_effect = {
 			clr_country_flag = JAP_captured_island
 			hidden_effect = {
-				remove_ideas = JAP_PAC_assault
+				every_state = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = JAP_impending_assault
+						}
+					}
+					remove_dynamic_modifier = {
+						modifier = JAP_impending_assault
+					}
+				}
 			}
 				
 		}
 
 		is_good = no
-		days_mission_timeout = 60
+		days_mission_timeout = 30
 		
 	}
 

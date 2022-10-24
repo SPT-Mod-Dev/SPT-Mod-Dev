@@ -267,7 +267,7 @@ on_actions = {
 				JAP = {
 					set_power_balance = {
 						id = JAP_PAC_pacific_front
-						set_value = -0.2
+						set_value = -0.1
 					}
 					country_event = {
 						id = spt.13
@@ -277,9 +277,15 @@ on_actions = {
 				USA = {
 					set_power_balance = {
 						id = USA_PAC_pacific_front
-						set_value = 0.2
+						set_value = 0.1
 					}
-					set_country_flag = USA_captured_island
+					if = {
+						limit = {
+							has_active_mission = USA_PAC_secure_island
+						}
+						set_country_flag = USA_captured_island
+					}
+					
 				}
 
 
@@ -316,20 +322,24 @@ on_actions = {
 				JAP = {
 					add_power_balance_value = {
 						id = JAP_PAC_pacific_front
-						value = 0.2
+						value = 0.1
 					}
-					set_country_flag = JAP_captured_island
+					if = {
+						limit = {
+							has_active_mission = JAP_PAC_secure_island
+						}
+						set_country_flag = JAP_captured_island
+					}
 				}
 				USA = {
 					add_power_balance_value = {
 						id = USA_PAC_pacific_front
-						value = -0.2
+						value = -0.1
 					}
 					country_event = spt.13
 				}
 				
-			}
-			
+			}			
 
 		}
 	}

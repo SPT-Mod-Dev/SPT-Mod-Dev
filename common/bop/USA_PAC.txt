@@ -1,8 +1,8 @@
 
 USA_PAC_pacific_front = {
 	initial_value = 0
-	left_side = USA_PAC_jap_side
-	right_side = USA_PAC_usa_side
+	left_side = USA_PAC_usa_side
+	right_side = USA_PAC_jap_side
 	decision_category = USA_PAC_category
 
 	### Neutral status
@@ -11,72 +11,30 @@ USA_PAC_pacific_front = {
 		min = -0.25
 		max = 0.25
 		modifier = {
-
 		}
 		on_activate = {
-
-		}
-		on_deactivate = {
+			every_core_state = {
+				limit = {
+					OR = {
+						state = 378
+						state = 385
+						state = 386
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = PAC_home_defense_1
+				}
+			}
+				
+				
 			
 		}
-	}
-
-	### Jap side for usa
-	side = {
-		id = USA_PAC_jap_side
-		icon = GFX_bop_PAC_jap_side
-
-		range = {
-			id = USA_PAC_low_jap_dominance
-			min = -0.5
-			max = -0.25
-			modifier = {
-				army_attack_factor = -0.05
-				stability_factor = -0.1
-			}
-			on_activate = {
-				
-			}
-			on_deactivate = {
-				
-			}
-		}
-
-		range = {
-			id = USA_PAC_medium_jap_dominance
-			min = -0.75
-			max = -0.5
-			modifier = {
-				army_attack_factor = -0.1
-				stability_factor = -0.2
-			}
-			on_activate = {
-				
-			}
-			on_deactivate = {
-				
-			}
-		}
-
-		range = {
-			id = USA_PAC_total_jap_dominance
-			min = -1
-			max = -0.75
-			modifier = {
-				army_attack_factor = -0.20
-				stability_factor = -0.3	
-			}
-			on_activate = {
-				
-			}
-			on_deactivate = {
-				
-			}
-		}
-
+		on_deactivate = {
 		
+		 }
 	}
-	### Usa side for usa
+
+	### usa side for usa
 	side = {
 		id = USA_PAC_usa_side
 		icon = GFX_bop_PAC_usa_side
@@ -87,10 +45,13 @@ USA_PAC_pacific_front = {
 			max = 0.5
 			modifier = {
 				army_attack_factor = 0.05
+				army_defence_factor = 0.05
+				army_morale_factor = 0.05
 				war_support_factor = 0.1
+				
 			}
 			on_activate = {
-				
+
 			}
 			on_deactivate = {
 				
@@ -103,8 +64,10 @@ USA_PAC_pacific_front = {
 			max = 0.75
 			modifier = {
 				army_attack_factor = 0.1
+				army_defence_factor = 0.1
+				army_morale_factor = 0.1
 				war_support_factor = 0.2
-				naval_invasion_penalty = 0.05
+				political_power_factor = 0.1
 			}
 			on_activate = {
 				
@@ -120,8 +83,11 @@ USA_PAC_pacific_front = {
 			max = 1
 			modifier = {
 				army_attack_factor = 0.2
+				army_defence_factor = 0.2
+				army_morale_factor = 0.2
 				war_support_factor = 0.3
-				naval_invasion_penalty = 0.1
+				political_power_factor = 0.2
+				resistance_activity = -0.15
 			}
 			on_activate = {
 				
@@ -133,6 +99,125 @@ USA_PAC_pacific_front = {
 
 		
 	}
+	### jap side for usa
+	side = {
+		id = USA_PAC_jap_side
+		icon = GFX_bop_PAC_jap_side
+
+		range = {
+			id = USA_PAC_low_jap_dominance
+			min = -0.5
+			max = -0.25
+			modifier = {
+				army_attack_factor = -0.05
+				army_defence_factor = -0.05
+				army_morale_factor = -0.05
+				stability_factor = -0.1
+			}
+			on_activate = {
+				every_core_state = {
+					limit = {
+						OR = {
+							state = 378
+							state = 385
+							state = 386
+						}
+					}
+					if = {
+						limit = {
+							has_dynamic_modifier = {
+								modifier = PAC_home_defense_1
+							}
+						}
+						remove_dynamic_modifier = {
+							modifier = PAC_home_defense_1
+						}
+					}
+					add_dynamic_modifier = {
+						modifier = PAC_home_defense_2
+					}
+				}
+			}
+			on_deactivate = {
+				every_core_state = {
+					limit = {
+						OR = {
+							state = 378
+							state = 385
+							state = 386
+						}
+					}
+					remove_dynamic_modifier = {
+						modifier = PAC_home_defense_2
+					}
+				}
+			}
+		}
+
+		range = {
+		id = USA_PAC_medium_jap_dominance
+			min = -0.75
+			max = -0.5
+			modifier = {
+				army_attack_factor = -0.1
+				army_defence_factor = -0.1
+				army_morale_factor = -0.1
+				stability_factor = -0.2
+				
+			}
+			on_activate = {
+				every_core_state = {
+					limit = {
+						OR = {
+							state = 378
+							state = 385
+							state = 386
+						}
+					}
+					add_dynamic_modifier = {
+						modifier = PAC_home_defense_3
+					}
+				}
+			}
+			on_deactivate = {
+				every_core_state = {
+					limit = {
+						OR = {
+							state = 378
+							state = 385
+							state = 386
+						}
+					}
+					remove_dynamic_modifier = {
+						modifier = PAC_home_defense_3
+					}
+				}
+			}
+		}
+
+		range = {
+			id = USA_PAC_total_jap_dominance
+			min = -1
+			max = -0.75
+			modifier = {
+				army_attack_factor = -0.2
+				army_defence_factor = -0.2
+				army_morale_factor = -0.2
+				stability_factor = -0.3
+				political_power_factor = -0.1
+			}
+			on_activate = {
+				
+			}
+			on_deactivate = {
+
+			}
+		}
+
 		
+	}
+
+
+	
 }
 

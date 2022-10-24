@@ -13,11 +13,22 @@ JAP_PAC_pacific_front = {
 		modifier = {
 		}
 		on_activate = {
-
-		}
-		on_deactivate = {
+			every_core_state = {
+				limit = {
+					is_in_home_area = yes
+					NOT = {state = 555}
+				}
+				add_dynamic_modifier = {
+					modifier = PAC_home_defense_1
+				}
+			}
+				
+				
 			
 		}
+		on_deactivate = {
+		
+		 }
 	}
 
 	### Jap side for jap
@@ -31,11 +42,13 @@ JAP_PAC_pacific_front = {
 			max = 0.5
 			modifier = {
 				army_attack_factor = 0.05
+				army_defence_factor = 0.05
+				army_morale_factor = 0.05
 				war_support_factor = 0.1
 				
 			}
 			on_activate = {
-				
+
 			}
 			on_deactivate = {
 				
@@ -48,8 +61,10 @@ JAP_PAC_pacific_front = {
 			max = 0.75
 			modifier = {
 				army_attack_factor = 0.1
+				army_defence_factor = 0.1
+				army_morale_factor = 0.1
 				war_support_factor = 0.2
-				naval_invasion_penalty = 0.05
+				political_power_factor = 0.1
 			}
 			on_activate = {
 				
@@ -65,8 +80,10 @@ JAP_PAC_pacific_front = {
 			max = 1
 			modifier = {
 				army_attack_factor = 0.2
+				army_defence_factor = 0.2
+				army_morale_factor = 0.2
 				war_support_factor = 0.3
-				naval_invasion_penalty = 0.1
+				political_power_factor = 0.2
 				resistance_activity = -0.15
 			}
 			on_activate = {
@@ -90,30 +107,76 @@ JAP_PAC_pacific_front = {
 			max = -0.25
 			modifier = {
 				army_attack_factor = -0.05
+				army_defence_factor = -0.05
+				army_morale_factor = -0.05
 				stability_factor = -0.1
 			}
 			on_activate = {
-				
+				every_core_state = {
+					limit = {
+						is_in_home_area = yes
+						NOT = {state = 555}
+					}
+					if = {
+						limit = {
+							has_dynamic_modifier = {
+								modifier = PAC_home_defense_1
+							}
+						}
+						remove_dynamic_modifier = {
+							modifier = PAC_home_defense_1
+						}
+					}
+					add_dynamic_modifier = {
+						modifier = PAC_home_defense_2
+					}
+				}
 			}
 			on_deactivate = {
-				
+				every_core_state = {
+					limit = {
+						is_in_home_area = yes
+						NOT = {state = 555}
+					}
+					remove_dynamic_modifier = {
+						modifier = PAC_home_defense_2
+					}
+				}
 			}
 		}
 
 		range = {
-			id = JAP_PAC_medium_usa_dominance
+		id = JAP_PAC_medium_usa_dominance
 			min = -0.75
 			max = -0.5
 			modifier = {
 				army_attack_factor = -0.1
+				army_defence_factor = -0.1
+				army_morale_factor = -0.1
 				stability_factor = -0.2
-				surrender_limit = -0.05
+				
 			}
 			on_activate = {
-				
+				every_core_state = {
+					limit = {
+						is_in_home_area = yes
+						NOT = {state = 555}
+					}
+					add_dynamic_modifier = {
+						modifier = PAC_home_defense_3
+					}
+				}
 			}
 			on_deactivate = {
-				
+				every_core_state = {
+					limit = {
+						is_in_home_area = yes
+						NOT = {state = 555}
+					}
+					remove_dynamic_modifier = {
+						modifier = PAC_home_defense_3
+					}
+				}
 			}
 		}
 
@@ -123,15 +186,16 @@ JAP_PAC_pacific_front = {
 			max = -0.75
 			modifier = {
 				army_attack_factor = -0.2
+				army_defence_factor = -0.2
+				army_morale_factor = -0.2
 				stability_factor = -0.3
 				political_power_factor = -0.1
-				surrender_limit = -0.2
 			}
 			on_activate = {
 				
 			}
 			on_deactivate = {
-				
+
 			}
 		}
 
