@@ -489,22 +489,80 @@ JAP_PAC_category = {
 
 
 SPT_propaganda_campaigns = {
-	SPT_test = {
+	JAP_me_want_supply= {
+		days_remove = 10
+		
+		
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = need_spare_slot_tt
+				OR = {
+					check_variable = {PROP_poster_left_icon_frame = 2}
+					check_variable = {PROP_poster_centre_icon_frame = 2}
+					check_variable = {PROP_poster_right_icon_frame = 2}
+				}
+			}	
+		}
+		modifier = {
+			supply_factor = 1
+		}
+
 		complete_effect = {
-			set_country_flag = {
-				flag = PROP_left_days_remaining
-				days = 100
-				value = 1
+			set_temp_variable = {frame = 3}
+			if = {
+				limit = { check_variable = {PROP_poster_left_icon_frame = 2} }
+				set_country_flag = {
+					flag = PROP_left_days_remaining
+					days = 10
+					value = 1
+				}
+				set_variable = {PROP_poster_left_icon_frame = frame}
+				set_temp_variable = {slot = 1}
+			}
+			else_if = {
+				limit = { check_variable = {PROP_poster_centre_icon_frame = 2} }
+				set_country_flag = {
+					flag = PROP_centre_days_remaining
+					days = 10
+					value = 1
+				}
+				set_variable = {PROP_poster_centre_icon_frame = frame}
+			}
+			else = {
+				set_country_flag = {
+					flag = PROP_right_days_remaining
+					days = 10
+					value = 1
+				}
+				set_variable = {PROP_poster_right_icon_frame = frame}
+			}
+			
+		}
+
+		remove_effect = {
+			set_temp_variable = {frame = 3}
+			if = {
+				limit = {
+					check_variable = {PROP_poster_left_icon_frame = frame}
+				}
+				set_variable = {PROP_poster_left_icon_frame = 2}
+			}
+			else_if = {
+				limit = {
+					check_variable = {PROP_poster_centre_icon_frame = frame}
+				}
+				set_variable = {PROP_poster_centre_icon_frame = 2}
+			}
+			else = {
+				set_variable = {PROP_poster_right_icon_frame = 2}
 			}
 		}
 	}
-	SPT_test2 = {
+	
+	
+	SPT_unlock_slot = {
 		complete_effect = {
-			set_country_flag = {
-				flag = PROP_centre_days_remaining
-				days = 150
-				value = 1
-			}
+			prop_add_slot = yes
 		}
 	}
 }
