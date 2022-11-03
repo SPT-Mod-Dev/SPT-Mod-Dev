@@ -1283,7 +1283,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			add_timed_idea = { idea = HUN_strengthen_fascists days = 720 }
-			add_popularity = { ideology = fascism popularity = 0.05 }
+			add_popularity = { ideology = fascism popularity = 0.05 } #SPTChange 0.03 -> 0.05
 			set_party_name = { ideology = fascism long_name = HUN_arrow_cross_party_long name = HUN_arrow_cross_party }
 		}
 	}
@@ -1831,6 +1831,8 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = {always = no}
+		
 		id = HUN_demand_transylvania
 		icon = GFX_goal_generic_occupy_states_ongoing_war
 		prerequisite = { focus =  HUN_reaffirm_territorial_claims }
@@ -1896,6 +1898,10 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = {
+			always = no
+		}
+		
 		id = HUN_demand_southern_slovakia
 		icon = GFX_goal_generic_occupy_states_ongoing_war
 		prerequisite = { focus = HUN_reaffirm_territorial_claims }
@@ -2097,9 +2103,9 @@ focus_tree = {
 	focus = {
 		id = HUN_claim_overlordship_over_slovakia
 		icon = GFX_goal_generic_position_armies
-		prerequisite = { focus = HUN_demand_southern_slovakia }
-		x = 2
-		y = 2
+		prerequisite = { focus = HUN_reaffirm_territorial_claims } 
+		x = 0
+		y = 1
 		relative_position_id = HUN_reaffirm_territorial_claims
 		will_lead_to_war_with = SLO
 		cost = 10
@@ -2119,9 +2125,11 @@ focus_tree = {
 					owns_state = 71
 					owns_state = 72
 					owns_state = 73
-					NOT = {
-						has_war_with = HUN
-					}
+					is_in_faction_with = HUN
+					#NOT = {
+						#SPTchange replaced peace check with faction check
+						#has_war_with = HUN
+					#}
 				}
 			}
 			if = {
@@ -2129,7 +2137,8 @@ focus_tree = {
 				strength_ratio = { tag = SLO ratio > 0.75 }
 				NOT = { has_war_with = SLO }
 			}
-			has_army_manpower = { size > 175000 }
+			#SPTChange removed manpower requirement
+			#has_army_manpower = { size > 175000 }
 		}
 
 		bypass = {
@@ -2175,7 +2184,8 @@ focus_tree = {
 				}
 				70 = {
 					controller = {
-						country_event = { id = DOD_hungary.100 hours = 5 } 
+						#SPTChange replaced event
+						country_event = { id = spt.10 hours = 5 } 
 					}
 				}
 			}
@@ -2189,7 +2199,8 @@ focus_tree = {
 						}
 					}
 				}
-				SLO = { OVERLORD = { country_event = { id = DOD_hungary.107 hours = 4 } } }
+				#SPTChange replaced event
+				SLO = { OVERLORD = { country_event = { id = spt.10 hours = 4 } } }
 			}
 			hidden_effect = {
 				news_event = { id = news.309 hours = 8 }
@@ -3503,7 +3514,8 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			add_ideas = HUN_secret_rearmament
-			custom_effect_tooltip = HUN_secret_rearmament_tt
+			#SPTChange hid tooltip
+			#custom_effect_tooltip = HUN_secret_rearmament_tt
 			if = {
 				limit = {
 					has_idea = civilian_economy

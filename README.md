@@ -1,5 +1,18 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+
+
+### 3.1.1 - Minor bugfixes
+
+- Fixed bug of medium cannons not showing
+
+#### Hungary
+- "Claim Overlordship Over Slovakia" no longer requires Slovakia to exist
+- Replaced at peace with Hungary prerequisite with in faction with Hungary for "Claim Overlordship Over Slovakia"
+- Removed manpower prerequisite for "Claim Overlordship Over Slovakia"
+- Removed Demand Transylvania,Southern Slovakia,Vojvodina and "Proclaim Greater Hungary" focuses
+ 
+
 ### 3.1.0 - Pacific Front Update
 
 #### Pacific Front
