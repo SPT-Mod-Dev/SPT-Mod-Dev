@@ -316,3 +316,35 @@ country_event = {
 
 }
 
+#Pacific war start Usa
+country_event = {
+	id = spt.14
+	title = spt.14.t
+	desc = spt.14.desc
+	picture = GFX_report_event_ast_navy
+	is_triggered_only = yes
+	option = {
+		name = spt.14.a
+		if = {
+			limit = {
+				tag = USA
+			}
+			set_power_balance = {
+				id = USA_PAC_pacific_front
+				left_side = USA_PAC_jap_side
+				right_side = USA_PAC_usa_side
+			}
+		}
+		else_if = {
+			limit = {
+				tag = JAP
+			}
+			set_power_balance = {
+				id = JAP_PAC_pacific_front
+				left_side = JAP_PAC_usa_side
+				right_side = JAP_PAC_jap_side 
+			}
+		}
+	}
+}
+

@@ -1,46 +1,40 @@
 
-USA_PAC_pacific_front = {
+ENG_MED_med_front = {
 	initial_value = 0
-	left_side = USA_PAC_jap_side
-	right_side = USA_PAC_usa_side
-	decision_category = USA_PAC_category
+	left_side = ENG_MED_ita_side
+	right_side = ENG_MED_eng_side
+	decision_category = ENG_MED_category
 
 	### Neutral status
 	range = {
-		id = USA_PAC_balance_range
+		id = ENG_MED_balance_range
 		min = -0.25
 		max = 0.25
 		modifier = {
 		}
 		on_activate = {
-			every_core_state = {
-				limit = {
-					OR = {
-						state = 378
-						state = 385
-						state = 386
-					}
-				}
-				add_dynamic_modifier = {
-					modifier = PAC_home_defense_1
-				}
-			}
-				
-				
-			
+			# every_core_state = {
+			# 	limit = {
+			# 		is_in_home_area = yes
+			# 		NOT = {state = 555}
+			# 	}
+			# 	add_dynamic_modifier = {
+			# 		modifier = PAC_home_defense_1
+			# 	}
+			# }
 		}
 		on_deactivate = {
 		
 		 }
 	}
 
-	### usa side for usa
+	### eng side for eng
 	side = {
-		id = USA_PAC_usa_side
-		icon = GFX_bop_PAC_usa_side
+		id = ENG_MED_eng_side
+		icon = GFX_bop_MED_eng_side
 
 		range = {
-			id = USA_PAC_low_usa_dominance
+			id = ENG_MED_low_eng_dominance
 			min = 0.25
 			max = 0.5
 			modifier = {
@@ -59,7 +53,7 @@ USA_PAC_pacific_front = {
 		}
 
 		range = {
-			id = USA_PAC_medium_usa_dominance
+			id = ENG_MED_medium_eng_dominance
 			min = 0.5
 			max = 0.75
 			modifier = {
@@ -78,7 +72,7 @@ USA_PAC_pacific_front = {
 		}
 
 		range = {
-			id = USA_PAC_total_usa_dominance
+			id = ENG_MED_total_eng_dominance
 			min = 0.75
 			max = 1
 			modifier = {
@@ -99,13 +93,13 @@ USA_PAC_pacific_front = {
 
 		
 	}
-	### jap side for usa
+	### Usa side for eng
 	side = {
-		id = USA_PAC_jap_side
-		icon = GFX_bop_PAC_jap_side
+		id = ENG_MED_ita_side
+		icon = GFX_bop_MED_ita_side
 
 		range = {
-			id = USA_PAC_low_jap_dominance
+			id = ENG_MED_low_ita_dominance
 			min = -0.5
 			max = -0.25
 			modifier = {
@@ -115,47 +109,41 @@ USA_PAC_pacific_front = {
 				stability_factor = -0.1
 			}
 			on_activate = {
-				every_core_state = {
-					limit = {
-						OR = {
-							state = 378
-							state = 385
-							state = 386
-						}
-					}
-					if = {
-						limit = {
-							has_dynamic_modifier = {
-								modifier = PAC_home_defense_1
-							}
-						}
-						remove_dynamic_modifier = {
-							modifier = PAC_home_defense_1
-						}
-					}
-					add_dynamic_modifier = {
-						modifier = PAC_home_defense_2
-					}
-				}
+				# every_core_state = {
+				# 	limit = {
+				# 		is_in_home_area = yes
+				# 		NOT = {state = 555}
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			has_dynamic_modifier = {
+				# 				modifier = MED_home_defense_1
+				# 			}
+				# 		}
+				# 		remove_dynamic_modifier = {
+				# 			modifier = MED_home_defense_1
+				# 		}
+				# 	}
+				# 	add_dynamic_modifier = {
+				# 		modifier = MED_home_defense_2
+				# 	}
+				# }
 			}
 			on_deactivate = {
-				every_core_state = {
-					limit = {
-						OR = {
-							state = 378
-							state = 385
-							state = 386
-						}
-					}
-					remove_dynamic_modifier = {
-						modifier = PAC_home_defense_2
-					}
-				}
+				# every_core_state = {
+				# 	limit = {
+				# 		is_in_home_area = yes
+				# 		NOT = {state = 555}
+				# 	}
+				# 	remove_dynamic_modifier = {
+				# 		modifier = MED_home_defense_2
+				# 	}
+				# }
 			}
 		}
 
 		range = {
-		id = USA_PAC_medium_jap_dominance
+		id = ENG_MED_medium_ita_dominance
 			min = -0.75
 			max = -0.5
 			modifier = {
@@ -166,37 +154,31 @@ USA_PAC_pacific_front = {
 				
 			}
 			on_activate = {
-				every_core_state = {
-					limit = {
-						OR = {
-							state = 378
-							state = 385
-							state = 386
-						}
-					}
-					add_dynamic_modifier = {
-						modifier = PAC_home_defense_3
-					}
-				}
+				# every_core_state = {
+				# 	limit = {
+				# 		is_in_home_area = yes
+				# 		NOT = {state = 555}
+				# 	}
+				# 	add_dynamic_modifier = {
+				# 		modifier = MED_home_defense_3
+				# 	}
+				# }
 			}
 			on_deactivate = {
-				every_core_state = {
-					limit = {
-						OR = {
-							state = 378
-							state = 385
-							state = 386
-						}
-					}
-					remove_dynamic_modifier = {
-						modifier = PAC_home_defense_3
-					}
-				}
+				# every_core_state = {
+				# 	limit = {
+				# 		is_in_home_area = yes
+				# 		NOT = {state = 555}
+				# 	}
+				# 	remove_dynamic_modifier = {
+				# 		modifier = MED_home_defense_3
+				# 	}
+				# }
 			}
 		}
 
 		range = {
-			id = USA_PAC_total_jap_dominance
+			id = ENG_MED_total_ita_dominance
 			min = -1
 			max = -0.75
 			modifier = {

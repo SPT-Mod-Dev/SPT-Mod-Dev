@@ -1,5 +1,22 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.1.2 - Peformance Addition
+- Merged Spot Optimization Mod which does:
+    - Lag days for lower speed = `30`
+    - Lag days for pause = `8`
+    - Game speed seconds = `{ 1.0, 0.25, 0.1, 0.05, 0.0 }`
+    - Event process offset = `30`
+    - Map icon passes = `10`
+- Added two console commands
+    - SPT_Remove_Pacific_Front
+    - SPT_Activate_Pacifc_Front
+
+
+#### Argentina
+- Removed Argentina F
+
+#### Pacific Front
+- Added event for when the pacific war begins
 
 
 ### 3.1.1 - Minor bugfixes
