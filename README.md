@@ -1,6 +1,6 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.1.3
+### 3.1.3 - Minor bugfixes
 #### UK
  - Fixed "Reinforce The Empire" being in the wrong position
 #### Soviet Union
