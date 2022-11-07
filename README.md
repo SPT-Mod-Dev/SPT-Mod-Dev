@@ -1,6 +1,6 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.1.2 - Peformance Addition
+### 3.1.2 - Performance Addition
 - Merged Spot Optimization Mod which does:
     - Lag days for lower speed = `30`
     - Lag days for pause = `8`
