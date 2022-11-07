@@ -1,5 +1,11 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.1.3
+#### UK
+ - Fixed "Reinforce The Empire" being in the wrong position
+#### Soviet Union
+ - Patched exploit from "Restore Cossack Units" by removing the 1 infantry division you gain [Renaming any template to the infantry name would spawn that division when the focus was done. Doesnt work for horse divions btw]
+
 ### 3.1.2 - Performance Addition
 - Merged Spot Optimization Mod which does:
     - Lag days for lower speed = `30`
