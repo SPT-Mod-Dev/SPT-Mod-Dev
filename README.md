@@ -1,7 +1,7 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
 
-### 3.1.3 - Small designer tweaks
+### 3.1.4 - Small designer tweaks
 #### Tank Designer
 - Added module limit of `1` for extra ammunition storage
 - Made all tank designs not cost xp
