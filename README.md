@@ -1,5 +1,13 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+
+### 3.1.3 - Small designer tweaks
+#### Tank Designer
+- Added module limit of `1` for extra ammunition storage
+- Made all tank designs not cost xp
+#### Air Designer
+- Made all plane designs not cost xp
+
 ### 3.1.3 - Minor bugfixes
 #### UK
  - Fixed "Reinforce The Empire" being in the wrong position
