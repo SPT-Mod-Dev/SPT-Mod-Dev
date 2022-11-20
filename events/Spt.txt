@@ -316,15 +316,14 @@ country_event = {
 
 }
 
-#Pacific war start Usa
+#Pacific war start
 country_event = {
 	id = spt.14
 	title = spt.14.t
 	desc = spt.14.desc
 	picture = GFX_report_event_ast_navy
 	is_triggered_only = yes
-	option = {
-		name = spt.14.a
+	immediate = {
 		if = {
 			limit = {
 				tag = USA
@@ -346,5 +345,64 @@ country_event = {
 			}
 		}
 	}
+	
+	option = {
+		name = spt.14.a
+	}
 }
 
+#Med war start
+country_event = {
+	id = spt.15
+	title = spt.15.t
+	desc = spt.15.desc
+	picture = GFX_report_event_ast_navy
+	is_triggered_only = yes
+	immediate = {
+		if = {
+			limit = {
+				tag = ENG
+			}
+			set_power_balance = {
+				id = ENG_MED_med_front
+			}
+		}
+		else_if = {
+			limit = {
+				tag = ITA
+			}
+			set_power_balance = {
+				id = ITA_MED_med_front
+			}
+		}
+	}
+	
+	option = {
+		name = spt.15.a
+	}
+}
+
+#Med Position lost
+country_event = {
+	id = spt.16
+	title = spt.16.t
+	desc = spt.16.desc
+	picture = GFX_report_event_001
+	is_triggered_only = yes
+	option = {
+		name = spt.16.a
+	}
+
+}
+
+country_event = {
+	id = spt.17
+	title = spt.17.t
+	desc = spt.17.desc
+	picture = GFX_report_event_canada_army
+	is_triggered_only = yes
+	option = {
+		name = spt.17.a
+	}
+
+}

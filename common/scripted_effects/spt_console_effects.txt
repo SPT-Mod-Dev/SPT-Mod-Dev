@@ -28,3 +28,33 @@ d_SPT_Remove_Pacific_Front = {
 	}
 	clr_global_flag = Pacific_War
 }
+d_SPT_Activate_Med_Front = {
+	ENG = {
+		country_event = {
+			id = spt.15
+			days = 0
+		}
+	}
+	ITA = {
+		country_event = {
+			id = spt.15
+			days = 0
+		}
+	}
+	set_global_flag = Med_War
+	
+}
+
+d_SPT_Remove_Med_Front = {
+	ENG = {
+		remove_power_balance = {
+			id = ENG_MED_med_front
+		}
+	}
+	ITA = {
+		remove_power_balance = {
+			id = ITA_MED_med_front
+		}
+	}
+	clr_global_flag = Med_War
+}

@@ -1,46 +1,44 @@
 
-ENG_MED_med_front = {
+ITA_MED_med_front = {
 	initial_value = 0
-	left_side = ENG_MED_ita_side
-	right_side = ENG_MED_eng_side
-	decision_category = ENG_MED_category
-
+	left_side = ITA_MED_eng_side
+	right_side = ITA_MED_ita_side
+	decision_category = ITA_MED_category
+	
 	### Neutral status
 	range = {
-		id = ENG_MED_balance_range
+		id = ITA_MED_balance_range
 		min = -0.25
 		max = 0.25
 		modifier = {
 		}
 		on_activate = {
-			if = {
+			
+			every_core_state = {
 				limit = {
-					NOT = {has_global_flag = Push_into_Italy}
+					is_in_home_area = yes
+					is_coastal = yes
+					
+					NOT = {state = 115}
 				}
-				every_core_state = {
-					limit = {
-						is_in_home_area = yes
-						is_coastal = yes
-					}
-					add_dynamic_modifier = {
-						modifier = PAC_home_defense_1
-					}
+				add_dynamic_modifier = {
+					modifier = PAC_home_defense_1
 				}
 			}
 			
 		}
 		on_deactivate = {
-		
-		 }
+			
+		}
 	}
-
-	### eng side for eng
+	
+	### ita side for ita
 	side = {
-		id = ENG_MED_eng_side
-		icon = GFX_bop_MED_eng_side
-
+		id = ITA_MED_ita_side
+		icon = GFX_bop_MED_ita_side
+		
 		range = {
-			id = ENG_MED_low_eng_dominance
+			id = ITA_MED_low_ita_dominance
 			min = 0.25
 			max = 0.5
 			modifier = {
@@ -51,15 +49,15 @@ ENG_MED_med_front = {
 				
 			}
 			on_activate = {
-
+				
 			}
 			on_deactivate = {
 				
 			}
 		}
-
+		
 		range = {
-			id = ENG_MED_medium_eng_dominance
+			id = ITA_MED_medium_ita_dominance
 			min = 0.5
 			max = 0.75
 			modifier = {
@@ -76,9 +74,9 @@ ENG_MED_med_front = {
 				
 			}
 		}
-
+		
 		range = {
-			id = ENG_MED_total_eng_dominance
+			id = ITA_MED_total_ita_dominance
 			min = 0.75
 			max = 1
 			modifier = {
@@ -96,16 +94,16 @@ ENG_MED_med_front = {
 				
 			}
 		}
-
+		
 		
 	}
-	### ita side for eng
+	### eng side for ita
 	side = {
-		id = ENG_MED_ita_side
-		icon = GFX_bop_MED_ita_side
-
+		id = ITA_MED_eng_side
+		icon = GFX_bop_MED_eng_side
+		
 		range = {
-			id = ENG_MED_low_ita_dominance
+			id = ITA_MED_low_eng_dominance
 			min = -0.5
 			max = -0.25
 			modifier = {
@@ -115,53 +113,45 @@ ENG_MED_med_front = {
 				stability_factor = -0.1
 			}
 			on_activate = {
-				if = {
+				every_core_state = {
 					limit = {
-						NOT = {has_global_flag = Push_into_Italy}
+						is_in_home_area = yes
+						is_coastal = yes
+						
+						NOT = {state = 115}
 					}
-					every_core_state = {
+					if = {
 						limit = {
-							is_in_home_area = yes
-							is_coastal = yes
-						}
-						if = {
-							limit = {
-								has_dynamic_modifier = {
-									modifier = PAC_home_defense_1
-								}
-							}
-							remove_dynamic_modifier = {
+							has_dynamic_modifier = {
 								modifier = PAC_home_defense_1
 							}
 						}
-						add_dynamic_modifier = {
-							modifier = PAC_home_defense_2
+						remove_dynamic_modifier = {
+							modifier = PAC_home_defense_1
 						}
+					}
+					add_dynamic_modifier = {
+						modifier = PAC_home_defense_2
 					}
 				}
-				
-				
 			}
 			on_deactivate = {
-				if = {
+				every_core_state = {
 					limit = {
-						NOT = {has_global_flag = Push_into_Italy}
+						is_in_home_area = yes
+						is_coastal = yes
+						
+						NOT = {state = 115}
 					}
-					every_core_state = {
-						limit = {
-							is_in_home_area = yes
-							is_coastal = yes
-						}
-						remove_dynamic_modifier = {
-							modifier = PAC_home_defense_2
-						}
+					remove_dynamic_modifier = {
+						modifier = PAC_home_defense_2
 					}
 				}
 			}
 		}
-
+		
 		range = {
-		id = ENG_MED_medium_ita_dominance
+			id = ITA_MED_medium_eng_dominance
 			min = -0.75
 			max = -0.5
 			modifier = {
@@ -172,42 +162,35 @@ ENG_MED_med_front = {
 				
 			}
 			on_activate = {
-				if = {
+				every_core_state = {
 					limit = {
-						NOT = {has_global_flag = Push_into_Italy}
+						is_in_home_area = yes
+						is_coastal = yes
+						
+						NOT = {state = 115}
 					}
-					every_core_state = {
-						limit = {
-							is_in_home_area = yes
-							is_coastal = yes
-						}
-						add_dynamic_modifier = {
-							modifier = PAC_home_defense_3
-						}
+					add_dynamic_modifier = {
+						modifier = PAC_home_defense_3
 					}
 				}
 			}
 			on_deactivate = {
-				if = {
+				every_core_state = {
 					limit = {
-						NOT = {has_global_flag = Push_into_Italy}
+						is_in_home_area = yes
+						is_coastal = yes
+						
+						NOT = {state = 115}
 					}
-				
-					every_core_state = {
-						limit = {
-							is_in_home_area = yes
-							is_coastal = yes
-						}
-						remove_dynamic_modifier = {
-							modifier = PAC_home_defense_3
-						}
+					remove_dynamic_modifier = {
+						modifier = PAC_home_defense_3
 					}
 				}
 			}
 		}
-
+		
 		range = {
-			id = ENG_MED_total_ita_dominance
+			id = ITA_MED_total_eng_dominance
 			min = -1
 			max = -0.75
 			modifier = {
@@ -221,14 +204,14 @@ ENG_MED_med_front = {
 				
 			}
 			on_deactivate = {
-
+				
 			}
 		}
-
+		
 		
 	}
-
-
+	
+	
 	
 }
 

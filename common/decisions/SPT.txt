@@ -153,6 +153,65 @@ spt_category = {
         }
     }
 
+	FRA_push_into_italy = {
+		allowed = {
+			original_tag = FRA
+		}
+
+		visible = {
+			has_war_with = ITA
+			ITA = {
+				has_power_balance = {
+					id = ITA_MED_med_front
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		available = {
+			16 = { controlled_by_allies = yes}
+			735 = { controlled_by_allies = yes}
+			851 = { controlled_by_allies = yes}
+			21 = { controlled_by_allies = yes}
+			762 = { controlled_by_allies = yes}
+		}
+
+		complete_effect = {
+			set_global_flag = Push_into_Italy
+			
+			every_core_state = {
+				limit = {
+					is_in_home_area = yes
+					is_coastal = yes
+					
+					NOT = {state = 115}
+				}
+				custom_effect_tooltip = FRA_push_into_italy_tt
+				hidden_effect = {
+					if = {
+						limit = { has_dynamic_modifier = { modifier = PAC_home_defense_1 } }
+						remove_dynamic_modifier = {
+							modifier = PAC_home_defense_1
+						}
+					}
+					if = {
+						limit = { has_dynamic_modifier = { modifier = PAC_home_defense_2 } }
+						remove_dynamic_modifier = {
+							modifier = PAC_home_defense_2
+						}
+					}
+					if = {
+						limit = { has_dynamic_modifier = { modifier = PAC_home_defense_3 } }
+						remove_dynamic_modifier = {
+							modifier = PAC_home_defense_3
+						}
+					}
+				}
+			}
+		}
+	}
+
 
 }
 
@@ -382,6 +441,7 @@ JAP_PAC_category = {
 			naval_invasion_planning_bonus_speed = 1
 		}
 		remove_effect = {
+			custom_effect_tooltip = PAC_prepare_assault_tt
 			activate_mission = JAP_PAC_secure_island
 			every_state = {
 				limit = {
@@ -486,6 +546,178 @@ JAP_PAC_category = {
 	}
 }
 
+ENG_MED_category = {
+	ENG_MED_island_targets = {
+
+		available = {
+			114 = { controlled_by_allies = yes }
+			115 = { controlled_by_allies = yes }
+			182 = { controlled_by_allies = yes }
+			164 = { controlled_by_allies = yes }
+			448 = { controlled_by_allies = yes }
+			450 = { controlled_by_allies = yes }
+
+			hidden_trigger = {
+				always = no
+			}
+		}
+
+		icon = mission_icon
+
+	}
+	
+	ENG_MED_island_defense = {
+
+		available = {
+			
+			116 = { controlled_by_allies = yes }
+			446 = { controlled_by_allies = yes }
+			118 = { controlled_by_allies = yes }
+			1 = { controlled_by_allies = yes }
+			183 = { controlled_by_allies = yes }
+			459 = { controlled_by_allies = yes }
+	
+			hidden_trigger = {
+				always = no
+			}
+		}
+
+		icon = mission_icon
+
+	}
+	
+	ENG_MED_feign_weakness = {
+		days_remove = 60
+		custom_cost_trigger = {
+			command_power > 29
+		}
+		custom_cost_text = decision_cost_CP_30
+		days_re_enable = 180
+		modifier = {
+			army_attack_factor = 0.3
+			army_defence_factor = 0.3
+		}
+		complete_effect = {
+			med_balance_ita_10_effect = yes
+			hidden_effect = {
+				add_command_power = -30
+			}
+			ITA = {
+				country_event = spt.17
+			}
+		}
+		
+	}
+
+	ENG_MED_fortify_positions = {
+		cost = 25
+		fire_only_once = yes
+		days_remove = 50
+		modifier = {
+			production_speed_coastal_bunker_factor = 1
+			production_speed_bunker_factor = 1
+		}
+	}
+
+	ENG_MED_expand_supply_capacity = {
+		cost = 50
+		fire_only_once = yes
+		days_remove = 100
+		modifier = {
+			production_speed_naval_base_factor = 1
+			production_speed_rail_way_factor = 1
+			supply_consumption_factor = 0.1
+		}
+	}
+
+}
+
+ITA_MED_category = {
+	ITA_MED_island_targets = {
+
+		available = {
+			116 = { controlled_by_axis = yes }
+			446 = { controlled_by_axis = yes }
+			118 = { controlled_by_axis = yes }
+			1 = { controlled_by_axis = yes }
+			183 = { controlled_by_axis = yes }
+			459 = { controlled_by_axis = yes }
+
+			hidden_trigger = {
+				always = no
+			}
+		}
+
+		icon = mission_icon
+
+	}
+	
+	ITA_MED_island_defense = {
+
+		available = {
+			
+			114 = { controlled_by_axis = yes }
+			115 = { controlled_by_axis = yes }
+			182 = { controlled_by_axis = yes }
+			164 = { controlled_by_axis = yes }
+			448 = { controlled_by_axis = yes }
+			450 = { controlled_by_axis = yes }
+	
+			hidden_trigger = {
+				always = no
+			}
+		}
+
+		icon = mission_icon
+
+	}
+	
+	ITA_MED_feign_weakness = {
+		days_remove = 60
+		custom_cost_trigger = {
+			command_power > 29
+		}
+		custom_cost_text = decision_cost_CP_30
+		days_re_enable = 180
+		modifier = {
+			army_attack_factor = 0.3
+			army_defence_factor = 0.3
+		}
+		complete_effect = {
+			med_balance_eng_10_effect = yes
+			hidden_effect = {
+				add_command_power = -30
+			}
+			ENG = {
+				country_event = spt.17
+			}
+		}
+	}
+
+	
+
+	ITA_MED_fortify_positions = {
+		cost = 25
+		fire_only_once = yes
+		days_remove = 50
+		modifier = {
+			production_speed_coastal_bunker_factor = 1
+			production_speed_bunker_factor = 1
+		}
+	}
+
+	ITA_MED_expand_supply_capacity = {
+		cost = 50
+		fire_only_once = yes
+		days_remove = 100
+		modifier = {
+			production_speed_naval_base_factor = 1
+			production_speed_rail_way_factor = 1
+			supply_consumption_factor = 0.1
+		}
+	}
+
+}
 
 
 SPT_propaganda_campaigns = {
@@ -565,4 +797,5 @@ SPT_propaganda_campaigns = {
 			prop_add_slot = yes
 		}
 	}
+
 }

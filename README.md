@@ -1,5 +1,18 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.2 - Mediterranean Front
+
+#### Italy
+- Removed check that Italy have an enemy that is a major for "Supermarina" [Unlocks very powerful navy focuses earlier on]
+- Removed balance of power checks and rewards for focuses if Italy is in WW2 [As theyre starting bop is removed]
+
+#### France
+- Added decision "Push into Italy" which removes all the "Home Defence" state modifiers (see below) in Italy once the allies has retaken Paris and their land East of the Rhone
+
+#### Ethiopia
+- Hid decision to ask UK to host Ethiopia in exile [Ethiopia doesnt fight on so pacifiying them is easier]
+
+
 
 ### 3.1.4 - Small designer tweaks
 #### Tank Designer

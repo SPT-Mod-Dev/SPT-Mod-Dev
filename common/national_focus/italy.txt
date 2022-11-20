@@ -15,7 +15,6 @@
 # Reminder that focus filters prio has to be handled in the generic focus file :)
 
 
-
 focus_tree = {
 	id = italian_focus
 
@@ -6194,10 +6193,11 @@ focus_tree = {
 		y = 1
 		relative_position_id = ITA_expand_naval_facilities
 		cost = 5
+		#SPTChange removed major check
 		available = {
-			any_enemy_country = {
-				is_major_not_original_tag_root = yes
-			}
+			# any_enemy_country = {
+			# 	is_major_not_original_tag_root = yes
+			# }
 		}
 
 		search_filters = {FOCUS_FILTER_NAVY_XP}
@@ -8476,6 +8476,8 @@ focus_tree = {
 	}
 
 	focus = {
+		#SPTChange hid referemces to bop if italy has joined ww2
+		
 		id = ITA_triumph_in_africa_bba
 		icon = GFX_focus_ETH_the_second_italo_ethiopian_war
 		prerequisite = { focus = ITA_servizio_informazione_militare }
@@ -8531,7 +8533,12 @@ focus_tree = {
 				limit = {
 					NOT = { has_completed_focus = ITA_triumph_in_africa_bba }
 				}
-				ITA_bop_very_low_increase_effect = yes
+				if = {
+					limit = {
+						NOT = {has_war_with = ENG}
+					}
+					ITA_bop_very_low_increase_effect = yes
+				}
 			}
 			else = {
 				effect_tooltip = {
@@ -8918,6 +8925,8 @@ focus_tree = {
 	}
 
 	focus = {
+		#SPTChange hid referemces to bop if italy has joined ww2
+		
 		id = ITA_culto_del_duce
 		icon = GFX_focus_ITA_culto_del_duce
 		prerequisite = { focus = ITA_triumph_in_africa_bba }
@@ -8954,13 +8963,21 @@ focus_tree = {
 		completion_reward = {
 			add_country_leader_trait = lion_tamer
 
-			ITA_bop_very_low_increase_effect = yes
+			if = {
+				limit = {
+					NOT = {has_war_with = ENG}
+				}
+
+				ITA_bop_very_low_increase_effect = yes			}
+			
 
 			mark_focus_tree_layout_dirty = yes
 		}
 	}
 	
 	focus = {
+		#SPTChange hid referemces to bop if italy has joined ww2
+		
 		id = ITA_the_man_of_providence
 		icon = GFX_goal_demand_sudetenland
 		prerequisite = { focus = ITA_culto_del_duce }
@@ -8974,14 +8991,20 @@ focus_tree = {
 				character = ITA_benito_mussolini
 				ruling_only = yes
 			}
-			power_balance_value = {
-				id = ITA_power_balance
-				value > 0.499
+			if = {
+				limit = {
+					NOT = {has_war_with = ENG}
+				}
+				power_balance_value = {
+					id = ITA_power_balance
+					value > 0.499
+				}
+				custom_trigger_tooltip = {
+					tooltip = "Requires 50+ value towards Mussolini in the Balance of Power"
+					always = yes
+				}
 			}
-			custom_trigger_tooltip = {
-				tooltip = "Requires 50+ value towards Mussolini in the Balance of Power"
-				always = yes
-			}
+			
 		}
 
 		search_filters = {FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL FOCUS_FILTER_BALANCE_OF_POWER}
@@ -9003,8 +9026,13 @@ focus_tree = {
 					add = il_duce_providence
 				}
 			}
-
-			ITA_bop_very_low_increase_effect = yes
+			if = {
+				limit = {
+					NOT = {has_war_with = ENG}
+				}
+				ITA_bop_very_low_increase_effect = yes
+			}
+			
 		}
 	}
 
@@ -9036,6 +9064,8 @@ focus_tree = {
 	}
 
 	focus = {
+		#SPTChange hid referemces to bop if italy has joined ww2
+		
 		id = ITA_boost_the_grand_council_of_fascism
 		icon = GFX_focus_generic_strike_at_democracy1
 		prerequisite = { focus = ITA_the_man_of_providence }
@@ -9057,13 +9087,20 @@ focus_tree = {
 			add_political_power = 50
 			add_stability = 0.05
 
-			ITA_bop_very_low_decrease_effect = yes
-
+			if = {
+				limit = {
+					NOT = {has_war_with = ENG}
+				}
+				ITA_bop_very_low_decrease_effect = yes
+			}
+			
 			custom_effect_tooltip = ITA_boost_the_grand_council_of_fascism_missiolinis_tt
 		}
 	}
 
 	focus = {
+		#SPTChange hid referemces to bop if italy has joined ww2
+		
 		id = ITA_to_live_as_a_lion
 		icon = GFX_focus_ITA_to_live_as_a_lion
 		prerequisite = { focus = ITA_the_man_of_providence }
@@ -9093,8 +9130,13 @@ focus_tree = {
 				add = lion_tamer_2
 			}
 
-			ITA_bop_very_low_increase_effect = yes
-
+			if = {
+				limit = {
+					NOT = {has_war_with = ENG}
+				}
+				ITA_bop_very_low_increase_effect = yes
+			}
+			
 			#Reduce time for Missiolinis
 			set_variable = { ITA_missiolinis_default_days = 350 }
 			custom_effect_tooltip = ITA_to_live_as_a_lion_missiolinis_tt
@@ -9245,6 +9287,8 @@ focus_tree = {
 	}
 
 	focus = {
+		#SPTChange hid referemces to bop if italy has joined ww2
+		
 		id = ITA_devotion
 		icon = GFX_goal_generic_propaganda
 		prerequisite = { focus = ITA_to_live_as_a_lion focus = ITA_boost_the_grand_council_of_fascism }
@@ -9259,9 +9303,14 @@ focus_tree = {
 				character = ITA_benito_mussolini
 				ruling_only = yes
 			}
-			power_balance_value = {
-				id = ITA_power_balance
-				value > 0.799
+			if = {
+				limit = {
+					NOT = {has_war_with = ENG}
+				}
+				power_balance_value = {
+					id = ITA_power_balance
+					value > 0.799
+				}
 			}
 		}
 
@@ -9274,12 +9323,18 @@ focus_tree = {
 				remove = il_duce_providence_strengthen
 				add = il_duce_devotion 
 			}
-
-			ITA_bop_very_low_increase_effect = yes
+			if = {
+				limit = {
+					NOT = {has_war_with = ENG}
+				}
+				ITA_bop_very_low_increase_effect = yes
+			}
 		}
 	}
 
 	focus = {
+		#SPTChange hid referemces to bop if italy has joined ww2
+		
 		id = ITA_ministero_della_cultura_popolare #Alt name would be Ministry of Popular Culture (1937-1943)
 		icon = GFX_focus_generic_italy_propaganda
 		prerequisite = { focus = ITA_culto_del_duce}
@@ -9315,7 +9370,13 @@ focus_tree = {
 			add_war_support = 0.03
 			add_political_power = 25
 
-			ITA_bop_very_low_increase_effect = yes #Works for every Duce
+			if = {
+				limit = {
+					NOT = {has_war_with = ENG}
+				}
+				ITA_bop_very_low_increase_effect = yes #Works for every Duce
+			}
+			
 		}
 	}
 
@@ -10012,6 +10073,8 @@ focus_tree = {
 	}
 
 	focus = {
+		#SPTChange hid referemces to bop if italy has joined ww2
+		
 		id = ITA_capo_supremo
 		icon = GFX_focus_ITA_capo_supremo
 		prerequisite = { focus = ITA_towards_a_greater_italy }
@@ -10026,9 +10089,14 @@ focus_tree = {
 				character = ITA_benito_mussolini
 				ruling_only = yes
 			}
-			power_balance_value = {
-				id = ITA_power_balance
-				value > 0.949
+			if = {
+				limit = {
+					NOT = {has_war_with = ENG}
+				}
+				power_balance_value = {
+					id = ITA_power_balance
+					value > 0.949
+				}
 			}
 		}
 
@@ -10097,9 +10165,13 @@ focus_tree = {
 					technology = super_heavy_spaa
 				}
 			}
-
-			ITA_bop_very_low_increase_effect = yes
-
+			if = {
+				limit = {
+					NOT = {has_war_with = ENG}
+				}
+				ITA_bop_very_low_increase_effect = yes
+			}
+			
 			#Names for NSs
 			hidden_effect = {
 				ITA_replace_stuff_based_on_ideology_effect = yes
