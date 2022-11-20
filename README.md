@@ -1,6 +1,12 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.2 - Mediterranean Front
+### 3.2.0 - Mediterranean Front Update
+
+#### Tutorial
+- Added a few decisions to give some extra info to new players: "General Multiplayer Info", "Pacific Front Info" and "Med Front Info"
+
+#### Axis Rules
+- Removed rule "Cannot have units in Africa before Italy joins World War 2." for all Axis members
 
 #### Italy
 - Removed check that Italy have an enemy that is a major for "Supermarina" [Unlocks very powerful navy focuses earlier on]
@@ -11,6 +17,147 @@
 
 #### Ethiopia
 - Hid decision to ask UK to host Ethiopia in exile [Ethiopia doesnt fight on so pacifiying them is easier]
+
+#### Mediterranean Front
+- Added a balance of power mechanic to the Mediterranean front similar to the previous system.
+- When certain positions are captured by England (or their allies) or Italy (or their allies) the balance of power (bop) will move `15%` to the side who just captured the island
+- English targets
+    - Sardegna
+    - Sicillia
+    - Crete
+    - Dodecaneso
+    - Tripoli
+    - Benghasi
+
+- Italian targets
+    - Malta
+    - Suez
+    - Gibraltar
+    - Corsica
+    - Cyprus
+    - Algiers
+
+- Added an event when one of the defensive targets is lost [To ensure the player is aware they are losing targets]
+- Added a state modifier to the Italian (minus Sicily) and English homeland that initially gives `+60%` core attack and defense.
+- Bop ranges
+    - Stalemate (`25% - 0% - 25%`)
+        - For Italian and England "Impenetrable Home Defense" which gives
+            - `+60%` core attack
+            - `+60%` core defense
+    - Low Italian Dominance (`25% - 50%`)
+        - Italy:
+            - `+5%` recovery rate
+            - `+5%` division attack
+            - `+5%` division defense
+            - `+10%` war support
+        - England:
+            - `-5%` recovery rate
+            - `-5%` division attack
+            - `-5%` division defense
+            - `-10%` stability
+            - Replaces "Impenetrable Home Defense" with "Strong Home Defense" which gives
+                - `+40%` core attack
+                - `+40%` core defense
+    - Medium Italian Dominance (`50% - 75%`)
+        - Italy:
+            - `+10%` recovery rate
+            - `+10%` division attack
+            - `+10%` division defense
+            - `+20%` war support
+            - `+10%` political power gain
+        - England:
+            - `-10%` recovery rate
+            - `-10%` division attack
+            - `-10%` division defense
+            - `-20%` stability
+            - Replaces "Strong Home Defense" with "Weakened Home Defense" which gives
+                - `+20%` core attack
+                - `+20%` core defense
+
+    - Total Italian Dominance (`75% - 100%`)
+        - Italy:
+            - `+15%` recovery rate
+            - `+15%` division attack
+            - `+15%` division defense
+            - `+30%` war support
+            - `+20%` political power gain
+            - `-15%` resistance activity
+        - England:
+            - `-15%` recovery rate
+            - `-15%` division attack
+            - `-15%` division defense
+            - `-30%` stability
+            - `-10%` political power gain
+            - Removed "Weakened Home Defense"
+    - Low English Dominance (`25% - 50%`)
+        - Italy:
+            - `-5%` recovery rate
+            - `-5%` division attack
+            - `-5%` division defense
+            - `-10%` stability
+            - For Italy replaces "Impenetrable Home Defense" with "Strong Home Defense" which gives
+                - `+40%` core attack
+                - `+40%` core defense
+        - England:
+            - `+5%` recovery rate
+            - `+5%` division attack
+            - `+5%` division defense
+            - `+10%` war support
+    - Medium English Dominance (`50% - 75%`)
+        - Italy:
+            - `-10%` recovery rate
+            - `-10%` division attack
+            - `-10%` division defense
+            - `-20%` stability
+            - For Italy Replaces "Strong Home Defense" with "Weakened Home Defense" which gives
+                - `+20%` core attack
+                - `+20%` core defense
+        - England:
+            - `+10%` recovery rate
+            - `+10%` division attack
+            - `+10%` division defense
+            - `+20%` war support
+            - `+10%` political power gain
+    - Total English Dominance (`75% - 100%`)
+        - Italy:
+            - `+15%` recovery rate
+            - `+15%` division attack
+            - `+15%` division defense
+            - `+30%` war support
+            - `+20%` political power gain
+            - `-15%` resistance activity
+        - England:
+            - `-15%` recovery rate
+            - `-15%` division attack
+            - `-15%` division defense
+            - `-30%` stability
+            - `-10%` political power gain
+            - Removed "Weakened Home Defense"
+
+- Added "Offensive targets" and "Defensive targets" dummy decisions to show which positions should be attacked and defended
+- Added "Feign Weakness" decision
+    - `30` cp cost
+    - `180` days till it re-enables
+    - For `60` days gives:
+        - `+30%` division attack
+        - `+30%` division defence 
+    - Moves bop `10%` towards the enemies side [Similar to P]
+    - Fires event on enemy which notifies them that you seem weak [Allows the other player to either counter the decision with their own or try and save their bop and hold off the attack]   
+- Added "Fortify Positions" decision
+    - `25` pp cost
+    - Can only be fired `1` time
+    - For `50` days gives:
+        - `+100%` coastal fort construction speed
+        - `+100%` land fort construction speed
+- Added "Expand Capacity Decision" decision 
+    - `50` pp cost
+    - Can only be fired `1` time
+    - For `100` days gives:
+        - `+10%` supply consumption
+        - `+100%` railway construction speed
+        - `+100%` naval base construction speed
+
+
 
 
 
