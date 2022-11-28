@@ -7,7 +7,7 @@
 #### France
 - Push into Italy decision
     - Replaced condition of katowice being controlled [typo mistake] to Alpes
-    - Added condition that France has to have fell
+    - Added condition that France has to have fallen
     - Makes the decision available to England if there is not french player [Incase france leaves allies can still remove defense modifier if they have retaken france]
 
 #### Hungary
