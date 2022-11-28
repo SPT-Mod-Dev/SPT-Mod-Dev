@@ -155,60 +155,79 @@ spt_category = {
 
 	FRA_push_into_italy = {
 		allowed = {
-			original_tag = FRA
+			OR = {
+				original_tag = FRA
+				original_tag = ENG
+			}
 		}
 
 		visible = {
+			is_ai = no
 			has_war_with = ITA
 			ITA = {
 				has_power_balance = {
 					id = ITA_MED_med_front
 				}
 			}
+			NOT = {
+				AND = {
+					original_tag = ENG
+					FRA = { is_ai = no }
+				}
+			}
+			NOT = {
+				has_global_flag = Push_into_Italy
+			}
 		}
 
 		fire_only_once = yes
 
 		available = {
+			custom_trigger_tooltip = {
+				tooltip = france_fallen_tt
+				has_global_flag = france_fallen #There might be a vanilla flag but i dont trust it
+			}
 			16 = { controlled_by_allies = yes}
 			735 = { controlled_by_allies = yes}
 			851 = { controlled_by_allies = yes}
 			21 = { controlled_by_allies = yes}
-			762 = { controlled_by_allies = yes}
+			32 = { controlled_by_allies = yes}
 		}
 
 		complete_effect = {
 			set_global_flag = Push_into_Italy
-			
-			every_core_state = {
-				limit = {
-					is_in_home_area = yes
-					is_coastal = yes
-					
-					NOT = {state = 115}
-				}
-				custom_effect_tooltip = FRA_push_into_italy_tt
-				hidden_effect = {
-					if = {
-						limit = { has_dynamic_modifier = { modifier = PAC_home_defense_1 } }
-						remove_dynamic_modifier = {
-							modifier = PAC_home_defense_1
-						}
+			ITA = {
+				every_core_state = {
+					limit = {
+						is_in_home_area = yes
+						is_coastal = yes
+						
+						NOT = {state = 115}
 					}
-					if = {
-						limit = { has_dynamic_modifier = { modifier = PAC_home_defense_2 } }
-						remove_dynamic_modifier = {
-							modifier = PAC_home_defense_2
+					custom_effect_tooltip = FRA_push_into_italy_tt
+					hidden_effect = {
+						if = {
+							limit = { has_dynamic_modifier = { modifier = PAC_home_defense_1 } }
+							remove_dynamic_modifier = {
+								modifier = PAC_home_defense_1
+							}
 						}
-					}
-					if = {
-						limit = { has_dynamic_modifier = { modifier = PAC_home_defense_3 } }
-						remove_dynamic_modifier = {
-							modifier = PAC_home_defense_3
+						if = {
+							limit = { has_dynamic_modifier = { modifier = PAC_home_defense_2 } }
+							remove_dynamic_modifier = {
+								modifier = PAC_home_defense_2
+							}
+						}
+						if = {
+							limit = { has_dynamic_modifier = { modifier = PAC_home_defense_3 } }
+							remove_dynamic_modifier = {
+								modifier = PAC_home_defense_3
+							}
 						}
 					}
 				}
 			}
+			
 		}
 	}
 

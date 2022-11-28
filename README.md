@@ -1,5 +1,24 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.2.1 - Tungsten Update
+
+- Updated to Tungsten hoi4 version (1.12.6)
+
+#### France
+- Push into Italy decision
+    - Replaced condition of katowice being controlled [typo mistake] to Alpes
+    - Added condition that France has to have fell
+    - Makes the decision available to England if there is not french player [Incase france leaves allies can still remove defense modifier if they have retaken france]
+
+#### Hungary
+- Changed days of "Claim Overlordship of Slovakia" `70` -> `35`
+- Remove the cores gained from completing "Claim Overlordship of Slovakia"
+- Added focus "Integrate Slovakia":
+    - Requires "Claim Overlordship of Slovakia"
+    - Takes `35` days    
+    - Gives cores on Slovakia
+
+
 ### 3.2.0 - Mediterranean Front Update
 
 #### Tutorial
