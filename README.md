@@ -1,5 +1,78 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.2.2 - Balancing Update
+
+#### Tank Designer
+- Modules:
+    - Auto Loader: [Only Soviets and Spain use this thanks to focuses so nerf it slightly]
+        - Decreased soft attack `+25% → +15%` 
+        - Decreased hard attack `+25% → +15%`
+        - Decreased ic cost `+2.5 -> +2`
+    - Sloped Armor: [Buff as the 20% armour bonus is generally not worth 10% ic cost]
+        - Decreased ic cost multiplier `+10% -> +5%`
+    - Easy Maintenace: [Slight nerf as outweighs wet ammo storage IF u have spare research]
+        - Increased ic cost `0 -> +1`
+    - Dozer Blade: [Slight buff as not seen used as the cost outweight the gain]
+        - Addded breakthrough modifier `-10%` 
+        - Increased defense `+2.5 -> +10` 
+    - Small Cannon: [Buff as Cost is too high to outweigh picking it over Heavy mg]
+        - Decreased ic cost `+4 -> +2`
+        - Increased soft attack `+5 -> +7.5`
+    - Smoke Launchers: [Slight nerf as their ic cost makes it normally not a bad choice]
+        - Increased ic cost `+0.25 -> +0.5`
+    - Additional Machineguns: [slight buff to make them a cheap alternative to small cannon/heavy mg]
+        - Decreased ic cost `+0.75 -> 0.5`
+
+- Armaments:
+    - Medium Fixed Superstructure: [ Changed to remove meta mediums and give heavy more of an advantage of higher stats]
+        - Removed that it allowed heavy cannons to be used.
+    - Automatic Cannon 1:
+        - Decreased soft attack `+24 -> 20` [same as auto 2]
+    - Automatic Cannon 2:
+        - Decreased soft attack `+36 -> 32` [Nerf as it outweighed other turrets for light and enabled to high stats for cheap lights] 
+    - Medium Cannon 2:
+        - Increased soft attack `25.5 -> 30` [Buff as medium 1's were better than 2's (resources ic and very similar stats) and small guns were better for the most part]
+        - 
+- Turrets: [Slight nerf on 3 man as theres little reason to not either go fixed for tds and arty or 3 man for regulars ]
+    - Light two man turret:
+        - Increased ic cost `+0.75 -> +1`
+    - Light three man turret:
+        - Increased ic cost `+1 -> +1.5`
+    - Medium two man turret:
+        - Increased ic cost `+2.5 -> +3`
+    - Medium three man turret:
+        - Increased ic cost `+3 -> +4`
+    - Heavy two man turret:
+        - Increased ic cost `+5 -> +4`
+        - Decreaseed speed `-0.4 -> -0.5` [ nerf heavies as they could go too fast with ok reliability]
+     - Heavy three man turret:
+        - Increased ic cost `+5 -> +4`
+        - Decreaseed speed `-0.4 -> -1` [ same as 2 man]   
+
+- Chasis:
+    - Heavy 1:
+        - Increase ic cost `+16 -> +20` [Increase ic cost gap between mediums and heavys]
+    - Heavy 2:
+        - Increase ic cost `+16 -> +20` [same as heavy 1]
+
+
+#### Axis Rules
+- Removed rule number 2 for Italy allowing them to join the war whenever they wish
+
+#### Allies Rules
+- Added rule for France "Must have pulled out of mainland Europe by September" 
+
+#### Soviet Union 
+- Some focus days have been increased: [Slightly delay industry focuses to delay factory buffs]
+    - "Infrastructure Effort" `35 → 70`
+    - "Heavy Industry" `35 → 70`
+- Decreased the number of tech bonuses gained from "Soviet artillery" `2 -> 1` [Reduce the technological advantage of soviets over germany]
+- Removed the `+5%` efficiency cap received from "PC of Mechanical Engineering" [Reduce max cap soviets are able to get]
+- Revert the initial change to "Turkey Seizes Control Over the Bosporus" event so war support gained is now `10% -> 5%` [Slow down Soviet industry slightly but also increase pp cost which soviets can struggle with]
+
+#### Mexico
+- Removed option to return Trotsky to the Soviet Union [Returning trotsky gives soviets a buff which is only available if allies have plenty of players which dosent make too much sense]
+
 ### 3.2.1 - Tungsten Update
 
 - Updated to Tungsten hoi4 version (1.12.6)
