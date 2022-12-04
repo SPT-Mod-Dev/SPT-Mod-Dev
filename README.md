@@ -3,7 +3,7 @@
 ### 3.2.2 - Balancing Update
 
 #### Axis Rules
-- Removed rule number 2 for Italy allowing them to join the war whenever they wish
+- Removed rule number 2 for Italy, allowing them to join the war whenever they wish
 
 #### Allies Rules
 - Added rule for France "Must have pulled out of mainland Europe by September 1940" 
