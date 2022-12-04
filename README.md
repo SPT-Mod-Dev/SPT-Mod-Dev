@@ -60,7 +60,7 @@
 - Removed rule number 2 for Italy allowing them to join the war whenever they wish
 
 #### Allies Rules
-- Added rule for France "Must have pulled out of mainland Europe by September" 
+- Added rule for France "Must have pulled out of mainland Europe by September 1940" 
 
 #### Soviet Union 
 - Some focus days have been increased: [Slightly delay industry focuses to delay factory buffs]
@@ -72,6 +72,9 @@
 
 #### Mexico
 - Removed option to return Trotsky to the Soviet Union [Returning trotsky gives soviets a buff which is only available if allies have plenty of players which dosent make too much sense]
+
+#### Australia
+- Reduced number of tech bonuses from "CAC Woomera" `2 -> 1`
 
 ### 3.2.1 - Tungsten Update
 
