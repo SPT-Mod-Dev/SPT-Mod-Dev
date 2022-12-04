@@ -2,6 +2,26 @@
 
 ### 3.2.2 - Balancing Update
 
+#### Axis Rules
+- Removed rule number 2 for Italy allowing them to join the war whenever they wish
+
+#### Allies Rules
+- Added rule for France "Must have pulled out of mainland Europe by September 1940" 
+
+#### Soviet Union 
+- Some focus days have been increased: [Slightly delay industry focuses to delay factory buffs]
+    - "Infrastructure Effort" `35 → 70`
+    - "Heavy Industry" `35 → 70`
+- Decreased the number of tech bonuses gained from "Soviet artillery" `2 -> 1` [Reduce the technological advantage of soviets over germany]
+- Removed the `+5%` efficiency cap received from "PC of Mechanical Engineering" [Reduce max cap soviets are able to get]
+- Revert the initial change to "Turkey Seizes Control Over the Bosporus" event so war support gained is now `10% -> 5%` [Slow down Soviet industry slightly but also increase pp cost which soviets can struggle with]
+
+#### Mexico
+- Removed option to return Trotsky to the Soviet Union [Returning trotsky gives soviets a buff which is only available if allies have plenty of players which dosent make too much sense]
+
+#### Australia
+- Reduced number of tech bonuses from "CAC Woomera" `2 -> 1`
+
 #### Tank Designer
 - Modules:
     - Auto Loader: [Only Soviets and Spain use this thanks to focuses so nerf it slightly]
@@ -56,25 +76,7 @@
         - Increase ic cost `+16 -> +20` [same as heavy 1]
 
 
-#### Axis Rules
-- Removed rule number 2 for Italy allowing them to join the war whenever they wish
 
-#### Allies Rules
-- Added rule for France "Must have pulled out of mainland Europe by September 1940" 
-
-#### Soviet Union 
-- Some focus days have been increased: [Slightly delay industry focuses to delay factory buffs]
-    - "Infrastructure Effort" `35 → 70`
-    - "Heavy Industry" `35 → 70`
-- Decreased the number of tech bonuses gained from "Soviet artillery" `2 -> 1` [Reduce the technological advantage of soviets over germany]
-- Removed the `+5%` efficiency cap received from "PC of Mechanical Engineering" [Reduce max cap soviets are able to get]
-- Revert the initial change to "Turkey Seizes Control Over the Bosporus" event so war support gained is now `10% -> 5%` [Slow down Soviet industry slightly but also increase pp cost which soviets can struggle with]
-
-#### Mexico
-- Removed option to return Trotsky to the Soviet Union [Returning trotsky gives soviets a buff which is only available if allies have plenty of players which dosent make too much sense]
-
-#### Australia
-- Reduced number of tech bonuses from "CAC Woomera" `2 -> 1`
 
 ### 3.2.1 - Tungsten Update
 
