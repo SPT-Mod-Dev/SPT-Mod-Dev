@@ -1919,7 +1919,7 @@
 		id = ROM_fortify_the_borders
 		icon = GFX_goal_generic_construct_military
 		prerequisite = { focus = ROM_institute_royal_dictatorship }
-		x = -1
+		x = -2
 		y = 1
 		relative_position_id = ROM_institute_royal_dictatorship
 
@@ -1947,6 +1947,8 @@
 	}
 
 	focus = {
+		allow_branch = {always = no} #SPTChange hid left branch
+		
 		id = ROM_his_majestys_loyal_government
 		icon = GFX_goal_generic_propaganda
 		prerequisite = { focus = ROM_fortify_the_borders }
@@ -2079,7 +2081,7 @@
 		id = ROM_revise_the_constitution
 		icon = GFX_goal_generic_forceful_treaty
 		prerequisite = { focus = ROM_institute_royal_dictatorship }
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = ROM_institute_royal_dictatorship
 
@@ -2147,7 +2149,7 @@
 		icon = GFX_goal_generic_improve_relations
 		prerequisite = { focus = ROM_revise_the_constitution }
 		mutually_exclusive = { focus = ROM_his_majestys_loyal_government }
-		x = 1
+		x = 0
 		y = 2
 		relative_position_id = ROM_institute_royal_dictatorship
 
@@ -2678,6 +2680,8 @@
 	}
 
 	focus = {
+		allow_branch = {always = no} #SPTChange hid focus	
+		
 		id = ROM_king_michaels_coup
 		icon = GFX_focus_rom_coup
 		prerequisite = { focus = ROM_force_abdication focus = ROM_all_parties_must_end}
