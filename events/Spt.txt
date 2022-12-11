@@ -374,3 +374,68 @@ country_event = {
 	}
 
 }
+
+country_event = { # Manchukuo asks Japan for its future
+	id = spt.18
+	title = spt.18.t
+	desc = spt.18.desc
+	picture = GFX_report_event_chinese_japanese_handshake
+	is_triggered_only = yes
+	option = {
+		name = spt.18.a
+		JAP = {
+			country_event = spt.19
+		}
+		
+	}
+
+}
+
+country_event = { # Japanese yes or no response
+	id = spt.19
+	title = spt.19.t
+	desc = spt.19.desc
+	picture = GFX_report_event_chinese_japanese_handshake
+	is_triggered_only = yes
+	option = { # YAS
+		name = spt.19.a
+		MAN = {
+			country_event = spt.20
+		}
+		
+	}
+	option = { # PISS OFF MAN(chukuo)
+		name = spt.19.b
+		MAN = {
+			country_event = spt.21
+		}
+		
+	}
+
+}
+
+country_event = { # They said yes UwU (China path)
+	id = spt.20
+	title = spt.20.t
+	desc = spt.20.desc
+	picture = GFX_report_event_japanese_reply
+	is_triggered_only = yes
+	option = {
+		name = spt.20.a
+		unlock_national_focus = MAN_chinese_leadership
+	}
+
+}
+
+country_event = { # Kishi route (Full Manchukuo path)
+	id = spt.21
+	title = spt.21.t
+	desc = spt.21.desc
+	picture = GFX_report_event_japanese_siam_politicians
+	is_triggered_only = yes
+	option = {
+		name = spt.21.a
+		unlock_national_focus = MAN_the_japanese_colony
+	}
+
+}
