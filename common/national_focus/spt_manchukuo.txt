@@ -1,10 +1,10 @@
-focus_tree = {
-	id = manchukuo_focus
+﻿focus_tree = {
+	id = SPT_manchukuo_focus
 	
 	country = {
 		factor = 0
 		modifier = {
-			add = 10
+			add = 11 #set above 10 to replace original manchuko tree and set below 10 to hide this tree
 			tag = MAN
 			has_dlc = "Waking the Tiger"
 		}
@@ -52,9 +52,9 @@ focus_tree = {
 #	}
 
 	focus = {
-		id = MAN_pacify_the_countryside
+		id = SPT_MAN_pacify_the_countryside
 		icon = GFX_goal_generic_major_war
-		x = 6
+		x = 4
 		y = 0
 
 		cost = 10
@@ -85,12 +85,107 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_army_modernization
-		icon = GFX_goal_generic_small_arms
-		prerequisite = { focus = MAN_pacify_the_countryside }
-		x = -2
+		id = SPT_MAN_the_kwantung_veto_question
+		icon = GFX_focus_man_claim_the_mandate_of_heaven
+		prerequisite = { focus = SPT_MAN_pacify_the_countryside }
+		mutually_exclusive = { focus = SPT_MAN_assertiveness }
+		x = -5
 		y = 1
-		relative_position_id = MAN_pacify_the_countryside
+		relative_position_id = SPT_MAN_pacify_the_countryside
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 6
+		}
+
+		available = {
+			OR = {
+				MAN = {
+					has_war_with = CHI
+				}
+				JAP = {
+					has_war_with = CHI
+				}
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			country_event = spt.18
+		}
+	}
+	
+	#Japanese colony branch --------------------
+	
+	focus = {
+		id = SPT_MAN_the_japanese_colony
+		icon = GFX_focus_generic_japanese_imperial_glory
+		prerequisite = { focus = SPT_MAN_the_kwantung_veto_question }
+		mutually_exclusive = {focus = SPT_MAN_chinese_leadership }
+		x = 1
+		y = 1
+		relative_position_id = SPT_MAN_the_kwantung_veto_question
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			always = no
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			remove_ideas = MAN_kwantung_veto
+			retire_country_leader = yes
+			# KISHI ARRIVES
+			set_country_leader_ideology = gen_nazism
+			add_country_leader_role = {
+				character = MAN_nubusuke_kishi
+				country_leader = {
+					expire = "1960.1.1"
+					ideology = gen_nazism
+					traits = {
+						political_dancer 
+						unscrupulous_orchestrator
+					}	
+				}
+				promote_leader = no				
+			}	
+
+		}
+	}
+
+	focus = {
+		id = SPT_MAN_army_modernization
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = SPT_MAN_the_japanese_colony }
+		x = 0
+		y = 1
+		relative_position_id = SPT_MAN_the_japanese_colony
 
 		cost = 10
 
@@ -113,17 +208,23 @@ focus_tree = {
 		
 
 		completion_reward = {
-			army_experience = 30
+			army_experience = 50
+			add_doctrine_cost_reduction = {
+				name = MAN_alliance_with_the_kwantung_army
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
 		}
 	}
 
 	focus = {
-		id = MAN_mukden_military_academy
+		id = SPT_MAN_mukden_military_academy
 		icon = GFX_goal_generic_position_armies
-		prerequisite = { focus = MAN_army_modernization }
+		prerequisite = { focus = SPT_MAN_army_modernization }
 		x = 0
 		y = 1
-		relative_position_id = MAN_army_modernization
+		relative_position_id = SPT_MAN_army_modernization
 
 		cost = 10
 
@@ -151,12 +252,152 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_invite_japanese_settlers
+		id = SPT_MAN_hoankyoku
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = SPT_MAN_the_japanese_colony }
+		x = 2
+		y = 1
+		relative_position_id = SPT_MAN_the_japanese_colony
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+			hidden_trigger = {
+				is_ai = no #SPTChange prevents ai taking it
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		search_filters = { FOCUS_FILTER_STABILITY }
+		
+
+		completion_reward = {
+			add_stability = 0.1
+			#SPTChange add colab thingy
+			CHI = {
+				add_ideas = CHI_illegitimate_government
+			}
+			if = {
+				limit = {
+					has_dlc = "La Resistance"
+					is_ai = no
+				}
+				if = {
+					limit = {
+						has_intelligence_agency = no
+					}
+					create_intelligence_agency = yes
+				}
+				add_ideas = MAN_hoankyoku_idea
+			}
+		}
+	}
+
+	#Chinese leadership branch
+
+	focus = {
+		id = SPT_MAN_chinese_leadership
+		icon = GFX_focus_generic_china1
+		prerequisite = { focus = SPT_MAN_the_kwantung_veto_question }
+		mutually_exclusive = {focus = SPT_MAN_the_japanese_colony }
+		x = -1
+		y = 1
+		relative_position_id = SPT_MAN_the_kwantung_veto_question
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			always = no
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = SPT_MAN_the_two_emperors
+		icon = GFX_focus_ETH_an_empire_in_the_shade_of_the_sun
+		prerequisite = { focus = SPT_MAN_chinese_leadership }
+		
+		x = -2
+		y = 1
+		relative_position_id = SPT_MAN_chinese_leadership
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			is_subject_of = JAP
+			compare_autonomy_state > autonomy_wtt_imperial_protectorate			
+			MAN = { 
+				ic_ratio = {
+					tag = JAP
+					ratio > 0.2
+				}
+			}
+			strength_ratio = {
+				tag = JAP
+				ratio > 0.25
+			}
+		}
+
+		bypass = {
+			is_subject = no
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_autonomy_ratio = {
+				value = 0.15
+				localization = MAN_the_two_emperors
+			}
+			MAN_low_legitimacy_level_down_twice = yes
+		}
+	}
+
+	#Japanese settlers branch
+	focus = {
+		id = SPT_MAN_invite_japanese_settlers
 		icon = GFX_goal_generic_construct_civilian
-		prerequisite = { focus = MAN_pacify_the_countryside }
+		prerequisite = { focus = SPT_MAN_pacify_the_countryside }
 		x = 0
 		y = 1
-		relative_position_id = MAN_pacify_the_countryside
+		relative_position_id = SPT_MAN_pacify_the_countryside
 
 		cost = 10
 
@@ -191,6 +432,9 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			add_autonomy_score = {
+				value = -100
+			}
 			random_owned_state = {
 				limit = { is_fully_controlled_by = ROOT }
 				add_manpower = 25417
@@ -217,12 +461,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_collective_farms
+		id = SPT_MAN_collective_farms
 		icon = GFX_goal_generic_construction
-		prerequisite = { focus = MAN_invite_japanese_settlers }
+		prerequisite = { focus = SPT_MAN_invite_japanese_settlers }
 		x = 0
 		y = 1
-		relative_position_id = MAN_invite_japanese_settlers
+		relative_position_id = SPT_MAN_invite_japanese_settlers
 
 		cost = 10
 
@@ -257,12 +501,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_law_university
+		id = SPT_MAN_law_university
 		icon = GFX_focus_research
-		prerequisite = { focus = MAN_collective_farms focus = MAN_mukden_military_academy focus = MAN_expand_the_textile_industry }
+		prerequisite = { focus = SPT_MAN_collective_farms }
 		x = 0
 		y = 1
-		relative_position_id = MAN_collective_farms
+		relative_position_id = SPT_MAN_collective_farms
 
 		cost = 10
 
@@ -291,12 +535,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_research_and_education_department
-		icon = GFX_focus_research
-		prerequisite = { focus = MAN_law_university }
+		id = SPT_MAN_research_and_education_department
+		icon = GFX_focus_research2
+		prerequisite = { focus = SPT_MAN_law_university }
 		x = 0
 		y = 1
-		relative_position_id = MAN_law_university
+		relative_position_id = SPT_MAN_law_university
 
 		cost = 10
 
@@ -337,13 +581,48 @@ focus_tree = {
 		}
 	}
 
+	#First five year plan branch
+
 	focus = {
-		id = MAN_trade_delegation
+		id = SPT_MAN_first_five_year_plan
+		icon = GFX_focus_SOV_organize_wreckers
+		x = 6
+		y = 0
+		relative_position_id = SPT_MAN_pacify_the_countryside
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			country_event = wtt_manchukou.11
+		}
+	}
+
+	focus = {
+		id = SPT_MAN_trade_delegation
 		icon = GFX_goal_generic_trade
-		prerequisite = { focus = MAN_pacify_the_countryside }
-		x = 2
+		prerequisite = { focus = SPT_MAN_first_five_year_plan }
+		x = 3
 		y = 1
-		relative_position_id = MAN_pacify_the_countryside
+		relative_position_id = SPT_MAN_first_five_year_plan
 
 		cost = 10
 
@@ -377,12 +656,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_expand_the_textile_industry
-		icon = GFX_goal_generic_consumer_goods
-		prerequisite = { focus = MAN_trade_delegation }
+		id = SPT_MAN_expand_the_textile_industry
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = SPT_MAN_trade_delegation }
 		x = 0
 		y = 1
-		relative_position_id = MAN_trade_delegation
+		relative_position_id = SPT_MAN_trade_delegation
 
 		cost = 10
 
@@ -438,140 +717,21 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = MAN_obedience
-		icon = GFX_focus_CZE_german_puppet
-		prerequisite = { focus = MAN_army_modernization }
-		mutually_exclusive = { focus = MAN_assertiveness }
-		x = -2
-		y = 4
-		relative_position_id = MAN_army_modernization
+	
+	
+	
 
-		cost = 10
+	
 
-		ai_will_do = {
-			factor = 6
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-
-		
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		completion_reward = {
-			add_political_power = 120
-			#SPTChange get cores of all china
-			every_state = {
-				limit = { is_core_of = CHI }
-				add_core_of = ROOT
-			}
-		}
-	}
+	
 
 	focus = {
-		id = MAN_hoankyoku
-		icon = GFX_goal_generic_intelligence_exchange
-		prerequisite = { focus = MAN_obedience }
-		x = -2
-		y = 1
-		relative_position_id = MAN_obedience
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 2
-		}
-
-		available = {
-			hidden_trigger = {
-				is_ai = no #SPTChange prevents ai taking it
-			}
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-
-		search_filters = { FOCUS_FILTER_STABILITY }
-		
-
-		completion_reward = {
-			add_stability = 0.1
-			#SPTChange add colab thingy
-			CHI = {
-				add_ideas = CHI_illegitimate_government
-			}
-			if = {
-				limit = {
-					has_dlc = "La Resistance"
-					is_ai = no
-				}
-				if = {
-					limit = {
-						has_intelligence_agency = no
-					}
-					create_intelligence_agency = yes
-				}
-				add_ideas = MAN_hoankyoku_idea
-			}
-		}
-	}
-
-	focus = {
-		id = MAN_first_five_year_plan
-		icon = GFX_goal_generic_production
-		prerequisite = { focus = MAN_obedience }
-		x = 0
-		y = 1
-		relative_position_id = MAN_obedience
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		
-
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-		completion_reward = {
-			country_event = wtt_manchukou.11
-		}
-	}
-
-	focus = {
-		id = MAN_invite_japanese_investors
-		icon = GFX_goal_generic_improve_relations
-		prerequisite = { focus = MAN_first_five_year_plan }
+		id = SPT_MAN_invite_japanese_investors
+		icon = GFX_focus_chi_collaboration_with_the_japanese
+		prerequisite = { focus = SPT_MAN_first_five_year_plan }
 		x = -1
 		y = 1
-		relative_position_id = MAN_first_five_year_plan
+		relative_position_id = SPT_MAN_first_five_year_plan
 
 		cost = 10
 
@@ -633,12 +793,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_expand_the_railways
+		id = SPT_MAN_expand_the_railways
 		icon = GFX_goal_generic_construct_infrastructure
-		prerequisite = { focus = MAN_invite_japanese_investors }
+		prerequisite = { focus = SPT_MAN_invite_japanese_investors }
 		x = 0
 		y = 1
-		relative_position_id = MAN_invite_japanese_investors
+		relative_position_id = SPT_MAN_invite_japanese_investors
 
 		cost = 10
 
@@ -756,12 +916,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_develop_aluminum_sources
-		icon = GFX_goal_generic_construction2
-		prerequisite = { focus = MAN_invite_japanese_investors }
+		id = SPT_MAN_develop_aluminum_sources
+		icon = GFX_focus_generic_aluminum
+		prerequisite = { focus = SPT_MAN_invite_japanese_investors }
 		x = -2
 		y = 1
-		relative_position_id = MAN_invite_japanese_investors
+		relative_position_id = SPT_MAN_invite_japanese_investors
 
 		cost = 10
 
@@ -802,12 +962,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_expand_showa_steel_works
-		icon = GFX_goal_generic_construct_civ_factory
-		prerequisite = { focus = MAN_develop_aluminum_sources }
+		id = SPT_MAN_expand_showa_steel_works
+		icon = GFX_focus_SOV_south_manchuria_railway
+		prerequisite = { focus = SPT_MAN_develop_aluminum_sources }
 		x = 0
 		y = 1
-		relative_position_id = MAN_develop_aluminum_sources
+		relative_position_id = SPT_MAN_develop_aluminum_sources
 
 		cost = 10
 
@@ -844,12 +1004,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_social_research_unit
+		id = SPT_MAN_social_research_unit
 		icon = GFX_focus_research
-		prerequisite = { focus = MAN_expand_the_railways }
+		prerequisite = { focus = SPT_MAN_expand_the_railways }
 		x = 0
 		y = 2
-		relative_position_id = MAN_invite_japanese_investors
+		relative_position_id = SPT_MAN_invite_japanese_investors
 
 		cost = 10
 
@@ -878,14 +1038,14 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_second_five_year_plan
-		icon = GFX_goal_generic_production
-		prerequisite = { focus = MAN_social_research_unit }
-		prerequisite = { focus = MAN_expand_showa_steel_works }
-		prerequisite = { focus = MAN_mamc }
+		id = SPT_MAN_second_five_year_plan
+		icon = GFX_focus_generic_tank_production
+		prerequisite = { focus = SPT_MAN_social_research_unit }
+		prerequisite = { focus = SPT_MAN_expand_showa_steel_works }
+		prerequisite = { focus = SPT_MAN_mamc }
 		x = 0
 		y = 4
-		relative_position_id = MAN_first_five_year_plan
+		relative_position_id = SPT_MAN_first_five_year_plan
 
 		cost = 10
 
@@ -933,12 +1093,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_national_defense_state
-		icon = GFX_goal_generic_build_tank
-		prerequisite = { focus = MAN_second_five_year_plan }
+		id = SPT_MAN_national_defense_state
+		icon = GFX_focus_jap_manchurian_project
+		prerequisite = { focus = SPT_MAN_second_five_year_plan }
 		x = 0
 		y = 1
-		relative_position_id = MAN_second_five_year_plan
+		relative_position_id = SPT_MAN_second_five_year_plan
 
 		cost = 10
 
@@ -967,12 +1127,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_mukden_arsenal
+		id = SPT_MAN_mukden_arsenal
 		icon = GFX_goal_generic_construct_mil_factory
-		prerequisite = { focus = MAN_first_five_year_plan }
+		prerequisite = { focus = SPT_MAN_first_five_year_plan }
 		x = 1
 		y = 1
-		relative_position_id = MAN_first_five_year_plan
+		relative_position_id = SPT_MAN_first_five_year_plan
 
 		cost = 10
 
@@ -1008,12 +1168,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_mamc
+		id = SPT_MAN_mamc
 		icon = GFX_goal_generic_air_fighter
-		prerequisite = { focus = MAN_mukden_arsenal }
+		prerequisite = { focus = SPT_MAN_mukden_arsenal }
 		x = 0
 		y = 1
-		relative_position_id = MAN_mukden_arsenal
+		relative_position_id = SPT_MAN_mukden_arsenal
 
 		cost = 10
 
@@ -1043,98 +1203,19 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = MAN_alliance_with_the_kwantung_army
-		icon = GFX_goal_generic_occupy_states_ongoing_war
-		prerequisite = { focus = MAN_first_five_year_plan }
-		x = 3
-		y = 1
-		relative_position_id = MAN_first_five_year_plan
+	
 
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-
-		
-
-		search_filters = { FOCUS_FILTER_RESEARCH }
-		completion_reward = {
-			remove_ideas = MAN_kwantung_veto
-			add_doctrine_cost_reduction = {
-				name = MAN_alliance_with_the_kwantung_army
-				cost_reduction = 0.5
-				uses = 1
-				category = land_doctrine
-			}
-		}
-	}
-
-	focus = {
-		id = MAN_chinese_leadership
-		icon = GFX_focus_generic_support_the_left_right
-		prerequisite = { focus = MAN_alliance_with_the_kwantung_army }
-		x = 0
-		y = 1
-		relative_position_id = MAN_alliance_with_the_kwantung_army
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-
-		
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		completion_reward = {
-			#Removed low legitamacy
-			#MAN_low_legitimacy_level_down = yes
-			if = {
-				limit = {
-					MAN = {
-						has_idea = MAN_low_legitimacy_5
-					}
-				}
-				remove_ideas = MAN_low_legitimacy_5
-			}
-		}
-	}
+	
 
 	focus = {
 		allow_branch = {always = no}
 		
-		id = MAN_vassalize_mengukuo
+		id = SPT_MAN_vassalize_mengukuo
 		icon = GFX_goal_generic_forceful_treaty
-		prerequisite = { focus = MAN_chinese_leadership }
+		prerequisite = { focus = SPT_MAN_chinese_leadership }
 		x = -1
 		y = 1
-		relative_position_id = MAN_chinese_leadership
+		relative_position_id = SPT_MAN_chinese_leadership
 
 		cost = 10
 
@@ -1171,12 +1252,12 @@ focus_tree = {
 	focus = {
 		allow_branch = {always = no}
 		
-		id = MAN_national_cooperation_government
+		id = SPT_MAN_national_cooperation_government
 		icon = GFX_goal_generic_improve_relations
-		prerequisite = { focus = MAN_chinese_leadership }
+		prerequisite = { focus = SPT_MAN_chinese_leadership }
 		x = 1
 		y = 1
-		relative_position_id = MAN_chinese_leadership
+		relative_position_id = SPT_MAN_chinese_leadership
 
 		cost = 10
 
@@ -1207,66 +1288,18 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = MAN_the_two_emperors
-		icon = GFX_goal_anschluss
-		prerequisite = { focus = MAN_chinese_leadership }
-		
-		x = 0
-		y = 1
-		relative_position_id = MAN_chinese_leadership
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-			is_subject_of = JAP
-			compare_autonomy_state > autonomy_wtt_imperial_protectorate			
-			MAN = { 
-				ic_ratio = {
-					tag = JAP
-					ratio > 0.2
-				}
-			}
-			strength_ratio = {
-				tag = JAP
-				ratio > 0.25
-			}
-		}
-
-		bypass = {
-			is_subject = no
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		completion_reward = {
-			add_autonomy_ratio = {
-				value = 0.15
-				localization = MAN_the_two_emperors
-			}
-			MAN_low_legitimacy_level_down_twice = yes
-		}
-	}
+	
 
 	focus = {
 		allow_branch = {always = no}
 		
-		id = MAN_assertiveness
+		id = SPT_MAN_assertiveness
 		icon = GFX_goal_generic_demand_territory
-		prerequisite = { focus = MAN_trade_delegation }
-		mutually_exclusive = { focus = MAN_obedience }
+		prerequisite = { focus = SPT_MAN_trade_delegation }
+		mutually_exclusive = { focus = SPT_MAN_the_kwantung_veto_question }
 		x = 2
 		y = 4
-		relative_position_id = MAN_trade_delegation
+		relative_position_id = SPT_MAN_trade_delegation
 
 		cost = 10
 
@@ -1300,12 +1333,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_request_control_of_the_railways
+		id = SPT_MAN_request_control_of_the_railways
 		icon = GFX_goal_generic_construct_infrastructure
-		prerequisite = { focus = MAN_assertiveness }
+		prerequisite = { focus = SPT_MAN_assertiveness }
 		x = 0
 		y = 1
-		relative_position_id = MAN_assertiveness
+		relative_position_id = SPT_MAN_assertiveness
 
 		cost = 10
 
@@ -1383,13 +1416,13 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_staff_the_court_with_manchus
+		id = SPT_MAN_staff_the_court_with_manchus
 		icon = GFX_goal_generic_intelligence_exchange
-		mutually_exclusive = { focus = MAN_five_equal_peoples }
-		prerequisite = { focus = MAN_request_control_of_the_railways }
+		mutually_exclusive = { focus = SPT_MAN_five_equal_peoples }
+		prerequisite = { focus = SPT_MAN_request_control_of_the_railways }
 		x = -1
 		y = 1
-		relative_position_id = MAN_request_control_of_the_railways
+		relative_position_id = SPT_MAN_request_control_of_the_railways
 
 		cost = 10
 
@@ -1416,12 +1449,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_expand_the_imperial_guards
+		id = SPT_MAN_expand_the_imperial_guards
 		icon = GFX_focus_generic_little_entente
-		prerequisite = { focus = MAN_staff_the_court_with_manchus }
+		prerequisite = { focus = SPT_MAN_staff_the_court_with_manchus }
 		x = -1
 		y = 1
-		relative_position_id = MAN_staff_the_court_with_manchus
+		relative_position_id = SPT_MAN_staff_the_court_with_manchus
 
 		cost = 10
 
@@ -1488,12 +1521,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_local_arms_procurement
+		id = SPT_MAN_local_arms_procurement
 		icon = GFX_goal_generic_construct_mil_factory
-		prerequisite = { focus = MAN_expand_the_imperial_guards }
+		prerequisite = { focus = SPT_MAN_expand_the_imperial_guards }
 		x = 0
 		y = 1
-		relative_position_id = MAN_expand_the_imperial_guards
+		relative_position_id = SPT_MAN_expand_the_imperial_guards
 
 		cost = 10
 
@@ -1571,12 +1604,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_bolster_nationalism
+		id = SPT_MAN_bolster_nationalism
 		icon = GFX_goal_generic_political_pressure
-		prerequisite = { focus = MAN_staff_the_court_with_manchus focus = MAN_five_equal_peoples }
+		prerequisite = { focus = SPT_MAN_staff_the_court_with_manchus focus = MAN_five_equal_peoples }
 		x = 1
 		y = 1
-		relative_position_id = MAN_staff_the_court_with_manchus
+		relative_position_id = SPT_MAN_staff_the_court_with_manchus
 
 		cost = 10
 
@@ -1605,13 +1638,13 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_five_equal_peoples
+		id = SPT_MAN_five_equal_peoples
 		icon = GFX_goal_generic_national_unity
-		mutually_exclusive = { focus = MAN_staff_the_court_with_manchus }
-		prerequisite = { focus = MAN_request_control_of_the_railways }
+		mutually_exclusive = { focus = SPT_MAN_staff_the_court_with_manchus }
+		prerequisite = { focus = SPT_MAN_request_control_of_the_railways }
 		x = 1
 		y = 1
-		relative_position_id = MAN_request_control_of_the_railways
+		relative_position_id = SPT_MAN_request_control_of_the_railways
 
 		cost = 10
 
@@ -1640,12 +1673,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_white_russian_advisers
+		id = SPT_MAN_white_russian_advisers
 		icon = GFX_goal_generic_special_forces
-		prerequisite = { focus = MAN_five_equal_peoples }
+		prerequisite = { focus = SPT_MAN_five_equal_peoples }
 		x = 1
 		y = 1
-		relative_position_id = MAN_five_equal_peoples
+		relative_position_id = SPT_MAN_five_equal_peoples
 
 		cost = 10
 
@@ -1673,12 +1706,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_empower_the_legislative_council
+		id = SPT_MAN_empower_the_legislative_council
 		icon = GFX_goal_generic_dangerous_deal
-		prerequisite = { focus = MAN_five_equal_peoples }
+		prerequisite = { focus = SPT_MAN_five_equal_peoples }
 		x = 3
 		y = 1
-		relative_position_id = MAN_five_equal_peoples
+		relative_position_id = SPT_MAN_five_equal_peoples
 
 		cost = 10
 
@@ -1705,12 +1738,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_five_people_armies
+		id = SPT_MAN_five_people_armies
 		icon = GFX_goal_generic_occupy_states_ongoing_war
-		prerequisite = { focus = MAN_white_russian_advisers }
+		prerequisite = { focus = SPT_MAN_white_russian_advisers }
 		x = 0
 		y = 1
-		relative_position_id = MAN_white_russian_advisers
+		relative_position_id = SPT_MAN_white_russian_advisers
 
 		cost = 10
 
@@ -1783,12 +1816,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_purge_the_general_affairs_council
+		id = SPT_MAN_purge_the_general_affairs_council
 		icon = GFX_goal_generic_major_war
-		prerequisite = { focus = MAN_bolster_nationalism  }
+		prerequisite = { focus = SPT_MAN_bolster_nationalism  }
 		x = 0
 		y = 1
-		relative_position_id = MAN_bolster_nationalism 
+		relative_position_id = SPT_MAN_bolster_nationalism 
 
 		cost = 10
 
@@ -1821,12 +1854,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_reform_the_civil_service
+		id = SPT_MAN_reform_the_civil_service
 		icon = GFX_goal_generic_intelligence_exchange
-		prerequisite = { focus = MAN_purge_the_general_affairs_council }
+		prerequisite = { focus = SPT_MAN_purge_the_general_affairs_council }
 		x = -2
 		y = 1
-		relative_position_id = MAN_purge_the_general_affairs_council
+		relative_position_id = SPT_MAN_purge_the_general_affairs_council
 
 		cost = 10
 
@@ -1855,12 +1888,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_independence_war
+		id = SPT_MAN_independence_war
 		icon = GFX_goal_generic_territory_or_war
-		prerequisite = { focus = MAN_purge_the_general_affairs_council }
+		prerequisite = { focus = SPT_MAN_purge_the_general_affairs_council }
 		x = 0
 		y = 1
-		relative_position_id = MAN_purge_the_general_affairs_council
+		relative_position_id = SPT_MAN_purge_the_general_affairs_council
 
 		cost = 10
 
@@ -1924,12 +1957,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_imperial_divinity
+		id = SPT_MAN_imperial_divinity
 		icon = GFX_goal_generic_secret_weapon
-		prerequisite = { focus = MAN_independence_war }
+		prerequisite = { focus = SPT_MAN_independence_war }
 		x = -1
 		y = 1
-		relative_position_id = MAN_independence_war
+		relative_position_id = SPT_MAN_independence_war
 
 		cost = 10
 
@@ -1957,12 +1990,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_imperial_university
+		id = SPT_MAN_imperial_university
 		icon = GFX_focus_research
-		prerequisite = { focus = MAN_imperial_divinity }
+		prerequisite = { focus = SPT_MAN_imperial_divinity }
 		x = -1
 		y = 1
-		relative_position_id = MAN_imperial_divinity
+		relative_position_id = SPT_MAN_imperial_divinity
 
 		cost = 10
 
@@ -1991,13 +2024,13 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_move_capitals
+		id = SPT_MAN_move_capitals
 		icon = GFX_goal_generic_propaganda
-		prerequisite = { focus = MAN_imperial_divinity }
-		prerequisite = { focus = MAN_reclaim_the_empire }
+		prerequisite = { focus = SPT_MAN_imperial_divinity }
+		prerequisite = { focus = SPT_MAN_reclaim_the_empire }
 		x = 1
 		y = 1
-		relative_position_id = MAN_imperial_divinity
+		relative_position_id = SPT_MAN_imperial_divinity
 
 		cost = 10
 
@@ -2026,12 +2059,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_claim_the_mandate_of_heaven
+		id = SPT_MAN_claim_the_mandate_of_heaven
 		icon = GFX_focus_man_claim_the_mandate_of_heaven
-		prerequisite = { focus = MAN_move_capitals }
+		prerequisite = { focus = SPT_MAN_move_capitals }
 		x = 0
 		y = 1
-		relative_position_id = MAN_move_capitals
+		relative_position_id = SPT_MAN_move_capitals
 
 		cost = 10
 
@@ -2101,12 +2134,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_reclaim_the_empire
+		id = SPT_MAN_reclaim_the_empire
 		icon = GFX_focus_generic_strike_at_democracy1
-		prerequisite = { focus = MAN_independence_war }
+		prerequisite = { focus = SPT_MAN_independence_war }
 		x = 1
 		y = 1
-		relative_position_id = MAN_independence_war
+		relative_position_id = SPT_MAN_independence_war
 
 		cost = 10
 
@@ -2140,13 +2173,13 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_assert_our_authority
+		id = SPT_MAN_assert_our_authority
 		icon = GFX_goal_demand_sudetenland
-		mutually_exclusive = { focus = MAN_offer_vassalization }
-		prerequisite = { focus = MAN_reclaim_the_empire }
+		mutually_exclusive = { focus = SPT_MAN_offer_vassalization }
+		prerequisite = { focus = SPT_MAN_reclaim_the_empire }
 		x = 1
 		y = 1
-		relative_position_id = MAN_reclaim_the_empire
+		relative_position_id = SPT_MAN_reclaim_the_empire
 
 		cost = 10
 
@@ -2185,13 +2218,13 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MAN_offer_vassalization
+		id = SPT_MAN_offer_vassalization
 		icon = GFX_goal_generic_air_doctrine
-		mutually_exclusive = { focus = MAN_assert_our_authority }
-		prerequisite = { focus = MAN_reclaim_the_empire }
+		mutually_exclusive = { focus = SPT_MAN_assert_our_authority }
+		prerequisite = { focus = SPT_MAN_reclaim_the_empire }
 		x = 3
 		y = 1
-		relative_position_id = MAN_reclaim_the_empire
+		relative_position_id = SPT_MAN_reclaim_the_empire
 
 		cost = 10
 
@@ -2225,7 +2258,7 @@ focus_tree = {
 		}
 	}
 
+# 
 
-
-	shared_focus = CHI_invite_foreign_investors
+	#shared_focus = CHI_invite_foreign_investors
 }
