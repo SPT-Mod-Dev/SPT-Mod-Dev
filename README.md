@@ -1,5 +1,24 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.2.3 - Update to 1.12.7 and small changes
+ 
+- Updated to 1.12.7 hoi4 version 
+- Removed 1939 start 
+
+#### Hungary
+- Fixed "Claim overlordship over slovakia" to require the correct states
+#### Italy
+- Remove decision to form greater italy [Getting all cores is too op and the med war already buffs italian success]
+#### Romania
+- Removed "His majesty's loyal government" branch and the "King michaels coup" focus [Ahistorical focuses and requires hungary to not exist or be a puppet]
+#### Raj
+- Fixed focuses overlapping
+#### Army Spirits
+- Proper Heritage:
+    - Decreased cavalry attack `+50% -> +30%` [too op atm]
+    - Decreased cavalry defense `+50% -> +30%`
+
+
 ### 3.2.2 - Balancing Update
 
 #### Axis Rules
