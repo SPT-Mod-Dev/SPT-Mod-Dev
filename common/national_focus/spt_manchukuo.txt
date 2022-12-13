@@ -53,7 +53,7 @@
 
 	focus = {
 		id = SPT_MAN_pacify_the_countryside
-		icon = GFX_goal_generic_major_war
+		icon = GFX_focus_hol_war_on_pacifism
 		x = 4
 		y = 0
 
@@ -159,6 +159,11 @@
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
+			set_cosmetic_tag = MAN_Manshukoku
+			swap_ideas = {
+				remove_idea = MAN_low_legitimacy_5
+				add_idea = MAN_low_legitimacy_4
+			}
 			remove_ideas = MAN_kwantung_veto
 			retire_country_leader = yes
 			# KISHI ARRIVES
@@ -170,6 +175,7 @@
 					traits = {
 						political_dancer 
 						unscrupulous_orchestrator
+						prince_of_terror
 					}	
 				}
 				promote_leader = no				
@@ -180,9 +186,9 @@
 
 	focus = {
 		id = SPT_MAN_army_modernization
-		icon = GFX_goal_generic_small_arms
+		icon = GFX_focus_chi_army_reform
 		prerequisite = { focus = SPT_MAN_the_japanese_colony }
-		x = 0
+		x = 5
 		y = 1
 		relative_position_id = SPT_MAN_the_japanese_colony
 
@@ -207,12 +213,87 @@
 		
 
 		completion_reward = {
-			army_experience = 50
-			add_doctrine_cost_reduction = {
-				name = MAN_alliance_with_the_kwantung_army
-				cost_reduction = 0.5
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 4
+				category = infantry_weapons
+				category = artillery
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_MAN_modern_rifles
+		icon = GFX_focus_focus_fra_maquis
+		prerequisite = { focus = SPT_MAN_army_modernization }
+		x = 1
+		y = 1
+		relative_position_id = SPT_MAN_army_modernization
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 3
 				uses = 1
-				category = land_doctrine
+				category = infantry_weapons
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_MAN_form_mountaineer_regiments
+		icon = GFX_focus_GRE_a_land_of_mountains
+		prerequisite = { focus = SPT_MAN_modern_rifles }
+		prerequisite = { focus = SPT_MAN_mukden_military_academy }
+		x = -1
+		y = 1
+		relative_position_id = SPT_MAN_modern_rifles
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		
+
+		completion_reward = {
+			add_ideas = MAN_elite_mountain_troops
+			add_tech_bonus = {
+				bonus = 1
+				uses = 2
+				category = mountaineers_tech
 			}
 		}
 	}
@@ -221,7 +302,7 @@
 		id = SPT_MAN_mukden_military_academy
 		icon = GFX_goal_generic_position_armies
 		prerequisite = { focus = SPT_MAN_army_modernization }
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = SPT_MAN_army_modernization
 
@@ -252,9 +333,9 @@
 
 	focus = {
 		id = SPT_MAN_hoankyoku
-		icon = GFX_goal_generic_political_pressure
+		icon = GFX_focus_SWI_embrace_rote_drei
 		prerequisite = { focus = SPT_MAN_the_japanese_colony }
-		x = 2
+		x = 3
 		y = 1
 		relative_position_id = SPT_MAN_the_japanese_colony
 
@@ -265,9 +346,7 @@
 		}
 
 		available = {
-			hidden_trigger = {
-				is_ai = no #SPTChange prevents ai taking it
-			}
+			
 		}
 
 		bypass = {
@@ -283,10 +362,7 @@
 
 		completion_reward = {
 			add_stability = 0.1
-			#SPTChange add colab thingy
-			CHI = {
-				add_ideas = CHI_illegitimate_government
-			}
+			
 			if = {
 				limit = {
 					has_dlc = "La Resistance"
@@ -336,7 +412,13 @@
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-
+			CHI = {
+				add_ideas = CHI_illegitimate_government
+			}
+			swap_ideas = {
+				remove_idea = MAN_low_legitimacy_5
+				add_idea = MAN_low_legitimacy_4
+			}
 		}
 	}
 	focus = {
@@ -356,17 +438,6 @@
 
 		available = {
 			is_subject_of = JAP
-			compare_autonomy_state > autonomy_wtt_imperial_protectorate			
-			MAN = { 
-				ic_ratio = {
-					tag = JAP
-					ratio > 0.2
-				}
-			}
-			strength_ratio = {
-				tag = JAP
-				ratio > 0.25
-			}
 		}
 
 		bypass = {
@@ -381,6 +452,7 @@
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			set_cosmetic_tag = MAN_Chinese_Empire
 			add_autonomy_ratio = {
 				value = 0.15
 				localization = MAN_the_two_emperors
@@ -392,11 +464,11 @@
 	#Japanese settlers branch
 	focus = {
 		id = SPT_MAN_invite_japanese_settlers
-		icon = GFX_goal_generic_construct_civilian
-		prerequisite = { focus = SPT_MAN_pacify_the_countryside }
-		x = 0
-		y = 1
-		relative_position_id = SPT_MAN_pacify_the_countryside
+		icon = GFX_focus_jap_spiritual_mobilization
+		prerequisite = { focus = SPT_MAN_the_japanese_colony }
+		x = 1
+		y = 2
+		relative_position_id = SPT_MAN_the_japanese_colony
 
 		cost = 10
 
@@ -421,10 +493,10 @@
 		complete_tooltip = {
 			every_state = {
 				limit = { has_state_flag = MAN_invite_japanese_settlers_2IC }
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -437,10 +509,10 @@
 			random_owned_state = {
 				limit = { is_fully_controlled_by = ROOT }
 				add_manpower = 25417
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 				set_state_flag = MAN_invite_japanese_settlers_2IC
@@ -448,10 +520,10 @@
 			random_owned_state = {
 				limit = { is_fully_controlled_by = ROOT }
 				add_manpower = 33846
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 				set_state_flag = MAN_invite_japanese_settlers_2IC
@@ -461,10 +533,10 @@
 
 	focus = {
 		id = SPT_MAN_collective_farms
-		icon = GFX_goal_generic_construction
+		icon = GFX_focus_SOV_merge_plants
 		prerequisite = { focus = SPT_MAN_invite_japanese_settlers }
 		x = 0
-		y = 1
+		y = 2
 		relative_position_id = SPT_MAN_invite_japanese_settlers
 
 		cost = 10
@@ -502,10 +574,10 @@
 	focus = {
 		id = SPT_MAN_law_university
 		icon = GFX_focus_research
-		prerequisite = { focus = SPT_MAN_collective_farms }
-		x = 0
+		prerequisite = { focus = SPT_MAN_chinese_leadership focus = SPT_MAN_the_japanese_colony }
+		x = 1
 		y = 1
-		relative_position_id = SPT_MAN_collective_farms
+		relative_position_id = SPT_MAN_chinese_leadership
 
 		cost = 10
 
@@ -585,7 +657,7 @@
 	focus = {
 		id = SPT_MAN_first_five_year_plan
 		icon = GFX_focus_SOV_organize_wreckers
-		x = 6
+		x = 8
 		y = 0
 		relative_position_id = SPT_MAN_pacify_the_countryside
 
@@ -648,7 +720,7 @@
 			add_tech_bonus = {
 				name = MAN_trade_delegation
 				bonus = 1.0
-				uses = 1
+				uses = 2
 				category = industry
 			}
 		}
@@ -944,18 +1016,13 @@
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			if = {
-				limit = { has_tech = excavation1 }
 				add_tech_bonus = {
 					name = MAN_develop_aluminum_sources
 					bonus = 1.0
-					uses = 1
+					uses = 2
 					category = excavation_tech
 				}
-			}
-			else = {
-				set_technology = { excavation1 = 1 }
-			}
+
 			unlock_decision_tooltip = MAN_develop_kirin_aluminium_deposits
 		}
 	}
@@ -1042,7 +1109,7 @@
 		prerequisite = { focus = SPT_MAN_social_research_unit }
 		prerequisite = { focus = SPT_MAN_expand_showa_steel_works }
 		prerequisite = { focus = SPT_MAN_mamc }
-		x = 0
+		x = 1
 		y = 4
 		relative_position_id = SPT_MAN_first_five_year_plan
 
@@ -1122,6 +1189,7 @@
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			add_ideas = MAN_national_defense_state
+			add_ideas = tot_economic_mobilisation
 		}
 	}
 
@@ -1156,10 +1224,10 @@
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			716 = {
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
