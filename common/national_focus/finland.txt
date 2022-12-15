@@ -75,7 +75,7 @@ focus_tree {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FilTER_INDUSTRIAL }
 
 		completion_reward = {
 
@@ -132,6 +132,67 @@ focus_tree {
 			
 			
 	}
+
+	focus = {
+		id = FIN_promote_trade_with_Germany
+		incon = GFX_goal_generic_trade
+		prerequisite = { focus = FIN_Expand_southern_infrastructure} 
+
+		x = -2
+		y = 1
+		relative_position_id = FIN_Expand_southern_infrastructure 
+	
+		cost = 10
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = { 
+			NOT = { has_war_with = GER }
+		}
+
+		completion_reward = {
+			add_opinion_modifier = { target = GER modifier = HUN_trade_deal_with_germany  }
+			reverse_add_opinion_modifier = { target = GER modifier =  HUN_trade_deal_with_germany }
+
+		}
+	}
+
+
+	focus = {
+		id = FIN_seek_german_investments
+		icon = GFX_focus_chi_mission_to_germany
+		prerequisite = { focus = FIN_promote_trade_with_Germany}
+
+		x = 0
+		y= 3
+
+		relative_position_id = {focus = FIN_promote_trade_with_Germany }
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = { 
+			NOT = { has_war_with = GER }
+		}
+
+		completion_reward = { 
+			add_ideas = FIN_german_investments 
+
+	}
+
 }	
 	
 
