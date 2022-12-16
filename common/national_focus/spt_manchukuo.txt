@@ -54,7 +54,7 @@
 	focus = {
 		id = SPT_MAN_pacify_the_countryside
 		icon = GFX_focus_hol_war_on_pacifism
-		x = 4
+		x = 0
 		y = 0
 
 		cost = 10
@@ -85,13 +85,118 @@
 	}
 
 	focus = {
-		id = SPT_MAN_the_kwantung_veto_question
-		icon = GFX_focus_man_claim_the_mandate_of_heaven
+		id = SPT_MAN_social_research_unit
+		icon = GFX_focus_generic_military_academy
 		prerequisite = { focus = SPT_MAN_pacify_the_countryside }
-		mutually_exclusive = { focus = SPT_MAN_assertiveness }
-		x = -5
+		x = 0
 		y = 1
 		relative_position_id = SPT_MAN_pacify_the_countryside
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 8
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_ideas = MAN_social_research_unit
+			add_ideas = MAN_south_manchuria_railway_company
+		}
+	}
+
+	focus = {
+		id = SPT_MAN_embrace_the_opium_trade
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = SPT_MAN_social_research_unit }
+		mutually_exclusive = { focus = SPT_MAN_crack_down_on_the_opium_trade }
+		x = -1
+		y = 1
+		relative_position_id = SPT_MAN_social_research_unit
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 8
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_ideas = MAN_opium_trade
+		}
+	}
+
+	focus = {
+		id = SPT_MAN_crack_down_on_the_opium_trade
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = SPT_MAN_social_research_unit }
+		mutually_exclusive = { focus = SPT_MAN_embrace_the_opium_trade }
+		x = 1
+		y = 1
+		relative_position_id = SPT_MAN_social_research_unit
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 8
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_ideas = MAN_opium_trade_banned
+		}
+	}
+
+	focus = {
+		id = SPT_MAN_the_kwantung_veto_question
+		icon = GFX_focus_man_claim_the_mandate_of_heaven
+		prerequisite = { focus = SPT_MAN_embrace_the_opium_trade focus = SPT_MAN_crack_down_on_the_opium_trade }
+		mutually_exclusive = { focus = SPT_MAN_assertiveness }
+		x = -1
+		y = 1
+		relative_position_id = SPT_MAN_crack_down_on_the_opium_trade
 
 		cost = 10
 
@@ -160,10 +265,7 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			set_cosmetic_tag = MAN_Manshukoku
-			swap_ideas = {
-				remove_idea = MAN_low_legitimacy_5
-				add_idea = MAN_low_legitimacy_4
-			}
+			MAN_low_legitimacy_level_down = yes
 			remove_ideas = MAN_kwantung_veto
 			retire_country_leader = yes
 			# KISHI ARRIVES
@@ -290,6 +392,7 @@
 
 		completion_reward = {
 			add_ideas = MAN_elite_mountain_troops
+			set_technology = { MAN_mountaineer_buff = 1 }
 			add_tech_bonus = {
 				bonus = 1
 				uses = 2
@@ -415,10 +518,7 @@
 			CHI = {
 				add_ideas = CHI_illegitimate_government
 			}
-			swap_ideas = {
-				remove_idea = MAN_low_legitimacy_5
-				add_idea = MAN_low_legitimacy_4
-			}
+			MAN_low_legitimacy_level_down = yes
 		}
 	}
 	focus = {
@@ -657,7 +757,7 @@
 	focus = {
 		id = SPT_MAN_first_five_year_plan
 		icon = GFX_focus_SOV_organize_wreckers
-		x = 8
+		x = 10
 		y = 0
 		relative_position_id = SPT_MAN_pacify_the_countryside
 
@@ -824,8 +924,7 @@
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		complete_tooltip = {
-			custom_effect_tooltip = available_political_advisor
-			show_ideas_tooltip = MAN_songgotu_zhanshan
+			add_ideas = MAN_songgotu_zhanshan
 			random_state = {
 				limit = {
 					has_state_flag = MAN_invite_japanese_investors_IC
@@ -840,8 +939,7 @@
 		}
 
 		completion_reward = {
-			custom_effect_tooltip = available_political_advisor
-			show_ideas_tooltip = MAN_songgotu_zhanshan
+			add_ideas = MAN_songgotu_zhanshan
 			random_owned_controlled_state = {
 				prioritize = { 328 }
 				limit = {
@@ -989,10 +1087,10 @@
 	focus = {
 		id = SPT_MAN_develop_aluminum_sources
 		icon = GFX_focus_generic_aluminum
-		prerequisite = { focus = SPT_MAN_invite_japanese_investors }
+		prerequisite = { focus = SPT_MAN_expand_the_railways }
 		x = -2
 		y = 1
-		relative_position_id = SPT_MAN_invite_japanese_investors
+		relative_position_id = SPT_MAN_expand_the_railways
 
 		cost = 10
 
@@ -1030,10 +1128,10 @@
 	focus = {
 		id = SPT_MAN_expand_showa_steel_works
 		icon = GFX_focus_SOV_south_manchuria_railway
-		prerequisite = { focus = SPT_MAN_develop_aluminum_sources }
+		prerequisite = { focus = SPT_MAN_expand_the_railways }
 		x = 0
 		y = 1
-		relative_position_id = SPT_MAN_develop_aluminum_sources
+		relative_position_id = SPT_MAN_expand_the_railways
 
 		cost = 10
 
@@ -1069,46 +1167,14 @@
 		}
 	}
 
-	focus = {
-		id = SPT_MAN_social_research_unit
-		icon = GFX_focus_research
-		prerequisite = { focus = SPT_MAN_expand_the_railways }
-		x = 0
-		y = 2
-		relative_position_id = SPT_MAN_invite_japanese_investors
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 8
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-
-		
-
-		search_filters = { FOCUS_FILTER_RESEARCH }
-		completion_reward = {
-			add_research_slot = 1
-		}
-	}
+	
 
 	focus = {
 		id = SPT_MAN_second_five_year_plan
 		icon = GFX_focus_generic_tank_production
-		prerequisite = { focus = SPT_MAN_social_research_unit }
 		prerequisite = { focus = SPT_MAN_expand_showa_steel_works }
 		prerequisite = { focus = SPT_MAN_mamc }
+		prerequisite = { focus = SPT_MAN_develop_aluminum_sources }
 		x = 1
 		y = 4
 		relative_position_id = SPT_MAN_first_five_year_plan

@@ -199,6 +199,69 @@ ideas = {
 			}
 		}
 
+		MAN_social_research_unit = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				original_tag = MAN
+			}
+			
+			removal_cost = -1
+
+			picture = generic_research_bonus
+			
+			modifier = {
+				communism_drift = 0.02
+				production_speed_buildings_factor = 0.1
+				research_speed_factor = 0.05
+			}
+		}
+
+		MAN_opium_trade = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				original_tag = MAN
+			}
+			
+			removal_cost = -1
+
+			picture = prc_permit_opium_trade
+			
+			modifier = {
+				consumer_goods_factor = -0.05
+				stability_factor = -0.1
+
+			}
+		}
+
+		MAN_opium_trade_banned = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				original_tag = MAN
+			}
+			
+			removal_cost = -1
+
+			picture = closed_economy
+			
+			modifier = {
+				stability_factor = 0.2
+				consumer_goods_factor = 0.05
+
+			}
+		}
+
 		MAN_elite_mountain_troops = {
 
 			allowed = {
@@ -214,8 +277,6 @@ ideas = {
 			picture = man_militarism
 			
 			modifier = {
-				special_forces_attack_factor = 0.25
-				special_forces_defence_factor = 0.25
 				acclimatization_cold_climate_gain_factor = 0.4
 				acclimatization_hot_climate_gain_factor = 0.4
 				special_forces_cap = 0.1
@@ -594,8 +655,9 @@ ideas = {
 				original_tag = MAN
 			}
 
-			traits = {
-				construction_company
+			modifier = {
+				production_speed_infrastructure_factor = 0.25
+				production_speed_rail_way_factor = 0.25
 			}
 			
 			ai_will_do = {
