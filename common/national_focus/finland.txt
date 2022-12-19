@@ -22,7 +22,7 @@ focus_tree {
 		x = 5
 		y = 0
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -39,7 +39,7 @@ focus_tree {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_STABILITY }
 
 		completion_reward = {
 			add_stability = 0.1 
@@ -75,14 +75,18 @@ focus_tree {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FilTER_INDUSTRIAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
 
 			111 = {	
-				add_extra_state_shared_building_slots = 3
+				add_extra_state_shared_building_slots = 2
 			}
-		
+
+			146 = {
+				add_extra_state_shared_building_slots = 2
+			}
+
 			111 = {
 				if = {
 					limit = {
@@ -133,12 +137,12 @@ focus_tree {
 			
 	}
 
-	focus = {
+	focus = { #Requiered for approach Germany
 		id = FIN_promote_trade_with_Germany
 		icon = GFX_goal_generic_trade
 		prerequisite = { focus = FIN_Expand_southern_infrastructure} 
 
-		x = -2
+		x = 3
 		y = 1
 		relative_position_id = FIN_Expand_southern_infrastructure 
 	
@@ -166,16 +170,19 @@ focus_tree {
 	}
 
 
-	focus = {
+	focus = { # Gives small amount of target industry to germany but allows "import german designs"
 		id = FIN_seek_german_investments
 		icon = GFX_focus_chi_mission_to_germany
 		prerequisite = { focus = FIN_promote_trade_with_Germany}
 
 		x = -1
+
 		y= 1
 
 		relative_position_id = FIN_promote_trade_with_Germany 
+		
 		cost = 5
+		mutually_exclusive = { focus = FIN_Contract_construction_companies }
 
 		ai_will_do = {
 			factor = 1
@@ -187,7 +194,7 @@ focus_tree {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		
 
@@ -195,6 +202,416 @@ focus_tree {
 			add_ideas = FIN_german_investments 
 		}
 
+	}
+
+	focus = {
+		id = FIN_german_light_industry
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = FIN_seek_german_investments}
+		
+		x = 0
+
+		y= 1
+
+		relative_position_id = FIN_seek_german_investments
+		
+		
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+		
+		available ={
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			111 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			149 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			146 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+
+		}
+
+	}
+	focus = {
+		id = FIN_import_german_designs
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = FIN_promote_trade_with_Germany }
+		
+		x = 1
+
+		y= 1
+
+		relative_position_id = FIN_promote_trade_with_Germany
+		
+		cost = 10
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			# Remove/reduce license cost 
+		}
+	}
+
+	focus ={ 
+		id = FIN_modernise_industrial_sector
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = FIN_Expand_southern_infrastructure }
+		
+		x = -1
+
+		y= 1
+
+		relative_position_id = FIN_Expand_southern_infrastructure
+		
+		cost = 10
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = FIN_industry_modernisation
+				bonus = 1.0
+				uses = 2
+				category = industry
+			}
+		}
+	}
+
+	focus = {
+		id = FIN_expand_finnish_railways
+		icon = GFX_focus_generic_railroad
+		prerequisite = { focus = FIN_Expand_southern_infrastructure}
+		
+		x = 1
+
+		y= 1
+
+		relative_position_id = FIN_Expand_southern_infrastructure
+		
+		cost = 10
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = {
+			build_railway = {
+				#Helsinki -> Viipuri
+				level = 2 
+				path = { 
+					11105 9129 6144 9167 67 9073 9183 11056 6082 9206
+				}
+			}
+			
+			build_railway = {
+				#Turuk -> Helsinki
+				level = 2
+				path = {
+					6108 9194 3083
+				}
+			}
+				
+			build_railway = {
+				#Viipuri -> Joensuu
+				level = 2
+				path ={
+					11162 3050 6150 3187
+				}
+			}
+			
+		}
+		
+	}
+
+	focus = {
+		id = FIN_Contract_finnish_companies
+		icon = GFX_focus_spa_the_spanish_miracle
+		prerequisite = { focus = FIN_expand_finnish_railways focus = FIN_modernise_industrial_sector }
+
+		x = -1
+
+		y= 1
+
+		relative_position_id = FIN_expand_finnish_railways
+		
+		cost = 10
+		mutually_exclusive = { focus = FIN_seek_german_investments }
+
+		ai_will_do = {
+			factor = 5
+		}
+		
+		available ={
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+
+			# Comstume industrial concern
+		}
+
+	
+	}
+
+	focus = { #GFX_focus_generic_land_reclamation
+		id = FIN_expand_civil_contracts
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = FIN_Contract_finnish_companies}
+		
+		x = -1
+
+		y= 1
+
+		relative_position_id = FIN_Contract_finnish_companies
+		
+		
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+		}
+		
+		available ={
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			111 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			149 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			146 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+
+		}
+
+	}
+
+	focus = {
+		id = FIN_military_contracts
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = FIN_Contract_finnish_companies focus = FIN_german_light_industry}
+		
+		x = 1
+
+		y= 2
+
+		relative_position_id = FIN_Contract_finnish_companies
+		
+		
+		cost = 10
+
+		ai_will_do = {
+			factor = 3
+		}
+		
+		available ={
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			111 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+
+		}
+
+	}
+	focus = {
+		id = FIN_invest_in_finnsih_ship_building
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = FIN_Expand_southern_infrastructure}
+		
+		x = -3
+
+		y= 1.5
+
+		relative_position_id = FIN_Expand_southern_infrastructure
+		
+		
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		available ={
+
+		}
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			111 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+			146 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+			145 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+
+		}
+	}
+	focus = {
+		id = FIN_secure_our_coast
+		icon = GFX_focus_SOV_reinforce_western_naval_bases
+		prerequisite = { focus = FIN_invest_in_finnsih_ship_building}
+		
+		x = 0
+
+		y= 1
+
+		relative_position_id = FIN_invest_in_finnsih_ship_building
+		
+		
+		cost = 10
+
+		mutually_exclusive = { focus = FIN_raiding_navy}
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		available ={
+
+		}
+		
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH FOCUS_FILTER_NAVY_XP}
+
+		completion_reward = {
+			navy_experience = 50
+
+			add_tech_bonus = {
+				name = dd_bonus
+				bonus = 1.0
+				uses = 1
+				category = dd_tech
+			}
+			add_tech_bonus = {
+				name = cr_bonus
+				bonus = 1.0
+				uses = 1
+				category = cl_tech
+				category = ca_tech
+			}
+
+		}
 	}
 
 }	
