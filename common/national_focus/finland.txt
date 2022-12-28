@@ -61,7 +61,7 @@ focus_tree {
 		prerequisite = { focus = FIN_Assess_political_situation }
 	 														
 		
-		x = -2
+		x = -3
 		y= 1
 		relative_position_id = FIN_Assess_political_situation
 
@@ -250,8 +250,7 @@ focus_tree {
 				
 			}
 			add_tech_bonus = {
-				name = GER_autarky
-				bonus = 0.5
+				bonus = 1
 				uses = 2
 				technology = excavation1
 				technology = excavation2
@@ -262,12 +261,58 @@ focus_tree {
 		}
 	}
 
-	focus = { #Requiered for approach Germany
+	focus ={
+		id = FIN_yet_to_be_named_two
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = FIN_resource_prospects }
+		prerequisite = {focus = FIN_invest_in_finnsih_ship_building}
+
+		x = -1
+		y = 1
+		relative_position_id = FIN_invest_in_finnsih_ship_building
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		available = {
+
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+
+			#possibly modify finnish industrial companies to give -3% consumer goods
+		}
+	}
+
+	focus = {
 		id = FIN_promote_trade_with_Germany
 		icon = GFX_goal_generic_trade
 		prerequisite = { focus = FIN_Expand_southern_infrastructure} 
 
-		x = 3
+		x = 2
 		y = 1
 		relative_position_id = FIN_Expand_southern_infrastructure 
 	
@@ -297,10 +342,10 @@ focus_tree {
 
 	focus = { # Gives small amount of target industry to germany but allows "import german designs"
 		id = FIN_seek_german_investments
-		icon = GFX_focus_chi_mission_to_germany
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
 		prerequisite = { focus = FIN_promote_trade_with_Germany}
 
-		x = -1
+		x = 0
 
 		y= 1
 
@@ -314,8 +359,15 @@ focus_tree {
 		}
 
 		available = { 
-			NOT = { has_war_with = GER }
+			NOT = {
+				OR = {
+					has_war_with = GER
+					has_compleated_focus = FIN_Contract_construction_companies
+				} 
+				
+			 } 
 		}
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
@@ -325,7 +377,6 @@ focus_tree {
 
 		completion_reward = { 
 			add_ideas = FIN_german_investments
-			# Add german custom industrial concern
 		}
 
 	}
@@ -334,13 +385,14 @@ focus_tree {
 	focus = {
 		id = FIN_import_german_designs
 		icon = GFX_goal_generic_intelligence_exchange
-		prerequisite = { focus = FIN_promote_trade_with_Germany }
 		
-		x = 2
+		prerequisite = { focus = FIN_military_contracts }
+		
+		x = 1
 
-		y= 1
+		y = 1
 
-		relative_position_id = FIN_promote_trade_with_Germany
+		relative_position_id = FIN_military_contracts
 		
 		cost = 10
 
@@ -363,7 +415,7 @@ focus_tree {
 		icon = GFX_goal_generic_construction
 		prerequisite = { focus = FIN_Expand_southern_infrastructure }
 		
-		x = 1
+		x = 0
 
 		y= 1
 
@@ -395,7 +447,7 @@ focus_tree {
 		icon = GFX_focus_generic_railroad
 		prerequisite = { focus = FIN_Expand_southern_infrastructure}
 		
-		x = -1
+		x = -2
 
 		y= 1
 
@@ -453,6 +505,7 @@ focus_tree {
 		relative_position_id = FIN_modernise_industrial_sector
 		
 		cost = 10
+
 		mutually_exclusive = { focus = FIN_seek_german_investments }
 
 		ai_will_do = {
@@ -460,6 +513,7 @@ focus_tree {
 		}
 		
 		available ={
+			Not = { has_compleated_focus = FIN_seek_german_investments }
 
 		}
 
@@ -538,7 +592,7 @@ focus_tree {
 		icon = GFX_goal_generic_construct_mil_factory
 		prerequisite = { focus = FIN_seek_german_investments}
 		
-		x = 1
+		x = 2
 
 		y= 1
 
@@ -561,9 +615,14 @@ focus_tree {
 
 		completion_reward = {
 			111 = {
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
 					level = 1
 					instant_build = yes
 				}
@@ -576,8 +635,48 @@ focus_tree {
 					instant_build = yes
 				}
 			}
+			149 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
 		}
 	}
+
+	focus = {
+		id = FIN_yet_to_be_named
+		icon = GFX_focus_research
+		prerequisite = { focus = FIN_seek_german_investments focus = FIN_Contract_finnish_companies}
+
+		x = 0
+		y = 1
+
+		relative_position_id = FIN_seek_german_investments
+		
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		available ={
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	 }
+
+	 
 
 	focus = {
 		id = FIN_invest_in_finnsih_ship_building
@@ -686,13 +785,9 @@ focus_tree {
 	focus = {
 		id = FIN_secure_our_coast
 		icon = GFX_focus_SOV_reinforce_western_naval_bases
-		prerequisite = { focus = FIN_invest_in_finnsih_ship_building}
 		
-		x = 0
-
-		y= 1
-
-		relative_position_id = FIN_invest_in_finnsih_ship_building
+		
+	
 		
 		
 		cost = 10
@@ -739,6 +834,103 @@ focus_tree {
 ##     ##  ##  ##    ##    ##    ##     ## ##    ##   ##  ##    ## ##     ## ## 
 ##     ## ####  ######     ##     #######  ##     ## ####  ######  ##     ## ######## 
 
+
+ focus = {
+	id = FIN_prepare_for_the_inevitable
+	icon = GFX_focus_EST_national_pride_in_finland
+	prerequisite = { focus = FIN_Assess_political_situation }
+	
+	x = 4
+	y = 1
+	relative_position_id = FIN_Assess_political_situation
+
+	cost = 10
+
+	ai_will_do = {
+		factor = 2
+	}
+
+	available = {
+
+	}
+
+	bypass = {
+		#bypass if germany has compleated anticomintern pact
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters =  {FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+		#anticomintern pact signatory
+	}
+ }
+
+ focus = {
+	id = FIN_reach_out_to_Germany
+	icon = GFX_focus_chi_mission_to_germany
+	prerequisite = { focus = FIN_prepare_for_the_inevitable}
+	mutually_exclusive = { focus = FIN_reach_out_to_Italy}
+
+	x = -1
+	y = 1
+	relative_position_id = FIN_prepare_for_the_inevitable
+
+	cost = 10
+	ai_will_do = {
+		factor = 0
+	}
+
+	available = {
+		NOT = {
+			has_compleated_focus = FIN_reach_out_to_Italy
+		}
+
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters =  {FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+		
+	}
+ }
+
+ focus = {
+	id = FIN_reach_out_to_Italy
+	icon = GFX_focus_befriend_italy
+	prerequisite = { focus = FIN_prepare_for_the_inevitable}
+	utually_exclusive = { focus = FIN_reach_out_to_Germany }
+
+	x = 1
+	y = 1
+	relative_position_id = FIN_prepare_for_the_inevitable
+
+	cost = 10
+	ai_will_do = {
+		factor = 2
+	}
+
+	available = {
+		NOT = {
+			has_compleated_focus = FIN_reach_out_to_Germany
+		}
+
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters =  {FOCUS_FILTER_POLITICAL }
+
+	completion_reward = {
+
+	}
+ }
+ 
 
 }	
 	
