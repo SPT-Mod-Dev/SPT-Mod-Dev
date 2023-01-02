@@ -351,7 +351,7 @@ focus_tree {
 
 		relative_position_id = FIN_promote_trade_with_Germany 
 		
-		cost = 5
+		cost = 10
 		mutually_exclusive = { focus = FIN_Contract_construction_companies }
 
 		ai_will_do = {
@@ -786,7 +786,9 @@ focus_tree {
 		id = FIN_secure_our_coast
 		icon = GFX_focus_SOV_reinforce_western_naval_bases
 		
-		
+		x = 0
+		y = 1
+
 	
 		
 		
@@ -835,12 +837,12 @@ focus_tree {
 ##     ## ####  ######     ##     #######  ##     ## ####  ######  ##     ## ######## 
 
 
- focus = {
+  focus = {
 	id = FIN_prepare_for_the_inevitable
 	icon = GFX_focus_EST_national_pride_in_finland
 	prerequisite = { focus = FIN_Assess_political_situation }
 	
-	x = 4
+	x = 5
 	y = 1
 	relative_position_id = FIN_Assess_political_situation
 
@@ -855,26 +857,30 @@ focus_tree {
 	}
 
 	bypass = {
-		#bypass if germany has compleated anticomintern pact
+		if = {
+			GER = {
+				has_compleated_focus
+			}
+		}
 	}
 
 	cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
-	search_filters =  {FOCUS_FILTER_POLITICAL }
+	search_filters =  {FOCUS_FILTER_POLITICAL FOCUS_FILTER_ARMY_XP }
 
 	completion_reward = {
-		#anticomintern pact signatory
+		add_ideas = FIN_threat_from_the_east
 	}
  }
 
  focus = {
-	id = FIN_reach_out_to_Germany
-	icon = GFX_focus_chi_mission_to_germany
+	id = FIN_learn_from_the_germans
+	icon = GFX_focus_ger_oppose_hitler
 	prerequisite = { focus = FIN_prepare_for_the_inevitable}
-	mutually_exclusive = { focus = FIN_reach_out_to_Italy}
+	mutually_exclusive = { focus = FIN_Italian_mountain_training}
 
-	x = -1
+	x = -2
 	y = 1
 	relative_position_id = FIN_prepare_for_the_inevitable
 
@@ -885,27 +891,86 @@ focus_tree {
 
 	available = {
 		NOT = {
-			has_compleated_focus = FIN_reach_out_to_Italy
+			has_compleated_focus = FIN_Italian_mountain_training
 		}
 
 	}
 	cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
-	search_filters =  {FOCUS_FILTER_POLITICAL }
+	search_filters =  {FOCUS_FILTER_RESEARCH FOCUS_FILTER_ARMY_XP}
 
 	completion_reward = {
-		
+		add_tech_bonus = {
+			name = armor_bonus
+			bonus = 1.0
+			uses = 2
+			category = armor
+		}
+		add_doctrine_cost_reduction = {
+			name = land_doc_bonus
+			cost_reduction = 0.25
+			uses = 2
+			category = land_doctrine
+		}
 	}
  }
 
  focus = {
-	id = FIN_reach_out_to_Italy
-	icon = GFX_focus_befriend_italy
-	prerequisite = { focus = FIN_prepare_for_the_inevitable}
-	utually_exclusive = { focus = FIN_reach_out_to_Germany }
+	id = FIN_retool_industry_for_armour_prodoction
+	icon = GFX_goal_continuous_armor_production
+	prerequisite = { focus = FIN_learn_from_the_germans}
 
-	x = 1
+	x = 0
+	y = 1
+	relative_position_id = FIN_learn_from_the_germans
+
+	cost = 10
+	ai_will_do = {
+		factor = 2
+	}
+
+	available = {
+
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters =  { FOCUS_FILTER_INDUSTRY}
+
+
+
+	available_if_capitulated = yes
+
+	completion_reward = {
+		#armour_production_cost -10%
+		randome_owned_state  = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+		randome_owned_state  = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+
+ }
+
+ focus = {
+	id = FIN_Italian_mountain_training
+	icon = GFX_focus_ITA_alpine_division
+	prerequisite = { focus = FIN_prepare_for_the_inevitable}
+	mutually_exclusive = { focus = FIN_learn_from_the_germans }
+
+	x = 0
 	y = 1
 	relative_position_id = FIN_prepare_for_the_inevitable
 
@@ -916,7 +981,7 @@ focus_tree {
 
 	available = {
 		NOT = {
-			has_compleated_focus = FIN_reach_out_to_Germany
+			has_compleated_focus = FIN_learn_from_the_germans
 		}
 
 	}
@@ -924,14 +989,53 @@ focus_tree {
 	cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
-	search_filters =  {FOCUS_FILTER_POLITICAL }
+	search_filters =  { FOCUS_FILTER_RESEARCH FOCUS_FILTER_ARMY_XP}
+
+	
+	available_if_capitulated = yes
+	
+	completion_reward = {
+		#daily army xp gain
+		add_tech_bonus = {
+			name = Italian_mountain_training
+			bonus = 1.0
+			uses = 2
+
+			technology = tech_mountaineers
+			technology = tech_mountaineers2
+		}
+		
+	}
+  }
+
+  focus = {
+	id = FIN_specialised_winter_training
+	icon = GFX_focus_GRE_a_land_of_mountains
+	prerequisite = { focus = FIN_Italian_mountain_training }
+
+	x = 0
+	y = 1
+	relative_position_id = FIN_Italian_mountain_training
+
+	cost = 10
+
+	ai_will_do = {
+		facotr = 5
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters =  {FOCUS_FILTER_RESEARCH FOCUS_FILTER_ARMY}
+	
+	available_if_capitulated = yes
 
 	completion_reward = {
-
+		#appoint Special forces high command
+		special_forces_cap = 0.1
 	}
- }
+  }
  
-
 }	
 	
 
