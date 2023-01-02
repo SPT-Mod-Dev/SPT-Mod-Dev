@@ -846,13 +846,16 @@ focus_tree {
 	y = 1
 	relative_position_id = FIN_Assess_political_situation
 
-	cost = 10
+	cost = 15
 
 	ai_will_do = {
 		factor = 2
 	}
 
 	available = {
+		NOT = {
+			has_war = SOV
+		}
 
 	}
 
@@ -871,6 +874,7 @@ focus_tree {
 
 	completion_reward = {
 		add_ideas = FIN_threat_from_the_east
+		add_political_power = 100
 	}
  }
 
@@ -944,7 +948,7 @@ focus_tree {
 	available_if_capitulated = yes
 
 	completion_reward = {
-		#armour_production_cost -5%
+		#Modify FIN_threat_from_the_east armour production cost -5%
 		random_owned_state  = {
 			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
@@ -1037,8 +1041,83 @@ focus_tree {
 	available_if_capitulated = yes
 
 	completion_reward = {
-		#appoint Special forces high command
-		special_forces_cap = 0.1
+		#Modify FIN_threat_from_the_east special forces time training -10 
+		# special forces cap 0.1
+		# cold acclimatization + 10%
+		}
+  }
+focus = {
+	id = FIN_new_advisors
+	icon = GFX_focus_generic_infiltration
+	prerequisite = { focus = FIN_retool_industry_for_armour_prodoction focus = FIN_specialised_winter_training}
+	x = 1
+	y = 1
+	relative_position_id = FIN_retool_industry_for_armour_prodoction
+
+	cost = 10
+	
+	ai_will_do = {
+		factor = 3
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters =  {FOCUS_FILTER_RESEARCH }
+	
+	available_if_capitulated = yes
+
+	completion_reward = {
+		#Modify FIN_threat_from_the_east commandpower allocated to general staff -33%. pp cost to appoint -33%
+	}
+
+}
+
+  focus = {
+	id = FIN_decrease_import_reliance
+	icon = GFX_focus_generic_rubber
+	prerequisite = { focus = FIN_prepare_for_the_inevitable}
+
+	x = 5
+	y = 1
+	relative_position_id = FIN_prepare_for_the_inevitable
+
+	cost = 10
+
+	ai_will_do = {
+		facotr = 5
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters =  {FOCUS_FILTER_RESEARCH }
+	
+	available_if_capitulated = no
+
+	completion_reward = {
+		random_owned_state  = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = synthetic_refinery
+				level = 1
+				instant_build = yes
+			}
+		}
+		random_owned_state  = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = synthetic_refinery
+				level = 1
+				instant_build = yes
+			}
+		}
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 3
+
+			category = synth_resources
+		}
+
 	}
   }
  
