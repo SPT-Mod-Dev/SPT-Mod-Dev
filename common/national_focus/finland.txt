@@ -343,9 +343,9 @@ focus_tree {
 	focus = { # Gives small amount of target industry to germany but allows "import german designs"
 		id = FIN_seek_german_investments
 		icon = GFX_focus_eng_concessions_to_the_trade_unions
-		prerequisite = { focus = FIN_promote_trade_with_Germany}
+		prerequisite = { focus = FIN_promote_trade_with_Germany focus = FIN_modernise_industrial_sector}
 
-		x = 0
+		x = -1
 
 		y= 1
 
@@ -592,7 +592,7 @@ focus_tree {
 		icon = GFX_goal_generic_construct_mil_factory
 		prerequisite = { focus = FIN_seek_german_investments}
 		
-		x = 2
+		x = 3
 
 		y= 1
 
@@ -651,7 +651,7 @@ focus_tree {
 		icon = GFX_focus_research
 		prerequisite = { focus = FIN_seek_german_investments focus = FIN_Contract_finnish_companies}
 
-		x = 0
+		x = 1
 		y = 1
 
 		relative_position_id = FIN_seek_german_investments
@@ -854,26 +854,20 @@ focus_tree {
 
 	available = {
 		NOT = {
-			has_war = SOV
+			has_war_against = SOV
 		}
 
 	}
 
-	bypass = {
-		if = {
-			GER = {
-				has_compleated_focus = GER_anti_comitern_pact
-			}
-		}
-	}
+	
 
 	cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
-	search_filters =  {FOCUS_FILTER_POLITICAL FOCUS_FILTER_ARMY_XP }
+	search_filters =  {FOCUS_FILTER_POLITICAL}
 
 	completion_reward = {
-		add_ideas = FIN_threat_from_the_east
+		add_dynamic_modifier = { modifier = FIN_threat_from_the_east }
 		add_political_power = 100
 	}
  }
@@ -1000,7 +994,9 @@ focus_tree {
 	available_if_capitulated = yes
 	
 	completion_reward = {
-		#daily army xp gain .1
+		set_variable = {
+			FIN_xp_gain = 0.1
+		}
 		add_tech_bonus = {
 			name = Italian_mountain_training
 			bonus = 1.0
