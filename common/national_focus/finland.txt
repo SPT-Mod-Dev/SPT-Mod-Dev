@@ -868,7 +868,7 @@ focus_tree {
 
 	completion_reward = {
 		add_dynamic_modifier = { modifier = FIN_threat_from_the_east }
-		add_political_power = 100
+		add_political_power = 10
 	}
  }
 
@@ -1011,7 +1011,9 @@ focus_tree {
 			uses = 2
 			category = land_doctrine
 		}
+		custom_effect_tooltip = FIN_Italian_mountain_training_tt
 	}
+
   }
 
   focus = {
@@ -1037,10 +1039,15 @@ focus_tree {
 	available_if_capitulated = yes
 
 	completion_reward = {
-		#Modify FIN_threat_from_the_east special forces time training -10 
+		set_variable = { FIN_special_forces_cap = 0.1 }
+		set_variable = { FIN_cold = 0.1}
+		set_variable = {FIN_winter_attrition = 0.1}
+		#Modify
 		# special forces cap 0.1
 		# cold acclimatization + 10%
-		}
+		custom_effect_tooltip = FIN_specialised_winter_training_tt
+	
+	}
   }
 focus = {
 	id = FIN_new_advisors
@@ -1109,7 +1116,7 @@ focus = {
 		}
 		add_tech_bonus = {
 			bonus = 0.5
-			uses = 3
+			uses = 2
 
 			category = synth_resources
 		}
