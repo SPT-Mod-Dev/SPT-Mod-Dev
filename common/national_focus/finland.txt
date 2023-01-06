@@ -262,7 +262,7 @@ focus_tree {
 	}
 
 	focus ={
-		id = FIN_yet_to_be_named_two
+		id = FIN_yet_to_be_named_civs
 		icon = GFX_focus_generic_industry_3
 		prerequisite = { focus = FIN_resource_prospects }
 		prerequisite = {focus = FIN_invest_in_finnsih_ship_building}
@@ -592,7 +592,7 @@ focus_tree {
 		icon = GFX_goal_generic_construct_mil_factory
 		prerequisite = { focus = FIN_seek_german_investments}
 		
-		x = 3
+		x = 2
 
 		y= 1
 
@@ -647,19 +647,18 @@ focus_tree {
 	}
 
 	focus = {
-		id = FIN_yet_to_be_named
+		id = FIN_yet_to_be_named_research
 		icon = GFX_focus_research
-		prerequisite = { focus = FIN_seek_german_investments focus = FIN_Contract_finnish_companies}
-
+		prerequisite = { focus = FIN_expand_to_civil_contracts }
 		x = 1
 		y = 1
 
-		relative_position_id = FIN_seek_german_investments
+		relative_position_id = FIN_expand_to_civil_contracts
 		
 		cost = 10
 
 		ai_will_do = {
-			factor = 1
+			factor = 10
 		}
 		
 		available ={
@@ -743,7 +742,7 @@ focus_tree {
 		icon = GFX_focus_focus_fra_maquis
 		prerequisite = { focus = FIN_expand_to_civil_contracts}
 		
-		x = 0
+		x = -1
 
 		y= 1
 
@@ -755,7 +754,7 @@ focus_tree {
 		mutually_exclusive = { focus = FIN_raiding_navy}
 
 		ai_will_do = {
-			factor = 1
+			factor = 3
 		}
 		
 		available ={
@@ -876,7 +875,7 @@ focus_tree {
 	id = FIN_learn_from_the_germans
 	icon = GFX_focus_ger_oppose_hitler
 	prerequisite = { focus = FIN_prepare_for_the_inevitable}
-	mutually_exclusive = { focus = FIN_Italian_mountain_training}
+	mutually_exclusive = { focus = FIN_expand_the_jaeger_movment}
 
 	x = -2
 	y = 1
@@ -889,7 +888,7 @@ focus_tree {
 
 	available = {
 		NOT = {
-			has_compleated_focus = FIN_Italian_mountain_training
+			has_compleated_focus = FIN_expand_the_jaeger_movment
 		}
 
 	}
@@ -899,6 +898,8 @@ focus_tree {
 	search_filters =  {FOCUS_FILTER_RESEARCH FOCUS_FILTER_ARMY_XP}
 
 	completion_reward = {
+		add_ideas = FIN_Retooled_industry_for_tank_production
+		
 		#daily army xp .2
 		add_tech_bonus = {
 			name = armor_bonus
@@ -942,7 +943,7 @@ focus_tree {
 	available_if_capitulated = yes
 
 	completion_reward = {
-		#Modify FIN_threat_from_the_east armour production cost -5%
+
 		random_owned_state  = {
 			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
@@ -960,12 +961,11 @@ focus_tree {
 			}
 		}
 	}
-
  }
 
  focus = {
-	id = FIN_Italian_mountain_training
-	icon = GFX_focus_ITA_alpine_division
+	id = FIN_expand_the_jaeger_movment
+	icon = GFX_focus_ETH_peacekeeping_forces
 	prerequisite = { focus = FIN_prepare_for_the_inevitable}
 	mutually_exclusive = { focus = FIN_learn_from_the_germans }
 
@@ -997,21 +997,10 @@ focus_tree {
 		set_variable = {
 			FIN_xp_gain = 0.1
 		}
-		add_tech_bonus = {
-			name = Italian_mountain_training
-			bonus = 1.0
-			uses = 2
-
-			technology = tech_mountaineers
-			technology = tech_mountaineers2
-		}
-		add_doctrine_cost_reduction = {
-			name = land_doc_bonus
-			cost_reduction = 0.25
-			uses = 2
-			category = land_doctrine
-		}
-		custom_effect_tooltip = FIN_Italian_mountain_training_tt
+		set_technology = {} #jaeger division tech
+		#creates special finnish jaeger type infantry
+		
+		custom_effect_tooltip = FIN_expand_the_jaeger_movment_tt
 	}
 
   }
@@ -1019,11 +1008,11 @@ focus_tree {
   focus = {
 	id = FIN_specialised_winter_training
 	icon = GFX_focus_GRE_a_land_of_mountains
-	prerequisite = { focus = FIN_Italian_mountain_training }
+	prerequisite = { focus = FIN_expand_the_jaeger_movment }
 
 	x = 0
 	y = 1
-	relative_position_id = FIN_Italian_mountain_training
+	relative_position_id = FIN_expand_the_jaeger_movment
 
 	cost = 10
 
@@ -1041,14 +1030,13 @@ focus_tree {
 	completion_reward = {
 		set_variable = { FIN_special_forces_cap = 0.1 }
 		set_variable = { FIN_cold = 0.1}
-		set_variable = {FIN_winter_attrition = 0.1}
-		#Modify
-		# special forces cap 0.1
-		# cold acclimatization + 10%
+		set_variable = { FIN_winter_attrition = 0.1}
+		
 		custom_effect_tooltip = FIN_specialised_winter_training_tt
 	
 	}
-  }
+ }
+
 focus = {
 	id = FIN_new_advisors
 	icon = GFX_focus_generic_infiltration
@@ -1124,7 +1112,8 @@ focus = {
 	}
   }
  
-}	
+	
+}
 	
 
 #	focus = {

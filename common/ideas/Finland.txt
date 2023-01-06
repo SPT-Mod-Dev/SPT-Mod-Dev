@@ -53,6 +53,19 @@ ideas = {
 				}
 			}
 		}
+		FIN_Retooled_industry_for_tank_production = {
+			name = Retooled_industry_for_tank_production
+			picture = idea_GFX_focus_generic_tank_production
+
+			eqipment_bonus = {
+				light_tank_chassis = {
+					build_coist_ic = -0.1
+				}
+				medium_tank_chassis = {
+					build_cost_ic = -0.1
+				}
+			}
+		}
 	
 	}
 
@@ -80,9 +93,46 @@ ideas = {
 				industrial_capacity_factory = 0.1
 			
 			}
+			research_bonus = {
+				industry = 0.10
+			}
 			
 		}
 
+	}
+	tank_manufacturer = {
+		FIN_ = {
+			name = Retooled_industry_for_tank_production
+			picture = man_five_year_plan_tank
+
+			allowed = {
+				original_tag = FIN
+			}
+			available = {
+				has_completed_focus = FIN_retool_industry_for_armour_prodoction
+			}
+
+			cost = 150
+
+			traits = { }
+			
+			equipment_bonus = {
+				medium_tank_chassis = {
+					build_cost_ic = -0.1
+				}
+				light_tank_chassis = {
+					build_cost_ic = -0.1
+				}
+			}
+
+			modifier = {
+
+			}
+
+			research_bonus = {
+				armor = 0.15
+			}
+		}
 	}
 
 }
