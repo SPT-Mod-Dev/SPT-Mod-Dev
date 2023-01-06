@@ -592,7 +592,7 @@ focus_tree {
 		icon = GFX_goal_generic_construct_mil_factory
 		prerequisite = { focus = FIN_seek_german_investments}
 		
-		x = 2
+		x = 1
 
 		y= 1
 
@@ -1030,7 +1030,7 @@ focus_tree {
 	completion_reward = {
 		set_variable = { FIN_special_forces_cap = 0.1 }
 		set_variable = { FIN_cold = 0.1}
-		set_variable = { FIN_winter_attrition = 0.1}
+		set_variable = { FIN_winter_attrition = -0.1}
 		
 		custom_effect_tooltip = FIN_specialised_winter_training_tt
 	
@@ -1112,6 +1112,138 @@ focus = {
 	}
   }
  
+  focus = {
+	id = FIN_improve_the_mannerheimline
+	icon = GFX_goal_fortify_the_westwall
+	prerequisite = { focus = FIN_prepare_for_the_inevitable}
+	x = 2
+	y = 1
+
+	relative_position_id = FIN_prepare_for_the_inevitable 
+
+	cost = 10
+
+	ai_will_do = {
+		factor = 2
+	}
+
+	available = {
+		146 = {
+			is_controlled_by = FIN
+		}
+	}
+	bypass = {
+		146 = {
+			NOT = {
+				is_controlled_by = FIN
+			}
+		}
+	}
+	
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	
+
+
+	completion_reward = {
+		146 = {
+			add_building_construction = {
+				type = bunker
+				level = 2
+				province = 9100
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				level = 2
+				province = 9105
+				instant_build = yes
+			}
+		}
+	}
+  }
+  focus = {
+	id = FIN_fortify_costaly_cities
+	icon = GFX_focus_generic_coastal_fort
+	prerequisite = { focus = FIN_improve_the_mannerheimline}
+	x = 0
+	y = 1
+
+	relative_position_id = FIN_improve_the_mannerheimline 
+
+	cost = 10
+
+	ai_will_do = {
+		factor = 2
+	}
+
+	
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	
+
+
+	completion_reward = {
+		111 = {
+			add_building_construction = {
+				type = costal_bunker
+				level = 2
+				province = 11105
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = costal_bunker
+				level = 2
+				province = 3083
+				instant_build = yes
+			}
+		}
+		149 = {
+			add_building_construction = {
+				type = costal_bunker
+				level = 2
+				province = 3122
+				instant_build = yes
+			}
+		}
+		146 = {
+		    add_building_construction = {
+			type = costal_bunker
+			level = 2
+			province = 9206
+			instant_build = yes
+		    }
+	   }
+	}
+  }
+  focus = {
+	id = Expand_conscription
+	icon = GFX_focus_generic_manpower
+	prerequisite = { focus = FIN_fortify_costaly_cities}
+	cost = 10
+	x = 0
+	y = 1
+	relative_position_id = FIN_fortify_costaly_cities
+
+	ai_will_do = {
+		factor = 10
+	}
+
+	available = {
+
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_MANPOWER}
+
+	completion_reward = {
+		set_variable =  { FIN_expand_conscription = 0.025 }
+	}
+  }
 	
 }
 	
