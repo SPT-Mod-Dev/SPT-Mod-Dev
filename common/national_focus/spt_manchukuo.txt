@@ -53,7 +53,7 @@
 
 	focus = {
 		id = SPT_MAN_pacify_the_countryside
-		icon = GFX_focus_hol_war_on_pacifism
+		icon = GFX_focus_secret_rearmament
 		x = 0
 		y = 0
 
@@ -264,25 +264,28 @@
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
-			set_cosmetic_tag = MAN_Manshukoku
-			MAN_low_legitimacy_level_down = yes
-			remove_ideas = MAN_kwantung_veto
-			retire_country_leader = yes
-			# KISHI ARRIVES
-			add_country_leader_role = {
-				character = MAN_nubusuke_kishi
-				country_leader = {
-					expire = "1960.1.1"
-					ideology = gen_nazism
-					traits = {
-						political_dancer 
-						unscrupulous_orchestrator
-						prince_of_terror
-					}	
-				}
-				promote_leader = no				
-			}	
-
+			hidden_effect = {
+				set_cosmetic_tag = MAN_Manshukoku
+				MAN_low_legitimacy_level_down = yes
+				remove_ideas = MAN_kwantung_veto
+				retire_country_leader = yes
+				# KISHI ARRIVES
+				add_country_leader_role = {
+					character = MAN_nubusuke_kishi
+					country_leader = {
+						expire = "1960.1.1"
+						ideology = gen_nazism
+						traits = {
+							political_dancer 
+							unscrupulous_orchestrator
+							prince_of_terror
+						}	
+					}
+					promote_leader = no				
+				}	
+			}
+			
+			custom_effect_tooltip = MAN_Manchukuo_Route_tt
 		}
 	}
 
@@ -515,10 +518,13 @@
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			CHI = {
-				add_ideas = CHI_illegitimate_government
+			hidden_effect = {
+				CHI = {
+					add_ideas = CHI_illegitimate_government
+				}
+				MAN_low_legitimacy_level_down = yes
 			}
-			MAN_low_legitimacy_level_down = yes
+			custom_effect_tooltip = MAN_Qing_Route_tt
 		}
 	}
 	focus = {
@@ -526,7 +532,7 @@
 		icon = GFX_focus_ETH_an_empire_in_the_shade_of_the_sun
 		prerequisite = { focus = SPT_MAN_chinese_leadership }
 		
-		x = -2
+		x = -4
 		y = 1
 		relative_position_id = SPT_MAN_chinese_leadership
 
@@ -558,6 +564,39 @@
 				localization = MAN_the_two_emperors
 			}
 			MAN_low_legitimacy_level_down_twice = yes
+		}
+	}
+
+	focus = {
+		id = SPT_MAN_recruit_qing_loyalists
+		icon = GFX_focus_rom_royal_dictatorship
+		prerequisite = { focus = SPT_MAN_chinese_leadership }
+		
+		x = -2
+		y = 1
+		relative_position_id = SPT_MAN_chinese_leadership
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			custom_effect_tooltip = MAN_qing_advisors_tt
 		}
 	}
 
