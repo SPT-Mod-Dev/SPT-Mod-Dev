@@ -530,11 +530,11 @@
 	focus = {
 		id = SPT_MAN_the_two_emperors
 		icon = GFX_focus_ETH_an_empire_in_the_shade_of_the_sun
-		prerequisite = { focus = SPT_MAN_chinese_leadership }
+		prerequisite = { focus = SPT_MAN_return_of_the_qing }
 		
-		x = -4
+		x = 0
 		y = 1
-		relative_position_id = SPT_MAN_chinese_leadership
+		relative_position_id = SPT_MAN_return_of_the_qing
 
 		cost = 10
 
@@ -559,11 +559,6 @@
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			set_cosmetic_tag = MAN_Chinese_Empire
-			add_autonomy_ratio = {
-				value = 0.15
-				localization = MAN_the_two_emperors
-			}
-			MAN_low_legitimacy_level_down_twice = yes
 		}
 	}
 
@@ -597,6 +592,139 @@
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			custom_effect_tooltip = MAN_qing_advisors_tt
+		}
+	}
+
+	focus = {
+		id = SPT_MAN_integrate_the_border_region
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = SPT_MAN_recruit_qing_loyalists }
+		
+		x = 0
+		y = 1
+		relative_position_id = SPT_MAN_recruit_qing_loyalists
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			custom_effect_tooltip = MAN_qing_restoration1_tt
+		}
+	}
+
+	focus = {
+		id = SPT_MAN_integrate_the_northwest
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = SPT_MAN_integrate_the_border_region }
+		
+		x = -1
+		y = 1
+		relative_position_id = SPT_MAN_integrate_the_border_region
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			custom_effect_tooltip = MAN_qing_restoration2_tt
+		}
+	}
+
+	focus = {
+		id = SPT_MAN_integrate_the_south
+		icon = GFX_focus_generic_self_management
+		prerequisite = { focus = SPT_MAN_integrate_the_border_region }
+		
+		x = 1
+		y = 1
+		relative_position_id = SPT_MAN_integrate_the_border_region
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			custom_effect_tooltip = MAN_qing_restoration3_tt
+		}
+	}
+
+	focus = {
+		id = SPT_MAN_return_of_the_qing
+		icon = GFX_focus_chi_one_china_policy
+		prerequisite = { focus = SPT_MAN_integrate_the_northwest }
+		prerequisite = { focus = SPT_MAN_integrate_the_south }
+
+		x = 0
+		y = 2
+		relative_position_id = SPT_MAN_integrate_the_border_region
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			
 		}
 	}
 
