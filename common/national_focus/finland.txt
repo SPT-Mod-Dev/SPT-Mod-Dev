@@ -378,33 +378,7 @@ focus_tree {
 	}
 
 	
-	focus = {
-		id = FIN_import_german_designs
-		icon = GFX_goal_generic_intelligence_exchange
-		
-		prerequisite = { focus = FIN_military_contracts }
-		
-		x = 1
 
-		y = 1
-
-		relative_position_id = FIN_military_contracts
-		
-		cost = 10
-
-		ai_will_do = {
-			factor = 2
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY}
-
-		completion_reward = {
-			# Remove/reduce license cost 
-		}
-	}
 
 	focus ={ 
 		id = FIN_modernise_industrial_sector
@@ -643,6 +617,34 @@ focus_tree {
 	}
 
 	focus = {
+		id = FIN_import_german_designs
+		icon = GFX_goal_generic_intelligence_exchange
+		
+		prerequisite = { focus = FIN_military_contracts }
+		
+		x = 1
+
+		y = 1
+
+		relative_position_id = FIN_military_contracts
+		
+		cost = 10
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY}
+
+		completion_reward = {
+			# Remove/reduce license cost 
+		}
+	}
+
+	focus = {
 		id = FIN_yet_to_be_named_research
 		icon = GFX_focus_research
 		prerequisite = { focus = FIN_expand_to_civil_contracts }
@@ -774,7 +776,12 @@ focus_tree {
 			}
 			add_ideas = FIN_strengthen_domestic_armsindustries
 
-			add_tech_bonus = {} #2 infantry equipment research bonuses
+			add_tech_bonus = {
+				bonus = 1.0
+			    uses = 2
+			    category = infantry_weapons
+				
+			}
 			
 		}
 	}
@@ -1007,16 +1014,40 @@ focus = {
 	available_if_capitulated = no
 	search_filters =  {FOCUS_FILTER_RESEARCH }
 	
-	available_if_capitulated = yes
+	
 
 	completion_reward = {
 		#Modify FIN_threat_from_the_east commandpower allocated to general staff -33%. pp cost to appoint -33%
 	}
+	
 
 }
+focus = {
+	id = FIN_artillery_modernisation
+	icon = GFX_goal_generic_army_artillery2
+	prerequisite = { focus = FIN_new_advisors}
+	x = -1
+	y = 1
+	relative_position_id = FIN_new_advisors
 
+	cost = 10
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters =  {FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		add_tech_bonus = {
+			bonus = 1.0
+			uses = 2
+			category = artillery
+			
+		}
+	}
+  }
   focus = {
-	id = FIN_decrease_import_reliance
+	id = FIN_increase_fuel_stockpile
 	icon = GFX_focus_generic_rubber
 	prerequisite = { focus = FIN_prepare_for_the_inevitable}
 
@@ -1039,18 +1070,18 @@ focus = {
 
 	completion_reward = {
 		random_owned_state  = {
-			add_extra_state_shared_building_slots = 1
+			add_extra_state_shared_building_slots = 2
 			add_building_construction = {
-				type = synthetic_refinery
-				level = 1
+				type = fuel_silo
+				level = 2
 				instant_build = yes
 			}
 		}
 		random_owned_state  = {
-			add_extra_state_shared_building_slots = 1
+			add_extra_state_shared_building_slots = 2
 			add_building_construction = {
-				type = synthetic_refinery
-				level = 1
+				type = fuel_silo
+				level = 2
 				instant_build = yes
 			}
 		}
@@ -1064,6 +1095,7 @@ focus = {
 	}
   }
  
+ 
   focus = {
 	id = FIN_improve_the_mannerheimline
 	icon = GFX_goal_fortify_the_westwall
@@ -1073,7 +1105,7 @@ focus = {
 
 	relative_position_id = FIN_prepare_for_the_inevitable 
 
-	cost = 35
+	cost = 5
 
 	ai_will_do = {
 		factor = 2
@@ -1113,7 +1145,9 @@ focus = {
 				instant_build = yes
 			}
 		}
+		
 	}
+
   }
   focus = {
 	id = FIN_expand_defensive_works
@@ -1151,6 +1185,11 @@ focus = {
 				province = 3083
 				instant_build = yes
 			}
+			add_building_construction = {
+				type = anti_air_building
+				level = 1
+				instant_build = yes
+			}
 		}
 		149 = {
 			add_building_construction = {
@@ -1167,17 +1206,45 @@ focus = {
 				province = 9206
 				instant_build = yes
 		    }
-	   }
+			add_building_construction = {
+				type = bunker
+				level = 2
+				province = 3187
+				instant_build = yes
+		    }
+			add_building_construction = {
+				type = anti_air_building
+				level = 1
+				instant_build = yes
+			}
+		}
+		150 = {
+			add_building_construction = {
+				type = bunker
+				level = 2
+				province = 3030
+				instant_build = yes
+		    }
+			add_building_construction = {
+				type = bunker
+				level = 2
+				province = 9061
+				instant_build = yes
+		    }
+		
+		}
+	   
+
 	}
   }
   focus = {
 	id = FIN_expand_conscription
 	icon = GFX_focus_generic_manpower
-	prerequisite = { focus = FIN_fortify_costaly_cities}
+	prerequisite = { focus = FIN_expand_defensive_works}
 	cost = 10
 	x = -1
 	y = 1
-	relative_position_id = FIN_fortify_costaly_cities
+	relative_position_id = FIN_expand_defensive_works
 
 	ai_will_do = {
 		factor = 10
