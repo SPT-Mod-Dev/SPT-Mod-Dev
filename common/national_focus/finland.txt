@@ -562,9 +562,9 @@ focus_tree {
 		icon = GFX_goal_generic_construct_mil_factory
 		prerequisite = { focus = FIN_seek_german_investments}
 		
-		x = 1
+		x = 2
 
-		y= 1
+		y = 1
 
 		relative_position_id = FIN_seek_german_investments
 		
@@ -617,12 +617,37 @@ focus_tree {
 	}
 
 	focus = {
+		id = FIN_artillery_modernisation
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = FIN_military_contracts}
+		x = 0
+		y = 1
+		relative_position_id = FIN_military_contracts
+	
+		cost = 10
+	
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters =  {FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1.0
+				uses = 2
+				category = artillery
+				
+			}
+		}
+	  }
+
+	focus = {
 		id = FIN_import_german_designs
 		icon = GFX_goal_generic_intelligence_exchange
 		
 		prerequisite = { focus = FIN_military_contracts }
-		
-		x = 1
+		prerequisite = { focus = FIN_retool_industry_for_armour_prodoction}
+		x = 2
 
 		y = 1
 
@@ -859,8 +884,10 @@ focus_tree {
 
 	completion_reward = {
 		add_ideas = FIN_Retooled_industry_for_tank_production
+		set_variable = {
+			FIN_xp_gain = 0.15
+		}
 		
-		#daily army xp .2
 		add_tech_bonus = {
 			name = armor_bonus
 			bonus = 1.0
@@ -982,7 +1009,7 @@ focus_tree {
 	cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
-	search_filters =  {FOCUS_FILTER_RESEARCH FOCUS_FILTER_ARMY}
+	search_filters =  {}
 	
 	available_if_capitulated = yes
 
@@ -1022,78 +1049,7 @@ focus = {
 	
 
 }
-focus = {
-	id = FIN_artillery_modernisation
-	icon = GFX_goal_generic_army_artillery2
-	prerequisite = { focus = FIN_new_advisors}
-	x = -1
-	y = 1
-	relative_position_id = FIN_new_advisors
 
-	cost = 10
-
-	cancel_if_invalid = yes
-	continue_if_invalid = no
-	available_if_capitulated = no
-	search_filters =  {FOCUS_FILTER_RESEARCH }
-
-	completion_reward = {
-		add_tech_bonus = {
-			bonus = 1.0
-			uses = 2
-			category = artillery
-			
-		}
-	}
-  }
-  focus = {
-	id = FIN_increase_fuel_stockpile
-	icon = GFX_focus_generic_rubber
-	prerequisite = { focus = FIN_prepare_for_the_inevitable}
-
-	x = 5
-	y = 1
-	relative_position_id = FIN_prepare_for_the_inevitable
-
-	cost = 10
-
-	ai_will_do = {
-		factor = 5
-	}
-
-	cancel_if_invalid = yes
-	continue_if_invalid = no
-	available_if_capitulated = no
-	search_filters =  {FOCUS_FILTER_RESEARCH }
-	
-	available_if_capitulated = no
-
-	completion_reward = {
-		random_owned_state  = {
-			add_extra_state_shared_building_slots = 2
-			add_building_construction = {
-				type = fuel_silo
-				level = 2
-				instant_build = yes
-			}
-		}
-		random_owned_state  = {
-			add_extra_state_shared_building_slots = 2
-			add_building_construction = {
-				type = fuel_silo
-				level = 2
-				instant_build = yes
-			}
-		}
-		add_tech_bonus = {
-			bonus = 0.5
-			uses = 2
-
-			category = synth_resources
-		}
-
-	}
-  }
  
  
   focus = {
@@ -1263,18 +1219,69 @@ focus = {
 		set_variable =  { FIN_expand_conscription = 0.025 }
 	}
   }
+
+  focus = {
+	id = FIN_increase_fuel_stockpile
+	icon = GFX_focus_generic_rubber
+	prerequisite = { focus = FIN_expand_conscription}
+
+	x = 0
+	y = 1
+	relative_position_id = FIN_expand_conscription
+
+	cost = 10
+
+	ai_will_do = {
+		factor = 5
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+	search_filters =  {FOCUS_FILTER_RESEARCH }
+	
+	available_if_capitulated = no
+
+	completion_reward = {
+		random_owned_state  = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = fuel_silo
+				level = 2
+				instant_build = yes
+			}
+		}
+		random_owned_state  = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = fuel_silo
+				level = 2
+				instant_build = yes
+			}
+		}
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+
+			category = synth_resources
+		}
+
+	}
+  }
+ 
   focus = {
 	id = FIN_secure_our_coast
 	icon = GFX_focus_SOV_reinforce_western_naval_bases
-	
+	prerequisite = { focus = FIN_expand_defensive_works}
 
-	x = 0
+	relative_position_id = FIN_expand_defensive_works
+	x = 1
 	y = 1
 	
 	
 	cost = 10
 
-	mutually_exclusive = { focus = FIN_raiding_navy}
+	
 
 	ai_will_do = {
 		factor = 1
@@ -1308,9 +1315,67 @@ focus = {
 
 	}
 }
+###########################################################################
+###########################################################################
+###########################################################################
+###########################################################################
+
+focus = {
+	id = FIN_join_against_the_Soviet_union
+	icon = GFX_goal_generic_dangerous_deal
+    prerequisite = { focus = FIN_prepare_for_the_inevitable}
+	relative_position_id = FIN_prepare_for_the_inevitable
+	x = 5
+	y = 1
+
+	cost = 2
+
+	ai_will_do = {
+		factor = 10
+	}
+
+	available = {
+		GER = {
+			has_war_with = SOV
+		}
+	}
 	
+	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION}
+
+	completion_reward = {
+		create_wargoal = {
+			type = take_state_focus
+			target = SOV
+			generator = { 216 215 213 }
+			expire = 0
+		}
+	}
+}
+
+focus = {
+	id = FIN_begin_integration_of_karelia
+	icon = GFX_goal_generic_position_armies
+	prerequisite ={ focus = FIN_join_against_the_Soviet_union }
+
+	x = 0
+	y = 1
+	relative_position_id = FIN_join_against_the_Soviet_union
+
+	cost = 10
+	ai_will_do = {
+		factor = 3
+	}
+	available = {
+		216 = {
+			controller = FIN
+		}
+		215 = {}
+		213 ={}
+	}
+}
 }
 	
+
 
 #	focus = {
 #		id = FIN_
