@@ -1023,6 +1023,8 @@ focus_tree {
 	}
  }
 
+
+
 focus = {
 	id = FIN_new_advisors
 	icon = GFX_focus_generic_infiltration
@@ -1221,7 +1223,7 @@ focus = {
   }
 
   focus = {
-	id = FIN_increase_fuel_stockpile
+	id = FIN_increase_stockpile_capacity
 	icon = GFX_focus_generic_rubber
 	prerequisite = { focus = FIN_expand_conscription}
 
@@ -1259,16 +1261,13 @@ focus = {
 				instant_build = yes
 			}
 		}
-		add_tech_bonus = {
-			bonus = 0.5
-			uses = 2
-
-			category = synth_resources
-		}
-
+		add_offsite_building = { type = arms_factory level = 2 }
 	}
+
+	
   }
  
+  
   focus = {
 	id = FIN_secure_our_coast
 	icon = GFX_focus_SOV_reinforce_western_naval_bases
@@ -1321,14 +1320,43 @@ focus = {
 ###########################################################################
 
 focus = {
-	id = FIN_join_against_the_Soviet_union
-	icon = GFX_goal_generic_dangerous_deal
-    prerequisite = { focus = FIN_prepare_for_the_inevitable}
+	id = FIN_war_is_upon_us
+	icon = GFX_goal_generic_attack_allies
+	prerequisite = { focus = FIN_prepare_for_the_inevitable}
+	x = 5
+	y = 1
 	relative_position_id = FIN_prepare_for_the_inevitable
+    
+	available = {
+		has_war_with = SOV
+	}
+	
+	bypass = {
+		has_war_with = SOV
+	}
+	cost = 1
+
+ }
+
+ focus = {
+	id = FIN_motti_tactics
+	icon = GFX_focus_prc_infiltration
+	prerequisite = { focus = FIN_war_is_upon_us }
+
+	relative_position_id = FIN_war_is_upon_us
+	x = 0
+	y = 1
+	#army peircing
+ }
+focus = {
+	id = FIN_join_against_the_Soviet_union
+	icon = GFX_focus_attack_soviet
+    
+	relative_position_id = FIN_war_is_upon_us
 	x = 5
 	y = 1
 
-	cost = 2
+	cost = 3
 
 	ai_will_do = {
 		factor = 10
@@ -1373,6 +1401,8 @@ focus = {
 		213 ={}
 	}
 }
+
+
 }
 	
 
