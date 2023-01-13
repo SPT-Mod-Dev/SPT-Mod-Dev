@@ -231,7 +231,41 @@ spt_category = {
 		}
 	}
 
-	ENG_gobble_malaya
+	ENG_annex_malaya = {
+		allowed = {
+			original_tag = ENG
+		}
+
+		days_remove = 90
+		cost = 50
+
+		visible = {
+			MAL = {
+				exists = yes
+			}
+
+		}
+
+		available = {
+			has_war = no
+		}
+
+		cancel_trigger = {
+			has_war = yes
+		}
+
+		modifier = {
+			consumer_goods_factor = 0.15
+		}
+
+		remove_effect = {
+			annex_country = {
+				target = MAL
+				transfer_troops = no
+			}
+		}
+
+	}
 
 
 }
