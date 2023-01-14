@@ -1146,7 +1146,7 @@ focus_tree = {
 
 	focus = {
 		id = GER_autarky
-		icon = GFX_goal_generic_construct_civilian
+		icon = GFX_focus_spa_the_spanish_miracle
 		prerequisite = { focus = GER_four_year_plan }
 		x = 4
 		y = 1
@@ -1588,7 +1588,7 @@ focus_tree = {
 
 	focus = {
 		id = GER_align_hungary
-		icon = GFX_goal_generic_positive_trade_relations
+		icon = GFX_focus_hun_elect_a_king
 		prerequisite = { focus = GER_grosraumwirtschaft }
 		x = 0
 		y = 1
@@ -1652,7 +1652,7 @@ focus_tree = {
 
 	focus = {
 		id = GER_align_romania
-		icon = GFX_goal_generic_positive_trade_relations
+		icon = GFX_focus_invite_romania
 		prerequisite = { focus = GER_grosraumwirtschaft }
 		x = -2
 		y = 1
@@ -1716,7 +1716,7 @@ focus_tree = {
 
 	focus = {
 		id = GER_integrate_war_economies
-		icon = GFX_goal_generic_construct_mil_factory
+		icon = GFX_focus_SOV_merge_plants
 		prerequisite = { focus = GER_align_hungary }
 		prerequisite = { focus = GER_align_romania }
 		mutually_exclusive = { focus = GER_german_war_economy }
@@ -2172,7 +2172,7 @@ focus_tree = {
 
 	focus = {
 		id = GER_tactical_air_effort
-		icon = GFX_goal_generic_CAS
+		icon = GFX_focus_generic_long_range_aircraft
 		prerequisite = { focus = GER_air_innovation }
 		mutually_exclusive = { focus = GER_strategic_air_effort }
 		x = 1
@@ -2204,7 +2204,7 @@ focus_tree = {
 
 	focus = {
 		id = GER_long_range_escorts
-		icon = GFX_goal_generic_air_fighter
+		icon = GFX_focus_generic_multi_role_aircraft
 		prerequisite = { focus = GER_tactical_air_effort focus = GER_strategic_air_effort }
 		x = -1
 		y = 1
@@ -2627,7 +2627,7 @@ focus_tree = {
 	
 	focus = { #should already be signed in 39
 		id = GER_mol_rib_pact
-		icon = GFX_goal_molotov_ribbentrop_pact
+		icon = GFX_focus_generic_polish_deal
 		prerequisite = { focus = GER_soviet_treaty }
 		mutually_exclusive = { focus = GER_anti_soviet_pact }
 		available = {
@@ -2763,7 +2763,7 @@ focus_tree = {
 
 	focus = {
 		id = GER_rhineland
-		icon = GFX_goal_generic_military_sphere
+		icon = GFX_goal_rhineland
 		mutually_exclusive = { focus = GER_oppose_hitler }
 		x = 26
 		y = 0
@@ -2799,7 +2799,7 @@ focus_tree = {
 
 	focus = {
 		id = GER_japan_friend
-		icon = GFX_goal_generic_military_deal
+		icon = GFX_focus_chi_collaboration_with_the_japanese
 		prerequisite = { focus = GER_rhineland }
 		mutually_exclusive = { focus = GER_china_friend }
 		available = {
@@ -4643,7 +4643,7 @@ focus_tree = {
 		}
 		cancel_if_invalid = yes
 		will_lead_to_war_with = SWI
-		x = 1
+		x = 2
 		y = 1
 		relative_position_id = GER_war_with_france
 		cost = 10
@@ -4696,7 +4696,7 @@ focus_tree = {
 		bypass = {
 		}
 		cancel_if_invalid = yes
-		x = -1
+		x = -2
 		y = 1
 		relative_position_id = GER_war_with_france
 		cost = 10
@@ -9203,7 +9203,10 @@ focus_tree = {
 		prerequisite = { focus = GER_form_the_reichskommissariats }
 		available = {
 			has_war = no
+			POL = {exists = yes}
 		}
+		cancel_if_invalid = yes
+		can
 		x = 0
 		y = 1
 		relative_position_id = GER_form_the_reichskommissariats
@@ -9213,7 +9216,7 @@ focus_tree = {
 		}
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 		completion_reward = {
-			
+			custom_effect_tooltip = GER_pol_compliance_tt
 		}
 	}
 
@@ -9223,7 +9226,12 @@ focus_tree = {
 		prerequisite = { focus = GER_pol_compliance }
 		available = {
 			has_war = no
+			OR = {
+				BEL = {exists = yes}
+				HOL = {exists = yes}
+			}
 		}
+		cancel_if_invalid = yes
 		x = -1
 		y = 1
 		relative_position_id = GER_pol_compliance
@@ -9233,7 +9241,7 @@ focus_tree = {
 		}
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 		completion_reward = {
-			
+			custom_effect_tooltip = GER_ben_compliance_tt
 		}
 	}
 
@@ -9243,7 +9251,9 @@ focus_tree = {
 		prerequisite = { focus = GER_ben_compliance }
 		available = {
 			has_war = no
+			FRA = {exists = yes}
 		}
+		cancel_if_invalid = yes
 		x = 0
 		y = 1
 		relative_position_id = GER_ben_compliance
@@ -9253,21 +9263,26 @@ focus_tree = {
 		}
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 		completion_reward = {
-			
+			custom_effect_tooltip = GER_fra_compliance_tt
 		}
 	}
 
 	
 
 	focus = {
-		id = GER_den_compliance
+		id = GER_sca_compliance
 		icon = GFX_focus_SWI_embrace_panoramaheim
 		prerequisite = { focus = GER_pol_compliance }
 		available = {
 			has_war = no
+			OR = {
+				NOR = {exists = yes}
+				DEN = {exists = yes}
+			}
 		}
+		cancel_if_invalid = yes
 		x = 1
-		y = 2
+		y = 1
 		relative_position_id = GER_pol_compliance
 		cost = 10
 		ai_will_do = {
@@ -9275,14 +9290,14 @@ focus_tree = {
 		}
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 		completion_reward = {
-			
+			custom_effect_tooltip = GER_sca_compliance_tt
 		}
 	}
 
 	focus = {
 		id = GER_improve_national_spirit
-		prerequisite = {focus = GER_den_compliance}
-		prerequisite = {focus = GER_fra_compliance}
+		prerequisite = {focus = GER_war_with_france}
+
 		icon = GFX_goal_support_fascism
 		available = {
 			custom_trigger_tooltip = {
@@ -9321,9 +9336,9 @@ focus_tree = {
 			}
 		}
 		cancel_if_invalid = no
-		x = 1
+		x = 0
 		y = 1
-		relative_position_id = GER_fra_compliance
+		relative_position_id = GER_war_with_france
 		cost = 10
 		ai_will_do = {
 			factor = 10
