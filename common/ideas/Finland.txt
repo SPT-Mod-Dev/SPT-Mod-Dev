@@ -40,22 +40,10 @@ ideas = {
 				
 			}
 		}
-		FIN_strengthen_domestic_armsindustries = {
-
-			name = finnish_arms_manufacturer
-
-			picture = SOV_third_five_year_plan_military
-
-			equipment_bonus ={
-				infantry_equipment = {
-					instant = yes
-					build_cost_ic = -0.1
-				}
-			}
-		}
+		
 		FIN_Retooled_industry_for_tank_production = {
-			name = Retooled_industry_for_tank_production
-			picture = idea_GFX_focus_generic_tank_production
+			name = Retooled_industry_for_tank_production_test
+			picture = generic_acquire_tanks
 
 			equipment_bonus = {
 				light_tank_chassis = {
@@ -69,7 +57,7 @@ ideas = {
 		FIN_motti_tactics = {
 		
 			name = Motti_tactics
-			picture = idea_GFX_focus_prc_infiltration
+			picture = ideas_GFX_focus_prc_infiltration
 
 			allow = {
 				has_war_with = SOV
@@ -91,13 +79,25 @@ ideas = {
 		}
 
 		FIN_divert_funds_to_armymoderisation_idea = {
-			name = SOV_divert_funds_for_army_modernisation
+			name = FIN_divert_funds_for_army_modernisation
 			picture = MEX_callistas
 
 			modifier = {
 				consumer_goods_factor = 0.25
 			}
 
+		}
+		FIN_focus_industry_on_production_idea = {
+			name = FIN_focus_industry_on_production_idea
+			picture = generic_production_bonus
+			
+			modifier = {
+				production_factory_max_efficiency_factor = 0.15
+				production_factory_efficiency_gain_factor = 0.15
+				consumer_goods_factor = 0.15
+				production_speed_buildings_factor = -0.15
+
+			}
 		}
 	
 	}
@@ -136,7 +136,7 @@ ideas = {
 	tank_manufacturer = {
 		FIN_tank_manufacturer = {
 			name = Retooled_industry_for_tank_production
-			picture = generic_acquire_tanks
+			picture = porsche
 
 			allowed = {
 				original_tag = FIN
@@ -149,14 +149,7 @@ ideas = {
 
 			traits = { }
 			
-			equipment_bonus = {
-				medium_tank_chassis = {
-					build_cost_ic = -0.1
-				}
-				light_tank_chassis = {
-					build_cost_ic = -0.1
-				}
-			}
+			traits = { medium_tank_manufacturer }
 
 			modifier = {
 
@@ -165,6 +158,43 @@ ideas = {
 			research_bonus = {
 				armor = 0.15
 			}
+		}
+	}
+	materiel_manufacturer = {
+
+		designer = yes
+
+		Tikkakoski = {
+
+			picture = generic_war_preparation
+			allowed = {
+				original_tag = FIN
+			}
+
+			available = {
+				has_compleated_focus = FIN_domestic_arms_industries
+			}
+			
+			research_bonus = {
+				infantry_weapons = 0.15
+			}
+			
+			traits = { infantry_equipment_manufacturer }
+			
+			ai_will_do = {
+				factor = 10
+			}
+
+			equipment_bonus = {
+				infantry_weapons = {
+					soft_attack = 0.15
+				    breakthrough = 0.1
+					defense = 0.1 
+					build_cost_ic = 0.1
+					
+				}
+			}
+
 		}
 	}
 
