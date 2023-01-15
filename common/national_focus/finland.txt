@@ -1327,24 +1327,165 @@ focus = {
 	y = 1
 	relative_position_id = FIN_prepare_for_the_inevitable
     
-	
+	available = {
+		has_war_with = SOV
+	}
+	bypass = {
+		har_war_with = SOV
+	}
 	cost = 1
 
  }
 
  focus = {
-	id = FIN_motti_tactics
-	icon = GFX_focus_prc_infiltration
+	id = FIN_strike_back
+	icon = GFX_focus_eng_expose_the_belly_of_the_bear
 	prerequisite = { focus = FIN_war_is_upon_us }
 
 	relative_position_id = FIN_war_is_upon_us
 	x = 0
 	y = 1
-	cost = 3
+	cost = 2
+
+	ai_will_do = {
+		factor = 10
+	}
+
+	available = {
+		has_war_with = SOV
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+
 	completion_reward = {
 		add_ideas = FIN_motti_tactics
+		#modify threat
 	}
-	#army peircing
+	
+ }
+
+ focus = {
+	id = FIN_mobilise_reserves
+	icon = GFX_focus_SOV_mobilization_plan
+	prerequisite = { focus = FIN_strike_back}
+
+	relative_position_id = FIN_strike_back
+	x = 0
+	y = 1
+
+	cost = 5
+
+	ai_will_do = {
+		factor = 10
+	}
+	
+	available = {
+		has_war_with = SOV
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	search_filters = { FOCUS_FILTER_MANPOWER}
+
+	completion_reward = {
+		#spawn 4 20w infantry w/ enginers
+	}
+ }
+ 
+ focus = {
+	id = FIN_utilise_everything
+	icon = GFX_focus_SWI_establish_pro_helvetia
+	prerequisite = { focus = FIN_strike_back}
+
+	relative_position_id = FIN_strike_back
+	x = 3
+	y = 1
+
+	cost = 5
+
+	ai_will_do = {
+		factor = 10
+	}
+	
+	available = {
+		has_war_with = SOV
+	}
+
+	completion_reward = {
+		add_ideas = tot_economic_mobilisation
+	}
+ }
+
+
+
+ focus = {
+	id = FIN_yet_to_be_named_doctrine
+	icon = GFX_goal_generic_army_doctrines
+	prerequisite = {focus = FIN_mobilise_reserves }
+
+	relative_position_id = FIN_mobilise_reserves
+	x = -1
+	y = 1
+
+	cost = 3
+
+	ai_will_do = {
+		factor = 5
+	}
+
+	search_filters =  { FOCUS_FILTER_ARMY_XP }
+
+	completion_reward = {
+		army_experience = 35
+		add_doctrine_cost_reduction = {
+			name = land_doc_bonus
+			cost_reduction = 0.5
+			uses = 2
+			category = land_doctrine
+		}
+	}
+ }
+
+ focus = {
+	id = FIN_divert_funds_to_army_modernisation
+	icon = GFX_focus_SWI_issue_war_bonds
+	prerequisite = { focus = FIN_mobilise_reserves}
+
+	relative_position_id = FIN_mobilise_reserves
+	x = 1
+	y = 1
+
+	cost = 5
+
+	ai_will_do = {
+		factor = 5
+	}
+
+	available = {
+		has_war_with = SOV
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	
+	effect_tooltip = {
+		add_timed_idea = { idea = FIN_divert_funds_to_armymoderisation_idea days = 35 }
+	}
+	completion_reward = {
+		add_tech_bonus = {
+			name = Army_modernisation
+			bonus = 1.0
+			uses = 2
+			category = infantry_weapons
+		}
+		add_tech_bonus = {
+			name = Army_modernisation
+			bonus = 1.0
+			uses = 2
+			category = artillery
+		}
+	}
+
  }
 focus = {
 	id = FIN_join_against_the_Soviet_union
@@ -1357,7 +1498,7 @@ focus = {
 	cost = 3
 
 	ai_will_do = {
-		factor = 10
+		factor = 0
 	}
 
 	available = {

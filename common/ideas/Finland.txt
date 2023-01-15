@@ -67,14 +67,37 @@ ideas = {
 			}
 		}
 		FIN_motti_tactics = {
+		
 			name = Motti_tactics
 			picture = idea_GFX_focus_prc_infiltration
 
+			allow = {
+				has_war_with = SOV
+			}
 			modifier = {
                 cas_damage_reduction = 0.2
 				dig_in_speed_factor = 0.2
-				ap_attack = 3
+				
+				
 			}
+			equipment_bonus = {
+				infantry_equipment = {
+					ap_attack = 3
+					hard_attack = 0.25
+				}
+
+			}
+
+		}
+
+		FIN_divert_funds_to_armymoderisation_idea = {
+			name = SOV_divert_funds_for_army_modernisation
+			picture = MEX_callistas
+
+			modifier = {
+				consumer_goods_factor = 0.25
+			}
+
 		}
 	
 	}
@@ -113,7 +136,7 @@ ideas = {
 	tank_manufacturer = {
 		FIN_tank_manufacturer = {
 			name = Retooled_industry_for_tank_production
-			picture = man_five_year_plan_tank
+			picture = generic_acquire_tanks
 
 			allowed = {
 				original_tag = FIN
