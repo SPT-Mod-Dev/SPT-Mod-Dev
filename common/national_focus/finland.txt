@@ -704,9 +704,6 @@ focus_tree
 		y = 1
 		relative_position_id = FIN_expand_to_civil_contracts
 		cost = 10
-		mutually_exclusive = {
-			focus = FIN_raiding_navy
-		}
 		ai_will_do = {
 			factor = 3
 		}
@@ -1223,10 +1220,10 @@ focus_tree
 	focus = {
 		id = FIN_war_is_upon_us
 		icon = GFX_goal_generic_attack_allies
-		prerequisite = {focus = FIN_prepare_for_the_inevitable}
 
-		x = 8
-		y = 1
+
+		x = 10
+		y = -1
 		relative_position_id = FIN_prepare_for_the_inevitable
 
 		available = {
@@ -1374,8 +1371,8 @@ focus_tree
 		}
 	}
 	focus = {
-		id = FIN_everything_is_not_enough
-		icon = GFX_focus_generic_monarchy_2
+		id = FIN_seek_international_support
+		icon = GFX_focus_generic_league_of_nations
 		prerequisite = {
 			focus = FIN_utilise_everything
 		}
@@ -1571,9 +1568,15 @@ focus_tree
 				controller = FIN
 			}
 			215 = {
+				controller = FIN
 			}
 			213 = {
+				controller = FIN
 			}
+		}
+		completion_reward = {
+			#unlocks decisions to increase compliance and core at 40%
+			#when state cored by finland (213, 215, 216) get's soviet resistance that gives -20% defence
 		}
 	}
 }
