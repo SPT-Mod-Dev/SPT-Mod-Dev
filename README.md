@@ -1,5 +1,50 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.2.4
+
+- Made the province underneath Alamein passable [Try and spice up africa front little bit more]
+- Reduce the cooldown on using a railway after capturing it `10` -> `5` [Speed up combat slightly]
+- Gave each minor `100` convoys at the start of the game [Prevent lend lease issues]
+- Incorperated "Spy Agency Reminders" into the mod
+- Made England automatically guarantee Poland at the start of the game
+
+#### Ethiopia
+- Removed focus path where ethiopia rebel from Italy and declare independence
+
+#### England
+- Added decision to annex Malaya:
+    - Takes `90` days
+    - Gives `15%` consumer goods while annexing
+    - Costs `50` pp
+    - Can't be taken if at war and cancels if UK joins a war.
+    - Also gives `100` compliance in the states
+
+#### Germany
+- Shortened some focus lengths `70` -> `56` days
+    - "Anschluss"
+    - "Demand Sudetenland"
+    - "Fate of Czechoslovakia"
+    - "Alliance with Spain"
+    - "Reassert Eastern Claims"
+- Shortened all the navy branch focus lengths to `35` days
+- Shortened some focus lengths `70` -> `35` days
+    - "First Vienna Award"
+    - "Second Vienna Award"
+    - "Anti-Comintern Pact"
+- Shortened "Danzig or War" focus length `70` -> `7` days
+- Moved "Improve National Spirit" to below "War With France"
+- Moved "Form the Reichskommissariats" to below "Anschluss"
+- Created a new focus branch that all take `70` days and will give `+50%` compliance when Germany caps their respective countries
+    - Poland
+    - Benelux (Netherlands and Belgium)
+    - France
+    - Scandanavia (Denmark and Norway)
+- Change the icons on many focuses
+
+#### Japan
+- Added decision to annex Manchuko and gain 100% Compliance if there's not a player on it
+
+
 ### 3.2.3 - Update to 1.12.7 and small changes
  
 - Updated to 1.12.7 hoi4 version 
