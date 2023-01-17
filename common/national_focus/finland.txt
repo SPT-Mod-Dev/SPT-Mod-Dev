@@ -719,7 +719,7 @@ focus_tree
 		completion_reward = {
 			add_tech_bonus = {
 				bonus = 0.75
-				uses = 2
+				uses = 1
 				category = infantry_weapons
 			}
 			146 = {
@@ -1152,19 +1152,27 @@ focus_tree
 		}
 		available_if_capitulated = no
 		completion_reward = {
-			random_owned_state = {
-				add_extra_state_shared_building_slots = 2
+			149 = {
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = fuel_silo
-					level = 2
+					level = 1
 					instant_build = yes
 				}
 			}
-			random_owned_state = {
-				add_extra_state_shared_building_slots = 2
+			111 = {
+				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = fuel_silo
-					level = 2
+					level = 1
+					instant_build = yes
+				}
+			}
+			148 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = fuel_silo
+					level = 1
 					instant_build = yes
 				}
 			}
@@ -1211,6 +1219,31 @@ focus_tree
 				category = cl_tech
 				category = ca_tech
 			}
+			111 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 3083
+					instant_build = yes
+				}
+
+			}
+			149 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 3122
+					instant_build = yes
+				}
+			}
+			146 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 2
+					province = 9206
+					instant_build = yes
+				}
+			}
 		}
 	}
 	###########################################################################
@@ -1234,7 +1267,7 @@ focus_tree
 			has_war_with = SOV
 		}
 
-		cost = 1
+		
 	}
 	focus = {
 		id = FIN_strike_back
@@ -1261,14 +1294,35 @@ focus_tree
 			}
 		}
 	}
+
 	focus = {
-		id = FIN_mobilise_reserves
-		icon = GFX_focus_SOV_mobilization_plan
+		id = FIN_seek_international_support
+		icon = GFX_focus_generic_league_of_nations
 		prerequisite = {
 			focus = FIN_strike_back
 		}
 		relative_position_id = FIN_strike_back
 		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 5
+		}
+		available = {
+			has_war_with = SOV
+		}
+		cost = 3
+		completion_reward = {
+			#add decisions to ask for forain aid. 100 pp for 10k manpower
+		}
+	}
+	focus = {
+		id = FIN_mobilise_reserves
+		icon = GFX_focus_SOV_mobilization_plan
+		prerequisite = {
+			focus = FIN_seek_international_support
+		}
+		relative_position_id = FIN_seek_international_support
+		x = 3
 		y = 1
 		cost = 4
 		ai_will_do = {
@@ -1330,9 +1384,9 @@ focus_tree
 		id = FIN_focus_industry_on_production
 		icon = GFX_goal_generic_production
 		prerequisite = {
-			focus = FIN_strike_back
+			focus = FIN_seek_international_support
 		}
-		relative_position_id = FIN_strike_back
+		relative_position_id = FIN_seek_international_support
 		x = -3
 		y = 1
 		cost = 4
@@ -1370,26 +1424,7 @@ focus_tree
 			add_ideas = tot_economic_mobilisation
 		}
 	}
-	focus = {
-		id = FIN_seek_international_support
-		icon = GFX_focus_generic_league_of_nations
-		prerequisite = {
-			focus = FIN_utilise_everything
-		}
-		relative_position_id = FIN_utilise_everything
-		x = 1
-		y = 1
-		ai_will_do = {
-			factor = 5
-		}
-		available = {
-			has_war_with = SOV
-		}
-		cost = 5
-		completion_reward = {
-			#add decisions to ask for forain aid. 100 pp for 10k manpower
-		}
-	}
+	
 	focus = {
 		id = FIN_evacuate_Karjala
 		icon = GFX_focus_SOV_the_road_of_life
@@ -1397,7 +1432,7 @@ focus_tree
 			focus = FIN_utilise_everything
 		}
 		relative_position_id = FIN_utilise_everything
-		x = -1
+		x = 0
 		y = 1
 		ai_will_do = {
 			factor = 5
@@ -1516,9 +1551,9 @@ focus_tree
 	focus = {
 		id = FIN_join_against_the_Soviet_union
 		icon = GFX_focus_attack_soviet
-		prerequisite = { focus = FIN_strike_back}
-		relative_position_id = FIN_strike_back
-		x = 3
+		prerequisite = { focus = FIN_seek_international_support}
+		relative_position_id = FIN_seek_international_support
+		x = 0
 		y = 1
 		cost = 3
 
@@ -1578,6 +1613,10 @@ focus_tree
 			#unlocks decisions to increase compliance and core at 40%
 			#when state cored by finland (213, 215, 216) get's soviet resistance that gives -20% defence
 		}
+	}
+
+	focus = {
+
 	}
 }
 #	focus = {
