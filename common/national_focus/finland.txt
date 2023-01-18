@@ -1027,7 +1027,7 @@ focus_tree
 	}
 	focus = {
 		id = FIN_expand_defensive_works
-		icon = GFX_focus_generic_coastal_fort
+		icon = GFX_goal_generic_defence
 		prerequisite = {
 			focus = FIN_improve_the_mannerheimline
 		}
@@ -1038,67 +1038,52 @@ focus_tree
 		ai_will_do = {
 			factor = 2
 		}
+		available = {
+			146 = {
+				is_controlled_by = FIN
+			}
+		}
+		bypass = {
+			146 = {
+				NOT = {
+					is_controlled_by = FIN
+				}
+			}
+		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
 			111 = {
 				add_building_construction = {
-					type = coastal_bunker
-					level = 2
-					province = 11105
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = coastal_bunker
-					level = 2
-					province = 3083
-					instant_build = yes
-				}
-				add_building_construction = {
 					type = anti_air_building
 					level = 1
 					instant_build = yes
 				}
 			}
-			149 = {
-				add_building_construction = {
-					type = coastal_bunker
-					level = 2
-					province = 3122
-					instant_build = yes
-				}
-			}
+
 			146 = {
 				add_building_construction = {
-					type = coastal_bunker
+					type = bunker
 					level = 2
-					province = 9206
+					province = 11156
 					instant_build = yes
 				}
 				add_building_construction = {
 					type = bunker
 					level = 2
-					province = 3187
+					province = 6153
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 2
+					province = 9176
 					instant_build = yes
 				}
 				add_building_construction = {
 					type = anti_air_building
 					level = 1
-					instant_build = yes
-				}
-			}
-			150 = {
-				add_building_construction = {
-					type = bunker
-					level = 2
-					province = 3030
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = bunker
-					level = 2
-					province = 9061
 					instant_build = yes
 				}
 			}
