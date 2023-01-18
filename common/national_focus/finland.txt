@@ -1307,12 +1307,9 @@ focus_tree
 		ai_will_do = {
 			factor = 5
 		}
-		available = {
-			has_war_with = SOV
-		}
 		cost = 3
 		completion_reward = {
-			#add decisions to ask for forain aid. 100 pp for 10k manpower
+			#gets event "seek forain aid" 
 		}
 	}
 	focus = {
@@ -1322,7 +1319,7 @@ focus_tree
 			focus = FIN_seek_international_support
 		}
 		relative_position_id = FIN_seek_international_support
-		x = 3
+		x = 0
 		y = 1
 		cost = 4
 		ai_will_do = {
@@ -1548,12 +1545,42 @@ focus_tree
 			}
 		}
 	}
+
+	focus = {
+		id = FIN_allied_support_arrives
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = FIN_seek_international_support}
+		relative_position_id = FIN_seek_international_support
+		x = 3
+		y = 1
+		
+		available = no
+
+		completion_reward = {
+			#trigger event "allied support arrives"
+		}
+	}
+
+	focus = {
+		id = FIN_we_are_on_our_own
+		icon = GFX_goal_generic_political_pressure
+		prerequisite = { focus = FIN_seek_international_support}
+		relative_position_id = FIN_seek_international_support
+		x = 5
+		y = 1
+		
+		available = no
+
+		completion_reward = {
+			#trigger event "No allied support"
+		}
+	}
 	focus = {
 		id = FIN_join_against_the_Soviet_union
 		icon = GFX_focus_attack_soviet
-		prerequisite = { focus = FIN_seek_international_support}
-		relative_position_id = FIN_seek_international_support
-		x = 0
+		prerequisite = { focus = FIN_allied_support_arrives focus = FIN_we_are_on_our_own}
+		relative_position_id = FIN_allied_support_arrives
+		x = 1
 		y = 1
 		cost = 3
 
@@ -1615,9 +1642,7 @@ focus_tree
 		}
 	}
 
-	focus = {
-
-	}
+	
 }
 #	focus = {
 #		id = FIN_
