@@ -5,6 +5,7 @@ SPT_finland = {
 		 has_completed_focus = FIN_purchase_foreign_equipment
 		}
 		cost = 50
+		fire_only_once = yes
 		days_remove = 30
         remove_effect = {
 			add_equipment_to_stockpile = {
@@ -20,6 +21,8 @@ SPT_finland = {
 		 has_completed_focus = FIN_purchase_foreign_equipment
 		}
 		cost = 75
+		fire_only_once = yes
+		days_remove = 30
 		remove_effect = {
 			add_equipment_to_stockpile = {
 				type = artillery_equipment
@@ -29,13 +32,43 @@ SPT_finland = {
 
 	}
 	Purchase_foreign_fighters = {
-		add_equipment_to_stockpile = {
-			
-			amount = 100
-		}
+
 		visible = {
 		 has_completed_focus = FIN_purchase_foreign_equipment
 		}
-		cost = 100
+		cost = 120
+		fire_only_once = yes
+	}
+
+	Winter_war = {
+		icon = GFX_report_event_finnish_soldiers_snow
+		activation = {
+			has_war_with = SOV
+		}
+		visible = {
+			has_war_with = SOV
+		}
+		cancel_trigger = {
+			has_war = no
+		}
+		available = {
+			
+		}
+		is_good = yes
+		days_mission_timeout = 240
+		fire_only_once = yes
+		timeout_effect = {
+			#country_event = finland victory in winter war
+		}
+		complete_effect = {
+			146 = {
+				set_state_owner = SOV 
+			}
+			197 = { 
+				set_state_owner = SOV
+			}
+			#country_event = finland lost winter war
+		}
+		
 	}
 }
