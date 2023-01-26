@@ -819,8 +819,11 @@ SPT_propaganda_campaigns = {
 
 }
 
-SPT_winter_war = {
+SPT_FIN_winter_war = {
+	name = winter_war
+
 	icon = GFX_decision_category_border_war
+	
 	
 	activation = {
 		has_war_with = SOV
@@ -828,19 +831,25 @@ SPT_winter_war = {
 	visible = {
 		has_war_with = SOV
 	}
-	cancel_trigger = {
-		has_war = no
-	}
+	fire_only_once = yes
+
 	available = {
-		SOV = {
+		or = { 
+			SOV = {
 			controls_state = 146
-		}
+		    }
+		    casualties_inflicted_by = {
+			opponent = SOV
+			thousands > 50
+		    }
+	    }
 	}
 	is_good = yes
 	days_mission_timeout = 240
 	fire_only_once = yes
 	timeout_effect = {
 		add_political_power = 100
+		custom_effect_tooltip = FIN_victory_in_the_winter_war_tt
 		#country_event = finland victory in winter war
 	}
 	complete_effect = {
@@ -849,7 +858,7 @@ SPT_winter_war = {
 			set_state_owner = 146
 		}
 		SOV = { 
-			set_state_owner = 197
+			set_state_owner = 147
 		}
 		#country_event = finland lost winter war
 	}
