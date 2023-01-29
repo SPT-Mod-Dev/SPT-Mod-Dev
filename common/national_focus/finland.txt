@@ -607,7 +607,7 @@ focus_tree = {
 			focus = FIN_retool_industry_for_armour_prodoction
 		}
 		x = 2
-		y = 1
+		y = 2
 		relative_position_id = FIN_military_contracts
 		cost = 10
 		ai_will_do = {
@@ -779,20 +779,44 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = FIN_add_defensive_war_st_factor
+		icon = GFX_focus_SWI_neutrality_on_the_move
+		prerequisite = {
+			focus = FIN_prepare_for_the_inevitable
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIN_prepare_for_the_inevitable
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}		
+		available_if_capitulated = yes
+		search_filters = {
+			FOCUS_FILTER_STABILITY
+		}
+		completion_reward = {
+			set_variable = {
+				FIN_defensive_war_st_factor = 0.15
+			}
+			custom_effect_tooltip = FIN_add_defensive_war_st_factor_tt
+		}
+	}
+	focus = {
 		id = FIN_learn_from_the_germans
 		icon = GFX_focus_ger_oppose_hitler
 		prerequisite = {
-			focus = FIN_prepare_for_the_inevitable
+			focus = FIN_add_defensive_war_st_factor
 		}
 		mutually_exclusive = {
 			focus = FIN_specialised_winter_training
 		}
 		x = -2
 		y = 1
-		relative_position_id = FIN_prepare_for_the_inevitable
+		relative_position_id = FIN_add_defensive_war_st_factor
 		cost = 10
 		ai_will_do = {
-			factor = 0
+			factor = 10
 		}
 		available = {
 			NOT = {
@@ -872,14 +896,14 @@ focus_tree = {
 		id = FIN_specialised_winter_training
 		icon = GFX_focus_GRE_a_land_of_mountains
 		prerequisite = {
-			focus = FIN_prepare_for_the_inevitable
+			focus = FIN_add_defensive_war_st_factor
 		}
 		mutually_exclusive = {
 			focus = FIN_learn_from_the_germans
 		}
 		x = 0
 		y = 1
-		relative_position_id = FIN_prepare_for_the_inevitable
+		relative_position_id = FIN_add_defensive_war_st_factor
 		cost = 10
 		ai_will_do = {
 			factor = 2
@@ -996,11 +1020,11 @@ focus_tree = {
 		id = FIN_improve_the_mannerheimline
 		icon = GFX_goal_fortify_the_westwall
 		prerequisite = {
-			focus = FIN_prepare_for_the_inevitable
+			focus = FIN_add_defensive_war_st_factor
 		}
 		x = 2
 		y = 1
-		relative_position_id = FIN_prepare_for_the_inevitable
+		relative_position_id = FIN_add_defensive_war_st_factor
 		cost = 5
 		ai_will_do = {
 			factor = 2
