@@ -293,7 +293,7 @@
 		id = SPT_MAN_army_modernization
 		icon = GFX_focus_chi_army_reform
 		prerequisite = { focus = SPT_MAN_the_japanese_colony }
-		x = 5
+		x = 6
 		y = 1
 		relative_position_id = SPT_MAN_the_japanese_colony
 
@@ -441,7 +441,7 @@
 		id = SPT_MAN_hoankyoku
 		icon = GFX_focus_SWI_embrace_rote_drei
 		prerequisite = { focus = SPT_MAN_the_japanese_colony }
-		x = 3
+		x = 0
 		y = 1
 		relative_position_id = SPT_MAN_the_japanese_colony
 
@@ -735,8 +735,8 @@
 		id = SPT_MAN_invite_japanese_settlers
 		icon = GFX_focus_jap_spiritual_mobilization
 		prerequisite = { focus = SPT_MAN_the_japanese_colony }
-		x = 1
-		y = 2
+		x = 2
+		y = 1
 		relative_position_id = SPT_MAN_the_japanese_colony
 
 		cost = 10
@@ -805,7 +805,7 @@
 		icon = GFX_focus_SOV_merge_plants
 		prerequisite = { focus = SPT_MAN_invite_japanese_settlers }
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = SPT_MAN_invite_japanese_settlers
 
 		cost = 10
@@ -841,11 +841,50 @@
 	}
 
 	focus = {
+		id = SPT_MAN_japanese_advisors
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = SPT_MAN_collective_farms }
+		prerequisite = { focus = SPT_MAN_mukden_military_academy }
+		x = 1
+		y = 1
+		relative_position_id = SPT_MAN_collective_farms
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_to_tech_sharing_group = co_prosperity_research
+			add_ideas = MAN_japanese_advisors
+			JAP = {
+				add_to_tech_sharing_group = co_prosperity_research
+			}
+		}
+	}
+
+	focus = {
 		id = SPT_MAN_law_university
 		icon = GFX_focus_research
 		prerequisite = { focus = SPT_MAN_chinese_leadership focus = SPT_MAN_the_japanese_colony }
 		x = 1
-		y = 1
+		y = 2
 		relative_position_id = SPT_MAN_chinese_leadership
 
 		cost = 10
