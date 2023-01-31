@@ -49,12 +49,12 @@ focus_tree = {
 		prerequisite = {
 			focus = FIN_Assess_political_situation
 		}
-		x = -3
+		x = -4
 		y = 1
 		relative_position_id = FIN_Assess_political_situation
 		cost = 10
 		ai_will_do = {
-			factor = 1
+			factor = 10
 		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -65,11 +65,6 @@ focus_tree = {
 		completion_reward = {
 			111 = {
 				add_extra_state_shared_building_slots = 2
-			}
-			146 = {
-				add_extra_state_shared_building_slots = 2
-			}
-			111 = {
 				if = {
 					limit = {
 						free_building_slots = {
@@ -83,23 +78,52 @@ focus_tree = {
 						instant_build = yes
 					}
 				}
+			}
+			146 = {
+				add_extra_state_shared_building_slots = 1
+				if = {
+					limit = {
+						free_building_slots = {
+							building = infrastructure
+							size > 0
+						}
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+
+
+		}
+	}
+	focus = {
+		id = FIN_develop_costal_cities
+		icon = GFX_goal_generic_construction2
+		prerequisite = {
+			focus = FIN_Expand_southern_infrastructure
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIN_Expand_southern_infrastructure
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		completion_reward = {
+			146 = {
+				add_extra_state_shared_building_slots = 1
 			}
 			149 = {
-				if = {
-					limit = {
-						free_building_slots = {
-							building = infrastructure
-							size > 0
-						}
-					}
-					add_building_construction = {
-						type = infrastructure
-						level = 1
-						instant_build = yes
-					}
-				}
-			}
-			146 = {
+				add_extra_state_shared_building_slots = 1
 				if = {
 					limit = {
 						free_building_slots = {
@@ -115,16 +139,17 @@ focus_tree = {
 				}
 			}
 		}
+
 	}
 	focus = {
 		id = FIN_develop_finnish_railways
 		icon = GFX_focus_generic_railroad
 		prerequisite = {
-			focus = FIN_Expand_southern_infrastructure
+			focus = FIN_develop_costal_cities
 		}
 		x = -2
 		y = 1
-		relative_position_id = FIN_Expand_southern_infrastructure
+		relative_position_id = FIN_develop_costal_cities
 		cost = 5
 		ai_will_do = {
 			factor = 2
@@ -207,8 +232,6 @@ focus_tree = {
 					level = 1
 					instant_build = yes
 				}
-			}
-			150 = {
 				if = {
 					limit = {
 						free_building_slots = {
@@ -223,7 +246,7 @@ focus_tree = {
 					}
 				}
 			}
-			148 = {
+			150 = {
 				if = {
 					limit = {
 						free_building_slots = {
@@ -335,11 +358,11 @@ focus_tree = {
 		id = FIN_promote_trade_with_Germany
 		icon = GFX_goal_generic_trade
 		prerequisite = {
-			focus = FIN_Expand_southern_infrastructure
+			focus = FIN_develop_costal_cities
 		}
 		x = 2
 		y = 1
-		relative_position_id = FIN_Expand_southern_infrastructure
+		relative_position_id = FIN_develop_costal_cities
 		cost = 5
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -404,13 +427,13 @@ focus_tree = {
 	}
 	focus = {
 		id = FIN_modernise_industrial_sector
-		icon = GFX_goal_generic_construction
+		icon = GFX_focus_SOV_organize_wreckers
 		prerequisite = {
-			focus = FIN_Expand_southern_infrastructure
+			focus = FIN_develop_costal_cities
 		}
 		x = 0
 		y = 1
-		relative_position_id = FIN_Expand_southern_infrastructure
+		relative_position_id = FIN_develop_costal_cities
 		cost = 10
 		ai_will_do = {
 			factor = 2
@@ -503,14 +526,6 @@ focus_tree = {
 				}
 			}
 			146 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_owned_state = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = industrial_complex
@@ -872,7 +887,7 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		completion_reward = {
-			add_ideas = Retooled_industry_for_tank_production
+			add_ideas = FIN_tank_manufacturer
 			random_owned_state = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
@@ -959,10 +974,12 @@ focus_tree = {
 			set_variable = {
 				FIN_xp_gain = 0.1
 			}
-			set_technology = {
-				FIN_jaeger_training = 1 
-			}			
-			#custom_effect_tooltip = FIN_expand_the_jaeger_movment_tt
+			hidden_effect = {
+				set_technology = {
+			 	FIN_jaeger_training = 1 
+			    }
+		    }			
+			custom_effect_tooltip = FIN_expand_the_jaeger_movment_tt
 		}
 	}
 	focus = {
@@ -1296,7 +1313,7 @@ focus_tree = {
 		icon = GFX_goal_generic_attack_allies
 
 
-		x = 10
+		x = 11
 		y = -1
 		relative_position_id = FIN_prepare_for_the_inevitable
 
@@ -1317,7 +1334,7 @@ focus_tree = {
 			focus = FIN_war_is_upon_us
 		}
 		relative_position_id = FIN_war_is_upon_us
-		x = 0
+		x = -2
 		y = 1
 		cost = 4
 		ai_will_do = {
@@ -1343,7 +1360,7 @@ focus_tree = {
 			focus = FIN_strike_back
 		}
 		relative_position_id = FIN_strike_back
-		x = 0
+		x = 2
 		y = 1
 		cost = 6
 		ai_will_do = {
@@ -1408,7 +1425,7 @@ focus_tree = {
 			focus = FIN_strike_back
 		}
 		relative_position_id = FIN_strike_back
-		x = -3
+		x = -2
 		y = 1
 		cost = 6
 		ai_will_do = {
@@ -1574,41 +1591,15 @@ focus_tree = {
 			}
 		}
 	}
-	focus = {
-		id = FIN_allied_support_arrives
-		icon = GFX_goal_support_democracy
-		prerequisite = { focus = FIN_strike_back}
-		relative_position_id = FIN_strike_back
-		x = 3
-		y = 1
-		
-		available = no
 
-		completion_reward = {
-			#trigger event "allied support arrives"
-		}
-	}
 
-	focus = {
-		id = FIN_we_are_on_our_own
-		icon = GFX_goal_generic_political_pressure
-		prerequisite = { focus = FIN_strike_back}
-		relative_position_id = FIN_strike_back
-		x = 5
-		y = 1
-		
-		available = no
 
-		completion_reward = {
-			#trigger event "No allied support"
-		}
-	}
 	focus = {
 		id = FIN_join_against_the_Soviet_union
 		icon = GFX_focus_attack_soviet
-		prerequisite = { focus = FIN_allied_support_arrives focus = FIN_we_are_on_our_own}
-		relative_position_id = FIN_allied_support_arrives
-		x = 1
+		prerequisite = { focus = FIN_war_is_upon_us }
+		relative_position_id = FIN_war_is_upon_us
+		x = 2
 		y = 1
 		cost = 3
 
