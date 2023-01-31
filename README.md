@@ -1,5 +1,25 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.2.5
+
+- Removed quick access to the countries that arent playable on the 1936 start date
+
+#### Lend Lease Rules
+- Added rule No lend leasing planes to Spain during or before the Spanish civil war"
+
+#### USA
+- Removed the ahistorical options from the panay incident event chain
+
+#### France
+- Removed the requirement for Charles De Gaulle to be leader to complete for "Appeal to the French Nation" in the Free France focus tree
+
+#### Soviet Union
+- Reduce length of "Desperate Measures" idea from "Desperate Measures" focus `365`-> `180`
+
+#### Japan
+- Addd `+20%` factory output to "State Shintoism" idea [(Hopefully) Temporary buff to japan]
+
+
 ### 3.2.4
 
 - Made the province underneath Alamein passable [Try and spice up africa front little bit more]
