@@ -639,7 +639,7 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = FIN_yet_to_be_named_research
+		id = FIN_santahamina_military_academy
 		icon = GFX_focus_research
 		prerequisite = {
 			focus = FIN_expand_to_civil_contracts
@@ -794,7 +794,7 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = FIN_add_defensive_war_st_factor
+		id = FIN_secure_the_homefront
 		icon = GFX_focus_SWI_neutrality_on_the_move
 		prerequisite = {
 			focus = FIN_prepare_for_the_inevitable
@@ -821,14 +821,14 @@ focus_tree = {
 		id = FIN_learn_from_the_germans
 		icon = GFX_focus_ger_oppose_hitler
 		prerequisite = {
-			focus = FIN_add_defensive_war_st_factor
+			focus = FIN_secure_the_homefront
 		}
 		mutually_exclusive = {
 			focus = FIN_specialised_winter_training
 		}
 		x = -2
 		y = 1
-		relative_position_id = FIN_add_defensive_war_st_factor
+		relative_position_id = FIN_secure_the_homefront
 		cost = 10
 		ai_will_do = {
 			factor = 10
@@ -911,14 +911,14 @@ focus_tree = {
 		id = FIN_specialised_winter_training
 		icon = GFX_focus_GRE_a_land_of_mountains
 		prerequisite = {
-			focus = FIN_add_defensive_war_st_factor
+			focus = FIN_secure_the_homefront
 		}
 		mutually_exclusive = {
 			focus = FIN_learn_from_the_germans
 		}
 		x = 0
 		y = 1
-		relative_position_id = FIN_add_defensive_war_st_factor
+		relative_position_id = FIN_secure_the_homefront
 		cost = 10
 		ai_will_do = {
 			factor = 2
@@ -1037,11 +1037,11 @@ focus_tree = {
 		id = FIN_improve_the_mannerheimline
 		icon = GFX_goal_fortify_the_westwall
 		prerequisite = {
-			focus = FIN_add_defensive_war_st_factor
+			focus = FIN_secure_the_homefront
 		}
 		x = 2
 		y = 1
-		relative_position_id = FIN_add_defensive_war_st_factor
+		relative_position_id = FIN_secure_the_homefront
 		cost = 5
 		ai_will_do = {
 			factor = 2
@@ -1360,7 +1360,7 @@ focus_tree = {
 			focus = FIN_strike_back
 		}
 		relative_position_id = FIN_strike_back
-		x = 2
+		x = 1
 		y = 1
 		cost = 6
 		ai_will_do = {
@@ -1522,7 +1522,7 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = FIN_yet_to_be_named_doctrine
+		id = FIN_doctrine_advancements
 		icon = GFX_goal_generic_army_doctrines
 		prerequisite = {
 			focus = FIN_mobilise_reserves
@@ -1531,11 +1531,11 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 4
-			ai_will_do = {
+		ai_will_do = {
 			factor = 5
 		}
 		available = {
-			has_war_with = SOV
+			has_army_experience > 50
 		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -1543,7 +1543,7 @@ focus_tree = {
 			FOCUS_FILTER_ARMY_XP
 		}
 		completion_reward = {
-			army_experience = 55
+			army_experience = -50
 			add_doctrine_cost_reduction = {
 				name = land_doc_bonus
 				cost_reduction = 0.75
