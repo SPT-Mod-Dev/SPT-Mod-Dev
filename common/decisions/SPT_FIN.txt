@@ -53,17 +53,24 @@ FIN_integration_of_karelia = {
 				controls_state = 213
 			} 
 		}
+		cancel_trigger = {
+			not = {
+			    213 = {
+				is_controlled_by = FIN
+			    }
+		    }
+		}
 		visible = {
 			has_completed_focus = FIN_begin_integration_of_karelia
 		}
 		fire_only_once = yes
-		timeout_effect = {
+		remove_effect = {
 			213 = {
-				add_compliance = 30
+				add_compliance = 25
 			}
 		}
 		days_remove = 120
-		cost = 85
+		cost = 75
 	}
 	Integration_of_Onega = {
 		available = {
@@ -82,13 +89,13 @@ FIN_integration_of_karelia = {
 			has_completed_focus = FIN_begin_integration_of_karelia
 		}
 		fire_only_once = yes
-		timeout_effect = {
+		remove_effect = {
 			215 = {
-				add_compliance = 30
+				add_compliance = 25
 			}
 		}
 		days_remove = 120
-		cost = 85
+		cost = 75
 	}
 	Integration_of_Olonets = {
 		available = {
@@ -107,12 +114,99 @@ FIN_integration_of_karelia = {
 			has_completed_focus = FIN_begin_integration_of_karelia
 		}
 		fire_only_once = yes
-		timeout_effect = {
+		remove_effect = {
 			216 = {
-				add_compliance = 30
+				add_compliance = 25
 			}
 		}
-		days_remove = 10
-		cost = 85
+		days_remove = 120
+		cost = 75
+	}
+	Fully_integrate_Murmansk = {
+		available = {
+			FIN = {
+				controls_state = 213
+				
+			} 
+			213 = {
+				compliance > 45
+			}
+		}
+		cancel_trigger = {
+			not = {
+			    213 = {
+				is_controlled_by = FIN
+			    }
+		    }
+		}
+		visible = {
+			has_completed_focus = FIN_begin_integration_of_karelia
+		}
+		fire_only_once = yes
+		remove_effect = {
+			213 = {
+				add_core_of = FIN
+			}
+		}
+		days_remove = 150
+		cost = 100
+	}
+	Fully_integrate_Onega = {
+		available = {
+			FIN = {
+				controls_state = 215
+				
+			} 
+			215 = {
+				compliance > 45
+			}
+		}
+		cancel_trigger = {
+			not = {
+			    215 = {
+				is_controlled_by = FIN
+			    }
+		    }
+		}
+		visible = {
+			has_completed_focus = FIN_begin_integration_of_karelia
+		}
+		fire_only_once = yes
+		remove_effect = {
+			215 = {
+				add_core_of = FIN
+			}
+		}
+		days_remove = 150
+		cost = 100
+	}
+	Fully_integrate_Olonets = {
+		available = {
+			FIN = {
+				controls_state = 216
+				
+			} 
+			216 = {
+				compliance > 45
+			}
+		}
+		cancel_trigger = {
+			not = {
+			    216 = {
+				is_controlled_by = FIN
+			    }
+		    }
+		}
+		visible = {
+			has_completed_focus = FIN_begin_integration_of_karelia
+		}
+		fire_only_once = yes
+		remove_effect = {
+			216 = {
+				add_core_of = FIN
+			}
+		}
+		days_remove = 150
+		cost = 100
 	}
 }
