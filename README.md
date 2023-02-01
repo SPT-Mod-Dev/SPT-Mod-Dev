@@ -1,5 +1,18 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.2.5.1
+
+- Changed some gfx icons for Hungary, Japan and Romania
+
+#### Hunary
+- Removed "Boost Hungarian Aviation Industry" as a prerequisite for "Indigenous designs" [Allows Hungary to rush fighters now italy can't]
+- Merged "Synthetic Industry" into "Autarky" focus
+- Increased number of mils received from "Boost Hungarian Aviation Industry" `2` -> `4`
+
+#### Japan
+- Replaced getting a variant with researching fighter 2 for "The Zero" focus
+
+
 ### 3.2.5
 
 - Removed quick access to the countries that arent playable on the 1936 start date
