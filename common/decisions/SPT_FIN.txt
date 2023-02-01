@@ -1,4 +1,4 @@
-SPT_finland = {
+FIN_purchse_foreign_equipment_decisions = {
 	Purchase_foreign_infantry_equipment = {
 		visible = {
 			has_completed_focus = FIN_purchase_foreign_equipment
@@ -40,9 +40,79 @@ SPT_finland = {
 			}
 		
 		}
-		days_remove = 1
+		days_remove = 30
 		cost = 120
 		fire_only_once = yes
 	}
 }
 
+FIN_integration_of_karelia = {
+	Integration_of_Murmansk = {
+		available = {
+			FIN = {
+				controls_state = 213
+			} 
+		}
+		visible = {
+			has_completed_focus = FIN_begin_integration_of_karelia
+		}
+		fire_only_once = yes
+		timeout_effect = {
+			213 = {
+				add_compliance = 30
+			}
+		}
+		days_remove = 120
+		cost = 85
+	}
+	Integration_of_Onega = {
+		available = {
+			FIN = {
+				controls_state = 215
+			} 
+		}
+		cancel_trigger = {
+			not = {
+			    215 = {
+				is_controlled_by = FIN
+			    }
+		    }
+		}
+		visible = {
+			has_completed_focus = FIN_begin_integration_of_karelia
+		}
+		fire_only_once = yes
+		timeout_effect = {
+			215 = {
+				add_compliance = 30
+			}
+		}
+		days_remove = 120
+		cost = 85
+	}
+	Integration_of_Olonets = {
+		available = {
+			FIN = {
+				controls_state = 216
+			} 
+		}
+		cancel_trigger = {
+			not = {
+			    216 = {
+				is_controlled_by = FIN
+			    }
+		    }
+		}
+		visible = {
+			has_completed_focus = FIN_begin_integration_of_karelia
+		}
+		fire_only_once = yes
+		timeout_effect = {
+			216 = {
+				add_compliance = 30
+			}
+		}
+		days_remove = 10
+		cost = 85
+	}
+}

@@ -123,7 +123,12 @@ focus_tree = {
 				add_extra_state_shared_building_slots = 1
 			}
 			149 = {
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}		
 				if = {
 					limit = {
 						free_building_slots = {
@@ -450,14 +455,6 @@ focus_tree = {
 				bonus = 1
 				uses = 2
 				category = industry
-			}
-			random_owned_state = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
 			}			
 		}
 	}
@@ -1656,6 +1653,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			custom_effect_tooltip = FIN_begin_integration_of_karelia_tt
 			#unlocks decisions to increase compliance and core at 40%
 			#when state cored by finland (213, 215, 216) get's soviet resistance that gives -20% defence
 		}
