@@ -316,8 +316,8 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = FIN_yet_to_be_named_civs
-		icon = GFX_focus_generic_industry_3
+		id = FIN_invest_in_domestic_power_generation
+		icon = GFX_focus_generic_hydroelectric_energy
 		prerequisite = {
 			focus = FIN_resource_prospects
 		}
@@ -356,7 +356,14 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
 		}
 	}
 	focus = {
@@ -632,7 +639,10 @@ focus_tree = {
 			FOCUS_FILTER_INDUSTRY
 		}
 		completion_reward = {
-			# Remove/reduce license cost 
+			add_relation_modifier = {
+				target = GER
+				modifier = ROM_license_german_equipment
+			}
 		}
 	}
 	focus = {
@@ -1000,7 +1010,7 @@ focus_tree = {
 			FOCUS_FILTER_RESEARCH
 		}
 		completion_reward = {
-			#Modify FIN_threat_from_the_east commandpower allocated to general staff -33%. pp cost to appoint -33%
+			add_ideas = FIN_new_advisors_idea
 		}
 	}
 
@@ -1654,8 +1664,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			custom_effect_tooltip = FIN_begin_integration_of_karelia_tt
-			#unlocks decisions to increase compliance and core at 40%
-			#when state cored by finland (213, 215, 216) get's soviet resistance that gives -20% defence
+			
 		}
 	}
 
