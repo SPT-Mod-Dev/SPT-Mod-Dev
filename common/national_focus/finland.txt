@@ -855,7 +855,7 @@ focus_tree = {
 		completion_reward = {
 		
 			set_variable = {
-				FIN_xp_gain = 0.15
+				FIN_xp_gain = 0.10
 			}
 			add_tech_bonus = {
 				name = armor_bonus
@@ -865,10 +865,12 @@ focus_tree = {
 			}
 			add_doctrine_cost_reduction = {
 				name = land_doc_bonus
-				cost_reduction = 0.15
-				uses = 2
+				cost_reduction = 0.50
+				uses = 1
 				category = land_doctrine
 			}
+			custom_effect_tooltip = FIN_learn_from_the_germans_tt
+
 		}
 	}
 	focus = {
@@ -1542,7 +1544,7 @@ focus_tree = {
 			factor = 5
 		}
 		available = {
-			has_army_experience > 50
+			has_army_experience > 65
 		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -1550,7 +1552,7 @@ focus_tree = {
 			FOCUS_FILTER_ARMY_XP
 		}
 		completion_reward = {
-			army_experience = -50
+			army_experience = -65
 			add_doctrine_cost_reduction = {
 				name = land_doc_bonus
 				cost_reduction = 0.75
