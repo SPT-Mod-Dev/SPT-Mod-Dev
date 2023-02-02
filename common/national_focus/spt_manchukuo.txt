@@ -527,6 +527,87 @@
 			custom_effect_tooltip = MAN_Qing_Route_tt
 		}
 	}
+
+	focus = {
+		id = SPT_MAN_reform_the_qing_army
+		icon = GFX_focus_chi_legislative_yuan
+		prerequisite = { focus = SPT_MAN_recruit_qing_loyalists }
+		
+		x = -3
+		y = 1
+		relative_position_id = SPT_MAN_recruit_qing_loyalists
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_ideas = MAN_qing_army
+		}
+	}
+
+	focus = {
+		id = SPT_MAN_open_old_weapon_caches
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = SPT_MAN_reform_the_qing_army }
+		
+		x = 0
+		y = 1
+		relative_position_id = SPT_MAN_reform_the_qing_army
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 10000
+				producer = FROM
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 500
+				producer = FROM
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 250
+				producer = FROM
+			}
+		}
+	}
+
 	focus = {
 		id = SPT_MAN_the_two_emperors
 		icon = GFX_focus_ETH_an_empire_in_the_shade_of_the_sun
