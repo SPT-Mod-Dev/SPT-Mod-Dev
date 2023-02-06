@@ -853,8 +853,10 @@ SPT_winter_war = {
 		days_mission_timeout = 210
 		fire_only_once = yes
 		timeout_effect = {
-			custom_effect_tooltip = FIN_victory_in_the_winter_war_tt
-			#country_event = finland victory in winter war
+			country_event = { 
+				id = spt_finland.1
+				days = 1
+			}
 		}
 		complete_effect = {
 			white_peace = SOV
@@ -864,7 +866,10 @@ SPT_winter_war = {
 			SOV = { 
 				set_state_owner = 147
 			}
-			#country_event = finland lost winter war
+			country_event = { 
+				id = spt_finland.2
+				days = 1
+			}
 		}
 	}
 	SOV_winter_war = {
@@ -890,18 +895,20 @@ SPT_winter_war = {
 				SOV = {
 				controls_state = 146
 				}
-				casualties_inflicted_on = {
-				target = FIN
-				thousands > 40
-				}
+				casualties_inflicted_by = {
+					opponent = SOV
+					thousands > 40
+					}
 			}
 		}
-		is_good = yes
+		is_good = no
 		days_mission_timeout = 210
 		fire_only_once = yes
 		timeout_effect = {
-			custom_effect_tooltip = FIN_victory_in_the_winter_war_tt
-			#country_event = retreat from Finland
+			country_event = { 
+				id = spt_finland.4
+				days = 1
+			}
 		}
 		complete_effect = {
 			white_peace = FIN
@@ -911,7 +918,10 @@ SPT_winter_war = {
 			SOV = { 
 				set_state_owner = 147
 			}
-			#country_event = Victory in the winter war + 10st and ws
+			country_event = { 
+				id = spt_finland.3
+				days = 1
+			}
 		}
 	}
 }
