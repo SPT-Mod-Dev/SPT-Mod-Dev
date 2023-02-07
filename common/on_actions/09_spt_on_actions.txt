@@ -683,4 +683,23 @@ on_actions = {
 			}
 		}
 	}
+
+	on_army_leader_promoted = {
+		effect = {
+			if = {
+				limit = {
+					FROM = {
+						original_tag = SOV
+					}
+					ROOT = {
+						is_character = SOV_semyon_timoshenko
+					}
+				}
+				
+				SOV = { 
+					activate_decision = Appoint_Timoshenko
+				}
+			}
+		}
+	}
 }
