@@ -465,9 +465,11 @@ characters = {
 			planning_skill = 2
 			logistics_skill = 3
 			legacy_id = 404
-			visible = { NOT = { has_character_flag = SOV_exiled_flag } }
+			 #visible = { NOT = { has_character_flag = SOV_exiled_flag } }
 			visible = {						#SPTChange
-				has_country_flag = winter_war
+				SOV = {
+					has_country_flag = winter_war_flag
+				}
 			}
 		}
 	}

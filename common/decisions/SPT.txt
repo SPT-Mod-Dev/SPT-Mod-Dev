@@ -852,6 +852,9 @@ SPT_winter_war = {
 						owns_state = 146
 					}
 				}
+				FIN = {
+					surrender_progress > 0.50
+				}
 			}
 		}
 		is_good = yes
@@ -862,9 +865,14 @@ SPT_winter_war = {
 				id = spt_finland.1
 				days = 1
 			}
+			white_peace = {
+				tag = SOV
+			}
 		}
 		complete_effect = {
-			white_peace = SOV
+			white_peace = {
+				tag = SOV
+			}
 			SOV = {
 				set_state_owner = 146
 			}
@@ -909,6 +917,9 @@ SPT_winter_war = {
 						owns_state = 146
 					}
 				}
+				FIN = {
+					surrender_progress > 0.50
+				}
 			}
 		}
 		is_good = no
@@ -919,9 +930,14 @@ SPT_winter_war = {
 				id = spt_finland.4
 				days = 1
 			}
+			white_peace = {
+				tag = FIN
+			}
 		}
 		complete_effect = {
-			white_peace = FIN
+			white_peace = {
+				tag = FIN
+			}
 			SOV = {
 				set_state_owner = 146
 			}
@@ -932,6 +948,8 @@ SPT_winter_war = {
 				id = spt_finland.3
 				days = 1
 			}
+
+			
 		}
 	}
 	Appoint_Timoshenko = {
