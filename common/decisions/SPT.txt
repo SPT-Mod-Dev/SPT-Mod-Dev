@@ -231,6 +231,78 @@ spt_category = {
 		}
 	}
 
+	ENG_annex_malaya = {
+		allowed = {
+			original_tag = ENG
+		}
+
+		days_remove = 90
+		cost = 50
+
+		visible = {
+			MAL = {
+				exists = yes
+			}
+
+		}
+
+		available = {
+			has_war = no
+		}
+
+		cancel_trigger = {
+			has_war = yes
+		}
+
+		modifier = {
+			consumer_goods_factor = 0.1
+		}
+
+		remove_effect = {
+			annex_country = {
+				target = MAL
+				transfer_troops = no
+			}
+
+			336  = {
+				add_compliance = 100
+			}
+			333 = {
+				add_compliance = 100
+			}
+		}
+
+	}
+
+	JAP_annex_manchuko = {
+		allowed = {
+			original_tag = JAP
+		}
+		available = {
+			MAN = {
+				is_ai = yes
+			}
+			is_ai = no
+		}
+		complete_effect = {
+			
+			annex_country = { target = MAN transfer_troops = yes }
+			hidden_effect = {
+				611 = { add_compliance = 50 }
+				612 = { add_compliance = 50 }
+				610 = { add_compliance = 50 }
+				715 = { add_compliance = 50 }
+				716 = { add_compliance = 50 }
+				328 = { add_compliance = 50 }
+				717 = { add_compliance = 50 }
+				714 = { add_compliance = 50 }
+				761 = { add_compliance = 50 }
+			}
+
+		}
+		fire_only_once = yes
+	}
+
 
 }
 
