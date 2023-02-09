@@ -1,5 +1,4 @@
 on_actions = {
-		
 	on_startup = {
 		effect = {
 			#Gives all players training division
@@ -9,70 +8,136 @@ on_actions = {
 				}
 				division_template = {
 					name = "1 Division Training Template"
-				
 					division_names_group = AFG_ARM_01
-				
 					regiments = {
-						infantry = { x = 0 y = 0 }
-						infantry = { x = 0 y = 1 }
-						infantry = { x = 0 y = 2 }
-						infantry = { x = 0 y = 3 }
-						infantry = { x = 0 y = 4 }
-						infantry = { x = 1 y = 0 }
-						infantry = { x = 1 y = 1 }
-						infantry = { x = 1 y = 2 }
-						infantry = { x = 1 y = 3 }
-						infantry = { x = 1 y = 4 }
-						infantry = { x = 2 y = 0 }
-						infantry = { x = 2 y = 1 }
-						infantry = { x = 2 y = 2 }
-						infantry = { x = 2 y = 3 }
-						infantry = { x = 2 y = 4 }
-						infantry = { x = 3 y = 0 }
-						infantry = { x = 3 y = 1 }
-						infantry = { x = 3 y = 2 }
-						infantry = { x = 3 y = 3 }
-						infantry = { x = 3 y = 4 }
-						infantry = { x = 4 y = 0 }
-						infantry = { x = 4 y = 1 }
-						infantry = { x = 4 y = 2 }
-						infantry = { x = 4 y = 3 }
-						infantry = { x = 4 y = 4 }
+						infantry = {
+							x = 0
+							y = 0
+						}
+						infantry = {
+							x = 0
+							y = 1
+						}
+						infantry = {
+							x = 0
+							y = 2
+						}
+						infantry = {
+							x = 0
+							y = 3
+						}
+						infantry = {
+							x = 0
+							y = 4
+						}
+						infantry = {
+							x = 1
+							y = 0
+						}
+						infantry = {
+							x = 1
+							y = 1
+						}
+						infantry = {
+							x = 1
+							y = 2
+						}
+						infantry = {
+							x = 1
+							y = 3
+						}
+						infantry = {
+							x = 1
+							y = 4
+						}
+						infantry = {
+							x = 2
+							y = 0
+						}
+						infantry = {
+							x = 2
+							y = 1
+						}
+						infantry = {
+							x = 2
+							y = 2
+						}
+						infantry = {
+							x = 2
+							y = 3
+						}
+						infantry = {
+							x = 2
+							y = 4
+						}
+						infantry = {
+							x = 3
+							y = 0
+						}
+						infantry = {
+							x = 3
+							y = 1
+						}
+						infantry = {
+							x = 3
+							y = 2
+						}
+						infantry = {
+							x = 3
+							y = 3
+						}
+						infantry = {
+							x = 3
+							y = 4
+						}
+						infantry = {
+							x = 4
+							y = 0
+						}
+						infantry = {
+							x = 4
+							y = 1
+						}
+						infantry = {
+							x = 4
+							y = 2
+						}
+						infantry = {
+							x = 4
+							y = 3
+						}
+						infantry = {
+							x = 4
+							y = 4
+						}
 					}
 					priority = 2
 				}
-				
-
 			}
-
 			#Researches trains for all players
 			every_country = {
 				limit = {
 					is_ai = no
-					NOT = {has_tech = basic_train}
+					NOT = {
+						has_tech = basic_train
+					}
 				}
 				set_technology = {
 					basic_train = 1
 					popup = no
 				}
-				
-
 			}
-
 			#Gives all minors 100 convoys
 			every_country = {
 				limit = {
 					is_ai = no
 					is_major = no
 				}
-
 				add_equipment_to_stockpile = {
 					type = convoy
 					amount = 100
 				}
 			}
-			
-		
 			#Removed starting guarantees
 			FRA = {
 				diplomatic_relation = {
@@ -159,7 +224,6 @@ on_actions = {
 					active = no
 				}
 			}
-
 			#Add eng POL guarantee
 			ENG = {
 				diplomatic_relation = {
@@ -197,25 +261,21 @@ on_actions = {
 				}
 				640 = {
 					remove_core_of = BRM
-				}		
+				}
 				288 = {
 					remove_core_of = BRM
 				}
 			}
-
-			
 			#Remove yugos anti german idea
 			YUG = {
 				remove_ideas = anti_german_military
 			}
-
 			#Prevents argentina joining factions
 			ARG = {
 				set_rule = {
 					can_join_factions = no
 				}
 			}
-
 			JAP = {
 				prop_initialise = yes
 			}
@@ -233,13 +293,10 @@ on_actions = {
 						special_type_slot_1 = empty
 					}
 					icon = "GFX_GER_fighter1_medium"
-				}				
+				}
 			}
-
 		}
 	}
-
-	
 	on_state_control_changed = {
 		effect = {
 			#Checks axis take oslo
@@ -249,14 +306,17 @@ on_actions = {
 						state = 110
 					}
 					OR = {
-						ROOT = {original_tag = GER}
-						ROOT = {is_ally_with = GER}
+						ROOT = {
+							original_tag = GER
+						}
+						ROOT = {
+							is_ally_with = GER
+						}
 					}
 				}
-				
 				country_event = {
-					days =  7 
-					id = spt.1 
+					days = 7
+					id = spt.1
 				}
 			}
 			#Checks axis lose oslo
@@ -266,15 +326,18 @@ on_actions = {
 						state = 110
 					}
 					OR = {
-						FROM = {original_tag = GER}
-						FROM = {is_ally_with = GER}
+						FROM = {
+							original_tag = GER
+						}
+						FROM = {
+							is_ally_with = GER
+						}
 					}
 				}
-				
 				GER = {
 					country_event = {
-						days = 3 
-						id = spt.2 
+						days = 3
+						id = spt.2
 					}
 				}
 			}
@@ -307,14 +370,21 @@ on_actions = {
 						}
 					}
 					OR = {
-						ROOT = {original_tag = USA}
-						ROOT = {is_ally_with = USA}
+						ROOT = {
+							original_tag = USA
+						}
+						ROOT = {
+							is_ally_with = USA
+						}
 					}
 					OR = {
-						FROM = {original_tag = JAP}
-						FROM = {is_ally_with = JAP} 
+						FROM = {
+							original_tag = JAP
+						}
+						FROM = {
+							is_ally_with = JAP
+						}
 					}
-						
 				}
 				JAP = {
 					add_power_balance_value = {
@@ -337,11 +407,7 @@ on_actions = {
 						}
 						set_country_flag = USA_captured_island
 					}
-					
 				}
-
-
-				
 			}
 			#Japan takes island
 			if = {
@@ -371,14 +437,21 @@ on_actions = {
 						}
 					}
 					OR = {
-						ROOT = {original_tag = JAP}
-						ROOT = {is_ally_with = JAP}
+						ROOT = {
+							original_tag = JAP
+						}
+						ROOT = {
+							is_ally_with = JAP
+						}
 					}
 					OR = {
-						FROM = {original_tag = USA}
-						FROM = {is_ally_with = USA} 
+						FROM = {
+							original_tag = USA
+						}
+						FROM = {
+							is_ally_with = USA
+						}
 					}
-						
 				}
 				JAP = {
 					add_power_balance_value = {
@@ -399,9 +472,7 @@ on_actions = {
 					}
 					country_event = spt.13
 				}
-				
 			}
-			
 			#Med front checks
 			#ENG takes position
 			if = {
@@ -423,14 +494,21 @@ on_actions = {
 						}
 					}
 					OR = {
-						ROOT = {original_tag = ENG}
-						ROOT = {is_ally_with = ENG}
+						ROOT = {
+							original_tag = ENG
+						}
+						ROOT = {
+							is_ally_with = ENG
+						}
 					}
 					OR = {
-						FROM = {original_tag = ITA}
-						FROM = {is_ally_with = ITA} 
+						FROM = {
+							original_tag = ITA
+						}
+						FROM = {
+							is_ally_with = ITA
+						}
 					}
-						
 				}
 				ITA = {
 					add_power_balance_value = {
@@ -469,14 +547,21 @@ on_actions = {
 						}
 					}
 					OR = {
-						ROOT = {original_tag = ITA}
-						ROOT = {is_ally_with = ITA}
+						ROOT = {
+							original_tag = ITA
+						}
+						ROOT = {
+							is_ally_with = ITA
+						}
 					}
 					OR = {
-						FROM = {original_tag = ENG}
-						FROM = {is_ally_with = ENG} 
+						FROM = {
+							original_tag = ENG
+						}
+						FROM = {
+							is_ally_with = ENG
+						}
 					}
-						
 				}
 				ENG = {
 					add_power_balance_value = {
@@ -494,15 +579,9 @@ on_actions = {
 						value = 0.15
 					}
 				}
-
-
-				
 			}
-			
-
 		}
 	}
-
 	on_capitulation = {
 		effect = {
 			#Checks axis cap Denmark
@@ -512,8 +591,6 @@ on_actions = {
 						original_tag = DEN
 					}
 					capped_by_axis = yes
-					
-
 				}
 				if = {
 					limit = {
@@ -524,11 +601,10 @@ on_actions = {
 					USA = {
 						country_event = {
 							id = spt.3
-							days = 7 
-						} 
+							days = 7
+						}
 					}
 				}
-				
 				GER = {
 					if = {
 						limit = {
@@ -546,12 +622,20 @@ on_actions = {
 				limit = {
 					OR = {
 						AND = {
-							ROOT = {original_tag = JAP}
-							FROM = {original_tag = USA}
+							ROOT = {
+								original_tag = JAP
+							}
+							FROM = {
+								original_tag = USA
+							}
 						}
 						AND = {
-							ROOT = {original_tag = USA}
-							FROM = {original_tag = JAP}
+							ROOT = {
+								original_tag = USA
+							}
+							FROM = {
+								original_tag = JAP
+							}
 						}
 					}
 				}
@@ -559,7 +643,6 @@ on_actions = {
 					add_ideas = PAC_total_victory
 				}
 			}
-
 			if = {
 				limit = {
 					ROOT = {
@@ -579,7 +662,6 @@ on_actions = {
 						}
 					}
 				}
-				
 			}
 			#Get compliance when ger takes poland
 			if = {
@@ -589,7 +671,6 @@ on_actions = {
 						original_tag = POL
 					}
 				}
-				
 				GER = {
 					if = {
 						limit = {
@@ -610,7 +691,6 @@ on_actions = {
 						original_tag = HOL
 					}
 				}
-				
 				GER = {
 					if = {
 						limit = {
@@ -631,7 +711,6 @@ on_actions = {
 						original_tag = BEL
 					}
 				}
-				
 				GER = {
 					if = {
 						limit = {
@@ -652,7 +731,6 @@ on_actions = {
 						original_tag = NOR
 					}
 				}
-				
 				GER = {
 					if = {
 						limit = {
@@ -665,25 +743,25 @@ on_actions = {
 					}
 				}
 			}
-
 		}
 	}
-
 	on_declare_war = {
 		effect = {
 			if = {
 				limit = {
-					ROOT = { tag = JAP }
-					FROM = { is_in_faction_with = ENG }
+					ROOT = {
+						tag = JAP
+					}
+					FROM = {
+						is_in_faction_with = ENG
+					}
 				}
 				JAP = {
 					add_ideas = JAP_tora_tora_tora_idea
 				}
 			}
-
 		}
 	}
-
 	on_war_relation_added = {
 		effect = {
 			#Check if usa is at war with jap and add bop
@@ -693,16 +771,14 @@ on_actions = {
 						has_war_with = JAP
 						NOT = {
 							has_power_balance = {
-								id = USA_PAC_pacific_front 
+								id = USA_PAC_pacific_front
 							}
 						}
 					}
 					NOT = {
 						has_global_flag = Pacific_War
 					}
-
 				}
-
 				USA = {
 					country_event = {
 						id = spt.14
@@ -716,7 +792,6 @@ on_actions = {
 					}
 				}
 				set_global_flag = Pacific_War
-
 			}
 			#Check if eng is at war with ita and add bop
 			if = {
@@ -732,9 +807,7 @@ on_actions = {
 					NOT = {
 						has_global_flag = Med_War
 					}
-
 				}
-
 				ENG = {
 					country_event = {
 						id = spt.15
@@ -748,7 +821,6 @@ on_actions = {
 					}
 				}
 				set_global_flag = Med_War
-
 			}
 		}
 	}
@@ -759,14 +831,13 @@ on_actions = {
 				limit = {
 					USA = {
 						NOT = {
-							has_war_with = JAP	
+							has_war_with = JAP
 						}
 						has_power_balance = {
-							id = USA_PAC_pacific_front 
+							id = USA_PAC_pacific_front
 						}
 					}
 				}
-
 				USA = {
 					remove_power_balance = {
 						id = USA_PAC_pacific_front
@@ -786,14 +857,13 @@ on_actions = {
 				limit = {
 					ENG = {
 						NOT = {
-							has_war_with = ITA	
+							has_war_with = ITA
 						}
 						has_power_balance = {
 							id = ENG_MED_med_front
 						}
 					}
 				}
-
 				ENG = {
 					remove_power_balance = {
 						id = ENG_MED_med_front
@@ -808,7 +878,6 @@ on_actions = {
 			}
 		}
 	}
-
 	on_army_leader_promoted = {
 		effect = {
 			if = {
@@ -820,30 +889,29 @@ on_actions = {
 						has_id = 404
 					}
 				}
-				
-				SOV = { 
+				SOV = {
 					activate_decision = Appoint_Timoshenko
-        }
-      }
-    
-  on_operation_completed = {
-     effect = {
-
-      FROM = {
-        save_event_target_as = victim_nation
-      }
-      THIS = {
-        save_event_target_as = this_operation
-      }
-      ROOT = {
-        save_event_target_as = root_test
-      }			
-      ROOT = {
-        country_event = {
-          id = spt.99 #Operation Completed
-          days = 1
-			  }
-      }
+				}
+			}
+		}
+	}
+	on_operation_completed = {
+		effect = {
+			FROM = {
+				save_event_target_as = victim_nation
+			}
+			THIS = {
+				save_event_target_as = this_operation
+			}
+			ROOT = {
+				save_event_target_as = root_test
+			}
+			ROOT = {
+				country_event = {
+					id = spt.99					#Operation Completed
+					days = 1
+				}
+			}
 		}
 	}
 }
