@@ -1,0 +1,223 @@
+FIN_purchse_foreign_equipment_decisions = {
+	Purchase_foreign_infantry_equipment = {
+		visible = {
+			has_completed_focus = FIN_purchase_foreign_equipment
+		}
+		cost = 50
+		fire_only_once = yes
+		days_remove = 30
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 2500
+			}
+		}
+	}
+	Purchase_foreign_artillery = {
+		visible = {
+			has_completed_focus = FIN_purchase_foreign_equipment
+		}
+		cost = 75
+		fire_only_once = yes
+		days_remove = 30
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 350
+			}
+		}
+	}
+	Purchase_foreign_fighter_planes = {
+		visible = {
+			has_completed_focus = FIN_purchase_foreign_equipment
+		}
+		remove_effect = {
+			add_equipment_to_stockpile = {
+				variant_name =  "Foreign fighters"
+				type = small_plane_airframe_1
+				amount = 100
+				producer = SWE
+			}
+		
+		}
+		days_remove = 30
+		cost = 120
+		fire_only_once = yes
+	}
+}
+
+FIN_integration_of_karelia = {
+	Integration_of_Murmansk = {
+		available = {
+			FIN = {
+				controls_state = 213
+			} 
+		}
+		cancel_trigger = {
+			not = {
+			    213 = {
+				is_controlled_by = FIN
+			    }
+		    }
+		}
+		visible = {
+			has_completed_focus = FIN_begin_integration_of_karelia
+		}
+		fire_only_once = yes
+		remove_effect = {
+			213 = {
+				add_compliance = 25
+			}
+		}
+		days_remove = 120
+		cost = 75
+	}
+	Integration_of_Onega = {
+		available = {
+			FIN = {
+				controls_state = 215
+			} 
+		}
+		cancel_trigger = {
+			not = {
+			    215 = {
+				is_controlled_by = FIN
+			    }
+		    }
+		}
+		visible = {
+			has_completed_focus = FIN_begin_integration_of_karelia
+		}
+		fire_only_once = yes
+		remove_effect = {
+			215 = {
+				add_compliance = 25
+			}
+		}
+		days_remove = 120
+		cost = 75
+	}
+	Integration_of_Olonets = {
+		available = {
+			FIN = {
+				controls_state = 216
+			} 
+		}
+		cancel_trigger = {
+			not = {
+			    216 = {
+				is_controlled_by = FIN
+			    }
+		    }
+		}
+		visible = {
+			has_completed_focus = FIN_begin_integration_of_karelia
+		}
+		fire_only_once = yes
+		remove_effect = {
+			216 = {
+				add_compliance = 25
+			}
+		}
+		days_remove = 120
+		cost = 75
+	}
+	Fully_integrate_Murmansk = {
+		available = {
+			FIN = {
+				controls_state = 213
+				
+			} 
+			213 = {
+				compliance > 45
+			}
+		}
+		cancel_trigger = {
+			not = {
+			    213 = {
+				is_controlled_by = FIN
+			    }
+		    }
+		}
+		visible = {
+			has_completed_focus = FIN_begin_integration_of_karelia
+		}
+		fire_only_once = yes
+		remove_effect = {
+			213 = {
+				add_core_of = FIN
+				add_dynamic_modifier = {
+					modifier = FIN_lingering_soviet_resistance
+				}
+			}
+
+		}
+		days_remove = 1
+		cost = 100
+	}
+	Fully_integrate_Onega = {
+		available = {
+			FIN = {
+				controls_state = 215
+				
+			} 
+			215 = {
+				compliance > 45
+			}
+		}
+		cancel_trigger = {
+			not = {
+			    215 = {
+				is_controlled_by = FIN
+			    }
+		    }
+		}
+		visible = {
+			has_completed_focus = FIN_begin_integration_of_karelia
+		}
+		fire_only_once = yes
+		remove_effect = {
+			215 = {
+				add_core_of = FIN
+				add_dynamic_modifier = {
+					modifier = FIN_lingering_soviet_resistance
+				}
+			}
+		}
+		days_remove = 1
+		cost = 100
+	}
+	Fully_integrate_Olonets = {
+		available = {
+			FIN = {
+				controls_state = 216
+				
+			} 
+			216 = {
+				compliance > 45
+			}
+		}
+		cancel_trigger = {
+			not = {
+			    216 = {
+				is_controlled_by = FIN
+			    }
+		    }
+		}
+		visible = {
+			has_completed_focus = FIN_begin_integration_of_karelia
+		}
+		fire_only_once = yes
+		remove_effect = {
+			216 = {
+				add_core_of = FIN
+				add_dynamic_modifier = {
+					modifier = FIN_lingering_soviet_resistance
+					
+				}
+			}
+		}
+		days_remove = 1
+		cost = 100
+	}
+}

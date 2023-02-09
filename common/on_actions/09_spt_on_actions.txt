@@ -219,6 +219,22 @@ on_actions = {
 			JAP = {
 				prop_initialise = yes
 			}
+			SWE = {
+				set_technology = {
+					basic_small_airframe = 1
+				}
+				create_equipment_variant = {
+					name = "Foreign fighters"
+					type = small_plane_airframe_1
+					modules = {
+						fixed_main_weapon_slot = light_mg_4x
+						fixed_auxiliary_weapon_slot_1 = light_mg_4x
+						engine_type_slot = engine_2_1x
+						special_type_slot_1 = empty
+					}
+					icon = "GFX_GER_fighter1_medium"
+				}				
+			}
 
 		}
 	}
@@ -793,24 +809,41 @@ on_actions = {
 		}
 	}
 
-	on_operation_completed = {
+	on_army_leader_promoted = {
 		effect = {
-
-			FROM = {
-				save_event_target_as = victim_nation
-			}
-			THIS = {
-				save_event_target_as = this_operation
-			}
-			ROOT = {
-				save_event_target_as = root_test
-			}			
-			ROOT = {
-				country_event = {
-				id = spt.99 #Operation Completed
-				days = 1
+			if = {
+				limit = {
+					FROM = {
+						original_tag = SOV
+					}
+					ROOT = {
+						has_id = 404
+					}
 				}
-			}
+				
+				SOV = { 
+					activate_decision = Appoint_Timoshenko
+        }
+      }
+    
+  on_operation_completed = {
+     effect = {
+
+      FROM = {
+        save_event_target_as = victim_nation
+      }
+      THIS = {
+        save_event_target_as = this_operation
+      }
+      ROOT = {
+        save_event_target_as = root_test
+      }			
+      ROOT = {
+        country_event = {
+          id = spt.99 #Operation Completed
+          days = 1
+			  }
+      }
 		}
 	}
 }
