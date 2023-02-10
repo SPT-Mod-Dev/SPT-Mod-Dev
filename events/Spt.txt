@@ -439,3 +439,188 @@ country_event = { # Kishi route (Full Manchukuo path)
 	}
 
 }
+
+country_event = {
+	id = spt.99
+	title = "Operation completed!"
+	desc = "Our spies have completed their task in [victim_nation.GetName]. Don't forget to reassign your spies to a new operation."
+	is_triggered_only = yes
+	picture = GFX_report_event_finnish_letter
+
+	option = {
+		name = "Thank you!"
+	}
+}
+
+country_event = { #Get compliance from Poland
+	id = spt.100
+	title = spt.100.t
+	desc = spt.100.desc
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = spt.100.a
+		hidden_effect = {
+			85 = {
+				add_compliance = 50
+			}
+			807 = {
+				add_compliance = 50
+			}
+			86 = {
+				add_compliance = 50
+			}
+			87 = {
+				add_compliance = 50
+			}
+			98 = {
+				add_compliance = 50
+			}
+			10 = {
+				add_compliance = 50
+			}
+			90 = {
+				add_compliance = 50
+			}
+			88 = {
+				add_compliance = 50
+			}
+			92 = {
+				add_compliance = 50
+			}
+			762 = {
+				add_compliance = 50	
+			}
+		}
+		custom_effect_tooltip = spt.100_tt
+		
+	}
+
+}
+
+country_event = { #Get compliance from Netherlands
+	id = spt.101
+	title = spt.101.t
+	desc = spt.101.desc
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = spt.101.a
+		hidden_effect = {
+			every_state = {
+				limit = {
+					is_core_of = HOL
+					is_on_continent = europe
+				}
+				add_compliance = 50
+				
+				
+			}
+		}
+		
+		custom_effect_tooltip = spt.101_tt
+	}
+
+}
+country_event = { #Get compliance from Belgium
+	id = spt.102
+	title = spt.102.t
+	desc = spt.102.desc
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = spt.102.a
+		hidden_effect = {
+			every_state = {
+				limit = {
+					is_core_of = BEL
+					is_on_continent = europe
+				}
+				add_compliance = 50
+				
+				
+			}
+		}
+		
+		custom_effect_tooltip = spt.102_tt
+	}
+
+}
+country_event = { #Get compliance from France
+	id = spt.103
+	title = spt.103.t
+	desc = spt.103.desc
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = spt.103.a
+		hidden_effect = {
+			every_state = {
+				limit = {
+					is_core_of = FRA
+					is_on_continent = europe
+				}
+				add_compliance = 50
+				
+				
+			}
+		}
+		
+		custom_effect_tooltip = spt.103_tt
+		
+	}
+
+}
+country_event = { #Get compliance from Denmark
+	id = spt.104
+	title = spt.104.t
+	desc = spt.104.desc
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = spt.104.a
+		hidden_effect = {
+			every_state = {
+				limit = {
+					is_core_of = DEN
+					is_on_continent = europe
+				}
+				add_compliance = 50
+				
+				
+			}
+		}
+		
+		custom_effect_tooltip = spt.104_tt
+	}
+	
+}
+
+country_event = { #Get compliance from Norway
+	id = spt.105
+	title = spt.105.t
+	desc = spt.105.desc
+	picture = GFX_report_event_generic_read_write
+	is_triggered_only = yes
+	option = {
+		hidden_effect = {
+			every_state = {
+				limit = {
+					is_core_of = NOR
+					is_on_continent = europe
+				}
+				add_compliance = 50
+				
+				
+			}
+		}
+		
+		custom_effect_tooltip = spt.105_tt
+	}
+	
+}

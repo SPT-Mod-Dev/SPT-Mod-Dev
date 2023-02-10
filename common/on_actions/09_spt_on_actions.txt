@@ -55,7 +55,21 @@ on_actions = {
 					basic_train = 1
 					popup = no
 				}
+				
 
+			}
+
+			#Gives all minors 100 convoys
+			every_country = {
+				limit = {
+					is_ai = no
+					is_major = no
+				}
+
+				add_equipment_to_stockpile = {
+					type = convoy
+					amount = 100
+				}
 			}
 			
 		
@@ -146,6 +160,14 @@ on_actions = {
 				}
 			}
 
+			#Add eng POL guarantee
+			ENG = {
+				diplomatic_relation = {
+					country = POL
+					relation = guarantee
+					active = yes
+				}
+			}
 			#Remove Pakistan cores
 			RAJ = {
 				443 = {
@@ -489,22 +511,34 @@ on_actions = {
 					ROOT = {
 						original_tag = DEN
 					}
-					FROM = {
-						OR = {
-							original_tag = GER
-							is_ally_with = GER
-						}
-					}
-					101 = {
-						is_owned_by = DEN
-					}
+					capped_by_axis = yes
+					
 
 				}
-				USA = {
-					country_event = {
-						id = spt.3
-						days = 7 
-					} 
+				if = {
+					limit = {
+						101 = {
+							is_owned_by = DEN
+						}
+					}
+					USA = {
+						country_event = {
+							id = spt.3
+							days = 7 
+						} 
+					}
+				}
+				
+				GER = {
+					if = {
+						limit = {
+							has_completed_focus = GER_sca_compliance
+						}
+						country_event = {
+							id = spt.104
+							days = 7
+						}
+					}
 				}
 			}
 			#Checks if jap or usa cap each other
@@ -531,16 +565,107 @@ on_actions = {
 					ROOT = {
 						original_tag = FRA
 					}
-					FROM = {
-						OR = {
-							original_tag = GER
-							is_ally_with = GER
+					capped_by_axis = yes
+				}
+				set_global_flag = france_fallen
+				GER = {
+					if = {
+						limit = {
+							has_completed_focus = GER_fra_compliance
+						}
+						country_event = {
+							id = spt.103
+							days = 7
 						}
 					}
 				}
-
-				set_global_flag = france_fallen
+				
 			}
+			#Get compliance when ger takes poland
+			if = {
+				limit = {
+					capped_by_axis = yes
+					ROOT = {
+						original_tag = POL
+					}
+				}
+				
+				GER = {
+					if = {
+						limit = {
+							has_completed_focus = GER_pol_compliance
+						}
+						country_event = {
+							id = spt.100
+							days = 7
+						}
+					}
+				}
+			}
+			#Get compliance when ger takes netherlands
+			if = {
+				limit = {
+					capped_by_axis = yes
+					ROOT = {
+						original_tag = HOL
+					}
+				}
+				
+				GER = {
+					if = {
+						limit = {
+							has_completed_focus = GER_ben_compliance
+						}
+						country_event = {
+							id = spt.101
+							days = 7
+						}
+					}
+				}
+			}
+			#Get compliance when ger takes belgium
+			if = {
+				limit = {
+					capped_by_axis = yes
+					ROOT = {
+						original_tag = BEL
+					}
+				}
+				
+				GER = {
+					if = {
+						limit = {
+							has_completed_focus = GER_ben_compliance
+						}
+						country_event = {
+							id = spt.102
+							days = 7
+						}
+					}
+				}
+			}
+			#Get compliance when ger takes norway
+			if = {
+				limit = {
+					capped_by_axis = yes
+					ROOT = {
+						original_tag = NOR
+					}
+				}
+				
+				GER = {
+					if = {
+						limit = {
+							has_completed_focus = GER_sca_compliance
+						}
+						country_event = {
+							id = spt.105
+							days = 7
+						}
+					}
+				}
+			}
+
 		}
 	}
 
@@ -681,6 +806,44 @@ on_actions = {
 				}
 				clr_global_flag = Med_War
 			}
+		}
+	}
+
+	on_army_leader_promoted = {
+		effect = {
+			if = {
+				limit = {
+					FROM = {
+						original_tag = SOV
+					}
+					ROOT = {
+						has_id = 404
+					}
+				}
+				
+				SOV = { 
+					activate_decision = Appoint_Timoshenko
+        }
+      }
+    
+  on_operation_completed = {
+     effect = {
+
+      FROM = {
+        save_event_target_as = victim_nation
+      }
+      THIS = {
+        save_event_target_as = this_operation
+      }
+      ROOT = {
+        save_event_target_as = root_test
+      }			
+      ROOT = {
+        country_event = {
+          id = spt.99 #Operation Completed
+          days = 1
+			  }
+      }
 		}
 	}
 }
