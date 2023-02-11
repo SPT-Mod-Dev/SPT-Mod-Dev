@@ -8,7 +8,7 @@ country_event = {
 	is_triggered_only = yes
 	picture = GFX_report_event_generic_rally
 
-	option = {
+	option = { #sov accept
 	name = spt_finland.5.a
 	white_peace = {
 		tag = FIN
@@ -16,12 +16,244 @@ country_event = {
 	722 = {
 		set_state_owner_to = SOV
 	}
+	FIN = {
+		country_event = {id = spt_finland.6 }
+	}
 }
-	option = {
+	option = { #sov decline
 	name = spt_finland.5.b
+	FIN = {
+		country_event = {id = spt_finland.7 }
+	}
 }
 
 }
+
+country_event = { #sov accept	
+	id = spt_finland.6
+	title = spt_finland.6.t
+	desc = spt_finland.6.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_rally
+
+	option = {
+	name = spt_finland.6.a
+	remove_ideas = fin_seek_peace
+	GER = {
+		country_event = { id = spt_finland.8 }
+	}
+}
+
+}
+
+country_event = { #sov decline
+	id = spt_finland.7
+	title = spt_finland.7.t
+	desc = spt_finland.7.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_rally
+
+	option = {
+	name = spt_finland.7.a
+	remove_ideas = fin_seek_peace
+}
+
+}
+
+country_event = { #germany event when finns gtfo from the war
+	id = spt_finland.8
+	title = spt_finland.8.t
+	desc = spt_finland.8.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_rally
+
+	option = { #
+	name = spt_finland.8.a
+}
+}
+###### CONDITIONAL SURRENDER #########
+
+country_event = { #conditional surrender event that the soviets get at the start of the event chain
+	id = spt_finland.9
+	title = spt_finland.9.t
+	desc = spt_finland.9.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_rally
+
+	option = { #armstice - historical / the same as unconditional surrender
+	name = spt_finland.9.a
+	FIN = {
+		country_event = { id = spt_finland.10 }
+	}
+}
+	option = { #returns to pre continuation war borders
+	name = spt_finland.9.b
+	FIN = {
+		country_event = { id = spt_finland.11 }
+	}
+}
+	option = { #return to the pre winter war borders
+	name = spt_finland.9.c
+	FIN = {
+		country_event = { id = spt_finland.12 }
+	}
+}
+}
+country_event = {
+	id = spt_finland.10
+	title = spt_finland.10.t
+	desc = spt_finland.10.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_rally
+
+	option = { # YES
+	name = spt_finland.10.a
+	SOV = {
+		country_event = { id = spt_finland.13}
+	}
+}
+	option = { # NO
+	name = spt_finland.10.b
+	SOV = {
+		country_event = { id = spt_finland.14}
+	}
+}
+
+}
+country_event = {
+	id = spt_finland.11
+	title = spt_finland.11.t
+	desc = spt_finland.11.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_rally
+
+	option = { # YES
+	name = spt_finland.11.a
+	SOV = {
+		country_event = { id = spt_finland.15}
+	}
+}
+	option = { # NO
+	name = spt_finland.11.b
+	SOV = {
+		country_event = { id = spt_finland.16}
+	}
+}
+
+}
+
+country_event = {
+	id = spt_finland.12
+	title = spt_finland.12.t
+	desc = spt_finland.12.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_rally
+
+	option = { # YES
+	name = spt_finland.12.a
+	SOV = {
+		country_event = { id = spt_finland.17}
+	}
+}
+	option = { # NO
+	name = spt_finland.12.b
+	SOV = {
+		country_event = { id = spt_finland.18} 
+	}
+}
+}
+
+
+### Next three events are for when finland ACCEPTS the terms of surrender
+
+country_event = { #historical
+	id = spt_finland.13
+	title = spt_finland.13.t
+	desc = spt_finland.13.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_rally
+
+	option = { #
+	name = spt_finland.13.a
+	722 = {
+		set_state_owner_to = SOV
+	}
+	white_peace = {
+		tag = FIN
+	}
+}
+}
+country_event = { # winter war borders
+	id = spt_finland.15
+	title = spt_finland.15.t
+	desc = spt_finland.15.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_rally
+
+	option = { #
+	name = spt_finland.15.a
+	white_peace = {
+		tag = FIN
+	}
+}
+}
+country_event = { # pre winter war borders
+	id = spt_finland.17
+	title = spt_finland.17.t
+	desc = spt_finland.17.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_rally
+
+	option = { #
+	name = spt_finland.17.a
+	147 = {
+		set_state_owner_to = FIN
+	}
+	146 = {
+		set_state_owner_to = FIN
+	}
+	white_peace = {
+		tag = FIN
+	}
+}
+}
+
+### Next three events are for when finland DECLINES the terms of surrender
+
+country_event = { #historical
+	id = spt_finland.14
+	title = spt_finland.14.t
+	desc = spt_finland.14.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_rally
+
+	option = { #
+	name = spt_finland.14.a
+}
+}
+country_event = { #winter war borders
+	id = spt_finland.16
+	title = spt_finland.16.t
+	desc = spt_finland.16.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_rally
+
+	option = { #
+	name = spt_finland.16.a
+}
+}
+country_event = { #pre winter war borders
+	id = spt_finland.18
+	title = spt_finland.18.t
+	desc = spt_finland.18.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_rally
+
+	option = { #
+	name = spt_finland.18.a
+}
+}
+
 
 ################################### LODOMIR
 
@@ -51,7 +283,7 @@ country_event = {
 
 	option = {
 		name = spt_finland.2.a
-
+		complete_national_focus = moscow_peace_treaty
 	}
 }
 
