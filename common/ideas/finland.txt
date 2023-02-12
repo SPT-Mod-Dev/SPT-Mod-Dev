@@ -14,14 +14,28 @@ fin_martial_law = {
 
 }
 
+fin_martial_law_2 = {
+			
+	name = martial_law_2
+	picture = SPA_national_recovery
+
+	modifier = {
+		war_support_factor = 0.05
+		stability_factor = -0.15
+		consumer_goods_factor = -0.1
+	}
+
+}
+
 fin_civil_order = {
 	
 	name = civil_order
 	picture = SPA_national_recovery
 
 	modifier = {
-		war_support_factor = -0.1
 		stability_factor = 0.1
+		consumer_goods_factor = 0.1
+		production_factory_efficiency_gain_factor = 0.1
 	}
 
 }
@@ -32,8 +46,9 @@ fin_rebuild_the_nation = {
 	picture = SPA_national_recovery
 
 	modifier = {
-		industry_repair_factor = 0.5
+		industry_repair_factor = 0.25
 		consumer_goods_factor = -0.05
+		production_factory_efficiency_gain_factor = 0.1
 	}
 
 }
@@ -128,6 +143,68 @@ fin_seek_peace = {
 	}
 }
 
+fin_modernize_airforce = {
+	
+	name = modernize_airforce
+	picture = SPA_national_recovery
+
+	available = {
+	}
+
+	modifier = {
+	
+	}
+	equipment_bonus = {
+		small_plane_airframe = {
+		build_cost_ic = -0.25
+		}
+	}
+	research_bonus = {
+		air_equipment = 0.15
+	}
+	
+}
+
+fin_integrate_murmansk = {
+	
+	name = integrate_murmansk
+	picture = SPA_national_recovery
+
+	available = {
+		has_full_control_of_state = 213
+		has_full_control_of_state = 215
+	}
+
+	modifier = {
+		political_power_gain = -0.15
+	}
+	on_remove = {
+		FIN = {
+		add_state_core = 213
+		add_state_core = 215
+		}
+	}
+	
+}
+fin_integrate_olensk = {
+	
+	name = integrate_olensk
+	picture = SPA_national_recovery
+
+	available = {
+		has_full_control_of_state = 216
+	}
+
+	modifier = {
+		political_power_gain = -0.5
+	}
+	on_remove = {
+		FIN = {
+		add_state_core = 216
+		}
+	}
+	
+}
 
 ############################ LODOMIR
 		

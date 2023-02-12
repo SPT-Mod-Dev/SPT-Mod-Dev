@@ -74,6 +74,14 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			147 = {
+				if = {
+					add_dynamic_modifier = {
+						modifier = fin_murmansk_buff
+						days = 180
+					}
+				}
+			}
 			146 = {
 				if = {
 					add_dynamic_modifier = {
@@ -87,8 +95,11 @@ focus_tree = {
 	focus = {
 		id = push_south
 		icon = GFX_goal_generic_construct_infrastructure
-		prerequisite = { focus = retake_karjala }
-		x = 0
+		prerequisite = { 
+			focus = retake_karjala 
+			focus = unify_sami
+	}
+		x = 1
 		y = 1
 		relative_position_id = retake_karjala
 
@@ -119,7 +130,7 @@ focus_tree = {
 			216 = {
 				if = {
 					add_dynamic_modifier = {
-						modifier = fin_murmansk_buff
+						modifier = fin_push_south_buff
 						days = 180
 					}
 				}
@@ -127,24 +138,20 @@ focus_tree = {
 			195 = {
 				if = {
 					add_dynamic_modifier = {
-						modifier = fin_murmansk_buff
+						modifier = fin_push_south_buff
 						days = 180
 					}
 				}
 			}
 		}
 	}
-
-##################################################
-
 	focus = {
-		id = unify_sami
+		id = volunteers
 		icon = GFX_goal_generic_construct_infrastructure
-		prerequisite = { focus = change_in_course}
-		mutually_exclusive = { focus = retake_karjala }
-		x = 1
+		prerequisite = { focus = retake_karjala }
+		x = -1
 		y = 1
-		relative_position_id = change_in_course
+		relative_position_id = retake_karjala
 
 
 		cost = 5
@@ -170,6 +177,53 @@ focus_tree = {
 		}
 
 		completion_reward = {
+		add_manpower = 25000
+		}
+	}
+
+##################################################
+
+	focus = {
+		id = unify_sami
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = change_in_course}
+		mutually_exclusive = { focus = retake_karjala }
+		x = 1
+		y = 1
+		relative_position_id = change_in_course
+
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			147 = {
+				if = {
+					add_dynamic_modifier = {
+						modifier = fin_murmansk_buff
+						days = 180
+					}
+				}
+			}
 			213 = {
 				if = {
 					add_dynamic_modifier = {
@@ -192,7 +246,7 @@ focus_tree = {
 		id = integrate_murmansk
 		icon = GFX_goal_generic_construct_infrastructure
 		prerequisite = { focus = unify_sami }
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = unify_sami
 
@@ -204,7 +258,8 @@ focus_tree = {
 		}
 
 		available = {
-
+		has_full_control_of_state = 213
+		has_full_control_of_state = 215
 		}
 		
 		bypass = {
@@ -220,7 +275,42 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			add_timed_idea = { idea = fin_integrate_murmansk days = 180 }
+		}
+	}
+	focus = {
+		id = integrate_olensk
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = integrate_murmansk }
+		x = 0
+		y = 1
+		relative_position_id = integrate_murmansk
 
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		has_full_control_of_state = 216
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			add_timed_idea = { idea = fin_integrate_olensk days = 180 }
 		}
 	}
 
@@ -282,6 +372,8 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
+		add_political_power = 150
+		add_stability = 5
 
 		}
 	}
@@ -306,7 +398,7 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_timed_idea = { idea = fin_rebuild_the_nation days = 180 }
+			add_timed_idea = { idea = fin_rebuild_the_nation days = 45 }
 		}
 	}
 	focus = {
@@ -390,6 +482,28 @@ focus_tree = {
 		
 		completion_reward = {
 
+		add_timed_idea = {
+			idea = fin_modernize_airforce
+			days = 360
+		}
+		add_doctrine_cost_reduction = {
+			name = air_sup_bonus
+			cost_reduction = 0.5
+			uses = 2
+			category = air_doctrine
+		}
+
+		150= {
+			add_extra_state_shared_building_slots = 2
+			if = {
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+
 		}
 	}
 
@@ -451,11 +565,21 @@ focus_tree = {
 			}
 			###################### FINLANDIA
 			111= {
-				add_extra_state_shared_building_slots = 3
+				add_extra_state_shared_building_slots = 2
 				if = {
 					add_building_construction = {
 						type = industrial_complex
-						level = 3
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			111= {
+				add_extra_state_shared_building_slots = 2
+				if = {
+					add_building_construction = {
+						type = arms_factory
+						level = 2
 						instant_build = yes
 					}
 				}
@@ -586,7 +710,8 @@ focus_tree = {
 		}
 
 		completion_reward = {
-		add_manpower = 15000
+		add_ideas = fin_martial_law_2
+		remove_ideas = fin_martial_law
 		}
 	}
 	focus = {
@@ -656,7 +781,7 @@ focus_tree = {
 			focus = change_in_course
 		}
 		relative_position_id = change_in_course
-		x = -3
+		x = -4
 		y = 1
 		cost = 3
 		ai_will_do = {
@@ -688,13 +813,20 @@ focus_tree = {
 	focus = {
 		id = seek_peace
 		icon = GFX_goal_generic_construct_infrastructure
-		x = 3
+		x = 4
 		y = 1
 		relative_position_id = change_in_course
 		prerequisite = { focus = change_in_course
 	    }
 		available = {
-		surrender_progress > 0.1
+		surrender_progress > 0.15
+		GER = {
+			surrender_progress > 0.15
+		}
+		ROM = {
+			surrender_progress > 0.20
+		}
+		date > 1944.09.01
 		}
 
 		cost = 5
@@ -732,12 +864,12 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = seek_peace
-		cost = 10
+		cost = 2
 		ai_will_do = {
 			factor = 3
 		}
 		available = {
-		
+			surrender_progress > 0.50
 		}
 		completion_reward = {
 			SOV = {
@@ -757,7 +889,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = seek_peace
-		cost = 10
+		cost = 6
 		ai_will_do = {
 			factor = 3
 		}
@@ -765,7 +897,9 @@ focus_tree = {
 		
 		}
 		completion_reward = {
-			
+			SOV = {
+				country_event = { id = spt_finland.9}
+			}
 		}
 	}
 
@@ -2099,7 +2233,6 @@ focus_tree = {
 			has_war_with = SOV
 		}
 		bypass = {
-			has_war_with = SOV
 		}
 	}
 	focus = {
@@ -2117,6 +2250,7 @@ focus_tree = {
 		}
 		available = {
 			has_war_with = SOV
+			date < 1941.01.01
 		}
 		bypass = {
 			not = {
@@ -2147,11 +2281,10 @@ focus_tree = {
 		}
 		available = {
 			has_war_with = SOV
+			date < 1941.01.01
 		}
 		bypass = {
-			not = {
-				has_war_with = SOV
-			}
+		
 		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -2250,11 +2383,9 @@ focus_tree = {
 		}
 		available = {
 			has_war_with = SOV
+			date < 1941.01.01
 		}
 		bypass = {
-			not = {
-				has_war_with = SOV
-			}
 		}
 		completion_reward = {
 			add_political_power = -50
@@ -2279,11 +2410,10 @@ focus_tree = {
 		}
 		available = {
 			has_war_with = SOV
+			date < 1941.01.01
 		}
 		bypass = {
-			not = {
-				has_war_with = SOV
-			}
+			
 		}
 		completion_reward = {
 			add_ideas = tot_economic_mobilisation
@@ -2367,6 +2497,7 @@ focus_tree = {
 		}
 		available = {
 			has_army_experience > 65
+			has_war_with = SOV
 		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -2422,41 +2553,7 @@ focus_tree = {
 			}
 		}
 	}
-	focus = {
-		id = FIN_join_against_the_Soviet_union
-		icon = GFX_focus_attack_soviet
-		prerequisite = {
-			focus = change_in_course
-		}
-		relative_position_id = change_in_course
-		x = -3
-		y = 1
-		cost = 3
-		ai_will_do = {
-			factor = 0
-		}
-		available = {
-			GER = {
-				has_war_with = SOV
-			}
-		}
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-			FOCUS_FILTER_ANNEXATION
-		}
-		completion_reward = {
-			create_wargoal = {
-				type = take_state_focus
-				target = SOV
-				generator = {
-					216
-					215
-					213
-				}
-				expire = 0
-			}
-		}
-	}
+	
 	focus = {
 		id = FIN_begin_integration_of_karelia
 		icon = GFX_goal_generic_position_armies
