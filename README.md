@@ -8,6 +8,7 @@
 #### Finland
 - Made Finland unable to join factions
 - Nerfed some army buffs [ Finlands infantry stats were too strong atm]
+- Increased mobilisation speed for Finland
 
 #### Soviet Union
 - Readded the change to "Turkey Seizes Control Over the Bosporus" event so war support gained is now `5% -> 10%` [ Buff soviets as they have a new front/ extra enemy. More might be necesary ]
