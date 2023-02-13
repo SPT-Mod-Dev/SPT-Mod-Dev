@@ -205,14 +205,12 @@
 		}
 
 		available = {
-			OR = {
 				MAN = {
 					has_war_with = CHI
 				}
 				JAP = {
 					has_war_with = CHI
 				}
-			}
 		}
 
 		bypass = {
@@ -640,6 +638,16 @@
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			set_cosmetic_tag = MAN_Chinese_Empire
+			create_country_leader = {
+				name = "Xuantong"
+				picture = "GFX_portrait_man_henry_pu_yi_emperor"
+				expire = "1960.1.1"
+				ideology = rexism
+				traits = {
+					popular_figurehead
+					anti_communist
+				}
+			}
 		}
 	}
 
@@ -692,6 +700,9 @@
 		}
 
 		available = {
+			CHI = {
+				exists = no
+			}
 		}
 
 		bypass = {
@@ -974,7 +985,7 @@
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			completion_reward = {
+		
 				random_state = {
 					add_extra_state_shared_building_slots = 4
 					add_building_construction = {
@@ -983,7 +994,7 @@
 						instant_build = yes
 					}
 				}
-			}
+			
 		}
 			
 	}
@@ -1012,7 +1023,7 @@
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			completion_reward = {
+			
 				random_state = {
 					add_extra_state_shared_building_slots = 4
 					add_building_construction = {
@@ -1021,7 +1032,7 @@
 						instant_build = yes
 					}
 				}
-			}
+			
 		}
 			
 	}
@@ -1061,6 +1072,10 @@
 			JAP = {
 				add_to_tech_sharing_group = co_prosperity_research
 			}
+			SIA = {
+				add_to_tech_sharing_group = co_prosperity_research
+			}
+			
 		}
 	}
 
@@ -1114,20 +1129,7 @@
 		}
 
 		available = {
-			OR = {
 				num_of_factories > 50
-				all_state = {
-					OR = {
-						NOT = { is_core_of = CHI }
-						NOT = { is_core_of = PRC }
-						OR = {
-							is_controlled_by = ROOT
-							CONTROLLER = { is_in_faction_with = ROOT }
-							CONTROLLER = { is_subject_of = ROOT }
-						}
-					}
-				}
-			}
 		}
 
 		bypass = {
