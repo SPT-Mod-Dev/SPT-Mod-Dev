@@ -1,5 +1,48 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.3.1
+
+#### Rule Changes
+- Added rule "No naval invading Finland during the Winter War"
+
+#### Finland
+- Made Finland unable to join factions
+- Nerfed some army buffs [ Finlands infantry stats were too strong atm]
+- Increased mobilisation speed for Finland
+
+#### Soviet Union
+- Readded the change to "Turkey Seizes Control Over the Bosporus" event so war support gained is now `5% -> 10%` [ Buff soviets as they have a new front/ extra enemy. More might be necesary ]
+
+#### Tank Designer
+- Chasis:
+    - Heavy 1:
+        - Decreased ic cost `+14 -> +8` [Make heavies more viable]
+    - Heavy 2:
+        - Decreased ic cost `+14 -> +10` 
+- Secondary Turrets:
+    - Heavy MG:
+        - Decreased hard attack `2` -> `1`
+    - Small Cannon:
+        - Reduced soft attack `7.5` -> `3` [nerf module which nerfs mediums as a whole]
+- Main Armaments:
+    - Decreased chromium cost for heavy cannons `2` -> `1`
+
+### 3.3 - Winter War Update
+
+#### Finland
+- Added Finland to list of playable countries
+- Added a new Finland focus tree and starting conditions
+- Added a new winter war mechanic
+
+#### Soviet Union
+- Added a new winter war mechanic
+- Removed "Baltic Security" focus
+- Made "Secure Leningrad" only available after 1.11.1939
+
+#### Rule Changes
+- Changed rule 4 to "Must start the winter war before 01.03.1940"
+- Added a new page and rules for Finland
+
 ### 3.2.5.1
 
 - Changed some gfx icons for Hungary, Japan and Romania
