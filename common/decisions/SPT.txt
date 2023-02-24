@@ -231,6 +231,78 @@ spt_category = {
 		}
 	}
 
+	ENG_annex_malaya = {
+		allowed = {
+			original_tag = ENG
+		}
+
+		days_remove = 90
+		cost = 50
+
+		visible = {
+			MAL = {
+				exists = yes
+			}
+
+		}
+
+		available = {
+			has_war = no
+		}
+
+		cancel_trigger = {
+			has_war = yes
+		}
+
+		modifier = {
+			consumer_goods_factor = 0.1
+		}
+
+		remove_effect = {
+			annex_country = {
+				target = MAL
+				transfer_troops = no
+			}
+
+			336  = {
+				add_compliance = 100
+			}
+			333 = {
+				add_compliance = 100
+			}
+		}
+
+	}
+
+	JAP_annex_manchuko = {
+		allowed = {
+			original_tag = JAP
+		}
+		available = {
+			MAN = {
+				is_ai = yes
+			}
+			is_ai = no
+		}
+		complete_effect = {
+			
+			annex_country = { target = MAN transfer_troops = yes }
+			hidden_effect = {
+				611 = { add_compliance = 50 }
+				612 = { add_compliance = 50 }
+				610 = { add_compliance = 50 }
+				715 = { add_compliance = 50 }
+				716 = { add_compliance = 50 }
+				328 = { add_compliance = 50 }
+				717 = { add_compliance = 50 }
+				714 = { add_compliance = 50 }
+				761 = { add_compliance = 50 }
+			}
+
+		}
+		fire_only_once = yes
+	}
+
 
 }
 
@@ -819,6 +891,7 @@ SPT_propaganda_campaigns = {
 
 }
 
+
 SPT_manchukuo_china_integration = {
 
 
@@ -951,3 +1024,160 @@ MAN_northwestern_integration = {
 
 
 }
+=======
+SPT_winter_war = {
+	FIN_winter_war = {
+			
+		name = winter_war
+		allowed = {
+			tag = FIN
+		}
+
+		icon = GFX_decision_category_border_war
+		
+		
+		activation = {
+			has_war_with = SOV
+		}
+		visible = {
+			has_war_with = SOV
+		}
+		fire_only_once = yes
+
+		available = {
+			OR = { 
+				SOV = {
+				controls_state = 146
+				}
+				casualties_inflicted_by = {
+				opponent = SOV
+				thousands > 70
+				}
+				hidden_trigger = {
+					SOV = {
+						owns_state = 146
+					}
+				}
+				FIN = {
+					surrender_progress > 0.50
+				}
+			}
+		}
+		is_good = yes
+		days_mission_timeout = 210
+		fire_only_once = yes
+		timeout_effect = {
+			country_event = { 
+				id = spt_finland.1
+				days = 1
+			}
+			white_peace = {
+				tag = SOV
+			}
+		}
+		complete_effect = {
+			white_peace = {
+				tag = SOV
+			}
+			SOV = {
+				set_state_owner = 146
+			}
+			SOV = { 
+				set_state_owner = 147
+			}
+			country_event = { 
+				id = spt_finland.2
+				days = 1
+			}
+		}
+	}
+	SOV_winter_war = {
+
+		allowed = {
+			tag = SOV
+		}
+		name = winter_war
+
+		icon = GFX_decision_category_border_war
+		
+		
+		activation = {
+			has_war_with = FIN
+		}
+		visible = {
+			has_war_with = FIN
+		}
+		fire_only_once = yes
+
+		available = {
+			OR = { 
+				SOV = {
+				controls_state = 146
+				}
+				casualties_inflicted_by = {
+					opponent = SOV
+					thousands > 70
+					}
+				hidden_trigger = {
+					SOV = {
+						owns_state = 146
+					}
+				}
+				FIN = {
+					surrender_progress > 0.50
+				}
+			}
+		}
+		is_good = no
+		days_mission_timeout = 210
+		fire_only_once = yes
+		timeout_effect = {
+			country_event = { 
+				id = spt_finland.4
+				days = 1
+			}
+			white_peace = {
+				tag = FIN
+			}
+		}
+		complete_effect = {
+			white_peace = {
+				tag = FIN
+			}
+			SOV = {
+				set_state_owner = 146
+			}
+			SOV = { 
+				set_state_owner = 147
+			}
+			country_event = { 
+				id = spt_finland.3
+				days = 1
+			}
+
+			
+		}
+	}
+	Appoint_Timoshenko = {
+		
+		icon = GFX_decision_SOV_the_military_conspiracy
+		allowed = {
+			tag = SOV
+		}
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		visible = {
+			has_war_with = FIN
+		}
+		fire_only_once = yes
+		days_remove = 30
+		remove_effect = {
+			remove_ideas = No_retreat_allowed
+		}
+	}
+}
+# No_retreat_allowed SOV_semyon_timoshenko
+
