@@ -4,7 +4,7 @@
 	country = {
 		factor = 0
 		modifier = {
-			add = 9 #set above 10 to replace original manchuko tree and set below 10 to hide this tree
+			add = 100
 			tag = MAN
 			has_dlc = "Waking the Tiger"
 		}
@@ -527,6 +527,39 @@
 	}
 
 	focus = {
+		id = SPT_MAN_recruit_qing_loyalists
+		icon = GFX_focus_rom_royal_dictatorship
+		prerequisite = { focus = SPT_MAN_chinese_leadership }
+		
+		x = -2
+		y = 1
+		relative_position_id = SPT_MAN_chinese_leadership
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			custom_effect_tooltip = MAN_qing_advisors_tt
+		}
+	}
+
+	focus = {
 		id = SPT_MAN_reform_the_qing_army
 		icon = GFX_focus_chi_legislative_yuan
 		prerequisite = { focus = SPT_MAN_recruit_qing_loyalists }
@@ -606,83 +639,9 @@
 		}
 	}
 
-	focus = {
-		id = SPT_MAN_the_two_emperors
-		icon = GFX_focus_ETH_an_empire_in_the_shade_of_the_sun
-		prerequisite = { focus = SPT_MAN_return_of_the_qing }
-		
-		x = 0
-		y = 1
-		relative_position_id = SPT_MAN_return_of_the_qing
+	
 
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-			is_subject_of = JAP
-		}
-
-		bypass = {
-			is_subject = no
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		completion_reward = {
-			set_cosmetic_tag = MAN_Chinese_Empire
-			create_country_leader = {
-				name = "Xuantong"
-				picture = "GFX_portrait_man_henry_pu_yi_emperor"
-				expire = "1960.1.1"
-				ideology = rexism
-				traits = {
-					popular_figurehead
-					anti_communist
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = SPT_MAN_recruit_qing_loyalists
-		icon = GFX_focus_rom_royal_dictatorship
-		prerequisite = { focus = SPT_MAN_chinese_leadership }
-		
-		x = -2
-		y = 1
-		relative_position_id = SPT_MAN_chinese_leadership
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-		}
-
-		bypass = {
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		completion_reward = {
-			custom_effect_tooltip = MAN_qing_advisors_tt
-		}
-	}
+	
 
 	focus = {
 		id = SPT_MAN_integrate_the_border_region
@@ -888,6 +847,51 @@
 					instant_build = yes
 				}
 				set_state_flag = MAN_invite_japanese_settlers_2IC
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_MAN_the_two_emperors
+		icon = GFX_focus_ETH_an_empire_in_the_shade_of_the_sun
+		prerequisite = { focus = SPT_MAN_return_of_the_qing }
+		
+		x = 0
+		y = 1
+		relative_position_id = SPT_MAN_return_of_the_qing
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			is_subject_of = JAP
+		}
+
+		bypass = {
+			is_subject = no
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			set_cosmetic_tag = MAN_Chinese_Empire
+			create_country_leader = {
+				name = "Xuantong"
+				picture = "GFX_portrait_man_henry_pu_yi_emperor"
+				expire = "1960.1.1"
+				ideology = rexism
+				traits = {
+					popular_figurehead
+					anti_communist
+				}
 			}
 		}
 	}
