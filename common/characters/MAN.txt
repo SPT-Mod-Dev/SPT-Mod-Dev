@@ -29,7 +29,7 @@ characters={
 		}
 		country_leader={
 			ideology=gen_nazism
-			traits={ political_dancer unscrupulous_orchestrator }
+			traits={ political_dancer unscrupulous_orchestrator prince_of_terror }
 			expire="1960.1.1.1"
 			id=-1
 		}
@@ -405,6 +405,56 @@ characters={
 			}
 			cost = 150
 			traits = { economist }
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	MAN_zheng_xiaoxu = {
+		name=MAN_zheng_xiaoxu
+		portraits={
+			civilian={
+				small="GFX_idea_generic_political_advisor_asia_2"
+			}
+		}	
+
+		advisor = {
+			slot = political_advisor
+			idea_token = MAN_zheng_xiaoxu
+			allowed = {
+				original_tag = MAN
+			}
+			available = {
+				has_completed_focus = SPT_MAN_recruit_qing_loyalists
+			}
+			cost = 50
+			traits = { editor }
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	MAN_luo_zhenyu = {
+		name=MAN_luo_zhenyu
+		portraits={
+			civilian={
+				small="GFX_idea_generic_political_advisor_asia_1"
+			}
+		}	
+
+		advisor = {
+			slot = political_advisor
+			idea_token = MAN_luo_zhenyu
+			allowed = {
+				original_tag = MAN
+			}
+			available = {
+				has_completed_focus = SPT_MAN_recruit_qing_loyalists
+			}
+			cost = 150
+			traits = { agricultural_capitalist }
 			ai_will_do = {
 				factor = 1
 			}
