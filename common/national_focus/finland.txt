@@ -565,47 +565,24 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		complete_tooltip = {
-
-		}
-
-	
-
 		available = {
 			NOT = {
 				has_completed_focus = change_in_course
 			}
+			has_completed_focus = rude_awake
 		}
 
 		completion_reward = {
+
 			add_ideas = fin_gripen_plan
-			121 = {
-				add_extra_state_shared_building_slots = 3
-				if = {
-					add_building_construction = {
-						type = industrial_complex
-						level = 3
-						instant_build = yes
-					}
-				}
-			}
-			131 = {
-				add_extra_state_shared_building_slots = 3
-				if = {
-					add_building_construction = {
-						type = industrial_complex
-						level = 3
-						instant_build = yes
-					}
-				}
-			}
+
 			###################### FINLANDIA
 			111= {
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				if = {
 					add_building_construction = {
 						type = industrial_complex
-						level = 2
+						level = 3
 						instant_build = yes
 					}
 				}
@@ -620,7 +597,21 @@ focus_tree = {
 					}
 				}
 			}
-			149= {
+
+			##################### FINLANDIA
+			custom_effect_tooltip = fin_gripen_plan_tt
+
+			121 = {
+				add_extra_state_shared_building_slots = 2
+				if = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			131 = {
 				add_extra_state_shared_building_slots = 2
 				if = {
 					add_building_construction = {
@@ -661,31 +652,14 @@ focus_tree = {
 
 		complete_tooltip = {
 		}
+		available = {
+			has_completed_focus = rude_awake
+		}
 
 		completion_reward = {
 
 			add_ideas = fin_rolf_plan
 
-			53 = {
-				add_extra_state_shared_building_slots = 3
-				if = {
-					add_building_construction = {
-						type = industrial_complex
-						level = 3
-						instant_build = yes
-					}
-				}
-			}
-			54 = {
-				add_extra_state_shared_building_slots = 3
-				if = {
-					add_building_construction = {
-						type = industrial_complex
-						level = 3
-						instant_build = yes
-					}
-				}
-			}
 			#################################### FINALNDIA
 			149= {
 				add_extra_state_shared_building_slots = 2
@@ -702,6 +676,29 @@ focus_tree = {
 				if = {
 					add_building_construction = {
 						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+
+			custom_effect_tooltip = fin_rolf_plan_tt
+
+			53 = {
+				add_extra_state_shared_building_slots = 2
+				if = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			54 = {
+				add_extra_state_shared_building_slots = 2
+				if = {
+					add_building_construction = {
+						type = industrial_complex
 						level = 2
 						instant_build = yes
 					}
@@ -811,6 +808,11 @@ focus_tree = {
 		prerequisite = { focus = switch_civil_order
 		focus = keep_martial_law
 	}
+		available = {
+			ITA = {
+				has_war_with = ENG
+			}
+		}
 
 		cost = 5
 
@@ -821,10 +823,6 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-
-		complete_tooltip = {
-
-		}
 
 		completion_reward = {
 		remove_ideas = fin_on_our_own
