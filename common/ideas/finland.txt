@@ -123,9 +123,22 @@ fin_shell_crisis = {
 	modifier = {
 	}
 	equipment_bonus = {
+		artillery_equipment = {
+			build_cost_ic = 0.25
+			hard_attack = -0.15
+			soft_attack = -0.15
+			defense = -0.15
+		}
+		anti_air_equipment = {
+			build_cost_ic = 0.15
+			hard_attack = -0.15
+			defense = -0.15
+			air_attack = -0.15   
+		}
 		anti_tank_equipment = {
-		build_cost_ic = 0.25
-		hard_attack = -0.25
+		build_cost_ic = 0.15
+		hard_attack = -0.15
+		defense = -0.15
 		}
 	}
 }
@@ -176,7 +189,7 @@ fin_integrate_murmansk = {
 	}
 
 	modifier = {
-		political_power_gain = -0.15
+		political_power_gain = -0.50
 	}
 	on_remove = {
 		FIN = {
@@ -196,7 +209,7 @@ fin_integrate_olensk = {
 	}
 
 	modifier = {
-		political_power_gain = -0.5
+		political_power_gain = -0.25
 	}
 	on_remove = {
 		FIN = {
@@ -227,6 +240,68 @@ fin_on_our_own = {
 		can_join_factions = no 
 		can_receive_lend_lease = no
 	}
+}
+fin_greater_fin_1 = {
+	name = greater_fin_1
+	picture = SPA_national_recovery
+
+	modifier = {
+		stability_factor = -0.05
+		war_support_factor = 0.10
+		fascism_drift = 0.05
+	}
+}
+fin_change_in_course = {
+	name = fin_change_in_course
+	picture = SPA_national_recovery
+
+	modifier = {
+		stability_weekly = 0.001
+		war_support_weekly = 0.001
+	}
+	available = {
+		NOT = {
+			has_war_with = SOV
+		}
+	}
+	on_remove = {
+		add_political_power = 100
+	}
+}
+fin_crusade_against_communism = {
+	name = crusade_against_communism
+	picture = SPA_national_recovery
+	
+	available = {
+		NOT = {
+			has_government = communism
+		}
+	}
+	modifier = {
+		communism_drift = -0.05
+		war_support_factor = 0.1
+		stability_factor = -0.1
+	}
+	
+	targeted_modifier = {
+		tag = SOV
+		attack_bonus_against = 0.1
+		defense_bonus_against = 0.1
+	}
+	equipment_bonus = {
+		infantry = {
+			casualty_trickleback = 0.25
+		}
+	}
+}
+fin_push_south_buff = {
+	icon = GFX_modifiers_SWI_attack_from_the_mountains
+	attacker_modifier = yes
+	
+		supply_consumption_factor = -0.10
+		attrition = -0.15
+		army_attack_factor = 9.10
+	
 }
 
 ############################ LODOMIR

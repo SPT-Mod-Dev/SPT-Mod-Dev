@@ -146,8 +146,8 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = volunteers
-		icon = GFX_goal_generic_construct_infrastructure
+		id = volunteers_karjala
+		icon = GFX_goal_generic_army_doctrines
 		prerequisite = { focus = retake_karjala }
 		x = -1
 		y = 1
@@ -183,10 +183,10 @@ focus_tree = {
 	focus = {
 		id = refugees_2
 		icon = GFX_goal_generic_construct_infrastructure
-		prerequisite = { focus = volunteers }
+		prerequisite = { focus = volunteers_karjala }
 		x = 0
 		y = 1
-		relative_position_id = volunteers
+		relative_position_id = volunteers_karjala
 
 
 		cost = 5
@@ -212,7 +212,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-		add_manpower = 25000
+		add_ideas = fin_crusade_against_communism
 		}
 	}
 
@@ -251,6 +251,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			add_ideas = {fin_greater_fin_1}
 			147 = {
 				if = {
 					add_dynamic_modifier = {
@@ -310,6 +311,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			custom_effect_tooltip = fin_integrate_murmansk_tt
 			add_timed_idea = { idea = fin_integrate_murmansk days = 180 }
 		}
 	}
@@ -345,6 +347,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
+			custom_effect_tooltip = fin_integrate_olensk_tt
 			add_timed_idea = { idea = fin_integrate_olensk days = 180 }
 		}
 	}
@@ -368,7 +371,7 @@ focus_tree = {
 		}
 
 		available = {
-			date > 1950.01.01
+			date > 2077.01.01
 		}
 		
 		bypass = {
@@ -826,6 +829,7 @@ focus_tree = {
 
 		completion_reward = {
 		remove_ideas = fin_on_our_own
+		add_ideas = fin_change_in_course
 		}
 	}
 
