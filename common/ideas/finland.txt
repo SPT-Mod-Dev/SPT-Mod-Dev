@@ -4,24 +4,24 @@ ideas = {
 ########################## LODOMIR
 fin_martial_law = {
 			
-	name = martial_law
+	name = fin_martial_law
 	picture = SPA_national_recovery
 
 	modifier = {
 		war_support_factor = 0.1
-		stability_factor = -0.1
+		stability_factor = -0.05
 	}
 
 }
 
 fin_martial_law_2 = {
 			
-	name = martial_law_2
-	picture = SPA_national_recovery
+	name = fin_martial_law_2
+	picture = GFX_focus_generic_tank_production
 
 	modifier = {
 		war_support_factor = 0.05
-		stability_factor = -0.15
+		stability_factor = -0.10
 		consumer_goods_factor = -0.05
 	}
 
@@ -29,7 +29,7 @@ fin_martial_law_2 = {
 
 fin_civil_order = {
 	
-	name = civil_order
+	name = fin_civil_order
 	picture = SPA_national_recovery
 
 	modifier = {
@@ -42,7 +42,7 @@ fin_civil_order = {
 
 fin_rebuild_the_nation = {
 	
-	name = rebuild_the_nation
+	name = fin_rebuild_the_nation_spirit
 	picture = SPA_national_recovery
 
 	modifier = {
@@ -55,7 +55,7 @@ fin_rebuild_the_nation = {
 
 fin_gripen_plan = {
 	
-	name = gripen_plan
+	name = fin_gripen_plan
 	picture = SPA_national_recovery
 
 	available = {
@@ -63,7 +63,7 @@ fin_gripen_plan = {
 	}
 
 	modifier = {
-		production_speed_arms_factory_factor = 0.05
+		production_speed_arms_factory_factor = 0.10
 		consumer_goods_factor = -0.05
 	}
 
@@ -71,7 +71,7 @@ fin_gripen_plan = {
 
 fin_rolf_plan = {
 	
-	name = rolf_plan
+	name = fin_rolf_plan
 	picture = SPA_national_recovery
 	
 	available = {
@@ -96,7 +96,7 @@ fin_rolf_plan = {
 
 fin_military_spending = {
 	
-	name = military_spending
+	name = fin_military_spending_spirit
 	picture = SPA_national_recovery
 
 	available = {
@@ -114,7 +114,7 @@ fin_military_spending = {
 
 fin_shell_crisis = {
 	
-	name = shell_crisis
+	name = fin_shell_crisis
 	picture = SPA_national_recovery
 
 	available = {
@@ -145,7 +145,7 @@ fin_shell_crisis = {
 
 fin_seek_peace = {
 	
-	name = seek_peace
+	name = fin_seek_peace
 	picture = SPA_national_recovery
 
 	available = {
@@ -158,7 +158,7 @@ fin_seek_peace = {
 
 fin_modernize_airforce = {
 	
-	name = modernize_airforce
+	name = fin_modernize_airforce_spirit
 	picture = SPA_national_recovery
 
 	available = {
@@ -180,7 +180,7 @@ fin_modernize_airforce = {
 
 fin_integrate_murmansk = {
 	
-	name = integrate_murmansk
+	name = fin_integrate_murmansk
 	picture = SPA_national_recovery
 
 	available = {
@@ -201,7 +201,7 @@ fin_integrate_murmansk = {
 }
 fin_integrate_olensk = {
 	
-	name = integrate_olensk
+	name = fin_integrate_olensk
 	picture = SPA_national_recovery
 
 	available = {
@@ -220,7 +220,7 @@ fin_integrate_olensk = {
 }
 fin_refugees = {
 	
-	name = refugees
+	name = fin_refugees_spirit
 	picture = SPA_national_recovery
 
 	available = {
@@ -242,7 +242,7 @@ fin_on_our_own = {
 	}
 }
 fin_greater_fin_1 = {
-	name = greater_fin_1
+	name = fin_greater_fin_1
 	picture = SPA_national_recovery
 
 	modifier = {
@@ -269,7 +269,7 @@ fin_change_in_course = {
 	}
 }
 fin_crusade_against_communism = {
-	name = crusade_against_communism
+	name = fin_crusade_against_communism
 	picture = SPA_national_recovery
 	
 	available = {
@@ -295,6 +295,77 @@ fin_crusade_against_communism = {
 		}
 	}
 }
+
+fin_grain_shipments = {
+	name = fin_grain_shipments
+	picture = SPA_national_recovery
+
+	modifier = {
+		stability_factor = 0.1
+		war_support_factor = 0.1
+	}
+}
+
+fin_buff_1 = { # murmansk / onega
+	name = fin_buff_1
+	picture = SPA_national_recovery
+
+	available = {
+		NOT = {
+			#leningrad
+			controls_province = 3151
+			controls_province = 149
+			#olonets
+			controls_province = 6070
+			controls_province = 9078
+			controls_province = 40
+			controls_province = 9231
+		}
+	}
+	modifier = {
+		supply_consumption_factor = -0.10
+		attrition = -0.15
+		army_attack_factor = 0.10
+	}
+	}
+fin_buff_2 = { #karjala and salla / historical
+	name = fin_buff_2
+	picture = SPA_national_recovery
+
+	available = {
+		NOT = {
+			#murmansk
+			controls_province = 9203
+			controls_province = 142
+			controls_province = 6117
+
+			controls_province = 74
+			controls_province = 15
+			controls_province = 9123
+			controls_province = 11181
+			
+			#onega
+			controls_province = 9074
+			controls_province = 6175
+			controls_province = 6098
+			controls_province = 2998
+			#leningrad
+			controls_province = 3151
+			controls_province = 149
+			#olonets
+			controls_province = 6070
+			controls_province = 9078
+			controls_province = 40
+			controls_province = 9231
+		}
+	}
+	modifier = {
+		supply_consumption_factor = -0.10
+		attrition = -0.15
+		army_attack_factor = 0.10
+	}
+}
+
 
 ############################ LODOMIR
 		
