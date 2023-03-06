@@ -575,35 +575,7 @@ focus_tree = {
 			}
 		}
 	}
-	focus = {
-		id = FIN_import_german_designs
-		icon = GFX_goal_generic_intelligence_exchange
-		prerequisite = {
-			focus = FIN_learn_from_the_germans
-		}
-		prerequisite = {
-			focus = FIN_retool_industry_for_armour_prodoction
-		}
-		x = -2
-		y = 1
-		relative_position_id = FIN_learn_from_the_germans
-		cost = 10
-		ai_will_do = {
-			factor = 2
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
-		completion_reward = {
-			add_relation_modifier = {
-				target = GER
-				modifier = ROM_license_german_equipment
-			}
-		}
-	}
+
 	focus = {
 		id = FIN_santahamina_military_academy
 		icon = GFX_focus_research
@@ -867,47 +839,52 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = Landsverk_L62
-		icon = GFX_focus_generic_tank_production
+		id = FIN_Invite_german_advisors
+		icon = GFX_focus_generic_military_mission
 		prerequisite = {
-			focus = FIN_motorisation_effort
+			focus = FIN_learn_from_the_germans
 		}
-		x = 0
+		x = -2
 		y = 1
-		relative_position_id = FIN_motorisation_effort
+		relative_position_id = FIN_learn_from_the_germans
 		cost = 10
 		ai_will_do = {
 			factor = 2
-		}
-		available = {
 		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
 		search_filters = {
-			FOCUS_FILTER_INDUSTRY
+			FOCUS_FILTER_POLITICAL
 		}
-		available_if_capitulated = yes
+	}
+	focus = {
+		id = FIN_import_german_designs
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = {
+			focus = FIN_Invite_german_advisors
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIN_Invite_german_advisors
+		cost = 10
+		ai_will_do = {
+			factor = 2
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
 		completion_reward = {
-			add_ideas = FIN_tank_manufacturer
-			random_owned_state = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_owned_state = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
+			add_relation_modifier = {
+				target = GER
+				modifier = ROM_license_german_equipment
 			}
 		}
 	}
+
 	focus = {
 		id = FIN_specialised_winter_training
 		icon = GFX_focus_GRE_a_land_of_mountains
@@ -986,7 +963,6 @@ focus_tree = {
 		icon = GFX_focus_generic_infiltration
 		prerequisite = {
 			focus = FIN_learn_from_the_germans
-			focus = FIN_army_jaeger_training
 		}
 		x = 0
 		y = 1
@@ -1020,6 +996,48 @@ focus_tree = {
 				bonus = 0.75
 				uses = 2
 				category = motorized_equipment
+			}
+		}
+	}
+	focus = {
+		id = Landsverk_L62
+		icon = GFX_focus_generic_tank_production
+		prerequisite = {
+			focus = FIN_motorisation_effort
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIN_motorisation_effort
+		cost = 10
+		ai_will_do = {
+			factor = 2
+		}
+		available = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_ideas = FIN_tank_manufacturer
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
 			}
 		}
 	}
