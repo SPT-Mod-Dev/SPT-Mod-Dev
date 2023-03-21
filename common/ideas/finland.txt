@@ -279,7 +279,7 @@ fin_crusade_against_communism = {
 	modifier = {
 		communism_drift = -0.05
 		war_support_factor = 0.1
-		stability_factor = -0.1
+		stability_factor = 0.1
 	}
 	
 	targeted_modifier = {
@@ -292,6 +292,25 @@ fin_crusade_against_communism = {
 			casualty_trickleback = 0.25
 			experience_loss_factor = 0.25
 		}
+	}
+}
+fin_greater_finland_2 = {
+	name = fin_greater_finland_2
+	picture = ger_bulwark_against_bolshevism
+	
+	available = {
+		NOT = {
+			has_government = communism
+		}
+	}
+	modifier = {
+		war_support_factor = 0.05
+		stability_factor = 0.05
+		fascism_drift = 0.10
+		army_core_defence_factor = 0.15
+		army_core_attack_factor = 0.15
+		army_attack_factor = -0.05
+		army_defence_factor = -0.05
 	}
 }
 
@@ -362,6 +381,16 @@ fin_buff_2 = { #karjala and salla / historical
 		supply_consumption_factor = -0.10
 		attrition = -0.15
 		army_attack_factor = 0.10
+	}
+}
+fin_paratroopers = {
+	name = fin_paratroopers
+	picture = SPR_torchbearers_of_tomorrow
+	modifier = {
+		special_forces_cap = 0.25
+		special_forces_no_supply_grace = 120
+		special_forces_out_of_supply_factor = -0.5
+		special_forces_training_time_factor = -0.25
 	}
 }
 
