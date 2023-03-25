@@ -227,7 +227,7 @@ focus_tree = {
 		relative_position_id = FIN_develop_finnish_railways
 		cost = 10
 		ai_will_do = {
-			factor = 5
+			factor = 3
 		}
 		available = {
 			owns_state = 148
@@ -343,7 +343,7 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 		}
 		ai_will_do = {
-			factor = 0
+			factor = 2
 		}
 		available = {
 			NOT = {
@@ -379,7 +379,7 @@ focus_tree = {
 			focus = FIN_Contract_finnish_companies
 		}
 		ai_will_do = {
-			factor = 1
+			factor = 6
 		}
 		available = {
 			NOT = {
@@ -407,7 +407,7 @@ focus_tree = {
 		relative_position_id = FIN_develop_costal_cities
 		cost = 10
 		ai_will_do = {
-			factor = 2
+			factor = 6
 		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -453,8 +453,7 @@ focus_tree = {
 			FOCUS_FILTER_INDUSTRY
 		}
 		completion_reward = {
-			add_ideas = Finnish_industrial_concern
-			# Comstume industrial concern
+			custom_effect_tooltip = FIN_Contract_finnish_companies_tt
 		}
 	}
 	focus = {
@@ -509,7 +508,7 @@ focus_tree = {
 		relative_position_id = FIN_seek_german_investments
 		cost = 10
 		ai_will_do = {
-			factor = 3
+			factor = 11
 		}
 		available = {
 		}
@@ -610,7 +609,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = FIN_Contract_finnish_companies
-		cost = 35
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -637,9 +636,14 @@ focus_tree = {
 				}
 			}
 			149 = {
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
 					level = 1
 					instant_build = yes
 				}
@@ -658,7 +662,7 @@ focus_tree = {
 		relative_position_id = FIN_expand_to_civil_contracts
 		cost = 10
 		ai_will_do = {
-			factor = 3
+			factor = 10
 		}
 		available = {
 		}
@@ -857,6 +861,9 @@ focus_tree = {
 		search_filters = {
 			FOCUS_FILTER_POLITICAL
 		}
+		completion_reward = {
+			custom_effect_tooltip = FIN_Invite_german_advisors_tt
+		}
 	}
 	focus = {
 		id = FIN_import_german_designs
@@ -945,7 +952,6 @@ focus_tree = {
 			FOCUS_FILTER_RESEARCH
 			FOCUS_FILTER_ARMY_XP
 		}
-		available_if_capitulated = yes
 		completion_reward = {
 			set_variable = {
 				FIN_xp_gain = 0.1
@@ -957,6 +963,31 @@ focus_tree = {
 			}
 			custom_effect_tooltip = FIN_expand_the_jaeger_movment_tt
 		}
+	}
+	focus = {
+		id = FIN_more_manpower
+		icon = GFX_focus_generic_manpower
+		prerequisite = {
+			focus = FIN_army_jaeger_training
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIN_army_jaeger_training
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		completion_reward = {
+			add_to_variable = {
+				FIN_expand_conscription = 0.025
+			}
+			custom_effect_tooltip = FIN_expand_conscription_tt
+		}
+		
 	}
 	focus = {
 		id = FIN_new_advisors
@@ -1047,7 +1078,7 @@ focus_tree = {
 		prerequisite = {
 			focus = FIN_secure_the_homefront
 		}
-		x = 2
+		x = 3
 		y = 1
 		relative_position_id = FIN_secure_the_homefront
 		cost = 5
@@ -1226,7 +1257,7 @@ focus_tree = {
 			FOCUS_FILTER_MANPOWER
 		}
 		completion_reward = {
-			set_variable = {
+			add_to_variable = {
 				FIN_expand_conscription = 0.025
 			}
 			custom_effect_tooltip = FIN_expand_conscription_tt
@@ -1715,6 +1746,10 @@ focus_tree = {
 			FOCUS_FILTER_ANNEXATION
 		}
 		completion_reward = {
+			give_military_access = GER
+			GER = {
+				give_military_access = FIN
+			}
 			create_wargoal = {
 				type = take_state_focus
 				target = SOV
