@@ -263,10 +263,7 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			hidden_effect = {
-				set_cosmetic_tag = MAN_Manshukoku
-				MAN_low_legitimacy_level_down = yes
-				remove_ideas = MAN_kwantung_veto
-				retire_country_leader = yes
+				
 				# KISHI ARRIVES
 				add_country_leader_role = {
 					character = MAN_nubusuke_kishi
@@ -280,10 +277,25 @@
 						}	
 					}
 					promote_leader = no				
-				}	
+				}
+				retire_country_leader = yes	
 			}
+
+			# JAP = {
+			# 	set_autonomy = {
+			# 		target = MAN
+			# 		autonomy_state = autonomy_wtt_imperial_subject
+			# 		end_wars = no
+			# 		end_civil_wars = no
+			# 	}
+				
+			# }
+			set_cosmetic_tag = MAN_Manshukoku
+			MAN_low_legitimacy_level_down = yes
+			remove_ideas = MAN_kwantung_veto
 			
-			custom_effect_tooltip = MAN_Manchukuo_Route_tt
+			
+			#custom_effect_tooltip = MAN_Manchukuo_Route_tt
 		}
 	}
 
@@ -516,13 +528,22 @@
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			hidden_effect = {
-				CHI = {
-					add_ideas = CHI_illegitimate_government
-				}
-				MAN_low_legitimacy_level_down = yes
+			
+			# JAP = {
+			# 	set_autonomy = {
+			# 		target = MAN
+			# 		autonomy_state = autonomy_wtt_imperial_associate
+			# 		end_wars = no
+			# 		end_civil_wars = no
+			# 	}
+				
+			# }
+			CHI = {
+				add_ideas = CHI_illegitimate_government
 			}
-			custom_effect_tooltip = MAN_Qing_Route_tt
+			
+			
+			#custom_effect_tooltip = MAN_Qing_Route_tt
 		}
 	}
 
