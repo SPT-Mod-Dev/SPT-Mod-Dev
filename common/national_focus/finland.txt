@@ -34,6 +34,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_stability = 0.1
+			
 		}
 	}
 
@@ -494,7 +495,7 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_timed_idea = { idea = fin_rebuild_the_nation days = 45 }
+			add_timed_idea = { idea = fin_rebuild_the_nation days = 90 }
 		}
 	}
 	focus = {
@@ -544,6 +545,7 @@ focus_tree = {
 		
 		completion_reward = {
 			remove_ideas = fin_shell_crisis
+			remove_ideas = fin_shell_crisis_2
 			111 = {
 				add_extra_state_shared_building_slots = 2
 				if = {
@@ -785,10 +787,6 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		complete_tooltip = {
-
-		}
-
 		completion_reward = {
 			add_ideas = fin_refugees
 		}
@@ -816,13 +814,17 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		complete_tooltip = {
-
-		}
-
 		completion_reward = {
-		add_ideas = fin_martial_law_2
-		remove_ideas = fin_martial_law
+		custom_effect_tooltip = FIN_martial_law_1_tt
+		add_to_variable = {
+			FIN_martial_ws = -0.05
+		}
+		add_to_variable = {
+			FIN_martial_stab = -0.1
+		}
+		add_to_variable = {
+			FIN_martial_cons = -0.05
+		}
 		}
 	}
 
@@ -912,6 +914,9 @@ focus_tree = {
 			FOCUS_FILTER_ANNEXATION
 		}
 		completion_reward = {
+			remove_dynamic_modifier = { modifier = fin_martial_law}
+			remove_ideas = fin_civil_order
+			
 			create_wargoal = {
 				type = take_state_focus
 				target = SOV
@@ -1569,6 +1574,8 @@ focus_tree = {
 				uses = 2
 				category = artillery
 			}
+			add_ideas = fin_shell_crisis_2
+			remove_ideas = fin_shell_crisis
 		}
 	}
 	focus = {
