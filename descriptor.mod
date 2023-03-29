@@ -1,6 +1,10 @@
-version="1.12.8"
+version="3.4.1"
 tags={
 	"Balance"
+	"Events"
+	"Fixes"
+	"Gameplay"
 }
-name="sptdev2"
-supported_version="1.12.7"
+name="SPT's Historical MP Mod DEV"
+picture="Thumbnail.png"
+supported_version="1.12.*"
