@@ -1772,7 +1772,10 @@ focus_tree = {
 			factor = 1
 		}
 		available = {
-			date > 2077.01.01
+			custom_trigger_tooltip = {
+				tooltip = "The Winter War has ended"
+				always = no
+			}
 		}
 		bypass = {
 		}
@@ -1865,8 +1868,12 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			remove_ideas = fin_shell_crisis
-			remove_ideas = fin_shell_crisis_2
+			custom_effect_tooltip = FIN_address_shell_crisis_tt
+			hidden_effect = {
+				remove_ideas = fin_shell_crisis
+				remove_ideas = fin_shell_crisis_2
+			}
+			
 			111 = {
 				add_extra_state_shared_building_slots = 2
 				if = {
@@ -2187,9 +2194,17 @@ focus_tree = {
 			FOCUS_FILTER_ANNEXATION
 		}
 		completion_reward = {
-			remove_dynamic_modifier = {
-				modifier = fin_martial_law
+			if = {
+				limit = {
+					has_dynamic_modifier = {
+						modifier = fin_martial_law
+					}
+				}
+				remove_dynamic_modifier = {
+					modifier = fin_martial_law
+				}
 			}
+			
 			remove_ideas = fin_civil_order
 			create_wargoal = {
 				type = take_state_focus
@@ -2326,12 +2341,14 @@ focus_tree = {
 		complete_tooltip = {
 		}
 		completion_reward = {
-			FIN = {
+			hidden_effect = {
 				country_event = {
 					days = 5
 					id = spt_finland.2137
 				}
 			}
+			
+			
 			216 = {
 				if = {
 					add_dynamic_modifier = {
