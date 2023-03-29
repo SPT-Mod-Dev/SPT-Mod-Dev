@@ -2353,7 +2353,9 @@ focus_tree = {
 	focus = {
 		id = FIN_war_is_upon_us
 		icon = GFX_goal_generic_attack_allies
-		x = 9
+    
+		x = 10
+
 		y = -1
 		relative_position_id = FIN_prepare_for_the_inevitable
 		available = {
@@ -2495,6 +2497,10 @@ focus_tree = {
 						owner = ROOT
 					}
 				}
+			}
+			add_timed_idea = {
+				idea = FIN_mobilise_reserves_idea
+				days = 180
 			}
 		}
 	}
@@ -2668,8 +2674,12 @@ focus_tree = {
 				idea = FIN_divert_funds_to_armymoderisation_idea
 				days = 42
 			}
+			
+			
 		}
 		completion_reward = {
+			custom_effect_tooltip = FIN_divert_funds_to_army_modernisation_tt
+			
 			add_tech_bonus = {
 				name = Army_modernisation
 				bonus = 1
@@ -2682,6 +2692,7 @@ focus_tree = {
 				uses = 2
 				category = artillery
 			}
+			
 		}
 	}
 	
