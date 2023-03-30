@@ -792,6 +792,9 @@ focus_tree = {
 			set_variable = {
 				FIN_defensive_war_st_factor = 0.25
 			}
+			add_to_variable = {
+				FIN_mob_speed = 0.1
+			}
 			custom_effect_tooltip = FIN_add_defensive_war_st_factor_tt
 		}
 	}
@@ -965,8 +968,8 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = FIN_more_manpower
-		icon = GFX_focus_generic_manpower
+		id = FIN_new_recruitment_plan
+		icon = GFX_focus_generic_military_academy
 		prerequisite = {
 			focus = FIN_army_jaeger_training
 		}
@@ -983,9 +986,12 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_to_variable = {
-				FIN_expand_conscription = 0.025
+				FIN_expand_conscription = 0.01
 			}
-			custom_effect_tooltip = FIN_expand_conscription_tt
+			add_to_variable = {
+				FIN_mob_speed = 0.15
+			}
+			custom_effect_tooltip = FIN_new_recruitment_plan_tt
 		}
 		
 	}
