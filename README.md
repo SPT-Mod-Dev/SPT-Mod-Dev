@@ -1,5 +1,22 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.4.1
+
+- Reduced the land modifier bonus for each experience level `+25%` -> `20%`
+- Added two new quotes
+- Added two console commands called "SPT_No_Resource_Penalty" and "SPT_Remove_No_Resource_Penalty" that remove resource penalty [So you dont have to trade in playtests so its like you are getting tradebacks]
+
+#### AOI
+- Gave cores on all their own states with the decision to form them
+
+#### Spain
+- Increased time for "Impending Carlist Uprising" mission `316` -> `386`
+
+#### Rules
+- Changed Diplomacy rule 2 to "Military access and docking rights are banned except between Finland and Germany."
+
+#### Finland
+- Added a new post Winter War focus branch
 
 ### 3.4
 
