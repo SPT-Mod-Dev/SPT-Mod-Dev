@@ -291,11 +291,12 @@ ideas = {
 			picture = jap_zaibatsu_control
 			
 			modifier = {
-				stability_factor = -0.1
-				production_speed_industrial_complex_factor = 0.10
-				production_speed_arms_factory_factor = 0.10
-				production_speed_dockyard_factor = 0.10
-				consumer_goods_factor = 0.05
+				#SPT change, rebalanced for more construction speed,less consumer goods, and more stability loss
+				stability_factor = -0.15
+				production_speed_industrial_complex_factor = 0.125
+				production_speed_arms_factory_factor = 0.125
+				production_speed_dockyard_factor = 0.125
+				consumer_goods_factor = 0.025
 			}
 		}
 
@@ -1585,7 +1586,7 @@ ideas = {
 			picture = jap_supremacy_of_will
 			
 			modifier = {
-				army_defence_factor = 0.1
+				army_defence_factor = 0.05
 				army_attack_factor = 0.1
 				army_morale_factor = 0.1
 				weekly_casualties_war_support = 0.001
@@ -1652,6 +1653,44 @@ ideas = {
 				cv_small_plane_airframe = {
 					build_cost_ic = -0.05 instant = yes
 				}
+			}
+		}
+
+		JAP_zaibatsu_expansion = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no	
+			}
+
+			removal_cost = -1
+
+			picture = generic_economic_increase
+
+			modifier = {
+				non_core_manpower = -0.1
+				local_resources_factor = 0.15
+			}
+		}
+
+		JAP_zaibatsu_expansion_improved = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no	
+			}
+
+			removal_cost = -1
+
+			picture = generic_economic_increase
+
+			modifier = {
+				non_core_manpower = -0.15
+				local_resources_factor = 0.15
+				production_speed_buildings_factor = 0.075
+				industrial_capacity_factory = 0.05
 			}
 		}
 		

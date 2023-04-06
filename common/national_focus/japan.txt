@@ -12,7 +12,7 @@
 
 	default = no
 
-	continuous_focus_position = { x = 20 y = 1200 }
+	continuous_focus_position = { x = 20 y = 1300 }
 
 	focus = {
 		id = JAP_the_unthinkable_option
@@ -1029,7 +1029,7 @@
 		id = JAP_greater_east_asian_co_prosperity_sphere
 		icon = GFX_focus_jap_pacific_guardian
 		prerequisite = { focus = JAP_liaison_conference }
-		x = -1
+		x = 2
 		y = 1
 		relative_position_id = JAP_liaison_conference
 
@@ -1062,7 +1062,7 @@
 		icon = GFX_focus_jap_cast_the_die
 		prerequisite = { focus = JAP_greater_east_asian_co_prosperity_sphere }
 		will_lead_to_war_with = CHI
-		x = -1
+		x = 0
 		y = 1
 		relative_position_id = JAP_greater_east_asian_co_prosperity_sphere
 
@@ -1275,6 +1275,72 @@
 	}
 
 	focus = {
+		id = JAP_zaibatsu_investment
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = JAP_develop_chinese_resources }
+		prerequisite = { focus = JAP_nationalize_war_industry }
+		x = 1
+		y = 1
+		relative_position_id = JAP_develop_chinese_resources
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = { 
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_ideas = JAP_zaibatsu_expansion
+		}
+	}
+
+	focus = {
+		id = JAP_foreign_workers
+		icon = GFX_goal_generic_construct_civ_factory
+		prerequisite = { focus = JAP_zaibatsu_investment }
+		x = 0
+		y = 1
+		relative_position_id = JAP_zaibatsu_investment
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = { 
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = JAP_zaibatsu_expansion
+				add_idea = JAP_zaibatsu_expansion_improved
+			}
+		}
+	}
+
+	focus = {
 		id = JAP_pan_asia_movement
 		icon = GFX_focus_spr_masters_of_our_own_fate
 		prerequisite = { focus = JAP_intervene_in_china }
@@ -1433,7 +1499,7 @@
 		icon = GFX_goal_generic_territory_or_war
 		prerequisite = { focus = JAP_greater_east_asian_co_prosperity_sphere }
 		prerequisite = { focus = JAP_sign_tripartite_pact }
-		x = 0
+		x = -4
 		y = 2
 		relative_position_id = JAP_liaison_conference
 
@@ -1475,7 +1541,7 @@
 		id = JAP_non_aggression_pact_with_the_soviet_union
 		icon = GFX_focus_chi_mission_to_the_soviet_union
 		prerequisite = { focus = JAP_strike_south_doctrine }
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = JAP_strike_south_doctrine
 		dynamic = yes  
@@ -2043,7 +2109,7 @@
 		id = JAP_alliance_with_siam
 		icon = GFX_goal_generic_dangerous_deal
 		prerequisite = { focus = JAP_strike_south_doctrine }
-		x = 2
+		x = -3
 		y = 1
 		relative_position_id = JAP_strike_south_doctrine
 
@@ -2094,8 +2160,8 @@
 		icon = GFX_goal_generic_construction2
 		prerequisite = { focus = JAP_coal_liquification }
 		#prerequisite = { focus = JAP_bypass_the_philippines } #SPT change to remove prereq for a disabled focus
-		x = 2
-		y = 5
+		x = 3
+		y = 7
 		relative_position_id = JAP_purge_the_kodoha_faction
 
 		cost = 10
@@ -2183,7 +2249,7 @@
 		id = JAP_sign_tripartite_pact
 		icon = GFX_focus_chi_mission_to_germany
 		prerequisite = { focus = JAP_liaison_conference }
-		x = 1
+		x = -2
 		y = 1
 		relative_position_id = JAP_liaison_conference
 
@@ -2260,6 +2326,7 @@
 		id = JAP_guide_the_zaibatsus
 		icon = GFX_focus_jap_zaibatsu
 		prerequisite = { focus = JAP_purge_the_kodoha_faction }
+		mutually_exclusive = { focus = JAP_challenge_the_zaibatsus}
 		x = 2
 		y = 1
 		relative_position_id = JAP_purge_the_kodoha_faction
@@ -2339,7 +2406,7 @@
 		prerequisite = { focus = JAP_guide_the_zaibatsus }
 		prerequisite = { focus = JAP_national_mobilization_law }
 		x = 0
-		y = 2
+		y = 3
 		relative_position_id = JAP_guide_the_zaibatsus
 
 		cost = 10
@@ -2441,9 +2508,9 @@
 	focus = {
 		id = JAP_coal_liquification
 		icon = GFX_goal_generic_oil_refinery
-		prerequisite = { focus = JAP_nationalize_war_industry }
-		x = 0
-		y = 3
+		prerequisite = { focus = JAP_nationalize_war_industry focus = JAP_imperial_arsenals}
+		x = 1
+		y = 5
 		relative_position_id = JAP_guide_the_zaibatsus
 
 		cost = 10
@@ -2500,7 +2567,7 @@
 	focus = {
 		id = JAP_national_mobilization_law
 		icon = GFX_focus_generic_fascist_propaganda
-		prerequisite = { focus = JAP_guide_the_zaibatsus}
+		prerequisite = { focus = JAP_guide_the_zaibatsus focus = JAP_challenge_the_zaibatsus}
 		x = 2
 		y = 1
 		relative_position_id = JAP_guide_the_zaibatsus
@@ -2549,7 +2616,7 @@
 		icon = GFX_focus_research
 		prerequisite = { focus = JAP_national_mobilization_law }
 		x = 0
-		y = 1
+		y = 2
 		relative_position_id = JAP_national_mobilization_law
 
 		cost = 10
@@ -2581,8 +2648,9 @@
 		icon = GFX_goal_generic_construct_mil_factory
 
 		prerequisite = { focus = JAP_challenge_the_zaibatsus }
+		prerequisite = {focus = JAP_national_mobilization_law}
 		x = 2
-		y = 1
+		y = 2
 		relative_position_id = JAP_national_mobilization_law
 
 		cost = 10
@@ -2609,10 +2677,10 @@
 				limit = {
 					has_state_flag = JAP_imperial_arsenals1
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 			}
@@ -2620,10 +2688,10 @@
 				limit = {
 					has_state_flag = JAP_imperial_arsenals2
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 			}
@@ -2684,11 +2752,61 @@
 	}
 
 	focus = {
+		id = JAP_seize_zaibatsu_docks
+		icon = GFX_focus_generic_refit_civilian_ships
+
+		prerequisite = { focus = JAP_imperial_arsenals}
+		x = 1
+		y = 1
+		relative_position_id = JAP_imperial_arsenals
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 3
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_war_support = -0.1
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+
+			add_equipment_to_stockpile = {
+				type = convoy
+				amount = 300
+			}
+		}
+	}
+
+	focus = {
 		id = JAP_national_defense_state
 		icon = GFX_focus_AST_war_japan
-		prerequisite = { focus = JAP_nationalize_war_industry }
-		x = -2
-		y = 1
+		prerequisite = { focus = JAP_nationalize_war_industry  focus = JAP_imperial_arsenals}
+		x = -1
+		y = 2
 		relative_position_id = JAP_imperial_arsenals
 
 		cost = 10
@@ -2896,7 +3014,9 @@
 				set_rule = {
 					can_use_kamikaze_pilots = yes
 				}
+				set_technology = { suicide_charge = 1 popup = no}
 			}
+			custom_effect_tooltip = JAP_strengthen_the_divine_wind_effect_bba
 			custom_effect_tooltip = kamikaze_focus_tooltip
 			add_ideas = JAP_desperate_measures
 		}
@@ -3038,13 +3158,14 @@
 	}
 
 	focus = {
+		#SPT change, anchored to purge the kodoha, and changed requirements
 		id = JAP_challenge_the_zaibatsus
 		icon = GFX_focus_jap_zaibatsu
-		prerequisite = { focus = JAP_support_the_kodoha_faction }
-		x = -3
-		y = 1
-		relative_position_id = JAP_support_the_kodoha_faction
-
+		prerequisite = { focus = JAP_purge_the_kodoha_faction }
+		mutually_exclusive = {focus = JAP_guide_the_zaibatsus}
+		x = 4
+		y = 0
+		relative_position_id = JAP_guide_the_zaibatsus
 		cost = 10
 
 		ai_will_do = {
@@ -4620,7 +4741,7 @@
 		id = JAP_the_manchurian_project
 		icon = GFX_focus_jap_manchurian_project
 		prerequisite = {focus = JAP_intervene_in_china} #SPT change added prerequisite
-		x = -5
+		x = -4
 		y = 2
 		relative_position_id = JAP_greater_east_asian_co_prosperity_sphere #SPT change, changed relative position to JAP_guide_the_zaibatsus
 		offset = {
@@ -5022,7 +5143,7 @@
 	focus = {
 		id = JAP_army_expansion_law
 		icon = GFX_focus_generic_fascist_troops
-		x = 10
+		x = 12
 		y = 0
 		relative_position_id = JAP_purge_the_kodoha_faction #SPT change, changed the relative position
 
@@ -5477,6 +5598,7 @@
 				cost_reduction = 0.5
 				uses = 2
 				category = cat_grand_battle_plan
+				category = cat_mass_assault
 			}
 		}
 	}
@@ -5512,6 +5634,7 @@
 
 
 		completion_reward = {
+			custom_effect_tooltip = JAP_revive_bushido_tt
 			every_army_leader = {
 				limit = { has_trait = JAP_samurai_lineage }
 				add_unit_leader_trait = JAP_bushido_spirit
