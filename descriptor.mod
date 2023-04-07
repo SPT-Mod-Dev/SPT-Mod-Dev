@@ -1,6 +1,7 @@
-version="1.12"
+version="3.4.1"
 tags={
 	"Balance"
 }
-name="SPT-Mod-Dev"
-supported_version="1.12.11"
+name="SPT's Historical MP Mod DEV"
+picture="Thumbnail.png"
+supported_version="1.12.*"
