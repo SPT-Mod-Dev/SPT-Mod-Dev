@@ -1,5 +1,27 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+
+### 3.4
+
+-Updated to version 1.12.10
+
+#### Manchuko
+- Added new focus tree!
+
+#### Japan
+- Reduced manchuko focuses length `70` -> `35`
+
+#### Finland
+- Clarified Winter War tooltip 
+
+#### Rule Changes
+- Change Soviet rule 9 to "No naval invading or paradropping Finland during the Winter War."
+
+#### Tank Designer
+- Chasis:
+    - Heavies can only use heavy turrets [no more sneaking on light turret on heavy tds]
+
+
 ### 3.3.1
 
 #### Rule Changes
