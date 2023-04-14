@@ -18,10 +18,14 @@ fin_martial_law_2 = {
 			
 	name = fin_martial_law_2
 	picture = FRA_scw_intervention_republicans_focus
-
+available = {
+	NOT = {
+		has_war = yes
+	}
+}
 	modifier = {
 		war_support_factor = 0.05
-		stability_factor = -0.10
+		stability_factor = -0.15
 		consumer_goods_factor = -0.05
 	}
 
@@ -31,6 +35,12 @@ fin_civil_order = {
 	
 	name = fin_civil_order
 	picture = generic_democratic_drift_bonus
+
+	available = {
+		NOT = {
+			has_war = yes
+		}
+	}
 
 	modifier = {
 		stability_factor = 0.1
@@ -309,9 +319,9 @@ fin_crusade_against_communism = {
 		defense_bonus_against = 0.1
 	}
 	equipment_bonus = {
-		infantry_equipment = {
-			casualty_trickleback = 0.25
-			experience_loss_factor = 0.25
+		field_hospital = {
+			casualty_trickleback = 0.40
+			experience_loss_factor = 0.35
 		}
 	}
 }

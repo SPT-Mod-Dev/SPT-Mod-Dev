@@ -39,81 +39,385 @@ focus_tree = {
 	############################################## LODOMIR
 	##############################################
 	##############################################
-	
-	#Disabled
-	# focus = {
-	# 	id = finnish_paratroopers
-	# 	icon = GFX_focus_ger_bulwark_against_bolshevism
-	# 	prerequisite = {
-	# 		focus = refugees_2
-	# 		focus = integrate_olensk
-	# 	}
-	# 	prerequisite = {
-	# 		focus = push_south
-	# 	}
-	# 	allow_branch = {
-	# 		has_completed_focus = push_south
-	# 	}
-	# 	x = 2
-	# 	y = 1
-	# 	relative_position_id = refugees_2
-	# 	cost = 70
-	# 	ai_will_do = {
-	# 		factor = 1
-	# 	}
-	# 	available = {
-	# 	}
-	# 	bypass = {
-	# 	}
-	# 	cancel_if_invalid = yes
-	# 	continue_if_invalid = no
-	# 	available_if_capitulated = no
-	# 	completion_reward = {
-	# 		FIN = {
-	# 			country_event = {
-	# 				days = 5
-	# 				id = spt_finland.2137
-	# 			}
-	# 		}
-	# 		add_ideas = fin_paratroopers
-	# 	}
-	# }
-	# #Disabled
-	# focus = {
-	# 	id = finnish_navy
-	# 	icon = GFX_focus_SWI_spirit_of_saint_bernard
-	# 	prerequisite = {
-	# 		focus = finnish_paratroopers
-	# 	}
-	# 	allow_branch = {
-	# 		has_completed_focus = finnish_paratroopers
-	# 	}
-	# 	cost = 100
-	# 	relative_position_id = finnish_paratroopers
-	# 	x = 0
-	# 	y = 1
-	# 	completion_reward = {
-	# 	}
-	# }
-	##################################################
-	
+
+	focus = {
+		id = retake_karjala
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = FIN_join_against_the_Soviet_union}
+		mutually_exclusive = { focus = unify_sami }
+		x = -1
+		y = 1
+		relative_position_id = FIN_join_against_the_Soviet_union
+
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			147 = {
+                if = {
+                    add_dynamic_modifier = {
+                        modifier = fin_murmansk_buff
+                        days = 180
+                    }
+                }
+            }
+            146 = {
+                if = {
+                    add_dynamic_modifier = {
+                        modifier = fin_murmansk_buff
+                        days = 180
+                    }
+                }
+            }
+		}
+	}
+	focus = {
+		id = push_south
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { 
+			focus = retake_karjala 
+			focus = unify_sami
+	}
+		x = 1
+		y = 1
+		relative_position_id = retake_karjala
+
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		has_full_control_of_state = 146
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			FIN = {
+				country_event = { 
+					days = 5
+					id = spt_finland.2137
+				}
+			}
+			216 = {
+                if = {
+                    add_dynamic_modifier = {
+                        modifier = fin_push_south_buff
+                        days = 180
+                    }
+
+                }
+            }
+            195 = {
+                if = {
+                    add_dynamic_modifier = {
+                        modifier = fin_push_south_buff
+                        days = 180
+                    }
+                }
+            }
+		}
+	}
+
+
+
+	focus = {
+		id = volunteers_karjala
+		icon = GFX_focus_generic_coffee
+		prerequisite = { focus = retake_karjala }
+		x = -1
+		y = 1
+		relative_position_id = retake_karjala
+
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+		add_ideas = { fin_grain_shipments }
+		}
+	}
+	focus = {
+		id = refugees_2
+		icon = GFX_focus_ger_bulwark_against_bolshevism
+		prerequisite = { focus = volunteers_karjala }
+		x = 0
+		y = 1
+		relative_position_id = volunteers_karjala
+
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 3.0
+				uses = 1
+				category = hospital_tech
+			}
+		add_ideas = fin_crusade_against_communism
+		add_country_leader_role = {
+			character = FIN_carl_mannerheim
+			promote_leader = yes
+			country_leader = {
+				ideology = oligarchism
+				expire = 1965.1.1.1
+				traits =  {
+					disdain_for_politicians_2
+					man_of_the_nation
+				}
+			}
+		}
+		}
+	}
+
+	focus = {
+		id = finnish_paratroopers
+		icon = GFX_focus_ger_bulwark_against_bolshevism
+		prerequisite = { 
+			focus = refugees_2 
+			focus = integrate_olensk
+	}
+	prerequisite = {
+		focus = push_south
+	}
+	allow_branch = {
+		has_completed_focus = push_south
+		}
+		
+		x = 2
+		y = 1
+		relative_position_id = refugees_2
+
+
+		cost = 70
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+		FIN = {
+			country_event = {
+				days = 5
+				id = spt_finland.2137
+		}
+		}
+		add_ideas = fin_paratroopers
+
+		}
+	}
+	focus = {
+		id = finnish_navy
+		icon = GFX_focus_SWI_spirit_of_saint_bernard
+		prerequisite = {
+			focus = finnish_paratroopers
+		}
+		allow_branch = {
+			has_completed_focus = finnish_paratroopers
+		}
+		cost = 100
+		relative_position_id = finnish_paratroopers
+		x = 0
+		y = 1
+		allow_branch = { has_completed = finnish_paratroopers}
+		completion_reward = {
+
+		}
+	}
+
+##################################################
+
+	focus = {
+		id = unify_sami
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = { focus = FIN_join_against_the_Soviet_union}
+		mutually_exclusive = { focus = retake_karjala }
+		x = 1
+		y = 1
+		relative_position_id = FIN_join_against_the_Soviet_union
+
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			swap_ruler_traits = { remove = man_of_the_crossroads add = popular_figurehead2 }
+			add_ideas = fin_greater_fin_1
+			147 = {
+                if = {
+                    add_dynamic_modifier = {
+                        modifier = fin_murmansk_buff
+                        days = 180
+                    }
+                }
+            }
+            213 = {
+                if = {
+                    add_dynamic_modifier = {
+                        modifier = fin_murmansk_buff
+                        days = 180
+                    }
+                }
+            }
+            215 = {
+                if = {
+                    add_dynamic_modifier = {
+                        modifier = fin_murmansk_buff
+                        days = 180
+                    }
+                }
+            }
+			
+		}
+	}
+	focus = {
+		id = integrate_olensk
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = FIN_begin_integration_of_karelia}
+		x = 0
+		y = 1
+		relative_position_id = FIN_begin_integration_of_karelia
+
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			controls_state = 216
+			controls_state = 215
+			controls_state = 213
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		complete_tooltip = {
+
+		}
+
+		completion_reward = {
+			add_ideas = fin_greater_finland_2
+			remove_ideas = fin_on_our_own
+			remove_ideas = fin_greater_fin_1
+			add_popularity = { ideology = fascism popularity = 0.25 }
+		}
+	}
+
 	############################################## LODOMIR INTERIM PEACE
 	##############################################
 	##############################################
+
 	
-	############################################## LODOMIR INTERIM PEACE
-	##############################################
-	##############################################
-	#############################################
-	#############################################
-	#############################################
-	#### ##    ## ########  ##     ##  ######  ######## ########  ####    ###    ##          ########  ########     ###    ##    ##  ######  ##     ## 
-	##  ###   ## ##     ## ##     ## ##    ##    ##    ##     ##  ##    ## ##   ##          ##     ## ##     ##   ## ##   ###   ## ##    ## ##     ## 
-	##  ####  ## ##     ## ##     ## ##          ##    ##     ##  ##   ##   ##  ##          ##     ## ##     ##  ##   ##  ####  ## ##       ##     ## 
-	##  ## ## ## ##     ## ##     ##  ######     ##    ########   ##  ##     ## ##          ########  ########  ##     ## ## ## ## ##       ######### 
-	##  ##  #### ##     ## ##     ##       ##    ##    ##   ##    ##  ######### ##          ##     ## ##   ##   ######### ##  #### ##       ##     ## 
-	##  ##   ### ##     ## ##     ## ##    ##    ##    ##    ##   ##  ##     ## ##          ##     ## ##    ##  ##     ## ##   ### ##    ## ##     ## 
-	#### ##    ## ########   #######   ######     ##    ##     ## #### ##     ## ########    ########  ##     ## ##     ## ##    ##  ######  ##     ## 
 	focus = {
 		id = FIN_Expand_southern_infrastructure
 		icon = GFX_goal_generic_construct_infrastructure
@@ -642,8 +946,10 @@ focus_tree = {
 				uses = 2
 				category = artillery
 			}
-			add_ideas = fin_shell_crisis_2
-			remove_ideas = fin_shell_crisis
+			swap_ideas = {
+				add_idea = fin_shell_crisis_2
+				remove_idea = fin_shell_crisis
+			}
 		}
 	}
 
@@ -1499,7 +1805,6 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		completion_reward = {
-			add_ideas = fin_martial_law
 			add_timed_idea = {
 				idea = FIN_motti_tactics
 				days = 170
@@ -2147,16 +2452,20 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			custom_effect_tooltip = FIN_martial_law_1_tt
-			add_to_variable = {
-				FIN_martial_ws = -0.05
+			swap_ideas = {
+				remove_idea = fin_martial_law
+				add_idea = fin_martial_law_2
 			}
-			add_to_variable = {
-				FIN_martial_stab = -0.1
-			}
-			add_to_variable = {
-				FIN_martial_cons = -0.05
-			}
+			#custom_effect_tooltip = FIN_martial_law_1_tt
+			#add_to_variable = {
+			#	FIN_martial_ws = -0.05
+			#}
+			#add_to_variable = {
+			#	FIN_martial_stab = -0.1
+			#}
+			#add_to_variable = {
+			#	FIN_martial_cons = -0.05
+			#}
 		}
 	}
 	focus = {
@@ -2181,8 +2490,10 @@ focus_tree = {
 		complete_tooltip = {
 		}
 		completion_reward = {
-			remove_ideas = fin_martial_law
-			add_ideas = fin_civil_order
+			swap_ideas = {
+			remove_idea = fin_martial_law
+			add_idea = fin_civil_order
+			}
 		}
 	}
 	focus = {
@@ -2250,7 +2561,7 @@ focus_tree = {
 					modifier = fin_martial_law
 				}
 			}
-			
+
 			remove_ideas = fin_civil_order
 
 			create_wargoal = {
@@ -2265,220 +2576,7 @@ focus_tree = {
 			}
 		}
 	}
-	focus = {
-		id = unify_sami
-		icon = GFX_goal_generic_military_sphere
-		prerequisite = {
-			focus = FIN_join_against_the_Soviet_union
-		}
-		mutually_exclusive = {
-			focus = retake_karjala
-		}
-		x = 1
-		y = 1
-		relative_position_id = FIN_join_against_the_Soviet_union
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}
-		available = {
-		}
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		complete_tooltip = {
-		}
-		completion_reward = {
-			add_ideas = fin_greater_fin_1
-			147 = {
-				if = {
-					add_dynamic_modifier = {
-						modifier = fin_murmansk_buff
-						days = 180
-					}
-				}
-			}
-			213 = {
-				if = {
-					add_dynamic_modifier = {
-						modifier = fin_murmansk_buff
-						days = 180
-					}
-				}
-			}
-			215 = {
-				if = {
-					add_dynamic_modifier = {
-						modifier = fin_murmansk_buff
-						days = 180
-					}
-				}
-			}
-		}
-	}
 
-	focus = {
-		id = retake_karjala
-		icon = GFX_focus_generic_little_entente
-		prerequisite = {
-			focus = FIN_join_against_the_Soviet_union
-		}
-		mutually_exclusive = {
-			focus = unify_sami
-		}
-		x = -1
-		y = 1
-		relative_position_id = FIN_join_against_the_Soviet_union
-		cost = 5
-		ai_will_do = {
-			factor = 1
-		}
-		available = {
-		}
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		complete_tooltip = {
-		}
-		completion_reward = {
-			147 = {
-				if = {
-					add_dynamic_modifier = {
-						modifier = fin_murmansk_buff
-						days = 180
-					}
-				}
-			}
-			146 = {
-				if = {
-					add_dynamic_modifier = {
-						modifier = fin_murmansk_buff
-						days = 180
-					}
-				}
-			}
-		}
-	}
-	focus = {
-		id = push_south
-		icon = GFX_goal_generic_demand_territory
-		prerequisite = {
-			focus = retake_karjala
-			focus = unify_sami
-		}
-		x = 1
-		y = 1
-		relative_position_id = retake_karjala
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}
-		available = {
-			has_full_control_of_state = 146
-		}
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		complete_tooltip = {
-		}
-		completion_reward = {
-			hidden_effect = {
-				country_event = {
-					days = 5
-					id = spt_finland.2137
-				}
-			}
-			
-			
-			216 = {
-				if = {
-					add_dynamic_modifier = {
-						modifier = fin_push_south_buff
-						days = 180
-					}
-				}
-			}
-			195 = {
-				if = {
-					add_dynamic_modifier = {
-						modifier = fin_push_south_buff
-						days = 180
-					}
-				}
-			}
-		}
-	}
-	focus = {
-		id = volunteers_karjala
-		icon = GFX_focus_generic_coffee
-		prerequisite = {
-			focus = retake_karjala
-		}
-		x = -1
-		y = 1
-		relative_position_id = retake_karjala
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}
-		available = {
-		}
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		complete_tooltip = {
-		}
-		completion_reward = {
-			add_ideas = {
-				fin_grain_shipments
-			}
-		}
-	}
-	focus = {
-		id = refugees_2
-		icon = GFX_focus_ger_bulwark_against_bolshevism
-		prerequisite = {
-			focus = volunteers_karjala
-		}
-		x = 0
-		y = 1
-		relative_position_id = volunteers_karjala
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}
-		available = {
-		}
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		complete_tooltip = {
-		}
-		completion_reward = {
-			add_ideas = fin_crusade_against_communism
-			add_country_leader_role = {
-				character = FIN_carl_mannerheim
-				promote_leader = yes
-				country_leader = {
-					ideology = oligarchism
-					expire = 1965.1.1.1
-					traits = {
-						silver_tongue_no_lar
-					}
-				}
-			}
-		}
-	}
 
 	focus = {
 		id = FIN_begin_integration_of_karelia
@@ -2500,40 +2598,6 @@ focus_tree = {
 		}
 		completion_reward = {
 			custom_effect_tooltip = FIN_begin_integration_of_karelia_tt
-		}
-	}
-	focus = {
-		id = integrate_olensk
-		icon = GFX_goal_generic_occupy_states_ongoing_war
-		prerequisite = {
-			focus = FIN_begin_integration_of_karelia
-		}
-		x = 0
-		y = 1
-		relative_position_id = FIN_begin_integration_of_karelia
-		cost = 5
-		ai_will_do = {
-			factor = 1
-		}
-		available = {
-			controls_state = 216
-			controls_state = 215
-			controls_state = 213
-		}
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		complete_tooltip = {
-		}
-		completion_reward = {
-			add_ideas = fin_greater_finland_2
-			remove_ideas = fin_on_our_own
-			add_popularity = {
-				ideology = fascism
-				popularity = 0.25
-			}
 		}
 	}
 	
