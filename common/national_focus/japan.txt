@@ -2164,7 +2164,7 @@
 		y = 7
 		relative_position_id = JAP_purge_the_kodoha_faction
 
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 
 		ai_will_do = {
 			factor = 10
@@ -2558,7 +2558,7 @@
 			add_tech_bonus = {
 				name = JAP_coal_liquification
 				bonus = 1.0
-				uses = 1
+				uses = 2 #SPT change 1 -> 2
 				category = synth_resources	
 			}
 		}
@@ -2888,7 +2888,7 @@
 		y = 2
 		relative_position_id = JAP_national_defense_state
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -2920,7 +2920,7 @@
 		y = 3
 		relative_position_id = JAP_national_defense_state
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -4789,10 +4789,7 @@
 				add_political_power = 150
 			}
 			
-		unlock_decision_tooltip = JAP_manchu_aluminum
-		unlock_decision_tooltip = JAP_manchu_steelworks
-		unlock_decision_tooltip = JAP_manchu_lightindustry
-		unlock_decision_tooltip = JAP_manchu_heavyindustry
+		custom_effect_tooltip = JAP_the_manchurian_project_tt
 		}
 	}
 
@@ -5320,6 +5317,7 @@
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
+			army_experience = 10
 			add_tech_bonus = {
 				name = JAP_modern_artillery
 				bonus = 0.5
@@ -5358,6 +5356,7 @@
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
+			army_experience = 10
 			swap_ideas = {
 				add_idea = JAP_cheap_arty_improved
 				remove_idea = JAP_cheap_arty
@@ -5374,7 +5373,7 @@
 		y = 1
 		relative_position_id = JAP_supremacy_of_technology
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -5394,13 +5393,14 @@
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
+			army_experience = 10
 			add_tech_bonus = {
 				name = JAP_armored_divisions
 				bonus = 1.0
 				uses = 1
 				category = armor	
 			}
-			JAP_armor_designer_swap = yes
+			hidden_effect = {JAP_armor_designer_swap = yes}
 			custom_effect_tooltip = JAP_armored_divisions_tt
 		}
 	}
@@ -5433,16 +5433,18 @@
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
+			army_experience = 10
 			add_tech_bonus = {
 				name = JAP_armored_divisions
 				bonus = 1.0
 				uses = 1
 				category = armor	
 			}
-			
+			hidden_effect = {
 				set_technology = {
 					JAP_tank_jungle_training = 1
 				}
+			}
 				custom_effect_tooltip = JAP_armored_spearhead_tt
 		}
 
@@ -5660,8 +5662,13 @@
 			}
 		}
 
+
 		available = {
 			has_idea = JAP_interservice_rivalry_army_dominant
+			
+		NOT = {
+			has_completed_focus = JAP_navy_triumphant
+		}
 		}
 
 		bypass = {
@@ -6337,6 +6344,9 @@
 
 		available = {
 			has_idea = JAP_interservice_rivalry_navy_dominant
+			NOT = {
+				has_completed_focus = JAP_army_triumphant
+			}
 		}
 
 		bypass = {
