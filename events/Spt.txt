@@ -649,3 +649,20 @@ country_event = { #Get compliance from Norway
 	}
 	
 }
+country_event = { #USA remove bureau of ordnance
+	id = spt.106
+	title = spt.106.t
+	desc = spt.106.desc
+	picture = GFX_report_event_usa_british_sailors_destroyers
+	is_triggered_only = yes
+	OPTION = {
+		name = spt.106.a
+		hidden_effect = {
+			USA = {
+				set_country_flag = can_remove_bureau_of_ordnance
+			}
+		}
+		custom_effect_tooltip = spt.106_tt
+
+	}
+}
