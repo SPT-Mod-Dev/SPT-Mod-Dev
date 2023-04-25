@@ -39,8 +39,6 @@ focus_tree = {
 	############################################## LODOMIR
 	##############################################
 	##############################################
-	
-	
 	##################################################
 	############################################## LODOMIR INTERIM PEACE
 	##############################################
@@ -1394,6 +1392,9 @@ focus_tree = {
 		y = -1
 		relative_position_id = FIN_prepare_for_the_inevitable
 		available = {
+			hidden_trigger = {
+				always = no
+			}
 		}
 		bypass = {
 			has_war_with = SOV
@@ -2287,7 +2288,6 @@ focus_tree = {
 			}
 		}
 	}
-
 	focus = {
 		id = push_south
 		icon = GFX_goal_generic_demand_territory
@@ -2408,7 +2408,6 @@ focus_tree = {
 			}
 		}
 	}
-
 	focus = {
 		id = FIN_begin_integration_of_karelia
 		icon = GFX_goal_generic_position_armies
@@ -2431,48 +2430,41 @@ focus_tree = {
 			custom_effect_tooltip = FIN_begin_integration_of_karelia_tt
 		}
 	}
-
 	focus = {
 		id = integrate_olensk
 		icon = GFX_goal_generic_occupy_states_ongoing_war
-		prerequisite = { focus = FIN_begin_integration_of_karelia}
+		prerequisite = {
+			focus = FIN_begin_integration_of_karelia
+		}
 		x = 0
 		y = 1
 		relative_position_id = FIN_begin_integration_of_karelia
-
-
 		cost = 5
-
 		ai_will_do = {
 			factor = 1
 		}
-
 		available = {
 			controls_state = 216
 			controls_state = 215
 			controls_state = 213
 		}
-		
 		bypass = {
-
 		}
-
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-
 		complete_tooltip = {
-
 		}
-
 		completion_reward = {
 			add_ideas = fin_greater_finland_2
 			remove_ideas = fin_on_our_own
 			remove_ideas = fin_greater_fin_1
-			add_popularity = { ideology = fascism popularity = 0.25 }
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.25
+			}
 		}
 	}
-
 	focus = {
 		id = finnish_paratroopers
 		icon = GFX_focus_ger_bulwark_against_bolshevism
@@ -2529,8 +2521,6 @@ focus_tree = {
 		completion_reward = {
 		}
 	}
-
-
 	# focus = {
 	# 	id = seek_peace
 	# 	icon = GFX_goal_generic_construct_infrastructure
