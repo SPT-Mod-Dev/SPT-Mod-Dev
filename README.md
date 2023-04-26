@@ -1,5 +1,113 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.5.0
+### Focus Trees
+- Added NEW reworked Japanese focus tree
+
+- Rearanged some focuses for USA
+    - Added evet "investigation of Mark 14 Torpede" from Bureau of ships [Allow for removal of bureau of ships spirit]
+    - Fund the navy 0 -> 2 dockyards from focus
+
+- Further developed the "learn from the germans" path for Finland
+
+- Fixed issue with Manchukuo factories spawning randomly across the world
+
+### Tank designer
+- locked slots based on tech level
+    - interwar and basic tank chassis will now have two slots locked
+    - improved chassis will now have one slot locked
+    - no slots locked for advanced, modern and super-heavy chassis
+
+- Main armaments
+    - heavy cannon 1: soft attack 31 -> 20
+                      hard attack 25 -> 24
+                      piercing 60 -> 55
+
+    - heavy cannon 2: soft attack 37.5 -> 36
+                      hard attack 27.5 -> 27
+                      piercing 90 -> 80
+
+    - heavy cannon 3: soft attack 42.5 -> 41
+                      hard attack 37.5 -> 35
+                      piercing 125 -> 108
+
+    - High-velocity gun 1: piercing 90 -> 80
+
+    - High-velocity gun 2: piercing 135 -> 120
+
+    - High-velocity gun 3: piercing 188 -> 162
+   
+    - Medium gun 1: piercing 45 -> 40
+    
+    - Medium gun 2: piercing 68 -> 61
+                   
+- Armour 
+    - Rivided armour: 0 -> -5% reliability
+
+    - Welded armour: 0 -> +5% reliability
+                     +10% -> 7.5% production cost
+
+    - Cast armour: 0 -> +10% reliability 
+                   +20% -> 15% production cost 
+
+- Module balances changes
+    - Diesel engine production cost: 1 -> 1.5 [To bring it in line with gasoline engine]
+
+    - Radio 1 production cost: 0.5 -> 0,75
+
+    - Radio 3 production cost: 2.5 -> 2.25 [To make it scale equaly between modules]
+
+    - Squeeze-bore adaptor: production cost 0 -> 1
+                            hard attack +5% -> +10%
+                            soft attack -0.05% -> -0.1%
+
+    - Armour skirts: breakthrough 2 -> 3
+                     defense 3 -> 4
+                     production cost 2 -> 1.5
+
+### Artillery 
+- Reduced rescource cost for AT
+    - All AT tungsten cost: 2 -> 1 
+
+- Reduced piercing of AA
+    -  Anti Air 2 piercing: 60 -> 50
+    -  Anti-Air 3 piercing: 88 -> 75
+
+### Army spirits
+- Tip of the Spear 
+    - Naval invasion planning 25% -> 15%
+    - Special forces capacity -10% -> 0%
+
+- Proper heritage
+    - cavalry attack 0.3 -> 0.25
+	- cavalry defence 0.3 -> 0.25
+
+- Operational Reserves 
+    - Defence 15% -> 10%
+    - Division HP 25% - 15%
+
+- Aggressive Reconnaisance
+    - initative +25% -> 0%
+    - reinforce rate 0% -> 3%
+    - Supply Consumtion 10% -> 5%
+
+### Navy spirits
+- Bureau of ordnance
+    - Torpedo hit chance -10% -> -25%
+    - Convoy raiding effeiciency 0 -> -25%
+
+### Air spirits
+- Dive Bombing
+    - Naval aircraft reseach speed +25% -> 0 [Used to stack with dive bomber reseach speed]    
+
+- Industry Liasos
+    - Naval aircraft reseach speed +15% -> 0 [Used to stack with light aircraft reseach speed]
+
+### Land doctrine
+
+- Mass - Human wave offensice 
+    - Recritable population 5% -> 2.5
+    - reinforce rate 15% -> 8%
 ### 3.4.1
 
 - Reduced the land modifier bonus for each experience level `+25%` -> `20%`
@@ -18,7 +126,7 @@
 #### Finland
 - Added a new post Winter War focus branch
 
-### 3.4
+### 3.4.0
 
 -Updated to version 1.12.10
 
