@@ -1,5 +1,6 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.5.0
 ### 3.4.1
 
 - Reduced the land modifier bonus for each experience level `+25%` -> `20%`
@@ -18,7 +19,7 @@
 #### Finland
 - Added a new post Winter War focus branch
 
-### 3.4
+### 3.4.0
 
 -Updated to version 1.12.10
 
