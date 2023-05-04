@@ -1,5 +1,65 @@
 # Saving Private Tryin' Historical MP Full Changelog
+### Rules
+ - Clarified win conditions
+ - Only minors nations may ask for tradebacks 
+ - Japan must attack allies before 1942.01.01
+ - USA may now have troops in Raj before the dacca line falls
+ - USA may now join WW2 if Raj looses port to European Axis
 
+### Focus Trees
+- Usa
+   - Updated tooltip in bureau of ships [Now shows correct numbers]
+
+ - Germany
+     - Align Romania: Focus duration 70 -> 35
+     - Align Hungary: Focus duration 70 -> 35
+
+
+### Tank designer
+ - Main armaments
+    - Close support gun: breakthrough 9.5 -> 6
+
+    - Small Cannon 1: soft attack 12.5 -> 17
+                      hard attack 10 -> 11.5
+                      breakthrough 7 -> 4
+                      piercing 30 -> 29
+
+    - Small Cannon 2: soft attack 19 -> 25
+                      hard attack 10 -> 14
+                      breakthrough 9.5 -> 6.5
+                      piercing 30 -> 34
+    
+    - Meduim cannon 1: soft attack 22.5 -> 23.5
+                       hard attack 15 -> 16
+                       piercing 40 -> 44
+
+    - Meduim cannon 2: soft attack 27.5 - > 28.5
+                       hard attack 18 -> 19
+                       piercing 61 -> 67
+
+    - Rocket Artillery 1: soft attack 51 -> 48
+
+    - Rocket Artillery 2 socft attack 64 -> 59.5
+
+    - Basic High-velocity gun: soft attack 12.5 -> 10
+                               hard attack 20 -> 22.5
+    
+    - Improved High-velocity gun: soft attack 15 -> 12
+                                  hard attack 22 -> 25.5
+
+ - Turrets
+    - Heavy two man turret: production cost 4 -> 4.5
+
+    - Heavy three man turret: production cost 5.5 -> 6.5
+
+- Engine
+    - Diesel engine: Fule consumtion 1.5 -> 2.5
+
+### Artillery tech
+ - Moved Small Cannon: Inter-war artillery -> Improved artillery
+
+ - Moved Improved High-velocity gun: Improved Anti-tank upgrade II -> Improved Anti-tank upgrade 
+ 
 ### 3.5.0
 ### Focus Trees
 - Added NEW reworked Japanese focus tree
