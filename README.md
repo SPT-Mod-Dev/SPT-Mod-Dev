@@ -11,11 +11,6 @@
  - UK
      - Hold the imperial conference now requrires "Development in Australia" instead of "Develop New Zealand"
 
-### Tank 
- - Chassis
-    - Heavy 1: 8 -> 8.5
-    - Heavy 2: 8 -> 9.5
-    - Heavy 3: 10 -> 11
 
 ### 3.5.1
 ### Rules
