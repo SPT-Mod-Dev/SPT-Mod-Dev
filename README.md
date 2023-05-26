@@ -1,6 +1,6 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-TEST
+
 ### Rules
  - Clarified win conditions
  - Only minors nations may ask for tradebacks 
