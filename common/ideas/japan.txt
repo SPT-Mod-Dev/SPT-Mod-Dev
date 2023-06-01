@@ -219,9 +219,13 @@ ideas = {
 			picture = jap_zaibatsu_control
 			
 			modifier = {
-				production_speed_industrial_complex_factor = 0.05
-				production_speed_arms_factory_factor = 0.05
-				production_speed_dockyard_factor = 0.05
+				#SPT change, rebalanced to become an upgrade to JAP_zaibatsus_challenged
+				stability_factor = -0.1
+				production_speed_industrial_complex_factor = 0.125
+				production_speed_arms_factory_factor = 0.125
+				production_speed_dockyard_factor = 0.15
+				production_factory_max_efficiency_factor = 0.1
+				production_factory_efficiency_gain_factor = -0.1
 			}
 		}
 
@@ -292,7 +296,7 @@ ideas = {
 			
 			modifier = {
 				#SPT change, rebalanced for more construction speed,less consumer goods, and more stability loss
-				stability_factor = -0.15
+				stability_factor = -0.1
 				production_speed_industrial_complex_factor = 0.125
 				production_speed_arms_factory_factor = 0.125
 				production_speed_dockyard_factor = 0.15
@@ -1674,7 +1678,7 @@ ideas = {
 
 			modifier = {
 				non_core_manpower = -0.1
-				local_resources_factor = 0.15
+				local_resources_factor = 0.10
 			}
 		}
 
@@ -1692,10 +1696,62 @@ ideas = {
 
 			modifier = {
 				non_core_manpower = -0.15
-				local_resources_factor = 0.15
+				local_resources_factor = 0.10
 				production_speed_infrastructure_factor = 0.1
 				production_speed_rail_way_factor = 0.3
 				industrial_capacity_factory = 0.05
+			}
+		}
+
+		SPT_JAP_rapid_arms_dev = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no	
+			}
+
+			removal_cost = -1
+
+			picture = generic_economic_increase
+
+			modifier = {
+				production_speed_arms_factory_factor = 0.4
+			}
+		}
+
+		SPT_JAP_quick_retool = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no	
+			}
+
+			removal_cost = -1
+
+			picture = generic_economic_increase
+
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.3
+				production_factory_max_efficiency_factor = 0.15
+			}
+		}
+
+		SPT_JAP_factory_mobi = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no	
+			}
+
+			removal_cost = -1
+
+			picture = generic_economic_increase
+
+			modifier = {
+				industrial_capacity_factory = 0.3
 			}
 		}
 		

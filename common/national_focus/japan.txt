@@ -12,7 +12,7 @@
 
 	default = no
 
-	continuous_focus_position = { x = 20 y = 1300 }
+	continuous_focus_position = { x = 20 y = 2000 }
 
 	focus = {
 		id = JAP_the_unthinkable_option
@@ -956,7 +956,7 @@
 		id = JAP_purge_the_kodoha_faction
 		icon = GFX_focus_jap_showa_restoration
 		mutually_exclusive = { focus = JAP_the_unthinkable_option focus = JAP_support_the_kodoha_faction focus = JAP_strengthen_civilian_government }
-		x = 8
+		x = 10
 		y = 0
 		relative_position_id = JAP_the_unthinkable_option
 		offset = {
@@ -1062,7 +1062,7 @@
 		icon = GFX_focus_jap_cast_the_die
 		prerequisite = { focus = JAP_greater_east_asian_co_prosperity_sphere }
 		will_lead_to_war_with = CHI
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = JAP_greater_east_asian_co_prosperity_sphere
 
@@ -1497,10 +1497,10 @@
 	focus = {
 		id = JAP_strike_south_doctrine
 		icon = GFX_goal_generic_territory_or_war
-		prerequisite = { focus = JAP_greater_east_asian_co_prosperity_sphere }
+		#prerequisite = { focus = JAP_greater_east_asian_co_prosperity_sphere }
 		prerequisite = { focus = JAP_sign_tripartite_pact }
-		x = -4
-		y = 2
+		x = -2
+		y = 3
 		relative_position_id = JAP_liaison_conference
 
 		cost = 5 #SPT change 10 -> 5
@@ -1514,7 +1514,7 @@
 		}
 
 		available = {
-
+			
 		}
 
 		bypass = {
@@ -1534,6 +1534,15 @@
 				category = naval_doctrine	
 			}
 			unlock_decision_tooltip = JAP_pressure_france
+			hidden_effect = {
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_nanshin_ron
+				}
+				set_variable = {
+					SPT_JAP_non_core_manpower = 0.1
+				}
+			}
+			custom_effect_tooltip = SPT_JAP_strike_south_tt
 		}
 	}
 
@@ -1542,7 +1551,7 @@
 		icon = GFX_focus_chi_mission_to_the_soviet_union
 		prerequisite = { focus = JAP_strike_south_doctrine }
 		x = 0
-		y = 1
+		y = 2
 		relative_position_id = JAP_strike_south_doctrine
 		dynamic = yes  
 
@@ -1577,8 +1586,8 @@
 		icon = GFX_focus_RAJ_british_investors
 		prerequisite = { focus = JAP_non_aggression_pact_with_the_soviet_union }
 		mutually_exclusive = { focus = JAP_strike_the_philip }
-		x = 1
-		y = 1
+		x =-1
+		y = 2
 		relative_position_id = JAP_non_aggression_pact_with_the_soviet_union
 
 		cost = 5
@@ -1607,8 +1616,8 @@
 		icon = GFX_focus_eng_move_to_secure_the_dominions
 		prerequisite = { focus = JAP_non_aggression_pact_with_the_soviet_union }
 		mutually_exclusive = { focus = JAP_strike_the_jewel }
-		x = -1
-		y = 1
+		x = -3
+		y = 2
 		relative_position_id = JAP_non_aggression_pact_with_the_soviet_union
 
 		cost = 5
@@ -1755,8 +1764,9 @@
 		id = JAP_strike_south_completed
 		icon = GFX_focus_jap_strike_south
 		prerequisite = { focus = JAP_strike_the_ast focus = JAP_strike_the_americans }
-		x = 1
-		y = 3
+		prerequisite = { focus = SPT_JAP_industry_reorganized }
+		x = 3
+		y = 4
 		relative_position_id = JAP_strike_the_philip
 
 		cost = 5
@@ -1779,6 +1789,456 @@
 			add_ideas = JAP_nanshin_ron_completed
 			
 		unlock_decision_tooltip = JAP_declare_war_on_allies
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_the_zaibatsus
+		icon = GFX_focus_jap_strike_south
+		prerequisite = { focus = JAP_non_aggression_pact_with_the_soviet_union }
+		x = 3
+		y = 1
+		relative_position_id = JAP_non_aggression_pact_with_the_soviet_union
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+			CHI = {exists = no}
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_the_zaibatsus_tt
+			if = {
+				limit = {
+					has_idea = JAP_guide_the_zaibatsus
+				}
+				set_variable = {
+					SPT_JAP_production_factory_efficiency_gain_factor = 0.05
+				}
+				custom_effect_tooltip = SPT_JAP_the_zaibatsus_guided_tt
+			}
+			else_if = {
+				limit = {
+					has_idea = JAP_zaibatsus_challenged
+				}
+				set_variable = {
+					SPT_JAP_production_factory_start_efficiency_factor = 0.1
+				}
+				custom_effect_tooltip = SPT_JAP_the_zaibatsus_challenged_tt
+			}
+			else_if = {
+				limit = {
+					has_idea = JAP_nationalize_the_zaibatsus
+				}
+				set_variable = {
+					SPT_JAP_production_speed_buidlings_factor = 0.025
+				}
+				custom_effect_tooltip = SPT_JAP_the_zaibatsus_nationalized_tt
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_rapid_development
+		icon = GFX_focus_jap_strike_south
+		prerequisite = { focus = SPT_JAP_the_zaibatsus }
+		mutually_exclusive = {	focus = SPT_JAP_steady_development}
+		x = -1
+		y = 1
+		relative_position_id = SPT_JAP_the_zaibatsus
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			set_variable = {
+				SPT_JAP_production_speed_arms_factory_factor = -0.2
+			}
+			custom_effect_tooltip = SPT_JAP_rapid_development_tt
+
+			add_timed_idea = {
+				idea = SPT_JAP_rapid_arms_dev
+				days = 180
+			}
+		}
+	}
+
+
+	focus = {
+		id = SPT_JAP_steady_development
+		icon = GFX_focus_jap_strike_south
+		prerequisite = { focus = SPT_JAP_the_zaibatsus }
+		mutually_exclusive = {	focus = SPT_JAP_rapid_development}
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_the_zaibatsus
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	
+	focus = {
+		id = SPT_JAP_quick_retooling
+		icon = GFX_focus_jap_strike_south
+		prerequisite = { focus = SPT_JAP_rapid_development }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_rapid_development
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_to_variable = {
+				SPT_JAP_factory_max_efficiency_factor = -0.05
+			}
+			add_to_variable = {
+				SPT_JAP_production_factory_efficiency_gain_factor = -0.1
+			}
+			custom_effect_tooltip = SPT_JAP_quick_retooling_tt
+			add_timed_idea = {
+				idea = SPT_JAP_quick_retool
+				days = 180
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_long_term_planning
+		icon = GFX_focus_jap_strike_south
+		prerequisite = { focus = SPT_JAP_steady_development }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_steady_development
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_to_variable = {
+				SPT_JAP_production_factory_efficiency_gain_factor = 0.05
+			}
+			add_to_variable = {
+				SPT_JAP_factory_max_efficiency_factor = 0.05
+			}
+			custom_effect_tooltip = SPT_JAP_long_term_tt
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_factory_mobilization
+		icon = GFX_focus_jap_strike_south
+		prerequisite = { focus = SPT_JAP_quick_retooling }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_quick_retooling
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_to_variable = {
+				SPT_JAP_conscription = -0.005
+			}
+			add_to_variable = {
+				SPT_JAP_industrial_capacity_factory = -0.1
+			}
+			custom_effect_tooltip = SPT_JAP_factory_mobilization_tt
+			add_timed_idea = {
+				idea = SPT_JAP_factory_mobi
+				days = 180
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_stockpiling_strategies
+		icon = GFX_focus_jap_strike_south
+		prerequisite = { focus = SPT_JAP_long_term_planning }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_long_term_planning
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			set_variable = {
+				SPT_JAP_air_fuel_consumption_factor = -0.05
+			}
+			set_variable = {
+				SPT_JAP_navy_fuel_consumption_factor = -0.05
+			}
+			custom_effect_tooltip = SPT_JAP_stockpiling_strats_tt
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = fuel_silo
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = fuel_silo
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = fuel_silo
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = fuel_silo
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_industry_reorganized
+		icon = GFX_focus_jap_strike_south
+		prerequisite = { focus = SPT_JAP_factory_mobilization focus = SPT_JAP_stockpiling_strategies}
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_factory_mobilization
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			set_variable = {
+				SPT_JAP_global_building_slots_factor = 0.2
+			}
+			custom_effect_tooltip = SPT_JAP_industry_reorganized_tt
+
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 
@@ -2108,10 +2568,10 @@
 	focus = {
 		id = JAP_alliance_with_siam
 		icon = GFX_goal_generic_dangerous_deal
-		prerequisite = { focus = JAP_strike_south_doctrine }
-		x = -2
+		prerequisite = { focus = JAP_non_aggression_pact_with_the_soviet_union }
+		x = 0
 		y = 1
-		relative_position_id = JAP_strike_south_doctrine
+		relative_position_id = JAP_non_aggression_pact_with_the_soviet_union
 
 		cost = 2 #SPT change 10 -> 2
 
@@ -2160,7 +2620,7 @@
 		icon = GFX_goal_generic_construction2
 		prerequisite = { focus = JAP_coal_liquification }
 		#prerequisite = { focus = JAP_bypass_the_philippines } #SPT change to remove prereq for a disabled focus
-		x = 3
+		x = 4
 		y = 7
 		relative_position_id = JAP_purge_the_kodoha_faction
 
@@ -2327,11 +2787,11 @@
 		icon = GFX_focus_jap_zaibatsu
 		prerequisite = { focus = JAP_purge_the_kodoha_faction }
 		mutually_exclusive = { focus = JAP_challenge_the_zaibatsus}
-		x = 2
+		x = 3
 		y = 1
 		relative_position_id = JAP_purge_the_kodoha_faction
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 3
@@ -2802,6 +3262,40 @@
 	}
 
 	focus = {
+		id = SPT_JAP_nationalized_zaibatsus
+		icon = GFX_focus_ITA_banda_carita
+		prerequisite = { focus = JAP_seize_zaibatsu_docks }
+		prerequisite = { focus = JAP_national_defense_state}
+		x = 0
+		y = 2
+		relative_position_id = JAP_seize_zaibatsu_docks
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = 	{ }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = JAP_zaibatsus_challenged
+				add_idea = JAP_nationalize_the_zaibatsus
+			}
+		}
+	}
+
+	focus = {
 		id = JAP_national_defense_state
 		icon = GFX_focus_AST_war_japan
 		prerequisite = { focus = JAP_nationalize_war_industry  focus = JAP_imperial_arsenals}
@@ -2852,7 +3346,7 @@
 		icon = GFX_focus_jap_spiritual_mobilization
 		prerequisite = { focus = JAP_national_defense_state }
 		x = 0
-		y = 1
+		y = 2
 		relative_position_id = JAP_national_defense_state
 
 		cost = 10
@@ -2885,7 +3379,7 @@
 		icon = GFX_focus_SOV_womens_fascist_movement
 		prerequisite = { focus = JAP_spiritual_mobilization }
 		x = -2
-		y = 2
+		y = 3
 		relative_position_id = JAP_national_defense_state
 
 		cost = 10
@@ -2917,7 +3411,7 @@
 		icon = GFX_focus_SOV_women_in_aviation
 		prerequisite = { focus = JAP_employ_tonarigumi }
 		x = -2
-		y = 3
+		y = 4
 		relative_position_id = JAP_national_defense_state
 
 		cost = 5
@@ -2952,7 +3446,7 @@
 		icon = GFX_focus_ITA_corpo_volontari_della_liberta
 		prerequisite = { focus = JAP_spiritual_mobilization }
 		x = 0
-		y = 2
+		y = 3
 		relative_position_id = JAP_national_defense_state
 
 		cost = 10
@@ -2984,7 +3478,7 @@
 		icon = GFX_goal_continuous_air_production
 		prerequisite = { focus = JAP_spiritual_mobilization }
 		x = 2
-		y = 2
+		y = 3
 		relative_position_id = JAP_national_defense_state
 
 		cost = 5
@@ -3166,7 +3660,7 @@
 		x = 4
 		y = 0
 		relative_position_id = JAP_guide_the_zaibatsus
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 3
@@ -4740,9 +5234,9 @@
 	focus = {
 		id = JAP_the_manchurian_project
 		icon = GFX_focus_jap_manchurian_project
-		prerequisite = {focus = JAP_intervene_in_china} #SPT change added prerequisite
-		x = -4
-		y = 2
+		prerequisite = {focus = JAP_greater_east_asian_co_prosperity_sphere} #SPT change added prerequisite
+		x = -1
+		y = 1
 		relative_position_id = JAP_greater_east_asian_co_prosperity_sphere #SPT change, changed relative position to JAP_guide_the_zaibatsus
 		offset = {
 			x = 0 #SPT change, fixed the offset
@@ -5140,7 +5634,7 @@
 	focus = {
 		id = JAP_army_expansion_law
 		icon = GFX_focus_generic_fascist_troops
-		x = 12
+		x = 14
 		y = 0
 		relative_position_id = JAP_purge_the_kodoha_faction #SPT change, changed the relative position
 
@@ -5413,7 +5907,7 @@
 		y = 2
 		relative_position_id = JAP_supremacy_of_technology
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -5448,6 +5942,51 @@
 				custom_effect_tooltip = JAP_armored_spearhead_tt
 		}
 
+	}
+
+	focus = {
+		id = SPT_JAP_greater_artillery_studies
+		icon = GFX_focus_generic_railway_gun
+		prerequisite = { focus =JAP_artillery_empowered }
+		prerequisite = { focus = JAP_armored_spearhead }
+		x = -1
+		y = 3
+		relative_position_id = JAP_supremacy_of_technology
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = { has_tech = armored_train }
+				}
+				set_technology = { armored_train = 1 }
+			}
+			if = {
+				limit = {
+					NOT = { has_tech = railway_gun }
+				}
+				set_technology = { railway_gun = 1 }
+			}
+			SPT_JAP_spawn_railway_guns = yes
+		}
 	}
 
 
@@ -5649,7 +6188,7 @@
 		icon = GFX_focus_generic_tank_production
 		prerequisite = { focus = JAP_revive_bushido focus = JAP_artillery_empowered}
 		x = -1
-		y = 4
+		y = 5
 		relative_position_id = JAP_army_expansion
 
 		cost = 10
