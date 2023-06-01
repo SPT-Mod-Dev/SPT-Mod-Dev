@@ -1584,7 +1584,7 @@
 	focus = {
 		id = JAP_strike_the_jewel
 		icon = GFX_focus_RAJ_british_investors
-		prerequisite = { focus = JAP_non_aggression_pact_with_the_soviet_union }
+		prerequisite = { focus = SPT_JAP_the_armed_forces }
 		mutually_exclusive = { focus = JAP_strike_the_philip }
 		x =-1
 		y = 2
@@ -1607,14 +1607,55 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_ideas = JAP_nanshin_ron_india
+			add_to_variable = {
+				SPT_JAP_supply_node_range = 0.15
+			}
+			add_to_variable = {
+				SPT_JAP_supply_consumption_factor = -0.1
+			}
+			custom_effect_tooltip = SPT_JAP_strike_the_jewel_tt
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_the_armed_forces
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = JAP_non_aggression_pact_with_the_soviet_union }
+		x = -2
+		y = 1
+		relative_position_id = JAP_non_aggression_pact_with_the_soviet_union
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_to_variable = {
+				SPT_JAP_max_planning = 0.1
+			}
+			add_to_variable = {
+				SPT_JAP_planning_speed = 0.1
+			}
+			custom_effect_tooltip = SPT_JAP_the_armed_forces_tt
 		}
 	}
 
 	focus = {
 		id = JAP_strike_the_philip
 		icon = GFX_focus_eng_move_to_secure_the_dominions
-		prerequisite = { focus = JAP_non_aggression_pact_with_the_soviet_union }
+		prerequisite = { focus = SPT_JAP_the_armed_forces }
 		mutually_exclusive = { focus = JAP_strike_the_jewel }
 		x = -3
 		y = 2
@@ -1637,7 +1678,13 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_ideas = JAP_nanshin_ron_philip
+			add_to_variable = {
+				SPT_JAP_naval_invasion_capacity = 14
+			}
+			add_to_variable = {
+				SPT_JAP_invasion_preparation = -0.1
+			}
+			custom_effect_tooltip = SPT_JAP_strike_the_philip_tt
 		}
 	}
 
@@ -1666,7 +1713,13 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_ideas = JAP_nanshin_ron_indies
+			add_to_variable = {
+				SPT_JAP_army_speed_factor = 0.1
+			}
+			add_to_variable = {
+				SPT_JAP_no_supply_grace = 48
+			}
+			custom_effect_tooltip = SPT_JAP_strike_the_indies_tt
 		}
 	}
 
@@ -1696,7 +1749,13 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_ideas = JAP_nanshinronislands
+			add_to_variable = {
+				SPT_JAP_naval_invasion_planning_bonus_speed = 0.2
+			}
+			add_to_variable = {
+				SPT_JAP_special_forces_attack_factor = 0.05
+			}
+			custom_effect_tooltip = SPT_JAP_strike_the_islands_tt
 		}
 	}
 
@@ -1756,18 +1815,23 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_ideas = JAP_nanshin_ron_americans
+			add_to_variable = {
+				SPT_JAP_industrial_capacity_dockyard = 0.1
+			}
+			add_to_variable = {
+				SPT_JAP_production_speed_dockyard_factorr = 0.1
+			}
+			custom_effect_tooltip = SPT_JAP_strike_the_americans_tt
 		}
 	}
 
 	focus = {
-		id = JAP_strike_south_completed
-		icon = GFX_focus_jap_strike_south
-		prerequisite = { focus = JAP_strike_the_ast focus = JAP_strike_the_americans }
-		prerequisite = { focus = SPT_JAP_industry_reorganized }
-		x = 3
-		y = 4
-		relative_position_id = JAP_strike_the_philip
+		id = SPT_JAP_military_reorganized
+		icon = GFX_goal_generic_national_unity
+		prerequisite = { focus = JAP_strike_the_ast focus = JAP_strike_the_americans}
+		x = 1
+		y = 1
+		relative_position_id = JAP_strike_the_ast
 
 		cost = 5
 
@@ -1786,7 +1850,48 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_ideas = JAP_nanshin_ron_completed
+			add_to_variable = {
+				SPT_JAP_air_doctrine_cost_factor = -0.1
+			}
+			add_to_variable = {
+				SPT_JAP_naval_doctrine_cost_factor = -0.1
+			}
+			custom_effect_tooltip = SPT_JAP_military_reorg_tt
+		}
+	}
+
+	focus = {
+		id = JAP_strike_south_completed
+		icon = GFX_focus_jap_strike_south
+		prerequisite = { focus = SPT_JAP_military_reorganized }
+		prerequisite = { focus = SPT_JAP_industry_reorganized }
+		x = 2
+		y = 1
+		relative_position_id = SPT_JAP_military_reorganized
+		cost = 5
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_to_variable = {
+				SPT_JAP_resistance_target = -0.05
+			}
+			add_to_variable = {
+				SPT_JAP_war_support_factor = 0.1
+			}
+			custom_effect_tooltip = SPT_JAP_strike_south_completed_tt
 			
 		unlock_decision_tooltip = JAP_declare_war_on_allies
 		}
@@ -1794,9 +1899,9 @@
 
 	focus = {
 		id = SPT_JAP_the_zaibatsus
-		icon = GFX_focus_jap_strike_south
+		icon = GFX_focus_mex_privatisation
 		prerequisite = { focus = JAP_non_aggression_pact_with_the_soviet_union }
-		x = 3
+		x = 2
 		y = 1
 		relative_position_id = JAP_non_aggression_pact_with_the_soviet_union
 
@@ -1851,7 +1956,7 @@
 
 	focus = {
 		id = SPT_JAP_rapid_development
-		icon = GFX_focus_jap_strike_south
+		icon = GFX_focus_SOV_organize_wreckers
 		prerequisite = { focus = SPT_JAP_the_zaibatsus }
 		mutually_exclusive = {	focus = SPT_JAP_steady_development}
 		x = -1
@@ -1926,7 +2031,7 @@
 
 			add_timed_idea = {
 				idea = SPT_JAP_rapid_arms_dev
-				days = 180
+				days = 365
 			}
 		}
 	}
@@ -1934,7 +2039,7 @@
 
 	focus = {
 		id = SPT_JAP_steady_development
-		icon = GFX_focus_jap_strike_south
+		icon = GFX_goal_generic_construction
 		prerequisite = { focus = SPT_JAP_the_zaibatsus }
 		mutually_exclusive = {	focus = SPT_JAP_rapid_development}
 		x = 1
@@ -1997,7 +2102,7 @@
 	
 	focus = {
 		id = SPT_JAP_quick_retooling
-		icon = GFX_focus_jap_strike_south
+		icon = GFX_goal_generic_air_production
 		prerequisite = { focus = SPT_JAP_rapid_development }
 		x = 0
 		y = 1
@@ -2029,14 +2134,14 @@
 			custom_effect_tooltip = SPT_JAP_quick_retooling_tt
 			add_timed_idea = {
 				idea = SPT_JAP_quick_retool
-				days = 180
+				days = 365
 			}
 		}
 	}
 
 	focus = {
 		id = SPT_JAP_long_term_planning
-		icon = GFX_focus_jap_strike_south
+		icon = GFX_focus_SOV_merge_plants
 		prerequisite = { focus = SPT_JAP_steady_development }
 		x = 0
 		y = 1
@@ -2063,7 +2168,7 @@
 				SPT_JAP_production_factory_efficiency_gain_factor = 0.05
 			}
 			add_to_variable = {
-				SPT_JAP_factory_max_efficiency_factor = 0.05
+				SPT_JAP_factory_max_efficiency_factor = 0.1
 			}
 			custom_effect_tooltip = SPT_JAP_long_term_tt
 		}
@@ -2071,7 +2176,7 @@
 
 	focus = {
 		id = SPT_JAP_factory_mobilization
-		icon = GFX_focus_jap_strike_south
+		icon = GFX_focus_generic_combined_arms
 		prerequisite = { focus = SPT_JAP_quick_retooling }
 		x = 0
 		y = 1
@@ -2103,14 +2208,14 @@
 			custom_effect_tooltip = SPT_JAP_factory_mobilization_tt
 			add_timed_idea = {
 				idea = SPT_JAP_factory_mobi
-				days = 180
+				days = 365
 			}
 		}
 	}
 
 	focus = {
 		id = SPT_JAP_stockpiling_strategies
-		icon = GFX_focus_jap_strike_south
+		icon = GFX_goal_generic_trade
 		prerequisite = { focus = SPT_JAP_long_term_planning }
 		x = 0
 		y = 1
@@ -2189,7 +2294,7 @@
 
 	focus = {
 		id = SPT_JAP_industry_reorganized
-		icon = GFX_focus_jap_strike_south
+		icon = GFX_goal_continuous_naval_production
 		prerequisite = { focus = SPT_JAP_factory_mobilization focus = SPT_JAP_stockpiling_strategies}
 		x = 1
 		y = 1
@@ -2791,7 +2896,7 @@
 		y = 1
 		relative_position_id = JAP_purge_the_kodoha_faction
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 3
@@ -3660,7 +3765,7 @@
 		x = 4
 		y = 0
 		relative_position_id = JAP_guide_the_zaibatsus
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 3
