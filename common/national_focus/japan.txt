@@ -1062,11 +1062,11 @@
 		icon = GFX_focus_jap_cast_the_die
 		prerequisite = { focus = JAP_greater_east_asian_co_prosperity_sphere }
 		will_lead_to_war_with = CHI
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = JAP_greater_east_asian_co_prosperity_sphere
 
-		cost = 5 #SPT change 10 -> 5
+		cost = 2 #SPT change 10 -> 2
 
 		available = { 
 			is_puppet = no 
@@ -1216,7 +1216,7 @@
 		icon = GFX_focus_chi_one_china_policy
 		prerequisite = { focus = JAP_intervene_in_china }
 		mutually_exclusive = { focus = JAP_pan_asia_movement }
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = JAP_intervene_in_china
 
@@ -1283,7 +1283,7 @@
 		y = 1
 		relative_position_id = JAP_develop_chinese_resources
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -1345,7 +1345,7 @@
 		icon = GFX_focus_spr_masters_of_our_own_fate
 		prerequisite = { focus = JAP_intervene_in_china }
 		mutually_exclusive = { focus = JAP_develop_chinese_resources }
-		x = -2
+		x = -1
 		y = 1
 		relative_position_id = JAP_intervene_in_china
 
@@ -1369,6 +1369,7 @@
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_pan_asia_tt
 			every_owned_state = {
 				limit = {
 					NOT = {	is_core_of = ROOT }
@@ -1447,7 +1448,6 @@
 			swap_ideas = {
 				add_idea = JAP_restoredmilitarism
 				remove_idea = JAP_militarism
-				
 			}
 		}
 	}
@@ -1500,7 +1500,7 @@
 		#prerequisite = { focus = JAP_greater_east_asian_co_prosperity_sphere }
 		prerequisite = { focus = JAP_sign_tripartite_pact }
 		x = -2
-		y = 3
+		y = 4
 		relative_position_id = JAP_liaison_conference
 
 		cost = 5 #SPT change 10 -> 5
@@ -1527,6 +1527,7 @@
 
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_ANNEXATION }
 		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_strike_south_tutorial_tt
 			add_doctrine_cost_reduction = {
 				name = JAP_strike_south_doctrine
 				cost_reduction = 0.5
@@ -1551,7 +1552,7 @@
 		icon = GFX_focus_chi_mission_to_the_soviet_union
 		prerequisite = { focus = JAP_strike_south_doctrine }
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = JAP_strike_south_doctrine
 		dynamic = yes  
 
@@ -1590,7 +1591,7 @@
 		y = 2
 		relative_position_id = JAP_non_aggression_pact_with_the_soviet_union
 
-		cost = 5
+		cost = 2
 
 		ai_will_do = {
 			factor = 2
@@ -1661,7 +1662,7 @@
 		y = 2
 		relative_position_id = JAP_non_aggression_pact_with_the_soviet_union
 
-		cost = 5
+		cost = 2
 
 		ai_will_do = {
 			factor = 2
@@ -1696,7 +1697,7 @@
 		x = 0
 		y = 1
 		relative_position_id = JAP_strike_the_philip
-		cost = 5
+		cost = 2
 
 		ai_will_do = {
 			factor = 2
@@ -1732,7 +1733,7 @@
 		y = 1
 		relative_position_id = JAP_strike_the_philip
 
-		cost = 5
+		cost = 2
 
 		ai_will_do = {
 			factor = 2
@@ -1768,7 +1769,7 @@
 		y = 2
 		relative_position_id = JAP_strike_the_philip
 
-		cost = 5
+		cost = 2
 
 		ai_will_do = {
 			factor = 2
@@ -1798,7 +1799,7 @@
 		y = 2
 		relative_position_id = JAP_strike_the_philip
 
-		cost = 5
+		cost = 2
 
 		ai_will_do = {
 			factor = 2
@@ -1912,7 +1913,14 @@
 		}
 
 		available = {
+			OR = {
+				date > 1940.1.1
 			CHI = {exists = no}
+			}
+			
+			NOT = {
+					has_idea = JAP_zaibatsus
+			}
 		}
 
 		bypass = {
@@ -1947,7 +1955,7 @@
 					has_idea = JAP_nationalize_the_zaibatsus
 				}
 				set_variable = {
-					SPT_JAP_production_speed_buidlings_factor = 0.025
+					SPT_JAP_consumer_goods_factor = -0.025
 				}
 				custom_effect_tooltip = SPT_JAP_the_zaibatsus_nationalized_tt
 			}
@@ -2053,6 +2061,7 @@
 		}
 
 		available = {
+			CHI = {exists = no}
 		}
 
 		bypass = {
@@ -2815,10 +2824,10 @@
 		icon = GFX_focus_chi_mission_to_germany
 		prerequisite = { focus = JAP_liaison_conference }
 		x = -2
-		y = 1
+		y = 2
 		relative_position_id = JAP_liaison_conference
 
-		cost = 5 #SPT change 10 -> 5
+		cost = 2 #SPT change 10 -> 2
 
 		ai_will_do = {
 			factor = 3
@@ -3325,7 +3334,7 @@
 		y = 1
 		relative_position_id = JAP_imperial_arsenals
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 3
@@ -3483,7 +3492,7 @@
 		id = JAP_employ_tonarigumi
 		icon = GFX_focus_SOV_womens_fascist_movement
 		prerequisite = { focus = JAP_spiritual_mobilization }
-		x = -2
+		x = 0
 		y = 3
 		relative_position_id = JAP_national_defense_state
 
@@ -3515,7 +3524,7 @@
 		id = JAP_expand_tonarigumi
 		icon = GFX_focus_SOV_women_in_aviation
 		prerequisite = { focus = JAP_employ_tonarigumi }
-		x = -2
+		x = 0
 		y = 4
 		relative_position_id = JAP_national_defense_state
 
@@ -3550,7 +3559,7 @@
 		id = JAP_volunteer_fighting_corps
 		icon = GFX_focus_ITA_corpo_volontari_della_liberta
 		prerequisite = { focus = JAP_spiritual_mobilization }
-		x = 0
+		x = -2
 		y = 3
 		relative_position_id = JAP_national_defense_state
 
@@ -3586,7 +3595,7 @@
 		y = 3
 		relative_position_id = JAP_national_defense_state
 
-		cost = 5
+		cost = 1
 
 		ai_will_do = {
 			factor = 4
@@ -5340,7 +5349,7 @@
 		id = JAP_the_manchurian_project
 		icon = GFX_focus_jap_manchurian_project
 		prerequisite = {focus = JAP_greater_east_asian_co_prosperity_sphere} #SPT change added prerequisite
-		x = -1
+		x = -2
 		y = 1
 		relative_position_id = JAP_greater_east_asian_co_prosperity_sphere #SPT change, changed relative position to JAP_guide_the_zaibatsus
 		offset = {
@@ -5822,7 +5831,7 @@
 		y = 1
 		relative_position_id = JAP_small_arms_modernization
 
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 
 		ai_will_do = {
 			factor = 1
