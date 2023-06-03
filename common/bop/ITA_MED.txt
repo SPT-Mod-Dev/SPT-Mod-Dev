@@ -133,6 +133,17 @@ ITA_MED_med_front = {
 					add_dynamic_modifier = {
 						modifier = PAC_home_defense_2
 					}
+				} 
+				every_other_country = {
+					limit = {
+						OR = {
+							tag = GER
+							tag = HUN
+							tag = BUL
+							tag = ROM
+						}
+					}
+					add_ideas = SPT_Med_BOP_Axis_Debuff_low
 				}
 			}
 			on_deactivate = {
@@ -146,6 +157,17 @@ ITA_MED_med_front = {
 					remove_dynamic_modifier = {
 						modifier = PAC_home_defense_2
 					}
+				}
+				every_other_country = {
+					limit = {
+						OR = {
+							tag = GER
+							tag = HUN
+							tag = BUL
+							tag = ROM
+						}
+					}
+					remove_ideas = SPT_Med_BOP_Axis_Debuff_low
 				}
 			}
 		}
@@ -173,6 +195,17 @@ ITA_MED_med_front = {
 						modifier = PAC_home_defense_3
 					}
 				}
+				every_other_country = {
+					limit = {
+						OR = {
+							tag = GER
+							tag = HUN
+							tag = BUL
+							tag = ROM
+						}
+					}
+					add_ideas = SPT_Med_BOP_Axis_Debuff_med
+				}
 			}
 			on_deactivate = {
 				every_core_state = {
@@ -185,6 +218,17 @@ ITA_MED_med_front = {
 					remove_dynamic_modifier = {
 						modifier = PAC_home_defense_3
 					}
+				}
+				every_other_country = {
+					limit = {
+						OR = {
+							tag = GER
+							tag = HUN
+							tag = BUL
+							tag = ROM
+						}
+					}
+					remove_ideas = SPT_Med_BOP_Axis_Debuff_med
 				}
 			}
 		}
@@ -201,10 +245,30 @@ ITA_MED_med_front = {
 				political_power_factor = -0.1
 			}
 			on_activate = {
-				
+				every_other_country = {
+					limit = {
+						OR = {
+							tag = GER
+							tag = HUN
+							tag = BUL
+							tag = ROM
+						}
+					}
+					add_ideas = SPT_Med_BOP_Axis_Debuff_high
+				}
 			}
 			on_deactivate = {
-				
+				every_other_country = {
+					limit = {
+						OR = {
+							tag = GER
+							tag = HUN
+							tag = BUL
+							tag = ROM
+						}
+					}
+					remove_ideas = SPT_Med_BOP_Axis_Debuff_high
+				}
 			}
 		}
 		
