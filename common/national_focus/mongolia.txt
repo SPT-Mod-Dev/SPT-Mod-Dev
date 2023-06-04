@@ -1,0 +1,727 @@
+focus_tree = {
+	id = mongolia_focus
+
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			OR = {
+				tag = MON
+			}
+		}
+	}
+	
+	default = no
+
+	continuous_focus_position = { x = 50 y = 1500 }
+	focus = {
+		id = MON_awooga
+		icon = GFX_focus_invite_finland
+		x = 70
+		y = 1
+		relative_position_id = MON_great_purge
+
+		cost = 5
+		available = {
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = {
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = MON_great_purge
+		icon = GFX_focus_invite_finland
+		x = 8
+		y = 0
+		cost = 5
+		available = {
+			SOV = {
+				has_completed_focus = SOV_the_zinovyevite_terrorist_center
+			}
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = {
+		}
+		completion_reward = {
+		}
+	}
+#   _____ ______ _   _ _______ ______ _____  
+#  / ____|  ____| \ | |__   __|  ____|  __ \ 
+# | |    | |__  |  \| |  | |  | |__  | |__) |
+# | |    |  __| | . ` |  | |  |  __| |  _  / 
+# | |____| |____| |\  |  | |  | |____| | \ \ 
+#  \_____|______|_| \_|  |_|  |______|_|  \_\
+	focus = {
+		id = MON_center
+		icon = GFX_focus_invite_finland
+		x = -3
+		y = 2
+		relative_position_id = MON_great_purge
+		prerequisite = {
+			focus = MON_great_purge
+		}
+		cost = 5
+		available = {
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = {
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = MON_restuff_the_governement
+		icon = GFX_focus_invite_finland
+		x = -1
+		y = 1
+		relative_position_id = MON_center
+		prerequisite = {
+			focus = MON_center
+		}
+		cost = 5
+		available = {
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = {
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = MON_compromise_with_the_lamas
+		icon = GFX_focus_invite_finland
+		x = 0
+		y = 1
+		relative_position_id = MON_restuff_the_governement
+		prerequisite = {
+			focus = MON_restuff_the_governement
+		}
+		cost = 5
+		available = {
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = {
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = MON_incentivize_collective_farming
+		icon = GFX_focus_invite_finland
+		x = 1
+		y = 1
+		relative_position_id = MON_center
+		prerequisite = {
+			focus = MON_center
+		}
+		cost = 5
+		available = {
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = {
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = MON_soviet_economic_aid
+		icon = GFX_focus_invite_finland
+		x = 0
+		y = 1
+		relative_position_id = MON_incentivize_collective_farming
+		prerequisite = {
+			focus = MON_incentivize_collective_farming
+		}
+		cost = 5
+		available = {
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = {
+		}
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = MON_economic_growth
+		icon = GFX_focus_invite_finland
+		x = 1
+		y = 1
+		relative_position_id = MON_compromise_with_the_lamas
+		prerequisite = {
+			focus = MON_compromise_with_the_lamas
+		}
+		prerequisite = {
+			focus = MON_soviet_economic_aid
+		}
+		cost = 5
+		available = {
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = {
+		}
+		completion_reward = {
+		}
+	}
+#   _____ ____  __  __ __  __ _____ ______    _____ _    _          _____  ______ _____  
+#  / ____/ __ \|  \/  |  \/  |_   _|  ____|  / ____| |  | |   /\   |  __ \|  ____|  __ \ 
+# | |   | |  | | \  / | \  / | | | | |__    | (___ | |__| |  /  \  | |__) | |__  | |  | |
+# | |   | |  | | |\/| | |\/| | | | |  __|    \___ \|  __  | / /\ \ |  _  /|  __| | |  | |
+# | |___| |__| | |  | | |  | |_| |_| |____   ____) | |  | |/ ____ \| | \ \| |____| |__| |
+#  \_____\____/|_|  |_|_|  |_|_____|______| |_____/|_|  |_/_/    \_\_|  \_\______|_____/ 
+focus = {
+	id = MON_refugee_commie
+	icon = GFX_focus_invite_finland
+	x = 2
+	y = 1
+	relative_position_id = MON_soviet_economic_aid
+	prerequisite = {
+		focus = MON_soviet_economic_aid
+		focus = MON_soviet_reconciliation
+	}
+	
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+focus = {
+	id = MON_merge_the_parties
+	icon = GFX_focus_invite_finland
+	x = 0
+	y = 1
+	relative_position_id = MON_refugee_commie
+	prerequisite = {
+		focus = MON_refugee_commie
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+###### purge fails
+focus = {
+	id = MON_party_survives
+	icon = GFX_focus_invite_finland
+	x = 4
+	y = 1
+	relative_position_id = MON_great_purge
+	prerequisite = {
+		focus = MON_great_purge
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+#  _      ______ ______ _______ 
+# | |    |  ____|  ____|__   __|
+# | |    | |__  | |__     | |   
+# | |    |  __| |  __|    | |   
+# | |____| |____| |       | |   
+# |______|______|_|       |_|   
+
+focus = {
+	id = MON_left
+	icon = GFX_focus_invite_finland
+	x = -1
+	y = 1
+	relative_position_id = MON_party_survives
+	prerequisite = {
+		focus = MON_party_survives
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+focus = {
+	id = MON_build_independent_economy
+	icon = GFX_focus_invite_finland
+	x = -1
+	y = 1
+	relative_position_id = MON_left
+	prerequisite = {
+		focus = MON_left
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+focus = {
+	id = MON_soviet_reconciliation
+	icon = GFX_focus_invite_finland
+	x = 0
+	y = 1
+	relative_position_id = MON_build_independent_economy
+	prerequisite = {
+		focus = MON_build_independent_economy
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+
+focus = {
+	id = MON_continue_purge_of_clergy
+	icon = GFX_focus_invite_finland
+	x = 1
+	y = 1
+	relative_position_id = MON_left
+	prerequisite = {
+		focus = MON_left
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+focus = {
+	id = MON_force_herders_into_factories
+	icon = GFX_focus_invite_finland
+	x = 0
+	y = 1
+	relative_position_id = MON_continue_purge_of_clergy
+	prerequisite = {
+		focus = MON_continue_purge_of_clergy
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+focus = {
+	id = MON_collective_economy
+	icon = GFX_focus_invite_finland
+	x = -1
+	y = 1
+	relative_position_id = MON_force_herders_into_factories
+	prerequisite = {
+		focus = MON_force_herders_into_factories
+	}
+	prerequisite = {
+		focus = MON_soviet_reconciliation
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+
+#  _   _       _______ _____ ____  _   _          _      _____  _____ _______ 
+# | \ | |   /\|__   __|_   _/ __ \| \ | |   /\   | |    |_   _|/ ____|__   __|
+# |  \| |  /  \  | |    | || |  | |  \| |  /  \  | |      | | | (___    | |   
+# | . ` | / /\ \ | |    | || |  | | . ` | / /\ \ | |      | |  \___ \   | |   
+# | |\  |/ ____ \| |   _| || |__| | |\  |/ ____ \| |____ _| |_ ____) |  | |   
+# |_| \_/_/    \_\_|  |_____\____/|_| \_/_/    \_\______|_____|_____/   |_|  
+
+focus = {
+	id = MON_nationalist
+	icon = GFX_focus_invite_finland
+	x = 5
+	y = 1
+	relative_position_id = MON_party_survives
+	prerequisite = {
+		focus = MON_party_survives
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+focus = {
+	id = MON_reprivatization_of_economy
+	icon = GFX_focus_invite_finland
+	x = -3
+	y = 1
+	relative_position_id = MON_nationalist
+	prerequisite = {
+		focus = MON_nationalist
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+focus = {
+	id = MON_international_economic_aid
+	icon = GFX_focus_invite_finland
+	x = 0
+	y = 1
+	relative_position_id = MON_reprivatization_of_economy
+	prerequisite = {
+		focus = MON_reprivatization_of_economy
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+focus = {
+	id = MON_economic_miracle
+	icon = GFX_focus_invite_finland
+	x = 0
+	y = 1
+	relative_position_id = MON_international_economic_aid
+	prerequisite = {
+		focus = MON_international_economic_aid
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+focus = {
+	id = MON_interim_government
+	icon = GFX_focus_invite_finland
+	x = 0
+	y = 1
+	relative_position_id = MON_nationalist
+	prerequisite = {
+		focus = MON_nationalist
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+focus = {
+	id = MON_constitutional_monarchy
+	icon = GFX_focus_invite_finland
+	x = -1
+	y = 1
+	relative_position_id = MON_interim_government
+	mutually_exclusive = {
+		focus = MON_absolute_monarchy
+	}
+	prerequisite = {
+		focus = MON_interim_government
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+focus = {
+	id = MON_absolute_monarchy
+	icon = GFX_focus_invite_finland
+	x = 1
+	y = 1
+	relative_position_id = MON_interim_government
+	mutually_exclusive = {
+		focus = MON_constitutional_monarchy
+	}
+	prerequisite = {
+		focus = MON_interim_government
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+focus = {
+	id = MON_crown_a_new_khan
+	icon = GFX_focus_invite_finland
+	x = -1
+	y = 1
+	relative_position_id = MON_absolute_monarchy
+	prerequisite = {
+		focus = MON_absolute_monarchy
+		focus = MON_constitutional_monarchy
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+focus = {
+	id = MON_volunteers_to_china
+	icon = GFX_focus_invite_finland
+	x = 3
+	y = 1
+	relative_position_id = MON_nationalist
+	prerequisite = {
+		focus = MON_nationalist
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+focus = {
+	id = MON_refugee_nationalist
+	icon = GFX_focus_invite_finland
+	x = 0
+	y = 1
+	relative_position_id = MON_volunteers_to_china
+	prerequisite = {
+		focus = MON_volunteers_to_china
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+focus = {
+	id = MON_genepil_shek_agreement
+	icon = GFX_focus_invite_finland
+	x = 0
+	y = 1
+	relative_position_id = MON_refugee_nationalist
+	prerequisite = {
+		focus = MON_refugee_nationalist
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+focus = {
+	id = MON_end_isolation
+	icon = GFX_focus_invite_finland
+	x = 0
+	y = 1
+	relative_position_id = MON_crown_a_new_khan
+	prerequisite = {
+		focus = MON_crown_a_new_khan
+	}
+	prerequisite = {
+		focus = MON_economic_miracle
+	}
+	prerequisite = {
+		focus = MON_genepil_shek_agreement
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+focus = {
+	id = MON_golden_corp
+	icon = GFX_focus_invite_finland
+	x = 0
+	y = 1
+	relative_position_id = MON_end_isolation
+	prerequisite = {
+		focus = MON_end_isolation
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+
+
+}
