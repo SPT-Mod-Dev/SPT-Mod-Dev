@@ -34,6 +34,9 @@
 
  - USA 
     - Selective Training Act: Set base war support 10% -> 0%
+
+### High command
+ - Air Modifiers for high command now modify preformance
 ### Airplane designer
 
  - All Airframes significantly reduced production cost
@@ -74,6 +77,8 @@
 
 
 ### Tank designer
+
+ - All light tank chassis: production cost -0.3
  - Small cannon: soft attack 25 -> 24
                  steel cost 0 -> 1
                  build cost 1.5 -> 2
