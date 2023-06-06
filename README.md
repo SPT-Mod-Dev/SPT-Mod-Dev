@@ -3,30 +3,38 @@
 ### 3.6.0
 ### Gerneral
  - All of axis now affected by mediterranean balance of power
+ - IEA will no longer make your eyes bleed
  - "Radio Propaganda" and "Utilize Domestic Film Industry" decisions now require higher World Tension values
  - Added new character Karnov (don't worry about it)
 ### Focus tree
 
 - Japan
     - Rebalanced focus duration of several japanese focuses
-- Supremacy of Will spirit no longer gives Division Attack and Division Defense, instead it gives +5% Org and +4% Reinforce Rate
-- Challenge The Zaibatsus Stability debuff reduced to -10% from -15%
-- Zaibatsu Investments spirit Resource Gain Efficiency buff reduced from 15% to 10%
-- Removed Escort Efficiency from Strike the Indies focus, and increased the Division Speed buff to 10% from 5%
-- Allience With Siam focus now requires NAP with Soviets focus instead of Sign Tripartite Pact
-- Added Nationalize the Zaibatus focus that allows the Challenge the Zaibatsus spirit to be improved
-- Added Large Artillery Studies focus to Supremacy of Will branch of the Army Expansion Law tree, which grants Railway Gun technology and 3 Railway Guns
-- Correct several japanese focuses to no longer spawn factories in Saipan, Iwo Jima, and Kurill Islands
-- Strike South spirits now have been merged into a single Nanshin Ron spirit for readability
-- Strike South Branch expanded with new Military and Industry branches
-- Strike South Doctrine focus no longer requires Greater East-Asian Co-Prosperity Sphere focus
-- Improved several japanese focus tooltips to better inform players of unique effects 
+    - Improved several japanese focus tooltips to better inform players of unique effects
+    - Correct several japanese focuses to no longer spawn factories in Saipan, Iwo Jima, and Kurill Islands
+    - Strike South Doctrine focus no longer requires Greater East-Asian Co-Prosperity Sphere focus
+
+
+    - Supremacy of Will spirit no longer gives Division Attack and Division Defense, instead it gives +5% Org and +4% Reinforce Rate
+    - Challenge The Zaibatsus: stability debuff -15% -> -10%
+    - Zaibatsu Investments spirit Resource Gain Efficiency buff reduced from 15% to 10%
+    - Strike the Indies: Removed escort efficiency
+                         Division speed buff 5% -> 10%
+
+    - Allience With Siam focus now requires NAP with Soviets focus instead of Sign Tripartite Pact
+    - Added Nationalize the Zaibatus focus that allows the Challenge the Zaibatsus spirit to be improved
+    - Added Large Artillery Studies focus: Railway Gun technology and 3 Railway Guns
+
+    - Strike South spirits now have been merged into a single Nanshin Ron spirit
+    - Strike South Branch expanded with new Military and Industry branches
 
 - Soviet Union
     - Infrastructure effort: Focus duration 70 -> 35
     - Heavy Industry: Focus duration 70 -> 35
     - Expand the Aircraft industry: Focus duration 70 -> 35
     - Foster Flying Club: Focus duration 70 -> 35
+    - Modernize Aircraft facilities: Focus duration 70 -> 35
+    - Women in Aviation: Focus duration: 70 -> 35
     - Third five year plan: Modifi consumer goods 0.05 -> 0
 
  - Italy 
@@ -34,9 +42,19 @@
 
  - USA 
     - Selective Training Act: Set base war support 10% -> 0%
-
 ### High command
- - Air Modifiers for high command now modify preformance
+
+ - All air mission type high command advisors buffed
+
+ - Gino Verchiella (Canada): Air superiority expert -> Close air support expert
+ - Sándor Magyarossy (Hungary): Air combat training specialist -> Air superiority expert
+ - Vasily Yanchenko (USSR): Removed exile and civil war requiremets 
+ - Nishizo Tsukahara (Japan): Naval strike specialist -> Naval strike expert 
+
+ - Maneuver Warfare: Org loss when moving -0.4 -> -0.3
+                     Army Fuel consumtion 0.1 -> 0
+                     Supply consumtion 0.15 -> 0.1
+                     Supply truck attrition 0.3 -> 0.15
 ### Airplane designer
 
  - All Airframes significantly reduced production cost
@@ -74,15 +92,12 @@
 
  - Air-Ground radar 2: Removed all naval bonuses
                        When on close air support mission: Ground attack 0 -> +15%
-
-
 ### Tank designer
 
  - All light tank chassis: production cost -0.3
  - Small cannon: soft attack 25 -> 24
                  steel cost 0 -> 1
                  build cost 1.5 -> 2
-
 ### Technologies 
 
  - Moved radio navigation 1: Radio -> Decimetric radar
@@ -94,7 +109,6 @@
  - Centimetric Radar: fighter detection 0 -> 0.05
  - Advanced Centimetric Radar: fighter detection 0 -> 0.05
 ### 3.5.2
-
  - Added new quotes
 ### Rules
  - Updated rules on paratroopers
