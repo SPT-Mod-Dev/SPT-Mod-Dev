@@ -1,9 +1,115 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.6.0
+### Gerneral
+ - All of axis now affected by mediterranean balance of power
+ - IEA will no longer make your eyes bleed
+ - "Radio Propaganda" and "Utilize Domestic Film Industry" decisions now require higher World Tension values
+ - Added new character Karnov (don't worry about it)
+### Focus tree
 
+- Japan
+    - Rebalanced focus duration of several japanese focuses
+    - Improved several japanese focus tooltips to better inform players of unique effects
+    - Correct several japanese focuses to no longer spawn factories in Saipan, Iwo Jima, and Kurill Islands
+    - Strike South Doctrine focus no longer requires Greater East-Asian Co-Prosperity Sphere focus
+
+
+    - Supremacy of Will spirit no longer gives Division Attack and Division Defense, instead it gives +5% Org and +4% Reinforce Rate
+    - Challenge The Zaibatsus: stability debuff -15% -> -10%
+    - Zaibatsu Investments spirit Resource Gain Efficiency buff reduced from 15% to 10%
+    - Strike the Indies: Removed escort efficiency
+                         Division speed buff 5% -> 10%
+
+    - Allience With Siam focus now requires NAP with Soviets focus instead of Sign Tripartite Pact
+    - Added Nationalize the Zaibatus focus that allows the Challenge the Zaibatsus spirit to be improved
+    - Added Large Artillery Studies focus: Railway Gun technology and 3 Railway Guns
+
+    - Strike South spirits now have been merged into a single Nanshin Ron spirit
+    - Strike South Branch expanded with new Military and Industry branches
+
+- Soviet Union
+    - Infrastructure effort: Focus duration 70 -> 35
+    - Heavy Industry: Focus duration 70 -> 35
+    - Expand the Aircraft industry: Focus duration 70 -> 35
+    - Foster Flying Club: Focus duration 70 -> 35
+    - Modernize Aircraft facilities: Focus duration 70 -> 35
+    - Women in Aviation: Focus duration: 70 -> 35
+    - Third five year plan: Modifi consumer goods 0.05 -> 0
+
+ - Italy 
+    - Demand Ticino and Request Control of French Territories focuses re-added to allow Italy to gain the states required to form Greater Italy
+
+ - USA 
+    - Selective Training Act: Set base war support 10% -> 0%
+### High command
+
+ - All air mission type high command advisors buffed
+
+ - Gino Verchiella (Canada): Air superiority expert -> Close air support expert
+ - Sándor Magyarossy (Hungary): Air combat training specialist -> Air superiority expert
+ - Vasily Yanchenko (USSR): Removed exile and civil war requiremets 
+ - Nishizo Tsukahara (Japan): Naval strike specialist -> Naval strike expert 
+
+ - Maneuver Warfare: Org loss when moving -0.4 -> -0.3
+                     Army Fuel consumtion 0.1 -> 0
+                     Supply consumtion 0.15 -> 0.1
+                     Supply truck attrition 0.3 -> 0.15
+### Airplane designer
+
+ - All Airframes significantly reduced production cost
+ - All cas modules significantly increased production cost
+
+ - Medium bomb bay: ground attack 3 -> 4
+ - Rocket rails: gound attack 4 -> 6
+ - Guided anti-ship misssile: naval strike attack 8 -> 11
+                              weight 15 -> 12
+                              producion cost 15 -> 11
+ - Non strategic material: production cost modifier -0.075 -> 0.1
+                           air defence -6 -> -4
+ - Rocket engine 1: range modifier -0.9 -> 0.65
+                    reliability 0 -> -0.125
+                    tungsten cost 3 -> 2
+ - Rocket engine 2: range modifier -0.85 -> 0.50
+                    reliability 0 -> -0.075
+                    tungsten cost 3 -> 2
+ - Rocket engine 1: range modifier -0.8 -> 0.35
+                    tungsten cost 3 -> 2
+ - Air-air radar 1: No longer limited to interception
+                    Night time penalty -0.2 -> 0.15
+                    Air attack modifier 0.1
+ - Air-air radar 2: No longer limited to interception
+                    Night time penalty -0.4 -> 0.3
+                    Air attack modifier 0.15
+ - Radio navigation 1 when on naval missions: Surface detection 0 -> 6
+                                              Sub detection 0 -> 4
+ - Radio navigation 2 when on naval missions: Surface detection 0 -> 10
+                                              Sub detection 0 -> 6
+                                              Production cost 1 -> 2
+ - Air-Ground radar 1: Removed all naval bonuses
+                       When on close air support mission: Ground attack 0 -> +10%
+                       When on close recon
+
+ - Air-Ground radar 2: Removed all naval bonuses
+                       When on close air support mission: Ground attack 0 -> +15%
+### Tank designer
+
+ - All light tank chassis: production cost -0.3
+ - Small cannon: soft attack 25 -> 24
+                 steel cost 0 -> 1
+                 build cost 1.5 -> 2
+### Technologies 
+
+ - Moved radio navigation 1: Radio -> Decimetric radar
+ - Moved radio navigation 2: Decimetric radar -> Centimetric Radar
+ - Moved Air-Ground Radar 1: Improved Centimetric Radar -> Centimetric Radar
+ - Rocket engines: year of technology 1944 -> 1943
+ - Improved rocket engines: year of technology 1945 -> 1944
+ - Advanced rocket engines: year of technology 1946 -> 1945
+ - Centimetric Radar: fighter detection 0 -> 0.05
+ - Advanced Centimetric Radar: fighter detection 0 -> 0.05
 ### 3.5.2
-
-- Added new quotes
+ - Added new quotes
 ### Rules
  - Updated rules on paratroopers
 
@@ -93,12 +199,12 @@
     - no slots locked for advanced, modern and super-heavy chassis
 
 - Main armaments
-    - heavy cannon 1: soft attack 31 -> 20
+    - heavy cannon 1: soft attack 31 -> 30
                       hard attack 25 -> 24
                       piercing 60 -> 55
 
-    - heavy cannon 2: soft attack 37.5 -> 36
-                      hard attack 27.5 -> 27
+    - heavy cannon 2: soft attack `37.5`->`36`
+`                      hard attack 27.5 -> 27
                       piercing 90 -> 80
 
     - heavy cannon 3: soft attack 42.5 -> 41
