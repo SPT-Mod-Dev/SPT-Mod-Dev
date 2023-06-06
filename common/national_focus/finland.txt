@@ -17,7 +17,7 @@ focus_tree = {
 		icon = GFX_focus_invite_finland
 		x = 5
 		y = 0
-		cost = 10
+		cost = 8
 		ai_will_do = {
 			factor = 1
 		}
@@ -39,81 +39,10 @@ focus_tree = {
 	############################################## LODOMIR
 	##############################################
 	##############################################
-	
-	#Disabled
-	# focus = {
-	# 	id = finnish_paratroopers
-	# 	icon = GFX_focus_ger_bulwark_against_bolshevism
-	# 	prerequisite = {
-	# 		focus = refugees_2
-	# 		focus = integrate_olensk
-	# 	}
-	# 	prerequisite = {
-	# 		focus = push_south
-	# 	}
-	# 	allow_branch = {
-	# 		has_completed_focus = push_south
-	# 	}
-	# 	x = 2
-	# 	y = 1
-	# 	relative_position_id = refugees_2
-	# 	cost = 70
-	# 	ai_will_do = {
-	# 		factor = 1
-	# 	}
-	# 	available = {
-	# 	}
-	# 	bypass = {
-	# 	}
-	# 	cancel_if_invalid = yes
-	# 	continue_if_invalid = no
-	# 	available_if_capitulated = no
-	# 	completion_reward = {
-	# 		FIN = {
-	# 			country_event = {
-	# 				days = 5
-	# 				id = spt_finland.2137
-	# 			}
-	# 		}
-	# 		add_ideas = fin_paratroopers
-	# 	}
-	# }
-	# #Disabled
-	# focus = {
-	# 	id = finnish_navy
-	# 	icon = GFX_focus_SWI_spirit_of_saint_bernard
-	# 	prerequisite = {
-	# 		focus = finnish_paratroopers
-	# 	}
-	# 	allow_branch = {
-	# 		has_completed_focus = finnish_paratroopers
-	# 	}
-	# 	cost = 100
-	# 	relative_position_id = finnish_paratroopers
-	# 	x = 0
-	# 	y = 1
-	# 	completion_reward = {
-	# 	}
-	# }
 	##################################################
-	
 	############################################## LODOMIR INTERIM PEACE
 	##############################################
 	##############################################
-	
-	############################################## LODOMIR INTERIM PEACE
-	##############################################
-	##############################################
-	#############################################
-	#############################################
-	#############################################
-	#### ##    ## ########  ##     ##  ######  ######## ########  ####    ###    ##          ########  ########     ###    ##    ##  ######  ##     ## 
-	##  ###   ## ##     ## ##     ## ##    ##    ##    ##     ##  ##    ## ##   ##          ##     ## ##     ##   ## ##   ###   ## ##    ## ##     ## 
-	##  ####  ## ##     ## ##     ## ##          ##    ##     ##  ##   ##   ##  ##          ##     ## ##     ##  ##   ##  ####  ## ##       ##     ## 
-	##  ## ## ## ##     ## ##     ##  ######     ##    ########   ##  ##     ## ##          ########  ########  ##     ## ## ## ## ##       ######### 
-	##  ##  #### ##     ## ##     ##       ##    ##    ##   ##    ##  ######### ##          ##     ## ##   ##   ######### ##  #### ##       ##     ## 
-	##  ##   ### ##     ## ##     ## ##    ##    ##    ##    ##   ##  ##     ## ##          ##     ## ##    ##  ##     ## ##   ### ##    ## ##     ## 
-	#### ##    ## ########   #######   ######     ##    ##     ## #### ##     ## ########    ########  ##     ## ##     ## ##    ##  ######  ##     ## 
 	focus = {
 		id = FIN_Expand_southern_infrastructure
 		icon = GFX_goal_generic_construct_infrastructure
@@ -145,7 +74,7 @@ focus_tree = {
 					}
 					add_building_construction = {
 						type = infrastructure
-						level = 1
+						level = 2
 						instant_build = yes
 					}
 				}
@@ -297,7 +226,7 @@ focus_tree = {
 		relative_position_id = FIN_develop_finnish_railways
 		cost = 10
 		ai_will_do = {
-			factor = 5
+			factor = 3
 		}
 		available = {
 			owns_state = 148
@@ -413,7 +342,7 @@ focus_tree = {
 			FOCUS_FILTER_POLITICAL
 		}
 		ai_will_do = {
-			factor = 0
+			factor = 2
 		}
 		available = {
 			NOT = {
@@ -449,7 +378,7 @@ focus_tree = {
 			focus = FIN_Contract_finnish_companies
 		}
 		ai_will_do = {
-			factor = 1
+			factor = 6
 		}
 		available = {
 			NOT = {
@@ -477,7 +406,7 @@ focus_tree = {
 		relative_position_id = FIN_develop_costal_cities
 		cost = 10
 		ai_will_do = {
-			factor = 2
+			factor = 6
 		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -523,8 +452,7 @@ focus_tree = {
 			FOCUS_FILTER_INDUSTRY
 		}
 		completion_reward = {
-			add_ideas = Finnish_industrial_concern
-			# Comstume industrial concern
+			custom_effect_tooltip = FIN_Contract_finnish_companies_tt
 		}
 	}
 	focus = {
@@ -579,7 +507,7 @@ focus_tree = {
 		relative_position_id = FIN_seek_german_investments
 		cost = 10
 		ai_will_do = {
-			factor = 3
+			factor = 11
 		}
 		available = {
 		}
@@ -643,36 +571,9 @@ focus_tree = {
 				uses = 2
 				category = artillery
 			}
-			add_ideas = fin_shell_crisis_2
-			remove_ideas = fin_shell_crisis
-		}
-	}
-	focus = {
-		id = FIN_import_german_designs
-		icon = GFX_goal_generic_intelligence_exchange
-		prerequisite = {
-			focus = FIN_military_contracts
-		}
-		prerequisite = {
-			focus = FIN_retool_industry_for_armour_prodoction
-		}
-		x = 2
-		y = 2
-		relative_position_id = FIN_military_contracts
-		cost = 10
-		ai_will_do = {
-			factor = 2
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = {
-			FOCUS_FILTER_POLITICAL
-		}
-		completion_reward = {
-			add_relation_modifier = {
-				target = GER
-				modifier = ROM_license_german_equipment
+			swap_ideas = {
+				add_idea = fin_shell_crisis_2
+				remove_idea = fin_shell_crisis
 			}
 		}
 	}
@@ -710,7 +611,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = FIN_Contract_finnish_companies
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -737,17 +638,14 @@ focus_tree = {
 				}
 			}
 			149 = {
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = dockyard
 					level = 1
 					instant_build = yes
 				}
-			}
-			145 = {
-				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
-					type = dockyard
+					type = industrial_complex
 					level = 1
 					instant_build = yes
 				}
@@ -765,7 +663,7 @@ focus_tree = {
 		relative_position_id = FIN_expand_to_civil_contracts
 		cost = 10
 		ai_will_do = {
-			factor = 3
+			factor = 10
 		}
 		available = {
 		}
@@ -819,26 +717,18 @@ focus_tree = {
 		}
 		completion_reward = {
 			random_owned_state = {
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
 			random_owned_state = {
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_owned_state = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -901,7 +791,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			set_variable = {
-				FIN_defensive_war_st_factor = 0.15
+				FIN_defensive_war_st_factor = 0.25
+			}
+			add_to_variable = {
+				FIN_mob_speed = 0.1
 			}
 			custom_effect_tooltip = FIN_add_defensive_war_st_factor_tt
 		}
@@ -954,44 +847,51 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = FIN_retool_industry_for_armour_prodoction
-		icon = GFX_goal_continuous_armor_production
+		id = FIN_Invite_german_advisors
+		icon = GFX_focus_generic_military_mission
 		prerequisite = {
 			focus = FIN_learn_from_the_germans
 		}
-		x = 0
+		x = -2
 		y = 1
 		relative_position_id = FIN_learn_from_the_germans
 		cost = 10
 		ai_will_do = {
 			factor = 2
 		}
-		available = {
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = {
+			FOCUS_FILTER_POLITICAL
+		}
+		completion_reward = {
+			custom_effect_tooltip = FIN_Invite_german_advisors_tt
+		}
+	}
+	focus = {
+		id = FIN_import_german_designs
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = {
+			focus = FIN_Invite_german_advisors
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIN_Invite_german_advisors
+		cost = 10
+		ai_will_do = {
+			factor = 2
 		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
 		search_filters = {
-			FOCUS_FILTER_INDUSTRY
+			FOCUS_FILTER_POLITICAL
 		}
-		available_if_capitulated = yes
 		completion_reward = {
-			add_ideas = FIN_tank_manufacturer
-			random_owned_state = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_owned_state = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
+			add_relation_modifier = {
+				target = GER
+				modifier = ROM_license_german_equipment
 			}
 		}
 	}
@@ -1055,7 +955,6 @@ focus_tree = {
 			FOCUS_FILTER_RESEARCH
 			FOCUS_FILTER_ARMY_XP
 		}
-		available_if_capitulated = yes
 		completion_reward = {
 			set_variable = {
 				FIN_xp_gain = 0.1
@@ -1069,15 +968,41 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = FIN_new_recruitment_plan
+		icon = GFX_focus_generic_military_academy
+		prerequisite = {
+			focus = FIN_army_jaeger_training
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIN_army_jaeger_training
+		cost = 10
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		search_filters = {
+			FOCUS_FILTER_MANPOWER
+		}
+		completion_reward = {
+			add_to_variable = {
+				FIN_expand_conscription = 0.01
+			}
+			add_to_variable = {
+				FIN_mob_speed = 0.15
+			}
+			custom_effect_tooltip = FIN_new_recruitment_plan_tt
+		}
+	}
+	focus = {
 		id = FIN_new_advisors
 		icon = GFX_focus_generic_infiltration
 		prerequisite = {
-			focus = FIN_retool_industry_for_armour_prodoction
-			focus = FIN_army_jaeger_training
+			focus = FIN_learn_from_the_germans
 		}
-		x = 1
+		x = 0
 		y = 1
-		relative_position_id = FIN_retool_industry_for_armour_prodoction
+		relative_position_id = FIN_learn_from_the_germans
 		cost = 10
 		ai_will_do = {
 			factor = 3
@@ -1111,12 +1036,54 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = Landsverk_L62
+		icon = GFX_focus_generic_tank_production
+		prerequisite = {
+			focus = FIN_motorisation_effort
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIN_motorisation_effort
+		cost = 10
+		ai_will_do = {
+			factor = 2
+		}
+		available = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_ideas = FIN_tank_manufacturer
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
 		id = FIN_improve_the_mannerheimline
 		icon = GFX_goal_fortify_the_westwall
 		prerequisite = {
 			focus = FIN_secure_the_homefront
 		}
-		x = 2
+		x = 3
 		y = 1
 		relative_position_id = FIN_secure_the_homefront
 		cost = 5
@@ -1294,8 +1261,8 @@ focus_tree = {
 			FOCUS_FILTER_MANPOWER
 		}
 		completion_reward = {
-			set_variable = {
-				FIN_expand_conscription = 0.025
+			add_to_variable = {
+				FIN_expand_conscription = 0.02
 			}
 			custom_effect_tooltip = FIN_expand_conscription_tt
 		}
@@ -1421,12 +1388,13 @@ focus_tree = {
 	focus = {
 		id = FIN_war_is_upon_us
 		icon = GFX_goal_generic_attack_allies
-    
 		x = 10
-
 		y = -1
 		relative_position_id = FIN_prepare_for_the_inevitable
 		available = {
+			hidden_trigger = {
+				always = no
+			}
 		}
 		bypass = {
 			has_war_with = SOV
@@ -1459,7 +1427,6 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		completion_reward = {
-			add_ideas = fin_martial_law
 			add_timed_idea = {
 				idea = FIN_motti_tactics
 				days = 170
@@ -1738,12 +1705,9 @@ focus_tree = {
 				idea = FIN_divert_funds_to_armymoderisation_idea
 				days = 42
 			}
-			
-			
 		}
 		completion_reward = {
 			custom_effect_tooltip = FIN_divert_funds_to_army_modernisation_tt
-			
 			add_tech_bonus = {
 				name = Army_modernisation
 				bonus = 1
@@ -1756,11 +1720,8 @@ focus_tree = {
 				uses = 2
 				category = artillery
 			}
-			
 		}
 	}
-	
-
 	focus = {
 		id = moscow_peace_treaty
 		icon = GFX_goal_anti_comintern_pact
@@ -1873,7 +1834,6 @@ focus_tree = {
 				remove_ideas = fin_shell_crisis
 				remove_ideas = fin_shell_crisis_2
 			}
-			
 			111 = {
 				add_extra_state_shared_building_slots = 2
 				if = {
@@ -2107,16 +2067,20 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		completion_reward = {
-			custom_effect_tooltip = FIN_martial_law_1_tt
-			add_to_variable = {
-				FIN_martial_ws = -0.05
+			swap_ideas = {
+				remove_idea = fin_martial_law
+				add_idea = fin_martial_law_2
 			}
-			add_to_variable = {
-				FIN_martial_stab = -0.1
-			}
-			add_to_variable = {
-				FIN_martial_cons = -0.05
-			}
+			#custom_effect_tooltip = FIN_martial_law_1_tt
+			#add_to_variable = {
+			#	FIN_martial_ws = -0.05
+			#}
+			#add_to_variable = {
+			#	FIN_martial_stab = -0.1
+			#}
+			#add_to_variable = {
+			#	FIN_martial_cons = -0.05
+			#}
 		}
 	}
 	focus = {
@@ -2141,8 +2105,10 @@ focus_tree = {
 		complete_tooltip = {
 		}
 		completion_reward = {
-			remove_ideas = fin_martial_law
-			add_ideas = fin_civil_order
+			swap_ideas = {
+				remove_idea = fin_martial_law
+				add_idea = fin_civil_order
+			}
 		}
 	}
 	focus = {
@@ -2182,7 +2148,7 @@ focus_tree = {
 		y = 1
 		cost = 3
 		ai_will_do = {
-			factor = 0
+			factor = 100
 		}
 		available = {
 			GER = {
@@ -2194,6 +2160,10 @@ focus_tree = {
 			FOCUS_FILTER_ANNEXATION
 		}
 		completion_reward = {
+			give_military_access = GER
+			GER = {
+				give_military_access = FIN
+			}
 			if = {
 				limit = {
 					has_dynamic_modifier = {
@@ -2204,7 +2174,6 @@ focus_tree = {
 					modifier = fin_martial_law
 				}
 			}
-			
 			remove_ideas = fin_civil_order
 			create_wargoal = {
 				type = take_state_focus
@@ -2244,6 +2213,10 @@ focus_tree = {
 		complete_tooltip = {
 		}
 		completion_reward = {
+			swap_ruler_traits = {
+				remove = man_of_the_crossroads
+				add = popular_figurehead2
+			}
 			add_ideas = fin_greater_fin_1
 			147 = {
 				if = {
@@ -2271,7 +2244,6 @@ focus_tree = {
 			}
 		}
 	}
-
 	focus = {
 		id = retake_karjala
 		icon = GFX_focus_generic_little_entente
@@ -2341,14 +2313,12 @@ focus_tree = {
 		complete_tooltip = {
 		}
 		completion_reward = {
-			hidden_effect = {
+			FIN = {
 				country_event = {
 					days = 5
 					id = spt_finland.2137
 				}
 			}
-			
-			
 			216 = {
 				if = {
 					add_dynamic_modifier = {
@@ -2418,6 +2388,11 @@ focus_tree = {
 		complete_tooltip = {
 		}
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 3
+				uses = 1
+				category = hospital_tech
+			}
 			add_ideas = fin_crusade_against_communism
 			add_country_leader_role = {
 				character = FIN_carl_mannerheim
@@ -2426,13 +2401,13 @@ focus_tree = {
 					ideology = oligarchism
 					expire = 1965.1.1.1
 					traits = {
-						silver_tongue_no_lar
+						disdain_for_politicians_2
+						man_of_the_nation
 					}
 				}
 			}
 		}
 	}
-
 	focus = {
 		id = FIN_begin_integration_of_karelia
 		icon = GFX_goal_generic_position_armies
@@ -2483,15 +2458,69 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = fin_greater_finland_2
 			remove_ideas = fin_on_our_own
+			remove_ideas = fin_greater_fin_1
 			add_popularity = {
 				ideology = fascism
 				popularity = 0.25
 			}
 		}
 	}
-	
-	
-	
+	focus = {
+		id = finnish_paratroopers
+		icon = GFX_focus_ger_bulwark_against_bolshevism
+		prerequisite = {
+			focus = refugees_2
+			focus = integrate_olensk
+		}
+		prerequisite = {
+			focus = push_south
+		}
+		allow_branch = {
+			has_completed_focus = push_south
+		}
+		x = 2
+		y = 1
+		relative_position_id = refugees_2
+		cost = 70
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			FIN = {
+				country_event = {
+					days = 5
+					id = spt_finland.2137
+				}
+			}
+			add_ideas = fin_paratroopers
+		}
+	}
+	focus = {
+		id = finnish_navy
+		icon = GFX_focus_SWI_spirit_of_saint_bernard
+		prerequisite = {
+			focus = finnish_paratroopers
+		}
+		allow_branch = {
+			has_completed_focus = finnish_paratroopers
+		}
+		cost = 100
+		relative_position_id = finnish_paratroopers
+		x = 0
+		y = 1
+		allow_branch = {
+			has_completed_focus = finnish_paratroopers
+		}
+		completion_reward = {
+		}
+	}
 	# focus = {
 	# 	id = seek_peace
 	# 	icon = GFX_goal_generic_construct_infrastructure
@@ -2585,9 +2614,6 @@ focus_tree = {
 	# 		}
 	# 	}
 	# }
-
-
-
 }
 
 #	focus = {
