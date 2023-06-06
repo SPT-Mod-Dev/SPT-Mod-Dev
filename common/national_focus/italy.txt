@@ -15592,7 +15592,7 @@ focus_tree = {
 		icon = GFX_focus_generic_diplomatic_treaty
 		prerequisite = { focus = ITA_pact_of_steel }
 
-		x = 1
+		x = 5
 		y = 1
 		relative_position_id = ITA_pact_of_steel
 		cost = 5
@@ -15627,17 +15627,17 @@ focus_tree = {
 	}
 
 	focus = {
-		allow_branch = {always = no}
+		allow_branch = {always = yes}
 		
 		id = ITA_request_control_of_french_territories
 		icon = GFX_goal_generic_territory_or_war
 		prerequisite = { focus = ITA_pact_of_steel }
 		prerequisite = { focus = ITA_italian_irredentism }
 		mutually_exclusive = { focus = ITA_war_with_france }
-		x = 0
+		x = 2
 		y = 2
 		relative_position_id = ITA_pact_of_steel
-		cost = 5
+		cost = 2 #SPT change 5 -> 2
 
 		available = {
 			is_puppet = no
@@ -15953,14 +15953,14 @@ focus_tree = {
 		id = ITA_demand_ticino
 		icon = GFX_focus_attack_switzerland
 		prerequisite = { 
-			focus = ITA_war_with_france
+			#focus = ITA_war_with_france #SPT change to remove requirement
 			focus = ITA_request_control_of_french_territories 
 		}
 
-		x = -1
+		x = 0 #SPT change -1 -> 0
 		y = 1
 		relative_position_id = ITA_war_with_france
-		cost = 10
+		cost = 5 #SPT change 10 ->5 
 		available = {
 
 			846 = {
@@ -16057,7 +16057,7 @@ focus_tree = {
 		icon = GFX_focus_generic_attack_greece
 		prerequisite = { focus = ITA_italian_irredentism }
 		mutually_exclusive = { focus = ITA_befriend_greece }
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = ITA_italian_irredentism
 		cost = 5
