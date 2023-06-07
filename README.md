@@ -1,7 +1,312 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.6.0
+### Gerneral
+ - All of axis now affected by mediterranean balance of power
+ - IEA will no longer make your eyes bleed
+ - "Radio Propaganda" and "Utilize Domestic Film Industry" decisions now require higher World Tension values
+ - Added new character Karnov (don't worry about it)
+### Focus tree
 
-### 3.4
+- Japan
+    - Rebalanced focus duration of several japanese focuses
+    - Improved several japanese focus tooltips to better inform players of unique effects
+    - Correct several japanese focuses to no longer spawn factories in Saipan, Iwo Jima, and Kurill Islands
+    - Strike South Doctrine focus no longer requires Greater East-Asian Co-Prosperity Sphere focus
+
+
+    - Supremacy of Will spirit no longer gives Division Attack and Division Defense, instead it gives +5% Org and +4% Reinforce Rate
+    - Challenge The Zaibatsus: stability debuff -15% -> -10%
+    - Zaibatsu Investments spirit Resource Gain Efficiency buff reduced from 15% to 10%
+    - Strike the Indies: Removed escort efficiency
+                         Division speed buff 5% -> 10%
+
+    - Allience With Siam focus now requires NAP with Soviets focus instead of Sign Tripartite Pact
+    - Added Nationalize the Zaibatus focus that allows the Challenge the Zaibatsus spirit to be improved
+    - Added Large Artillery Studies focus: Railway Gun technology and 3 Railway Guns
+
+    - Strike South spirits now have been merged into a single Nanshin Ron spirit
+    - Strike South Branch expanded with new Military and Industry branches
+
+- Soviet Union
+    - Infrastructure effort: Focus duration 70 -> 35
+    - Heavy Industry: Focus duration 70 -> 35
+    - Expand the Aircraft industry: Focus duration 70 -> 35
+    - Foster Flying Club: Focus duration 70 -> 35
+    - Modernize Aircraft facilities: Focus duration 70 -> 35
+    - Women in Aviation: Focus duration: 70 -> 35
+    - Third five year plan: Modifi consumer goods 0.05 -> 0
+
+ - Italy 
+    - Demand Ticino and Request Control of French Territories focuses re-added to allow Italy to gain the states required to form Greater Italy
+
+ - USA 
+    - Selective Training Act: Set base war support 10% -> 0%
+### High command
+
+ - All air mission type high command advisors buffed
+
+ - Gino Verchiella (Canada): Air superiority expert -> Close air support expert
+ - Sándor Magyarossy (Hungary): Air combat training specialist -> Air superiority expert
+ - Vasily Yanchenko (USSR): Removed exile and civil war requiremets 
+ - Nishizo Tsukahara (Japan): Naval strike specialist -> Naval strike expert 
+
+ - Maneuver Warfare: Org loss when moving -0.4 -> -0.3
+                     Army Fuel consumtion 0.1 -> 0
+                     Supply consumtion 0.15 -> 0.1
+                     Supply truck attrition 0.3 -> 0.15
+### Airplane designer
+
+ - All Airframes significantly reduced production cost
+ - All cas modules significantly increased production cost
+
+ - Medium bomb bay: ground attack 3 -> 4
+ - Rocket rails: gound attack 4 -> 6
+ - Guided anti-ship misssile: naval strike attack 8 -> 11
+                              weight 15 -> 12
+                              producion cost 15 -> 11
+ - Non strategic material: production cost modifier -0.075 -> 0.1
+                           air defence -6 -> -4
+ - Rocket engine 1: range modifier -0.9 -> 0.65
+                    reliability 0 -> -0.125
+                    tungsten cost 3 -> 2
+ - Rocket engine 2: range modifier -0.85 -> 0.50
+                    reliability 0 -> -0.075
+                    tungsten cost 3 -> 2
+ - Rocket engine 1: range modifier -0.8 -> 0.35
+                    tungsten cost 3 -> 2
+ - Air-air radar 1: No longer limited to interception
+                    Night time penalty -0.2 -> 0.15
+                    Air attack modifier 0.1
+ - Air-air radar 2: No longer limited to interception
+                    Night time penalty -0.4 -> 0.3
+                    Air attack modifier 0.15
+ - Radio navigation 1 when on naval missions: Surface detection 0 -> 6
+                                              Sub detection 0 -> 4
+ - Radio navigation 2 when on naval missions: Surface detection 0 -> 10
+                                              Sub detection 0 -> 6
+                                              Production cost 1 -> 2
+ - Air-Ground radar 1: Removed all naval bonuses
+                       When on close air support mission: Ground attack 0 -> +10%
+                       When on close recon
+
+ - Air-Ground radar 2: Removed all naval bonuses
+                       When on close air support mission: Ground attack 0 -> +15%
+### Tank designer
+
+ - All light tank chassis: production cost -0.3
+ - Small cannon: soft attack 25 -> 24
+                 steel cost 0 -> 1
+                 build cost 1.5 -> 2
+### Technologies 
+
+ - Moved radio navigation 1: Radio -> Decimetric radar
+ - Moved radio navigation 2: Decimetric radar -> Centimetric Radar
+ - Moved Air-Ground Radar 1: Improved Centimetric Radar -> Centimetric Radar
+ - Rocket engines: year of technology 1944 -> 1943
+ - Improved rocket engines: year of technology 1945 -> 1944
+ - Advanced rocket engines: year of technology 1946 -> 1945
+ - Centimetric Radar: fighter detection 0 -> 0.05
+ - Advanced Centimetric Radar: fighter detection 0 -> 0.05
+### 3.5.2
+ - Added new quotes
+### Rules
+ - Updated rules on paratroopers
+
+### Focus Trees
+ - UK
+     - Hold the imperial conference now requrires "Development in Australia" instead of "Develop New Zealand"
+
+
+### 3.5.1
+### Rules
+ - Clarified win conditions
+ - Only minors nations may ask for tradebacks 
+ - Japan must attack allies before 1942.01.01
+ - USA may now have troops in Raj before the dacca line falls
+ - USA may now join WW2 if Raj looses port to European Axis
+
+### Focus Trees
+- Usa
+   - Updated tooltip in bureau of ships [Now shows correct numbers]
+
+ - Germany
+     - Align Romania: Focus duration 70 -> 35
+     - Align Hungary: Focus duration 70 -> 35
+
+
+### Tank designer
+ - Main armaments
+    - Close support gun: breakthrough 9.5 -> 6
+
+    - Small Cannon 1: soft attack 12.5 -> 17
+                      hard attack 10 -> 11.5
+                      breakthrough 7 -> 4
+                      piercing 30 -> 29
+
+    - Small Cannon 2: soft attack 19 -> 25
+                      hard attack 10 -> 14
+                      breakthrough 9.5 -> 6.5
+                      piercing 30 -> 34
+    
+    - Meduim cannon 1: soft attack 22.5 -> 23.5
+                       hard attack 15 -> 16
+                       piercing 40 -> 44
+
+    - Meduim cannon 2: soft attack 27.5 - > 28.5
+                       hard attack 18 -> 19
+                       piercing 61 -> 67
+
+    - Rocket Artillery 1: soft attack 51 -> 48
+
+    - Rocket Artillery 2 socft attack 64 -> 59.5
+
+    - Basic High-velocity gun: soft attack 12.5 -> 10
+                               hard attack 20 -> 22.5
+    
+    - Improved High-velocity gun: soft attack 15 -> 12
+                                  hard attack 22 -> 25.5
+
+ - Turrets
+    - Heavy two man turret: production cost 4 -> 4.5
+
+    - Heavy three man turret: production cost 5.5 -> 6.5
+
+- Engine
+    - Diesel engine: Fule consumtion 1.5 -> 2.5
+
+### Artillery tech
+ - Moved Small Cannon: Inter-war artillery -> Improved artillery
+
+ - Moved Improved High-velocity gun: Improved Anti-tank upgrade II -> Improved Anti-tank upgrade 
+ 
+### 3.5.0
+### Focus Trees
+- Added NEW reworked Japanese focus tree
+
+- Rearanged some focuses for USA
+    - Added evet "investigation of Mark 14 Torpede" from Bureau of ships [Allow for removal of bureau of ships spirit]
+    - Fund the navy 0 -> 2 dockyards from focus
+
+- Further developed the "learn from the germans" path for Finland
+
+- Fixed issue with Manchukuo factories spawning randomly across the world
+
+### Tank designer
+- locked slots based on tech level
+    - interwar and basic tank chassis will now have two slots locked
+    - improved chassis will now have one slot locked
+    - no slots locked for advanced, modern and super-heavy chassis
+
+- Main armaments
+    - heavy cannon 1: soft attack 31 -> 30
+                      hard attack 25 -> 24
+                      piercing 60 -> 55
+
+    - heavy cannon 2: soft attack `37.5`->`36`
+`                      hard attack 27.5 -> 27
+                      piercing 90 -> 80
+
+    - heavy cannon 3: soft attack 42.5 -> 41
+                      hard attack 37.5 -> 35
+                      piercing 125 -> 108
+
+    - High-velocity gun 1: piercing 90 -> 80
+
+    - High-velocity gun 2: piercing 135 -> 120
+
+    - High-velocity gun 3: piercing 188 -> 162
+   
+    - Medium gun 1: piercing 45 -> 40
+    
+    - Medium gun 2: piercing 68 -> 61
+                   
+- Armour 
+    - Rivided armour: 0 -> -5% reliability
+
+    - Welded armour: 0 -> +5% reliability
+                     +10% -> 7.5% production cost
+
+    - Cast armour: 0 -> +10% reliability 
+                   +20% -> 15% production cost 
+
+- Module balances changes
+    - Diesel engine production cost: 1 -> 1.5 [To bring it in line with gasoline engine]
+
+    - Radio 1 production cost: 0.5 -> 0,75
+
+    - Radio 3 production cost: 2.5 -> 2.25 [To make it scale equaly between modules]
+
+    - Squeeze-bore adaptor: production cost 0 -> 1
+                            hard attack +5% -> +10%
+                            soft attack -0.05% -> -0.1%
+
+    - Armour skirts: breakthrough 2 -> 3
+                     defense 3 -> 4
+                     production cost 2 -> 1.5
+
+### Artillery 
+- Reduced rescource cost for AT
+    - All AT tungsten cost: 2 -> 1 
+
+- Reduced piercing of AA
+    -  Anti Air 2 piercing: 60 -> 50
+    -  Anti-Air 3 piercing: 88 -> 75
+
+### Army spirits
+- Tip of the Spear 
+    - Naval invasion planning 25% -> 15%
+    - Special forces capacity -10% -> 0%
+
+- Proper heritage
+    - cavalry attack 0.3 -> 0.25
+	- cavalry defence 0.3 -> 0.25
+
+- Operational Reserves 
+    - Defence 15% -> 10%
+    - Division HP 25% - 15%
+
+- Aggressive Reconnaisance
+    - initative +25% -> 0%
+    - reinforce rate 0% -> 3%
+    - Supply Consumtion 10% -> 5%
+
+### Navy spirits
+- Bureau of ordnance
+    - Torpedo hit chance -10% -> -25%
+    - Convoy raiding effeiciency 0 -> -25%
+
+### Air spirits
+- Dive Bombing
+    - Naval aircraft reseach speed +25% -> 0 [Used to stack with dive bomber reseach speed]    
+
+- Industry Liasos
+    - Naval aircraft reseach speed +15% -> 0 [Used to stack with light aircraft reseach speed]
+
+### Land doctrine
+
+- Mass - Human wave offensice 
+    - Recritable population 5% -> 2.5
+    - reinforce rate 15% -> 8%
+### 3.4.1
+
+- Reduced the land modifier bonus for each experience level `+25%` -> `20%`
+- Added two new quotes
+- Added two console commands called "SPT_No_Resource_Penalty" and "SPT_Remove_No_Resource_Penalty" that remove resource penalty [So you dont have to trade in playtests so its like you are getting tradebacks]
+
+#### AOI
+- Gave cores on all their own states with the decision to form them
+
+#### Spain
+- Increased time for "Impending Carlist Uprising" mission `316` -> `386`
+
+#### Rules
+- Changed Diplomacy rule 2 to "Military access and docking rights are banned except between Finland and Germany."
+
+#### Finland
+- Added a new post Winter War focus branch
+
+### 3.4.0
 
 -Updated to version 1.12.10
 

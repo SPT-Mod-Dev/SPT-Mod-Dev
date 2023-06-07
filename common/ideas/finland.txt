@@ -18,10 +18,14 @@ fin_martial_law_2 = {
 			
 	name = fin_martial_law_2
 	picture = FRA_scw_intervention_republicans_focus
-
+available = {
+	NOT = {
+		has_war = yes
+	}
+}
 	modifier = {
 		war_support_factor = 0.05
-		stability_factor = -0.10
+		stability_factor = -0.15
 		consumer_goods_factor = -0.05
 	}
 
@@ -31,6 +35,12 @@ fin_civil_order = {
 	
 	name = fin_civil_order
 	picture = generic_democratic_drift_bonus
+
+	available = {
+		NOT = {
+			has_war = yes
+		}
+	}
 
 	modifier = {
 		stability_factor = 0.1
@@ -309,9 +319,9 @@ fin_crusade_against_communism = {
 		defense_bonus_against = 0.1
 	}
 	equipment_bonus = {
-		infantry_equipment = {
-			casualty_trickleback = 0.25
-			experience_loss_factor = 0.25
+		field_hospital = {
+			casualty_trickleback = 0.40
+			experience_loss_factor = 0.35
 		}
 	}
 }
@@ -548,11 +558,11 @@ fin_paratroopers = {
 			traits = { industrial_concern }
 
 			modifier = {
-				industrial_capacity_factory = 0.10
+				industrial_capacity_factory = 0.2
 			
 			}
 			research_bonus = {
-				industry = 0.10
+				industry = 0.15
 			}
 			
 		}
@@ -560,14 +570,14 @@ fin_paratroopers = {
 	}
 	tank_manufacturer = {
 		FIN_tank_manufacturer = {
-			name = Retooled_industry_for_tank_production
+			name = Landsverk
 			picture = porsche
 
 			allowed = {
 				original_tag = FIN
 			}
 			available = {
-				has_completed_focus = FIN_retool_industry_for_armour_prodoction
+				has_completed_focus = Landsverk_L62
 			}
 
 			cost = 150
@@ -576,13 +586,20 @@ fin_paratroopers = {
 
 			}
 			equipment_bonus = {
-				light_tank_chassis = {
+				light_tank_aa_chassis = {
 					build_cost_ic = -0.1
+					breakthrough = 0.75
+					soft_attack = 0.45
+					hard_attack = 0.50
 				}
-				medium_tank_chassis = {
-					build_cost_ic = -0.1
+				medium_tank_aa_chassis = {
+					build_cost_ic = -0.15
+					breakthrough = 0.65
+					soft_attack = 0.30
+					hard_attack = 0.30
 				}
 			}
+			traits = { tank_manufacturer }
 
 			research_bonus = {
 				armor = 0.15
