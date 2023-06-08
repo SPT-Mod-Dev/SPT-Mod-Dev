@@ -1,0 +1,126 @@
+add_namespace = spt_mongolia
+
+##### GREAT PURGE - opt 1 governement controll opt 2 moscow control
+
+country_event = { #genden returns
+	id = spt_mongolia.1
+	title = spt_mongolia.1.t
+	desc = spt_mongolia.1.desc
+	timeout = 30
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = spt_mongolia.1.a
+		add_country_leader_trait = figurehead_president
+		remove_country_leader_trait = the_absentee_president
+		country_event = {
+			id = spt_mongolia.2
+			days = 23
+		}
+		add_ideas = mon_low_gov_cont
+		add_ideas = mon_crackdown_on_religion
+	}
+}
+country_event = { #military purges
+	id = spt_mongolia.2
+	title = spt_mongolia.2.t
+	desc = spt_mongolia.2.desc
+	timeout = 30
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = spt_mongolia.2.a
+		country_event = {
+			id = spt_mongolia.3
+			days = 23
+		}
+		MON_gov_higher = yes
+	}
+	option = {
+		name = spt_mongolia.2.b
+		country_event = {
+			id = spt_mongolia.3
+			days = 23
+		}
+		MON_gov_lower = yes
+	}
+}
+country_event = { #religous purges
+	id = spt_mongolia.3
+	title = spt_mongolia.3.t
+	desc = spt_mongolia.3.desc
+	timeout = 30
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = spt_mongolia.3.a
+		country_event = {
+			id = spt_mongolia.4
+			days = 23
+		}
+		MON_gov_higher = yes
+	}
+	option = {
+		name = spt_mongolia.3.b
+		country_event = {
+			id = spt_mongolia.4
+			days = 23
+		}
+		MON_gov_lower = yes
+	}
+}
+country_event = {
+	id = spt_mongolia.4 #deal with genden
+	title = spt_mongolia.4.t
+	desc = spt_mongolia.4.desc
+	timeout = 30
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = spt_mongolia.4.a
+		MON_gov_higher = yes
+	}
+	option = {
+		name = spt_mongolia.4.b
+		MON_gov_lower = yes
+	}
+}
+country_event = { #center wins
+	id = spt_mongolia.5
+	title = spt_mongolia.5.t
+	desc = spt_mongolia.5.desc
+	timeout = 30
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = spt_mongolia.5.a
+	}
+	option = {
+		name = spt_mongolia.5.b
+	}
+}
+country_event = { #party survives
+	id = spt_mongolia.6
+	title = spt_mongolia.6.t
+	desc = spt_mongolia.6.desc
+	timeout = 30
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = spt_mongolia.7.a
+	}
+	option = {
+		name = spt_mongolia.7.b
+	}
+}
