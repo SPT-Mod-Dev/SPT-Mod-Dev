@@ -19,7 +19,6 @@ country_event = { #genden returns
 			days = 23
 		}
 		add_ideas = mon_low_gov_cont
-		add_ideas = mon_crackdown_on_religion
 	}
 }
 country_event = { #military purges
@@ -38,6 +37,12 @@ country_event = { #military purges
 			days = 23
 		}
 		MON_gov_higher = yes
+		add_stability = -0.05
+		add_war_support = -0.05
+		add_popularity = {
+			ideology = communism
+			popularity = -0.10
+		}
 	}
 	option = {
 		name = spt_mongolia.2.b
@@ -46,6 +51,18 @@ country_event = { #military purges
 			days = 23
 		}
 		MON_gov_lower = yes
+
+		330 = {
+			add_manpower = -12500
+		}
+		820 = {
+			add_manpower = -12500
+		}
+
+		add_timed_idea = {
+			idea = mon_military_purge
+			days = 365
+		}
 	}
 }
 country_event = { #religous purges
@@ -64,6 +81,12 @@ country_event = { #religous purges
 			days = 23
 		}
 		MON_gov_higher = yes
+		add_stability = -0.05
+		add_war_support = -0.05
+		add_popularity = {
+			ideology = communism
+			popularity = -0.10
+		}
 	}
 	option = {
 		name = spt_mongolia.3.b
@@ -72,6 +95,18 @@ country_event = { #religous purges
 			days = 23
 		}
 		MON_gov_lower = yes
+
+		330 = {
+			add_manpower = -12500
+		}
+		820 = {
+			add_manpower = -12500
+		}
+		818 = {
+			add_manpower = -12500
+		}
+
+		add_ideas = mon_crackdown_on_religion
 	}
 }
 country_event = {
@@ -86,10 +121,47 @@ country_event = {
 	option = {
 		name = spt_mongolia.4.a
 		MON_gov_higher = yes
+		add_ideas = mon_genden_purge_alive
+		add_stability = 0.05
+		add_popularity = {
+			ideology = communism
+			popularity = -0.10
+		}
+
+		add_country_leader_role = {
+			character = MON_anandyn_amar
+			promote_leader = yes
+			country_leader = {
+				expire= 1965.1.1.1
+				ideology= marxism
+				traits = { 
+					popular_figurehead2 
+				}
+			}
+		}
+
 	}
 	option = {
 		name = spt_mongolia.4.b
 		MON_gov_lower = yes
+		add_ideas = mon_genden_purge_dead
+		add_stability = -0.05
+		add_manpower = -1
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = -1
+		}
+
+		add_country_leader_role = {
+			character = MON_anandyn_amar
+			promote_leader = yes
+			country_leader = {
+				expire= 1965.1.1.1
+				ideology= leninism
+				traits = { popular_figurehead2 }
+			}
+		}
+
 	}
 }
 country_event = { #center wins
@@ -103,9 +175,11 @@ country_event = { #center wins
 
 	option = {
 		name = spt_mongolia.5.a
-	}
-	option = {
-		name = spt_mongolia.5.b
+		add_timed_idea = {
+			idea = mon_center_wins
+			days = 360
+		}
+		add_stability = 0.1
 	}
 }
 country_event = { #party survives
@@ -117,10 +191,10 @@ country_event = { #party survives
 	
 	fire_only_once = yes
 
-	option = {
+	option = { #left prevails
 		name = spt_mongolia.7.a
 	}
-	option = {
+	option = { #nationalists
 		name = spt_mongolia.7.b
 	}
 }
