@@ -987,7 +987,6 @@ ideas = {
 		}
 		
 		home_of_the_free = {
-			
 			allowed = {
 				always = no
 			}
@@ -1008,6 +1007,7 @@ ideas = {
 				drift_defence_factor = 0.2
 				ai_badass_factor = 0.03 # cares for 3% of normal threat
 				ai_desired_divisions_factor = 0.5 
+				economy_cost_factor = 20.0 #SPT change, added to prevent players from swapping eco laws freely
 			}
 		}
 
@@ -1201,8 +1201,353 @@ ideas = {
 				conscription_factor = 0.25
 			}			
 		}
-	
+
+		SPT_USA_the_home_front_1 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				
+			}
+			
+			removal_cost = -1
+
+			picture = SOV_third_five_year_plan_military
+			
+			modifier = {
+				production_speed_arms_factory_factor = 0.1
+			}
+		}
+		SPT_USA_the_home_front_2 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				
+			}
+			
+			removal_cost = -1
+
+			picture = SOV_third_five_year_plan_military
+			
+			modifier = {
+				production_speed_arms_factory_factor = 0.1
+				consumer_goods_factor = -0.05
+			}
+		}
+		SPT_USA_the_home_front_3 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				
+			}
+			
+			removal_cost = -1
+
+			picture = SOV_third_five_year_plan_military
+			
+			modifier = {
+				production_speed_arms_factory_factor = 0.1
+				consumer_goods_factor = -0.05
+				production_factory_max_efficiency_factor = 0.1
+				global_building_slots_factor = 0.2
+			}
+		}
+		SPT_USA_the_home_front_4 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				
+			}
+			
+			removal_cost = -1
+
+			picture = SOV_third_five_year_plan_military
+			
+			modifier = {
+				production_speed_arms_factory_factor = 0.1
+				consumer_goods_factor = -0.05
+				production_factory_max_efficiency_factor = 0.1
+				global_building_slots_factor = 0.2
+				production_factory_efficiency_gain_factor = 0.1
+				defensive_war_stability_factor = 0.2
+			}
+		}
+		SPT_USA_the_home_front_5 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				
+			}
+			
+			removal_cost = -1
+
+			picture = SOV_third_five_year_plan_military
+			
+			modifier = {
+				production_speed_arms_factory_factor = 0.1
+				consumer_goods_factor = -0.05
+				production_factory_max_efficiency_factor = 0.1
+				global_building_slots_factor = 0.2
+				production_factory_efficiency_gain_factor = 0.1
+				defensive_war_stability_factor = 0.2
+			}
+			equipment_bonus = {
+				support_equipment = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+			}
+			equipment_bonus = {
+				motorized_equipment = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				train_equipment = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+			}
+			equipment_bonus = {
+				infantry_equipment = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+			}
+		}
+		
+		SPT_USA_torch_of_liberty = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				
+			}
+			
+			removal_cost = -1
+
+			picture = generic_democratic_drift_bonus
+
+			modifier = {
+				weekly_manpower = 500
+				research_speed_factor = 0.05
+			}
+		}
+		SPT_USA_lend_lease_expanded = {
+			picture = generic_production_bonus
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				lend_lease_tension = -1
+				join_faction_tension = 0.25
+				send_volunteers_tension = 0.5
+				guarantee_tension = 0.5
+				embargo_threshold_factor = 1.5
+				license_purchase_cost = -1.0
+				license_tech_difference_speed = 0.25
+			}
+		}
+		SPT_USA_allied_aid = {
+			picture = generic_economic_increase
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_buildings_factor = 0.05
+				consumer_goods_factor = -0.05
+				production_factory_max_efficiency_factor = 0.075
+				production_factory_efficiency_gain_factor = 0.075
+			}
+		}
+		SPT_USA_aid_payment_brit = { #ginger i swear to god if you complain about the aid payment spirits, you wont ever again see the light of day
+			picture = generic_foreign_capital
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.04
+			}
+		}
+		SPT_USA_aid_payment_pacific = {
+			picture = generic_foreign_capital
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.04
+			}
+		}
+		SPT_USA_aid_payment_raj = {
+			picture = generic_foreign_capital
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.04
+			}
+		}
+		SPT_USA_aid_payment_amex = {
+			picture = generic_foreign_capital
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.04
+			}
+		}
+		SPT_USA_aid_payment_africa = {
+			picture = generic_foreign_capital
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.04
+			}
+		}
+		SPT_USA_aid_payment_sov = {
+			picture = generic_foreign_capital
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.04
+			}
+		}
+		SPT_USA_aid_payment_fra = {
+			picture = generic_foreign_capital
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.04
+			}
+		}
+		SPT_USA_USACE_help_europe = {
+			picture = generic_build_infrastructure
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_infrastructure_factor = 0.2
+				production_speed_rail_way_factor = 1.0
+				production_speed_supply_node_factor = 1.0
+			}
+		}
+		SPT_USA_dust_bowl_relief = {
+			picture = ast_all_in
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = -0.05
+				stability_factor = 0.1
+			}
+		}
+		SPT_USA_timed_relief = {
+			picture = generic_foreign_capital
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = -0.075
+			}
+		}
 	}
+	
 
 
 	tank_manufacturer = { 
