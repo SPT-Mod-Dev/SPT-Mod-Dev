@@ -1,0 +1,146 @@
+#cum to brazil
+focus_tree = {
+	id = SPT_manchukuo_focus
+	
+	country = {
+		factor = 0
+		modifier = {
+			add = 100
+			tag = BRA
+			
+		}
+	}
+	
+
+	default = no
+
+	continuous_focus_position = { x = 20 y = 1600 }
+
+	focus = {
+        id = SPT_BRA_Recovery_From_Coffee_Crash
+        icon = GFX_focus_generic_land_reclamation
+        x = 10
+        y = 0
+        cost = 10
+
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+
+        available_if_capitulated = yes
+
+        completion_reward = {
+            #maybe add some building slots to Minas Gerais?
+            #maybe civs / building bonus?
+        }
+
+	}
+	focus = {
+        id = SPT_BRA_National_Developmentalism
+        icon = GFX_focus_generic_railroad
+        x = 0
+        y = 1
+        cost = 10
+		
+		prerequisite={focus=SPT_BRA_Recovery_From_Coffee_Crash}
+		relative_position_id=SPT_BRA_Recovery_From_Coffee_Crash
+
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+
+        available_if_capitulated = yes
+
+        completion_reward = {
+            #kinda depends off of what "Coffee" gives, this'll most likely be build bonus
+        }
+    }
+    focus = {
+        id = SPT_BRA_Companhia_Siderúrgica_Nacional
+        icon = GFX_goal_generic_construct_civ_factory
+        x = -1
+        y = 1
+        cost = 10
+		
+		prerequisite={focus=SPT_BRA_National_Developmentalism}
+		relative_position_id=SPT_BRA_National_Developmentalism
+
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+
+        available_if_capitulated = yes
+
+        completion_reward = {
+            #Some steel, a few civs, because CSN is the largest Steel mill in SA
+        }
+    }
+    focus = {
+        id = SPT_BRA_...
+        icon = GFX_goal_generic_construct_civilian
+        x = 0
+        y = 1
+        cost = 10
+		
+		prerequisite={focus=SPT_BRA_Companhia_Siderúrgica_Nacional}
+		relative_position_id=SPT_BRA_Companhia_Siderúrgica_Nacional
+
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+
+        available_if_capitulated = yes
+
+        completion_reward = {
+            
+        }
+    }
+    focus = {
+        id = SPT_BRA_Industrial_Initiatives
+        icon = GFX_focus_spa_the_spanish_miracle
+        x = 1
+        y = 1
+        cost = 10
+		
+        #ill figure out how to make this focus block the rural path later, unless it shouldnt
+		prerequisite={focus=SPT_BRA_National_Developmentalism}
+		relative_position_id=SPT_BRA_National_Developmentalism
+
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+
+        available_if_capitulated = yes
+
+        completion_reward = {
+            #1-4 factories, maybe a bonus to something industrial?
+        }
+    }
+    focus = {
+        id = SPT_BRA_Import_Substitution 
+        icon = GFX_goal_generic_demand_territory
+        x = 0
+        y = 1
+        cost = 10
+		
+		prerequisite={focus=SPT_BRA_Industrial_Initiatives}
+		relative_position_id=SPT_BRA_Industrial_Initiatives
+
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+
+        available_if_capitulated = yes
+
+        completion_reward = {
+            #materials or civs?
+        }
+    }
+    focus = {
+        id = SPT_BRA_Fábrica_Nacional_de_Motores 
+        icon = GFX_focus_generic_improve_roads
+        x = 0
+        y = 1
+        cost = 10
+		
+		prerequisite={focus=SPT_BRA_Import_Substitution}
+		relative_position_id=SPT_BRA_Import_Substitution 
+
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+
+        available_if_capitulated = yes
+
+        completion_reward = {
+            #Mils, cause its a govt company, which made automobiles starting in 1942, could be in a "military tree"
+        }
+    }
+}
+
