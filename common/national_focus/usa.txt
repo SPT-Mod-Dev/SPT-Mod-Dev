@@ -63,7 +63,7 @@ focus_tree = {
 	focus = {
 		id = USA_continue_the_new_deal
 		icon = GFX_focus_generic_self_management
-		x = 5
+		x = 8
 		y = 0
 		offset = {
 			x = 0
@@ -1285,7 +1285,7 @@ focus_tree = {
 			focus = USA_continue_the_new_deal
 		}
 		relative_position_id = USA_continue_the_new_deal
-		x = -2
+		x = -4
 		y = 1
 		cost = 10
 		#ai_will_do = {
@@ -1668,7 +1668,7 @@ focus_tree = {
 	focus = {
 		id = USA_neutrality_act
 		icon = GFX_goal_generic_neutrality_focus
-		x = 10
+		x = 6
 		y = 1
 		prerequisite = {
 			focus = USA_continue_the_new_deal
@@ -2020,7 +2020,7 @@ focus_tree = {
 			focus = USA_military_construction
 		}
 		x = 0
-		y = 1
+		y = 2
 		relative_position_id = USA_scientist_haven
 		cost = 10
 		#ai_will_do = {
@@ -2671,7 +2671,7 @@ focus_tree = {
 			democratic > 0.95
 			OR = {
 				USA = { surrender_progress > 0.05 }
-				ENG = { surrender_progress > 0.25 }
+				ENG = { surrender_progress > 0.5 }
 			}
 		}
 		completion_reward = {
@@ -3253,7 +3253,7 @@ focus_tree = {
 		icon = GFX_focus_POL_develop_polish_shipbuilding
 		prerequisite = { focus = USA_agricultural_adjustment_act }
 		mutually_exclusive = {	focus = SPT_USA_develop_interior }
-		x = -2
+		x = -1
 		y = 1
 		relative_position_id = USA_agricultural_adjustment_act
 
@@ -3294,7 +3294,7 @@ focus_tree = {
 		icon = GFX_focus_generic_railroad
 		prerequisite = { focus = USA_agricultural_adjustment_act }
 		mutually_exclusive = {	focus = SPT_USA_develop_coast }
-		x = 2
+		x = 1
 		y = 1
 		relative_position_id = USA_agricultural_adjustment_act
 
@@ -3334,7 +3334,7 @@ focus_tree = {
 		id = SPT_USA_civilian_conservation_corps
 		icon = GFX_focus_generic_land_reclamation
 		prerequisite = { focus = SPT_USA_develop_interior}
-		x = 0
+		x = 1
 		y = 2
 		relative_position_id = SPT_USA_develop_interior
 
@@ -3363,11 +3363,11 @@ focus_tree = {
 		id = SPT_USA_national_youth_administration
 		icon = GFX_focus_generic_industry_2
 		prerequisite = { focus = SPT_USA_develop_coast}
-		x = 0
+		x = -1
 		y = 2
 		relative_position_id = SPT_USA_develop_coast
 
-		cost = 3
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -3385,18 +3385,6 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			random_owned_controlled_state = {
-				limit = {
-					is_core_of = ROOT
-					is_coastal = yes
-				}
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT
@@ -3440,7 +3428,7 @@ focus_tree = {
 		id = SPT_USA_public_works
 		icon = GFX_focus_generic_improve_roads
 		prerequisite = { focus = SPT_USA_develop_coast focus = SPT_USA_develop_interior }
-		x = 2
+		x = 1
 		y = 1
 		relative_position_id = SPT_USA_develop_coast
 
@@ -3531,7 +3519,7 @@ focus_tree = {
 	focus = {
 		id = USA_fair_labour_standards_act
 		icon = GFX_focus_eng_concessions_to_the_trade_unions
-		x = 2
+		x = 1
 		y = 3
 		prerequisite = {
 			focus = SPT_USA_national_youth_administration
@@ -3581,15 +3569,177 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = SPT_USA_subsidies_for_farms
+		icon = GFX_focus_ITA_grande_rivolta_rurale
+		prerequisite = { focus = SPT_USA_civilian_conservation_corps }
+		prerequisite = { focus = USA_fair_labour_standards_act }
+		mutually_exclusive = { focus = SPT_USA_develop_internal_resources }
+		x = -1
+		y = 2
+		relative_position_id = SPT_USA_civilian_conservation_corps
+
+		cost = 3
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SPT_USA_dust_bowl_relief
+				add_idea = SPT_USA_farmer_subsidies
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_USA_subsidise_naval
+		icon = GFX_focus_generic_coastal_fort
+		prerequisite = { focus = SPT_USA_national_youth_administration }
+		prerequisite = { focus = USA_fair_labour_standards_act }
+		mutually_exclusive = { focus = SPT_USA_subsidise_military }
+		x = 1
+		y = 2
+		relative_position_id = SPT_USA_national_youth_administration
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_ideas = SPT_USA_subsidies_for_docks
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_USA_subsidise_military
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = SPT_USA_national_youth_administration }
+		prerequisite = { focus = USA_fair_labour_standards_act }
+		mutually_exclusive = { focus = SPT_USA_subsidise_naval }
+		x = -1
+		y = 2
+		relative_position_id = SPT_USA_national_youth_administration
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_ideas = SPT_USA_subsidies_for_mils
+		}
+	}
+	focus = {
+		id = SPT_USA_develop_internal_resources
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = SPT_USA_civilian_conservation_corps }
+		prerequisite = { focus = USA_fair_labour_standards_act }
+		mutually_exclusive = { focus = SPT_USA_subsidies_for_farms }
+		x = 1
+		y = 2
+		relative_position_id = SPT_USA_civilian_conservation_corps
+
+		cost = 3
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SPT_USA_dust_bowl_relief
+				add_idea = SPT_USA_developing_resources
+			}
+		}
+	}
+	focus = {
 		id = USA_federal_housing_act
 		icon = GFX_goal_generic_construct_civilian
 		x = 0
-		y = 1
+		y = 2
 		prerequisite = {
 			focus = USA_fair_labour_standards_act
 		}
+		#SPT change to make new focuses required for federal housing act
+		prerequisite = {
+			focus = SPT_USA_subsidies_for_farms
+			focus = SPT_USA_develop_internal_resources
+			focus = SPT_USA_subsidise_naval
+			focus = SPT_USA_subsidise_military
+		}
 		relative_position_id = USA_fair_labour_standards_act
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -3694,6 +3844,94 @@ focus_tree = {
 					}
 					add_extra_state_shared_building_slots = 1
 					set_state_flag = USA_federal_housing_act
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_USA_booming_coast
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = USA_federal_housing_act }
+		prerequisite = {
+			focus = SPT_USA_subsidise_naval
+			focus = SPT_USA_subsidise_military
+		}
+		x = -2
+		y = 1
+		relative_position_id = USA_federal_housing_act
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = {
+					modifier = SPT_USA_booming_coast_economy
+					scope = USA
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_USA_booming_interior
+		icon = GFX_focus_mex_privatisation
+		prerequisite = { focus = USA_federal_housing_act }
+		prerequisite = {
+			focus = SPT_USA_subsidies_for_farms
+			focus = SPT_USA_develop_internal_resources
+		}
+		x = 2
+		y = 1
+		relative_position_id = USA_federal_housing_act
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					is_coastal = no
+				}
+				add_extra_state_shared_building_slots = 1
+				add_dynamic_modifier = {
+					modifier = SPT_USA_booming_interior_economy
+					scope = USA
 				}
 			}
 		}
