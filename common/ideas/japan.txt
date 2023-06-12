@@ -219,9 +219,13 @@ ideas = {
 			picture = jap_zaibatsu_control
 			
 			modifier = {
-				production_speed_industrial_complex_factor = 0.05
-				production_speed_arms_factory_factor = 0.05
-				production_speed_dockyard_factor = 0.05
+				#SPT change, rebalanced to become an upgrade to JAP_zaibatsus_challenged
+				stability_factor = -0.1
+				production_speed_industrial_complex_factor = 0.125
+				production_speed_arms_factory_factor = 0.125
+				production_speed_dockyard_factor = 0.15
+				production_factory_max_efficiency_factor = 0.1
+				production_factory_efficiency_gain_factor = -0.1
 			}
 		}
 
@@ -292,10 +296,10 @@ ideas = {
 			
 			modifier = {
 				#SPT change, rebalanced for more construction speed,less consumer goods, and more stability loss
-				stability_factor = -0.15
+				stability_factor = -0.1
 				production_speed_industrial_complex_factor = 0.125
 				production_speed_arms_factory_factor = 0.125
-				production_speed_dockyard_factor = 0.125
+				production_speed_dockyard_factor = 0.15
 				consumer_goods_factor = 0.025
 			}
 		}
@@ -707,8 +711,10 @@ ideas = {
 			
 			modifier = {
 				#SPT change reduced all effects by half
-				army_defence_factor = 0.05
-				army_attack_factor = 0.05
+				#army_defence_factor = 0.05
+				land_reinforce_rate = 0.04 #added reinforce rate buff
+				army_org_Factor = 0.05 #added org buff
+				#army_attack_factor = 0.05
 				army_morale_factor = 0.05
 			}
 		}
@@ -1345,6 +1351,7 @@ ideas = {
 			modifier = {
 				army_speed_factor = 0.05
 				no_supply_grace = 48
+				convoy_escort_efficiency = 0.1
 			}
 
 		}
@@ -1396,7 +1403,7 @@ ideas = {
 
 			modifier = {
 				naval_invasion_planning_bonus_speed = 0.2
-				special_forces_attack_factor = 0.1
+				special_forces_attack_factor = 0.05
 			}
 		}
 
@@ -1452,7 +1459,7 @@ ideas = {
 			picture = generic_women_in_the_army
 			removal_cost = -1
 			modifier = {
-				party_popularity_stability_factor = 0.075
+				party_popularity_stability_factor = 0.1
 				enemy_operative_detection_chance_factor = 0.05
 			}
 		}
@@ -1468,7 +1475,7 @@ ideas = {
 			picture = generic_women_in_the_army
 			removal_cost = -1
 			modifier = {
-				party_popularity_stability_factor = 0.075
+				party_popularity_stability_factor = 0.1
 				enemy_operative_detection_chance_factor = 0.05
 				conscription_factor = 0.05
 				army_bonus_air_superiority_factor = 0.05
@@ -1510,7 +1517,11 @@ ideas = {
 				small_plane_airframe = {
 					build_cost_ic = -0.2 instant = yes
 				}
+				cv_small_plane_airframe = {
+					build_cost_ic = -0.2 instant = yes
+				}
 			}
+			
 		}
 
 		JAP_cheap_arty = {
@@ -1586,9 +1597,10 @@ ideas = {
 			picture = jap_supremacy_of_will
 			
 			modifier = {
-				army_defence_factor = 0.05
-				army_attack_factor = 0.1
-				army_morale_factor = 0.1
+				#army_defence_factor = 0.05
+				land_reinforce_rate = 0.04
+				army_org_Factor = 0.05
+				army_morale_factor = 0.15
 				weekly_casualties_war_support = 0.001
 			}
 		}
@@ -1670,7 +1682,7 @@ ideas = {
 
 			modifier = {
 				non_core_manpower = -0.1
-				local_resources_factor = 0.15
+				local_resources_factor = 0.10
 			}
 		}
 
@@ -1688,9 +1700,61 @@ ideas = {
 
 			modifier = {
 				non_core_manpower = -0.15
-				local_resources_factor = 0.15
-				production_speed_buildings_factor = 0.075
+				local_resources_factor = 0.10
+				production_speed_infrastructure_factor = 0.1
+				production_speed_rail_way_factor = 0.3
 				industrial_capacity_factory = 0.05
+			}
+		}
+
+		SPT_JAP_rapid_arms_dev = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no	
+			}
+
+			removal_cost = -1
+
+			picture = generic_foreign_capital
+
+			modifier = {
+				production_speed_arms_factory_factor = 0.4
+			}
+		}
+
+		SPT_JAP_quick_retool = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no	
+			}
+
+			removal_cost = -1
+
+			picture = generic_foreign_capital
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.3
+				production_factory_max_efficiency_factor = 0.15
+			}
+		}
+
+		SPT_JAP_factory_mobi = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no	
+			}
+
+			removal_cost = -1
+
+			picture = generic_foreign_capital
+
+			modifier = {
+				industrial_capacity_factory = 0.3
 			}
 		}
 		
