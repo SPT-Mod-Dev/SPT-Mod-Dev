@@ -63,7 +63,7 @@ focus_tree = {
 	focus = {
 		id = USA_continue_the_new_deal
 		icon = GFX_focus_generic_self_management
-		x = 8
+		x = 7
 		y = 0
 		offset = {
 			x = 0
@@ -1285,7 +1285,7 @@ focus_tree = {
 			focus = USA_continue_the_new_deal
 		}
 		relative_position_id = USA_continue_the_new_deal
-		x = -4
+		x = -3
 		y = 1
 		cost = 10
 		#ai_will_do = {
@@ -1302,7 +1302,7 @@ focus_tree = {
 	focus = {
 		id = USA_office_of_scientific_research_and_development
 		icon = GFX_focus_research
-		x = -1
+		x = -2
 		y = 1
 		prerequisite = {
 			focus = USA_wpa
@@ -1334,7 +1334,7 @@ focus_tree = {
 		}
 		available = {
 		}
-		x = -1
+		x = -2
 		y = 2
 		relative_position_id = USA_wpa
 		cost = 10
@@ -1668,7 +1668,7 @@ focus_tree = {
 	focus = {
 		id = USA_neutrality_act
 		icon = GFX_goal_generic_neutrality_focus
-		x = 6
+		x = 5
 		y = 1
 		prerequisite = {
 			focus = USA_continue_the_new_deal
@@ -2138,7 +2138,6 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			add_ideas = extensive_conscription
 		}
 		search_filters = {
 			FOCUS_FILTER_INDUSTRY
@@ -2214,6 +2213,8 @@ focus_tree = {
 			air_experience = 50
 			navy_experience = 50
 			army_experience = 10
+
+			custom_effect_tooltip = SPT_USA_recession_usace_help_decision_tt
 		}
 	}
 
@@ -3203,7 +3204,7 @@ focus_tree = {
 	focus = {
 		id = USA_agricultural_adjustment_act
 		icon = GFX_goal_generic_consumer_goods
-		x = 4
+		x = 2
 		y = 1
 		prerequisite = {
 			focus = USA_wpa
@@ -3358,6 +3359,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			add_ideas = SPT_USA_dust_bowl_relief
+			custom_effect_tooltip = SPT_USA_recession_30_remove_from_focus_tt
 		}
 	}
 	focus = {
@@ -3422,6 +3424,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			custom_effect_tooltip = SPT_USA_recession_30_remove_from_focus_tt
 		}
 	}
 
@@ -3483,6 +3486,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			custom_effect_tooltip = SPT_USA_recession_60_remove_from_focus_tt
 		}
 	}
 	focus = {
@@ -3569,6 +3573,7 @@ focus_tree = {
 				remove_idea = SPT_USA_dust_bowl_relief
 				add_idea = SPT_USA_farmer_subsidies
 			}
+			custom_effect_tooltip = SPT_USA_recession_60_remove_from_focus_tt
 		}
 	}
 
@@ -3625,6 +3630,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			custom_effect_tooltip = SPT_USA_recession_60_remove_from_focus_tt
 		}
 	}
 	focus = {
@@ -3656,6 +3662,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			add_ideas = SPT_USA_subsidies_for_mils
+			custom_effect_tooltip = SPT_USA_recession_60_remove_from_focus_tt
 		}
 	}
 	focus = {
@@ -3690,6 +3697,7 @@ focus_tree = {
 				remove_idea = SPT_USA_dust_bowl_relief
 				add_idea = SPT_USA_developing_resources
 			}
+			custom_effect_tooltip = SPT_USA_recession_60_remove_from_focus_tt
 		}
 	}
 	focus = {
@@ -5736,7 +5744,7 @@ focus_tree = {
 	focus = {
 		id = USA_war_plans_division
 		icon = GFX_goal_generic_position_armies
-		x = 30
+		x = 28
 		y = 0
 		offset = {
 			x = 0
@@ -6150,7 +6158,7 @@ focus_tree = {
 	focus = {
 		id = USA_war_plan_silver
 		icon = GFX_focus_attack_italy
-		x = -1
+		x = -4
 		y = 1
 		prerequisite = {
 			focus = USA_intervention_in_europe
@@ -6171,7 +6179,7 @@ focus_tree = {
 		available_if_capitulated = no
 		completion_reward = {
 			unlock_decision_tooltip = {
-				decision = USA_execute_war_plan_silver
+				decision = SPT_USA_execute_war_plan_silver
 				show_effect_tooltip = yes
 				show_modifiers = yes
 			}
@@ -6188,7 +6196,7 @@ focus_tree = {
 		continue_if_invalid = yes
 		available_if_capitulated = yes
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = USA_intervention_in_europe
 		cost = 10
 		#ai_will_do = {
@@ -6268,7 +6276,7 @@ focus_tree = {
 				exists = no
 			}
 		}
-		x = 0
+		x = -2
 		y = 1
 		relative_position_id = USA_war_plan_black
 		cost = 10
@@ -6496,7 +6504,7 @@ focus_tree = {
 				}
 			}
 			unlock_decision_tooltip = {
-				decision = USA_execute_war_plan_orange
+				decision = SPT_USA_execute_war_plan_orange #SPT change to use custom War Plans Decisions
 				show_effect_tooltip = yes
 				show_modifiers = yes
 			}
@@ -6548,7 +6556,7 @@ focus_tree = {
 			}
 		}
 		will_lead_to_war_with = JAP
-		x = 0
+		x = 2
 		y = 2
 		relative_position_id = USA_intervention_in_asia
 		cost = 10
@@ -6633,6 +6641,274 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = {
+		id = SPT_USA_island_warfare
+		icon = GFX_focus_generic_coastal_fort
+		prerequisite = {
+			focus = USA_war_plan_orange
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SPT_USA_war_plan_orange_used_tt		
+				not = { has_idea = SPT_USA_war_plan_orange_used }	
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = USA_war_plan_orange
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SPT_USA_war_plan_orange_spirit_1
+				add_idea = SPT_USA_war_plan_orange_spirit_2
+			}
+			hidden_effect = {
+				remove_ideas = SPT_USA_war_plan_orange_spirit_2
+			}
+		}
+	}
+	focus = {
+		id = SPT_USA_carrier_cover
+		icon = GFX_goal_generic_navy_carrier
+		prerequisite = {
+			focus = SPT_USA_island_warfare
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SPT_USA_war_plan_orange_used_tt		
+				not = { has_idea = SPT_USA_war_plan_orange_used }	
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = SPT_USA_island_warfare
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SPT_USA_war_plan_orange_spirit_2
+				add_idea = SPT_USA_war_plan_orange_spirit_3
+			}
+			hidden_effect = {
+				remove_ideas = SPT_USA_war_plan_orange_spirit_3
+			}
+		}
+	}
+	focus = {
+		id = SPT_USA_invasion_support
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = {
+			focus = SPT_USA_carrier_cover
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SPT_USA_war_plan_orange_used_tt		
+				not = { has_idea = SPT_USA_war_plan_orange_used }	
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = SPT_USA_carrier_cover
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SPT_USA_war_plan_orange_spirit_3
+				add_idea = SPT_USA_war_plan_orange_spirit_4
+			}
+			hidden_effect = {
+				remove_ideas = SPT_USA_war_plan_orange_spirit_4
+			}
+		}
+	}
+	focus = {
+		id = SPT_USA_war_plan_orange_completed
+		icon = GFX_goal_generic_wolf_pack
+		prerequisite = {
+			focus = SPT_USA_invasion_support
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SPT_USA_war_plan_orange_used_tt		
+				not = { has_idea = SPT_USA_war_plan_orange_used }	
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = SPT_USA_invasion_support
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SPT_USA_war_plan_orange_spirit_4
+				add_idea = SPT_USA_war_plan_orange_spirit_5
+			}
+			hidden_effect = {
+				remove_ideas = SPT_USA_war_plan_orange_spirit_5
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_USA_mountain_warfare
+		icon = GFX_goal_generic_military_sphere
+		prerequisite = {
+			focus = USA_war_plan_silver
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SPT_USA_war_plan_silver_used_tt		
+				not = { has_idea = SPT_USA_war_plan_silver_used }	
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = USA_war_plan_silver
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SPT_USA_war_plan_silver_spirit_1
+				add_idea = SPT_USA_war_plan_silver_spirit_2
+			}
+			hidden_effect = {
+				remove_ideas = SPT_USA_war_plan_silver_spirit_2
+			}
+		}
+	}
+	focus = {
+		id = SPT_USA_keep_up_the_pace
+		icon = GFX_focus_prc_infiltration
+		prerequisite = {
+			focus = SPT_USA_mountain_warfare
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SPT_USA_war_plan_silver_used_tt		
+				not = { has_idea = SPT_USA_war_plan_silver_used }	
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = SPT_USA_mountain_warfare
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SPT_USA_war_plan_silver_spirit_2
+				add_idea = SPT_USA_war_plan_silver_spirit_3
+			}
+			hidden_effect = {
+				remove_ideas = SPT_USA_war_plan_silver_spirit_3
+			}
+		}
+	}
+	focus = {
+		id = SPT_USA_destroy_their_navy
+		icon = GFX_goal_generic_occupy_start_war
+		prerequisite = {
+			focus = SPT_USA_keep_up_the_pace
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SPT_USA_war_plan_silver_used_tt		
+				not = { has_idea = SPT_USA_war_plan_silver_used }	
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = SPT_USA_keep_up_the_pace
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SPT_USA_war_plan_silver_spirit_3
+				add_idea = SPT_USA_war_plan_silver_spirit_4
+			}
+			hidden_effect = {
+				remove_ideas = SPT_USA_war_plan_silver_spirit_4
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_USA_war_plan_silver_completed
+		icon = GFX_focus_generic_anti_fascist_diplomacy
+		prerequisite = {
+			focus = SPT_USA_destroy_their_navy
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SPT_USA_war_plan_silver_used_tt		
+				not = { has_idea = SPT_USA_war_plan_silver_used }	
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = SPT_USA_destroy_their_navy
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SPT_USA_war_plan_silver_spirit_4
+				add_idea = SPT_USA_war_plan_silver_spirit_5
+			}
+			hidden_effect = {
+				remove_ideas = SPT_USA_war_plan_silver_spirit_5
+			}
+		}
+	}
+
 	#   #  ##  ###      ###  ### ###   ##  ###  ### #   # ### #  # ### 
 	#   # #  # #  #     #  # #   #  # #  # #  #  #  ## ## #   ## #  #  
 	# # # #### ###      #  # ##  ###  #### ###   #  # # # ##  # ##  #  
