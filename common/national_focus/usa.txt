@@ -3191,6 +3191,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		available = {
 			democratic > 0.95
+			has_war = yes
 		}
 		completion_reward = {
 			add_timed_idea = { 
@@ -3335,10 +3336,10 @@ focus_tree = {
 		icon = GFX_focus_generic_land_reclamation
 		prerequisite = { focus = SPT_USA_develop_interior}
 		x = 1
-		y = 2
+		y = 1
 		relative_position_id = SPT_USA_develop_interior
 
-		cost = 3
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -3364,7 +3365,7 @@ focus_tree = {
 		icon = GFX_focus_generic_industry_2
 		prerequisite = { focus = SPT_USA_develop_coast}
 		x = -1
-		y = 2
+		y = 1
 		relative_position_id = SPT_USA_develop_coast
 
 		cost = 5
@@ -3432,7 +3433,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = SPT_USA_develop_coast
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -3481,38 +3482,6 @@ focus_tree = {
 					level = 1
 					instant_build = yes
 				}
-			}
-		}
-	}
-	focus = {
-		id = SPT_USA_temporary_relief
-		icon = GFX_focus_generic_self_management
-		prerequisite = { focus = SPT_USA_public_works }
-		x = 0
-		y = 1
-		relative_position_id = SPT_USA_public_works
-
-		cost = 3
-
-		ai_will_do = {
-			factor = 4
-		}
-
-		available = {
-		}
-
-		bypass = {
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-		completion_reward = {
-			add_timed_idea = {
-				idea = SPT_USA_timed_relief
-				days = 180
 			}
 		}
 	}
@@ -3520,13 +3489,13 @@ focus_tree = {
 		id = USA_fair_labour_standards_act
 		icon = GFX_focus_eng_concessions_to_the_trade_unions
 		x = 1
-		y = 3
+		y = 2
 		prerequisite = {
 			focus = SPT_USA_national_youth_administration
 			focus = SPT_USA_civilian_conservation_corps
 		}
 		prerequisite = {
-			focus = SPT_USA_temporary_relief
+			focus = SPT_USA_public_works
 		}
 		relative_position_id = SPT_USA_develop_coast
 		cost = 10
@@ -3578,7 +3547,7 @@ focus_tree = {
 		y = 2
 		relative_position_id = SPT_USA_civilian_conservation_corps
 
-		cost = 3
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -3613,7 +3582,7 @@ focus_tree = {
 		y = 2
 		relative_position_id = SPT_USA_national_youth_administration
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -3668,7 +3637,7 @@ focus_tree = {
 		y = 2
 		relative_position_id = SPT_USA_national_youth_administration
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -3699,7 +3668,7 @@ focus_tree = {
 		y = 2
 		relative_position_id = SPT_USA_civilian_conservation_corps
 
-		cost = 3
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -3867,6 +3836,12 @@ focus_tree = {
 		}
 
 		available = {
+			AND = {
+				NOT = {
+					has_idea = SPT_USA_recession_looming 
+					has_idea = SPT_USA_recession_hit
+				}
+			}
 		}
 
 		bypass = {
@@ -3911,6 +3886,12 @@ focus_tree = {
 		}
 
 		available = {
+			AND = {
+				NOT = {
+					has_idea = SPT_USA_recession_looming 
+					has_idea = SPT_USA_recession_hit
+				}
+			}
 		}
 
 		bypass = {
