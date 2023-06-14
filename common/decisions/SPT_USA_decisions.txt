@@ -648,5 +648,85 @@ SPT_USA_war_plans = {
 			}
 		}
 	}
+	SPT_USA_execute_war_plan_black = {
+		icon = generic_operation
+		available = {
+			has_war_with = GER
+		}
+		visible = {
+			has_completed_focus = USA_war_plan_black
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		complete_effect = {
+			hidden_effect = {
+				add_ideas = SPT_USA_war_plan_black_used
+			}
+			if = {
+				limit = {
+					AND = {
+						has_completed_focus = SPT_USA_armored_advance 
+						not = {has_completed_focus = SPT_USA_battering_ram }
+						not = {has_completed_focus = SPT_USA_improved_communication }
+						not = {has_completed_focus = SPT_USA_war_plan_black_completed }
+					}
+				}
+				add_timed_idea = {
+					idea = SPT_USA_war_plan_black_spirit_2
+					days = 180
+				}
+			}
+			else_if = {
+				limit = {
+					AND = {
+						has_completed_focus = SPT_USA_armored_advance 
+						has_completed_focus = SPT_USA_battering_ram 
+						not = {has_completed_focus = SPT_USA_improved_communication }
+						not = {has_completed_focus = SPT_USA_war_plan_black_completed }
+					}
+				}
+				add_timed_idea = {
+					idea = SPT_USA_war_plan_black_spirit_3
+					days = 180
+				}
+			}
+			else_if = {
+				limit = {
+					AND = {
+						has_completed_focus = SPT_USA_armored_advance 
+						has_completed_focus = SPT_USA_battering_ram 
+						has_completed_focus = SPT_USA_improved_communication
+						not = {has_completed_focus = SPT_USA_war_plan_black_completed }
+					}
+				}
+				add_timed_idea = {
+					idea = SPT_USA_war_plan_black_spirit_4
+					days = 180
+				}
+			}
+			else_if = {
+				limit = {
+					AND = {
+						has_completed_focus = SPT_USA_armored_advance 
+						has_completed_focus = SPT_USA_battering_ram 
+						has_completed_focus = SPT_USA_improved_communication
+						has_completed_focus = SPT_USA_war_plan_black_completed
+					}
+				}
+				add_timed_idea = {
+					idea = SPT_USA_war_plan_black_spirit_5
+					days = 180
+				}
+			}		
+			else = {
+				add_timed_idea = {
+					idea = SPT_USA_war_plan_black_spirit_1
+					days = 180
+				}
+			}	
+		}
+	}
 }
 

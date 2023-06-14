@@ -6210,7 +6210,7 @@ focus_tree = {
 				}
 			}
 			unlock_decision_tooltip = {
-				decision = USA_execute_war_plan_black
+				decision = SPT_USA_execute_war_plan_black
 				show_effect_tooltip = yes
 				show_modifiers = yes
 			}
@@ -6905,6 +6905,138 @@ focus_tree = {
 			}
 			hidden_effect = {
 				remove_ideas = SPT_USA_war_plan_silver_spirit_5
+			}
+		}
+	}
+	focus = {
+		id = SPT_USA_armored_advance
+		icon = GFX_focus_generic_anti_fascist_diplomacy
+		prerequisite = {
+			focus = USA_war_plan_black
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SPT_USA_war_plan_black_used_tt		
+				not = { has_idea = SPT_USA_war_plan_black_used }	
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = USA_war_plan_black
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SPT_USA_war_plan_black_spirit_1
+				add_idea = SPT_USA_war_plan_black_spirit_2
+			}
+			hidden_effect = {
+				remove_ideas = SPT_USA_war_plan_black_spirit_2
+			}
+		}
+	}
+	focus = {
+		id = SPT_USA_battering_ram
+		icon = GFX_focus_generic_anti_fascist_diplomacy
+		prerequisite = {
+			focus = SPT_USA_armored_advance
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SPT_USA_war_plan_black_used_tt		
+				not = { has_idea = SPT_USA_war_plan_black_used }	
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = SPT_USA_armored_advance
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SPT_USA_war_plan_black_spirit_2
+				add_idea = SPT_USA_war_plan_black_spirit_3
+			}
+			hidden_effect = {
+				remove_ideas = SPT_USA_war_plan_black_spirit_3
+			}
+		}
+	}
+	focus = {
+		id = SPT_USA_improved_communication
+		icon = GFX_focus_generic_anti_fascist_diplomacy
+		prerequisite = {
+			focus = SPT_USA_battering_ram
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SPT_USA_war_plan_black_used_tt		
+				not = { has_idea = SPT_USA_war_plan_black_used }	
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = SPT_USA_battering_ram
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SPT_USA_war_plan_black_spirit_3
+				add_idea = SPT_USA_war_plan_black_spirit_4
+			}
+			hidden_effect = {
+				remove_ideas = SPT_USA_war_plan_black_spirit_4
+			}
+		}
+	}
+	focus = {
+		id = SPT_USA_war_plan_black_completed
+		icon = GFX_focus_generic_anti_fascist_diplomacy
+		prerequisite = {
+			focus = SPT_USA_improved_communication
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SPT_USA_war_plan_black_used_tt		
+				not = { has_idea = SPT_USA_war_plan_black_used }	
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = SPT_USA_improved_communication
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SPT_USA_war_plan_black_spirit_4
+				add_idea = SPT_USA_war_plan_black_spirit_5
+			}
+			hidden_effect = {
+				remove_ideas = SPT_USA_war_plan_black_spirit_5
 			}
 		}
 	}
