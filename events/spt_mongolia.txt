@@ -127,18 +127,15 @@ country_event = {
 			ideology = communism
 			popularity = -0.10
 		}
+		retire_country_leader = yes
 		add_country_leader_role = {
 			character = MON_anandyn_amar
 			promote_leader = yes
 			country_leader = {
-				expire= 1965.1.1.1
-				ideology= marxism
-				traits = { 
-					popular_figurehead2 
-				}
+				ideology = marxism
+				expire = 1965.1.1.1
 			}
 		}
-
 	}
 	option = {
 		name = spt_mongolia.4.b
@@ -150,17 +147,15 @@ country_event = {
 			type = infantry_equipment
 			amount = -1
 		}
-
+		retire_country_leader = yes
 		add_country_leader_role = {
 			character = MON_anandyn_amar
 			promote_leader = yes
 			country_leader = {
-				expire= 1965.1.1.1
-				ideology= leninism
-				traits = { popular_figurehead2 }
+				ideology = marxism
+				expire = 1965.1.1.1
 			}
 		}
-
 	}
 }
 country_event = { #center wins
@@ -191,9 +186,80 @@ country_event = { #party survives
 	fire_only_once = yes
 
 	option = { #left prevails
-		name = spt_mongolia.7.a
+		name = spt_mongolia.6.a
+		hidden_effect = {
+			country_event = {
+				id = spt_mongolia.7
+				days = 10
+			}
+		}
 	}
 	option = { #nationalists
-		name = spt_mongolia.7.b
+		name = spt_mongolia.6.b
+		hidden_effect = {
+			country_event = {
+				id = spt_mongolia.8
+				days = 10
+			}
+		}
+	}
+}
+country_event = { # LEFT PREVAILS
+	id = spt_mongolia.7
+	title = spt_mongolia.7.t
+	desc = spt_mongolia.7.desc
+	timeout_days = 30
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = spt_mongolia.7.a
+		complete_national_focus = MON_left
+		IF = {
+			limit = {
+			has_idea = mon_genden_purge_alive
+			}
+			country_event = {
+				id = spt_mongolia.9
+				days = 10
+			}
+		}
+	}
+}
+country_event = { # NATIONALIST GAMBIT PAYS OFF
+	id = spt_mongolia.8
+	title = spt_mongolia.8.t
+	desc = spt_mongolia.8.desc
+	timeout_days = 30
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = spt_mongolia.8.a
+		complete_national_focus = MON_nationalist
+		set_politics = {
+			ruling_party = despotism
+			elections_allowed = no
+		}
+		add_country_leader_role = {
+			character = MON_genepil
+			promote_leader = yes
+			country_leader = {
+				ideology = despotism
+				expire = 1965.1.1.1
+			}
+		}
+	}
+}
+country_event = { #bringing genden back
+	id = spt_mongolia.9
+	title = spt_mongolia.9.t
+	desc = spt_mongolia.9.desc
+	timeout_days = 30
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = spt_mongolia.9.a
+	}
+	option = {
+		name = spt_mongolia.9.b
 	}
 }

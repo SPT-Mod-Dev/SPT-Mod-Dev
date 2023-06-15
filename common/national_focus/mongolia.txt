@@ -18,7 +18,7 @@ focus_tree = {
 	focus = {
 		id = MON_awooga
 		icon = GFX_focus_invite_finland
-		x = 70
+		x = 20
 		y = 1
 		relative_position_id = MON_great_purge
 
@@ -54,6 +54,7 @@ focus_tree = {
 		search_filters = {
 		}
 		completion_reward = {
+			country_event = spt_mongolia.1
 		}
 	}
 #   _____ ______ _   _ _______ ______ _____  
@@ -73,6 +74,14 @@ focus_tree = {
 		}
 		cost = 5
 		available = {
+			OR = {
+				has_idea = mon_genden_purge_alive
+				has_idea = mon_genden_purge_dead
+			}
+			OR = {
+			has_idea = mon_low_gov_cont
+			has_idea = mon_medium_gov_cont
+			}
 		}
 		bypass = {
 		}
@@ -82,6 +91,10 @@ focus_tree = {
 		search_filters = {
 		}
 		completion_reward = {
+			add_stability = 0.05
+			hidden_effect = {
+				country_event = spt_mongolia.5
+			}
 		}
 	}
 	focus = {
@@ -261,6 +274,14 @@ focus = {
 	}
 	cost = 5
 	available = {
+		OR = {
+			has_idea = mon_genden_purge_alive
+			has_idea = mon_genden_purge_dead
+		}
+		OR = {
+			has_idea = mon_high_gov_cont
+			has_idea = mon_medium_gov_cont
+			}
 	}
 	bypass = {
 	}
@@ -270,6 +291,10 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
+		add_stability = 0.05
+		hidden_effect = {
+			country_event = spt_mongolia.6
+		}
 	}
 }
 #  _      ______ ______ _______ 
@@ -290,6 +315,7 @@ focus = {
 	}
 	cost = 5
 	available = {
+		date > 2137.1.1
 	}
 	bypass = {
 	}
@@ -434,6 +460,7 @@ focus = {
 	}
 	cost = 5
 	available = {
+		date > 2137.1.1
 	}
 	bypass = {
 	}
