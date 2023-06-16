@@ -1,5 +1,45 @@
 ideas = {
 
+	hidden_ideas = {
+		SPT_USA_war_plan_silver_used = {
+			name = SPT_USA_war_plan_silver_used_id
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				
+			}
+		}
+		SPT_USA_war_plan_orange_used = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				
+			}
+		}
+		SPT_USA_war_plan_black_used = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				
+			}
+		}
+	}
+
 	country = {
 		great_depression = {
 			picture = usa_great_depression_3
@@ -987,7 +1027,6 @@ ideas = {
 		}
 		
 		home_of_the_free = {
-			
 			allowed = {
 				always = no
 			}
@@ -1008,6 +1047,7 @@ ideas = {
 				drift_defence_factor = 0.2
 				ai_badass_factor = 0.03 # cares for 3% of normal threat
 				ai_desired_divisions_factor = 0.5 
+				economy_cost_factor = 20.0 #SPT change, added to prevent players from swapping eco laws freely
 			}
 		}
 
@@ -1201,8 +1241,826 @@ ideas = {
 				conscription_factor = 0.25
 			}			
 		}
-	
+
+		SPT_USA_the_home_front_1 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				
+			}
+			
+			removal_cost = -1
+
+			picture = SOV_third_five_year_plan_military
+			
+			modifier = {
+				production_speed_arms_factory_factor = 0.1
+			}
+		}
+		SPT_USA_the_home_front_2 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				
+			}
+			
+			removal_cost = -1
+
+			picture = SOV_third_five_year_plan_military
+			
+			modifier = {
+				production_speed_arms_factory_factor = 0.1
+				consumer_goods_factor = -0.05
+			}
+		}
+		SPT_USA_the_home_front_3 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				
+			}
+			
+			removal_cost = -1
+
+			picture = SOV_third_five_year_plan_military
+			
+			modifier = {
+				production_speed_arms_factory_factor = 0.1
+				consumer_goods_factor = -0.05
+				production_factory_max_efficiency_factor = 0.1
+				global_building_slots_factor = 0.2
+			}
+		}
+		SPT_USA_the_home_front_4 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				
+			}
+			
+			removal_cost = -1
+
+			picture = SOV_third_five_year_plan_military
+			
+			modifier = {
+				production_speed_arms_factory_factor = 0.1
+				consumer_goods_factor = -0.05
+				production_factory_max_efficiency_factor = 0.1
+				global_building_slots_factor = 0.2
+				production_factory_efficiency_gain_factor = 0.1
+				defensive_war_stability_factor = 0.2
+			}
+		}
+		SPT_USA_the_home_front_5 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				
+			}
+			
+			removal_cost = -1
+
+			picture = SOV_third_five_year_plan_military
+			
+			modifier = {
+				production_speed_arms_factory_factor = 0.1
+				consumer_goods_factor = -0.05
+				production_factory_max_efficiency_factor = 0.1
+				global_building_slots_factor = 0.2
+				production_factory_efficiency_gain_factor = 0.1
+				defensive_war_stability_factor = 0.2
+			}
+			equipment_bonus = {
+				support_equipment = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+			}
+			equipment_bonus = {
+				motorized_equipment = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+				train_equipment = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+			}
+			equipment_bonus = {
+				infantry_equipment = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+			}
+		}
+		
+		SPT_USA_torch_of_liberty = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				
+			}
+			
+			removal_cost = -1
+
+			picture = generic_democratic_drift_bonus
+
+			modifier = {
+				weekly_manpower = 500
+				research_speed_factor = 0.05
+			}
+		}
+		SPT_USA_lend_lease_expanded = {
+			picture = generic_production_bonus
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				lend_lease_tension = -1
+				join_faction_tension = 0.25
+				send_volunteers_tension = 0.5
+				guarantee_tension = 0.5
+				embargo_threshold_factor = 1.5
+				license_purchase_cost = -1.0
+				license_tech_difference_speed = 0.25
+			}
+		}
+		SPT_USA_allied_aid = {
+			picture = generic_economic_increase
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_buildings_factor = 0.05
+				consumer_goods_factor = -0.05
+				production_factory_max_efficiency_factor = 0.075
+				production_factory_efficiency_gain_factor = 0.075
+			}
+		}
+		SPT_USA_aid_payment_brit = { #ginger i swear to god if you complain about the aid payment spirits, you wont ever again see the light of day
+			picture = generic_foreign_capital
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.04
+			}
+		}
+		SPT_USA_aid_payment_pacific = {
+			picture = generic_foreign_capital
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.04
+			}
+		}
+		SPT_USA_aid_payment_raj = {
+			picture = generic_foreign_capital
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.04
+			}
+		}
+		SPT_USA_aid_payment_amex = {
+			picture = generic_foreign_capital
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.04
+			}
+		}
+		SPT_USA_aid_payment_africa = {
+			picture = generic_foreign_capital
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.04
+			}
+		}
+		SPT_USA_aid_payment_sov = {
+			picture = generic_foreign_capital
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.04
+			}
+		}
+		SPT_USA_aid_payment_fra = {
+			picture = generic_foreign_capital
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.04
+			}
+		}
+		SPT_USA_USACE_help_europe = {
+			picture = generic_build_infrastructure
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_infrastructure_factor = 0.2
+				production_speed_rail_way_factor = 1.0
+				production_speed_supply_node_factor = 1.0
+			}
+		}
+		SPT_USA_dust_bowl_relief = {
+			picture = ast_all_in
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = -0.025
+				stability_factor = 0.05
+			}
+		}
+		SPT_USA_timed_relief = {
+			picture = generic_foreign_capital
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = -0.05
+				stability_factor = 0.05
+				industrial_capacity_factory = 0.1
+				industrial_capacity_dockyard = 0.1
+			}
+		}
+		SPT_USA_developing_resources = {
+			picture = generic_exploit_mines
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = -0.025
+				local_resources_factor = 0.10
+				stability_factor = 0.05
+			}
+		}
+		SPT_USA_farmer_subsidies = {
+			picture = generic_agrarian_reform
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = -0.05
+				stability_factor = 0.1
+			}
+		}
+		SPT_USA_subsidies_for_docks = {
+			picture = generic_sea_focused_navy
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				industrial_capacity_dockyard = 0.05
+				production_speed_dockyard_factor = 0.10
+			}
+		}
+		SPT_USA_subsidies_for_mils = {
+			picture = man_five_year_plan_tank
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				industrial_capacity_factory = 0.05
+				production_speed_arms_factory_factor = 0.1
+			}
+		}
+		SPT_USA_recession_looming = {
+			picture = chi_hyper_inflation
+			allowed = {
+			}
+			removal_cost = -1
+			modifier = {
+			}
+		}
+		SPT_USA_recession_hit = {
+			picture = chi_hyper_inflation5
+			allowed = {
+			}
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.1
+				industrial_capacity_factory = -0.2
+				industrial_capacity_dockyard = -0.2
+				consumer_goods_factor = 0.15
+			}
+		}
+
+		SPT_USA_war_plan_orange_spirit_1 = {
+			picture = FRA_scw_intervention_nationalists_focus
+			allowed = {
+			}
+			removal_cost = -1
+				modifier = {
+					amphibious_invasion = 0.1
+					invasion_preparation = -0.25
+				}
+				targeted_modifier = {
+					tag = JAP
+					attack_bonus_against = 0.1
+					defense_bonus_against = 0.1
+					}
+				targeted_modifier = {
+					tag = MAN
+					attack_bonus_against = 0.1
+					defense_bonus_against = 0.1
+				}
+				targeted_modifier = {
+					tag = MEN
+					attack_bonus_against = 0.1
+					defense_bonus_against = 0.1
+				}
+		}
+		SPT_USA_war_plan_orange_spirit_2 = {
+			picture = FRA_scw_intervention_nationalists_focus
+			allowed = {
+			}
+			removal_cost = -1
+				modifier = {
+					supply_consumption_factor = -0.1
+					amphibious_invasion = 0.1
+					invasion_preparation = -0.25
+				}
+				targeted_modifier = {
+					tag = JAP
+					attack_bonus_against = 0.1
+					defense_bonus_against = 0.1
+					}
+				targeted_modifier = {
+					tag = MAN
+					attack_bonus_against = 0.1
+					defense_bonus_against = 0.1
+				}
+				targeted_modifier = {
+					tag = MEN
+					attack_bonus_against = 0.1
+					defense_bonus_against = 0.1
+				}
+		}
+		SPT_USA_war_plan_orange_spirit_3 = {
+			picture = FRA_scw_intervention_nationalists_focus
+			allowed = {
+			}
+			removal_cost = -1
+				modifier = {
+					supply_consumption_factor = -0.1
+					amphibious_invasion = 0.1
+					invasion_preparation = -0.25
+				}
+				equipment_bonus = {
+					ship_hull_carrier = {
+						build_cost_ic = -0.05 instant = yes
+					}
+				}
+				equipment_bonus = {
+					cv_small_plane_airframe = {
+						build_cost_ic = -0.1 instant = yes
+					}
+					cv_small_plane_cas_airframe = {
+						build_cost_ic = -0.1 instant = yes
+					}
+					cv_small_plane_naval_bomber_airframe = {
+						build_cost_ic = -0.1 instant = yes
+					}
+				}
+				targeted_modifier = {
+					tag = JAP
+					attack_bonus_against = 0.1
+					defense_bonus_against = 0.1
+				}
+				targeted_modifier = {
+					tag = MAN
+					attack_bonus_against = 0.1
+					defense_bonus_against = 0.1
+				}
+				targeted_modifier = {
+					tag = MEN
+					attack_bonus_against = 0.1
+					defense_bonus_against = 0.1
+				}
+		}
+		SPT_USA_war_plan_orange_spirit_4 = {
+			picture = FRA_scw_intervention_nationalists_focus
+			allowed = {
+			}
+			removal_cost = -1
+				modifier = {
+					supply_consumption_factor = -0.1
+					amphibious_invasion = 0.1
+					invasion_preparation = -0.25
+					special_forces_attack_factor = 0.05
+					naval_invasion_planning_bonus_speed = 0.1
+				}
+				equipment_bonus = {
+					ship_hull_carrier = {
+						build_cost_ic = -0.05 instant = yes
+					}
+				}
+				equipment_bonus = {
+					cv_small_plane_airframe = {
+						build_cost_ic = -0.1 instant = yes
+					}
+					cv_small_plane_cas_airframe = {
+						build_cost_ic = -0.1 instant = yes
+					}
+					cv_small_plane_naval_bomber_airframe = {
+						build_cost_ic = -0.1 instant = yes
+					}
+				}
+				targeted_modifier = {
+					tag = JAP
+					attack_bonus_against = 0.1
+					defense_bonus_against = 0.1
+				}
+				targeted_modifier = {
+					tag = MAN
+					attack_bonus_against = 0.1
+					defense_bonus_against = 0.1
+				}
+				targeted_modifier = {
+					tag = MEN
+					attack_bonus_against = 0.1
+					defense_bonus_against = 0.1
+				}
+		}
+		SPT_USA_war_plan_orange_spirit_5 = {
+			picture = FRA_scw_intervention_nationalists_focus
+			allowed = {
+			}
+			removal_cost = -1
+				modifier = {
+					supply_consumption_factor = -0.15
+					amphibious_invasion = 0.15
+					invasion_preparation = -0.37
+					special_forces_attack_factor = 0.075
+					naval_invasion_planning_bonus_speed = 0.15
+				}
+				equipment_bonus = {
+					ship_hull_carrier = {
+						build_cost_ic = -0.075 instant = yes
+					}
+				}
+				equipment_bonus = {
+					cv_small_plane_airframe = {
+						build_cost_ic = -0.15 instant = yes
+					}
+					cv_small_plane_cas_airframe = {
+						build_cost_ic = -0.15 instant = yes
+					}
+					cv_small_plane_naval_bomber_airframe = {
+						build_cost_ic = -0.15 instant = yes
+					}
+				}
+				targeted_modifier = {
+					tag = JAP
+					attack_bonus_against = 0.15
+					defense_bonus_against = 0.15
+				}
+				targeted_modifier = {
+					tag = MAN
+					attack_bonus_against = 0.15
+					defense_bonus_against = 0.15
+				}
+				targeted_modifier = {
+					tag = MEN
+					attack_bonus_against = 0.15
+					defense_bonus_against = 0.15
+				}
+		}
+		SPT_USA_war_plan_silver_spirit_1 = {
+			picture = FRA_scw_intervention_nationalists_focus
+			allowed = {
+			}
+			removal_cost = -1
+			targeted_modifier = {
+				tag = ITA
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
+			}
+		}
+		SPT_USA_war_plan_silver_spirit_2 = {
+			picture = FRA_scw_intervention_nationalists_focus
+			allowed = {
+			}
+			removal_cost = -1
+			modifier = {
+				special_forces_defence_factor = 0.1
+				army_org_factor = 0.05
+			}
+			targeted_modifier = {
+				tag = ITA
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
+			}
+		}
+		SPT_USA_war_plan_silver_spirit_3 = {
+			picture = FRA_scw_intervention_nationalists_focus
+			allowed = {
+			}
+			removal_cost = -1
+			modifier = {
+				special_forces_defence_factor = 0.1
+				army_org_factor = 0.05
+				land_reinforce_rate = 0.03
+				army_speed_factor = 0.05
+			}
+			targeted_modifier = {
+				tag = ITA
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
+			}
+		}
+		SPT_USA_war_plan_silver_spirit_4 = {
+			picture = FRA_scw_intervention_nationalists_focus
+			allowed = {
+			}
+			removal_cost = -1
+			modifier = {
+				special_forces_defence_factor = 0.1
+				army_org_factor = 0.05
+				land_reinforce_rate = 0.03
+				army_speed_factor = 0.05
+				naval_strike_attack_factor = 0.1
+			}
+			targeted_modifier = {
+				tag = ITA
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
+			}
+		}
+		SPT_USA_war_plan_silver_spirit_5 = {
+			picture = FRA_scw_intervention_nationalists_focus
+			allowed = {
+			}
+			removal_cost = -1
+			modifier = {
+				special_forces_defence_factor = 0.15
+				army_org_factor = 0.1
+				land_reinforce_rate = 0.05
+				army_speed_factor = 0.1
+				naval_strike_attack_factor = 0.15
+			}
+			targeted_modifier = {
+				tag = ITA
+				attack_bonus_against = 0.15
+				defense_bonus_against = 0.15
+			}
+		}
+		SPT_USA_war_plan_black_spirit_1 = {
+			picture = FRA_scw_intervention_nationalists_focus
+			allowed = {
+			}
+			removal_cost = -1
+			targeted_modifier = {
+				tag = GER
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
+			}
+		}
+		SPT_USA_war_plan_black_spirit_2 = {
+			picture = FRA_scw_intervention_nationalists_focus
+			allowed = {
+			}
+			removal_cost = -1
+
+			equipment_bonus = {
+				heavy_tank_chassis = {
+					build_cost_ic = -0.1
+				}
+				medium_tank_chassis = {
+					build_cost_ic = -0.1
+				}
+				light_tank_chassis = {
+					build_cost_ic = -0.1
+				}
+			}
+
+			targeted_modifier = {
+				tag = GER
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
+			}
+		}
+		SPT_USA_war_plan_black_spirit_3 = {
+			picture = FRA_scw_intervention_nationalists_focus
+			allowed = {
+			}
+			removal_cost = -1
+			modifier = {
+				army_artillery_attack_factor = 0.2
+				railway_gun_bombardment_factor = 0.4
+			}
+			equipment_bonus = {
+				heavy_tank_chassis = {
+					build_cost_ic = -0.1
+				}
+				medium_tank_chassis = {
+					build_cost_ic = -0.1
+				}
+				light_tank_chassis = {
+					build_cost_ic = -0.1
+				}
+			}
+
+			targeted_modifier = {
+				tag = GER
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
+			}
+		}
+		SPT_USA_war_plan_black_spirit_4 = {
+			picture = FRA_scw_intervention_nationalists_focus
+			allowed = {
+			}
+			removal_cost = -1
+			modifier = {
+				army_artillery_attack_factor = 0.2
+				railway_gun_bombardment_factor = 0.4
+				planning_speed = 0.2
+				max_planning = 0.1
+			}
+			equipment_bonus = {
+				heavy_tank_chassis = {
+					build_cost_ic = -0.1
+				}
+				medium_tank_chassis = {
+					build_cost_ic = -0.1
+				}
+				light_tank_chassis = {
+					build_cost_ic = -0.1
+				}
+			}
+
+			targeted_modifier = {
+				tag = GER
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
+			}
+		}
+		SPT_USA_war_plan_black_spirit_5 = {
+			picture = FRA_scw_intervention_nationalists_focus
+			allowed = {
+			}
+			removal_cost = -1
+			modifier = {
+				army_artillery_attack_factor = 0.3
+				railway_gun_bombardment_factor = 0.6
+				planning_speed = 0.3
+				max_planning = 0.15
+			}
+			equipment_bonus = {
+				heavy_tank_chassis = {
+					build_cost_ic = -0.15
+				}
+				medium_tank_chassis = {
+					build_cost_ic = -0.15
+				}
+				light_tank_chassis = {
+					build_cost_ic = -0.15
+				}
+			}
+
+			targeted_modifier = {
+				tag = GER
+				attack_bonus_against = 0.15
+				defense_bonus_against = 0.15
+			}
+		}
 	}
+	
 
 
 	tank_manufacturer = { 
