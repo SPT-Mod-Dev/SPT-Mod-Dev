@@ -43,19 +43,7 @@ spt_category = {
 		available = {
 			tag = FRA
 		}
-
-		#divide_variable = {
-		#	NumShips = 1
-		#}
 		complete_effect = {
-			# get num of ships of a type
-			# divide by certain
-			# round that num
-			# for loop sends the ships to landlocked
-			# after a day or 2, it sends to ITA or GER
-			#
-			#
-
 			set_variable = {
 				var = NumShips
 				value = FRA.num_ships_with_type@destroyer
@@ -86,7 +74,7 @@ spt_category = {
 			}
 			round_variable = NumShip
 			for_loop_effect = {
-				value = ForIntegerCounter3
+				value = ForIntegerCounter
 				start = 0
 				end = NumShips
 				add = 1
@@ -106,7 +94,7 @@ spt_category = {
 			}
 			round_variable = NumShip
 			for_loop_effect = {
-				value = ForIntegerCounter4
+				value = ForIntegerCounter
 				start = 0
 				end = NumShips
 				add = 1
@@ -126,7 +114,7 @@ spt_category = {
 			}
 			round_variable = NumShip
 			for_loop_effect = {
-				value = ForIntegerCounter5
+				value = ForIntegerCounter
 				start = 0
 				end = NumShips
 				add = 1
@@ -162,6 +150,18 @@ spt_category = {
 			HTF = {transfer_navy = {target = GER}}
 		}
 	}
+	SPT_for_transfer_loops_scripted = {
+		visible = {
+			tag = FRA
+		}
+		available = {
+			tag = FRA
+		}
+		complete_effect = {
+			SPT_transfer_ships_FRA_to_HTF = yes
+		}
+	}
+
 	
 	
 	
