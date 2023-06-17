@@ -229,6 +229,13 @@ focus_tree = {
 		}
 		cost = 5
 		available = {
+			NOT = {
+				has_idea = mon_collectvization_of_farming
+			}
+			NOT = {
+				has_idea = mon_restuff_the_governement
+			}
+			NOT = { num_of_controlled_factories < 25 }
 		}
 		bypass = {
 		}
@@ -238,6 +245,7 @@ focus_tree = {
 		search_filters = {
 		}
 		completion_reward = {
+			add_ideas = mon_economic_growth
 		}
 	}
 #   _____ ____  __  __ __  __ _____ ______    _____ _    _          _____  ______ _____  
@@ -268,8 +276,39 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
+		create_corps_commander = {
+			name = "Mao Zedong"
+			gfx = GFX_portrait_prc_mao_zedong
+			traits = { trait_cautious politically_connected defensive_doctrine }
+			skill = 4
+			attack_skill=2
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+		}
+		create_corps_commander = {
+			name = "Zhu Du"
+			gfx = GFX_portrait_prc_zhu_de
+			traits={ infantry_officer organizer }
+			skill=4
+			attack_skill=3
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=4
+		}
+		create_corps_commander = {
+			name = "Shen Shicai"
+			gfx = GFX_portrait_sheng_shicai
+			traits = { politically_connected } # Studied political economy, played Stalin and Chiang against one another
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+		}
+		
 	}
-}
+	}
 focus = {
 	id = MON_merge_the_parties
 	icon = GFX_focus_invite_finland

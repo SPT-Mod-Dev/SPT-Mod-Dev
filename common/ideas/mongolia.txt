@@ -75,7 +75,7 @@ ideas = {
 			name = mon_purged_clergy
 			picture = generic_air_bonus
 			modifier = {
-				stability_weekly = 0.1
+				stability_factor = 0.1
 				war_support_factor = 0.1
 				party_popularity_stability_factor = -0.1
 				consumer_goods_factor = -0.1
@@ -93,7 +93,7 @@ ideas = {
 			name = mon_collectivization_of_farming
 			picture = generic_air_bonus
 			modifier = {
-				production_factory_efficiency_gain_factor = 0.1
+				production_factory_efficiency_gain_factor = 0.15
 				production_speed_buildings_factor = 0.15
 				consumer_goods_factor = 0.05
 			}
@@ -101,6 +101,18 @@ ideas = {
 				add_ideas = mon_collectivized_farming
 			}
 		}
+		mon_economic_growth = {
+			name = mon_economic_growth
+			picture = generic_air_bonus
+			modifier = {
+				stability_factor = 0.1
+				production_factory_efficiency_gain_factor = 0.1
+				production_speed_buildings_factor = 0.1
+			}
+		}
+
+		##### soviet economic aid bs
+
 		mon_mech = {
 			name = mon_mech
 			picture = generic_air_bonus
@@ -108,6 +120,41 @@ ideas = {
 				mechanized_equipment = {
 					build_cost_ic = -0.25
 				}
+			}
+		}
+		sov_mon_mech = {
+			name = sov_mon_mech
+			picture = generic_air_bonus
+			modifier = {
+				research_speed_factor = -0.10
+			}
+		}
+		mon_arms_factory = {
+			name = mon_arms_factory
+			picture = generic_air_bonus
+			modifier = {
+					production_speed_arms_factory_factor = 0.15
+					production_factory_efficiency_gain_factor = 0.15
+					production_factory_start_efficiency_factor = 0.1
+			}
+		}
+		sov_mon_arms_factory = {
+			name = sov_mon_arms_factory
+			picture = generic_air_bonus
+			modifier = {
+					production_speed_arms_factory_factor = -0.10
+					production_factory_efficiency_gain_factor = -0.10
+			}
+		}
+
+
+		###### commie shared
+
+		mon_commie_mp = {
+			name = mon_commie_mp
+			picture = generic_air_bonus
+			modifier = {
+				weekly_manpower = 500
 			}
 		}
 
