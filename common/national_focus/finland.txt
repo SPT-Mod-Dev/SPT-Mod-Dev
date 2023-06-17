@@ -36,247 +36,196 @@ focus_tree = {
 			add_stability = 0.1
 		}
 	}
-
-
 	focus = {
 		id = retake_karjala
 		icon = GFX_focus_generic_little_entente
-		prerequisite = { focus = FIN_join_against_the_Soviet_union}
-		mutually_exclusive = { focus = unify_sami }
+		prerequisite = {
+			focus = FIN_join_against_the_Soviet_union
+		}
+		mutually_exclusive = {
+			focus = unify_sami
+		}
 		x = -1
 		y = 1
 		relative_position_id = FIN_join_against_the_Soviet_union
-
-
 		cost = 5
-
 		ai_will_do = {
 			factor = 1
 		}
-
 		available = {
-
 		}
-		
 		bypass = {
-
 		}
-
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-
 		complete_tooltip = {
-
 		}
-
 		completion_reward = {
-		add_timed_idea = {
-			idea = fin_karjala_buff
-			days = 90
-		}
+			add_timed_idea = {
+				idea = fin_karjala_buff
+				days = 90
+			}
 		}
 	}
 	focus = {
 		id = push_south
 		icon = GFX_goal_generic_demand_territory
-		prerequisite = { 
-			focus = retake_karjala 
+		prerequisite = {
+			focus = retake_karjala
 			focus = unify_sami
-	}
+		}
 		x = 1
 		y = 1
 		relative_position_id = retake_karjala
-
-
 		cost = 10
-
 		ai_will_do = {
 			factor = 1
 		}
-
 		available = {
-		has_full_control_of_state = 146
+			has_full_control_of_state = 146
 		}
-		
 		bypass = {
-
 		}
-
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-
 		complete_tooltip = {
-
 		}
-
 		completion_reward = {
 			FIN = {
-				country_event = { 
+				country_event = {
 					days = 5
 					id = spt_finland.2137
 				}
 			}
 			216 = {
-                if = {
-                    add_dynamic_modifier = {
-                        modifier = fin_push_south_buff
-                        days = 180
-                    }
-
-                }
-            }
-            195 = {
-                if = {
-                    add_dynamic_modifier = {
-                        modifier = fin_push_south_buff
-                        days = 180
-                    }
-                }
-            }
+				if = {
+					add_dynamic_modifier = {
+						modifier = fin_push_south_buff
+						days = 180
+					}
+				}
+			}
+			195 = {
+				if = {
+					add_dynamic_modifier = {
+						modifier = fin_push_south_buff
+						days = 180
+					}
+				}
+			}
 		}
 	}
-
-
-
 	focus = {
 		id = volunteers_karjala
 		icon = GFX_focus_generic_coffee
-		prerequisite = { focus = retake_karjala }
+		prerequisite = {
+			focus = retake_karjala
+		}
 		x = -1
 		y = 1
 		relative_position_id = retake_karjala
-
-
 		cost = 10
-
 		ai_will_do = {
 			factor = 1
 		}
-
 		available = {
-
 		}
-		
 		bypass = {
-
 		}
-
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-
 		complete_tooltip = {
-
 		}
-
 		completion_reward = {
-		add_ideas = { fin_grain_shipments }
+			add_ideas = {
+				fin_grain_shipments
+			}
 		}
 	}
 	focus = {
 		id = refugees_2
 		icon = GFX_focus_ger_bulwark_against_bolshevism
-		prerequisite = { focus = volunteers_karjala }
+		prerequisite = {
+			focus = volunteers_karjala
+		}
 		x = 0
 		y = 1
 		relative_position_id = volunteers_karjala
-
-
 		cost = 10
-
 		ai_will_do = {
 			factor = 1
 		}
-
 		available = {
-
 		}
-		
 		bypass = {
-
 		}
-
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-
 		complete_tooltip = {
-
 		}
-
 		completion_reward = {
-				set_technology = {
-					FIN_better_field_hospitals = 1
-				}
+			set_technology = {
+				FIN_better_field_hospitals = 1
+			}
 			add_tech_bonus = {
-				bonus = 3.0
+				bonus = 3
 				uses = 1
 				category = hospital_tech
 			}
-		add_ideas = fin_crusade_against_communism
-		add_country_leader_role = {
-			character = FIN_carl_mannerheim
-			promote_leader = yes
-			country_leader = {
-				ideology = oligarchism
-				expire = 1965.1.1.1
-				traits =  {
-					disdain_for_politicians_2
-					man_of_the_nation
+			add_ideas = fin_crusade_against_communism
+			add_country_leader_role = {
+				character = FIN_carl_mannerheim
+				promote_leader = yes
+				country_leader = {
+					ideology = oligarchism
+					expire = 1965.1.1.1
+					traits = {
+						disdain_for_politicians_2
+						man_of_the_nation
+					}
 				}
 			}
 		}
-		}
 	}
-
 	focus = {
 		id = finnish_paratroopers
 		icon = GFX_focus_ger_bulwark_against_bolshevism
-		prerequisite = { 
-			focus = refugees_2 
+		prerequisite = {
+			focus = refugees_2
 			focus = integrate_olensk
-	}
-	prerequisite = {
-		focus = push_south
-	}
-	allow_branch = {
-		has_completed_focus = push_south
 		}
-		
+		prerequisite = {
+			focus = push_south
+		}
+		allow_branch = {
+			has_completed_focus = push_south
+		}
 		x = 2
 		y = 1
 		relative_position_id = refugees_2
-
-
 		cost = 70
-
 		ai_will_do = {
 			factor = 1
 		}
-
 		available = {
-
 		}
-		
 		bypass = {
-
 		}
-
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-
 		completion_reward = {
-		FIN = {
-			country_event = {
-				days = 5
-				id = spt_finland.2137
-		}
-		}
-		add_ideas = fin_paratroopers
-
+			FIN = {
+				country_event = {
+					days = 5
+					id = spt_finland.2137
+				}
+			}
+			add_ideas = fin_paratroopers
 		}
 	}
 	focus = {
@@ -292,116 +241,70 @@ focus_tree = {
 		relative_position_id = finnish_paratroopers
 		x = 0
 		y = 1
-		allow_branch = { has_completed = finnish_paratroopers}
+		allow_branch = {
+			has_completed_focus = finnish_paratroopers
+		}
 		completion_reward = {
-
 		}
 	}
-
-##################################################
-
+	##################################################
 	focus = {
 		id = unify_sami
 		icon = GFX_goal_generic_military_sphere
-		prerequisite = { focus = FIN_join_against_the_Soviet_union}
-		mutually_exclusive = { focus = retake_karjala }
+		prerequisite = {
+			focus = FIN_join_against_the_Soviet_union
+		}
+		mutually_exclusive = {
+			focus = retake_karjala
+		}
 		x = 1
 		y = 1
 		relative_position_id = FIN_join_against_the_Soviet_union
-
-
 		cost = 10
-
 		ai_will_do = {
 			factor = 1
 		}
-
 		available = {
 		}
-		
 		bypass = {
-
 		}
-
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-
 		complete_tooltip = {
-
 		}
-
 		completion_reward = {
-			swap_ruler_traits = { remove = man_of_the_crossroads add = popular_figurehead2 }
+			swap_ruler_traits = {
+				remove = man_of_the_crossroads
+				add = popular_figurehead2
+			}
 			add_ideas = fin_greater_fin_1
 			147 = {
-                if = {
-                    add_dynamic_modifier = {
-                        modifier = fin_murmansk_buff
-                        days = 180
-                    }
-                }
-            }
-            213 = {
-                if = {
-                    add_dynamic_modifier = {
-                        modifier = fin_murmansk_buff
-                        days = 180
-                    }
-                }
-            }
-            215 = {
-                if = {
-                    add_dynamic_modifier = {
-                        modifier = fin_murmansk_buff
-                        days = 180
-                    }
-                }
-            }
-			
+				if = {
+					add_dynamic_modifier = {
+						modifier = fin_murmansk_buff
+						days = 180
+					}
+				}
+			}
+			213 = {
+				if = {
+					add_dynamic_modifier = {
+						modifier = fin_murmansk_buff
+						days = 180
+					}
+				}
+			}
+			215 = {
+				if = {
+					add_dynamic_modifier = {
+						modifier = fin_murmansk_buff
+						days = 180
+					}
+				}
+			}
 		}
 	}
-	focus = {
-		id = integrate_olensk
-		icon = GFX_goal_generic_occupy_states_ongoing_war
-		prerequisite = { focus = FIN_begin_integration_of_karelia}
-		x = 0
-		y = 1
-		relative_position_id = FIN_begin_integration_of_karelia
-
-
-		cost = 5
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-			controls_state = 216
-			controls_state = 215
-			controls_state = 213
-		}
-		
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		complete_tooltip = {
-
-		}
-
-		completion_reward = {
-			add_ideas = fin_greater_finland_2
-			remove_ideas = fin_on_our_own
-			remove_ideas = fin_greater_fin_1
-			add_popularity = { ideology = fascism popularity = 0.25 }
-		}
-	}
-
 
 	focus = {
 		id = FIN_Expand_southern_infrastructure
@@ -2486,8 +2389,6 @@ focus_tree = {
 				has_war_with = ENG
 			}
 		}
-
-
 	}
 	focus = {
 		id = integrate_olensk
@@ -2498,18 +2399,13 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = FIN_begin_integration_of_karelia
-
 		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
-
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		completion_reward = {
-			add_ideas = fin_change_in_course
-
 		available = {
 			controls_state = 216
 			controls_state = 215
@@ -2517,9 +2413,6 @@ focus_tree = {
 		}
 		bypass = {
 		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
 		complete_tooltip = {
 		}
 		completion_reward = {
@@ -2530,7 +2423,6 @@ focus_tree = {
 				ideology = fascism
 				popularity = 0.25
 			}
-
 		}
 	}
 	focus = {
@@ -2583,7 +2475,6 @@ focus_tree = {
 			}
 		}
 	}
-
 	focus = {
 		id = FIN_begin_integration_of_karelia
 		icon = GFX_goal_generic_position_armies
