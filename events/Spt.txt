@@ -666,3 +666,88 @@ country_event = { #USA remove bureau of ordnance
 
 	}
 }
+
+country_event = { #FRA event that tells them that their navy is going to be taken
+	id = spt.107
+	title = spt.107.t
+	desc = spt.107.desc
+	picture = GFX_report_event_usa_british_sailors_destroyers
+	is_triggered_only = yes
+	timeout_days = 7
+	option = {
+		name = spt.107.a
+		hidden_effect = {
+			SPT_transfer_ships_FRA_to_HTF = yes
+		}
+		custom_effect_tooltip = SPT_france_scuttles_fleet_tt
+		hidden_effect = {
+			HTF = {
+				country_event = {
+					id = spt.108
+					days = 2
+				}
+			}
+		}
+	}
+}
+country_event = { #HTF sends event to GER so that they can get the navy
+	id = spt.108
+	title = spt.108.t
+	desc = spt.108.desc
+	hidden = yes
+	is_triggered_only = yes
+	timeout_days = 3
+	option = {
+		name = spt.108.a
+		hidden_effect = {
+			GER = {
+				country_event = {id = spt.109 days = 1}
+			}
+		}
+	}
+}
+country_event = { #Hidden event for HTF to fake a delay between events in the french fleet fiasco event chain
+	id = spt.109
+	title = spt.109.t
+	desc = spt.109.desc
+	is_triggered_only = yes
+	timeout_days = 7
+	option = { #keep the fleet for germany
+		name = spt.109.a
+		hidden_effect = {
+			HTF = {
+				transfer_navy = {
+					target = GER
+				}
+			}
+		}
+		custom_effect_tooltip = SPT_germany_receives_fleet_keeps_it_tt
+	}
+	option = { #Send the fleet to italy
+		name = spt.109.b 
+		custom_effect_tooltip = SPT_germany_receives_fleet_gives_to_italy_tt
+		hidden_effect = {
+			ITA = {
+				country_event = {id = spt.110 hours = 6}
+			}
+		}
+	}
+}
+country_event = { #Italy recieves the french fleet
+	id = spt.110
+	title = spt.110.t
+	desc = spt.110.desc
+	timeout_days = 7
+	is_triggered_only = yes
+	option = {
+		name = spt.110.a
+		custom_effect_tooltip = SPT_italy_recieves_fleet_tt
+		hidden_effect = {
+			HTF = {
+				transfer_navy = {
+					target = ITA
+				}
+			}
+		}
+	}
+}
