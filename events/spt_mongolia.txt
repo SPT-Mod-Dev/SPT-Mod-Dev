@@ -235,8 +235,9 @@ country_event = { # NATIONALIST GAMBIT PAYS OFF
 	option = {
 		name = spt_mongolia.8.a
 		complete_national_focus = MON_nationalist
+		retire_country_leader = yes
 		set_politics = {
-			ruling_party = despotism
+			ruling_party = neutrality
 			elections_allowed = no
 		}
 		add_country_leader_role = {
@@ -256,10 +257,41 @@ country_event = { #bringing genden back
 	timeout_days = 30
 	is_triggered_only = yes
 	fire_only_once = yes
-	option = {
+	option = { # yup
 		name = spt_mongolia.9.a
+		retire_country_leader = yes
+		add_country_leader_role = {
+			character = MON_genden_pelijd_2
+			promote_leader = yes
+			country_leader = {
+				ideology = marxist
+				expire = 1965.1.1.1
+			}
+		}
 	}
-	option = {
+	option = { # no
 		name = spt_mongolia.9.b
 	}
+
+	
+}
+
+#_      ______ ______ _______   ________      ________ _   _ _______ _____ 
+#| |    |  ____|  ____|__   __| |  ____\ \    / /  ____| \ | |__   __/ ____|
+#| |    | |__  | |__     | |    | |__   \ \  / /| |__  |  \| |  | | | (___  
+#| |    |  __| |  __|    | |    |  __|   \ \/ / |  __| | . ` |  | |  \___ \ 
+#| |____| |____| |       | |    | |____   \  /  | |____| |\  |  | |  ____) |
+#|______|______|_|       |_|    |______|   \/   |______|_| \_|  |_| |_____/
+
+country_event = {
+id = spt_mongolia_sov_eco_aid.1
+title = spt_mongolia_sov_eco_aid.1.t
+desc = spt_mongolia_sov_eco_aid.1.desc
+timeout_days = 30
+is_triggered_only = yes
+fire_only_once = yes
+option = {
+	name = spt_mongolia_sov_eco_aid.1.a
+	
+}
 }

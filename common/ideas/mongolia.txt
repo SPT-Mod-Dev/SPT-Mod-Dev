@@ -60,6 +60,57 @@ ideas = {
 				weekly_manpower = -500
 			}
 		}
+		mon_restuff_the_governement = {
+			name = mon_restuff_the_governement
+			picture = generic_air_bonus
+			modifier = {
+				political_power_gain = -0.25
+			}
+			on_remove = {
+				add_political_power = 150
+				add_stability = 10
+			}
+		}
+		mon_purged_clergy = {
+			name = mon_purged_clergy
+			picture = generic_air_bonus
+			modifier = {
+				stability_weekly = 0.1
+				war_support_factor = 0.1
+				party_popularity_stability_factor = -0.1
+				consumer_goods_factor = -0.1
+			}
+		}
+		mon_collectivized_farming = {
+			name = mon_collectivized_farming
+			picture = generic_air_bonus
+			modifier = {
+				party_popularity_stability_factor = 0.25
+				consumer_goods_factor = -0.1
+			}
+		}
+		mon_collectvization_of_farming = {
+			name = mon_collectivization_of_farming
+			picture = generic_air_bonus
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.1
+				production_speed_buildings_factor = 0.15
+				consumer_goods_factor = 0.05
+			}
+			on_remove = {
+				add_ideas = mon_collectivized_farming
+			}
+		}
+		mon_mech = {
+			name = mon_mech
+			picture = generic_air_bonus
+			equipment_bonus = {
+				mechanized_equipment = {
+					build_cost_ic = -0.25
+				}
+			}
+		}
+
 		
 		#### MON GREAT PURGE
 
