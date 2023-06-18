@@ -67,17 +67,18 @@ country_leader={
 
 ##### COMMIE CHINA / SINKINAG GOOFY AHH LEADER
 
-MON_deng_ye_peng={
-	name="Deng Ye Peng"
+MON_deng_xiaoping={ # Civ guy
+	name="Deng Xiaoping"
 	portraits={
 		army={
-			small="GFX_idea_generic_navy_asia_1"
+			small="GFX_idea_PRC_deng_xiaoping"
 		}
 	}
 	advisor={	
-		slot = high_command
+		slot = political_advisor
 		idea_token = PRC_deng_ye_peng
-		ledger = army
+		ledger = civilian
+		slot = political_advisor
 		available = {
 			has_completed_focus = MON_refugee_commie
 		}
@@ -85,9 +86,62 @@ MON_deng_ye_peng={
 			original_tag = MON
 		}
 		traits = {
-			navy_amphibious_assault_2
+			captain_of_industry
 		}
-		cost = 100
+		cost = 75
+		ai_will_do = {
+			factor = 1.000
+		}
+	}
+}
+MON_he_yuandang={ # mil guy
+	name="He Yuandang"
+	portraits={
+		army={
+			small="GFX_idea_generic_political_advisor_asia_2"
+		}
+	}
+	advisor={	
+		slot = political_advisor
+		idea_token = PRC_he_yuandang
+		ledger = civilian
+		slot = political_advisor
+		available = {
+			has_completed_focus = MON_refugee_commie
+		}
+		allowed = {
+			original_tag = MON
+		}
+		traits = {
+			war_industrialist
+		}
+		cost = 75
+		ai_will_do = {
+			factor = 1.000
+		}
+	}
+}
+MON_liu_shaoqi={
+	name="Liu Shaoqi"
+	portraits={
+		civilian={
+			small="GFX_idea_PRC_liu_shaoqi"
+		}
+	}
+	advisor={
+		cost = 75
+		slot = political_advisor
+		ledger = civilian
+		idea_token = PRC_liu_shaoqi
+		available = {
+			has_completed_focus = MON_refugee_commie
+		}
+		allowed  = {
+			original_tag  = MON
+		}
+		traits  = {
+			silent_workhorse 
+		}
 		ai_will_do = {
 			factor = 1.000
 		}
@@ -96,47 +150,7 @@ MON_deng_ye_peng={
 
 ##### STANDARD MONGOLIA PDX MADE IN SWEDEN
 
-	MON_mingzhu_zhanshan={
-		name="Mingzhu Zhanshan"
-		portraits={
-			civilian={
-				large=GFX_portrait_Mingzhu_Zhanshan
-			}
-		}
-		country_leader={
-			ideology=liberalism
-			traits={ silent_workhorse dealbroker }
-			expire="1945.1.1.12"
-			id=-1
-		}
-	}
-	MON_fu_shangzhi={
-		name="Fu Shangzhi"
-		portraits={
-			civilian={
-				large=GFX_portrait_Fu_Shangzhi
-			}
-		}
-		country_leader={
-			ideology=fascism_ideology
-			expire="1947.1.1.12"
-			id=-1
-		}
-	}
-	MON_songgotu_kangan={
-		name="Songgotu Kang'an"
-		portraits={
-			civilian={
-				large=GFX_portrait_Songgotu_Kangan
-			}
-		}
-		country_leader={
-			ideology=oligarchism
-			traits={ armaments_organizer }
-			expire="1948.1.1.12"
-			id=-1
-		}
-	}
+
 	MON_khorloogiin_choibalsan={
 		name="Khorloogiin Choibalsan"
 		portraits={
@@ -528,6 +542,47 @@ MON_deng_ye_peng={
 			army={
 				small="GFX_idea_generic_political_advisor_asia_1"
 			}
+		}
+	}
+	MON_mingzhu_zhanshan={
+		name="Mingzhu Zhanshan"
+		portraits={
+			civilian={
+				large=GFX_portrait_Mingzhu_Zhanshan
+			}
+		}
+		country_leader={
+			ideology=liberalism
+			traits={ silent_workhorse dealbroker }
+			expire="1945.1.1.12"
+			id=-1
+		}
+	}
+	MON_fu_shangzhi={
+		name="Fu Shangzhi"
+		portraits={
+			civilian={
+				large=GFX_portrait_Fu_Shangzhi
+			}
+		}
+		country_leader={
+			ideology=fascism_ideology
+			expire="1947.1.1.12"
+			id=-1
+		}
+	}
+	MON_songgotu_kangan={
+		name="Songgotu Kang'an"
+		portraits={
+			civilian={
+				large=GFX_portrait_Songgotu_Kangan
+			}
+		}
+		country_leader={
+			ideology=oligarchism
+			traits={ armaments_organizer }
+			expire="1948.1.1.12"
+			id=-1
 		}
 	}
 }
