@@ -1,0 +1,732 @@
+SPT_USA_recession_decisions = {
+
+	SPT_USA_incoming_recession = {
+
+		allowed = { tag = USA }
+
+		icon = POL_looming_peasants_strike
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+
+		days_mission_timeout = 365
+		is_good = no
+		fire_only_once = yes
+
+		cancel_trigger = {
+			NOT = {
+				has_idea = SPT_USA_recession_looming
+			}
+		}
+		
+		activation = {
+			has_idea = SPT_USA_recession_looming
+		}
+
+		visible = {
+			has_idea = SPT_USA_recession_looming
+		}
+		
+		cancel_effect = {
+		}
+
+		timeout_effect = {
+			country_event = spt_usa_recession.1
+		}
+
+		ai_will_do = {
+		}
+	}
+	SPT_USA_ongoing_recession = {
+
+		allowed = { tag = USA }
+
+		icon = POL_looming_peasants_strike
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+
+		days_mission_timeout = 730
+		is_good = no
+		fire_only_once = yes
+
+		cancel_trigger = {
+		}
+		
+		activation = {
+			has_idea = SPT_USA_recession_hit
+		}
+
+		visible = {
+			has_idea = SPT_USA_recession_hit
+		}
+		
+		cancel_effect = {
+		}
+
+		timeout_effect = {
+			remove_ideas = SPT_USA_recession_hit
+		}
+
+		ai_will_do = {
+		}
+	}
+
+	SPT_USA_recession_remove_civs = {
+		allowed = { tag = USA }
+		icon = GFX_decision_generic_factory
+
+		available = { has_idea = SPT_USA_recession_hit }
+
+		visible = { has_idea = SPT_USA_recession_hit }
+
+		days_remove = 15
+		
+		remove_effect = {
+			add_days_mission_timeout = {
+				mission = SPT_USA_ongoing_recession
+				days = -45
+			}
+
+			random_owned_controlled_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					industrial_complex > 0
+				}
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					industrial_complex > 0
+				}
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					industrial_complex > 0
+				}
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+			}
+		}
+	}
+
+	SPT_USA_recession_temporary_relief = {
+		allowed = { tag = USA }
+		icon = GFX_decision_gre_investment_decisions
+
+		available = { has_idea = SPT_USA_recession_hit }
+
+		visible = { has_idea = SPT_USA_recession_hit }
+
+		days_remove = 30
+		cost = 50
+		fire_only_once = yes
+		
+		remove_effect = {
+			add_days_mission_timeout = {
+				mission = SPT_USA_ongoing_recession
+				days = -60
+			}
+			add_timed_idea = {
+				idea = SPT_USA_timed_relief
+				days = 180
+			}
+		}
+	}
+
+	SPT_USA_recession_review_budget = {
+		allowed = { tag = USA }
+		icon = GFX_decision_gre_paying_ifc_debt
+
+		available = { has_idea = SPT_USA_recession_hit }
+
+		visible = { has_idea = SPT_USA_recession_hit }
+
+		days_remove = 30
+		cost = 25
+		fire_only_once = yes
+		
+		remove_effect = {
+			add_days_mission_timeout = {
+				mission = SPT_USA_ongoing_recession
+				days = -60
+			}
+			USA_congress_medium_opposition = yes
+		}
+	}
+
+	SPT_USA_recession_usace_help = {
+		allowed = { tag = USA }
+		icon = GFX_decision_generic_construction
+
+		available = { 
+			has_idea = SPT_USA_recession_hit 
+			has_completed_focus = USA_USACE_projects
+		}
+
+		visible = { 
+			has_idea = SPT_USA_recession_hit
+			has_completed_focus = USA_USACE_projects 
+		}
+
+		days_remove = 30
+		fire_only_once = yes
+		custom_cost_trigger = {
+			command_power > 25
+		}
+		custom_cost_text = SPT_USA_recession_decision_cp_25
+		
+		remove_effect = {
+			add_days_mission_timeout = {
+				mission = SPT_USA_ongoing_recession
+				days = -60
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	SPT_USA_nya_help = {
+
+		allowed = { tag = USA }
+
+		icon = GFX_decision_generic_decision
+
+		available = {
+			not = {has_active_mission = SPT_USA_ongoing_recession}
+			has_completed_focus = SPT_USA_national_youth_administration
+		}
+
+		days_mission_timeout = 1
+		fire_only_once = yes
+
+		
+		activation = {
+			has_active_mission = SPT_USA_ongoing_recession
+			has_completed_focus = SPT_USA_national_youth_administration
+		}
+
+		visible = {
+			#has_active_mission = SPT_USA_ongoing_recession
+			has_completed_focus = SPT_USA_national_youth_administration
+		}
+		
+		cancel_effect = {
+
+		}
+
+		timeout_effect = {
+			add_days_mission_timeout = {
+				mission = SPT_USA_ongoing_recession
+				days = -30
+			}
+		}
+
+		ai_will_do = {
+		}
+	}
+	SPT_USA_public_works_help = {
+
+		allowed = { tag = USA }
+
+		icon = GFX_decision_generic_decision
+
+		available = {
+			not = {has_active_mission = SPT_USA_ongoing_recession}
+			has_completed_focus = SPT_USA_public_works
+		}
+
+		days_mission_timeout = 1
+		fire_only_once = yes
+
+		
+		activation = {
+			has_active_mission = SPT_USA_ongoing_recession
+			has_completed_focus = SPT_USA_public_works
+		}
+
+		visible = {
+			#has_active_mission = SPT_USA_ongoing_recession
+			has_completed_focus = SPT_USA_public_works
+		}
+		
+		cancel_effect = {
+
+		}
+
+		timeout_effect = {
+			add_days_mission_timeout = {
+				mission = SPT_USA_ongoing_recession
+				days = -60
+			}
+		}
+
+		ai_will_do = {
+		}
+	}
+	SPT_USA_dust_bowl_help = {
+
+		allowed = { tag = USA }
+
+		icon = GFX_decision_generic_decision
+
+		available = {
+			not = {has_active_mission = SPT_USA_ongoing_recession}
+			has_completed_focus = SPT_USA_civilian_conservation_corps
+		}
+
+		days_mission_timeout = 1
+		fire_only_once = yes
+
+		
+		activation = {
+			has_active_mission = SPT_USA_ongoing_recession
+			has_completed_focus = SPT_USA_civilian_conservation_corps
+		}
+
+		visible = {
+			#has_active_mission = SPT_USA_ongoing_recession
+			has_completed_focus = SPT_USA_civilian_conservation_corps
+		}
+		
+		cancel_effect = {
+		}
+
+		timeout_effect = {
+			add_days_mission_timeout = {
+				mission = SPT_USA_ongoing_recession
+				days = -30
+			}
+		}
+
+		ai_will_do = {
+		}
+	}
+	SPT_USA_subsidies_farms_help = {
+
+		allowed = { tag = USA }
+
+		icon = GFX_decision_generic_decision
+
+		available = {
+			not = {has_active_mission = SPT_USA_ongoing_recession}
+			has_completed_focus = SPT_USA_subsidies_for_farms
+		}
+
+		days_mission_timeout = 1
+		fire_only_once = yes
+
+		
+		activation = {
+			has_active_mission = SPT_USA_ongoing_recession
+			has_completed_focus = SPT_USA_subsidies_for_farms
+		}
+
+		visible = {
+			#has_active_mission = SPT_USA_ongoing_recession
+			has_completed_focus = SPT_USA_subsidies_for_farms
+		}
+		
+		cancel_effect = {
+		}
+
+		timeout_effect = {
+			add_days_mission_timeout = {
+				mission = SPT_USA_ongoing_recession
+				days = -60
+			}
+		}
+
+		ai_will_do = {
+		}
+	}
+	SPT_USA_subsidies_docks_help = {
+
+		allowed = { tag = USA }
+
+		icon = GFX_decision_generic_decision
+
+		available = {
+			not = {has_active_mission = SPT_USA_ongoing_recession}
+			has_completed_focus = SPT_USA_subsidise_naval
+		}
+
+		days_mission_timeout = 1
+		fire_only_once = yes
+
+		
+		activation = {
+			has_active_mission = SPT_USA_ongoing_recession
+			has_completed_focus = SPT_USA_subsidise_naval
+		}
+
+		visible = {
+			#has_active_mission = SPT_USA_ongoing_recession
+			has_completed_focus = SPT_USA_subsidise_naval
+		}
+		
+		cancel_effect = {
+		}
+
+		timeout_effect = {
+			add_days_mission_timeout = {
+				mission = SPT_USA_ongoing_recession
+				days = -60
+			}
+		}
+
+		ai_will_do = {
+		}
+	}
+	SPT_USA_subsidies_mils_help = {
+
+		allowed = { tag = USA }
+
+		icon = GFX_decision_generic_decision
+
+		available = {
+			not = {has_active_mission = SPT_USA_ongoing_recession}
+			has_completed_focus = SPT_USA_subsidise_military
+		}
+
+		days_mission_timeout = 1
+		fire_only_once = yes
+
+		
+		activation = {
+			has_active_mission = SPT_USA_ongoing_recession
+			has_completed_focus = SPT_USA_subsidise_military
+		}
+
+		visible = {
+			#has_active_mission = SPT_USA_ongoing_recession
+			has_completed_focus = SPT_USA_subsidise_military
+		}
+		
+		cancel_effect = {
+		}
+
+		timeout_effect = {
+			add_days_mission_timeout = {
+				mission = SPT_USA_ongoing_recession
+				days = -60
+			}
+		}
+
+		ai_will_do = {
+		}
+	}
+	SPT_USA_subsidies_mines_help = {
+
+		allowed = { tag = USA }
+
+		icon = GFX_decision_generic_decision
+
+		available = {
+			not = {has_active_mission = SPT_USA_ongoing_recession}
+			has_completed_focus = SPT_USA_develop_internal_resources
+		}
+
+		days_mission_timeout = 1
+		fire_only_once = yes
+
+		
+		activation = {
+			has_active_mission = SPT_USA_ongoing_recession
+			has_completed_focus = SPT_USA_develop_internal_resources
+		}
+
+		visible = {
+			#has_active_mission = SPT_USA_ongoing_recession
+			has_completed_focus = SPT_USA_develop_internal_resources
+		}
+		
+		cancel_effect = {
+		}
+
+		timeout_effect = {
+			add_days_mission_timeout = {
+				mission = SPT_USA_ongoing_recession
+				days = -60
+			}
+		}
+
+		ai_will_do = {
+		}
+	}
+}
+
+SPT_USA_war_plans = {
+	SPT_USA_execute_war_plan_orange = {
+		icon = generic_operation
+		available = {
+			has_war_with = JAP
+		}
+		visible = {
+			has_completed_focus = USA_war_plan_orange
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		complete_effect = {
+			hidden_effect = {
+				add_ideas = SPT_USA_war_plan_orange_used
+			}
+			if = {
+				limit = {
+					AND = {
+						has_completed_focus = SPT_USA_island_warfare 
+						not = {has_completed_focus = SPT_USA_carrier_cover }
+						not = {has_completed_focus = SPT_USA_invasion_support }
+						not = {has_completed_focus = SPT_USA_war_plan_orange_completed }
+					}
+				}
+				add_timed_idea = {
+					idea = SPT_USA_war_plan_orange_spirit_2
+					days = 180
+				}
+			}
+			else_if = {
+				limit = {
+					AND = {
+						has_completed_focus = SPT_USA_island_warfare 
+						has_completed_focus = SPT_USA_carrier_cover
+						not = {has_completed_focus = SPT_USA_invasion_support }
+						not = {has_completed_focus = SPT_USA_war_plan_orange_completed }
+					}
+				}
+				add_timed_idea = {
+					idea = SPT_USA_war_plan_orange_spirit_3
+					days = 180
+				}
+			}
+			else_if = {
+				limit = {
+					AND = {
+						has_completed_focus = SPT_USA_island_warfare 
+						has_completed_focus = SPT_USA_carrier_cover
+						has_completed_focus = SPT_USA_invasion_support
+						not = {has_completed_focus = SPT_USA_war_plan_orange_completed }
+					}
+				}
+				add_timed_idea = {
+					idea = SPT_USA_war_plan_orange_spirit_4
+					days = 180
+				}
+			}
+			else_if = {
+				limit = {
+					AND = {
+						has_completed_focus = SPT_USA_island_warfare 
+						has_completed_focus = SPT_USA_carrier_cover
+						has_completed_focus = SPT_USA_invasion_support
+						has_completed_focus = SPT_USA_war_plan_orange_completed 
+					}
+				}
+				add_timed_idea = {
+					idea = SPT_USA_war_plan_orange_spirit_5
+					days = 180
+				}
+			}		
+			else = {
+				add_timed_idea = {
+					idea = SPT_USA_war_plan_orange_spirit_1
+					days = 180
+				}
+			}	
+		}
+	}
+
+	SPT_USA_execute_war_plan_silver = {
+		icon = generic_operation
+		available = {
+			has_war_with = ITA
+		}
+		visible = {
+			has_completed_focus = USA_war_plan_silver
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		complete_effect = {
+			hidden_effect = {
+				add_ideas = SPT_USA_war_plan_silver_used
+			}
+			if = {
+				limit = {
+					AND = {
+						has_completed_focus = SPT_USA_mountain_warfare
+						not = {has_completed_focus = SPT_USA_keep_up_the_pace }
+						not = {has_completed_focus = SPT_USA_destroy_their_navy }
+						not = {has_completed_focus = SPT_USA_war_plan_silver_completed }
+					}
+				}
+				add_timed_idea = {
+					idea = SPT_USA_war_plan_silver_spirit_2
+					days = 180
+				}
+			}
+			else_if = {
+				limit = {
+					AND = {
+						has_completed_focus = SPT_USA_mountain_warfare
+						has_completed_focus = SPT_USA_keep_up_the_pace 
+						not = {has_completed_focus = SPT_USA_destroy_their_navy }
+						not = {has_completed_focus = SPT_USA_war_plan_silver_completed }
+					}
+				}
+				add_timed_idea = {
+					idea = SPT_USA_war_plan_silver_spirit_3
+					days = 180
+				}
+			}
+			else_if = {
+				limit = {
+					AND = {
+						has_completed_focus = SPT_USA_mountain_warfare
+						has_completed_focus = SPT_USA_keep_up_the_pace 
+						has_completed_focus = SPT_USA_destroy_their_navy 
+						not = {has_completed_focus = SPT_USA_war_plan_silver_completed }
+					}
+				}
+				add_timed_idea = {
+					idea = SPT_USA_war_plan_silver_spirit_4
+					days = 180
+				}
+			}
+			else_if = {
+				limit = {
+					AND = {
+						has_completed_focus = SPT_USA_mountain_warfare
+						has_completed_focus = SPT_USA_keep_up_the_pace 
+						has_completed_focus = SPT_USA_destroy_their_navy 
+						has_completed_focus = SPT_USA_war_plan_silver_completed 
+					}
+				}
+				add_timed_idea = {
+					idea = SPT_USA_war_plan_silver_spirit_5
+					days = 180
+				}
+			}		
+			else = {
+				add_timed_idea = {
+					idea = SPT_USA_war_plan_silver_spirit_1
+					days = 180
+				}
+			}
+		}
+	}
+	SPT_USA_execute_war_plan_black = {
+		icon = generic_operation
+		available = {
+			has_war_with = GER
+		}
+		visible = {
+			has_completed_focus = USA_war_plan_black
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		complete_effect = {
+			hidden_effect = {
+				add_ideas = SPT_USA_war_plan_black_used
+			}
+			if = {
+				limit = {
+					AND = {
+						has_completed_focus = SPT_USA_armored_advance 
+						not = {has_completed_focus = SPT_USA_battering_ram }
+						not = {has_completed_focus = SPT_USA_improved_communication }
+						not = {has_completed_focus = SPT_USA_war_plan_black_completed }
+					}
+				}
+				add_timed_idea = {
+					idea = SPT_USA_war_plan_black_spirit_2
+					days = 180
+				}
+			}
+			else_if = {
+				limit = {
+					AND = {
+						has_completed_focus = SPT_USA_armored_advance 
+						has_completed_focus = SPT_USA_battering_ram 
+						not = {has_completed_focus = SPT_USA_improved_communication }
+						not = {has_completed_focus = SPT_USA_war_plan_black_completed }
+					}
+				}
+				add_timed_idea = {
+					idea = SPT_USA_war_plan_black_spirit_3
+					days = 180
+				}
+			}
+			else_if = {
+				limit = {
+					AND = {
+						has_completed_focus = SPT_USA_armored_advance 
+						has_completed_focus = SPT_USA_battering_ram 
+						has_completed_focus = SPT_USA_improved_communication
+						not = {has_completed_focus = SPT_USA_war_plan_black_completed }
+					}
+				}
+				add_timed_idea = {
+					idea = SPT_USA_war_plan_black_spirit_4
+					days = 180
+				}
+			}
+			else_if = {
+				limit = {
+					AND = {
+						has_completed_focus = SPT_USA_armored_advance 
+						has_completed_focus = SPT_USA_battering_ram 
+						has_completed_focus = SPT_USA_improved_communication
+						has_completed_focus = SPT_USA_war_plan_black_completed
+					}
+				}
+				add_timed_idea = {
+					idea = SPT_USA_war_plan_black_spirit_5
+					days = 180
+				}
+			}		
+			else = {
+				add_timed_idea = {
+					idea = SPT_USA_war_plan_black_spirit_1
+					days = 180
+				}
+			}	
+		}
+	}
+}
+
