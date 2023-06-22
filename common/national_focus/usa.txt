@@ -2518,7 +2518,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = USA_the_giant_wakes
-		cost = 5
+		cost = 10
 		ai_will_do = {
 			factor = 1
 		}
@@ -2567,7 +2567,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = SPT_USA_mobilize_the_people
-		cost = 5
+		cost = 10
 		ai_will_do = {
 			factor = 1
 		}
@@ -3300,7 +3300,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = USA_agricultural_adjustment_act
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -3370,7 +3370,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = SPT_USA_develop_coast
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -3486,7 +3486,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			custom_effect_tooltip = SPT_USA_recession_60_remove_from_focus_tt
+			custom_effect_tooltip = SPT_USA_recession_30_remove_from_focus_tt
 		}
 	}
 	focus = {
@@ -3725,6 +3725,13 @@ focus_tree = {
 			has_government = democratic
 			not = {
 				has_country_flag = USA_great_depression_cooldown
+			}
+			not = {
+				OR = {
+					has_idea = SPT_USA_recession_hit
+					has_idea = SPT_USA_recession_looming
+				}
+				
 			}
 		}
 		bypass = {
@@ -5744,7 +5751,7 @@ focus_tree = {
 	focus = {
 		id = USA_war_plans_division
 		icon = GFX_goal_generic_position_armies
-		x = 28
+		x = 25
 		y = 0
 		offset = {
 			x = 0
@@ -6158,7 +6165,7 @@ focus_tree = {
 	focus = {
 		id = USA_war_plan_silver
 		icon = GFX_focus_attack_italy
-		x = -4
+		x = 1
 		y = 1
 		prerequisite = {
 			focus = USA_intervention_in_europe
@@ -6195,7 +6202,7 @@ focus_tree = {
 		}
 		continue_if_invalid = yes
 		available_if_capitulated = yes
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = USA_intervention_in_europe
 		cost = 10
@@ -6489,7 +6496,7 @@ focus_tree = {
 		}
 		continue_if_invalid = yes
 		available_if_capitulated = yes
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = USA_intervention_in_asia
 		cost = 10
@@ -6556,7 +6563,7 @@ focus_tree = {
 			}
 		}
 		will_lead_to_war_with = JAP
-		x = 2
+		x = 3
 		y = 2
 		relative_position_id = USA_intervention_in_asia
 		cost = 10
@@ -6657,7 +6664,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = USA_war_plan_orange
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -6690,7 +6697,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = SPT_USA_island_warfare
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -6723,7 +6730,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = SPT_USA_carrier_cover
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -6790,7 +6797,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = USA_war_plan_silver
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -6823,7 +6830,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = SPT_USA_mountain_warfare
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -6856,7 +6863,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = SPT_USA_keep_up_the_pace
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -6923,7 +6930,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = USA_war_plan_black
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -6956,7 +6963,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = SPT_USA_armored_advance
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -6989,7 +6996,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = SPT_USA_battering_ram
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -7049,7 +7056,7 @@ focus_tree = {
 	focus = {
 		id = USA_war_department
 		icon = GFX_goal_generic_army_doctrines
-		x = 40
+		x = 38
 		y = 0
 		offset = {
 			x = 0
