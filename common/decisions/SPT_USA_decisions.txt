@@ -48,7 +48,7 @@ SPT_USA_recession_decisions = {
 			hidden_trigger = { always = no }
 		}
 
-		days_mission_timeout = 730
+		days_mission_timeout = 800
 		is_good = no
 		fire_only_once = yes
 
@@ -120,6 +120,16 @@ SPT_USA_recession_decisions = {
 					level = 1
 				}
 			}
+			random_owned_controlled_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					industrial_complex > 0
+				}
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+			}
 		}
 	}
 
@@ -131,7 +141,7 @@ SPT_USA_recession_decisions = {
 
 		visible = { has_idea = SPT_USA_recession_hit }
 
-		days_remove = 30
+		days_remove = 60
 		cost = 50
 		fire_only_once = yes
 		
@@ -155,7 +165,7 @@ SPT_USA_recession_decisions = {
 
 		visible = { has_idea = SPT_USA_recession_hit }
 
-		days_remove = 30
+		days_remove = 15
 		cost = 25
 		fire_only_once = yes
 		
@@ -164,7 +174,7 @@ SPT_USA_recession_decisions = {
 				mission = SPT_USA_ongoing_recession
 				days = -60
 			}
-			USA_congress_medium_opposition = yes
+			USA_congress_large_opposition = yes
 		}
 	}
 
@@ -287,7 +297,7 @@ SPT_USA_recession_decisions = {
 		timeout_effect = {
 			add_days_mission_timeout = {
 				mission = SPT_USA_ongoing_recession
-				days = -60
+				days = -30
 			}
 		}
 
