@@ -2054,7 +2054,7 @@ focus_tree = {
 		available = {
 			OR = {
 				has_war = yes
-				has_war_support > 0.35 #SPT change 0.3 -> 0.35
+				has_war_support > 0.3 
 			}
 			democratic > 0.95
 		}
@@ -2107,7 +2107,7 @@ focus_tree = {
 		}
 		available = {
 			OR = {
-				has_war_support > 0.3
+				has_war_support > 0.2 #SPT change 0.3 -> 0.2
 				has_war = yes
 			}
 		}
@@ -2235,7 +2235,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = USA_USACE_projects
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 		#ai_will_do = {
 		#	factor = 1
 		#}
@@ -2543,17 +2543,6 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			random_owned_controlled_state = {
-				limit = {
-					is_core_of = ROOT
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
 		}
 		
 	}
@@ -2586,21 +2575,10 @@ focus_tree = {
 				limit = {
 					is_core_of = ROOT
 				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
-			random_owned_controlled_state = {
-				limit = {
-					is_core_of = ROOT
-				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 			}
@@ -2629,17 +2607,6 @@ focus_tree = {
 			custom_effect_tooltip = available_designer
 			show_ideas_tooltip = USA_general_motors
 			add_ideas = war_economy
-			random_owned_controlled_state = {
-				limit = {
-					is_core_of = ROOT
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-			}
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT
@@ -2699,6 +2666,10 @@ focus_tree = {
 		available_if_capitulated = yes
 		available = {
 			democratic > 0.95
+			OR = {
+				has_war = yes
+				has_war_support > 0.35 
+			}
 		}
 		completion_reward = {
 			add_ideas = SPT_USA_the_home_front_1
@@ -2728,29 +2699,27 @@ focus_tree = {
 				remove_idea = SPT_USA_the_home_front_1
 				add_idea = SPT_USA_the_home_front_2
 			}
-			random_owned_controlled_state = {
+			if = {
 				limit = {
-					is_core_of = ROOT
+					has_war_support < 0.4
 				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
+				custom_effect_tooltip = SPT_USA_federal_taxes_tt
+				USA_congress_large_opposition = yes
 			}
-			random_owned_controlled_state = {
+			else_if = {
 				limit = {
-					is_core_of = ROOT
+					has_war_support < 0.5
 				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
+				custom_effect_tooltip = SPT_USA_federal_taxes_tt
+				USA_congress_medium_opposition = yes
 			}
-			USA_congress_medium_opposition = yes
+			else_if = {
+				limit = {
+					has_war_support < 0.7
+				}
+				custom_effect_tooltip = SPT_USA_federal_taxes_tt
+				USA_congress_small_opposition = yes
+			}
 		}
 	}
 
@@ -2903,7 +2872,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = SPT_USA_expand_lend_lease
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -2953,7 +2922,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = SPT_USA_conditional_aid
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -3010,7 +2979,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SPT_USA_conditional_aid
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -3259,7 +3228,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = USA_agricultural_adjustment_act
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -3370,7 +3339,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = SPT_USA_develop_coast
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -3393,7 +3362,7 @@ focus_tree = {
 					is_core_of = ROOT
 					is_coastal = yes
 				}
-				add_extra_state_shared_building_slots = 3
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
 					level = 2
@@ -3405,7 +3374,7 @@ focus_tree = {
 					is_core_of = ROOT
 					is_coastal = yes
 				}
-				add_extra_state_shared_building_slots = 3
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
 					level = 2
@@ -3417,7 +3386,7 @@ focus_tree = {
 					is_core_of = ROOT
 					is_coastal = yes
 				}
-				add_extra_state_shared_building_slots = 3
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
 					level = 2
@@ -3436,7 +3405,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = SPT_USA_develop_coast
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -3502,7 +3471,7 @@ focus_tree = {
 			focus = SPT_USA_public_works
 		}
 		relative_position_id = SPT_USA_develop_coast
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -3551,7 +3520,7 @@ focus_tree = {
 		y = 2
 		relative_position_id = SPT_USA_civilian_conservation_corps
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -3573,7 +3542,7 @@ focus_tree = {
 				remove_idea = SPT_USA_dust_bowl_relief
 				add_idea = SPT_USA_farmer_subsidies
 			}
-			custom_effect_tooltip = SPT_USA_recession_60_remove_from_focus_tt
+			custom_effect_tooltip = SPT_USA_recession_90_remove_from_focus_tt
 		}
 	}
 
@@ -3630,7 +3599,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			custom_effect_tooltip = SPT_USA_recession_60_remove_from_focus_tt
+			custom_effect_tooltip = SPT_USA_recession_90_remove_from_focus_tt
 		}
 	}
 	focus = {
@@ -3662,7 +3631,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			add_ideas = SPT_USA_subsidies_for_mils
-			custom_effect_tooltip = SPT_USA_recession_60_remove_from_focus_tt
+			custom_effect_tooltip = SPT_USA_recession_90_remove_from_focus_tt
 		}
 	}
 	focus = {
@@ -3675,7 +3644,7 @@ focus_tree = {
 		y = 2
 		relative_position_id = SPT_USA_civilian_conservation_corps
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -3697,7 +3666,7 @@ focus_tree = {
 				remove_idea = SPT_USA_dust_bowl_relief
 				add_idea = SPT_USA_developing_resources
 			}
-			custom_effect_tooltip = SPT_USA_recession_60_remove_from_focus_tt
+			custom_effect_tooltip = SPT_USA_recession_90_remove_from_focus_tt
 		}
 	}
 	focus = {
@@ -3924,7 +3893,7 @@ focus_tree = {
 					is_fully_controlled_by = ROOT
 					is_coastal = no
 				}
-				add_extra_state_shared_building_slots = 1
+				#add_extra_state_shared_building_slots = 1
 				add_dynamic_modifier = {
 					modifier = SPT_USA_booming_interior_economy
 					scope = USA
@@ -5762,7 +5731,7 @@ focus_tree = {
 				}
 			}
 		}
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -6116,7 +6085,7 @@ focus_tree = {
 			focus = USA_war_plans_division
 		}
 		relative_position_id = USA_war_plans_division
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -6173,7 +6142,7 @@ focus_tree = {
 		mutually_exclusive = {
 		}
 		relative_position_id = USA_intervention_in_europe
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -6205,7 +6174,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = USA_intervention_in_europe
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 		#ai_will_do = {
 		#	factor = 1
 		#}
@@ -6471,7 +6440,7 @@ focus_tree = {
 			focus = USA_war_plans_division
 		}
 		relative_position_id = USA_war_plans_division
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -6499,7 +6468,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = USA_intervention_in_asia
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 		#ai_will_do = {
 		#	factor = 1
 		#}
@@ -7067,7 +7036,7 @@ focus_tree = {
 				}
 			}
 		}
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -7247,7 +7216,7 @@ focus_tree = {
 			focus = USA_louisiana_maneuvers
 		}
 		relative_position_id = USA_selective_training_act
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -7447,7 +7416,7 @@ focus_tree = {
 			focus = USA_war_department
 		}
 		relative_position_id = USA_war_department
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -7471,7 +7440,7 @@ focus_tree = {
 			focus = USA_build_the_pentagon
 		}
 		relative_position_id = USA_war_department
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -7890,7 +7859,7 @@ focus_tree = {
 			focus = USA_two_ocean_navy_act
 		}
 		relative_position_id = USA_two_ocean_navy_act
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -7914,7 +7883,7 @@ focus_tree = {
 		x = -3
 		y = 2
 		relative_position_id = USA_two_ocean_navy_act
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 		#ai_will_do = {
 		#	factor = 1
 		#}
@@ -7965,7 +7934,7 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = USA_fund_the_navy
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 		#ai_will_do = {
 		#	factor = 1
 		#}
@@ -8068,7 +8037,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = USA_fund_the_navy
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 		#ai_will_do = {
 		#	factor = 1
 		#}
@@ -8198,7 +8167,7 @@ focus_tree = {
 			focus = USA_bureau_of_ships
 		}
 		relative_position_id = USA_bureau_of_ships
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 		ai_will_do = {
 			factor = 1
 		}
