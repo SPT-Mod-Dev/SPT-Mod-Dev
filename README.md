@@ -1,7 +1,39 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.6.0
+### 3.6.2
+### General
+
+ - All non-playable nations have had their ahistorical paths ,either blocked or removed, to prevent mishaps.
+ 
+### Focus Trees
+ - USA:
+	- New expanded USA focus tree.
+ 
+ - Hungary:
+	- Hungary can now go down the Fascist King route.
+ 
+ - Italy:
+	- Request Control Of French Territories focus now asks for the correct territories and does not require Vichy to exist to be taken.
+ 
+ - Finland:
+	- Replaced "Retake Karjala" with "Mobilised The Nation"
+	- Fixed add fascism popularity in "Proclaim Greater Finland"
+	- Fixed the field hospital spirit in "The Great Red Menace".
+    - Buffed "The Great Red Menace"
+
+### Events
+
+ - New Scuttle The French Navy event chain, which allows for Germany to capture a portion of the french navy after capitulating them. [ done to balance for a lack of Vichy France ].
+
+ ### 3.6.1
 ### Gerneral
+
+- Soviet Union
+    - Third Five Year Plan focus Consumer Goods buff 0% -> 2.5%
+
+### 3.6.0
+
+### General
  - All of axis now affected by mediterranean balance of power
  - IEA will no longer make your eyes bleed
  - "Radio Propaganda" and "Utilize Domestic Film Industry" decisions now require higher World Tension values
