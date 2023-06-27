@@ -1,9 +1,13 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### General
+- Removed minesweeping and minelaying buttons
 ### Germany
 - Hid event about patience running thin with Yugoslavia
 ### Italy
 - Allowed starting units to be deleted
+### Soviets
+- Remove "Mine Warfare" focus
 
 ### 3.6.2
 ### General
