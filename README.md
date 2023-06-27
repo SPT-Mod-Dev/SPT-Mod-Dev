@@ -1,5 +1,11 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.6.3
+### Airplane designer
+
+ - Radio Navigation: Sub detection 4 -> 6
+ - Radio Navigation II: Sub detection 6 -> 9
+
 ### 3.6.2
 ### General
 
