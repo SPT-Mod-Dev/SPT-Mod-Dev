@@ -26,7 +26,7 @@
  - New Scuttle The French Navy event chain, which allows for Germany to capture a portion of the french navy after capitulating them. [ done to balance for a lack of Vichy France ].
 
  ### 3.6.1
-### Gerneral
+### General
 
 - Soviet Union
     - Third Five Year Plan focus Consumer Goods buff 0% -> 2.5%
