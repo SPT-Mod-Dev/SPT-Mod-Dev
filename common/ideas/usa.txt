@@ -1294,7 +1294,6 @@ ideas = {
 				production_speed_arms_factory_factor = 0.075
 				consumer_goods_factor = -0.05
 				production_factory_max_efficiency_factor = 0.1
-				global_building_slots_factor = 0.2
 			}
 		}
 		SPT_USA_the_home_front_4 = {
@@ -1314,7 +1313,6 @@ ideas = {
 				production_speed_arms_factory_factor = 0.075
 				consumer_goods_factor = -0.05
 				production_factory_max_efficiency_factor = 0.1
-				global_building_slots_factor = 0.2
 				production_factory_efficiency_gain_factor = 0.1
 				defensive_war_stability_factor = 0.2
 			}
@@ -1336,7 +1334,6 @@ ideas = {
 				production_speed_arms_factory_factor = 0.1
 				consumer_goods_factor = -0.05
 				production_factory_max_efficiency_factor = 0.1
-				global_building_slots_factor = 0.2
 				production_factory_efficiency_gain_factor = 0.1
 				defensive_war_stability_factor = 0.2
 			}
@@ -1566,8 +1563,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				consumer_goods_factor = -0.025
-				stability_factor = 0.05
+				stability_factor = 0.025
 			}
 		}
 		SPT_USA_timed_relief = {
@@ -1604,7 +1600,6 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				consumer_goods_factor = -0.05
 				local_resources_factor = 0.15
 				stability_factor = 0.05
 			}
@@ -1622,8 +1617,8 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				consumer_goods_factor = -0.05
-				stability_factor = 0.1
+				consumer_goods_factor = -0.025
+				stability_factor = 0.075
 			}
 		}
 		SPT_USA_subsidies_for_docks = {
@@ -1678,6 +1673,24 @@ ideas = {
 				industrial_capacity_factory = -0.25
 				industrial_capacity_dockyard = -0.25
 				consumer_goods_factor = 0.25
+			}
+		}
+
+		SPT_USA_form_cabinet = {
+			picture = man_five_year_plan_tank
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				political_power_gain = 0.25
+				political_advisor_cost_factor = -0.33
 			}
 		}
 
