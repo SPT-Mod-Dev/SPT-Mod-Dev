@@ -1,5 +1,36 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.6.3
+
+### Focus Tree
+
+- USA
+    - Focus "Subsidise The Military Industry" now reduces Ongoing Recession by 90 days, from 60
+    - Focus "Subsidise The Naval Industry" now reduces Ongoing Recession by 90 days, from 60
+    - Focus "Subsidies for the Farmers" now reduces Ongoing Recession by 90 days, from 60
+    - Focus "Subsidise the Mining Industry" now reduces Ongoing Recession by 90 days, from 60
+    - Focus "Revitalised Interior Economy" now grants 10% construction speed from 5%, and 5% military construction speed and 5% civilian construction speed from 10%
+    - National Spirit "Home Front" now grants 5% military construction speed, from 10%
+    - National Spirit "Dust Bowl Relief" no longer grants -2.5% consumer goods, and had its Stability reduced to 2.5% from 5%
+    - National Spirit "Subsidised Mining Industry" now grants 15% resources from 10%
+    - National Spirit "Subisdised Farming Industry" now grants 2.5% consumer goods, from 5%, and 7.5% stability from 10%
+    - National Spirit "The 1937 Recession" now grants -0.15 political power gain
+    - National Spirit "Subsidised Naval Industry" no longer grants dockyard construction speed, instead it grants +15% dockyard output
+    - National Spirit "Subsidised Military Industry" no longer grants military factory construction speed. And grants 10% factory output from 5%
+    - War Plans focuses have been shortened to 35 days
+    - War Plans focuses now start at 5% attack and defense vs targetted countries, but grant 2.5% attack and defense per focus completed.
+    - Focus "The Giant Wakes" now requires 30% war support, from 35%
+    - Focus "USACE Projects" now requires 20% war support, from 30%
+    - Focus "Military Construction" completion time reduced to 35 days, from 70
+    - Focus "Mobilise The People" now grants 2 less civilian factories
+    - Focus "Prepare The War Industry" now grants 2 less military factories
+    - Focus "Expand Federal Taxes" now has scaling senate opposition based on war support
+    - Focus "National Youth Organization" now grants 2 building slots per state, from 3
+    - Focus "Fair Labor Standards" completion time reduced to 35 days, from 70
+    - Focus "Subsidies for the Farmers" completion time increased to 70 days, from 35
+    - Focus "Subsidies for the Mining Industry" completion time increased to 70 days, from 35
+    - "The Recession of 1937" event now also grants medium senate and house opposion
+
 ### 3.6.0
 ### Gerneral
  - All of axis now affected by mediterranean balance of power
