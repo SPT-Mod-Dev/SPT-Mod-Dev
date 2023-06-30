@@ -1,8 +1,16 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
 ### 3.6.3
+### General
+ - Italy 
+    - Allowed starting units to be deleted
+    - Removed decision to add compliance
+ - Germany
+    - Hid event about patience running thin with Yugoslavia
+### Focus
+ - Italy
+    - Added focus to get compliance on Yugoslvavian cores
 ### Airplane designer
-
  - Radio Navigation: Sub detection 4 -> 6
  - Radio Navigation II: Sub detection 6 -> 9
 
