@@ -9071,7 +9071,7 @@ focus_tree = {
 		prerequisite = { focus = ITA_the_man_of_providence }
 		mutually_exclusive = { focus = ITA_to_live_as_a_lion }
 		x = -1
-		y = 3
+		y = 2
 		relative_position_id = ITA_the_man_of_providence
 		cost = 5
 		available = {
@@ -9251,7 +9251,7 @@ focus_tree = {
 		prerequisite = { focus = ITA_la_battaglia_per_le_nascite }
 
 		x = 0
-		y = 3
+		y = 1
 		relative_position_id = ITA_la_battaglia_per_le_nascite
 		cost = 10
 		available = {
@@ -9428,7 +9428,7 @@ focus_tree = {
 		prerequisite = { focus = ITA_believe_obey_fight }
 
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = ITA_believe_obey_fight
 		cost = 10
 
@@ -9491,7 +9491,7 @@ focus_tree = {
 		prerequisite = { focus = ITA_banda_carita }
 
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = ITA_banda_carita
 		cost = 10
 
@@ -9531,7 +9531,7 @@ focus_tree = {
 		prerequisite = { focus = ITA_culto_del_duce}
 
 		x = 6
-		y = 2
+		y = 1
 		relative_position_id = ITA_culto_del_duce
 
 		offset = {
@@ -9578,7 +9578,7 @@ focus_tree = {
 		prerequisite = { focus = ITA_security_militias }
 		mutually_exclusive = { focus = ITA_strengthen_the_blackshirts }
 		x = -1
-		y = 2
+		y = 1
 		relative_position_id = ITA_security_militias
 
 		offset = {
@@ -9671,7 +9671,7 @@ focus_tree = {
 		prerequisite = { focus = ITA_battaglioni_d_assalto focus = ITA_strengthen_the_blackshirts }
 
 		x = 1
-		y = 2
+		y = 1
 		relative_position_id = ITA_battaglioni_d_assalto
 		cost = 10
 		available = {
@@ -15783,7 +15783,7 @@ focus_tree = {
 		icon = GFX_focus_chi_collaboration_with_the_japanese
 		prerequisite = { focus = ITA_pact_of_steel}
 
-		x = -3
+		x = 1
 		y = 1
 		relative_position_id = ITA_pact_of_steel
 		cost = 10
@@ -22633,6 +22633,43 @@ focus_tree = {
 					}
 				}
 			}
+		}
+	}
+
+	focus = {
+		id = ITA_pacify_yugo
+		icon = GFX_focus_ITA_imperial_recognition
+		prerequisite = { focus = ITA_pact_of_steel }
+
+		x = -3
+		y = 1
+		relative_position_id = ITA_pact_of_steel
+		cost = 3
+		available = {
+			YUG = { exists = no }
+			has_war_with_non_exiled_country = no
+			any_owned_state = {
+				is_core_of = YUG
+				NOT = {is_core_of=ITA}
+				hidden_trigger = { NOT = {state = 163} }
+			}
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+			hidden_effect = {
+				every_owned_state = {
+					limit = {
+						is_core_of = YUG
+						NOT = {is_core_of=ITA}
+						NOT = {state = 163}
+					}
+					add_compliance = 80
+				}
+			}
+			custom_effect_tooltip = ITA_pacify_yugo_tt
+			
 		}
 	}
 

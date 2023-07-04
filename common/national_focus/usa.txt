@@ -3342,7 +3342,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = SPT_USA_develop_coast
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -4383,6 +4383,13 @@ focus_tree = {
 			has_government = democratic
 			not = {
 				has_country_flag = USA_great_depression_cooldown
+			}
+			not = {
+				OR = {
+					has_idea = SPT_USA_recession_hit
+					has_idea = SPT_USA_recession_looming
+				}
+				
 			}
 		}
 		completion_reward = {
@@ -6312,7 +6319,9 @@ focus_tree = {
 	focus = {
 		id = USA_war_plans_division
 		icon = GFX_goal_generic_position_armies
+
 		x = 35
+
 		y = 0
 		offset = {
 			x = 0
@@ -7617,7 +7626,9 @@ focus_tree = {
 	focus = {
 		id = USA_war_department
 		icon = GFX_goal_generic_army_doctrines
+
 		x = 48
+
 		y = 0
 		offset = {
 			x = 0
