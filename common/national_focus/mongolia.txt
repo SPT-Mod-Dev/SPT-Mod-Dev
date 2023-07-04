@@ -121,6 +121,7 @@ focus_tree = {
 		search_filters = {
 		}
 		completion_reward = {
+			add_stability = 0.1
 			add_timed_idea = {
 				idea = mon_restuff_the_governement
 				days = 180
@@ -246,6 +247,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_ideas = mon_economic_growth
+			remove_ideas = mon_decentralized_society
 		}
 	}
 #   _____ ____  __  __ __  __ _____ ______    _____ _    _          _____  ______ _____  
@@ -427,6 +429,30 @@ focus = {
 			idea = mon_independent_economy
 			days = 360
 		}
+		811 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+		818 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+		819 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
 	}
 }
 focus = {
@@ -449,6 +475,9 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
+		SOV = {
+			add_to_faction = MON
+		}
 	}
 }
 
@@ -472,6 +501,12 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
+		add_ideas = mon_compromise_lamas
+		add_tech_bonus = {
+			bonus = 3
+			uses = 1
+			category = hospital_tech
+		}
 	}
 }
 focus = {
@@ -494,6 +529,11 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
+		add_stability = -0.1
+		add_timed_idea = {
+			days = 360
+			idea = mon_force_herders
+		}
 	}
 }
 focus = {
@@ -510,6 +550,9 @@ focus = {
 	}
 	cost = 5
 	available = {
+		NOT = { num_of_controlled_factories < 35 }
+		NOT = { has_idea = mon_independent_economy }
+		NOT = { has_idea =  mon_force_herders }
 	}
 	bypass = {
 	}
@@ -519,6 +562,8 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
+		add_ideas = mon_collectivized_economy
+		remove_ideas = mon_decentralized_society
 	}
 }
 
@@ -572,6 +617,10 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
+		add_timed_idea = {
+			idea = mon_reprivatize_economy
+			days = 180
+		}
 	}
 }
 focus = {
@@ -594,6 +643,7 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
+		#add a tooltip for decisions
 	}
 }
 focus = {
@@ -607,6 +657,7 @@ focus = {
 	}
 	cost = 5
 	available = {
+		NOT = { has_idea = mon_reprivatize_economy }
 	}
 	bypass = {
 	}
@@ -616,6 +667,10 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
+		add_timed_idea = {
+			idea = mon_laissez_faire
+			days = 1095
+		}
 	}
 }
 focus = {
@@ -638,16 +693,18 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
+		add_ideas = mon_interim_government
+		add_political_power = 150
 	}
 }
-focus = {
+focus = { ### constitutional monarchy
 	id = MON_constitutional_monarchy
 	icon = GFX_focus_invite_finland
 	x = -1
 	y = 1
 	relative_position_id = MON_interim_government
 	mutually_exclusive = {
-		focus = MON_absolute_monarchy
+		focus = MON_parliamentary
 	}
 	prerequisite = {
 		focus = MON_interim_government
@@ -663,10 +720,12 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
+		add_ideas = mon_constitutional_monarchy
+		add_stability = 0.15
 	}
 }
-focus = {
-	id = MON_absolute_monarchy
+focus = { ### parliamentary monarchy
+	id = MON_parliamentary
 	icon = GFX_focus_invite_finland
 	x = 1
 	y = 1
@@ -688,6 +747,11 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
+		set_politics = {
+			ruling_party = democratic
+			elections_allowed = yes
+		}
+		add_ideas = mon_little_democracy
 	}
 }
 focus = {
@@ -695,9 +759,9 @@ focus = {
 	icon = GFX_focus_invite_finland
 	x = -1
 	y = 1
-	relative_position_id = MON_absolute_monarchy
+	relative_position_id = MON_parliamentary
 	prerequisite = {
-		focus = MON_absolute_monarchy
+		focus = MON_parliamentary
 		focus = MON_constitutional_monarchy
 	}
 	cost = 5
@@ -711,6 +775,8 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
+		add_stability = 0.1
+		add_political_power = 250
 	}
 }
 focus = {
@@ -805,6 +871,8 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
+		remove_ideas = mon_decentralized_society
+		remove_ideas = mon_isolation
 	}
 }
 focus = {

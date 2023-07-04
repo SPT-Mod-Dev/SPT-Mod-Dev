@@ -468,8 +468,103 @@ country_event = { #people jumping the border to help china
 	option = {
 		name = spt_mongolia.13.a
 		add_ideas = mon_jump_border
+		set_rule = { can_send_volunteers = yes }
 	}
 }
+
+###################### NATIONALIST ECONOMIC AID
+
+country_event = {
+	id = spt_mongolia.14
+	title = spt_mongolia.14.t
+	desc = spt_mongolia.14.desc
+	is_triggered_only = yes
+
+	option = {
+		name = spt_mongolia.14.a #### mils
+		random_owned_controlled_state = {
+			limit = {
+				arms_factory > 2
+			}
+			remove_building = {
+				type = arms_factory
+				level = 2
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				arms_factory > 2
+			}
+			remove_building = {
+				type = arms_factory
+				level = 2
+			}
+		}
+		MON = {
+			random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+			random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+	}
+	option = {
+		name = spt_mongolia.14.b #### civs
+		random_owned_controlled_state = {
+			limit = {
+				industrial_complex > 2
+			}
+			remove_building = {
+				type = industrial_complex
+				level = 2
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				industrial_complex > 2
+			}
+			remove_building = {
+				type = industrial_complex
+				level = 2
+			}
+		}
+		MON = {
+			random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+			random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+	}
+	option = { #nah
+		name = spt_mongolia.14.c
+	}
+
+}
+
+############################ NATIONALIST ECONOMIC AID
 
 ##########################################
 

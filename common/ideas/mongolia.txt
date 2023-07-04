@@ -96,8 +96,8 @@ ideas = {
 			name = mon_collectivization_of_farming
 			picture = generic_air_bonus
 			modifier = {
-				production_factory_efficiency_gain_factor = 0.15
-				production_speed_buildings_factor = 0.15
+				production_speed_infrastructure_factor = 0.15
+				production_speed_industrial_complex_factor = 0.1
 				consumer_goods_factor = 0.05
 			}
 			on_remove = {
@@ -165,7 +165,7 @@ ideas = {
 			picture = generic_air_bonus
 			modifier = {
 					send_volunteer_divisions_required = -0.75
-					send_volunteers_tension = -0.20
+					send_volunteers_tension = -0.50
 			}
 			cancel = {
 				JAP = {
@@ -176,6 +176,7 @@ ideas = {
 			}
 		}
 
+
 		################## MON LEFT
 
 		mon_independent_economy = {
@@ -183,7 +184,6 @@ ideas = {
 			picture = generic_air_bonus
 			modifier = {
 				production_speed_buildings_factor = 0.1
-				production_speed_arms_factory_factor = 0.1
 				political_power_gain = -0.1
 			}
 			equipment_bonus = {
@@ -193,6 +193,105 @@ ideas = {
 				light_armor = {
 					build_cost_ic = -0.15
 				}
+			}
+		}
+
+		mon_compromise_lamas = {
+			name = mon_compromise_lamas
+			picture = generic_air_bonus
+			modifier = {
+				stability_factor = 0.1
+				war_support_factor = 0.05
+				party_popularity_stability_factor = 0.1	
+			}
+		}
+		mon_force_herders = {
+			name = mon_force_herders
+			picture = generic_air_bonus
+			modifier = {
+				consumer_goods_factor = 0.1
+				production_speed_arms_factory_factor = 0.10
+				production_factory_efficiency_gain_factor = 0.1
+				production_factory_start_efficiency_factor = 0.1
+			}
+		}
+		mon_collectivized_economy = {
+			name = mon_collective_economy
+			picture = generic_air_bonus
+			modifier = {
+				production_speed_arms_factory_factor = 0.10
+				consumer_goods_factor = -0.1
+				production_factory_efficiency_gain_factor = 0.15
+			}
+			equipment_bonus = {
+				armor = {
+					build_cost_ic = -0.1
+				}
+			}
+		}
+
+
+		################################# MON NATIONALISTS ECONOMY
+
+		
+		
+		############################### MON NATIONALISTS
+
+		mon_reprivatize_economy = {
+			name = mon_reprivatize_economy
+			picture = generic_air_bonus
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = -0.1
+				consumer_goods_factor = -0.1
+			}
+		}
+		mon_laissez_faire = {
+			name = mon_laissez_faire
+			picture = generic_air_bonus
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.15
+				production_speed_buildings_factor = 0.10
+				consumer_goods_factor = -0.1
+			}
+			on_remove = {
+				add_timed_idea = {
+					idea = mon_ted_kaczynski
+					days = 365
+				}
+			}
+		}
+
+		mon_ted_kaczynski = {
+			name = mon_ted_kaczynski
+			picture = generic_air_bonus
+			modifier = {
+				production_factory_efficiency_gain_factor = -0.1
+				production_speed_buildings_factor = -0.15
+				consumer_goods_factor = 0.1
+				stability_factor = -0.1
+			}
+		}
+		mon_interim_government = {
+			name = mon_interim_government
+			picture = generic_air_bonus
+			modifier = {
+				stability_weekly = 0.001
+			}
+		}
+		mon_constitutional_monarchy = {
+			name = mon_constitutional_monarchy
+			picture = generic_air_bonus
+			modifier = {
+				war_support_weekly = 0.001
+			}
+		}
+		mon_little_democracy = {
+			name = mon_little_democracy
+			picture = generic_air_bonus
+			modifier = {
+				democratic_drift = 0.25
+				stability_weekly = 0.002
 			}
 		}
 

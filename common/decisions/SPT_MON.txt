@@ -7,32 +7,77 @@ MON_soviet_economic_aid_decisions = {
 		fire_only_once = yes
 		complete_effect = {
 			SOV = {
-				country_event = spt_mongolia.10
+				country_event = { id = spt_mongolia.12 days = 1 }
 			}
 		}
 	}
 	MON_sov_civs = {
 		visible = {
-			has_completed_focus = MON_soviet_economic_aid
-		}
-		cost = 50
-		fire_only_once = 30
-		complete_effect = {
-			SOV = {
-				country_event = spt_mongolia.11
+			OR = {
+				has_completed_focus = MON_soviet_reconciliation
+				has_completed_focus = MON_soviet_economic_aid
 			}
-		}
-	}
-	MON_sov_arms_factory = {
-		visible = {
-			has_completed_focus = MON_soviet_economic_aid
 		}
 		cost = 50
 		fire_only_once = yes
 		complete_effect = {
 			SOV = {
-				country_event = spt_mongolia.12
+				country_event = { id = spt_mongolia.12 days = 1 }
 			}
 		}
 	}
+	MON_sov_arms_factory = {
+		visible = {
+			OR = {
+				has_completed_focus = MON_soviet_reconciliation
+				has_completed_focus = MON_soviet_economic_aid
+			}
+		}
+		cost = 50
+		fire_only_once = yes
+		complete_effect = {
+			SOV = {
+				country_event = { id = spt_mongolia.12 days = 1 }
+			}
+		}
+	}
+}
+MON_international_economic_aid_decisions = {
+	MON_us_aid = {
+	visible = {
+		has_completed_focus = MON_international_economic_aid
+	}
+	cost = 50
+	fire_only_once = yes
+	complete_effect = {
+		USA = {
+			country_event = { id = spt_mongolia.14 days = 1}
+		}
+	}
+}
+MON_eng_aid = {
+	visible = {
+		has_completed_focus = MON_international_economic_aid
+	}
+	cost = 50
+	fire_only_once = yes
+	complete_effect = {
+		ENG = {
+			country_event = { id = spt_mongolia.14 days = 1 }
+		}
+	}
+}
+MON_fra_aid = {
+	visible = {
+		has_completed_focus = MON_international_economic_aid
+	}
+	cost = 50
+	fire_only_once = yes
+	complete_effect = {
+		FRA = {
+			country_event = { id = spt_mongolia.14 days = 1 }
+		}
+	}
+}
+
 }
