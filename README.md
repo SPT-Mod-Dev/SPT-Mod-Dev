@@ -1,6 +1,7 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
 ### 3.6.3
+
 ### General
  - Italy 
     - Allowed starting units to be deleted
@@ -9,20 +10,25 @@
     - Hid event about patience running thin with Yugoslavia
 
 - Removed minesweeping and minelaying buttons
+ 
 ### Focus
+ - USA
+    - Major rebalance of new part of focus tree
  - Italy
     - Added focus to get compliance on Yugoslvavian cores
  - Soviet 
     - Removed "Mine Warfare" focus
+
 ### Airplane designer
  - Radio Navigation: Sub detection 4 -> 6
  - Radio Navigation II: Sub detection 6 -> 9
 
 ### 3.6.2
+
 ### General
 
- - All non-playable nations have had their ahistorical paths, either blocked or removed, to prevent mishaps.
- 
+ - All non-playable nations have had their ahistorical paths ,either blocked or removed, to prevent mishaps.
+
 ### Focus Trees
  - USA:
 	- New expanded USA focus tree.
