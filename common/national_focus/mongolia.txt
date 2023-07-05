@@ -278,7 +278,7 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
-		create_corps_commander = {
+		create_field_marshal = {
 			name = "Mao Zedong"
 			gfx = GFX_portrait_prc_mao_zedong
 			traits = { trait_cautious politically_connected defensive_doctrine }
@@ -595,6 +595,7 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
+		
 	}
 }
 focus = {
@@ -790,8 +791,17 @@ focus = {
 	}
 	cost = 5
 	available = {
+		JAP = {
+				has_war_with = CHI
+		}
 	}
 	bypass = {
+		date > 1938.2.2
+		JAP = {
+			NOT = {
+				has_war_with = CHI
+			}
+		}
 	}
 	cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -799,6 +809,7 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
+		add_ideas = mon_better_volunteers_china
 	}
 }
 focus = {
@@ -812,6 +823,10 @@ focus = {
 	}
 	cost = 5
 	available = {
+		OR = {
+		CHI = {is_ally_with = JAP}
+		NOT = {country_exists = CHI}
+	}
 	}
 	bypass = {
 	}
@@ -821,6 +836,50 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
+		create_field_marshal = {
+			name = "Tai An-lan"
+			gfx = GFX_portrait_chi_tai_an_lan
+			traits={ career_officer trait_reckless offensive_doctrine organizer logistics_wizard }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=1
+			legacy_id=-1
+		}
+		create_corps_commander = {
+			name = "Gu Zhutong"
+			gfx = GFX_portrait_chi_gu_zhutong
+			traits={ cavalry_leader career_officer }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=-1
+		}
+		create_corps_commander = {
+			name = "Fu Zuoyi"
+			gfx = GFX_portrait_chi_fu_zuoyi
+			traits={ panzer_leader }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=-1
+		}
+		create_corps_commander = {
+			name = "Zhang Xueliang"
+			gfx = GFX_portrait_chi_zhang_xueliang
+			traits={ naval_invader }
+			skill=3
+			attack_skill=3
+			defense_skill=5
+			planning_skill=1
+			logistics_skill=5
+			legacy_id=-1
+		}
 	}
 }
 focus = {
@@ -834,6 +893,10 @@ focus = {
 	}
 	cost = 5
 	available = {
+		OR = {
+			CHI = {is_ally_with = JAP}
+			NOT = {country_exists = CHI}
+		}
 	}
 	bypass = {
 	}
@@ -843,6 +906,12 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
+		add_state_core = 618
+		add_state_core = 760
+		add_state_core = 617
+		add_state_core = 759
+		add_state_core = 287
+		add_state_core = 619
 	}
 }
 focus = {

@@ -165,7 +165,7 @@ ideas = {
 			picture = generic_air_bonus
 			modifier = {
 					send_volunteer_divisions_required = -0.75
-					send_volunteers_tension = -0.50
+					send_volunteers_tension = -0.25
 			}
 			cancel = {
 				JAP = {
@@ -268,6 +268,26 @@ ideas = {
 				stability_factor = -0.1
 			}
 		}
+		
+		############################### MON NATIONALISTS
+
+		mon_better_volunteers_china = {
+			name = mon_better_volunteers_china
+			picture = generic_air_bonus
+			modifier = {
+				send_volunteers_tension = -0.25
+				mobilization_speed = 0.25
+				recruitable_population_factor = 0.1
+		}
+		cancel = {
+			JAP = {
+				NOT = {
+					has_war_with = CHI
+				}
+			}
+		}
+		}
+		
 		mon_interim_government = {
 			name = mon_interim_government
 			picture = generic_air_bonus
