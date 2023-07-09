@@ -18,7 +18,7 @@ focus_tree = {
 	focus = {
 		id = MON_awooga
 		icon = GFX_focus_invite_finland
-		x = 20
+		x = 40
 		y = 1
 		relative_position_id = MON_great_purge
 
@@ -248,6 +248,7 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = mon_economic_growth
 			remove_ideas = mon_decentralized_society
+			remove_ideas = mon_memories_of_32
 		}
 	}
 #   _____ ____  __  __ __  __ _____ ______    _____ _    _          _____  ______ _____  
@@ -564,6 +565,7 @@ focus = {
 	completion_reward = {
 		add_ideas = mon_collectivized_economy
 		remove_ideas = mon_decentralized_society
+		remove_ideas = mon_memories_of_32
 	}
 }
 
@@ -722,7 +724,7 @@ focus = { ### constitutional monarchy
 	}
 	completion_reward = {
 		add_ideas = mon_constitutional_monarchy
-		add_stability = 0.15
+		add_stability = 0.10
 	}
 }
 focus = { ### parliamentary monarchy
@@ -778,6 +780,7 @@ focus = {
 	completion_reward = {
 		add_stability = 0.1
 		add_political_power = 250
+		remove_ideas = mon_interim_government
 	}
 }
 focus = {
@@ -970,6 +973,346 @@ focus = {
 		add_ideas = mon_golden_corp 
 	}
 }
+focus = {
+	id = MON_economy
+	icon = GFX_focus_invite_finland
+	x = 28
+	y = 1
+
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+focus = {
+	id = MON_asses_resources
+	icon = GFX_focus_invite_finland
+	x = -5
+	y = 1
+	relative_position_id = MON_economy
+	prerequisite = {
+		focus = MON_economy
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+focus = {
+	id = MON_exploit_gobi
+	icon = GFX_focus_invite_finland
+	x = -1
+	y = 1
+	relative_position_id = MON_asses_resources
+	prerequisite = {
+		focus = MON_asses_resources
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+focus = {
+	id = MON_exploit_gold_reserves #north
+	icon = GFX_focus_invite_finland
+	x = 1
+	y = 1
+	relative_position_id = MON_asses_resources
+	prerequisite = {
+		focus = MON_asses_resources
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = { #cons goods bonus
+	}
+}
+focus = {
+	id = MON_improved_tools
+	icon = GFX_focus_invite_finland
+	x = -1
+	y = 1
+	relative_position_id = MON_exploit_gold_reserves
+	prerequisite = {
+		focus = MON_exploit_gold_reserves
+	}
+	prerequisite = {
+		focus = MON_exploit_gobi
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+focus = {
+	id = MON_build_inf
+	icon = GFX_focus_invite_finland
+	x = 0
+	y = 1
+	relative_position_id = MON_economy
+	prerequisite = {
+		focus = MON_economy
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+focus = {
+	id = MON_connect_sin
+	icon = GFX_focus_invite_finland
+	x = 0
+	y = 1
+	relative_position_id = MON_build_inf
+	prerequisite = {
+		focus = MON_build_inf
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = { 
+	}
+}
+focus = {
+	id = MON_develop_heavy_ind
+	icon = GFX_focus_invite_finland
+	x = -2
+	y = 1
+	relative_position_id = MON_connect_sin
+	prerequisite = {
+		focus = MON_connect_sin
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = { 
+	}
+}
+focus = {
+	id = MON_multiculturalism
+	icon = GFX_focus_invite_finland
+	x = 0
+	y = 1
+	relative_position_id = MON_connect_sin
+	prerequisite = {
+		focus = MON_connect_sin
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = { 
+	}
+}
+focus = {
+	id = MON_develop_civ_ind
+	icon = GFX_focus_invite_finland
+	x = 2
+	y = 1
+	relative_position_id = MON_connect_sin
+	prerequisite = {
+		focus = MON_connect_sin
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = { 
+	}
+}
+focus = {
+	id = MON_two_people_two_goverments
+	icon = GFX_focus_invite_finland
+	x = 0
+	y = 1
+	relative_position_id = MON_multiculturalism
+	prerequisite = {
+		focus = MON_multiculturalism
+	}
+	prerequisite = {
+		focus = MON_develop_heavy_ind
+	}
+	prerequisite = {
+		focus = MON_develop_civ_ind
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = { 
+	}
+}
+focus = {
+	id = MON_develop_bureaucracy
+	icon = GFX_focus_invite_finland
+	x = 5
+	y = 1
+	relative_position_id = MON_economy
+	prerequisite = {
+		focus = MON_economy
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+focus = {
+	id = MON_develop_the_economy
+	icon = GFX_focus_invite_finland
+	x = -1
+	y = 1
+	relative_position_id = MON_develop_bureaucracy
+	prerequisite = {
+		focus = MON_develop_bureaucracy
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+focus = {
+	id = MON_herders_to_workers
+	icon = GFX_focus_invite_finland
+	x = 1
+	y = 1
+	relative_position_id = MON_develop_bureaucracy
+	prerequisite = {
+		focus = MON_develop_bureaucracy
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+focus = {
+	id = MON_university_of_mongolia
+	icon = GFX_focus_invite_finland
+	x = 1
+	y = 1
+	relative_position_id = MON_develop_the_economy
+	prerequisite = {
+		focus = MON_develop_the_economy
+	}
+	prerequisite = {
+		focus = MON_herders_to_workers
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+
 
 
 }
