@@ -247,7 +247,6 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_ideas = mon_economic_growth
-			remove_ideas = mon_decentralized_society
 			remove_ideas = mon_memories_of_32
 		}
 	}
@@ -564,7 +563,6 @@ focus = {
 	}
 	completion_reward = {
 		add_ideas = mon_collectivized_economy
-		remove_ideas = mon_decentralized_society
 		remove_ideas = mon_memories_of_32
 	}
 }
@@ -898,8 +896,10 @@ focus = {
 	available = {
 		OR = {
 			CHI = {is_ally_with = JAP}
+		} #### THIS HAS TO BE FUCKING FIXED I DON"T UNDERSTAND JESUS FUCKING CHRIST
+		OR = {
 			NOT = {country_exists = CHI}
-		}
+		}		
 	}
 	bypass = {
 	}
@@ -943,7 +943,6 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
-		remove_ideas = mon_decentralized_society
 		remove_ideas = mon_isolation
 	}
 }
@@ -990,6 +989,19 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 2
+			category = industry
+		}
+		330 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
 	}
 }
 focus = {
@@ -1011,7 +1023,7 @@ focus = {
 	available_if_capitulated = yes
 	search_filters = {
 	}
-	completion_reward = {
+	completion_reward = { #prospect for resources just needs tooltip
 	}
 }
 focus = {
@@ -1034,6 +1046,16 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
+		817 = {
+		add_resource = {
+			type = tungsten
+			amount = 12
+		}
+		add_resource = {
+			type = oil
+			amount = 4
+		}
+	}
 	}
 }
 focus = {
@@ -1056,6 +1078,18 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = { #cons goods bonus
+	add_timed_idea = {
+		idea = mon_exploit_gold_reserves_north
+		days = 360
+	}
+	820 = {
+		add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+			type = industrial_complex
+			level = 2
+			instant_build = yes
+		}
+	}
 	}
 }
 focus = {
@@ -1081,6 +1115,11 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
+		add_tech_bonus = {
+			bonus = 2
+			uses = 2
+			category = excavation_tech
+		}
 	}
 }
 focus = {
@@ -1103,6 +1142,46 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
+		818 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		820 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		330 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		817 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		819 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
 	}
 }
 focus = {
@@ -1116,6 +1195,7 @@ focus = {
 	}
 	cost = 5
 	available = {
+		owns_state = 617
 	}
 	bypass = {
 	}
@@ -1125,6 +1205,47 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = { 
+		750 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		618 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		617 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		build_railway = {
+			level = 1
+			path = {
+				4801
+				4732
+				1798
+				1728
+				12614
+				4858
+				10560
+				12598
+				4704
+				10839
+				12656
+				4709
+			}
+		}
 	}
 }
 focus = {
@@ -1147,6 +1268,22 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = { 
+		617 = {
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = arms_factory
+				level = 3
+				instant_build = yes
+			}
+		}
+		618 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
 	}
 }
 focus = {
@@ -1162,13 +1299,32 @@ focus = {
 	available = {
 	}
 	bypass = {
+		617 = { is_core_of = MON}
 	}
 	cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = yes
 	search_filters = {
 	}
-	completion_reward = { 
+	completion_reward = {
+		618 = {
+			add_compliance = 50
+		}
+		760 = {
+			add_compliance = 50
+		}
+		617 = {
+			add_compliance = 50
+		}
+		759 = {
+			add_compliance = 50
+		}
+		287 = {
+			add_compliance = 50
+		}
+		619 = {
+			add_compliance = 50
+		}
 	}
 }
 focus = {
@@ -1191,6 +1347,30 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = { 
+		287 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+		769 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		619 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
 	}
 }
 focus = {
@@ -1241,6 +1421,12 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
+		add_to_variable = {
+			MON_dec_conscr_fact = 0.05
+		}
+		add_to_variable = {
+			MON_dec_stability_fact = -0.05
+		}
 	}
 }
 focus = {
