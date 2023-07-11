@@ -6,6 +6,7 @@
  - Italy 
     - Allowed starting units to be deleted
     - Removed decision to add compliance
+    
  - Germany
     - Hid event about patience running thin with Yugoslavia
 
@@ -14,8 +15,10 @@
 ### Focus
  - USA
     - Major rebalance of new part of focus tree
+
  - Italy
     - Added focus to get compliance on Yugoslvavian cores
+
  - Soviet 
     - Removed "Mine Warfare" focus
 
