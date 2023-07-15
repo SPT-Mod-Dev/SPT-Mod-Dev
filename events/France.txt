@@ -2285,3 +2285,23 @@ news_event = {
 		}
 	}
 }
+country_event = {
+	id = france.35
+	title = france.35.title
+	desc = france.35.desc
+	picture = GFX_fra_you_gained_nothing
+	is_triggered_only = yes
+	trigger = {
+		tag = FRA
+		has_completed_focus = FRA_form_the_popular_front
+		NOT = {
+			GER = {
+				has_war_with = SOV
+			}
+		}
+		controls_province = 6449
+	}
+	option = {
+		name = france.35.a
+	}
+}
