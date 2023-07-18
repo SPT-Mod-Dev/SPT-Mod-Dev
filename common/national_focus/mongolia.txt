@@ -18,7 +18,7 @@ focus_tree = {
 	focus = {
 		id = MON_awooga
 		icon = GFX_focus_invite_finland
-		x = 40
+		x = 70
 		y = 1
 		relative_position_id = MON_great_purge
 
@@ -1582,9 +1582,10 @@ focus = {
 	}
 }
 focus = {
-	id = MON_army
+	id = MON_review_state
 	icon = GFX_focus_invite_finland
-	x = 40
+
+	x = 43
 	y = 0
 
 	cost = 5
@@ -1601,7 +1602,547 @@ focus = {
 		
 	}
 }
+focus = {
+	id = MON_create_air_academy
+	icon = GFX_focus_invite_finland
+	relative_position_id = MON_review_state
+	x = 5
+	y = 1
+	prerequisite = {
+		focus = MON_review_state
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+		
+	}
+}
+focus = {
+	id = MON_explore_new_designs
+	icon = GFX_focus_invite_finland
+	relative_position_id = MON_create_air_academy
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = MON_create_air_academy
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+		
+	}
+}
+focus = {
+	id = MON_streamline_designs
+	icon = GFX_focus_invite_finland
+	relative_position_id = MON_create_air_academy
+	x = 2
+	y = 1
+	prerequisite = {
+		focus = MON_create_air_academy
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+		
+	}
+}
+focus = {
+	id = MON_increase_training_hours
+	icon = GFX_focus_invite_finland
+	relative_position_id = MON_create_air_academy
+	x = 4
+	y = 1
+	prerequisite = {
+		focus = MON_create_air_academy
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+		
+	}
+}
+focus = {
+	id = MON_airborne_division
+	icon = GFX_focus_invite_finland
+	relative_position_id = MON_increase_training_hours
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = MON_streamline_designs
+	}
+	prerequisite = {
+		focus = MON_increase_training_hours
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+		
+	}
+}
+focus = {
+	id = MON_best_of_the_best
+	icon = GFX_focus_invite_finland
+	relative_position_id = MON_airborne_division
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = MON_airborne_division
+	}
+	prerequisite = {
+		focus = MON_focus_on_cas
+		focus = MON_focus_on_fighers
+	}
 
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+		
+	}
+}
+focus = {
+	id = MON_focus_on_cas
+	icon = GFX_focus_invite_finland
+	relative_position_id = MON_explore_new_designs
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = MON_explore_new_designs
+	}
+	mutually_exclusive = {
+		focus = MON_focus_on_fighers
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+		
+	}
+}
+focus = {
+	id = MON_focus_on_fighers
+	icon = GFX_focus_invite_finland
+	relative_position_id = MON_explore_new_designs
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = MON_explore_new_designs
+	}
+	mutually_exclusive = {
+		focus = MON_focus_on_cas
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+		
+	}
+}
+
+focus = {
+	id = MON_create_military_academy
+	icon = GFX_focus_invite_finland
+	relative_position_id = MON_review_state
+	x = -5
+	y = 1
+	prerequisite = {
+		focus = MON_review_state
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+		
+	}
+}
+focus = {
+	id = MON_focus_on_infantry
+	icon = GFX_focus_invite_finland
+	relative_position_id = MON_create_military_academy
+	x = 3
+	y = 1
+	mutually_exclusive = {
+		focus = MON_focus_on_armor
+	}
+	prerequisite = {
+		focus = MON_create_military_academy
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+		
+	}
+}
+focus = {
+	id = MON_mech_inf
+	icon = GFX_focus_invite_finland
+	relative_position_id = MON_focus_on_infantry
+	x = 2
+	y = 1
+	mutually_exclusive = {
+		focus = MON_leg_inf
+	}
+	prerequisite = {
+		focus = MON_focus_on_infantry
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+		
+	}
+}
+focus = {
+	id = MON_mobile_inf_doc
+	icon = GFX_focus_invite_finland
+	relative_position_id = MON_mech_inf
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = MON_mech_inf
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+		
+	}
+}
+focus = {
+	id = MON_armored_experiments
+	icon = GFX_focus_invite_finland
+	relative_position_id = MON_mech_inf
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = MON_mech_inf
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+		
+	}
+}
+focus = {
+	id = MON_world_famous_cavalry
+	icon = GFX_focus_invite_finland
+	relative_position_id = MON_armored_experiments
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = MON_armored_experiments
+	}
+	prerequisite = {
+		focus = MON_mobile_inf_doc
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+		
+	}
+}
+focus = {
+	id = MON_leg_inf
+	icon = GFX_focus_invite_finland
+	relative_position_id = MON_focus_on_infantry
+	x = -2
+	y = 1
+	mutually_exclusive = {
+		focus = MON_mech_inf
+	}
+	prerequisite = {
+		focus = MON_focus_on_infantry
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+		
+	}
+}
+focus = {
+	id = MON_arty_modernisation
+	icon = GFX_focus_invite_finland
+	relative_position_id = MON_leg_inf
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = MON_leg_inf
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+		
+	}
+}
+focus = {
+	id = MON_weapon_modernisation
+	icon = GFX_focus_invite_finland
+	relative_position_id = MON_leg_inf
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = MON_leg_inf
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+		
+	}
+}
+focus = {
+	id = MON_queen_of_battle
+	icon = GFX_focus_invite_finland
+	relative_position_id = MON_arty_modernisation
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = MON_arty_modernisation
+	}
+	prerequisite = {
+		focus = MON_weapon_modernisation
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+		
+	}
+}
+focus = {
+	id = MON_focus_on_armor
+	icon = GFX_focus_invite_finland
+	relative_position_id = MON_create_military_academy
+	x = -2
+	y = 1
+	mutually_exclusive = {
+		focus = MON_focus_on_infantry
+	}
+	prerequisite = {
+		focus = MON_create_military_academy
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+	}
+}
+focus = {
+	id = MON_motorize_army
+	icon = GFX_focus_invite_finland
+	relative_position_id = MON_focus_on_armor
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = MON_focus_on_armor
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+		
+	}
+}
+focus = {
+	id = MON_lighting_warfare
+	icon = GFX_focus_invite_finland
+	relative_position_id = MON_focus_on_armor
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = MON_focus_on_armor
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+		
+	}
+}
+focus = {
+	id = MON_build_our_own_tanks
+	icon = GFX_focus_invite_finland
+	relative_position_id = MON_lighting_warfare
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = MON_motorize_army
+	}
+	prerequisite = {
+		focus = MON_lighting_warfare
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+		
+	}
+}
 
 
 
