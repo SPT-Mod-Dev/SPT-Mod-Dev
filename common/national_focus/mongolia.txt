@@ -1,3 +1,14 @@
+
+#  __  __                         _ _            _____                          _____ _ _  __  __                       _    _____ _     _ _                   _   _                               _       _       
+#|  \/  |                       | (_)      _   / ____|                        / ____| (_)/ _|/ _|                     | |  / ____| |   (_) |                 | | (_)                             | |     | |      
+#| \  / | ___  _ __   __ _  ___ | |_  __ _(_) | |     __ ___   _____  ___    | |    | |_| |_| |_ ___    __ _ _ __   __| | | (___ | |__  _| |_ _ __   ___  ___| |_ _ _ __   __ _   _   _ _ __   __| | __ _| |_ ___ 
+#| |\/| |/ _ \| '_ \ / _` |/ _ \| | |/ _` |   | |    / _` \ \ / / _ \/ __|   | |    | | |  _|  _/ __|  / _` | '_ \ / _` |  \___ \| '_ \| | __| '_ \ / _ \/ __| __| | '_ \ / _` | | | | | '_ \ / _` |/ _` | __/ _ \
+#| |  | | (_) | | | | (_| | (_) | | | (_| |_  | |___| (_| |\ V /  __/\__ \_  | |____| | | | | | \__ \ | (_| | | | | (_| |  ____) | | | | | |_| |_) | (_) \__ \ |_| | | | | (_| | | |_| | |_) | (_| | (_| | ||  __/
+#|_|  |_|\___/|_| |_|\__, |\___/|_|_|\__,_(_)  \_____\__,_| \_/ \___||___( )  \_____|_|_|_| |_| |___/  \__,_|_| |_|\__,_| |_____/|_| |_|_|\__| .__/ \___/|___/\__|_|_| |_|\__, |  \__,_| .__/ \__,_|\__,_|\__\___|
+#					 __/ |                                              |/                                                                  | |                           __/ |       | |                        
+#					|___/                                                                                                                   |_|                          |___/        |_|                       
+
+
 focus_tree = {
 	id = mongolia_focus
 
@@ -670,7 +681,7 @@ focus = {
 	completion_reward = {
 		add_timed_idea = {
 			idea = mon_laissez_faire
-			days = 1095
+			days = 550
 		}
 	}
 }
@@ -944,6 +955,7 @@ focus = {
 	}
 	completion_reward = {
 		remove_ideas = mon_isolation
+		add_research_slot = 1
 	}
 }
 focus = {
@@ -1119,6 +1131,12 @@ focus = {
 			bonus = 2
 			uses = 2
 			category = excavation_tech
+		}
+		818 = {
+			add_resource = {
+				type = chromium
+				amount = 12
+			}
 		}
 	}
 }
@@ -1374,7 +1392,7 @@ focus = {
 	}
 }
 focus = {
-	id = MON_two_people_two_goverments
+	id = MON_for_the_greater_good
 	icon = GFX_focus_invite_finland
 	x = 0
 	y = 1
@@ -1599,6 +1617,10 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
+		army_experience = 25
+		air_experience = 25
+		navy_experience = 25
+		add_offsite_building = { type = dockyard level = 1 }
 		
 	}
 }
@@ -1622,7 +1644,11 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
-		
+		add_timed_idea = {
+			idea = mon_air_academy
+			days = 730
+		}
+		air_experience = 75
 	}
 }
 focus = {
@@ -1645,7 +1671,10 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
-		
+		add_timed_idea = {
+			idea = mon_plane_research
+			days = 180
+		}
 	}
 }
 focus = {
@@ -1668,7 +1697,10 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
-		
+		add_timed_idea = {
+			idea = mon_air_streamline_production
+			days = 360
+		}
 	}
 }
 focus = {
@@ -1691,7 +1723,16 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
-		
+		add_timed_idea = {
+			idea = mon_increased_training_hours
+			days = 360
+		}
+		add_doctrine_cost_reduction = {
+			name = land_doc_bonus
+			cost_reduction = 0.5
+			uses = 3
+			category = air_doctrine
+		}
 	}
 }
 focus = {
@@ -1717,14 +1758,19 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
-		
+		add_ideas = mon_circus_airborne
+		add_tech_bonus = {
+			bonus = 2
+			uses = 2
+			category = para_tech
+		}
 	}
 }
 focus = {
 	id = MON_best_of_the_best
 	icon = GFX_focus_invite_finland
 	relative_position_id = MON_airborne_division
-	x = -1
+	x = -2
 	y = 1
 	prerequisite = {
 		focus = MON_airborne_division
@@ -1745,7 +1791,7 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
-		
+		add_ideas = mon_project_wingman
 	}
 }
 focus = {
@@ -1771,7 +1817,7 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
-		
+		add_ideas = mon_cas_buff
 	}
 }
 focus = {
@@ -1797,7 +1843,7 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
-		
+		add_ideas = mon_fighter_buff
 	}
 }
 
@@ -1821,7 +1867,11 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
-		
+		add_timed_idea = {
+			idea = mon_army_academy
+			days = 730
+		}
+		army_experience = 75
 	}
 }
 focus = {
@@ -1847,7 +1897,15 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
-		
+		add_timed_idea = {
+			idea = mon_weapon_development
+			days = 360
+		}
+		add_tech_bonus = {
+			bonus = 2
+			uses = 2
+			category = support_tech
+		}
 	}
 }
 focus = {
@@ -1873,7 +1931,10 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
-		
+		add_timed_idea = {
+			idea = mon_mech_res
+			days = 360
+		}
 	}
 }
 focus = {
@@ -1896,7 +1957,12 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
-		
+		add_doctrine_cost_reduction = {
+			name = land_doc_bonus
+			cost_reduction = 0.5
+			uses = 3
+			category = land_doctrine
+		}
 	}
 }
 focus = {
@@ -1919,7 +1985,10 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
-		
+		add_timed_idea = {
+			idea = mon_mech_prod_buff
+			days = 360
+		}
 	}
 }
 focus = {
@@ -1945,7 +2014,12 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
-		
+		add_ideas = mon_mech_cav_buff
+		add_tech_bonus = {
+			bonus = 1
+			uses = 2
+			category = rocketry
+		}
 	}
 }
 focus = {
@@ -1971,7 +2045,12 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
-		
+		add_doctrine_cost_reduction = {
+			name = land_doc_bonus
+			cost_reduction = 0.5
+			uses = 4
+			category = land_doctrine
+		}
 	}
 }
 focus = {
@@ -1994,7 +2073,23 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
-		
+		add_timed_idea = {
+			idea = mon_arty_mod
+			days = 720
+		}
+		820 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+		add_tech_bonus = {
+			bonus = 2
+			uses = 2
+			category = artillery
+		}
 	}
 }
 focus = {
@@ -2017,15 +2112,34 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
-		
+		add_timed_idea = {
+			idea = mon_weapon_mod
+			days = 720
+		}
+		820 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+		add_tech_bonus = {
+			bonus = 2
+			uses = 2
+			category = support_tech
+		}
 	}
 }
 focus = {
 	id = MON_queen_of_battle
 	icon = GFX_focus_invite_finland
 	relative_position_id = MON_arty_modernisation
-	x = 1
+	x = 0
 	y = 1
+	mutually_exclusive = {
+		focus = MON_marines
+	}
 	prerequisite = {
 		focus = MON_arty_modernisation
 	}
@@ -2043,7 +2157,46 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
-		
+		add_ideas = mon_leg_inf_buff
+	}
+}
+focus = {
+	id = MON_marines #this should have a desc along the lines of "well we do have a big lake so i guess we can do marine training"
+	icon = GFX_focus_invite_finland
+	relative_position_id = MON_arty_modernisation
+	x = 2
+	y = 1
+	mutually_exclusive = {
+		focus = MON_queen_of_battle
+	}
+	prerequisite = {
+		focus = MON_arty_modernisation
+	}
+	prerequisite = {
+		focus = MON_weapon_modernisation
+	}
+	cost = 5
+	available = {
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+		add_ideas = mon_marines_buff
+		add_tech_bonus = {
+			bonus = 1
+			uses = 2
+			category = marine_tech
+		}
+		add_tech_bonus = {
+			bonus = 1
+			uses = 2
+			category = cat_special_forces_generic
+		}
 	}
 }
 focus = {
@@ -2069,6 +2222,15 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
+		add_timed_idea = {
+			idea = mon_tank_development
+			days = 360
+		}
+		add_tech_bonus = {
+			bonus = 2
+			uses = 2
+			category = armor
+		}
 	}
 }
 focus = {
@@ -2091,11 +2253,26 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
-		
+		add_equipment_to_stockpile = {
+			type = motorized_equipment
+			amount = 900
+			producer = MON
+		}
+		set_technology = {
+			motorised_infantry = 1
+		}
+		811 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
 	}
 }
 focus = {
-	id = MON_lighting_warfare
+	id = MON_lightning_warfare
 	icon = GFX_focus_invite_finland
 	relative_position_id = MON_focus_on_armor
 	x = 1
@@ -2107,6 +2284,7 @@ focus = {
 	available = {
 	}
 	bypass = {
+
 	}
 	cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -2114,20 +2292,25 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
-		
+		add_doctrine_cost_reduction = {
+			name = land_doc_bonus
+			cost_reduction = 0.5
+			uses = 3
+			category = land_doctrine
+		}
 	}
 }
 focus = {
 	id = MON_build_our_own_tanks
 	icon = GFX_focus_invite_finland
-	relative_position_id = MON_lighting_warfare
+	relative_position_id = MON_lightning_warfare
 	x = -1
 	y = 1
 	prerequisite = {
 		focus = MON_motorize_army
 	}
 	prerequisite = {
-		focus = MON_lighting_warfare
+		focus = MON_lightning_warfare
 	}
 	cost = 5
 	available = {
@@ -2140,7 +2323,15 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
-		
+		add_ideas = mon_tank_building
+		811 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
 	}
 }
 
