@@ -5,24 +5,50 @@ spt_project_wingman = {
 		tag = MON
 	}
 	happened = {
+		hidden_effect = {
 		has_completed_focus = MON_best_of_the_best
 		has_deployed_air_force_size = {
 			size > 2500
 		}
-		
+	}
 	}
 }
 
-#spt_starship_troopers = {
-#	possible = {
-#		tag = MON
-#	}
-#	happened = {
-#		divisions_in_state = {
-#			type = marines
-#			size > 0
-#			state = 64
-#		}
-#		casualties > 300000
-#	}
-#}
+spt_starship_troopers = {
+	possible = {
+		tag = MON
+	}
+	happened = {
+		hidden_effect = {
+		has_completed_focus = MON_marines
+		divisions_in_state = {
+			type = infantry
+			size > 0
+			state = 64
+		}
+		casualties > 300000
+	}
+}
+}
+spt_med_bath = {
+	possible = {
+		NOT = {
+			tag = ITA
+		}
+	}
+	happened = {
+		hidden_effect = {
+		has_full_control_of_state = 2
+		}
+	}
+}
+spt_thumbs = {
+	possible = {
+		tag = SOV
+	}
+	happened = {
+		hidden_effect = {
+		has_full_control_of_state = 46
+	}
+}
+}
