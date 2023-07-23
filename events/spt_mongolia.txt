@@ -121,7 +121,9 @@ country_event = {
 	option = {
 		name = spt_mongolia.4.a
 		MON_gov_higher = yes
-		add_ideas = mon_genden_purge_alive
+		hidden_effect = {
+			add_ideas = mon_genden_purge_alive
+		}
 		add_stability = 0.05
 		add_popularity = {
 			ideology = communism
@@ -140,7 +142,9 @@ country_event = {
 	option = {
 		name = spt_mongolia.4.b
 		MON_gov_lower = yes
+		hidden_effect = {
 		add_ideas = mon_genden_purge_dead
+		}
 		add_stability = -0.05
 		add_manpower = -1
 		add_equipment_to_stockpile = {
@@ -224,7 +228,7 @@ country_event = { # LEFT PREVAILS
 		complete_national_focus = MON_left
 		IF = {
 			limit = {
-			has_idea = mon_genden_purge_alive
+			has_hidden_idea = mon_genden_purge_alive
 			}
 			country_event = {
 				id = spt_mongolia.9
@@ -273,7 +277,7 @@ country_event = { #bringing genden back
 			character = MON_genden_pelijd_2
 			promote_leader = yes
 			country_leader = {
-				ideology = marxist
+				ideology = marxism
 				expire = 1965.1.1.1
 			}
 		}

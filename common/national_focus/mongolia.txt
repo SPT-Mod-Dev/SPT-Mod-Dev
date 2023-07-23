@@ -66,6 +66,9 @@ focus_tree = {
 		}
 		cost = 5
 		available = {
+			NOT = {
+				has_completed_focus = MON_party_survives
+			}
 			OR = {
 				has_idea = mon_genden_purge_alive
 				has_idea = mon_genden_purge_dead
@@ -129,7 +132,7 @@ focus_tree = {
 		prerequisite = {
 			focus = MON_restuff_the_governement
 		}
-		cost = 5
+		cost = 10
 		available = {
 		}
 		bypass = {
@@ -141,14 +144,6 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_ideas = mon_purged_clergy
-			811 = {
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = industrial_complex
-					level = 3
-					instant_build = yes
-				}
-			}
 			818 = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
@@ -157,6 +152,7 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			remove_ideas = mon_crackdown_on_religion
 		}
 	}
 	focus = {
@@ -168,7 +164,7 @@ focus_tree = {
 		prerequisite = {
 			focus = MON_center
 		}
-		cost = 5
+		cost = 10
 		available = {
 		}
 		bypass = {
@@ -229,7 +225,7 @@ focus_tree = {
 		prerequisite = {
 			focus = MON_soviet_economic_aid
 		}
-		cost = 5
+		cost = 14.3
 		available = {
 			NOT = {
 				has_idea = mon_collectvization_of_farming
@@ -330,7 +326,7 @@ focus = {
 	prerequisite = {
 		focus = MON_refugee_commie
 	}
-	cost = 5
+	cost = 10
 	available = {
 		618 = {
 			is_owned_and_controlled_by = MON
@@ -365,6 +361,9 @@ focus = {
 	}
 	cost = 5
 	available = {
+		NOT = {
+			has_completed_focus = MON_center
+		}
 		OR = {
 			has_idea = mon_genden_purge_alive
 			has_idea = mon_genden_purge_dead
@@ -404,7 +403,7 @@ focus = {
 	prerequisite = {
 		focus = MON_party_survives
 	}
-	cost = 5
+	cost = 9.9
 	available = {
 		date > 2137.1.1
 	}
@@ -416,6 +415,9 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
+		custom_effect_tooltip = mon_left_tt
+		add_stability = 0.10
+		remove_ideas = mon_crackdown_on_religion
 	}
 }
 focus = {
@@ -427,7 +429,7 @@ focus = {
 	prerequisite = {
 		focus = MON_left
 	}
-	cost = 5
+	cost = 10
 	available = {
 	}
 	bypass = {
@@ -488,9 +490,19 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
+		819 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
 		SOV = {
 			add_to_faction = MON
 		}
+		custom_effect_tooltip = mon_soviet_reconc_tt
+		custom_effect_tooltip = mon_soviet_economic_aid_2_tt
 	}
 }
 
@@ -531,7 +543,7 @@ focus = {
 	prerequisite = {
 		focus = MON_continue_purge_of_clergy
 	}
-	cost = 5
+	cost = 10
 	available = {
 	}
 	bypass = {
@@ -561,7 +573,7 @@ focus = {
 	prerequisite = {
 		focus = MON_soviet_reconciliation
 	}
-	cost = 5
+	cost = 14.3
 	available = {
 		NOT = { num_of_controlled_factories < 35 }
 		NOT = { has_idea = mon_independent_economy }
@@ -596,7 +608,7 @@ focus = {
 	prerequisite = {
 		focus = MON_party_survives
 	}
-	cost = 5
+	cost = 60
 	available = {
 		date > 2137.1.1
 	}
@@ -608,7 +620,9 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
-		
+		add_stability = 0.15
+		custom_effect_tooltip = mon_left_tt
+		remove_ideas = mon_crackdown_on_religion
 	}
 }
 focus = {
@@ -620,7 +634,7 @@ focus = {
 	prerequisite = {
 		focus = MON_nationalist
 	}
-	cost = 5
+	cost = 10
 	available = {
 	}
 	bypass = {
@@ -657,7 +671,16 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
-		#add a tooltip for decisions
+		819 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+		custom_effect_tooltip = mon_international_economic_aid_tt
+		custom_effect_tooltip = mon_international_economic_aid_tt_2
 	}
 }
 focus = {
@@ -669,7 +692,7 @@ focus = {
 	prerequisite = {
 		focus = MON_international_economic_aid
 	}
-	cost = 5
+	cost = 10
 	available = {
 		NOT = { has_idea = mon_reprivatize_economy }
 	}
@@ -761,6 +784,10 @@ focus = { ### parliamentary monarchy
 	search_filters = {
 	}
 	completion_reward = {
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.25
+		}
 		set_politics = {
 			ruling_party = democratic
 			elections_allowed = yes
@@ -838,8 +865,8 @@ focus = {
 	cost = 5
 	available = {
 		OR = {
-		CHI = {is_ally_with = JAP}
 		NOT = {country_exists = CHI}
+		CHI = {is_ally_with = JAP}
 	}
 	}
 	bypass = {
@@ -908,11 +935,10 @@ focus = {
 	cost = 5
 	available = {
 		OR = {
-			CHI = {is_ally_with = JAP}
-		} #### THIS HAS TO BE FUCKING FIXED I DON"T UNDERSTAND JESUS FUCKING CHRIST
-		OR = {
 			NOT = {country_exists = CHI}
-		}		
+			CHI = {is_ally_with = JAP}
+		} #### THIS HAS TO BE FUCKING FIXED I DON"T UNDERSTAND JESUS FUCKING CHRIST	
+		#actually fixed
 	}
 	bypass = {
 	}
@@ -941,8 +967,6 @@ focus = {
 	}
 	prerequisite = {
 		focus = MON_economic_miracle
-	}
-	prerequisite = {
 		focus = MON_genepil_shek_agreement
 	}
 	cost = 5
@@ -1049,7 +1073,7 @@ focus = {
 	prerequisite = {
 		focus = MON_asses_resources
 	}
-	cost = 5
+	cost = 8
 	available = {
 	}
 	bypass = {
@@ -1081,7 +1105,7 @@ focus = {
 	prerequisite = {
 		focus = MON_asses_resources
 	}
-	cost = 5
+	cost = 8
 	available = {
 	}
 	bypass = {
@@ -1097,10 +1121,10 @@ focus = {
 		days = 360
 	}
 	820 = {
-		add_extra_state_shared_building_slots = 2
+		add_extra_state_shared_building_slots = 1
 		add_building_construction = {
 			type = industrial_complex
-			level = 2
+			level = 1
 			instant_build = yes
 		}
 	}
@@ -1277,7 +1301,7 @@ focus = {
 	prerequisite = {
 		focus = MON_connect_sin
 	}
-	cost = 5
+	cost = 10
 	available = {
 	}
 	bypass = {
@@ -1289,7 +1313,7 @@ focus = {
 	}
 	completion_reward = { 
 		617 = {
-			add_extra_state_shared_building_slots = 3
+			add_extra_state_shared_building_slots = 2
 			add_building_construction = {
 				type = arms_factory
 				level = 3
@@ -1297,7 +1321,7 @@ focus = {
 			}
 		}
 		618 = {
-			add_extra_state_shared_building_slots = 2
+			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
 				type = arms_factory
 				level = 2
@@ -1356,7 +1380,7 @@ focus = {
 	prerequisite = {
 		focus = MON_connect_sin
 	}
-	cost = 5
+	cost = 10
 	available = {
 	}
 	bypass = {
@@ -1368,10 +1392,10 @@ focus = {
 	}
 	completion_reward = { 
 		287 = {
-			add_extra_state_shared_building_slots = 2
+			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
 				type = industrial_complex
-				level = 2
+				level = 1
 				instant_build = yes
 			}
 		}
@@ -1408,7 +1432,7 @@ focus = {
 	prerequisite = {
 		focus = MON_develop_civ_ind
 	}
-	cost = 5
+	cost = 10
 	available = {
 		617 = {
 			is_core_of = MON
@@ -1580,6 +1604,9 @@ focus = {
 	}
 	cost = 5
 	available = {
+		NOT = {
+			has_idea = mon_developing_country
+		}
 	}
 	bypass = {
 	}
@@ -1608,7 +1635,7 @@ focus = {
 	x = 43
 	y = 0
 
-	cost = 5
+	cost = 10
 	available = {
 	}
 	bypass = {
@@ -1635,7 +1662,7 @@ focus = {
 	prerequisite = {
 		focus = MON_review_state
 	}
-	cost = 5
+	cost = 10
 	available = {
 	}
 	bypass = {
@@ -1662,7 +1689,7 @@ focus = {
 	prerequisite = {
 		focus = MON_create_air_academy
 	}
-	cost = 5
+	cost = 10
 	available = {
 	}
 	bypass = {
@@ -1688,7 +1715,7 @@ focus = {
 	prerequisite = {
 		focus = MON_create_air_academy
 	}
-	cost = 5
+	cost = 10
 	available = {
 	}
 	bypass = {
@@ -1714,7 +1741,7 @@ focus = {
 	prerequisite = {
 		focus = MON_create_air_academy
 	}
-	cost = 5
+	cost = 10
 	available = {
 	}
 	bypass = {
@@ -1749,7 +1776,7 @@ focus = {
 	prerequisite = {
 		focus = MON_increase_training_hours
 	}
-	cost = 5
+	cost = 10
 	available = {
 	}
 	bypass = {
@@ -1782,7 +1809,7 @@ focus = {
 		focus = MON_focus_on_fighers
 	}
 
-	cost = 5
+	cost = 10
 	available = {
 	}
 	bypass = {
@@ -1808,7 +1835,7 @@ focus = {
 	mutually_exclusive = {
 		focus = MON_focus_on_fighers
 	}
-	cost = 5
+	cost = 10
 	available = {
 	}
 	bypass = {
@@ -1834,7 +1861,7 @@ focus = {
 	mutually_exclusive = {
 		focus = MON_focus_on_cas
 	}
-	cost = 5
+	cost = 10
 	available = {
 	}
 	bypass = {
@@ -1858,7 +1885,7 @@ focus = {
 	prerequisite = {
 		focus = MON_review_state
 	}
-	cost = 5
+	cost = 10
 	available = {
 	}
 	bypass = {
@@ -1888,7 +1915,7 @@ focus = {
 	prerequisite = {
 		focus = MON_create_military_academy
 	}
-	cost = 5
+	cost = 10
 	available = {
 	}
 	bypass = {
@@ -1922,7 +1949,7 @@ focus = {
 	prerequisite = {
 		focus = MON_focus_on_infantry
 	}
-	cost = 5
+	cost = 10
 	available = {
 	}
 	bypass = {
@@ -1948,7 +1975,7 @@ focus = {
 	prerequisite = {
 		focus = MON_mech_inf
 	}
-	cost = 5
+	cost = 10
 	available = {
 	}
 	bypass = {
@@ -1976,7 +2003,7 @@ focus = {
 	prerequisite = {
 		focus = MON_mech_inf
 	}
-	cost = 5
+	cost = 10
 	available = {
 	}
 	bypass = {
@@ -2005,7 +2032,7 @@ focus = {
 	prerequisite = {
 		focus = MON_mobile_inf_doc
 	}
-	cost = 5
+	cost = 10
 	available = {
 	}
 	bypass = {
@@ -2036,7 +2063,7 @@ focus = {
 	prerequisite = {
 		focus = MON_focus_on_infantry
 	}
-	cost = 5
+	cost = 10
 	available = {
 	}
 	bypass = {
@@ -2064,7 +2091,7 @@ focus = {
 	prerequisite = {
 		focus = MON_leg_inf
 	}
-	cost = 5
+	cost = 10
 	available = {
 	}
 	bypass = {
@@ -2103,7 +2130,7 @@ focus = {
 	prerequisite = {
 		focus = MON_leg_inf
 	}
-	cost = 5
+	cost = 10
 	available = {
 	}
 	bypass = {
@@ -2148,7 +2175,7 @@ focus = {
 	prerequisite = {
 		focus = MON_weapon_modernisation
 	}
-	cost = 5
+	cost = 10
 	available = {
 	}
 	bypass = {
@@ -2177,7 +2204,7 @@ focus = {
 	prerequisite = {
 		focus = MON_weapon_modernisation
 	}
-	cost = 5
+	cost = 10
 	available = {
 	}
 	bypass = {
@@ -2213,7 +2240,7 @@ focus = {
 	prerequisite = {
 		focus = MON_create_military_academy
 	}
-	cost = 5
+	cost = 10
 	available = {
 	}
 	bypass = {
@@ -2244,7 +2271,7 @@ focus = {
 	prerequisite = {
 		focus = MON_focus_on_armor
 	}
-	cost = 5
+	cost = 10
 	available = {
 	}
 	bypass = {
@@ -2282,7 +2309,7 @@ focus = {
 	prerequisite = {
 		focus = MON_focus_on_armor
 	}
-	cost = 5
+	cost = 10
 	available = {
 	}
 	bypass = {
@@ -2314,7 +2341,7 @@ focus = {
 	prerequisite = {
 		focus = MON_lightning_warfare
 	}
-	cost = 5
+	cost = 10
 	available = {
 	}
 	bypass = {
