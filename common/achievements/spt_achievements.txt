@@ -9,12 +9,10 @@ spt_project_wingman = {
 		tag = MON
 	}
 	happened = {
-		hidden_effect = {
 		has_completed_focus = MON_best_of_the_best
-		has_deployed_air_force_size = {
-			size > 2500
+			has_deployed_air_force_size = {
+				size > 2500
 		}
-	}
 	}
 }
 
@@ -23,7 +21,6 @@ spt_starship_troopers = {
 		tag = MON
 	}
 	happened = {
-		hidden_effect = {
 		has_completed_focus = MON_marines
 		divisions_in_state = {
 			type = infantry
@@ -31,7 +28,6 @@ spt_starship_troopers = {
 			state = 64
 		}
 		casualties > 300000
-	}
 }
 }
 spt_med_bath = {
@@ -39,25 +35,26 @@ spt_med_bath = {
 		OR = {
 			tag = USA
 			tag = ENG
-			tag = AUS
+			tag = AST
 			tag = NZL
 			tag = FRA
+			tag = CAN
 		}
 	}
 	happened = {
-		hidden_effect = {
+
 		has_full_control_of_state = 2
 		}
-	}
+
 }
 spt_thumbs = {
 	possible = {
 		tag = SOV
 	}
 	happened = {
-		hidden_effect = {
+
 		has_full_control_of_state = 46
-	}
+
 }
 }
 
@@ -66,12 +63,11 @@ spt_nuke_terrorism = {
 		NOT = {
 			tag = USA
 			tag = GER
+			tag = SOV
 		}
 	}
 	happened = {
-		hidden_effect = {
-		has_tech = nukes
-		}
+		has_country_flag = achievement_has_dropped_nuke
 	}
 }
 spt_i_love_democracy = {
@@ -79,8 +75,8 @@ spt_i_love_democracy = {
 		tag = MON
 	}
 	happened = {
-		hidden_effect = {
+
 		has_completed_focus = MON_parliamentary
-		}
+
 	}
 }
