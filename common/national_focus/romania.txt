@@ -888,7 +888,7 @@
 		id = ROM_civil_works
 		icon = GFX_goal_generic_construction
 		prerequisite = { focus = ROM_preserve_greater_romania }
-		x = 2
+		x = 3
 		y = 1
 		relative_position_id = ROM_preserve_greater_romania
 
@@ -1859,8 +1859,9 @@
 	focus = {
 		id = ROM_institute_royal_dictatorship
 		icon = GFX_focus_rom_royal_dictatorship
+		prerequisite = {focus = ROM_national_christian_party }
 		x = 10
-		y = 0
+		y = 1
 
 		cost = 10
 
@@ -1915,36 +1916,7 @@
 		}		
 	}
 
-	focus = {
-		id = ROM_fortify_the_borders
-		icon = GFX_goal_generic_construct_military
-		prerequisite = { focus = ROM_institute_royal_dictatorship }
-		x = -2
-		y = 1
-		relative_position_id = ROM_institute_royal_dictatorship
 
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		completion_reward = {
-			add_ideas = ROM_fortify_the_borders
-		}
-	}
 
 	focus = {
 		allow_branch = {always = no} #SPTChange hid left branch
@@ -2085,7 +2057,7 @@
 		y = 1
 		relative_position_id = ROM_institute_royal_dictatorship
 
-		cost = 10
+		cost = 2.5
 
 		ai_will_do = {
 			factor = 1
@@ -2095,30 +2067,29 @@
 			
 		}
 
-		bypass = {
-			custom_trigger_tooltip = {
-				tooltip = ROM_carol_not_leader_trigger
-				NOT = { has_country_leader = { id = 550 } }
-			}
-		}
+		
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		completion_reward = {			
+			swap_ideas = {
+				remove_idea = ROM_national_christian_party_in_power
+				add_idea = ROM_the_sentinel_of_the_motherland
+			}
 			add_country_leader_trait = camarilla_leader
-			add_ideas = ROM_the_sentinel_of_the_motherland
 		}
 	}
 
 	focus = {
 		id = ROM_the_royal_foundation
 		icon = GFX_focus_research
-		prerequisite = { focus = ROM_revise_the_constitution }
-		x = 2
+		prerequisite = { focus = ROM_institute_royal_dictatorship }
+		prerequisite = { focus = ROM_civil_works }
+		x = -2
 		y = 1
-		relative_position_id = ROM_revise_the_constitution
+		relative_position_id = ROM_institute_royal_dictatorship
 
 		cost = 10
 
@@ -2147,10 +2118,10 @@
 	focus = {
 		id = ROM_crack_down_on_extremism
 		icon = GFX_goal_generic_political_pressure
-		prerequisite = { focus = ROM_institute_royal_dictatorship }
-		x = 2
+		prerequisite = { focus = ROM_revise_the_constitution }
+		x = 0
 		y = 1
-		relative_position_id = ROM_institute_royal_dictatorship
+		relative_position_id = ROM_revise_the_constitution
 
 		cost = 5
 
@@ -2160,12 +2131,6 @@
 
 		available = {
 			is_subject = no
-			NOT = { 
-				OR = {
-					has_completed_focus = ROM_iron_guard
-					has_completed_focus = ROM_national_christian_party
-				}
-			}
 		}
 
 		bypass = {
@@ -2201,6 +2166,9 @@
 	}
 
 	focus = {
+
+		allow_branch = {always = no}
+
 		id = ROM_flexible_foreign_policy
 		icon = GFX_goal_generic_improve_relations
 		prerequisite = { focus = ROM_revise_the_constitution }
@@ -2416,10 +2384,10 @@
 	focus = {
 		id = ROM_appoint_german_friendly_government
 		icon = GFX_focus_ger_reichskommisariats
-		prerequisite = { focus = ROM_flexible_foreign_policy }
+		prerequisite = { focus = ROM_crack_down_on_extremism }
 		x = 0
 		y = 1
-		relative_position_id = ROM_flexible_foreign_policy
+		relative_position_id = ROM_crack_down_on_extremism
 
 		cost = 10
 
@@ -2569,13 +2537,13 @@
 	}
 
 	focus = {
+
 		id = ROM_iron_guard
 		icon = GFX_focus_generic_fascist_troops
 		prerequisite = { focus = ROM_appoint_german_friendly_government }
-		x = -1
+		x = 0
 		y = 1
 		relative_position_id = ROM_appoint_german_friendly_government
-		mutually_exclusive = {focus = ROM_national_christian_party}
 
 		cost = 10
 
@@ -2618,46 +2586,15 @@
 			    name = ROM_fascism_party
 			}
 
-			if = {
-				limit = { has_idea = ROM_the_sentinel_of_the_motherland }
-				swap_ideas = {
-					add_idea = ROM_iron_guard
-					remove_idea = ROM_the_sentinel_of_the_motherland
-				}
-				else = {
-					remove_ideas = ROM_the_sentinel_of_the_motherland
-					add_ideas = ROM_iron_guard
-				}
-			}
-			#Remove ideas or display tooltip warning that it will happen
-			if = {
-				limit = {
-					has_idea = ROM_securitate
-				}
-				remove_ideas = ROM_securitate
-				else = {
-					if = {
-						limit = {
-							has_idea = ROM_constitutional_guarantees
-						}
-						remove_ideas = ROM_constitutional_guarantees
-						else = {
-							custom_effect_tooltip = ROM_appoint_german_friendly_government_tooltip
-						}
-					}
-				}
-			}
+			
 		}
 	}
 
 	focus = {
 		id = ROM_national_christian_party
 		icon = GFX_goal_generic_propaganda
-		prerequisite = { focus = ROM_appoint_german_friendly_government }
-		x = 1
-		y = 1
-		relative_position_id = ROM_appoint_german_friendly_government
-		mutually_exclusive = { focus = ROM_iron_guard }
+		x = 10
+		y = 0
 		
 		cost = 10
 
@@ -2678,6 +2615,9 @@
 		available_if_capitulated = no
 
 		completion_reward = {
+
+			add_ideas = ROM_national_christian_party_in_power
+
 			ROM_octavian_goga = {
 				promote_character = {
 					ideology = fascism_ideology
@@ -2688,42 +2628,19 @@
 				long_name = ROM_fascism_party2_long
 				name = ROM_fascism_party2
 			}
-			if = {
-				limit = { has_idea = ROM_the_sentinel_of_the_motherland }
-				swap_ideas = {
-					add_idea = ROM_national_christian_party_in_power
-					remove_idea = ROM_the_sentinel_of_the_motherland
-				}
-				else = {
-					remove_ideas = ROM_the_sentinel_of_the_motherland
-					add_ideas = ROM_national_christian_party_in_power
-				}
+
+			set_politics = {
+				ruling_party = fascism
+				elections_allowed = yes
 			}
-			#Remove ideas or display tooltip warning that it will happen
-			if = {
-				limit = {
-					has_idea = ROM_securitate
-				}
-				remove_ideas = ROM_securitate
-				else = {
-					if = {
-						limit = {
-							has_idea = ROM_constitutional_guarantees
-						}
-						remove_ideas = ROM_constitutional_guarantees
-						else = {
-							custom_effect_tooltip = ROM_appoint_german_friendly_government_tooltip_ncp
-						}
-					}
-				}
-			}
+			
 		}
 	}
 
 	focus = {
 		id = ROM_force_abdication
 		icon = GFX_focus_rom_abdicate
-		prerequisite = { focus = ROM_iron_guard focus = ROM_national_christian_party}
+		prerequisite = { focus = ROM_iron_guard }
 		mutually_exclusive = { focus = ROM_handle_the_king}
 		x = 0			
 		y = 2
