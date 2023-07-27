@@ -2116,6 +2116,10 @@
 	}
 
 	focus = {
+
+		allow_branch = {
+			 always = no
+		}
 		id = ROM_crack_down_on_extremism
 		icon = GFX_goal_generic_political_pressure
 		prerequisite = { focus = ROM_revise_the_constitution }
@@ -2384,10 +2388,10 @@
 	focus = {
 		id = ROM_appoint_german_friendly_government
 		icon = GFX_focus_ger_reichskommisariats
-		prerequisite = { focus = ROM_crack_down_on_extremism }
+		prerequisite = { focus = ROM_revise_the_constitution }
 		x = 0
 		y = 1
-		relative_position_id = ROM_crack_down_on_extremism
+		relative_position_id = ROM_revise_the_constitution
 
 		cost = 10
 
@@ -2416,31 +2420,7 @@
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			#Remove ideas or display tooltip warning that it will happen
-			if = {
-				limit = {
-					has_idea = ROM_securitate
-				}
-				remove_ideas = ROM_securitate
-				else = {
-					if = {
-						limit = {
-							has_idea = ROM_constitutional_guarantees
-						}
-						remove_ideas = ROM_constitutional_guarantees
-						else = {
-							custom_effect_tooltip = ROM_appoint_german_friendly_government_tooltip
-						}
-					}
-				}
-			}
-			if = {
-				limit = { NOT = { has_idea = ROM_flexible_foreign_policy_2 } }
-				swap_ideas = {
-					remove_idea = ROM_flexible_foreign_policy
-					add_idea = ROM_flexible_foreign_policy_2
-				}
-			}
+			
 			add_popularity = {
 				popularity = 0.35
 				ideology = fascism
@@ -2510,8 +2490,7 @@
 					}
 				}
 			}
-			unlock_decision_category_tooltip = ROM_change_sides
-			unlock_decision_tooltip = ROM_change_sides_to_allies
+			
 			#Cancel guarantees
 			diplomatic_relation = {
 				country = YUG
@@ -2643,7 +2622,7 @@
 		prerequisite = { focus = ROM_iron_guard }
 		mutually_exclusive = { focus = ROM_handle_the_king}
 		x = 0			
-		y = 2
+		y = 1
 		relative_position_id = ROM_appoint_soviet_friendly_government
 
 		cost = 10
