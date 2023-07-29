@@ -3629,8 +3629,14 @@
 	focus = {
 		id = ROM_army_maneuvers
 		icon = GFX_goal_generic_army_doctrines
-		x = 28
-		y = 0
+		prerequisite = {
+			focus = ROM_army_war_college
+		}
+
+		relative_position_id = ROM_army_war_college
+
+		x = 0
+		y = 1
 
 		cost = 10
 
@@ -3652,16 +3658,20 @@
 
 		completion_reward = {
 			army_experience = 50
+				add_doctrine_cost_reduction = {
+					name = ROM_air_defense
+					cost_reduction = 0.5
+					uses = 1
+					category = land_doctrine
+				}
 		}
 	}
 
 	focus = {
 		id = ROM_army_war_college
 		icon = GFX_goal_generic_construct_military
-		prerequisite = { focus = ROM_army_maneuvers }
-		x = -1
-		y = 1
-		relative_position_id = ROM_army_maneuvers
+		x = 30
+		y = 0
 
 		cost = 10
 
@@ -3703,7 +3713,7 @@
 		id = ROM_the_zb_53
 		icon = GFX_goal_generic_small_arms
 		prerequisite = { focus = ROM_army_war_college }
-		x = 0
+		x = -2
 		y = 1
 		relative_position_id = ROM_army_war_college
 
@@ -3912,9 +3922,9 @@
 	focus = {
 		id = ROM_royal_guards_divisions
 		icon = GFX_focus_chi_army_reform
-		prerequisite = { focus = ROM_army_maneuvers }
-		x = 1
-		y = 1
+		prerequisite = { focus = ROM_army_war_college }
+		x = 2
+		y = 0
 		relative_position_id = ROM_army_maneuvers
 
 		cost = 10
@@ -3936,67 +3946,7 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			custom_effect_tooltip = ROM_royal_guards_divisions_tt
-			hidden_effect = {
-				if = {
-					limit = {
-						has_tech = tech_recon
-					}
-					division_template = {
-						name = "Royal Guards Division"
-						priority = 2
-						division_names_group = ROM_INF_01
-						regiments = {
-							infantry = { x = 0 y = 0 }
-							infantry = { x = 0 y = 1 }
-							infantry = { x = 0 y = 2 }
-				
-		    	   		 	infantry = { x = 1 y = 0 }
-							infantry = { x = 1 y = 1 }
-							infantry = { x = 1 y = 2 }
-				
-		    	   		 	infantry = { x = 2 y = 0 }
-							artillery_brigade = { x = 2 y = 1 }
-							artillery_brigade = { x = 2 y = 2 }
-						}
-						support = {
-							engineer = { x = 0 y = 0 }
-							recon = { x = 0 y = 1 }
-						}
-					}
-					else = {
-						division_template = {
-							name = "Royal Guards Division"
-							priority = 2
-							division_names_group = ROM_INF_01
-							regiments = {
-								infantry = { x = 0 y = 0 }
-								infantry = { x = 0 y = 1 }
-								infantry = { x = 0 y = 2 }
-					
-			    	   		 	infantry = { x = 1 y = 0 }
-								infantry = { x = 1 y = 1 }
-								infantry = { x = 1 y = 2 }
-					
-			    	   		 	infantry = { x = 2 y = 0 }
-								artillery_brigade = { x = 2 y = 1 }
-								artillery_brigade = { x = 2 y = 2 }
-							}
-							support = {
-								engineer = { x = 0 y = 0 }
-							}
-						}
-					}
-				}
-				random_owned_controlled_state = {
-					limit = { ROOT = { has_full_control_of_state = PREV } }
-					prioritize = { 46 }
-					create_unit = {
-						division = "name = \"Royal Guards Division\" division_template = \"Royal Guards Division\" start_experience_factor = 1.0" 
-						owner = ROM
-					}
-				}
-			}			
+			add_ideas = ROM_royal_guards			
 		}
 	}
 
@@ -4004,7 +3954,7 @@
 		id = ROM_reserve_divisions
 		icon = GFX_goal_generic_propaganda
 		prerequisite = { focus = ROM_royal_guards_divisions }
-		mutually_exclusive = { focus = ROM_the_armored_division }
+		mutually_exclusive = { focus = ROM_acquire_modern_tanks }
 		x = 0
 		y = 1
 		relative_position_id = ROM_royal_guards_divisions
@@ -4035,10 +3985,9 @@
 	focus = {
 		id = ROM_the_armored_division
 		icon = GFX_focus_generic_army_tanks2
-		prerequisite = { focus = ROM_royal_guards_divisions }
-		mutually_exclusive = { focus = ROM_reserve_divisions }
+		prerequisite = { focus = ROM_acquire_modern_tanks }
 		x = 2
-		y = 1
+		y = 2
 		relative_position_id = ROM_royal_guards_divisions
 
 		cost = 10
@@ -4201,9 +4150,10 @@
 	focus = {
 		id = ROM_acquire_modern_tanks
 		icon = GFX_goal_generic_army_tanks
-		prerequisite = { focus = ROM_the_armored_division focus = ROM_reserve_divisions	}
-		x = 1
-		y = 2
+		prerequisite = { focus = ROM_royal_guards_divisions }
+		mutually_exclusive = { focus = ROM_reserve_divisions }
+		x = 2
+		y = 1
 		relative_position_id = ROM_royal_guards_divisions
 
 		cost = 10
@@ -4232,11 +4182,10 @@
 	focus = {
 		id = ROM_mobile_tank_destroyers
 		icon = GFX_focus_generic_tankette
-		prerequisite = { focus = ROM_acquire_modern_tanks }
-		prerequisite = { focus = ROM_artillery_modernization }
+		prerequisite = { focus = ROM_the_armored_division }
 		mutually_exclusive = { focus = ROM_modern_at_guns }
 		x = 0
-		y = 1
+		y = 2
 		relative_position_id = ROM_acquire_modern_tanks
 
 		cost = 10
@@ -4267,9 +4216,9 @@
 		id = ROM_the_maresal
 		icon = GFX_goal_generic_build_tank
 		prerequisite = { focus = ROM_mobile_tank_destroyers }
-		x = 1
-		y = 3
-		relative_position_id = ROM_reserve_divisions
+		x = 0
+		y = 1
+		relative_position_id = ROM_mobile_tank_destroyers
 
 		cost = 10
 
@@ -4307,7 +4256,7 @@
 	focus = {
 		id = ROM_expand_the_galati_shipyards
 		icon = GFX_goal_generic_construct_naval_dockyard
-		x = 35
+		x = 40
 		y = 0
 
 		cost = 10
