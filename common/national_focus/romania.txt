@@ -3628,7 +3628,7 @@
 
 	focus = {
 		id = ROM_army_maneuvers
-		icon = GFX_goal_generic_army_doctrines
+		icon = GFX_focus_prc_infiltration
 		prerequisite = {
 			focus = ROM_army_war_college
 		}
@@ -3713,7 +3713,7 @@
 		id = ROM_the_zb_53
 		icon = GFX_goal_generic_small_arms
 		prerequisite = { focus = ROM_army_war_college }
-		x = -2
+		x = -3
 		y = 1
 		relative_position_id = ROM_army_war_college
 
@@ -3853,7 +3853,6 @@
 		id = ROM_modern_at_guns
 		icon = GFX_goal_generic_army_artillery
 		prerequisite = { focus = ROM_artillery_modernization }
-		mutually_exclusive = { focus = ROM_mobile_tank_destroyers }
 		x = 1
 		y = 2
 		relative_position_id = ROM_the_zb_53
@@ -3979,6 +3978,142 @@
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		completion_reward = {
 			add_ideas = ROM_reserve_divisions
+		}
+	}
+
+	focus = {
+		id = ROM_fund_cugir
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = ROM_reserve_divisions }
+		x = 0
+		y = 1
+		relative_position_id = ROM_reserve_divisions
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			add_ideas = ROM_cugir_funding
+		}
+	}
+
+	focus = {
+		id = ROM_human_wave_tactics
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = ROM_fund_cugir }
+		prerequisite = { focus = ROM_army_maneuvers }
+		x = -2
+		y = 1
+		relative_position_id = ROM_fund_cugir
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+
+			add_doctrine_cost_reduction = {
+				name = ROM_air_defense
+				cost_reduction = 0.5
+				uses = 2
+				category = cat_mass_assault
+			}
+		}
+	}
+
+	focus = {
+		id = ROM_the_romanian_wall
+		icon = GFX_focus_rom_preserve_romania
+		prerequisite = { focus = ROM_fund_cugir }
+		x = 0
+		y = 1
+		relative_position_id = ROM_fund_cugir
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			add_ideas = ROM_romanian_wall_idea
+		}
+	}
+
+	focus = {
+		id = ROM_sentinel_of_the_motherland_focus
+		icon = GFX_focus_rom_coup
+		prerequisite = { focus = ROM_human_wave_tactics }
+		prerequisite = { focus = ROM_the_romanian_wall }
+		x = 0
+		y = 1
+		relative_position_id = ROM_the_romanian_wall
+
+		cost = 1
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		available = {
+			surrender_progress > 0.1
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		completion_reward = {
+			swap_ideas = {
+				add_idea = ROM_last_stand
+				remove_idea = ROM_romanian_wall_idea
+			}
+			
 		}
 	}
 
@@ -4183,7 +4318,6 @@
 		id = ROM_mobile_tank_destroyers
 		icon = GFX_focus_generic_tankette
 		prerequisite = { focus = ROM_the_armored_division }
-		mutually_exclusive = { focus = ROM_modern_at_guns }
 		x = 0
 		y = 2
 		relative_position_id = ROM_acquire_modern_tanks
