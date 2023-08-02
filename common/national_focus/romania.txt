@@ -320,10 +320,10 @@
 	focus = {
 		id = ROM_invite_german_advisors
 		icon = GFX_focus_generic_military_mission
-		prerequisite = { focus = ROM_trade_treaty_with_germany }
+		prerequisite = { focus = ROM_license_german_equipment }
 		x = 0
 		y = 1
-		relative_position_id = ROM_trade_treaty_with_germany
+		relative_position_id = ROM_license_german_equipment
 
 		cost = 10
 
@@ -349,26 +349,25 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			custom_effect_tooltip = ROM_invite_german_advisors_tt
-			hidden_effect = {
-				diplomatic_relation = {
-					country = GER
-					relation = military_access
-					active = yes
-				}
-			}
 			add_to_tech_sharing_group = ROM_invite_german_advisors_tech_group
 			GER = { add_to_tech_sharing_group = ROM_invite_german_advisors_tech_group }
+			add_ideas = {
+				ROM_german_advisors
+			}
 		}
 	}
 
 	focus = {
 		id = ROM_license_german_equipment
 		icon = GFX_focus_generic_license_production
-		prerequisite = { focus = ROM_invite_german_advisors }
-		x = 2
-		y = 2
-		relative_position_id = ROM_trade_treaty_with_germany
+		prerequisite = { focus = ROM_royal_guards_divisions }
+		mutually_exclusive = {
+			focus = ROM_acquire_modern_tanks
+			focus = ROM_reserve_divisions
+		}
+		x = 4
+		y = 1
+		relative_position_id = ROM_royal_guards_divisions
 
 		cost = 10
 
@@ -403,9 +402,9 @@
 	focus = {
 		id = ROM_join_axis
 		icon = GFX_focus_chi_mission_to_germany
-		prerequisite = { focus = ROM_invite_german_advisors }
+		prerequisite = { focus = ROM_trade_treaty_with_germany }
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = ROM_trade_treaty_with_germany
 
 		cost = 10
@@ -457,7 +456,7 @@
 		icon = GFX_goal_generic_oil_refinery
 		prerequisite = { focus = ROM_join_axis }
 		x = -1
-		y = 3
+		y = 2
 		relative_position_id = ROM_trade_treaty_with_germany
 
 
@@ -514,7 +513,7 @@
 		icon = GFX_focus_attack_soviet
 		prerequisite = { focus = ROM_join_axis }
 		x = 1
-		y = 3
+		y = 2
 		relative_position_id = ROM_trade_treaty_with_germany
 
 		cost = 10
@@ -3953,7 +3952,7 @@
 		id = ROM_reserve_divisions
 		icon = GFX_goal_generic_propaganda
 		prerequisite = { focus = ROM_royal_guards_divisions }
-		mutually_exclusive = { focus = ROM_acquire_modern_tanks }
+		mutually_exclusive = { focus = ROM_acquire_modern_tanks focus = ROM_license_german_equipment }
 		x = 0
 		y = 1
 		relative_position_id = ROM_royal_guards_divisions
@@ -3965,7 +3964,7 @@
 		}
 
 		available = {
-
+	
 		}
 
 		bypass = {
@@ -4118,12 +4117,16 @@
 	}
 
 	focus = {
+
+		allow_branch = {
+			always = no
+		}
 		id = ROM_the_armored_division
 		icon = GFX_focus_generic_army_tanks2
-		prerequisite = { focus = ROM_acquire_modern_tanks }
-		x = 2
-		y = 2
-		relative_position_id = ROM_royal_guards_divisions
+		prerequisite = { focus = ROM_the_maresal }
+		x = 0
+		y = 1
+		relative_position_id = ROM_the_maresal
 
 		cost = 10
 
@@ -4144,141 +4147,7 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			custom_effect_tooltip = ROM_the_armored_division_tt
-			#Give template depending on recon tech and medium
-			hidden_effect = {
-				if = {
-					limit = {
-						OR = {
-							has_tech = basic_medium_tank
-							has_tech = basic_medium_tank_chassis
-						}
-						has_tech = tech_recon
-					}
-					division_template = {
-						name = "Armored Division"
-						priority = 2
-						division_names_group = ROM_ARM_01
-						regiments = {
-							medium_armor = { x = 0 y = 0 }
-							medium_armor = { x = 0 y = 1 }
-				
-		    	   		 	medium_armor = { x = 1 y = 0 }
-							medium_armor = { x = 1 y = 1 }
-				
-		    	   		 	motorized = { x = 2 y = 0 }
-							motorized = { x = 2 y = 1 }
-
-		    	   		 	motorized = { x = 3 y = 0 }
-							motorized = { x = 3 y = 1 }
-						}
-						support = {
-							engineer = { x = 0 y = 0 }
-							artillery = { x = 0 y = 1 }
-							recon = { x = 0 y = 2 }
-						}
-					}
-					else = {
-						if = {
-							limit = {
-								OR = {
-									has_tech = basic_medium_tank
-									has_tech = basic_medium_tank_chassis
-								}
-							}
-							division_template = {
-								name = "Armored Division"
-								priority = 2
-								division_names_group = ROM_ARM_01
-								regiments = {
-									medium_armor = { x = 0 y = 0 }
-									medium_armor = { x = 0 y = 1 }
-						
-				    	   		 	medium_armor = { x = 1 y = 0 }
-									medium_armor = { x = 1 y = 1 }
-						
-				    	   		 	motorized = { x = 2 y = 0 }
-									motorized = { x = 2 y = 1 }
-
-				    	   		 	motorized = { x = 3 y = 0 }
-									motorized = { x = 3 y = 1 }
-								}
-								support = {
-									engineer = { x = 0 y = 0 }
-									artillery = { x = 0 y = 1 }
-									recon = { x = 0 y = 2 }
-								}
-							}
-							else = {
-								if = {
-									limit = {
-										has_tech = tech_recon
-									}
-									division_template = {
-										name = "Armored Division"
-										priority = 2
-										division_names_group = ROM_ARM_01
-										regiments = {
-											light_armor = { x = 0 y = 0 }
-											light_armor = { x = 0 y = 1 }
-								
-						    	   		 	light_armor = { x = 1 y = 0 }
-											light_armor = { x = 1 y = 1 }
-								
-						    	   		 	motorized = { x = 2 y = 0 }
-											motorized = { x = 2 y = 1 }
-
-						    	   		 	motorized = { x = 3 y = 0 }
-											motorized = { x = 3 y = 1 }
-										}
-										support = {
-											engineer = { x = 0 y = 0 }
-											artillery = { x = 0 y = 1 }
-											recon = { x = 0 y = 2 }
-										}
-									}
-									else = {
-										division_template = {
-											name = "Armored Division"
-											priority = 2
-											division_names_group = ROM_ARM_01
-											regiments = {
-												light_armor = { x = 0 y = 0 }
-												light_armor = { x = 0 y = 1 }
-									
-							    	   		 	light_armor = { x = 1 y = 0 }
-												light_armor = { x = 1 y = 1 }
-									
-							    	   		 	motorized = { x = 2 y = 0 }
-												motorized = { x = 2 y = 1 }
-
-							    	   		 	motorized = { x = 3 y = 0 }
-												motorized = { x = 3 y = 1 }
-											}
-											support = {
-												engineer = { x = 0 y = 0 }
-												artillery = { x = 0 y = 1 }
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-				random_owned_controlled_state = {
-					limit = { ROOT = { has_full_control_of_state = PREV } }
-					prioritize = { 46 }
-					create_unit = {
-						division = "name = \"Armored Division\" division_template = \"Armored Division\" start_experience_factor = 0.7" 
-						owner = ROM
-					}
-					create_unit = {
-						division = "name = \"Armored Division\" division_template = \"Armored Division\" start_experience_factor = 0.7" 
-						owner = ROM
-					}
-				}
-			}			
+			
 		}
 	}
 
@@ -4286,7 +4155,7 @@
 		id = ROM_acquire_modern_tanks
 		icon = GFX_goal_generic_army_tanks
 		prerequisite = { focus = ROM_royal_guards_divisions }
-		mutually_exclusive = { focus = ROM_reserve_divisions }
+		mutually_exclusive = { focus = ROM_reserve_divisions focus = ROM_license_german_equipment }
 		x = 2
 		y = 1
 		relative_position_id = ROM_royal_guards_divisions
@@ -4298,7 +4167,7 @@
 		}
 
 		available = {
-
+			
 		}
 
 		bypass = {
@@ -4311,15 +4180,21 @@
 
 		completion_reward = {
 			add_ideas = ROM_acquire_modern_tanks
+			add_tech_bonus = {
+				name = ROM_the_maresal
+				bonus = 1.0
+				uses = 1
+				category = armor
+			}
 		}
 	}
 
 	focus = {
 		id = ROM_mobile_tank_destroyers
 		icon = GFX_focus_generic_tankette
-		prerequisite = { focus = ROM_the_armored_division }
+		prerequisite = { focus = ROM_acquire_modern_tanks }
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = ROM_acquire_modern_tanks
 
 		cost = 10
@@ -4341,8 +4216,7 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			custom_effect_tooltip = available_designer
-			show_ideas_tooltip = ROM_leonidas_works
+			add_ideas = ROM_leonidas_works
 		}
 	}
 
@@ -4383,6 +4257,8 @@
 		}
 	}
 
+	
+
 	############################
 	####### NAVY BRANCH ########
 	############################
@@ -4390,7 +4266,7 @@
 	focus = {
 		id = ROM_expand_the_galati_shipyards
 		icon = GFX_goal_generic_construct_naval_dockyard
-		x = 40
+		x = 42
 		y = 0
 
 		cost = 10
