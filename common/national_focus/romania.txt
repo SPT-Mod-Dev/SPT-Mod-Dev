@@ -349,6 +349,11 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+
+			every_army_leader = {
+				add_planning = 1
+				add_attack = 1
+			}	
 			add_to_tech_sharing_group = ROM_invite_german_advisors_tech_group
 			GER = { add_to_tech_sharing_group = ROM_invite_german_advisors_tech_group }
 			add_ideas = {
@@ -2989,7 +2994,7 @@
 		mutually_exclusive = {
 			focus = ROM_army_war_college
 		}
-		x = 20
+		x = 18
 		y = 0
 
 		cost = 10
@@ -3078,7 +3083,7 @@
 		y = 1
 		prerequisite = { focus = ROM_expand_the_air_force }
 		relative_position_id = ROM_expand_the_air_force
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -3177,6 +3182,48 @@
 	}
 
 	focus = {
+		id = ROM_rockets
+		icon = GFX_focus_rocketry
+		prerequisite = { 
+			focus = ROM_air_defense 
+			focus = ROM_ground_support
+			focus = ROM_iar_80
+			focus = ROM_air_superiority
+	}
+		x = -1
+		y = 2
+		relative_position_id = ROM_medium_bombers
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_tech_bonus = {
+				name = ROM_medium_bombers
+				ahead_reduction = 2
+				uses = 2
+				category = rocketry
+				category = jet_technology
+			}
+		}
+	}
+
+	focus = {
 		id = ROM_ground_support
 		icon = GFX_goal_poland_goal
 		prerequisite = { focus = ROM_cas }
@@ -3246,7 +3293,7 @@
 			add_tech_bonus = {
 				name = ROM_medium_bombers
 				bonus = 1.0
-				uses = 1
+				uses = 2
 				category = tactical_bomber
 			}
 		}
@@ -3438,7 +3485,7 @@
 			add_tech_bonus = {
 				name = ROM_cas
 				bonus = 1.0
-				uses = 1
+				uses = 2
 				category = cas_bomber
 			}
 		}
@@ -3562,6 +3609,57 @@
 				bonus = 1.0
 				uses = 2
 				category = cat_strategic_bomber
+			}
+		}
+	}
+
+	focus = {
+		id = ROM_paratrooper_focus
+		icon = GFX_focus_generic_paratrooper
+		prerequisite = { focus = ROM_local_development }
+		mutually_exclusive = {
+			focus = ROM_cas
+			focus = ROM_medium_bombers
+		}
+		x = 4
+		y = 1
+		relative_position_id = ROM_local_development
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+
+			ROM_constantin_sanatescu = {
+				add_trait = {
+					trait = paratrooper
+				}
+				add_trait = {
+					trait = commando
+				}
+			}
+
+
+			add_tech_bonus = {
+				name = ROM_strategic_bomber_force
+				bonus = 2.0
+				uses = 2
+				category = para_tech
 			}
 		}
 	}
@@ -3735,7 +3833,7 @@
 		id = ROM_the_zb_53
 		icon = GFX_goal_generic_small_arms
 		prerequisite = { focus = ROM_army_war_college }
-		x = -3
+		x = -4
 		y = 1
 		relative_position_id = ROM_army_war_college
 
@@ -3760,7 +3858,7 @@
 		completion_reward = {
 			add_tech_bonus = {
 				name = ROM_the_zb_53
-				bonus = 1.0
+				ahead_reduction = 2
 				uses = 1
 				category = infantry_weapons
 			}
@@ -3771,6 +3869,9 @@
 		id = ROM_vanatori_de_munte
 		icon = GFX_goal_generic_special_forces
 		prerequisite = { focus = ROM_the_zb_53 }
+		mutually_exclusive = {
+			focus = ROM_expand_the_marine_regiment
+		}
 		x = -1
 		y = 1
 		relative_position_id = ROM_the_zb_53
@@ -3794,6 +3895,13 @@
 		available_if_capitulated = no
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
+
+			ROM_constantin_sanatescu = {
+				add_trait = {
+					trait = trait_mountaineer
+				}
+			}
+
 			custom_effect_tooltip = ROM_vanatori_de_munte_unit_tt
 			hidden_effect = {
 				division_template = {
@@ -3828,8 +3936,8 @@
 			}
 			add_tech_bonus = {
 				name = ROM_vanatori_de_munte
-				bonus = 1.0
-				uses = 1
+				bonus = 2.0
+				uses = 2
 				category = mountaineers_tech
 			}
 		}
@@ -3872,6 +3980,38 @@
 	}
 
 	focus = {
+		id = ROM_karl
+		icon = GFX_focus_generic_railway_gun
+		prerequisite = { focus = ROM_artillery_modernization }
+		x = 2
+		y = 1
+		relative_position_id = ROM_artillery_modernization
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			set_technology = { railway_gun = 1 }
+			add_ideas = ROM_karl_idea
+		}
+	}
+
+	focus = {
 		id = ROM_modern_at_guns
 		icon = GFX_goal_generic_army_artillery
 		prerequisite = { focus = ROM_artillery_modernization }
@@ -3908,6 +4048,9 @@
 	}
 
 	focus = {
+		allow_branch = {
+			always = no
+		}
 		id = ROM_mountain_artillery
 		icon = GFX_focus_GRE_a_land_of_mountains
 		prerequisite = { focus = ROM_artillery_modernization }
@@ -3967,7 +4110,8 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_ideas = ROM_royal_guards			
+			add_ideas = ROM_royal_guards	
+				
 		}
 	}
 
@@ -4031,6 +4175,7 @@
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		completion_reward = {
 			add_ideas = ROM_cugir_funding
+			add_ideas = ROM_cugir
 		}
 	}
 
@@ -4100,6 +4245,9 @@
 		search_filters = { FOCUS_FILTER_MANPOWER }
 		completion_reward = {
 			add_ideas = ROM_romanian_wall_idea
+			every_army_leader = {
+				add_defense = 1
+			}	
 		}
 	}
 
@@ -4492,7 +4640,7 @@
 		id = ROM_modern_submarines
 		icon = GFX_goal_generic_navy_submarine
 		prerequisite = { focus = ROM_modern_destroyers }
-		x = 0
+		x = 1
 		y = 2
 		relative_position_id = ROM_coastal_defense_navy
 
@@ -4601,6 +4749,9 @@
 	}
 
 	focus = {
+		allow_branch = {
+			always = no
+		}
 		id = ROM_torpedo_bombers
 		icon = GFX_goal_generic_air_naval_bomber
 		prerequisite = { focus = ROM_modern_destroyers }
@@ -4639,10 +4790,63 @@
 	focus = {
 		id = ROM_expand_the_marine_regiment
 		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = ROM_capital_ships }
-		x = 2
-		y = 2
-		relative_position_id = ROM_black_sea_dominance
+		prerequisite = { focus = ROM_the_zb_53 }
+		mutually_exclusive = {
+			focus = ROM_vanatori_de_munte
+		}
+		x = -3
+		y = 1
+		relative_position_id = ROM_the_zb_53
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+
+			ROM_constantin_sanatescu = {
+				add_trait = {
+					trait = naval_invader
+				}
+			}
+			add_tech_bonus = {
+				name = ROM_expand_the_marine_regiment
+				bonus = 1.0
+				uses = 1
+				category = tp_tech
+			}
+
+			add_tech_bonus = {
+				name = ROM_expand_the_marine_regiment
+				bonus = 1.0
+				uses = 1
+				category = marine_tech
+			}
+		}
+	}
+
+	focus = {
+		id = ROM_special_forces_focus
+		icon = GFX_focus_eng_special_air_service
+		prerequisite = { focus = ROM_vanatori_de_munte focus = ROM_expand_the_marine_regiment }
+		
+		x = -1
+		y = 1
+		relative_position_id = ROM_vanatori_de_munte
 
 		cost = 10
 
@@ -4665,10 +4869,9 @@
 		completion_reward = {
 			add_tech_bonus = {
 				name = ROM_expand_the_marine_regiment
-				bonus = 1.0
+				bonus = 1
 				uses = 2
-				category = tp_tech
-				category = marine_tech
+				category = cat_special_forces_generic
 			}
 		}
 	}

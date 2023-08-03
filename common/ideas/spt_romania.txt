@@ -126,7 +126,7 @@ ideas = {
 
 		ROM_soviet_war_idea = {
 
-			picture = general_communist_army
+			picture = generic_communist_army
 			
 			removal_cost = -1
 
@@ -146,6 +146,35 @@ ideas = {
 				defense_bonus_against = 0.1
 			}
 		}
+
+		ROM_karl_idea = {
+
+			picture = generic_artillery_regiments
+			
+			removal_cost = -1
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = communism
+				}
+			}
+
+			modifier = {
+				railway_gun_bombardment_factor = 0.25
+			}
+			
+			equipment_bonus = {
+				railway_gun_equipment_1 = {
+					build_cost_ic = -0.2
+				}
+			}
+		}
+
+		
 
 		
 		
