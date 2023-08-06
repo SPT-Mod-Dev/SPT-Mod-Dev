@@ -1,11 +1,13 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.6.5
+### 3.6.6
 
 ### General
 
 - Added a topbar with the resources
 - Hid logistic strikes and minelaying, minesweeping air missions 
+
+### Focus
 
 - Japan
     - Nanshin Ron Steady Development Focuses now take 35 days to complete, from 70
@@ -18,6 +20,19 @@
     - Focus "Factory Mobilization" now grants -20% factory output, from -10%
     - Focus "Long Term Planning" now grants -5% consumer goods
     - Focus "Stockpiling Strategies" now grants 10% resource gain efficiency 
+
+
+### 3.6.5
+
+### General
+ - Added allied debuffs for loosing the mediterranean front
+
+ - Added temporary Allied supply and fuel consumtion debuff for losing Suez or Gibraltar
+
+ - France and Soviet Union no longer start with small cannon 2
+
+### Focus 
+ - Spain Tangiers enclave no longer gives UK war goal
 
 ### 3.6.4
 
