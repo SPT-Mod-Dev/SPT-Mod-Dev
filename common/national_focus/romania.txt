@@ -317,92 +317,7 @@
 		}
 	}
 
-	focus = {
-		id = ROM_invite_german_advisors
-		icon = GFX_focus_generic_military_mission
-		prerequisite = { focus = ROM_license_german_equipment }
-		x = 0
-		y = 1
-		relative_position_id = ROM_license_german_equipment
 
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-			NOT = { has_war_with = GER }
-			OR = {
-				is_in_faction = no
-				is_in_faction_with = GER
-			}
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-
-			every_army_leader = {
-				add_planning = 1
-				add_attack = 1
-			}	
-			add_to_tech_sharing_group = ROM_invite_german_advisors_tech_group
-			GER = { add_to_tech_sharing_group = ROM_invite_german_advisors_tech_group }
-			add_ideas = {
-				ROM_german_advisors
-			}
-		}
-	}
-
-	focus = {
-		id = ROM_license_german_equipment
-		icon = GFX_focus_generic_license_production
-		prerequisite = { focus = ROM_royal_guards_divisions }
-		mutually_exclusive = {
-			focus = ROM_acquire_modern_tanks
-			focus = ROM_reserve_divisions
-		}
-		x = 4
-		y = 1
-		relative_position_id = ROM_royal_guards_divisions
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-			OR = {
-				is_in_faction = no
-				is_in_faction_with = GER 
-			}
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-
-		completion_reward = {
-			add_relation_modifier = {
-				target = GER
-				modifier = ROM_license_german_equipment
-			}
-		}
-	}
 
 	focus = {
 		id = ROM_join_axis
@@ -1326,69 +1241,7 @@
 		}
 	}
 
-	focus = {
-		id = ROM_invest_in_the_iar
-		icon = GFX_goal_generic_construct_military
-		prerequisite = { focus = ROM_local_development }
-		x = -4
-		y = 1
-		relative_position_id = ROM_local_development
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-		complete_tooltip = {
-			random_state = {
-				limit = {
-					has_state_flag = ROM_invest_in_the_iar_AF1
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 3
-					instant_build = yes
-				}
-			}
-		}
-
-		completion_reward = {
-			random_owned_controlled_state = {
-				prioritize = { 81 }
-				limit = {
-					ROOT = { has_full_control_of_state = PREV }
-					free_building_slots = {
-						building = arms_factory
-						size > 1
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-				set_state_flag = ROM_invest_in_the_iar_AF1
-			}
-			custom_effect_tooltip = available_designer
-			show_ideas_tooltip = ROM_iar
-		}
-	}
+	
 
 	focus = {
 		id = ROM_expand_ploiesti_oil_production
@@ -1931,12 +1784,12 @@
 		
 		id = ROM_his_majestys_loyal_government
 		icon = GFX_goal_generic_propaganda
-		prerequisite = { focus = ROM_fortify_the_borders }
+		#prerequisite = { focus = ROM_fortify_the_borders }
 		prerequisite = { focus = ROM_revise_the_constitution }
 		mutually_exclusive = { focus = ROM_flexible_foreign_policy }
 		x = 0
 		y = 1
-		relative_position_id = ROM_fortify_the_borders
+		relative_position_id = ROM_institute_royal_dictatorship
 
 		cost = 10
 
@@ -3077,6 +2930,70 @@
 	}
 
 	focus = {
+		id = ROM_invest_in_the_iar
+		icon = GFX_goal_generic_construct_military
+		prerequisite = { focus = ROM_local_development }
+		x = -4
+		y = 3
+		relative_position_id = ROM_expand_the_air_force
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		complete_tooltip = {
+			random_state = {
+				limit = {
+					has_state_flag = ROM_invest_in_the_iar_AF1
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				prioritize = { 81 }
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = ROM_invest_in_the_iar_AF1
+			}
+			custom_effect_tooltip = available_designer
+			show_ideas_tooltip = ROM_iar
+		}
+	}
+
+	focus = {
 		id = ROM_white_squadron_focus
 		icon = GFX_focus_ETH_ecole_militaire_haile_selassie_1er
 		x = 0
@@ -3150,8 +3067,8 @@
 		icon = GFX_goal_generic_air_doctrine
 		prerequisite = { focus = ROM_medium_bombers }
 		x = 0
-		y = 1
-		relative_position_id = ROM_medium_bombers
+		y = 4
+		relative_position_id = ROM_expand_the_air_force
 
 		cost = 10
 
@@ -3191,8 +3108,8 @@
 			focus = ROM_air_superiority
 	}
 		x = -1
-		y = 2
-		relative_position_id = ROM_medium_bombers
+		y = 5
+		relative_position_id = ROM_expand_the_air_force
 
 		cost = 10
 
@@ -3227,9 +3144,9 @@
 		id = ROM_ground_support
 		icon = GFX_goal_generic_air_doctrine
 		prerequisite = { focus = ROM_cas }
-		x = 0
-		y = 1
-		relative_position_id = ROM_cas
+		x = -2
+		y = 4
+		relative_position_id = ROM_expand_the_air_force
 
 		cost = 10
 
@@ -3268,8 +3185,8 @@
 			focus = ROM_strategic_bomber_force
 		}
 		x = 0
-		y = 1
-		relative_position_id = ROM_local_development
+		y = 3
+		relative_position_id = ROM_expand_the_air_force
 
 		cost = 10
 
@@ -3419,9 +3336,9 @@
 		id = ROM_air_superiority
 		icon = GFX_goal_generic_air_doctrine
 		prerequisite = { focus = ROM_strategic_bomber_force }
-		x = 0
-		y = 1
-		relative_position_id = ROM_strategic_bomber_force
+		x = 2
+		y = 4
+		relative_position_id = ROM_expand_the_air_force
 
 		cost = 10
 
@@ -3617,10 +3534,11 @@
 		id = ROM_paratrooper_focus
 		icon = GFX_focus_generic_paratrooper
 		prerequisite = { focus = ROM_local_development }
-		mutually_exclusive = {
-			focus = ROM_cas
-			focus = ROM_medium_bombers
-		}
+		#mutually_exclusive = {
+		#	focus = ROM_cas
+		#	focus = ROM_medium_bombers
+		#}
+		# I'm gonna assume that the mutual exclusivity with those focuses was a copy-pasting error
 		x = 4
 		y = 1
 		relative_position_id = ROM_local_development
@@ -3744,47 +3662,6 @@
 	############################
 
 	focus = {
-		id = ROM_army_maneuvers
-		icon = GFX_focus_prc_infiltration
-		prerequisite = {
-			focus = ROM_army_war_college
-		}
-
-		relative_position_id = ROM_army_war_college
-
-		x = 0
-		y = 1
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 9
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-
-		completion_reward = {
-			army_experience = 50
-				add_doctrine_cost_reduction = {
-					name = ROM_air_defense
-					cost_reduction = 0.5
-					uses = 1
-					category = land_doctrine
-				}
-		}
-	}
-
-	focus = {
 		id = ROM_army_war_college
 		icon = GFX_goal_generic_construct_military
 		mutually_exclusive = {
@@ -3829,6 +3706,48 @@
 		}
 	}
 
+
+	focus = {
+		id = ROM_army_maneuvers
+		icon = GFX_focus_prc_infiltration
+		prerequisite = {
+			focus = ROM_army_war_college
+		}
+
+		relative_position_id = ROM_army_war_college
+
+		x = 0
+		y = 1
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 9
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 50
+				add_doctrine_cost_reduction = {
+					name = ROM_air_defense
+					cost_reduction = 0.5
+					uses = 1
+					category = land_doctrine
+				}
+		}
+	}
+
 	focus = {
 		id = ROM_the_zb_53
 		icon = GFX_goal_generic_small_arms
@@ -3861,6 +3780,93 @@
 				ahead_reduction = 2
 				uses = 1
 				category = infantry_weapons
+			}
+		}
+	}
+
+	focus = {
+		id = ROM_invite_german_advisors
+		icon = GFX_focus_generic_military_mission
+		prerequisite = { focus = ROM_license_german_equipment }
+		x = 6
+		y = 3
+		relative_position_id = ROM_army_war_college
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			NOT = { has_war_with = GER }
+			OR = {
+				is_in_faction = no
+				is_in_faction_with = GER
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+
+			every_army_leader = {
+				add_planning = 1
+				add_attack = 1
+			}	
+			add_to_tech_sharing_group = ROM_invite_german_advisors_tech_group
+			GER = { add_to_tech_sharing_group = ROM_invite_german_advisors_tech_group }
+			add_ideas = {
+				ROM_german_advisors
+			}
+		}
+	}
+
+	focus = {
+		id = ROM_license_german_equipment
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = ROM_royal_guards_divisions }
+		mutually_exclusive = {
+			focus = ROM_acquire_modern_tanks
+			focus = ROM_reserve_divisions
+		}
+		x = 6
+		y = 2
+		relative_position_id = ROM_army_war_college
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			OR = {
+				is_in_faction = no
+				is_in_faction_with = GER 
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			add_relation_modifier = {
+				target = GER
+				modifier = ROM_license_german_equipment
 			}
 		}
 	}
@@ -4297,7 +4303,7 @@
 		prerequisite = { focus = ROM_the_maresal }
 		x = 0
 		y = 1
-		relative_position_id = ROM_the_maresal
+		relative_position_id = ROM_army_war_college
 
 		cost = 10
 
