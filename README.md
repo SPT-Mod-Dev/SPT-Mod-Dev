@@ -9,6 +9,8 @@
 - Fixed most of loading quotes being hidden
 - Hid logistic strikes and minelaying, minesweeping air missions 
 
+### Focus
+
 #### Romania
 - Reworked the focus tree
 
