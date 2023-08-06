@@ -1,5 +1,6 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+
 ### 3.6.4
 
 ### General
@@ -55,6 +56,7 @@
 
 
 ### USA 
+
     - Focus "Subsidise The Military Industry" now reduces Ongoing Recession by 90 days, from 60
     - Focus "Subsidise The Naval Industry" now reduces Ongoing Recession by 90 days, from 60
     - Focus "Subsidies for the Farmers" now reduces Ongoing Recession by 90 days, from 60
@@ -80,7 +82,6 @@
     - Focus "Subsidies for the Farmers" completion time increased to 70 days, from 35
     - Focus "Subsidies for the Mining Industry" completion time increased to 70 days, from 35
     - "The Recession of 1937" event now also grants medium senate and house opposion
-
 
 ### 3.6.2
 
@@ -113,6 +114,7 @@
 
 - Soviet Union
     - Third Five Year Plan focus Consumer Goods buff 0% -> 2.5%
+
 
 ### 3.6.0
 
