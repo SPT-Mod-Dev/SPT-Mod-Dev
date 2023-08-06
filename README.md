@@ -1,11 +1,62 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-<<<<<<< HEAD
+
+### 3.6.4
+
+### General
+- Finland
+   - Finnish industrial Concern: Factory output 20% -> 12.5%
+
+ - Soviet Union
+   - Spirit "Victory in the winter war" if Finaln is player now lasts 210 day
+
+ - Turkey kan no longer do focuses beyond "Reconfigure Turkish Foreign Policy" to prevent them from joinng factions
+### Rules
+ - Soviets may now only send 5 volunteers to China
+
+### Focus
+ - Spain
+   - "Tangiers Enclave" can no longer give UK a war goal
+   - "An Armoured Corps" no longer requires "Join The Axis"
+
+ - Manchukuo
+    - "Research And Education Department" required factories 50 -> 25
+### Army Dooctrine
+
+- Mobile Warfare
+   - Mechanized Offensive: Motirized org +15 -> +5
+                           Mechanised org +15 -> +5
+                           Amtrack org +15 -> +5
 ### 3.6.3
 
 ### Focus Tree
+### General
+ - Italy 
+    - Allowed starting units to be deleted
+    - Removed decision to add compliance
+    
+ - Germany
+    - Hid event about patience running thin with Yugoslavia
 
-- USA
+- Removed minesweeping and minelaying buttons
+ 
+### Focus
+ - USA
+    - Major rebalance of new part of focus tree
+
+ - Italy
+    - Added focus to get compliance on Yugoslvavian cores
+
+ - Soviet 
+    - Removed "Mine Warfare" focus
+
+### Airplane designer
+ - Radio Navigation: Sub detection 4 -> 6
+ - Radio Navigation II: Sub detection 6 -> 9
+
+
+### USA 
+
     - Focus "Subsidise The Military Industry" now reduces Ongoing Recession by 90 days, from 60
     - Focus "Subsidise The Naval Industry" now reduces Ongoing Recession by 90 days, from 60
     - Focus "Subsidies for the Farmers" now reduces Ongoing Recession by 90 days, from 60
@@ -31,12 +82,13 @@
     - Focus "Subsidies for the Farmers" completion time increased to 70 days, from 35
     - Focus "Subsidies for the Mining Industry" completion time increased to 70 days, from 35
     - "The Recession of 1937" event now also grants medium senate and house opposion
-=======
+
 ### 3.6.2
+
 ### General
 
  - All non-playable nations have had their ahistorical paths ,either blocked or removed, to prevent mishaps.
- 
+
 ### Focus Trees
  - USA:
 	- New expanded USA focus tree.
@@ -62,7 +114,7 @@
 
 - Soviet Union
     - Third Five Year Plan focus Consumer Goods buff 0% -> 2.5%
->>>>>>> e6f4250917e27f75640521499493baf55efebf14
+
 
 ### 3.6.0
 

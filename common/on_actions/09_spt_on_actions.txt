@@ -298,6 +298,20 @@ on_actions = {
 				  id = spt_finland.45
 			  }
 			}
+
+			if = {
+				limit = {
+					is_historical_focus_on = no
+				}
+
+				GER = { news_event = spt.112 }
+				
+				sound_effect = "spt_pipe_falling"
+			}
+			
+			
+			
+
 			
 
 		}
@@ -582,6 +596,33 @@ on_actions = {
 					add_power_balance_value = {
 						id = ITA_MED_med_front
 						value = 0.15
+					}
+				}
+			}
+
+			#ENG loses Suez or Gibraltar (triggers Shipping Routes Disrupted event for ENG)
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							#Gibraltar
+							118 = { NOT = {is_controlled_by = ENG }}
+							118 = { is_owned_by = ENG }
+						}
+						AND = {
+							#Suez
+							446 = { NOT = {is_controlled_by = ENG }}
+							446 = { is_owned_by = ENG }
+						}
+					}
+					ENG = {
+						NOT = {has_idea = spt_disrupted_shipping_hidden}
+					}
+				}
+				ENG = {
+					country_event = {
+						id = spt.111
+						days = 1
 					}
 				}
 			}

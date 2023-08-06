@@ -4870,12 +4870,13 @@ focus_tree = {
 		icon = GFX_focus_chi_british_cooperation
 		prerequisite = { focus = TUR_reconfigure_our_foreign_policy }
 		available = { 
-			NOT = { has_war_with = ENG }
+			always = no
 		}
 		x = -12
 		y = 1
 		relative_position_id = TUR_reconfigure_our_foreign_policy
 		cost = 5
+		
 		ai_will_do = {
 			base = 10
 		}
@@ -5127,15 +5128,7 @@ focus_tree = {
 		prerequisite = { focus = TUR_american_motor_factories }
 		prerequisite = { focus = TUR_bomber_schematics }
 		available = {
-			ENG = {
-				NOT = {
-					OR = {
-						has_completed_focus = ENG_the_kings_party
-						has_completed_focus = ENG_concessions_to_the_trade_unions
-					}
-				}
-			}
-			is_subject = no
+			always = no
 		}
 		x = 0
 		y = 2
@@ -5545,7 +5538,7 @@ focus_tree = {
 		icon = GFX_focus_chi_mission_to_germany
 		prerequisite = { focus = TUR_reconfigure_our_foreign_policy }
 		available = { 
-			NOT = { has_war_with = GER }
+			always = no
 		}
 		x = 0
 		y = 1
@@ -6807,7 +6800,6 @@ focus_tree = {
 	focus = {
 		id = TUR_renew_the_turkish_soviet_non_aggression_pact
 		icon = GFX_focus_chi_mission_to_the_soviet_union
-		available = { NOT = { has_country_flag = TUR_ottoman_officers_invited_back } }
 		prerequisite = { focus = TUR_reconfigure_our_foreign_policy }
 		x = 14
 		y = 1
@@ -6817,10 +6809,7 @@ focus_tree = {
 			base = 10
 		}
 		available = {
-			SOV = {
-				has_government = communism
-				has_civil_war = no
-			}
+			always = no
 		}
 
 		bypass = {
