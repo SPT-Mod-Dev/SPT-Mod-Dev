@@ -1,15 +1,11 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.6.6
+### 3.6.5
 
 ### General
 
 - Added a topbar with the resources
 - Hid logistic strikes and minelaying, minesweeping air missions 
-
-### 3.6.5
-
-### General
 
 - Japan
     - Nanshin Ron Steady Development Focuses now take 35 days to complete, from 70
