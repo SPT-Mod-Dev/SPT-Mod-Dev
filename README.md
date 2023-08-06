@@ -7,6 +7,7 @@
 - Reduced production reduction from mech upgrades `-10%` -> `-5%`
 - Added topbar displaying your resources
 - Fixed most of loading quotes being hidden
+- Hid logistic strikes and minelaying, minesweeping air missions 
 
 #### Romania
 - Reworked the focus tree
