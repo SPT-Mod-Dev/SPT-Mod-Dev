@@ -29,7 +29,7 @@ focus_tree = {
 
 	focus = {
 		id = MON_great_purge
-		icon = GFX_focus_invite_finland
+		icon = GFX_focus_generic_join_comintern
 		x = 8
 		y = 0
 		cost = 5
@@ -57,7 +57,7 @@ focus_tree = {
 #  \_____|______|_| \_|  |_|  |______|_|  \_\
 	focus = {
 		id = MON_center
-		icon = GFX_focus_invite_finland
+		icon = GFX_focus_SOV_stalins_cult_of_personality
 		x = -3
 		y = 2
 		relative_position_id = MON_great_purge
@@ -66,13 +66,16 @@ focus_tree = {
 		}
 		cost = 5
 		available = {
+			custom_effect_tooltip = mon_soviet_economic_aid_tt
 			NOT = {
 				has_completed_focus = MON_party_survives
 			}
+			hidden_trigger = {
 			OR = {
 				has_idea = mon_genden_purge_alive
 				has_idea = mon_genden_purge_dead
 			}
+		}
 			OR = {
 			has_idea = mon_low_gov_cont
 			has_idea = mon_medium_gov_cont
@@ -87,9 +90,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_stability = 0.05
-			hidden_effect = {
-				country_event = spt_mongolia.5
-			}
+			#hidden_effect = {
+			#	country_event = spt_mongolia.5
+			#}
 			add_timed_idea = {
 				idea = mon_center_wins
 				days = 360
@@ -98,7 +101,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MON_restuff_the_governement
-		icon = GFX_focus_invite_finland
+		icon = GFX_focus_generic_soviet_politics
 		x = -1
 		y = 1
 		relative_position_id = MON_center
@@ -125,7 +128,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MON_compromise_with_the_lamas
-		icon = GFX_focus_invite_finland
+		icon = GFX_focus_SOV_the_last_purge
 		x = 0
 		y = 1
 		relative_position_id = MON_restuff_the_governement
@@ -157,7 +160,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MON_incentivize_collective_farming
-		icon = GFX_focus_invite_finland
+		icon = GFX_focus_ITA_grande_rivolta_rurale
 		x = 1
 		y = 1
 		relative_position_id = MON_center
@@ -183,7 +186,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MON_soviet_economic_aid
-		icon = GFX_focus_invite_finland
+		icon = GFX_goal_generic_soviet_construction
 		x = 0
 		y = 1
 		relative_position_id = MON_incentivize_collective_farming
@@ -215,7 +218,7 @@ focus_tree = {
 	}
 	focus = {
 		id = MON_economic_growth
-		icon = GFX_focus_invite_finland
+		icon = GFX_focus_mex_privatisation
 		x = 1
 		y = 1
 		relative_position_id = MON_compromise_with_the_lamas
@@ -245,6 +248,7 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = mon_economic_growth
 			remove_ideas = mon_memories_of_32
+			remove_ideas = mon_collectivized_farming
 		}
 	}
 #   _____ ____  __  __ __  __ _____ ______    _____ _    _          _____  ______ _____  
@@ -255,7 +259,7 @@ focus_tree = {
 #  \_____\____/|_|  |_|_|  |_|_____|______| |_____/|_|  |_/_/    \_\_|  \_\______|_____/ 
 focus = {
 	id = MON_refugee_commie
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_chi_cooperation_with_the_communists
 	x = 2
 	y = 1
 	relative_position_id = MON_soviet_economic_aid
@@ -319,7 +323,7 @@ focus = {
 	}
 focus = {
 	id = MON_merge_the_parties
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_SOV_the_supreme_soviet
 	x = 0
 	y = 1
 	relative_position_id = MON_refugee_commie
@@ -352,7 +356,7 @@ focus = {
 ###### purge fails
 focus = {
 	id = MON_party_survives
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_generic_provoke_border_clashes
 	x = 4
 	y = 1
 	relative_position_id = MON_great_purge
@@ -364,9 +368,11 @@ focus = {
 		NOT = {
 			has_completed_focus = MON_center
 		}
+		hidden_trigger = {
 		OR = {
 			has_idea = mon_genden_purge_alive
 			has_idea = mon_genden_purge_dead
+		}
 		}
 		OR = {
 			has_idea = mon_high_gov_cont
@@ -396,7 +402,7 @@ focus = {
 
 focus = {
 	id = MON_left
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_SOV_the_path_of_marxism_leninism
 	x = -1
 	y = 1
 	relative_position_id = MON_party_survives
@@ -422,7 +428,7 @@ focus = {
 }
 focus = {
 	id = MON_build_independent_economy
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_SOV_the_glory_of_the_red_army_communism
 	x = -1
 	y = 1
 	relative_position_id = MON_left
@@ -472,7 +478,7 @@ focus = {
 }
 focus = {
 	id = MON_soviet_reconciliation
-	icon = GFX_focus_invite_finland
+	icon = GFX_goal_generic_major_alliance
 	x = 0
 	y = 1
 	relative_position_id = MON_build_independent_economy
@@ -508,7 +514,7 @@ focus = {
 
 focus = {
 	id = MON_continue_purge_of_clergy
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_smiling_buddha
 	x = 1
 	y = 1
 	relative_position_id = MON_left
@@ -536,7 +542,7 @@ focus = {
 }
 focus = {
 	id = MON_force_herders_into_factories
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_generic_self_management
 	x = 0
 	y = 1
 	relative_position_id = MON_continue_purge_of_clergy
@@ -563,7 +569,7 @@ focus = {
 }
 focus = {
 	id = MON_collective_economy
-	icon = GFX_focus_invite_finland
+	icon = GFX_goal_support_communism
 	x = -1
 	y = 1
 	relative_position_id = MON_force_herders_into_factories
@@ -601,7 +607,7 @@ focus = {
 
 focus = {
 	id = MON_nationalist
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_ger_bulwark_against_bolshevism
 	x = 5
 	y = 1
 	relative_position_id = MON_party_survives
@@ -627,7 +633,7 @@ focus = {
 }
 focus = {
 	id = MON_reprivatization_of_economy
-	icon = GFX_focus_invite_finland
+	icon = GFX_goal_generic_intelligence_exchange
 	x = -3
 	y = 1
 	relative_position_id = MON_nationalist
@@ -653,7 +659,7 @@ focus = {
 }
 focus = {
 	id = MON_international_economic_aid
-	icon = GFX_focus_invite_finland
+	icon = GFX_goal_generic_positive_trade_relations
 	x = 0
 	y = 1
 	relative_position_id = MON_reprivatization_of_economy
@@ -685,7 +691,7 @@ focus = {
 }
 focus = {
 	id = MON_economic_miracle
-	icon = GFX_focus_invite_finland
+	icon = GFX_goal_generic_neutrality_focus
 	x = 0
 	y = 1
 	relative_position_id = MON_international_economic_aid
@@ -712,7 +718,7 @@ focus = {
 }
 focus = {
 	id = MON_interim_government
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_generic_improve_the_administration
 	x = 0
 	y = 1
 	relative_position_id = MON_nationalist
@@ -736,7 +742,7 @@ focus = {
 }
 focus = { ### constitutional monarchy
 	id = MON_constitutional_monarchy
-	icon = GFX_focus_invite_finland
+	icon = GFX_goal_tfv_strengthen_commonwealth_ties
 	x = -1
 	y = 1
 	relative_position_id = MON_interim_government
@@ -763,7 +769,7 @@ focus = { ### constitutional monarchy
 }
 focus = { ### parliamentary monarchy
 	id = MON_parliamentary
-	icon = GFX_focus_invite_finland
+	icon = GFX_goal_support_democracy
 	x = 1
 	y = 1
 	relative_position_id = MON_interim_government
@@ -797,7 +803,7 @@ focus = { ### parliamentary monarchy
 }
 focus = {
 	id = MON_crown_a_new_khan
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_TUR_crowning_ourselves_with_the_fin_ugor
 	x = -1
 	y = 1
 	relative_position_id = MON_parliamentary
@@ -823,7 +829,7 @@ focus = {
 }
 focus = {
 	id = MON_volunteers_to_china
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_prc_infiltration
 	x = 3
 	y = 1
 	relative_position_id = MON_nationalist
@@ -855,7 +861,7 @@ focus = {
 }
 focus = {
 	id = MON_refugee_nationalist
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_prc_remove_chiang_kai_shek
 	x = 0
 	y = 1
 	relative_position_id = MON_volunteers_to_china
@@ -925,7 +931,7 @@ focus = {
 }
 focus = {
 	id = MON_genepil_shek_agreement
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_generic_treaty
 	x = 0
 	y = 1
 	relative_position_id = MON_refugee_nationalist
@@ -958,7 +964,7 @@ focus = {
 }
 focus = {
 	id = MON_end_isolation
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_POL_riot_of_37
 	x = 0
 	y = 1
 	relative_position_id = MON_crown_a_new_khan
@@ -986,7 +992,7 @@ focus = {
 }
 focus = {
 	id = MON_golden_corp
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_ITA_comandante_diavolo
 	x = 0
 	y = 1
 	relative_position_id = MON_end_isolation
@@ -1013,7 +1019,7 @@ focus = {
 }
 focus = {
 	id = MON_economy
-	icon = GFX_focus_invite_finland
+	icon = GFX_goal_generic_construct_civ_factory
 	x = 28
 	y = 0
 
@@ -1045,7 +1051,7 @@ focus = {
 }
 focus = {
 	id = MON_asses_resources
-	icon = GFX_focus_invite_finland
+	icon = GFX_goal_generic_position_armies
 	x = -5
 	y = 1
 	relative_position_id = MON_economy
@@ -1067,7 +1073,7 @@ focus = {
 }
 focus = {
 	id = MON_exploit_gobi
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_generic_aluminum
 	x = -1
 	y = 1
 	relative_position_id = MON_asses_resources
@@ -1099,7 +1105,7 @@ focus = {
 }
 focus = {
 	id = MON_exploit_gold_reserves #north
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_usa_reestablish_the_gold_standard
 	x = 1
 	y = 1
 	relative_position_id = MON_asses_resources
@@ -1133,7 +1139,7 @@ focus = {
 }
 focus = {
 	id = MON_improved_tools
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_generic_land_reclamation
 	x = -1
 	y = 1
 	relative_position_id = MON_exploit_gold_reserves
@@ -1169,7 +1175,7 @@ focus = {
 }
 focus = {
 	id = MON_build_inf
-	icon = GFX_focus_invite_finland
+	icon = GFX_goal_generic_construct_infrastructure
 	x = 0
 	y = 1
 	relative_position_id = MON_economy
@@ -1231,7 +1237,7 @@ focus = {
 }
 focus = {
 	id = MON_connect_sin
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_generic_railroad
 	x = 0
 	y = 1
 	relative_position_id = MON_build_inf
@@ -1295,7 +1301,7 @@ focus = {
 }
 focus = {
 	id = MON_develop_heavy_ind
-	icon = GFX_focus_invite_finland
+	icon = GFX_goal_generic_construct_mil_factory
 	x = -2
 	y = 1
 	relative_position_id = MON_connect_sin
@@ -1333,7 +1339,7 @@ focus = {
 }
 focus = {
 	id = MON_multiculturalism
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_generic_military_academy
 	x = 0
 	y = 1
 	relative_position_id = MON_connect_sin
@@ -1374,7 +1380,7 @@ focus = {
 }
 focus = {
 	id = MON_develop_civ_ind
-	icon = GFX_focus_invite_finland
+	icon = GFX_goal_generic_construct_civ_factory
 	x = 2
 	y = 1
 	relative_position_id = MON_connect_sin
@@ -1420,7 +1426,7 @@ focus = {
 }
 focus = {
 	id = MON_for_the_greater_good
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_generic_population_growth
 	x = 0
 	y = 1
 	relative_position_id = MON_multiculturalism
@@ -1462,7 +1468,7 @@ focus = {
 }
 focus = {
 	id = MON_develop_bureaucracy
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_generic_treaty
 	x = 5
 	y = 1
 	relative_position_id = MON_economy
@@ -1513,7 +1519,7 @@ focus = {
 }
 focus = {
 	id = MON_develop_the_economy
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_generic_manpower
 	x = -1
 	y = 1
 	relative_position_id = MON_develop_bureaucracy
@@ -1554,7 +1560,7 @@ focus = {
 }
 focus = {
 	id = MON_herders_to_workers
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_hol_the_foundations_of_defense
 	x = 1
 	y = 1
 	relative_position_id = MON_develop_bureaucracy
@@ -1600,7 +1606,7 @@ focus = {
 }
 focus = {
 	id = MON_university_of_mongolia
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_research2
 	x = 1
 	y = 1
 	relative_position_id = MON_develop_the_economy
@@ -1639,7 +1645,7 @@ focus = {
 }
 focus = {
 	id = MON_review_state
-	icon = GFX_focus_invite_finland
+	icon = GFX_goal_generic_army_doctrines
 
 	x = 43
 	y = 0
@@ -1664,7 +1670,7 @@ focus = {
 }
 focus = {
 	id = MON_create_air_academy
-	icon = GFX_focus_invite_finland
+	icon = GFX_goal_generic_air_fighter2
 	relative_position_id = MON_review_state
 	x = 5
 	y = 1
@@ -1691,7 +1697,7 @@ focus = {
 }
 focus = {
 	id = MON_explore_new_designs
-	icon = GFX_focus_invite_finland
+	icon = GFX_goal_generic_air_production
 	relative_position_id = MON_create_air_academy
 	x = -1
 	y = 1
@@ -1717,7 +1723,7 @@ focus = {
 }
 focus = {
 	id = MON_streamline_designs
-	icon = GFX_focus_invite_finland
+	icon = GFX_goal_continuous_air_production
 	relative_position_id = MON_create_air_academy
 	x = 2
 	y = 1
@@ -1743,7 +1749,7 @@ focus = {
 }
 focus = {
 	id = MON_increase_training_hours
-	icon = GFX_focus_invite_finland
+	icon = GFX_goal_continuous_reduce_training_time
 	relative_position_id = MON_create_air_academy
 	x = 4
 	y = 1
@@ -1775,7 +1781,7 @@ focus = {
 }
 focus = {
 	id = MON_airborne_division
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_generic_paratrooper #should have it's original one
 	relative_position_id = MON_increase_training_hours
 	x = -1
 	y = 1
@@ -1806,7 +1812,7 @@ focus = {
 }
 focus = {
 	id = MON_best_of_the_best
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_project_wingman
 	relative_position_id = MON_airborne_division
 	x = -2
 	y = 1
@@ -1842,7 +1848,7 @@ focus = {
 }
 focus = {
 	id = MON_focus_on_cas
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_generic_multi_role_aircraft
 	relative_position_id = MON_explore_new_designs
 	x = -1
 	y = 1
@@ -1868,7 +1874,7 @@ focus = {
 }
 focus = {
 	id = MON_focus_on_fighers
-	icon = GFX_focus_invite_finland
+	icon = GFX_goal_generic_air_fighter
 	relative_position_id = MON_explore_new_designs
 	x = 1
 	y = 1
@@ -1895,7 +1901,7 @@ focus = {
 
 focus = {
 	id = MON_create_military_academy
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_generic_military_academy
 	relative_position_id = MON_review_state
 	x = -5
 	y = 1
@@ -1922,7 +1928,7 @@ focus = {
 }
 focus = {
 	id = MON_focus_on_infantry
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_ETH_freedom_at_gunpoint
 	relative_position_id = MON_create_military_academy
 	x = 3
 	y = 1
@@ -1956,7 +1962,7 @@ focus = {
 }
 focus = {
 	id = MON_mech_inf
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_SOV_the_road_of_life
 	relative_position_id = MON_focus_on_infantry
 	x = 2
 	y = 1
@@ -2044,7 +2050,7 @@ focus = {
 }
 focus = {
 	id = MON_world_famous_cavalry
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_ETH_scavenging_tactics
 	relative_position_id = MON_armored_experiments
 	x = -1
 	y = 1
@@ -2075,7 +2081,7 @@ focus = {
 }
 focus = {
 	id = MON_leg_inf
-	icon = GFX_focus_invite_finland
+	icon = GFX_goal_generic_allies_build_infantry
 	relative_position_id = MON_focus_on_infantry
 	x = -2
 	y = 1
@@ -2106,7 +2112,7 @@ focus = {
 }
 focus = {
 	id = MON_arty_modernisation
-	icon = GFX_focus_invite_finland
+	icon = GFX_goal_generic_army_artillery2
 	relative_position_id = MON_leg_inf
 	x = -1
 	y = 1
@@ -2145,7 +2151,7 @@ focus = {
 }
 focus = {
 	id = MON_weapon_modernisation
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_generic_manpower
 	relative_position_id = MON_leg_inf
 	x = 1
 	y = 1
@@ -2184,7 +2190,7 @@ focus = {
 }
 focus = {
 	id = MON_queen_of_battle
-	icon = GFX_focus_invite_finland
+	icon = GFX_goal_tfv_can_compromise_with_quebec
 	relative_position_id = MON_arty_modernisation
 	x = 0
 	y = 1
@@ -2213,7 +2219,7 @@ focus = {
 }
 focus = {
 	id = MON_marines #this should have a desc along the lines of "well we do have a big lake so i guess we can do marine training"
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_ITA_milizia_marittima_di_artiglieria
 	relative_position_id = MON_arty_modernisation
 	x = 2
 	y = 1
@@ -2252,7 +2258,7 @@ focus = {
 }
 focus = {
 	id = MON_focus_on_armor
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_generic_tank_production
 	relative_position_id = MON_create_military_academy
 	x = -2
 	y = 1
@@ -2286,7 +2292,7 @@ focus = {
 }
 focus = {
 	id = MON_motorize_army
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_generic_truck
 	relative_position_id = MON_focus_on_armor
 	x = -1
 	y = 1
@@ -2324,7 +2330,7 @@ focus = {
 }
 focus = {
 	id = MON_lightning_warfare
-	icon = GFX_focus_invite_finland
+	icon = GFX_goal_generic_army_tanks
 	relative_position_id = MON_focus_on_armor
 	x = 1
 	y = 1
@@ -2353,7 +2359,7 @@ focus = {
 }
 focus = {
 	id = MON_build_our_own_tanks
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_generic_army_tanks2
 	relative_position_id = MON_lightning_warfare
 	x = -1
 	y = 1
