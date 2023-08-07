@@ -175,9 +175,11 @@ country_event = {
 	}
 }
 country_event = { #center wins
+#not used in game as of now, don't remove for consistency sake
 	id = spt_mongolia.5
 	title = spt_mongolia.5.t
 	desc = spt_mongolia.5.desc
+	picture = GFX_report_event_soviet_army_greeted
 	#
 	is_triggered_only = yes
 	
@@ -185,11 +187,14 @@ country_event = { #center wins
 
 	option = {
 		name = spt_mongolia.5.a
-		add_timed_idea = {
-			idea = mon_center_wins
-			days = 360
+	}
+	option = {
+		name = spt_mongolia.5.b
+		add_stability = -0.5
+		hidden_effect = {
+			set_country_flag = mon_center_win
+			add_stability = 0.5
 		}
-		add_stability = 0.1
 	}
 }
 country_event = { #party survives
@@ -256,6 +261,17 @@ country_event = { # LEFT PREVAILS
 		}
 	}
 }
+#country_event = {
+#	id = spt_news_mongolia.1
+#	title = spt_news_mongolia.1.t
+#	desc = spt_news_mongolia.1.desc
+#	picture = GFX_news_event_generic_read_write
+#	major = yes
+#	is_triggered_only = yes
+#	option = {
+#		name = spt_news_mongolia.1.a
+#	}
+#}
 country_event = { # NATIONALIST GAMBIT PAYS OFF
 	id = spt_mongolia.8
 	title = spt_mongolia.8.t
@@ -336,7 +352,7 @@ option = { #yes
 		add_tech_bonus = {
 			bonus = 2
 			uses = 1
-			category = mechanized_equipment
+			category = motorized_equipment
 		}
 	}
 }
@@ -631,6 +647,21 @@ country_event = { #mon history lesson
 	is_triggered_only = yes
 	option = {
 		name = spt_mongolia.17.a
+	}
+}
+country_event = {
+	id = spt_mongolia.18
+	title = spt_mongolia.18.t
+	desc = spt_mongolia.18.desc
+	picture = GFX_report_event_soviet_purge_speech
+	is_triggered_only = yes
+	option = {
+		name = spt_mongolia.18.a
+	}
+	option = {
+		name = spt_mongolia.18.b
+		set_country_flag = mon_center_win_2
+		add_ideas = mon_amogus
 	}
 }
 
