@@ -1,5 +1,6 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+
 ### 3.7.0
 
 #### General
@@ -7,6 +8,7 @@
 - Reduced production reduction from mech upgrades `-10%` -> `-5%`
 - Added topbar displaying your resources
 - Fixed most of loading quotes being hidden
+- Hid logistic strikes and minelaying, minesweeping air missions 
 
 #### Romania
 - Reworked the focus tree
@@ -29,6 +31,7 @@
 - Focus "Factory Mobilization" now grants -20% factory output, from -10%
 - Focus "Long Term Planning" now grants -5% consumer goods
 - Focus "Stockpiling Strategies" now grants 10% resource gain efficiency 
+
 
 ### 3.6.5
 
