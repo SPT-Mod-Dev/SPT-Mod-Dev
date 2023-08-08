@@ -65,15 +65,15 @@ focus_tree = {
 	############################
 
 	focus = {
-		allow_branch = {always = no}
+		
 		
 		id = HUN_balanced_budget
 		icon = GFX_goal_generic_consumer_goods
 		mutually_exclusive = { focus = HUN_economic_intervention }
-		x = 5
+		x = 1
 		y = 0
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 50
@@ -105,7 +105,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = HUN_balanced_budget
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 80
@@ -138,7 +138,7 @@ focus_tree = {
 		y = 2
 		relative_position_id = HUN_balanced_budget
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 80
@@ -181,6 +181,8 @@ focus_tree = {
 		relative_position_id = HUN_elect_a_king
 
 		cost = 10
+
+		allow_branch = {always = no}
 
 		ai_will_do = {
 			factor = 60
@@ -764,6 +766,8 @@ focus_tree = {
 
 		cost = 10
 
+		allow_branch = {always = no}
+
 		ai_will_do = {
 			factor = 20
 		}
@@ -1147,11 +1151,11 @@ focus_tree = {
 		prerequisite = { focus = HUN_elect_a_king }
 		mutually_exclusive = { focus =  HUN_elect_a_democratic_king }
 		mutually_exclusive = { focus =  HUN_invite_the_habsburg_prince }
-		x = 3
+		x = 0
 		y = 1
 		relative_position_id = HUN_elect_a_king
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 20
@@ -1219,7 +1223,7 @@ focus_tree = {
 		id = HUN_economic_intervention
 		icon = GFX_focus_generic_self_management
 		mutually_exclusive = { focus = HUN_balanced_budget }
-		x = -1
+		x = 5
 		y = 0
 
 		cost = 10
@@ -1258,7 +1262,7 @@ focus_tree = {
 		prerequisite = { focus = HUN_economic_intervention }
 		mutually_exclusive = { focus = HUN_council_of_peoples_commissars }
 		x = 0
-		y = 1
+		y = 3
 		relative_position_id = HUN_economic_intervention
 
 		cost = 10
@@ -1291,8 +1295,8 @@ focus_tree = {
 	focus = {
 		id = HUN_renounce_the_treaty_of_trianon
 		icon = GFX_focus_renounce_the_treaty_of_trianon
-		prerequisite = { focus = HUN_strengthen_fascists}
-		x = 0
+		prerequisite = { focus = HUN_strengthen_fascists focus = HUN_elect_a_fascist_king }
+		x = -2
 		y = 1
 		relative_position_id = HUN_strengthen_fascists
 
@@ -2637,7 +2641,7 @@ focus_tree = {
 	focus = {
 		id = HUN_industrial_revitalization
 		icon = GFX_focus_generic_industry_3
-		x = 6
+		x = 11
 		y = 0
 
 		cost = 10
@@ -3474,7 +3478,7 @@ focus_tree = {
 	focus = {
 		id = HUN_secret_rearmament
 		icon = GFX_focus_secret_rearmament
-		x = 18
+		x = 25
 		y = 0
 
 		cost = 10

@@ -73,7 +73,11 @@ fin_gripen_plan = {
 	}
 
 	modifier = {
-		production_speed_arms_factory_factor = 0.10
+		production_speed_anti_air_building_factor = 0.15
+		production_speed_bunker_factor = 0.15
+		production_speed_air_base_factor = 0.15
+		production_speed_infrastructure_factor = 0.15
+		conversion_cost_civ_to_mil_factor = -0.25
 		consumer_goods_factor = -0.05
 	}
 
@@ -113,7 +117,7 @@ fin_military_spending = {
 	}
 
 	modifier = {
-		production_factory_efficiency_gain_factor = 0.25
+		production_factory_efficiency_gain_factor = 0.15
 		production_speed_arms_factory_factor = 0.1
 		consumer_goods_factor = -0.05
 		stability_factor = -0.1
@@ -200,7 +204,7 @@ fin_modernize_airforce = {
 	}
 	equipment_bonus = {
 		small_plane_airframe = {
-		build_cost_ic = -0.25
+		build_cost_ic = -0.15
 		}
 	}
 	research_bonus = {
@@ -318,12 +322,6 @@ fin_crusade_against_communism = {
 		attack_bonus_against = 0.1
 		defense_bonus_against = 0.1
 	}
-	equipment_bonus = {
-		field_hospital = {
-			casualty_trickleback = 0.40
-			experience_loss_factor = 0.35
-		}
-	}
 }
 fin_greater_finland_2 = {
 	name = fin_greater_finland_2
@@ -422,6 +420,17 @@ fin_paratroopers = {
 		special_forces_no_supply_grace = 120
 		special_forces_out_of_supply_factor = -0.5
 		special_forces_training_time_factor = -0.25
+	}
+}
+fin_karjala_buff = {
+	name = fin_karjala_buff
+	picture = MEX_revolutionary_army
+	modifier = {
+		army_morale_factor = 0.20
+		army_core_attack_factor = 0.15
+		attrition = -0.15
+		breakthrough_factor = 0.1
+		supply_consumption_factor = -0.15
 	}
 }
 
@@ -558,7 +567,7 @@ fin_paratroopers = {
 			traits = { industrial_concern }
 
 			modifier = {
-				industrial_capacity_factory = 0.2
+				industrial_capacity_factory = 0.125
 			
 			}
 			research_bonus = {

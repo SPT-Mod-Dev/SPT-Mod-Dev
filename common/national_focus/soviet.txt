@@ -54,7 +54,7 @@ focus_tree = {
 		icon = GFX_goal_generic_construction
 		x = 1
 		y = 0
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 
 		ai_will_do = {
 			factor = 1
@@ -179,7 +179,7 @@ focus_tree = {
 		x = 2
 		y = 0
 		relative_position_id = SOV_infrastructure_effort_nsb
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 
 		ai_will_do = {
 			factor = 1
@@ -463,6 +463,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = SOV_finish_the_five_year_plan
 		cost = 10
+	
 
 		available = {
 			SOV_third_five_year_plan_available = yes
@@ -478,7 +479,7 @@ focus_tree = {
 		completion_reward = {
 			hidden_effect = {
 				add_to_variable = { SOV_fyp_production_factory_efficiency_gain_factor = 0.05 }
-				add_to_variable = { SOV_fyp_consumer_goods_factor = 0.05 }
+				add_to_variable = { SOV_fyp_consumer_goods_factor = 0.025 } #SPT change 0.05 -> 0.0025
 			}
 			if = {
 				limit = {
@@ -489,7 +490,7 @@ focus_tree = {
 					remove_dynamic_modifier = { modifier = SOV_second_five_year_plan_dynamic_modifier }
 					add_dynamic_modifier = { modifier = SOV_third_five_year_plan_dynamic_modifier }
 				}
-				custom_effect_tooltip = SOV_third_five_year_plan_ns_tt
+				custom_effect_tooltip = SOV_third_five_year_plan_ns_FIXED_tt #SPT change to fix localization issues
 
 				add_tech_bonus = {
 					name = SOV_third_five_year_plan_default
@@ -1950,7 +1951,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = SOV_transpolar_flights
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 
 		available = {
 			any_owned_state = {
@@ -2019,7 +2020,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = SOV_expand_the_aircraft_industry
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 
 		available = {
 
@@ -2143,7 +2144,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_transpolar_flights
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 
 		available = {
 
@@ -2170,7 +2171,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_foster_flying_clubs
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 
 		available = {
 			OR = {
@@ -3392,6 +3393,8 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no }
+		
 		id = SOV_mine_warfare
 
 		icon = GFX_focus_generic_mine_warfare

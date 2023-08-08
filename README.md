@@ -1,9 +1,232 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
 
-### 3.5.2
+### 3.6.4
 
-- Added new quotes
+### General
+- Finland
+   - Finnish industrial Concern: Factory output 20% -> 12.5%
+
+ - Soviet Union
+   - Spirit "Victory in the winter war" if Finaln is player now lasts 210 day
+
+ - Turkey kan no longer do focuses beyond "Reconfigure Turkish Foreign Policy" to prevent them from joinng factions
+### Rules
+ - Soviets may now only send 5 volunteers to China
+
+### Focus
+ - Spain
+   - "Tangiers Enclave" can no longer give UK a war goal
+   - "An Armoured Corps" no longer requires "Join The Axis"
+
+ - Manchukuo
+    - "Research And Education Department" required factories 50 -> 25
+### Army Dooctrine
+
+- Mobile Warfare
+   - Mechanized Offensive: Motirized org +15 -> +5
+                           Mechanised org +15 -> +5
+                           Amtrack org +15 -> +5
+### 3.6.3
+
+### Focus Tree
+### General
+ - Italy 
+    - Allowed starting units to be deleted
+    - Removed decision to add compliance
+    
+ - Germany
+    - Hid event about patience running thin with Yugoslavia
+
+- Removed minesweeping and minelaying buttons
+ 
+### Focus
+ - USA
+    - Major rebalance of new part of focus tree
+
+ - Italy
+    - Added focus to get compliance on Yugoslvavian cores
+
+ - Soviet 
+    - Removed "Mine Warfare" focus
+
+### Airplane designer
+ - Radio Navigation: Sub detection 4 -> 6
+ - Radio Navigation II: Sub detection 6 -> 9
+
+
+### USA 
+
+    - Focus "Subsidise The Military Industry" now reduces Ongoing Recession by 90 days, from 60
+    - Focus "Subsidise The Naval Industry" now reduces Ongoing Recession by 90 days, from 60
+    - Focus "Subsidies for the Farmers" now reduces Ongoing Recession by 90 days, from 60
+    - Focus "Subsidise the Mining Industry" now reduces Ongoing Recession by 90 days, from 60
+    - Focus "Revitalised Interior Economy" now grants 10% construction speed from 5%, and 5% military construction speed and 5% civilian construction speed from 10%
+    - National Spirit "Home Front" now grants 5% military construction speed, from 10%
+    - National Spirit "Dust Bowl Relief" no longer grants -2.5% consumer goods, and had its Stability reduced to 2.5% from 5%
+    - National Spirit "Subsidised Mining Industry" now grants 15% resources from 10%
+    - National Spirit "Subisdised Farming Industry" now grants 2.5% consumer goods, from 5%, and 7.5% stability from 10%
+    - National Spirit "The 1937 Recession" now grants -0.15 political power gain
+    - National Spirit "Subsidised Naval Industry" no longer grants dockyard construction speed, instead it grants +15% dockyard output
+    - National Spirit "Subsidised Military Industry" no longer grants military factory construction speed. And grants 10% factory output from 5%
+    - War Plans focuses have been shortened to 35 days
+    - War Plans focuses now start at 5% attack and defense vs targetted countries, but grant 2.5% attack and defense per focus completed.
+    - Focus "The Giant Wakes" now requires 30% war support, from 35%
+    - Focus "USACE Projects" now requires 20% war support, from 30%
+    - Focus "Military Construction" completion time reduced to 35 days, from 70
+    - Focus "Mobilise The People" now grants 2 less civilian factories
+    - Focus "Prepare The War Industry" now grants 2 less military factories
+    - Focus "Expand Federal Taxes" now has scaling senate opposition based on war support
+    - Focus "National Youth Organization" now grants 2 building slots per state, from 3
+    - Focus "Fair Labor Standards" completion time reduced to 35 days, from 70
+    - Focus "Subsidies for the Farmers" completion time increased to 70 days, from 35
+    - Focus "Subsidies for the Mining Industry" completion time increased to 70 days, from 35
+    - "The Recession of 1937" event now also grants medium senate and house opposion
+
+### 3.6.2
+
+### General
+
+ - All non-playable nations have had their ahistorical paths ,either blocked or removed, to prevent mishaps.
+
+### Focus Trees
+ - USA:
+	- New expanded USA focus tree.
+ 
+ - Hungary:
+	- Hungary can now go down the Fascist King route.
+ 
+ - Italy:
+	- Request Control Of French Territories focus now asks for the correct territories and does not require Vichy to exist to be taken.
+ 
+ - Finland:
+	- Replaced "Retake Karjala" with "Mobilised The Nation"
+	- Fixed add fascism popularity in "Proclaim Greater Finland"
+	- Fixed the field hospital spirit in "The Great Red Menace".
+    - Buffed "The Great Red Menace"
+
+### Events
+
+ - New Scuttle The French Navy event chain, which allows for Germany to capture a portion of the french navy after capitulating them. [ done to balance for a lack of Vichy France ].
+
+ ### 3.6.1
+### General
+
+- Soviet Union
+    - Third Five Year Plan focus Consumer Goods buff 0% -> 2.5%
+
+
+### 3.6.0
+
+### General
+ - All of axis now affected by mediterranean balance of power
+ - IEA will no longer make your eyes bleed
+ - "Radio Propaganda" and "Utilize Domestic Film Industry" decisions now require higher World Tension values
+ - Added new character Karnov (don't worry about it)
+### Focus tree
+
+- Japan
+    - Rebalanced focus duration of several japanese focuses
+    - Improved several japanese focus tooltips to better inform players of unique effects
+    - Correct several japanese focuses to no longer spawn factories in Saipan, Iwo Jima, and Kurill Islands
+    - Strike South Doctrine focus no longer requires Greater East-Asian Co-Prosperity Sphere focus
+
+
+    - Supremacy of Will spirit no longer gives Division Attack and Division Defense, instead it gives +5% Org and +4% Reinforce Rate
+    - Challenge The Zaibatsus: stability debuff -15% -> -10%
+    - Zaibatsu Investments spirit Resource Gain Efficiency buff reduced from 15% to 10%
+    - Strike the Indies: Removed escort efficiency
+                         Division speed buff 5% -> 10%
+
+    - Allience With Siam focus now requires NAP with Soviets focus instead of Sign Tripartite Pact
+    - Added Nationalize the Zaibatus focus that allows the Challenge the Zaibatsus spirit to be improved
+    - Added Large Artillery Studies focus: Railway Gun technology and 3 Railway Guns
+
+    - Strike South spirits now have been merged into a single Nanshin Ron spirit
+    - Strike South Branch expanded with new Military and Industry branches
+
+- Soviet Union
+    - Infrastructure effort: Focus duration 70 -> 35
+    - Heavy Industry: Focus duration 70 -> 35
+    - Expand the Aircraft industry: Focus duration 70 -> 35
+    - Foster Flying Club: Focus duration 70 -> 35
+    - Modernize Aircraft facilities: Focus duration 70 -> 35
+    - Women in Aviation: Focus duration: 70 -> 35
+    - Third five year plan: Modifi consumer goods 0.05 -> 0
+
+ - Italy 
+    - Demand Ticino and Request Control of French Territories focuses re-added to allow Italy to gain the states required to form Greater Italy
+
+ - USA 
+    - Selective Training Act: Set base war support 10% -> 0%
+### High command
+
+ - All air mission type high command advisors buffed
+
+ - Gino Verchiella (Canada): Air superiority expert -> Close air support expert
+ - Sándor Magyarossy (Hungary): Air combat training specialist -> Air superiority expert
+ - Vasily Yanchenko (USSR): Removed exile and civil war requiremets 
+ - Nishizo Tsukahara (Japan): Naval strike specialist -> Naval strike expert 
+
+ - Maneuver Warfare: Org loss when moving -0.4 -> -0.3
+                     Army Fuel consumtion 0.1 -> 0
+                     Supply consumtion 0.15 -> 0.1
+                     Supply truck attrition 0.3 -> 0.15
+### Airplane designer
+
+ - All Airframes significantly reduced production cost
+ - All cas modules significantly increased production cost
+
+ - Medium bomb bay: ground attack 3 -> 4
+ - Rocket rails: gound attack 4 -> 6
+ - Guided anti-ship misssile: naval strike attack 8 -> 11
+                              weight 15 -> 12
+                              producion cost 15 -> 11
+ - Non strategic material: production cost modifier -0.075 -> 0.1
+                           air defence -6 -> -4
+ - Rocket engine 1: range modifier -0.9 -> 0.65
+                    reliability 0 -> -0.125
+                    tungsten cost 3 -> 2
+ - Rocket engine 2: range modifier -0.85 -> 0.50
+                    reliability 0 -> -0.075
+                    tungsten cost 3 -> 2
+ - Rocket engine 1: range modifier -0.8 -> 0.35
+                    tungsten cost 3 -> 2
+ - Air-air radar 1: No longer limited to interception
+                    Night time penalty -0.2 -> 0.15
+                    Air attack modifier 0.1
+ - Air-air radar 2: No longer limited to interception
+                    Night time penalty -0.4 -> 0.3
+                    Air attack modifier 0.15
+ - Radio navigation 1 when on naval missions: Surface detection 0 -> 6
+                                              Sub detection 0 -> 4
+ - Radio navigation 2 when on naval missions: Surface detection 0 -> 10
+                                              Sub detection 0 -> 6
+                                              Production cost 1 -> 2
+ - Air-Ground radar 1: Removed all naval bonuses
+                       When on close air support mission: Ground attack 0 -> +10%
+                       When on close recon
+
+ - Air-Ground radar 2: Removed all naval bonuses
+                       When on close air support mission: Ground attack 0 -> +15%
+### Tank designer
+
+ - All light tank chassis: production cost -0.3
+ - Small cannon: soft attack 25 -> 24
+                 steel cost 0 -> 1
+                 build cost 1.5 -> 2
+### Technologies 
+
+ - Moved radio navigation 1: Radio -> Decimetric radar
+ - Moved radio navigation 2: Decimetric radar -> Centimetric Radar
+ - Moved Air-Ground Radar 1: Improved Centimetric Radar -> Centimetric Radar
+ - Rocket engines: year of technology 1944 -> 1943
+ - Improved rocket engines: year of technology 1945 -> 1944
+ - Advanced rocket engines: year of technology 1946 -> 1945
+ - Centimetric Radar: fighter detection 0 -> 0.05
+ - Advanced Centimetric Radar: fighter detection 0 -> 0.05
+### 3.5.2
+ - Added new quotes
 ### Rules
  - Updated rules on paratroopers
 
@@ -93,12 +316,12 @@
     - no slots locked for advanced, modern and super-heavy chassis
 
 - Main armaments
-    - heavy cannon 1: soft attack 31 -> 20
+    - heavy cannon 1: soft attack 31 -> 30
                       hard attack 25 -> 24
                       piercing 60 -> 55
 
-    - heavy cannon 2: soft attack 37.5 -> 36
-                      hard attack 27.5 -> 27
+    - heavy cannon 2: soft attack `37.5`->`36`
+`                      hard attack 27.5 -> 27
                       piercing 90 -> 80
 
     - heavy cannon 3: soft attack 42.5 -> 41
