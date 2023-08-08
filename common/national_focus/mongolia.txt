@@ -59,17 +59,22 @@ focus_tree = {
 		id = MON_center
 		icon = GFX_focus_SOV_stalins_cult_of_personality
 		x = -3
-		y = 2
+		y = 1
 		relative_position_id = MON_great_purge
 		prerequisite = {
 			focus = MON_great_purge
 		}
+		mutually_exclusive = {
+			focus = MON_party_survives
+			
+		}
 		cost = 5
 		available = {
+			
+			hidden_trigger = {
 			NOT = {
 				has_completed_focus = MON_party_survives
 			}
-			hidden_trigger = {
 			OR = {
 				has_idea = mon_genden_purge_alive
 				has_idea = mon_genden_purge_dead
@@ -212,7 +217,7 @@ focus_tree = {
 				}
 			}
 			custom_effect_tooltip = mon_soviet_economic_aid_tt
-			custom_effect_tooltip = mon_soviet_economic_aid_2_tt
+			#custom_effect_tooltip = mon_soviet_economic_aid_2_tt
 		}
 	}
 	focus = {
@@ -247,7 +252,7 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = mon_economic_growth
 			remove_ideas = mon_memories_of_32
-			remove_ideas = mon_collectivized_farming
+			
 		}
 	}
 #   _____ ____  __  __ __  __ _____ ______    _____ _    _          _____  ______ _____  
@@ -260,7 +265,7 @@ focus = {
 	id = MON_refugee_commie
 	icon = GFX_focus_chi_cooperation_with_the_communists
 	x = 2
-	y = 1
+	y = 2
 	relative_position_id = MON_soviet_economic_aid
 	prerequisite = {
 		focus = MON_soviet_economic_aid
@@ -362,16 +367,20 @@ focus = {
 	prerequisite = {
 		focus = MON_great_purge
 	}
+	mutually_exclusive = {
+		focus = MON_center
+	}
 	cost = 5
 	available = {
-		NOT = {
-			has_completed_focus = MON_center
-		}
+		
 		hidden_trigger = {
-		OR = {
-			has_idea = mon_genden_purge_alive
-			has_idea = mon_genden_purge_dead
-		}
+			NOT = {
+				has_completed_focus = MON_center
+			}
+			OR = {
+				has_idea = mon_genden_purge_alive
+				has_idea = mon_genden_purge_dead
+			}
 		}
 		OR = {
 			has_idea = mon_high_gov_cont
@@ -408,9 +417,15 @@ focus = {
 	prerequisite = {
 		focus = MON_party_survives
 	}
+	mutually_exclusive = {
+		focus = MON_nationalist
+	}
 	cost = 9.9
 	available = {
-		date > 2137.1.1
+		hidden_trigger = {
+			date > 2137.1.1
+		}
+		
 	}
 	bypass = {
 	}
@@ -450,18 +465,18 @@ focus = {
 			days = 360
 		}
 		818 = {
-			add_extra_state_shared_building_slots = 2
+			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
 				type = arms_factory
-				level = 2
+				level = 1
 				instant_build = yes
 			}
 		}
 		818 = {
-			add_extra_state_shared_building_slots = 2
+			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
 				type = arms_factory
-				level = 2
+				level = 1
 				instant_build = yes
 			}
 		}
@@ -507,7 +522,7 @@ focus = {
 			add_to_faction = MON
 		}
 		custom_effect_tooltip = mon_soviet_reconc_tt
-		custom_effect_tooltip = mon_soviet_economic_aid_2_tt
+		#custom_effect_tooltip = mon_soviet_economic_aid_2_tt
 	}
 }
 
@@ -624,9 +639,15 @@ focus = {
 	prerequisite = {
 		focus = MON_party_survives
 	}
+	mutually_exclusive = {
+		focus = MON_left
+	}
 	cost = 60
 	available = {
-		date > 2137.1.1
+		hidden_trigger = {
+			date > 2137.1.1
+		}
+		
 	}
 	bypass = {
 	}
@@ -696,7 +717,7 @@ focus = {
 			}
 		}
 		custom_effect_tooltip = mon_international_economic_aid_tt
-		custom_effect_tooltip = mon_international_economic_aid_tt_2
+		#custom_effect_tooltip = mon_international_economic_aid_tt_2
 	}
 }
 focus = {
@@ -1116,11 +1137,11 @@ focus = {
 		817 = {
 		add_resource = {
 			type = tungsten
-			amount = 12
+			amount = 24
 		}
 		add_resource = {
 			type = oil
-			amount = 4
+			amount = 8
 		}
 	}
 	}
@@ -1183,14 +1204,14 @@ focus = {
 	}
 	completion_reward = {
 		add_tech_bonus = {
-			bonus = 2
+			bonus = 1
 			uses = 2
 			category = excavation_tech
 		}
 		818 = {
 			add_resource = {
 				type = chromium
-				amount = 12
+				amount = 24
 			}
 		}
 	}
@@ -1219,7 +1240,7 @@ focus = {
 			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
 				type = infrastructure
-				level = 2
+				level = 1
 				instant_build = yes
 			}
 		}
@@ -1227,7 +1248,7 @@ focus = {
 			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
 				type = infrastructure
-				level = 2
+				level = 1
 				instant_build = yes
 			}
 		}
@@ -1235,7 +1256,7 @@ focus = {
 			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
 				type = infrastructure
-				level = 2
+				level = 1
 				instant_build = yes
 			}
 		}
@@ -1243,7 +1264,7 @@ focus = {
 			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
 				type = infrastructure
-				level = 2
+				level = 1
 				instant_build = yes
 			}
 		}
@@ -1251,7 +1272,7 @@ focus = {
 			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
 				type = infrastructure
-				level = 2
+				level = 1
 				instant_build = yes
 			}
 		}
@@ -1282,7 +1303,7 @@ focus = {
 			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
 				type = infrastructure
-				level = 2
+				level = 1
 				instant_build = yes
 			}
 		}
@@ -1290,7 +1311,7 @@ focus = {
 			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
 				type = infrastructure
-				level = 2
+				level = 1
 				instant_build = yes
 			}
 		}
@@ -1298,7 +1319,7 @@ focus = {
 			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
 				type = infrastructure
-				level = 2
+				level = 1
 				instant_build = yes
 			}
 		}
@@ -1330,7 +1351,7 @@ focus = {
 	prerequisite = {
 		focus = MON_connect_sin
 	}
-	cost = 10
+	cost = 5
 	available = {
 	}
 	bypass = {
@@ -1345,7 +1366,7 @@ focus = {
 			add_extra_state_shared_building_slots = 2
 			add_building_construction = {
 				type = arms_factory
-				level = 3
+				level = 2
 				instant_build = yes
 			}
 		}
@@ -1353,7 +1374,7 @@ focus = {
 			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
 				type = arms_factory
-				level = 2
+				level = 1
 				instant_build = yes
 			}
 		}
@@ -1409,7 +1430,7 @@ focus = {
 	prerequisite = {
 		focus = MON_connect_sin
 	}
-	cost = 10
+	cost = 5
 	available = {
 	}
 	bypass = {
@@ -1436,14 +1457,7 @@ focus = {
 				instant_build = yes
 			}
 		}
-		817 = {
-			add_extra_state_shared_building_slots = 2
-			add_building_construction = {
-				type = industrial_complex
-				level = 2
-				instant_build = yes
-			}
-		}
+		
 	}
 }
 focus = {
@@ -1511,7 +1525,7 @@ focus = {
 		custom_effect_tooltip = MON_develop_bureacracy_tt
 		add_timed_idea = {
 			idea = mon_developing_country
-			days = 120
+			days = 360
 		}
 		add_to_variable = {
 			MON_dec_conscr_fact = 0.05
@@ -1710,10 +1724,8 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
-		add_timed_idea = {
-			idea = mon_air_academy
-			days = 730
-		}
+		add_ideas = mon_air_academy
+		
 		air_experience = 75
 	}
 }
@@ -1737,43 +1749,44 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
-		add_timed_idea = {
-			idea = mon_plane_research
-			days = 180
+		add_tech_bonus = {
+			bonus = 1
+			uses = 3
+			category = air_equipment
 		}
 	}
 }
-focus = {
-	id = MON_streamline_designs
-	icon = GFX_goal_continuous_air_production
-	relative_position_id = MON_create_air_academy
-	x = 2
-	y = 1
-	prerequisite = {
-		focus = MON_create_air_academy
-	}
-	cost = 10
-	available = {
-	}
-	bypass = {
-	}
-	cancel_if_invalid = yes
-	continue_if_invalid = no
-	available_if_capitulated = yes
-	search_filters = {
-	}
-	completion_reward = {
-		add_timed_idea = {
-			idea = mon_air_streamline_production
-			days = 360
-		}
-	}
-}
+# focus = {
+# 	id = MON_streamline_designs
+# 	icon = GFX_goal_continuous_air_production
+# 	relative_position_id = MON_create_air_academy
+# 	x = 2
+# 	y = 1
+# 	prerequisite = {
+# 		focus = MON_create_air_academy
+# 	}
+# 	cost = 10
+# 	available = {
+# 	}
+# 	bypass = {
+# 	}
+# 	cancel_if_invalid = yes
+# 	continue_if_invalid = no
+# 	available_if_capitulated = yes
+# 	search_filters = {
+# 	}
+# 	completion_reward = {
+# 		add_timed_idea = {
+# 			idea = mon_air_streamline_production
+# 			days = 360
+# 		}
+# 	}
+# }
 focus = {
 	id = MON_increase_training_hours
 	icon = GFX_goal_continuous_reduce_training_time
 	relative_position_id = MON_create_air_academy
-	x = 4
+	x = 3
 	y = 1
 	prerequisite = {
 		focus = MON_create_air_academy
@@ -1805,11 +1818,11 @@ focus = {
 	id = MON_airborne_division
 	icon = GFX_focus_generic_paratrooper #should have it's original one
 	relative_position_id = MON_increase_training_hours
-	x = -1
+	x = 0
 	y = 1
-	prerequisite = {
-		focus = MON_streamline_designs
-	}
+	# prerequisite = {
+	# 	focus = MON_streamline_designs
+	# }
 	prerequisite = {
 		focus = MON_increase_training_hours
 	}
@@ -1843,7 +1856,7 @@ focus = {
 	}
 	prerequisite = {
 		focus = MON_focus_on_cas
-		focus = MON_focus_on_fighers
+		focus = MON_focus_on_fighters
 	}
 
 	cost = 10
@@ -1878,7 +1891,7 @@ focus = {
 		focus = MON_explore_new_designs
 	}
 	mutually_exclusive = {
-		focus = MON_focus_on_fighers
+		focus = MON_focus_on_fighters
 	}
 	cost = 10
 	available = {
@@ -1895,7 +1908,7 @@ focus = {
 	}
 }
 focus = {
-	id = MON_focus_on_fighers
+	id = MON_focus_on_fighters
 	icon = GFX_goal_generic_air_fighter
 	relative_position_id = MON_explore_new_designs
 	x = 1
@@ -1971,12 +1984,9 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
-		add_timed_idea = {
-			idea = mon_weapon_development
-			days = 360
-		}
+		add_ideas = mon_weapon_development
 		add_tech_bonus = {
-			bonus = 2
+			bonus = 1
 			uses = 2
 			category = support_tech
 		}
@@ -2005,15 +2015,12 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
-		add_timed_idea = {
-			idea = mon_mech_res
-			days = 360
-		}
+		add_ideas = mon_mech_res
 	}
 }
 focus = {
 	id = MON_mobile_inf_doc
-	icon = GFX_focus_invite_finland
+	icon = GFX_focus_generic_truck
 	relative_position_id = MON_mech_inf
 	x = -1
 	y = 1
@@ -2035,13 +2042,13 @@ focus = {
 			name = land_doc_bonus
 			cost_reduction = 0.5
 			uses = 3
-			category = land_doctrine
+			category = cat_mobile_warfare
 		}
 	}
 }
 focus = {
 	id = MON_armored_experiments
-	icon = GFX_focus_invite_finland
+	icon = GFX_goal_generic_army_motorized
 	relative_position_id = MON_mech_inf
 	x = 1
 	y = 1
@@ -2064,7 +2071,7 @@ focus = {
 			days = 360
 		}
 		add_tech_bonus = {
-			bonus = 0.5
+			bonus = 2
 			uses = 1
 			category = motorized_equipment
 		}
@@ -2095,9 +2102,11 @@ focus = {
 	completion_reward = {
 		add_ideas = mon_mech_cav_buff
 		add_tech_bonus = {
-			bonus = 1
+			name = MON_rockets
+			ahead_reduction = 2
 			uses = 2
 			category = rocketry
+			
 		}
 	}
 }
@@ -2127,8 +2136,14 @@ focus = {
 		add_doctrine_cost_reduction = {
 			name = land_doc_bonus
 			cost_reduction = 0.5
-			uses = 4
-			category = land_doctrine
+			uses = 3
+			category = cat_mass_assault
+		}
+		add_doctrine_cost_reduction = {
+			name = land_doc_bonus
+			cost_reduction = 0.5
+			uses = 3
+			category = cat_superior_firepower
 		}
 	}
 }
@@ -2157,15 +2172,15 @@ focus = {
 			days = 720
 		}
 		820 = {
-			add_extra_state_shared_building_slots = 2
+			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
 				type = arms_factory
-				level = 2
+				level = 1
 				instant_build = yes
 			}
 		}
 		add_tech_bonus = {
-			bonus = 2
+			bonus = 1
 			uses = 2
 			category = artillery
 		}
@@ -2196,15 +2211,15 @@ focus = {
 			days = 720
 		}
 		820 = {
-			add_extra_state_shared_building_slots = 2
+			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
 				type = arms_factory
-				level = 2
+				level = 1
 				instant_build = yes
 			}
 		}
 		add_tech_bonus = {
-			bonus = 2
+			bonus = 1
 			uses = 2
 			category = support_tech
 		}
@@ -2214,11 +2229,11 @@ focus = {
 	id = MON_queen_of_battle
 	icon = GFX_goal_tfv_can_compromise_with_quebec
 	relative_position_id = MON_arty_modernisation
-	x = 0
+	x = 1
 	y = 1
-	mutually_exclusive = {
-		focus = MON_marines
-	}
+	# mutually_exclusive = {
+	# 	focus = MON_marines
+	# }
 	prerequisite = {
 		focus = MON_arty_modernisation
 	}
@@ -2239,45 +2254,45 @@ focus = {
 		add_ideas = mon_leg_inf_buff
 	}
 }
-focus = {
-	id = MON_marines #this should have a desc along the lines of "well we do have a big lake so i guess we can do marine training"
-	icon = GFX_focus_ITA_milizia_marittima_di_artiglieria
-	relative_position_id = MON_arty_modernisation
-	x = 2
-	y = 1
-	mutually_exclusive = {
-		focus = MON_queen_of_battle
-	}
-	prerequisite = {
-		focus = MON_arty_modernisation
-	}
-	prerequisite = {
-		focus = MON_weapon_modernisation
-	}
-	cost = 10
-	available = {
-	}
-	bypass = {
-	}
-	cancel_if_invalid = yes
-	continue_if_invalid = no
-	available_if_capitulated = yes
-	search_filters = {
-	}
-	completion_reward = {
-		add_ideas = mon_marines_buff
-		add_tech_bonus = {
-			bonus = 1
-			uses = 2
-			category = marine_tech
-		}
-		add_tech_bonus = {
-			bonus = 1
-			uses = 2
-			category = cat_special_forces_generic
-		}
-	}
-}
+# focus = {
+# 	id = MON_marines #this should have a desc along the lines of "well we do have a big lake so i guess we can do marine training"
+# 	icon = GFX_focus_ITA_milizia_marittima_di_artiglieria
+# 	relative_position_id = MON_arty_modernisation
+# 	x = 2
+# 	y = 1
+# 	mutually_exclusive = {
+# 		focus = MON_queen_of_battle
+# 	}
+# 	prerequisite = {
+# 		focus = MON_arty_modernisation
+# 	}
+# 	prerequisite = {
+# 		focus = MON_weapon_modernisation
+# 	}
+# 	cost = 10
+# 	available = {
+# 	}
+# 	bypass = {
+# 	}
+# 	cancel_if_invalid = yes
+# 	continue_if_invalid = no
+# 	available_if_capitulated = yes
+# 	search_filters = {
+# 	}
+# 	completion_reward = {
+# 		add_ideas = mon_marines_buff
+# 		add_tech_bonus = {
+# 			bonus = 1
+# 			uses = 2
+# 			category = marine_tech
+# 		}
+# 		add_tech_bonus = {
+# 			bonus = 1
+# 			uses = 2
+# 			category = cat_special_forces_generic
+# 		}
+# 	}
+# }
 focus = {
 	id = MON_focus_on_armor
 	icon = GFX_focus_generic_tank_production
@@ -2301,12 +2316,10 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
-		add_timed_idea = {
-			idea = mon_tank_development
-			days = 360
-		}
+		add_ideas = mon_tank_development
+		
 		add_tech_bonus = {
-			bonus = 2
+			bonus = 1
 			uses = 2
 			category = armor
 		}
@@ -2334,7 +2347,7 @@ focus = {
 	completion_reward = {
 		add_equipment_to_stockpile = {
 			type = motorized_equipment
-			amount = 900
+			amount = 1000
 			producer = MON
 		}
 		set_technology = {
@@ -2375,7 +2388,7 @@ focus = {
 			name = land_doc_bonus
 			cost_reduction = 0.5
 			uses = 3
-			category = land_doctrine
+			category = cat_mobile_warfare
 		}
 	}
 }
@@ -2404,10 +2417,10 @@ focus = {
 	completion_reward = {
 		add_ideas = mon_tank_building
 		818 = {
-			add_extra_state_shared_building_slots = 2
+			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
 				type = arms_factory
-				level = 2
+				level = 1
 				instant_build = yes
 			}
 		}
