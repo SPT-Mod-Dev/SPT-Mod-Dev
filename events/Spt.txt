@@ -752,14 +752,68 @@ country_event = { #Italy recieves the french fleet
 	}
 }
 
-news_event = { #Ahistorical is on
+
+country_event = { #Disrupted shipping routes from losing Suez or Gibraltar
+	#
+	#so, you know how things are in this bitch of an earth right? Im sitting here, just kinda waiting for hoi4 to load up all the quirky things it needs to load up and have jack shit
+	#to do, so i say to myself "man, why am i just staring at the screen like a fucking clown? might as well just start typing some shit", which, as you may have guessed by now, lead 
+	#to this. Personally, i think it would be fun to just use this space to talk about this cool sci-fi high fantasy setting that ive been cooking up on the side, it's a mix of dune,
+	#star wars, attack on titan, lord of the rings, to-love-ru, and suicide squad (the 2016 one). It's the year 2420 and the galaxy is split into 3 major factions: The Earth 
+	#Confederation of Allied Stars and Systems, The Bandit Kingdom of East-west-northern-south Karkanistan, and the High Elf Dommie Mommy Matriarchy LLC. The cool thing about these 
+	#factions is that they are very distinct, each has their own culture, and ive sat down and typed 15000 word essays on the history of each of them, truly marvelous work. The EC-ASS
+	#is mostly just a mix of human colonies, and each planet under their control is a single biome, single ethnicity, ethnostate within the greater confederation (mostly because i 
+	#dint really get the satire of warhammer, so i just think its neat to have fascist imagery), the bandit kingdom is just a really racist caricature of steppe peoples, and the elf
+	#corportaion specializes in expanding a never ending restaurant franchise chain that specializes in having the waiters all be big tiddy elf mommies (no it's not a fetish go away).
+	#Anyway, in this setting, the EC-ASS and the Elfdommies (as friends call them), are in an alliance against the Bandit Kingdom, because in the year 2369 the bandits started raiding
+	#the planets of the Elfdommies looking for slaves, which lead to a big war and lots and lots of elfs were taken hostage to serve as concubines for local warlords withing bandit 
+	#space. When the humans, who really are just tsun-tsun for the elfs, found out, they started a counter attack campaign against the bandits, which lead to many cool space battles 
+	#where techno-wizards started launching tachyon-mind-laser-spells left and right. After advancing far into bandit space, the humans and the elfies managed to get to the capital of 
+	#the bandits, and they found out that the bandit society actually is structured around a very complex system of sexual dominance and that because an elf tried to open up shop 
+	#inside the bandit space (by mistake ok, the elfies wouldnt just brake treaties without reason, they are gentle and caring, and ahve huge bazonkers that make seeing where they are
+	#walking hard!), so the humans had to break a peace deal. Which is really cool, because it turns out that the bandit species is basically like humans, but they have these cool 
+	#spikes coming outta their forehead, cuz there was this precursor civilization and all the humanoids decend from them, it's a long story, anyway, the bandits all look like cute 
+	#femboys. Following all of that, the 3 nations ahve mostly kept to themselves and the treaty allowed for free franchising within the human space as a compromise to avoid any more 
+	#settling in bandit space, because really what good is a sci-fi story if i dont make a half-hearted attempt at imitating anti-capitalist tropes from foundational stories but only 
+	#really do the surface reading of said tropes so i accidentaly just amke the opposite argument with my story. If you want more info on it, just message me on X, ive got a lot that 
+	#i can link your way.
+	#
 	id = spt.111
 	title = spt.111.t
 	desc = spt.111.desc
+	picture = GFX_report_event_merchant_ship_01
+	timeout_days = 2
+	is_triggered_only = yes
+	fire_only_once = yes
+	trigger = { 
+	}
+	option = {
+		name = spt.111.a
+		hidden_effect = {
+			add_ideas = spt_disrupted_shipping_hidden
+		}
+		add_timed_idea = {
+			idea = SPT_disrupted_shipping
+			days = 200
+		}
+		every_other_country = {
+			limit = { is_in_faction_with = ENG }
+			add_timed_idea = {
+				idea = SPT_disrupted_shipping
+				days = 200
+			}
+		}
+	}
+}
+
+news_event = { #Ahistorical is on
+	id = spt.112
+	title = spt.112.t
+	desc = spt.112.desc
 	picture = GFX_news_event_panay_incident
 	is_triggered_only = yes
 	major = yes
 	option = {
-		name = spt.111.a
+		name = spt.112.a
+
 	}
 }

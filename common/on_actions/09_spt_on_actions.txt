@@ -314,18 +314,27 @@ on_actions = {
 			  }
 			}
 
+			MON = {
+				country_event = { 
+					days = 75
+					id = spt_mongolia.5
+				}
+			  }
+
+
 			if = {
 				limit = {
 					is_historical_focus_on = no
 				}
 
-				GER = { news_event = spt.111 }
+				GER = { news_event = spt.112 }
 				
 				sound_effect = "spt_pipe_falling"
 			}
 			
 			
 			
+
 
 			
 
@@ -614,6 +623,33 @@ on_actions = {
 					}
 				}
 			}
+
+			#ENG loses Suez or Gibraltar (triggers Shipping Routes Disrupted event for ENG)
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							#Gibraltar
+							118 = { NOT = {is_controlled_by = ENG }}
+							118 = { is_owned_by = ENG }
+						}
+						AND = {
+							#Suez
+							446 = { NOT = {is_controlled_by = ENG }}
+							446 = { is_owned_by = ENG }
+						}
+					}
+					ENG = {
+						NOT = {has_idea = spt_disrupted_shipping_hidden}
+					}
+				}
+				ENG = {
+					country_event = {
+						id = spt.111
+						days = 1
+					}
+				}
+			}
 		}
 	}
 	on_capitulation = {
@@ -792,6 +828,30 @@ on_actions = {
 				}
 				JAP = {
 					add_ideas = JAP_tora_tora_tora_idea
+				}
+			}
+
+
+			if = {
+				limit = {
+					ROOT = {
+						tag = JAP
+					}
+					FROM = {
+						tag = CHI
+					}
+				}
+				MON = {
+					country_event = { 
+						id = spt_mongolia.13
+						days = 7
+					}
+				}
+				MON = {
+					country_event = {
+						id = spt_mongolia.15
+						days = 35
+					}
 				}
 			}
 		}

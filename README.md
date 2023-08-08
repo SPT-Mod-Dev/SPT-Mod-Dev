@@ -1,25 +1,36 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.6.6
 
-### General
+### 3.7.0
 
-- Added a topbar with the resources
+#### General
+- Game coded in some rules and removed them from the ruleset
+- Reduced production reduction from mech upgrades `-10%` -> `-5%`
+- Added topbar displaying your resources
+- Fixed most of loading quotes being hidden
 - Hid logistic strikes and minelaying, minesweeping air missions 
 
-### Focus
+#### Romania
+- Reworked the focus tree
 
-- Japan
-    - Nanshin Ron Steady Development Focuses now take 35 days to complete, from 70
-    - Nanshin Ron Rapid Development Focuses now grant their buffs for 200 days, from 365
-    - National Spirit "Rapid Development" now grants 60% mil construction speed, from 40%
-    - Focus "Rapid Development" now grants -40% mil construction speed, from -20%
-    - National Spirit "Quick Retooling" now grants 20% efficiency cap and 40% efficiency growth, from 15% efficiency cap and 30% efficiency growth
-    - Focus "Quick Retooling" now grants -20% efficiency growth and -10% efficiency cap, from -10% efficiency growth and -5% efficiency cap
-    - National Spirit "Factory Mobilization" now grants 40% factory output, from 30%
-    - Focus "Factory Mobilization" now grants -20% factory output, from -10%
-    - Focus "Long Term Planning" now grants -5% consumer goods
-    - Focus "Stockpiling Strategies" now grants 10% resource gain efficiency 
+#### USA
+- Added alf landon's path
+
+#### Mongolia
+- Added Mongolia as a playable country with a new focus tree
+
+#### Japan
+
+- Nanshin Ron Steady Development Focuses now take 35 days to complete, from 70
+- Nanshin Ron Rapid Development Focuses now grant their buffs for 200 days, from 365
+- National Spirit "Rapid Development" now grants 60% mil construction speed, from 40%
+- Focus "Rapid Development" now grants -40% mil construction speed, from -20%
+- National Spirit "Quick Retooling" now grants 20% efficiency cap and 40% efficiency growth, from 15% efficiency cap and 30% efficiency growth
+- Focus "Quick Retooling" now grants -20% efficiency growth and -10% efficiency cap, from -10% efficiency growth and -5% efficiency cap
+- National Spirit "Factory Mobilization" now grants 40% factory output, from 30%
+- Focus "Factory Mobilization" now grants -20% factory output, from -10%
+- Focus "Long Term Planning" now grants -5% consumer goods
+- Focus "Stockpiling Strategies" now grants 10% resource gain efficiency 
 
 
 ### 3.6.5
@@ -89,6 +100,7 @@
 
 
 ### USA 
+
     - Focus "Subsidise The Military Industry" now reduces Ongoing Recession by 90 days, from 60
     - Focus "Subsidise The Naval Industry" now reduces Ongoing Recession by 90 days, from 60
     - Focus "Subsidies for the Farmers" now reduces Ongoing Recession by 90 days, from 60
@@ -114,7 +126,6 @@
     - Focus "Subsidies for the Farmers" completion time increased to 70 days, from 35
     - Focus "Subsidies for the Mining Industry" completion time increased to 70 days, from 35
     - "The Recession of 1937" event now also grants medium senate and house opposion
-
 
 ### 3.6.2
 
@@ -147,6 +158,7 @@
 
 - Soviet Union
     - Third Five Year Plan focus Consumer Goods buff 0% -> 2.5%
+
 
 ### 3.6.0
 
