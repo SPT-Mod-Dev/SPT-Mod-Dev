@@ -59,22 +59,18 @@ focus_tree = {
 		id = MON_center
 		icon = GFX_focus_SOV_stalins_cult_of_personality
 		x = -3
-		y = 1
+		y = 2
 		relative_position_id = MON_great_purge
 		prerequisite = {
 			focus = MON_great_purge
 		}
-		mutually_exclusive = {
-			focus = MON_party_survives
-			
-		}
 		cost = 5
 		available = {
-			
+			has_completed_focus = MON_party_survives
 			hidden_trigger = {
-			NOT = {
-				has_completed_focus = MON_party_survives
-			}
+			
+				
+			
 			OR = {
 				has_idea = mon_genden_purge_alive
 				has_idea = mon_genden_purge_dead
@@ -366,9 +362,6 @@ focus = {
 	relative_position_id = MON_great_purge
 	prerequisite = {
 		focus = MON_great_purge
-	}
-	mutually_exclusive = {
-		focus = MON_center
 	}
 	cost = 5
 	available = {
