@@ -1,5 +1,46 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.7.0
+
+#### General
+- Game coded in some rules and removed them from the ruleset
+- Reduced production reduction from mech upgrades `-10%` -> `-5%`
+- Added topbar displaying your resources
+- Fixed most of loading quotes being hidden
+
+#### Romania
+- Reworked the focus tree
+
+#### USA
+- Added alf landon's path
+
+#### Mongolia
+- Added Mongolia as a playable country with a new focus tree
+
+#### Japan
+
+- Nanshin Ron Steady Development Focuses now take 35 days to complete, from 70
+- Nanshin Ron Rapid Development Focuses now grant their buffs for 200 days, from 365
+- National Spirit "Rapid Development" now grants 60% mil construction speed, from 40%
+- Focus "Rapid Development" now grants -40% mil construction speed, from -20%
+- National Spirit "Quick Retooling" now grants 20% efficiency cap and 40% efficiency growth, from 15% efficiency cap and 30% efficiency growth
+- Focus "Quick Retooling" now grants -20% efficiency growth and -10% efficiency cap, from -10% efficiency growth and -5% efficiency cap
+- National Spirit "Factory Mobilization" now grants 40% factory output, from 30%
+- Focus "Factory Mobilization" now grants -20% factory output, from -10%
+- Focus "Long Term Planning" now grants -5% consumer goods
+- Focus "Stockpiling Strategies" now grants 10% resource gain efficiency 
+
+### 3.6.5
+
+### General
+ - Added allied debuffs for loosing the mediterranean front
+
+ - Added temporary Allied supply and fuel consumtion debuff for losing Suez or Gibraltar
+
+ - France and Soviet Union no longer start with small cannon 2
+
+### Focus 
+ - Spain Tangiers enclave no longer gives UK war goal
 
 ### 3.6.4
 
