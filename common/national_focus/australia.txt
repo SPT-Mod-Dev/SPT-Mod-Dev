@@ -2331,9 +2331,9 @@
 	focus = {
 		id = AST_uranium_mining
 		icon = GFX_focus_wonderweapons
-		prerequisite = { focus = AST_expand_the_northern_railway }
+		prerequisite = { focus = AST_fight_work_or_perish }
 		prerequisite = { focus = AST_australian_arms_production }
-		x = 1
+		x = 3
 		y = 5
 		relative_position_id = AST_standard_gauge_railway
 
@@ -2407,7 +2407,7 @@
 		id = AST_national_security_act
 		icon = GFX_goal_generic_forceful_treaty
 		prerequisite = { focus = AST_establish_advisory_war_council }
-		x = -2
+		x = -1
 		y = 1
 		relative_position_id = AST_establish_advisory_war_council
 
@@ -2442,7 +2442,7 @@
 		id = AST_volunteer_defence_corps
 		icon = GFX_goal_generic_political_pressure
 		prerequisite = { focus = AST_establish_advisory_war_council }
-		x = 2
+		x = 3
 		y = 1
 		relative_position_id = AST_establish_advisory_war_council
 
@@ -2473,7 +2473,7 @@
 		id = AST_civil_construction_corps
 		icon = GFX_goal_generic_production2
 		prerequisite = { focus = AST_national_security_act }
-		x = -4
+		x = -3
 		y = 2
 		relative_position_id = AST_establish_advisory_war_council
 
@@ -2508,7 +2508,7 @@
 		id = AST_army_inventions_directorate
 		icon = GFX_focus_research
 		prerequisite = { focus = AST_national_security_act }
-		x = -2
+		x = -1
 		y = 2
 		relative_position_id = AST_establish_advisory_war_council
 
@@ -2540,7 +2540,7 @@
 		id = AST_invest_in_victory
 		icon = GFX_goal_generic_national_unity
 		prerequisite = { focus = AST_national_security_act }
-		x = 0
+		x = 1
 		y = 2
 		relative_position_id = AST_establish_advisory_war_council
 
@@ -2572,7 +2572,7 @@
 		id = AST_citizen_military_forces
 		icon = GFX_goal_generic_political_pressure
 		prerequisite = { focus = AST_volunteer_defence_corps }
-		x = 2
+		x = 3
 		y = 2
 		relative_position_id = AST_establish_advisory_war_council
 
@@ -2613,7 +2613,7 @@
 		icon = GFX_focus_AST_rats_tobruk
 		prerequisite = { focus = AST_volunteer_defence_corps }
 		prerequisite = { focus = AST_strengthen_ties_with_uk }
-		x = 4
+		x = 5
 		y = 2
 		relative_position_id = AST_establish_advisory_war_council
 
@@ -2813,9 +2813,9 @@
 	focus = {
 		id = AST_research_collaboration
 		icon = GFX_goal_generic_scientific_exchange
-		prerequisite = { focus = AST_fight_work_or_perish }
+		prerequisite = { focus = AST_expand_the_northern_railway }
 		prerequisite = { focus = AST_australian_arms_production }
-		x = -4
+		x = -6
 		y = 5
 		relative_position_id = AST_establish_advisory_war_council
 
@@ -2826,16 +2826,7 @@
 		}
 
 		available = {
-			is_subject = no
-			has_war = yes
-			is_in_faction = yes
-			OR = {
-				num_of_factories > 50
-				any_other_country = {
-					is_in_faction_with = ROOT
-					num_of_factories > 50
-				}
-			}
+
 		}
 
 		bypass = {
@@ -2961,7 +2952,7 @@
 		id = AST_classify_aliens
 		icon = GFX_goal_generic_defence
 		prerequisite = { focus = AST_citizen_military_forces }
-		x = 2
+		x = 3
 		y = 3
 		relative_position_id = AST_establish_advisory_war_council
 
@@ -3244,7 +3235,7 @@
 		id = AST_adopt_westminster
 		icon = GFX_goal_generic_improve_relations
 		prerequisite = { focus = AST_strengthen_ties_with_uk focus = AST_the_singapore_strategy }
-		x = 0
+		x = 1
 		y = 2
 		relative_position_id = AST_support_the_policy_of_appeasement
 
@@ -3288,7 +3279,7 @@
 		id = AST_CSIR
 		icon = GFX_goal_tfv_generic_tech_sharing
 		prerequisite = { focus = AST_adopt_westminster }
-		x = -1
+		x = 0
 		y = 3
 		relative_position_id = AST_support_the_policy_of_appeasement
 
@@ -3332,7 +3323,7 @@
 		id = AST_swpa_protector
 		icon = GFX_goal_generic_defence
 		prerequisite = { focus = AST_adopt_westminster }
-		x = 1
+		x = 2
 		y = 3
 		relative_position_id = AST_support_the_policy_of_appeasement
 
@@ -3477,7 +3468,7 @@
 		id = AST_empire_air_training_scheme
 		icon = GFX_goal_generic_air_fighter2
 		prerequisite = { focus = AST_CSIR focus = AST_swpa_protector }
-		x = -1
+		x = 0
 		y = 4
 		relative_position_id = AST_support_the_policy_of_appeasement
 
@@ -3515,7 +3506,7 @@
 		id = AST_commonwealth_aircraft_corporation
 		icon = GFX_goal_generic_air_fighter
 		prerequisite = { focus = AST_CSIR focus = AST_swpa_protector }
-		x = 1
+		x = 2
 		y = 4
 		relative_position_id = AST_support_the_policy_of_appeasement
 
