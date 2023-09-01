@@ -232,7 +232,7 @@ focus_tree = {
 		x = -5
 		y = 1
 		relative_position_id = ITA_italian_highways_bba
-		cost = 5
+		cost = 10
 		available = {
 			NOT = { has_global_flag = second_italo_ethiopian_war_flag }
 			OR = {
@@ -244,7 +244,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL}
 
 		completion_reward = {
-			add_political_power = 75
+			add_political_power = 100
 			custom_effect_tooltip = ITA_ministry_of_italian_africa_occupation_law_tt
 			show_ideas_tooltip = ITA_fake_colonial_police_law
 
@@ -8656,78 +8656,6 @@ focus_tree = {
 		}
 	}
 
-
-
-
-
-	focus = {
-		id = ITA_the_new_emperor_of_ethiopia
-		icon = GFX_focus_ITA_the_new_emperor_of_ethiopia
-		prerequisite = { focus = ITA_triumph_in_africa_bba }
-
-		x = 3
-		y = 1
-		relative_position_id = ITA_triumph_in_africa_bba
-		cost = 5
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = ITA_all_eth_initial_states_controlled_tt
-				NOT = {
-					any_state = {
-						is_initial_ethiopian_state = yes
-						is_controlled_by_ROOT_or_subject = no
-					}
-				}
-			}
-			
-			OR = {
-				custom_trigger_tooltip = {
-					tooltip = ITA_the_new_emperor_of_ethiopia_has_idea_vittorio_emanuele_tt
-					OR = {
-						has_idea = vittorio_emanuele
-						has_idea = vittorio_emanuele_king_of_albania
-					}
-				}
-				has_country_leader = {
-					character = ITA_vittorio_emanuele_iii
-					ruling_only = yes
-				}
-				has_completed_focus = ITA_capo_supremo
-				has_completed_focus = ITA_divino_duce
-			}
-			is_subject = no
-		}
-
-		search_filters = {FOCUS_FILTER_STABILITY}
-
-		completion_reward = {
-			# The king is an idea
-
-			else_if = {
-				limit = {
-					has_idea = vittorio_emanuele_king_of_albania
-				}
-				swap_ideas = {
-					remove_idea = vittorio_emanuele_king_of_albania
-					add_idea = vittorio_emanuele_albania_ethiopia
-				}
-			}
-
-			custom_effect_tooltip = ITA_the_new_emperor_of_ethiopia_king_trait_tt
-			ITA_vittorio_emanuele_iii = { 
-				add_country_leader_trait = emperor_of_ethiopia
-			}
-
-			add_popularity = {
-				ideology = neutrality
-				popularity = 0.05
-			}
-
-
-
-
-		}
-	}
 
 	focus = {
 		#SPTChange hid referemces to bop if italy has joined ww2
