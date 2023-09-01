@@ -14,6 +14,7 @@
 - Focus "Complete Industry Reorganization" now grants +10% max factories, from +20%
 - Pan-Asian Integration state modifier now grants -10% non-core manpower, from -7.5%
 - Focus "Army Expansion" now grants +30 army experience, from +15
+- National Spirit "Tora! Tora! Tora!" now correctly lasts for only 6 months
 
 ### 3.7.0
 
