@@ -225,7 +225,7 @@ focus_tree = {
 
 	focus = {
 		id = ITA_ministry_of_italian_africa
-		icon = GFX_focus_ITA_ministry_of_italian_africa
+		icon = GFX_focus_ITA_the_new_emperor_of_ethiopia
 		prerequisite = { focus = ITA_italian_highways_bba }
 		prerequisite = { focus = ITA_ethiopian_war_logistics_bba }
 
@@ -8656,181 +8656,9 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = ITA_anglo_italian_agreements
-		icon = GFX_focus_chi_british_cooperation
-		prerequisite = { focus = ITA_triumph_in_africa_bba }
 
-		x = -1
-		y = 1
-		relative_position_id = ITA_triumph_in_africa_bba
-		cost = 5
 
-		bypass = {
-			NOT = { has_country_flag = SUEZ_SANCTIONS_FLAG }
-			OR = {
-				NOT = { country_exists = ETH }
-				has_subject = ETH
-			}
-		} 
 
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = ITA_anglo_italian_agreements_suez_tt
-				OR = {
-					NOT = { has_country_flag = SUEZ_SANCTIONS_FLAG }
-					has_country_flag = { flag = SUEZ_SANCTIONS_FLAG days > 365 }
-				}
-			}
-
-			core_compliance = {
-				occupied_country_tag = ETH
-				value > 40
-			}
-		}
-
-		search_filters = {}
-
-		completion_reward = {
-			#Suez Canal access
-			if = {
-				limit = {
-					has_country_flag = SUEZ_SANCTIONS_FLAG
-				}
-				clr_country_flag = SUEZ_SANCTIONS_FLAG
-				custom_effect_tooltip = ITA_anglo_italian_agreements_suez_unlocked_tt
-			}
-
-			#Deescalation
-			add_to_variable = { ETH.ETH_war_escalation_level = -1 }
-			custom_effect_tooltip = ETH_war_deescalation_inc_tt
-		}
-	}
-
-	focus = {
-		id = ITA_topple_amhara_rulers
-		icon = GFX_focus_ITA_topple_amhara_rulers
-		prerequisite = { focus = ITA_triumph_in_africa_bba }
-
-		x = 1
-		y = 1
-		relative_position_id = ITA_triumph_in_africa_bba
-		cost = 5
-		available = {
-			has_full_control_of_state = 835
-			has_full_control_of_state = 836
-			has_full_control_of_state = 837
-			has_full_control_of_state = 838
-			NOT = { has_global_flag = ITA_antifascist_civil_war_triggered_flag }
-			hidden_trigger = { NOT = { has_completed_focus = ITA_defy_the_duce } }
-		}
-
-		search_filters = {}
-
-		completion_reward = {#Changing stuff here will require changing stuff in History file for 1939 bookmark
-			effect_tooltip = {
-				if = {
-					limit = {
-						country_exists = ETH
-					}
-					ETH = {
-						add_legitimacy = -10
-					}
-				}
-			}
-			if = {
-				limit = {
-					835 = { has_resistance = yes } 
-				}
-				835 = { #HARARGHE
-					add_compliance = 10
-				}
-			}
-			else_if = {
-				limit = {
-					NOT = { controls_state = 835 }
-				}
-				effect_tooltip = {
-					835 = {
-						add_compliance = 10
-					}
-				}
-			}
-
-			if = {
-				limit = {
-					836 = { has_resistance = yes } 
-				}
-				836 = { #BALE
-					add_compliance = 10
-				}
-			}
-			else_if = {
-				limit = {
-					NOT = { controls_state = 836 }
-				}
-				effect_tooltip = {
-					836 = {
-						add_compliance = 10
-					}
-				}
-			}
-
-			if = {
-				limit = {
-					837 = { has_resistance = yes } 
-				}
-				837 = { #SIDAMO
-					add_compliance = 10
-				}
-			}
-			else_if = {
-				limit = {
-					NOT = { controls_state = 837 }
-				}
-				effect_tooltip = {
-					837 = {
-						add_compliance = 10
-					}
-				}
-			}
-
-			if = {
-				limit = {
-					838 = { has_resistance = yes } 
-				}
-				838 = { #ILLUBABOR
-					add_compliance = 10
-				}
-			}
-			else_if = {
-				limit = {
-					NOT = { controls_state = 838 }
-				}
-				effect_tooltip = {
-					838 = {
-						add_compliance = 10
-					}
-				}
-			}
-
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				custom_effect_tooltip = ITA_topple_amhara_rulers_event_chain_tt
-				hidden_effect = {
-					ITA_haile_selassie_gugsa_doppleganger = { unit_leader_event = BBA_italy_local_rulers.1 }
-				}
-			}
-			hidden_effect = {
-				ETH = {
-					country_event = { id = BBA_italo_ethiopian_war_events.510 hours = 6 }
-				}
-			}
-
-		}
-	}
 
 	focus = {
 		id = ITA_the_new_emperor_of_ethiopia
@@ -8874,15 +8702,7 @@ focus_tree = {
 
 		completion_reward = {
 			# The king is an idea
-			if = {
-				limit = {
-					has_idea = vittorio_emanuele
-				}
-				swap_ideas = {
-					remove_idea = vittorio_emanuele
-					add_idea = vittorio_emanuele_emperor_of_ethiopia
-				}
-			}
+
 			else_if = {
 				limit = {
 					has_idea = vittorio_emanuele_king_of_albania
@@ -8903,24 +8723,9 @@ focus_tree = {
 				popularity = 0.05
 			}
 
-			unlock_decision_tooltip = ITA_discredit_haile_selassie
 
-			if = {
-				limit = {
-					country_exists = ETH
-				}
-				ETH = {
-					add_legitimacy = -10
-				}
-			}
 
-			every_controlled_state = {
-				limit = {
-					is_fully_controlled_by = ROOT
-					is_core_of = ETH
-				}
-				add_compliance = 5
-			}
+
 		}
 	}
 
@@ -8948,7 +8753,7 @@ focus_tree = {
 		}
 
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = ITA_triumph_in_africa_bba
 		cost = 10
 		available = {
@@ -9742,6 +9547,64 @@ focus_tree = {
 			#TODO_Manu: Need to do something here because it is super redundant with everything else
 
 			custom_effect_tooltip = form_greater_italy_tt
+			add_political_power = 50
+			add_war_support = 0.03
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+			add_ideas = ITA_italian_irredentism_ns
+			#TODO_Manu: Might need to remove some/all of the claims below due to overlap with other focuses
+			add_named_threat = { threat = 4 name = ITA_italian_irredentism } #Comes from the old Claims in Yugoslavia focus
+			if = {
+				limit = {
+					103 = {
+						NOT = { is_claimed_by = ROOT }
+					}
+				}
+				add_state_claim = 103 #DALMATIA
+			}
+			if = {
+				limit = {
+					105 = {
+						NOT = { is_claimed_by = ROOT }
+					}
+				}
+				add_state_claim = 105 #MONTENEGRO
+			}
+			add_state_claim = 268 #DJIBUTI
+			add_state_claim = 269 #BRITISH SOMALILAND
+			add_state_claim = 735 #SAVOY
+			add_state_claim = 856 #VAR
+			add_state_claim = 185 #CORFU
+			add_state_claim = 1 #CORSICA
+			add_state_claim = 116 #MALTA
+
+			if = {
+				limit = {
+					has_dlc = "La Resistance"
+				}
+				ITA_create_carmelo_borg_pisani_operative = yes
+			}
+
+			if = {
+				limit = {
+					has_rule = can_only_justify_war_on_threat_country
+				}
+				set_rule = { can_only_justify_war_on_threat_country = no }
+			}
+			if = {
+				limit = {
+					NOT = { has_rule = can_declare_war_on_same_ideology }
+				}
+				set_rule = { can_declare_war_on_same_ideology = yes }
+			}
+			if = {
+				limit = {
+					NOT = { has_rule = can_send_volunteers }
+				}
+				set_rule = { can_send_volunteers = yes }
+			}
 
 		}
 	}
@@ -14543,7 +14406,7 @@ focus_tree = {
 
 	focus = {
 		id = ITA_foreign_affairs
-		icon = GFX_goal_generic_dangerous_deal
+		icon = GFX_focus_ITA_italian_hegemony
 		prerequisite = { focus = ITA_triumph_in_africa_bba}
 
 		allow_branch = {
@@ -14604,66 +14467,36 @@ focus_tree = {
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = ITA_gian_galeazzo_ciano
 
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				custom_effect_tooltip = ITA_foreign_affairs_focus_lock_tt
-			}
+			
 		}
 	}
 
 	focus = {
 		id = ITA_balkan_ambition
-		icon = GFX_focus_generic_balkans_focus
+		icon = GFX_focus_generic_balkan_diplomacy
 		prerequisite = { focus = ITA_foreign_affairs }
 		mutually_exclusive = { focus = ITA_potential_allies_in_the_balkans }
 
-		x = 0
+		x = 4
 		y = 1
 		relative_position_id = ITA_foreign_affairs
-		cost = 5
+		cost = 10
 		available = {
 		}
 
 		search_filters = {}
 
 		completion_reward = {
-			add_state_claim = 102 #NORTH SLOVENIA
-			add_state_claim = 853 #LJUBLJANA
-			add_state_claim = 103 #DALMATIA
-			add_state_claim = 105 #MONTENEGRO
 
-			if = {
-				limit = {
-					country_exists = CRO
-					OR = {
-						103 = { is_fully_controlled_by = CRO }
-						105 = { is_fully_controlled_by = CRO }
-					}
+
+
+
+				swap_ideas = {
+					remove_idea = vittorio_emanuele
+					add_idea = vittorio_emanuele_emperor_of_ethiopia
 				}
-				activate_targeted_decision = { target = CRO decision = ITA_send_ultimatum_to_country_balkan }
-			}
-			if = {
-				limit = {
-					country_exists = MNT
-					OR = {
-						103 = { is_fully_controlled_by = MNT }
-						105 = { is_fully_controlled_by = MNT }
-					}
-				}
-				activate_targeted_decision = { target = MNT decision = ITA_send_ultimatum_to_country_balkan }
-			}
-			if = {
-				limit = {
-					country_exists = YUG
-					OR = {
-						103 = { is_fully_controlled_by = YUG }
-						105 = { is_fully_controlled_by = YUG }
-					}
-				}
-				activate_targeted_decision = { target = YUG decision = ITA_send_ultimatum_to_country_balkan }
-			}	
+			custom_effect_tooltip = remove_political_advisor
+			show_ideas_tooltip = ITA_guido_jung
 		}
 	}
 
@@ -14758,12 +14591,12 @@ focus_tree = {
 
 	focus = {
 		id = ITA_albanian_occupation
-		icon = GFX_goal_generic_more_territorial_claims
+		icon = GFX_focus_ITA_albanian_irredentism
 		prerequisite = {focus = ITA_balkan_ambition }
 
-		x = -6
+		x = 2
 		y = 1
-		relative_position_id = ITA_potential_allies_in_the_balkans
+		relative_position_id = ITA_balkan_ambition
 		cost = 5
 		available = {
 		}
@@ -14792,7 +14625,7 @@ focus_tree = {
 			effect_tooltip = {
 				custom_effect_tooltip = if_they_accept_tt
 				annex_country = { target = ALB }
-				add_named_threat = { threat = 2 name = ITA_albania_war_goal }
+				add_named_threat = { threat = 1 name = ITA_albania_war_goal }
 				# The king is an idea
 				if = {
 					limit = {
@@ -14812,12 +14645,7 @@ focus_tree = {
 						add_idea = vittorio_emanuele_albania_ethiopia
 					}
 				}
-				if = {
-					limit = {
-				 		has_character = ITA_vittorio_emanuele_iii
-					}
-					ITA_vittorio_emanuele_iii = { add_country_leader_trait = king_of_albania }
-				}
+
 			}
 		}
 	}
@@ -14827,7 +14655,7 @@ focus_tree = {
 		icon = GFX_goal_generic_oil_refinery
 		prerequisite = { focus = ITA_albanian_occupation }
 
-		x = -2
+		x = 0
 		y = 1
 		relative_position_id = ITA_albanian_occupation
 		cost = 5
@@ -14860,158 +14688,9 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = ITA_support_albanian_irredentism
-		icon = GFX_focus_ITA_albanian_irredentism
-		prerequisite = { focus = ITA_albanian_occupation }
 
-		x = 0
-		y = 1
-		relative_position_id = ITA_albanian_occupation
-		cost = 5
-		available = {
-			44 = {
-				state_is_fully_controlled_by_ROOT_or_subject = yes
-			}
-		}
 
-		search_filters = {}
 
-		completion_reward = {
-			add_state_claim = 802 #KOSOVO
-			add_state_claim = 106 #MACEDONIA
-			add_state_claim = 185 #EPIRUS
-			add_state_claim = 105 #MONTENEGRO
-
-			hidden_effect = { #Representing the Albanian Irredentism recognized by ITA.
-				ALB = {
-					add_state_claim = 802 #KOSOVO
-					add_state_claim = 106 #MACEDONIA
-					add_state_claim = 185 #EPIRUS
-					add_state_claim = 105 #MONTENEGRO
-				}
-			}
-
-			every_state = {
-				limit = {
-					OR = {
-						is_core_of = ALB
-						is_claimed_by = ALB
-					}
-					is_fully_controlled_by = ROOT
-				}
-				add_compliance = 10
-			}
-
-			if = {
-				limit = {
-					ALB = { is_subject_of = ROOT }
-				}
-				ALB = {
-					add_opinion_modifier = { target = ROOT modifier = ITA_supports_albanian_irredentism }
-					add_autonomy_score = {
-						value = -30
-						localization = ITA_support_albanian_irredentism
-					}
-					if = {
-						limit = { ROOT = { has_government = fascism } }
-						add_timed_idea = { idea = fascist_influence days = 1095 }
-					}
-					if = {
-						limit = { ROOT = { has_government = democratic } }
-						add_timed_idea = { idea = democratic_influence days = 1095 }
-					}
-					if = {
-						limit = { ROOT = { has_government = communism } }
-						add_timed_idea = { idea = communist_influence days = 1095 }
-					}
-					country_event = { id = generic.1 }
-				}
-			}
-			else = {
-				custom_effect_tooltip = ITA_support_albanian_irredentism_subject_effects_tt
-				effect_tooltip = {
-					ALB = {
-						add_opinion_modifier = { target = ROOT modifier = ITA_supports_albanian_irredentism }
-						add_autonomy_score = {
-							value = -30
-							localization = ITA_support_albanian_irredentism
-						}
-						if = {
-							limit = { ROOT = { has_government = fascism } }
-							add_timed_idea = { idea = fascist_influence days = 1095 }
-						}
-						if = {
-							limit = { ROOT = { has_government = democratic } }
-							add_timed_idea = { idea = democratic_influence days = 1095 }
-						}
-						if = {
-							limit = { ROOT = { has_government = communism } }
-							add_timed_idea = { idea = communist_influence days = 1095 }
-						}
-						country_event = { id = generic.1 }
-					}
-				}
-			}
-		}
-	}
-
-	focus = {
-		id = ITA_albanian_fascist_militia
-		icon = GFX_focus_ITA_albanian_fascist_militia
-		prerequisite = { focus = ITA_support_albanian_irredentism }
-
-		x = 0
-		y = 1
-		relative_position_id = ITA_support_albanian_irredentism
-		cost = 5
-		available = {
-			44 = {
-				state_is_fully_controlled_by_ROOT_or_subject = yes
-			}
-		}
-
-		search_filters = {FOCUS_FILTER_MANPOWER}
-
-		completion_reward = {
-			if = {
-				limit = {
-					NOT = { has_completed_focus = ITA_regional_development }
-				}
-				custom_effect_tooltip = ITA_albanian_fascist_militia_occupation_law_full_tt
-				show_ideas_tooltip = ITA_fake_colonial_police_law
-			}
-			else = {
-				custom_effect_tooltip = ITA_albanian_fascist_militia_occupation_law_tt
-			}
-
-			every_controlled_state = {
-				limit = {
-					is_core_of = ALB
-					is_fully_controlled_by = ROOT
-				}
-				#set_occupation_law = colonial_police #MM: Not working
-				add_compliance = 10
-			}
-
-			custom_effect_tooltip = ITA_blackshirts_div_cap_8_tt
-			hidden_effect = {
-				add_to_variable = { ITA_militias_cap = 8 }
-				set_division_template_cap = {  division_template = "Camicie Nere" division_cap = ITA_militias_cap }
-			}
-
-			44 = {
-				custom_effect_tooltip = ITA_albanian_fascist_militia_spawn_divs_tt
-				hidden_effect = {
-					create_unit = { #Historically 14 battalions
-						division = "division_template = \"Camicie Nere\" start_experience_factor = 0.4 start_equipment_factor = 1.0"
-						owner = ROOT
-						count = 3
-					}
-				}
-			}
-		}
-	}
 
 	focus = {
 		allow_branch = {always = no}
@@ -15256,40 +14935,24 @@ focus_tree = {
 
 	focus = {
 		id = ITA_pact_of_steel
-		icon = GFX_goal_support_fascism
-		prerequisite = {focus = ITA_balkan_ambition }
+		icon = GFX_focus_generic_fascist_troops
+		prerequisite = {focus = ITA_foreign_affairs }
 		mutually_exclusive = { focus = ITA_guarantee_austrian_independence focus = ITA_italy_first }
-		x = 0
+		x = -3
 		y = 1
-		relative_position_id = ITA_balkan_ambition
+		relative_position_id = ITA_foreign_affairs
 		cost = 5
 
 		bypass = {
-			is_in_faction = yes
-			is_in_faction_with = GER
+
 		}
 
-		available = {
-			NOT = { has_war_with = GER }
-			custom_trigger_tooltip = {
-				tooltip = ITA_germ_italy_same_tt
-				GER = { has_government = ROOT }
-			}
-			is_in_faction = no
-			GER = {
-				is_faction_leader = yes
-				is_subject = no
-			}
-			is_subject = no
-			NOT = { has_country_flag = ENG_ditched_by_the_germans_flag }
-		}
+
 
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 
 		completion_reward = {
-			GER = {
-				add_opinion_modifier = { target = ITA modifier = pact_of_steel_opinion }
-			}
+
 			hidden_effect = {
 				news_event = { hours = 6 id = news.184 }
 			}
@@ -15298,23 +14961,21 @@ focus_tree = {
 				days = 365
 			}
 
-			custom_effect_tooltip = remove_political_advisor
-			show_ideas_tooltip = ITA_guido_jung
+
 		}
 	}
 
 	focus = {
 		id = ITA_german_military_cooperation
-		icon = GFX_focus_ger_oppose_hitler
+		icon = GFX_focus_chi_mission_to_germany
 		prerequisite = { focus = ITA_pact_of_steel }
 
-		x = -1
+		x = -2
 		y = 1
 		relative_position_id = ITA_pact_of_steel
 		cost = 5
 		available = {
-			NOT = { has_war_with = GER }
-			NOT = { has_country_flag = ENG_ditched_by_the_germans_flag }
+			
 		}
 
 		search_filters = {FOCUS_FILTER_AIR_XP FOCUS_FILTER_ARMY_XP}
@@ -15329,18 +14990,17 @@ focus_tree = {
 		icon = GFX_goal_generic_wolf_pack
 		prerequisite = { focus = ITA_german_military_cooperation }
 
-		x = -1
+		x = -2
 		y = 1
 		relative_position_id = ITA_german_military_cooperation
 		cost = 5
 		available = {
-			NOT = { has_country_flag = ENG_ditched_by_the_germans_flag }
+			
 		}
 		
 		search_filters = {FOCUS_FILTER_NAVY_XP FOCUS_FILTER_RESEARCH}
 
 		completion_reward = {
-			navy_experience = 25
 			add_tech_bonus = {
 				name = ITA_sea_wolves_bba
 				bonus = 1.0
@@ -15358,15 +15018,15 @@ focus_tree = {
 
 	focus = {
 		id = ITA_secret_weapons
-		icon = GFX_goal_generic_secret_weapon
+		icon = GFX_focus_wonderweapons
 		prerequisite = { focus = ITA_german_military_cooperation }
 
-		x = 1
+		x = 2
 		y = 1
 		relative_position_id = ITA_german_military_cooperation
 		cost = 5
 		available = {
-			NOT = { has_country_flag = ENG_ditched_by_the_germans_flag }
+			
 		}
 
 		search_filters = {FOCUS_FILTER_RESEARCH}
@@ -15385,15 +15045,15 @@ focus_tree = {
 
 	focus = {
 		id = ITA_treaty_with_germany
-		icon = GFX_focus_generic_diplomatic_treaty
-		prerequisite = { focus = ITA_pact_of_steel }
+		icon = GFX_focus_generic_army_tanks2
+		prerequisite = { focus = ITA_german_military_cooperation }
 
-		x = 5
+		x = 0
 		y = 1
-		relative_position_id = ITA_pact_of_steel
+		relative_position_id = ITA_german_military_cooperation
 		cost = 5
 		available = {
-			NOT = { has_country_flag = ENG_ditched_by_the_germans_flag }
+			
 		}
 		
 		search_filters = {FOCUS_FILTER_RESEARCH}
@@ -15422,70 +15082,6 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		allow_branch = {always = yes}
-		
-		id = ITA_request_control_of_french_territories
-		icon = GFX_goal_generic_territory_or_war
-		prerequisite = { focus = ITA_pact_of_steel }
-		prerequisite = { focus = ITA_italian_irredentism }
-		mutually_exclusive = { focus = ITA_war_with_france }
-		x = 2
-		y = 2
-		relative_position_id = ITA_pact_of_steel
-		cost = 2 #SPT change 5 -> 2
-
-		available = {
-			is_puppet = no
-			is_in_faction_with = GER
-			GER = { 
-				controls_state = 16
-				controls_state = 735
-				controls_state = 851	
-				controls_state = 21	
-				controls_state = 32		
-				GER = { is_faction_leader = yes }
-			}
-			#custom_trigger_tooltip = {
-			 #tooltip = ITA_claims_on_france_tt
-			#	any_other_country = {
-			#		original_tag = FRA
-			#		has_government = fascism
-			#		owns_state = 735
-			#		controls_state = 735
-			#		owns_state = 1
-			#		controls_state = 1
-			#	}
-			#}
-		}
-
-		search_filters = {FOCUS_FILTER_ANNEXATION}
-
-		completion_reward = {
-			if = {
-				limit = { 
-					any_other_country = {
-						original_tag = FRA
-						has_government = fascism
-						owns_state = 735
-					}
-				}
-				set_global_flag = ITA_claims_on_france_735
-			}
-			if = {
-				limit = { 
-					any_other_country = {
-						original_tag = FRA
-						has_government = fascism
-						owns_state = 1
-					}
-				}
-				set_global_flag = ITA_claims_on_france_1
-			}
-
-			GER = { country_event = germany.104 }
-		}
-	}
 
 
 	focus = {
@@ -15579,7 +15175,7 @@ focus_tree = {
 		icon = GFX_focus_chi_collaboration_with_the_japanese
 		prerequisite = { focus = ITA_pact_of_steel}
 
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = ITA_pact_of_steel
 		cost = 10
@@ -15605,85 +15201,7 @@ focus_tree = {
 					modifier = ITA_military_agreements
 				}
 
-				add_opinion_modifier = { target = ITA modifier = ita_diplomacy_focus }
-			}
-		}
-	}
-
-	focus = {
-		id = ITA_italian_irredentism
-		icon = GFX_focus_ITA_italian_irredentism
-		prerequisite = { focus = ITA_pact_of_steel}
-
-		x = 3
-		y = 1
-		relative_position_id = ITA_pact_of_steel
-		cost = 10
-		available = {
-			is_subject = no
-		}
-
-		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT}
-
-		completion_reward = {
-			add_political_power = 50
-			add_war_support = 0.03
-			add_popularity = {
-				ideology = fascism
-				popularity = 0.05
-			}
-			add_ideas = ITA_italian_irredentism_ns
-			#TODO_Manu: Might need to remove some/all of the claims below due to overlap with other focuses
-			add_named_threat = { threat = 4 name = ITA_italian_irredentism } #Comes from the old Claims in Yugoslavia focus
-			if = {
-				limit = {
-					103 = {
-						NOT = { is_claimed_by = ROOT }
-					}
-				}
-				add_state_claim = 103 #DALMATIA
-			}
-			if = {
-				limit = {
-					105 = {
-						NOT = { is_claimed_by = ROOT }
-					}
-				}
-				add_state_claim = 105 #MONTENEGRO
-			}
-			add_state_claim = 268 #DJIBUTI
-			add_state_claim = 269 #BRITISH SOMALILAND
-			add_state_claim = 735 #SAVOY
-			add_state_claim = 856 #VAR
-			add_state_claim = 185 #CORFU
-			add_state_claim = 1 #CORSICA
-			add_state_claim = 116 #MALTA
-			add_state_claim = 846 #TICINO
-
-			if = {
-				limit = {
-					has_dlc = "La Resistance"
-				}
-				ITA_create_carmelo_borg_pisani_operative = yes
-			}
-
-			if = {
-				limit = {
-					has_rule = can_only_justify_war_on_threat_country
-				}
-				set_rule = { can_only_justify_war_on_threat_country = no }
-			}
-			if = {
-				limit = {
-					NOT = { has_rule = can_declare_war_on_same_ideology }
-				}
-				set_rule = { can_declare_war_on_same_ideology = yes }
-			}
-			if = {
-				limit = {
-					NOT = { has_rule = can_send_volunteers }
-				}
-				set_rule = { can_send_volunteers = yes }
+				
 			}
 		}
 	}
@@ -15699,7 +15217,6 @@ focus_tree = {
 
 		x = -1
 		y = 1
-		relative_position_id = ITA_italian_irredentism
 		cost = 10
 		available = {
 			is_subject = no
@@ -15749,51 +15266,7 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = ITA_demand_ticino
-		icon = GFX_focus_attack_switzerland
-		prerequisite = { 
-			#focus = ITA_war_with_france #SPT change to remove requirement
-			focus = ITA_request_control_of_french_territories 
-		}
 
-		x = 0 #SPT change -1 -> 0
-		y = 1
-		relative_position_id = ITA_war_with_france
-		cost = 5 #SPT change 10 ->5 
-		available = {
-
-			846 = {
-				is_owned_and_controlled_by = SWI
-			}
-			is_subject = no
-			159 = { 
-				is_controlled_by = ITA
-			}
-			158 = {
-				is_controlled_by = ITA
-			}
-			735 = {
-				is_controlled_by = ITA
-			}
-		}
-
-		will_lead_to_war_with = SWI
-
-		search_filters = {FOCUS_FILTER_ANNEXATION}
-
-		completion_reward = { 
-
-			SWI = {
-				country_event = {
-				    id = BBA_italy_interaction_events.1
-				    days = 2
-				    random = 6
-				}
-			}
-
-		}
-	}
 
 	focus = {
 		id = ITA_war_with_the_uk
@@ -15854,18 +15327,14 @@ focus_tree = {
 
 	focus = {
 		id = ITA_war_with_greece
-		icon = GFX_focus_generic_attack_greece
-		prerequisite = { focus = ITA_italian_irredentism }
-		mutually_exclusive = { focus = ITA_befriend_greece }
-		x = 1
+		icon = GFX_focus_GRE_bedrock_of_balkan_stability
+		prerequisite = { focus = ITA_balkan_ambition }
+		x = -2
 		y = 1
-		relative_position_id = ITA_italian_irredentism
+		relative_position_id = ITA_balkan_ambition
 		cost = 5
 		available = {
-			is_subject = no
-			NOT = { is_in_faction_with = GRE }
-			NOT = { has_guaranteed = GRE }
-			NOT = { has_non_aggression_pact_with = GRE }
+
 		}
 
 		will_lead_to_war_with = GRE
@@ -15873,22 +15342,38 @@ focus_tree = {
 		search_filters = {}
 
 		completion_reward = {
-			GRE = {
-				every_owned_state = {
-					limit = {
-						is_core_of = PREV
-						is_on_continent = europe
-					}
-					ROOT = {
-						add_state_claim = PREV
-					}
-				}
-			}
+
 			create_wargoal = {
 				type = annex_everything
 				target = GRE
 			}
+			add_named_threat = { threat = 3 name = ITA_greece_war_goal }
+
 		}
+
+	}
+
+	focus = {
+		id = ITA_trip_to_crete
+		icon = GFX_focus_GRE_a_long_and_proud_tradition
+		prerequisite = { focus = ITA_war_with_greece }
+		x = 0
+		y = 1
+		relative_position_id = ITA_war_with_greece
+		cost = 5
+		available = {
+
+		}
+
+		will_lead_to_war_with = GRE
+
+		search_filters = {}
+
+		completion_reward = {
+
+
+		}
+
 	}
 
 	focus = {
@@ -16036,15 +15521,16 @@ focus_tree = {
 
 	focus = {
 		id = ITA_corpo_di_truppe_volontarie
-		icon = GFX_goal_generic_military_deal
+		icon = GFX_focus_generic_free_iberia
 		prerequisite = { focus = ITA_foreign_affairs }
 
-		x = 2
+		x = 0
 		y = 1
 		relative_position_id = ITA_foreign_affairs
 		cost = 5
 
 		bypass = {
+			date > 1937.1.1
 			if = {
 				limit = {
 					has_dlc = "La Resistance"
@@ -16254,7 +15740,7 @@ focus_tree = {
 
 	focus = {
 		id = ITA_demand_balearic_islands_bba
-		icon = GFX_goal_generic_more_territorial_claims
+		icon = GFX_focus_intervention_spain_nationalists
 		prerequisite = { focus = ITA_corpo_di_truppe_volontarie }
 		mutually_exclusive = { focus = ITA_spanish_italian_alliance }
 		x = 0
@@ -22433,13 +21919,43 @@ focus_tree = {
 	}
 
 	focus = {
+		id = ITA_war_with_yugo
+		icon = GFX_focus_YUG_safeguard_bosnia
+		prerequisite = { focus = ITA_balkan_ambition }
+		x = 0
+		y = 1
+		relative_position_id = ITA_balkan_ambition
+		cost = 5
+		available = {
+
+		}
+
+		will_lead_to_war_with = YUG
+
+		search_filters = {}
+
+		completion_reward = {
+
+			create_wargoal = {
+				type = annex_everything
+				target = YUG
+			}
+			add_named_threat = { threat = 4 name = ITA_yugoslavia_war_goal }
+
+		}
+	}
+
+
+
+
+	focus = {
 		id = ITA_pacify_yugo
 		icon = GFX_focus_ITA_imperial_recognition
-		prerequisite = { focus = ITA_pact_of_steel }
+		prerequisite = { focus = ITA_war_with_yugo }
 
-		x = -3
+		x = 0
 		y = 1
-		relative_position_id = ITA_pact_of_steel
+		relative_position_id = ITA_war_with_yugo
 		cost = 3
 		available = {
 			YUG = { exists = no }
@@ -22469,6 +21985,27 @@ focus_tree = {
 		}
 	}
 
+	focus = {
+		id = ITA_emperor_of_the_balkans
+		icon = GFX_focus_ITA_king_vittorio
+		prerequisite = { focus = ITA_trip_to_crete }
+		prerequisite = { focus = ITA_pacify_yugo }
+		prerequisite = { focus = ITA_albanian_oil }
+
+		x = 0
+		y = 1
+		relative_position_id = ITA_pacify_yugo
+		cost = 3
+		available = {
+	
+		}
+
+		search_filters = {}
+
+		completion_reward = {
+	
+		}
+	}	
 
 
 }
