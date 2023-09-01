@@ -8,6 +8,12 @@
 - Focus "Long Term Planning" no longer grants -5% consumer goods
 - Focus "The Manchurian Project" no longer requires Manchukuo to exist to be taken
 - "Manchurian Project" decisions will now have their effects apply even if Manchukuo does not exist
+- Focus "Nationalize War Industry" now grants 4 civilian factories, instead of 2 civilian and 2 military factories
+- Focus "Nationalize Zaibatsus" now grants -5% stability
+- Focus "The Armed Forces" now grants +5% max planning, from +10%
+- Focus "Complete Industry Reorganization" now grants +10% max factories, from +20%
+- Pan-Asian Integration state modifier now grants -10% non-core manpower, from -7.5%
+- Focus "Army Expansion" now grants +30 army experience, from +15
 
 ### 3.7.0
 

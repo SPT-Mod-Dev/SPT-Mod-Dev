@@ -1283,7 +1283,7 @@
 		y = 1
 		relative_position_id = JAP_develop_chinese_resources
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -1500,7 +1500,7 @@
 		#prerequisite = { focus = JAP_greater_east_asian_co_prosperity_sphere }
 		prerequisite = { focus = JAP_sign_tripartite_pact }
 		x = -2
-		y = 4
+		y = 3
 		relative_position_id = JAP_liaison_conference
 
 		cost = 5 #SPT change 10 -> 5
@@ -1552,7 +1552,7 @@
 		icon = GFX_focus_chi_mission_to_the_soviet_union
 		prerequisite = { focus = JAP_strike_south_doctrine }
 		x = 0
-		y = 1
+		y = 2
 		relative_position_id = JAP_strike_south_doctrine
 		dynamic = yes  
 
@@ -1644,7 +1644,7 @@
 
 		completion_reward = {
 			add_to_variable = {
-				SPT_JAP_max_planning = 0.1
+				SPT_JAP_max_planning = 0.05
 			}
 			add_to_variable = {
 				SPT_JAP_planning_speed = 0.1
@@ -2410,7 +2410,7 @@
 
 		completion_reward = {
 			set_variable = {
-				SPT_JAP_global_building_slots_factor = 0.2
+				SPT_JAP_global_building_slots_factor = 0.1
 			}
 			custom_effect_tooltip = SPT_JAP_industry_reorganized_tt
 
@@ -2921,7 +2921,7 @@
 		icon = GFX_focus_chi_mission_to_germany
 		prerequisite = { focus = JAP_liaison_conference }
 		x = -2
-		y = 2
+		y = 1
 		relative_position_id = JAP_liaison_conference
 
 		cost = 2 #SPT change 10 -> 2
@@ -3105,7 +3105,7 @@
 					has_state_flag = JAP_nationalize_war_industry_AF
 				}
 				add_building_construction = {
-					type = arms_factory
+					type = industrial_complex #SPT change arms factory -> industrial complex
 					level = 2
 					instant_build = yes
 				}
@@ -3142,7 +3142,7 @@
 				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
-					type = arms_factory
+					type = industrial_complex #SPT change arms factory -> industrial complex
 					level = 2
 					instant_build = yes
 				}
@@ -3506,6 +3506,7 @@
 
 		search_filters = 	{ }
 		completion_reward = {
+			add_stability = -0.05
 			swap_ideas = {
 				remove_idea = JAP_zaibatsus_challenged
 				add_idea = JAP_nationalize_the_zaibatsus
@@ -6282,7 +6283,7 @@
 
 
 		completion_reward = {
-			army_experience = 15 #SPT change added 15 army xp reward
+			army_experience = 30 #SPT change added 30 army xp reward
 			custom_effect_tooltip = available_chief_of_army
 			show_ideas_tooltip = hajime_sugiyama
 		}
