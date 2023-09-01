@@ -5482,7 +5482,12 @@
 		}
 
 		available = {
-			MAN = { is_subject_of = ROOT }
+			OR = {
+				MAN = { is_subject_of = ROOT }
+				any_controlled_state = {
+					is_core_of = MAN
+				}
+			}
 		}
 
 		bypass = {
@@ -5495,10 +5500,13 @@
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_WAR_SUPPORT }
 		completion_reward = {
-			MAN = {				
-				add_stability = 0.1
-				add_war_support = 0.1
-				add_political_power = 150
+			if = {
+				limit = {MAN = { is_subject_of = ROOT } }
+				MAN = {				
+					add_stability = 0.1
+					add_war_support = 0.1
+					add_political_power = 150
+				}
 			}
 			
 		custom_effect_tooltip = JAP_the_manchurian_project_tt

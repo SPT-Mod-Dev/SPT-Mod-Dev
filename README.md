@@ -1,5 +1,14 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.7.1
+
+#### General
+
+#### Japan
+- Focus "Long Term Planning" no longer grants -5% consumer goods
+- Focus "The Manchurian Project" no longer requires Manchukuo to exist to be taken
+- "Manchurian Project" decisions will now have their effects apply even if Manchukuo does not exist
+
 ### 3.7.0
 
 #### General
