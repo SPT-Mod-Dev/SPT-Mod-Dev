@@ -66,7 +66,7 @@ focus_tree = {
 		}
 		cost = 5
 		available = {
-			has_completed_focus = MON_party_survives
+			NOT = {has_completed_focus = MON_party_survives}
 			hidden_trigger = {
 			
 				
@@ -261,7 +261,7 @@ focus = {
 	id = MON_refugee_commie
 	icon = GFX_focus_chi_cooperation_with_the_communists
 	x = 2
-	y = 2
+	y = 1
 	relative_position_id = MON_soviet_economic_aid
 	prerequisite = {
 		focus = MON_soviet_economic_aid
@@ -365,11 +365,11 @@ focus = {
 	}
 	cost = 5
 	available = {
-		
+		NOT = {
+			has_completed_focus = MON_center
+		}
 		hidden_trigger = {
-			NOT = {
-				has_completed_focus = MON_center
-			}
+			
 			OR = {
 				has_idea = mon_genden_purge_alive
 				has_idea = mon_genden_purge_dead

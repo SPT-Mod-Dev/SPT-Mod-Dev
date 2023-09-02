@@ -52,6 +52,7 @@
 - Fixed most of loading quotes being hidden
 - Hid logistic strikes and minelaying, minesweeping air missions 
 
+
 #### Romania
 - Reworked the focus tree
 
