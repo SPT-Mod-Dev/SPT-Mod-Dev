@@ -2,9 +2,17 @@
 
 ### 3.7.1
 
-#### General
+### Rule Change
+- Added rule "May only take coastal states when annexing China if Manchuko has completed "Chinese Leadership." for Japan.
 
-#### Japan
+### General
+- Increased compliance tickdown for harsquote `0.08`->`0.12`
+- Decreased local factories for harsh quotas `25%` -> `20%`
+
+### Australia
+- Made it quicker to access another research slot
+
+### Japan
 - Focus "Long Term Planning" no longer grants -5% consumer goods
 - Focus "The Manchurian Project" no longer requires Manchukuo to exist to be taken
 - "Manchurian Project" decisions will now have their effects apply even if Manchukuo does not exist
@@ -16,6 +24,25 @@
 - Focus "Army Expansion" now grants +30 army experience, from +15
 - National Spirit "Tora! Tora! Tora!" now correctly lasts for only 6 months
 
+### South Africa
+- Increased civs from "Expand the mining industry" `2` -> `4`
+- Increased research bonuses for industry from "Heavy engineering" `1` -> `2`
+- Increased the amount of infrastructure given from "Infrastructure Effort" `2` -> `4`
+
+#### Tank Designer
+- Reduced research cost for Medium 1 `2x` -> `1x``
+- Increased medium tank cannon soft attack `23.5` -> `24.5` and hard attack `16` -> `17`
+- Increased medium tank cannon 2 soft attack `28.5` -> `30` and hard attack `19` -> `20.5`
+- Decreased medium tank cannon 2 tungsten cost `3` -> `2``
+- Increased high velocity cannon hard attack `25.5` -> `28`
+- Decreased high velocity cannon 2 tungsten cost `3` -> `2`
+- Decreased heavy cannon 1 and heavy cannon 2 soft and hard attack by `1`
+
+
+#### Ship Designer
+- Increased Submarine 1 hull cost `220` -> `300`
+- Increased Submarine 2 hull cost `250` -> `350`
+
 ### 3.7.0
 
 #### General
@@ -24,6 +51,7 @@
 - Added topbar displaying your resources
 - Fixed most of loading quotes being hidden
 - Hid logistic strikes and minelaying, minesweeping air missions 
+
 
 #### Romania
 - Reworked the focus tree
