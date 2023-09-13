@@ -1740,6 +1740,9 @@ focus_tree = {
 			factor = 1
 		}
 		available = {
+			ENG = {
+				has_war_with = GER
+			}
 			if = {
 				limit = {
 					has_war_support > 0.4
@@ -1757,12 +1760,7 @@ focus_tree = {
 				limit = {
 					has_completed_focus = USA_neutrality_act
 				}
-				any_other_country = {
-					is_major = yes
-					has_government = ROOT
-					has_war = yes
-					surrender_progress > 0
-				}
+				
 			}
 		}
 		bypass = {
@@ -8878,7 +8876,7 @@ focus_tree = {
 		icon = GFX_goal_generic_build_navy
 		x = 7
 		y = 1
-		cost = 10
+		cost = 5 #SPTChange 10 -> 5
 		available = {
 			has_war_with = JAP
 		}
