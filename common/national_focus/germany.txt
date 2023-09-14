@@ -3389,7 +3389,8 @@ focus_tree = {
 		icon = GFX_goal_generic_forceful_treaty
 		prerequisite = { focus = GER_anschluss }
 		available = { is_subject = no }
-		x = 4
+		x = -4
+
 		y = 1
 		relative_position_id = GER_anschluss
 		cost = 8 #SPTChange 10 -> 8
@@ -3431,6 +3432,7 @@ focus_tree = {
 		id = GER_danzig_or_war
 		icon = GFX_focus_POL_clamp_down_on_danzig
 		prerequisite = { focus = GER_demand_memel }
+		prerequisite = { focus = GER_mol_rib_pact }
 		mutually_exclusive = { focus = GER_danzig_vs_slovakia }
 		will_lead_to_war_with = POL
 		available = {
@@ -3486,7 +3488,7 @@ focus_tree = {
 			}
 		}
 		cancel_if_invalid = no
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = GER_demand_memel
 		cost = 1
@@ -3947,7 +3949,7 @@ focus_tree = {
 			is_puppet = yes
 		}
 		cancel_if_invalid = yes
-		x = -4
+		x = 3
 		y = 1
 		relative_position_id = GER_anschluss
 		cost = 8 #SPTChange 10 -> 8
@@ -4242,9 +4244,9 @@ focus_tree = {
 		id = GER_second_vienna_award
 		icon = GFX_focus_YUG_autonomous_transylvania
 		prerequisite = {focus = GER_end_of_czechoslovakia }
-		x = -1
-		y = 3
-		relative_position_id = GER_czech_friend
+		x = 0
+		y = 1
+		relative_position_id = GER_end_of_czechoslovakia
 		cost = 5 #SPTChange 10 -> 5
 		ai_will_do = {
 			factor = 10
