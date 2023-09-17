@@ -1,6 +1,5 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-
 ### 3.7.2
 
 #### Rule Change
