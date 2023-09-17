@@ -1,5 +1,25 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+
+### 3.7.2
+
+### Rule Change
+- Edit rule so Germany can now only declare on soviet union after 1941.06.01.
+
+### General
+- Increased Concentrated Industry dockyard output `10%` -> `15%`
+- State of Gibraltar now has two tiles [So it can be invaded from outside the med]
+- Soviet Inion now get mill access to Republican Spain to avoid reinforcement glitch [volunteers wouldnt reinforce]
+- Germany,Uk,USA and Romania got some new focus icons [stickmin made me give him credit]
+
+### USA
+- Reduced Bureau of ships days `70` -> `35` 
+- Changed requirements to lend lease focus to fix bug
+
+### Germany
+- Reduced focus days for "War with Soviet Union" `14` -> `7`
+
+
 ### 3.7.1
 
 ### Rule Change
