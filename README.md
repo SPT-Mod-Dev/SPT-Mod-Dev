@@ -1,5 +1,9 @@
 # Saving Private Tryin' Historical MP Full Changelog
+### 3.7.3
 
+#### General
+- Nerfed "Feign Weakness" decision's attack and defense bonuses in the meditterenean bops `30%` -> `15%`
+- Added some new focus gfxs
 ### 3.7.2
 
 #### Rule Change
