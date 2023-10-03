@@ -1,18 +1,47 @@
 # Saving Private Tryin' Historical MP Full Changelog
+### 3.7.3
+
+#### General
+- Nerfed "Feign Weakness" decision's attack and defense bonuses in the meditterenean bops `30%` -> `15%`
+- Added some new focus gfxs
+### 3.7.2
+
+#### Rule Change
+- Edit rule so Germany can now only declare on soviet union after 1941.06.01.
+
+#### General
+- Increased Concentrated Industry dockyard output `10%` -> `15%`
+- State of Gibraltar now has two tiles [So it can be invaded from outside the med]
+- Soviet Inion now get mill access to Republican Spain to avoid reinforcement glitch [volunteers wouldnt reinforce]
+- Germany,Uk,USA and Romania got some new focus icons [stickmin made me give him credit]
+
+#### Manchuko
+- Name and colour now changes depending on whether they go Big or Small Manchu
+
+#### Japan
+- Name now changes to "Empire of Japan" if they take "大日本帝國" (which translates to Pan Asia) 
+ 
+#### USA
+- Reduced Bureau of ships days `70` -> `35` 
+- Changed requirements to lend lease focus to fix bug
+
+#### Germany
+- Reduced focus days for "War with Soviet Union" `14` -> `7`
+
 
 ### 3.7.1
 
-### Rule Change
+#### Rule Change
 - Added rule "May only take coastal states when annexing China if Manchuko has completed "Chinese Leadership." for Japan.
 
-### General
+#### General
 - Increased compliance tickdown for harsquote `0.08`->`0.12`
 - Decreased local factories for harsh quotas `25%` -> `20%`
 
-### Australia
+#### Australia
 - Made it quicker to access another research slot
 
-### Japan
+#### Japan
 - Focus "Long Term Planning" no longer grants -5% consumer goods
 - Focus "The Manchurian Project" no longer requires Manchukuo to exist to be taken
 - "Manchurian Project" decisions will now have their effects apply even if Manchukuo does not exist
@@ -24,7 +53,7 @@
 - Focus "Army Expansion" now grants +30 army experience, from +15
 - National Spirit "Tora! Tora! Tora!" now correctly lasts for only 6 months
 
-### South Africa
+##### South Africa
 - Increased civs from "Expand the mining industry" `2` -> `4`
 - Increased research bonuses for industry from "Heavy engineering" `1` -> `2`
 - Increased the amount of infrastructure given from "Infrastructure Effort" `2` -> `4`
