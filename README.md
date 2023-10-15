@@ -20,6 +20,8 @@
  - Rebalanced spirits and focuses to better fit the new consumer goods rework
  - Focus "The Zaibatsus" now grants +5% resource gain efficiency instead of -2.5% consumer goods if Japan has "Nationalize the Zaibatsus" spirit
  - Focus "Stockpiling Strategies" now grants +5% resource gain efficiency instead of +10%
+ - National spirit "Zaibatsus Challenged" now grants 10% Civilian and Military Factory Construction Speed, from 12.5%
+ - Focus "Seize Zaibatsu Dockyards" now takes 70 days to complete, from 35
 
 
 ### 3.7.3
