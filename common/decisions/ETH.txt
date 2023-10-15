@@ -639,49 +639,7 @@ governments_in_exile = {
 }
 
 ETH_chitet_category = { 
-	# Calling the Levy
-#	ETH_raise_the_chitet = { 
-#
-#		icon = generic_research
-#
-#		available = {
-#			
-#			has_war = yes 
-#			custom_trigger_tooltip = {
-#				tooltip = ETH_chitet_disband_tt
-#				NOT = { has_decision = ETH_disband_the_chitet}
-#			}
-#		} 
-#
-#		visible = {
-#			NOT = { has_country_flag = ETH_chitet_raised_flag }
-#		}
-#
-#		fire_only_once = no
-#		cost = 25
-#		days_remove = 5
-#
-#		complete_effect = {
-#
-#		}
-#
-#		remove_effect = {
-#			set_country_flag = ETH_chitet_raised_flag
-#			ETH_raise_the_chitet_effect = yes 
-#		} 
-#
-#		ai_will_do = {
-#			base = 0
-#			modifier = {
-#				add = 50
-#				has_war = yes 
-#			}
-#			modifier = {
-#				factor = 5
-#				has_defensive_war = yes 
-#			}
-#		}
-#	}
+
 	# Disbanding the Levy 
 	ETH_disband_the_chitet = {
 
@@ -723,28 +681,6 @@ ETH_chitet_category = {
 		}
 	}
 
-	# No longer at war
-#    ETH_disband_the_chitet_mission = {      
-#		allowed = { original_tag = ETH }    
-#		available = { 
-#			OR = {
-#				has_war = yes 
-#				has_decision = ETH_disband_the_chitet
-#			}   
-#		}
-#		activation = { 
-#			has_war = no
-#			has_country_flag = ETH_chitet_raised_flag
-#		}
-#		is_good = yes                           
-#		selectable_mission = no  
-#		days_mission_timeout = 10
-#		timeout_effect = {
-#			activate_decision = ETH_disband_the_chitet
-#		}
-#		complete_effect = {  
-#		}
-#	}
 }
 
 ETH_second_italo_ethiopian_war_category = {
@@ -852,7 +788,7 @@ ETH_second_italo_ethiopian_war_category = {
 			
 		}
 		modifier = {
-        	consumer_goods_factor = 0.2
+        	consumer_goods_factor = 0.3
 		}
 
 		remove_effect = {
@@ -902,7 +838,7 @@ ETH_second_italo_ethiopian_war_category = {
 			
 		}
 		modifier = {
-        		consumer_goods_factor = 0.2
+        		consumer_goods_factor = 0.3
 		}
 
 		remove_effect = {
@@ -952,7 +888,7 @@ ETH_second_italo_ethiopian_war_category = {
 			
 		}
 		modifier = {
-        	consumer_goods_factor = 0.2
+        	consumer_goods_factor = 0.3
 		}
 
 		remove_effect = {
@@ -1002,7 +938,7 @@ ETH_second_italo_ethiopian_war_category = {
 			
 		}
 		modifier = {
-        	consumer_goods_factor = 0.2
+        	consumer_goods_factor = 0.3
 		}
 
 		remove_effect = {
@@ -1150,34 +1086,7 @@ ETH_second_italo_ethiopian_war_category = {
 			add_war_support = -0.1
 		}
 	}
-#	# Hold the north "dummy" mission for Italy 
-#	ITA_conquer_the_north_mission = {    
-#		icon = GFX_decision_generic_operation # TODO_TA set correct icon   
-#		allowed = { tag = ITA }    
-#		available = { 
-#			count_triggers = {
-#				amount = 2
-#				841 = { is_controlled_by = ROOT }
-#				842 = { is_controlled_by = ROOT }
-#				843 = { is_controlled_by = ROOT }
-#			}
-#		}
-#		activation = { 
-#			always = no 
-#		}
-#		visible = { has_global_flag = second_italo_ethiopian_war_flag }
-#		cancel_if_not_visible = yes 
-#		is_good = no 
-#		fire_only_once = yes                            
-#		selectable_mission = no  
-#		days_mission_timeout = ETH.ETH_hold_the_north_time
-#		timeout_effect = {
-#			custom_effect_tooltip = ITA_war_escalation_inc_tt
-#		}
-#		complete_effect = {  
-#			ETH = { add_war_support = -0.1 }
-#		}
-#	}
+
 
 	# Hold the south mission for Ethiopia 
 	ETH_hold_the_south_mission = {   
@@ -1223,37 +1132,7 @@ ETH_second_italo_ethiopian_war_category = {
 			}
 		}
 	}
-#	# Hold the south "dummy" mission for Italy 
-#	ITA_conquer_the_south_mission = {   
-#		icon = GFX_decision_generic_operation # TODO_TA set correct icon   
-#		allowed = { tag = ITA }    
-#		available = { 
-#			count_triggers = {
-#				amount = 2
-#				835 = { is_controlled_by = ROOT }
-#				836 = { is_controlled_by = ROOT }
-#				837 = { is_controlled_by = ROOT }
-#			}
-#		}
-#		activation = { 
-#			always = no 
-#		}
-#		visible = { has_global_flag = second_italo_ethiopian_war_flag }
-#		cancel_if_not_visible = yes 
-#		is_good = no 
-#		fire_only_once = yes                            
-#		selectable_mission = no  
-#		days_mission_timeout = ETH.ETH_hold_the_south_time
-#		timeout_effect = {
-#			custom_effect_tooltip = ITA_war_escalation_inc_tt
-#		}
-#		complete_effect = {  
-#			effect_tooltip = {
-#				ETH = { add_war_support = -0.1 }
-#			}
-#			
-#		}
-#	}
+
 	# Hold the capital mission for Ethiopia 
 	ETH_hold_addis_ababa_mission = {   
 		icon = GFX_decision_border_war  
@@ -1919,7 +1798,7 @@ ETH_improve_country_category = {
 		on_map_mode = map_only
 		fire_only_once = yes # Only once per State
 		available = {
-			NOT = { has_country_flag = ETH_investments_in_progress_flag }
+			#NOT = { has_country_flag = ETH_investments_in_progress_flag }
 		}
 
 		visible = {
@@ -1931,7 +1810,7 @@ ETH_improve_country_category = {
 		}
 
 		cancel_effect = {
-			clr_country_flag = ETH_investments_in_progress_flag
+			#clr_country_flag = ETH_investments_in_progress_flag
 		}
 
 		days_remove = 30
@@ -1939,11 +1818,11 @@ ETH_improve_country_category = {
 		cost = 25
 
 		modifier = {
-			consumer_goods_factor = 0.05
+			consumer_goods_factor = 0.10
 		}
 
 		complete_effect = {
-			set_country_flag = ETH_investments_in_progress_flag
+			#set_country_flag = ETH_investments_in_progress_flag
 		}
 
 		remove_effect = {
@@ -1976,7 +1855,7 @@ ETH_improve_country_category = {
 		on_map_mode = map_only
 		# fire_only_once = yes # Only once per State
 		available = {
-			NOT = { has_country_flag = ETH_investments_in_progress_flag }
+			#NOT = { has_country_flag = ETH_investments_in_progress_flag }
 		}
 
 		visible = {
@@ -1987,15 +1866,15 @@ ETH_improve_country_category = {
 		cost = 15
 
 		modifier = {
-			consumer_goods_factor = 0.05
+			consumer_goods_factor = 0.10
 		}
 
 		complete_effect = {
-			set_country_flag = ETH_investments_in_progress_flag
+			#set_country_flag = ETH_investments_in_progress_flag
 		}
 
 		remove_effect = {
-			clr_country_flag = ETH_investments_in_progress_flag
+			#clr_country_flag = ETH_investments_in_progress_flag
 			FROM = { clr_state_flag = ETH_can_improve_communication_state_flag }
 			custom_effect_tooltip = ETH_improve_communications_in_state_tt
 			FROM = {
@@ -2029,7 +1908,7 @@ ETH_improve_country_category = {
 		on_map_mode = map_only
 		fire_only_once = yes # Only once per State
 		available = {
-			NOT = { has_country_flag = ETH_investments_in_progress_flag }
+			#NOT = { has_country_flag = ETH_investments_in_progress_flag }
 		}
 
 		visible = {
@@ -2040,15 +1919,15 @@ ETH_improve_country_category = {
 		cost = 15
 
 		modifier = {
-			consumer_goods_factor = 0.05
+			consumer_goods_factor = 0.10
 		}
 
 		complete_effect = {
-			set_country_flag = ETH_investments_in_progress_flag
+			#set_country_flag = ETH_investments_in_progress_flag
 		}
 
 		remove_effect = {
-			clr_country_flag = ETH_investments_in_progress_flag
+			#clr_country_flag = ETH_investments_in_progress_flag
 			FROM = { clr_state_flag = ETH_can_invest_local_industry_state_flag }
 			custom_effect_tooltip = ETH_invest_in_state_industry_tt
 			FROM = {
@@ -3626,7 +3505,7 @@ ETH_italo-ethiopian_empire_decisions = {
 		allowed = {original_tag = ETH }
 		visible = {
 			original_tag = ETH 
-			551 = {is_owned_by = ETH}
+			551 = { is_controlled_by = ETH}
 			is_or_will_be_gojjam = yes
 		}
 		available = {
@@ -3658,7 +3537,7 @@ ETH_italo-ethiopian_empire_decisions = {
 		allowed = {original_tag = ETH }
 		visible = {
 			original_tag = ETH 
-			886 = {is_owned_by = ETH}
+			886 = {is_controlled_by = ETH}
 			is_or_will_be_gojjam = yes
 		}
 		available = {
@@ -3690,7 +3569,7 @@ ETH_italo-ethiopian_empire_decisions = {
 		allowed = {original_tag = ETH }
 		visible = {
 			original_tag = ETH 
-			883 = {is_owned_by = ETH}
+			883 = {is_controlled_by = ETH}
 			is_or_will_be_gojjam = yes
 		}
 		available = {
@@ -3723,7 +3602,7 @@ ETH_italo-ethiopian_empire_decisions = {
 		allowed = {original_tag = ETH }
 		visible = {
 			original_tag = ETH 
-			269 = {is_owned_by = ETH}
+			269 = {is_controlled_by = ETH}
 			is_or_will_be_jimma = yes
 		}
 		available = {
@@ -3755,7 +3634,7 @@ ETH_italo-ethiopian_empire_decisions = {
 		allowed = {original_tag = ETH }
 		visible = {
 			original_tag = ETH 
-			884 = {is_owned_by = ETH}
+			884 = {is_controlled_by = ETH}
 			is_or_will_be_jimma = yes
 		}
 		available = {
@@ -3787,7 +3666,7 @@ ETH_italo-ethiopian_empire_decisions = {
 		allowed = {original_tag = ETH }
 		visible = {
 			original_tag = ETH 
-			906 = {is_owned_by = ETH}
+			906 = {is_controlled_by = ETH}
 			is_or_will_be_jimma = yes
 		}
 		available = {
@@ -3820,7 +3699,7 @@ ETH_italo-ethiopian_empire_decisions = {
 		allowed = {original_tag = ETH }
 		visible = {
 			original_tag = ETH 
-			268 = {is_owned_by = ETH}
+			268 = {is_controlled_by = ETH}
 			NOT = { has_cosmetic_tag = jimma}
 			NOT = { has_cosmetic_tag = gojjam}
 		}
@@ -3853,7 +3732,7 @@ ETH_italo-ethiopian_empire_decisions = {
 		allowed = {original_tag = ETH }
 		visible = {
 			original_tag = ETH 
-			293 = {is_owned_by = ETH}
+			293 = {is_controlled_by = ETH}
 			NOT = { has_cosmetic_tag = jimma}
 			NOT = { has_cosmetic_tag = gojjam}
 		}
@@ -3886,7 +3765,7 @@ ETH_italo-ethiopian_empire_decisions = {
 		allowed = {original_tag = ETH }
 		visible = {
 			original_tag = ETH 
-			659 = {is_owned_by = ETH}
+			659 = {is_controlled_by = ETH}
 			NOT = { has_cosmetic_tag = jimma}
 			NOT = { has_cosmetic_tag = gojjam}
 		}
@@ -4128,7 +4007,7 @@ ETH_improve_the_horn_of_africa_category = {
 		}
 		modifier = {
 			production_speed_buildings_factor = -0.5
-			consumer_goods_factor = +0.05
+			consumer_goods_factor = +0.10
 			# civilian_factory_use = 2
 		}
 
@@ -4193,7 +4072,7 @@ ETH_improve_the_horn_of_africa_category = {
 		}
 		modifier = {
 			production_speed_buildings_factor = -0.5
-			consumer_goods_factor = +0.05
+			consumer_goods_factor = +0.10
 			# civilian_factory_use = 2
 		}
 
@@ -4254,7 +4133,7 @@ ETH_improve_the_horn_of_africa_category = {
 		}
 		modifier = {
 			production_speed_buildings_factor = -0.5
-			consumer_goods_factor = +0.05
+			consumer_goods_factor = +0.10
 			# civilian_factory_use = 2
 		}
 
@@ -4335,167 +4214,4 @@ ETH_improve_the_horn_of_africa_category = {
 		}
 	}
 	
-}
-
-BBA_purchase_old_ships_category = {
-	purchase_ships_eng = {
-		cost = 50
-		icon = GFX_decision_generic_naval
-		fire_only_once = no
-		visible = {
-			has_country_flag = generic_purchase_old_ships_flag
-			ENG = { 
-				NOT = { 
-					has_country_flag = sold_ships_to_us@ROOT
-					has_country_flag = negotiating_ship_purchase_flag@ROOT 
-				}
-			}
-			NOT = { has_war_with = ENG}
-		}
-		available = {
-			NOT = {
-				ENG = {
-					OR = {
-						has_civil_war = yes
-						has_capitulated = yes
-						has_opinion = {
-							target = FROM
-							value < 10
-						}
-					}					
-				}
-			}
-			
-		}
-		days_remove = 1
-		remove_effect = {
-			ENG = {
-				country_event = {
-					id = BBA_generic_purchase_ships_events.01
-					hours = 1
-				}
-				set_country_flag = negotiating_ship_purchase_flag@ROOT
-			}			
-		}
-	}
-	purchase_ships_sov = {
-		cost = 50
-		icon = GFX_decision_generic_naval
-		fire_only_once = no
-		visible = {
-			has_country_flag = generic_purchase_old_ships_flag
-			SOV = { 
-					has_country_flag = sold_ships_to_us@ROOT
-					has_country_flag = negotiating_ship_purchase_flag@ROOT 
-			}
-
-			NOT = { has_war_with = SOV}
-		}
-		available = {
-			NOT = {
-				SOV = {
-					OR = {
-						has_civil_war = yes
-						has_capitulated = yes
-						has_opinion = {
-							target = FROM
-							value < 10
-						}
-					}					
-				}
-			}
-			
-		}
-		days_remove = 1
-		remove_effect = {
-			SOV = {
-				country_event = {
-					id = BBA_generic_purchase_ships_events.01
-					hours = 1
-				}
-				set_country_flag = negotiating_ship_purchase_flag@ROOT
-			}
-		}
-	}
-	purchase_ships_ger = {
-		cost = 50
-		icon = GFX_decision_generic_naval
-		fire_only_once = no
-		visible = {
-			has_country_flag = generic_purchase_old_ships_flag
-			GER = { 
-				NOT = { 
-					has_country_flag = sold_ships_to_us@ROOT
-					has_country_flag = negotiating_ship_purchase_flag@ROOT
-				}
-
-			}
-			NOT = { has_war_with = GER}
-		}
-		available = {
-			NOT = {
-				GER = {
-					OR = {
-						has_civil_war = yes
-						has_capitulated = yes
-						has_opinion = {
-							target = FROM
-							value < 10
-						}
-					}					
-				}
-			}
-			
-		}
-		days_remove = 1
-		remove_effect = {
-			GER = {
-				country_event = {
-					id = BBA_generic_purchase_ships_events.01
-					hours = 1
-				}
-				set_country_flag = negotiating_ship_purchase_flag@ROOT
-			}
-		}
-	}
-	purchase_ships_usa = {
-		cost = 50
-		icon = GFX_decision_generic_naval
-		fire_only_once = no
-		visible = {
-			has_country_flag = generic_purchase_old_ships_flag
-			USA = { 
-				NOT = { 
-					has_country_flag = sold_ships_to_us@ROOT
-					has_country_flag = negotiating_ship_purchase_flag@ROOT  
-				}
-			}
-			NOT = { has_war_with = USA}
-		}
-		available = {
-			NOT = {
-				USA = {
-					OR = {
-						has_civil_war = yes
-						has_capitulated = yes
-						has_opinion = {
-							target = FROM
-							value < 10
-						}
-					}					
-				}
-			}
-			
-		}
-		days_remove = 1
-		remove_effect = {
-			USA = {
-				country_event = {
-					id = BBA_generic_purchase_ships_events.01
-					hours = 1
-				}
-				set_country_flag = negotiating_ship_purchase_flag@ROOT
-			}
-		}
-	}
 }
