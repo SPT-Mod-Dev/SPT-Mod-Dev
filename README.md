@@ -15,6 +15,8 @@
  - Focus "Standard Oil of California" now requires "Campaign for Votes" instead of "Industrial R&D"
  - National spirit "Rallying the Nation" now grants +15% Military Factory Construction Speed
  - Focus "Boots on the Ground" now grants 7.5% attack, recovery rate, and organization, from 10%
+ - National spirit "Subsidised Military Industry" now grants 5% factory output, from 10%
+ - National spirit "Subsidised Naval Industry" now grants 10% dockyard output, from 15%
 
 #### JAPAN
  - Rebalanced spirits and focuses to better fit the new consumer goods rework
