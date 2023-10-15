@@ -1,4 +1,27 @@
 # Saving Private Tryin' Historical MP Full Changelog
+
+### 3.8.0
+
+#### General
+ - Advisors updated to match new AAT consumer goods rework
+
+#### USA
+ - Rebalanced spirits and focuses to better fit the new consumer goods rework
+ - Focus "Money Only" now takes 35 days to complete, from 70
+ - National spirit "Forming New Cabinet" now lasts for 365 days, from 200
+ - Focus "Federal Construction" now takes 35 days to complete, from 70
+ - Focuses "Rebuilding America", "Lower Taxes", and "Federal Construction" now reduce the duration of Ongoing Recession mission by 30 days each
+ - All War Plan Upgrade focuses now take 70 days to complete, from 35
+ - Focus "Standard Oil of California" now requires "Campaign for Votes" instead of "Industrial R&D"
+ - National spirit "Rallying the Nation" now grants +15% Military Factory Construction Speed
+ - Focus "Boots on the Ground" now grants 7.5% attack, recovery rate, and organization, from 10%
+
+#### JAPAN
+ - Rebalanced spirits and focuses to better fit the new consumer goods rework
+ - Focus "The Zaibatsus" now grants +5% resource gain efficiency instead of -2.5% consumer goods if Japan has "Nationalize the Zaibatsus" spirit
+ - Focus "Stockpiling Strategies" now grants +5% resource gain efficiency instead of +10%
+
+
 ### 3.7.3
 
 #### General
