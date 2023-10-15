@@ -23,7 +23,13 @@
  - Focus "The Zaibatsus" now grants +5% resource gain efficiency instead of -2.5% consumer goods if Japan has "Nationalize the Zaibatsus" spirit
  - Focus "Stockpiling Strategies" now grants +5% resource gain efficiency instead of +10%
  - National spirit "Zaibatsus Challenged" now grants 10% Civilian and Military Factory Construction Speed, from 12.5%
+ - National spirit "Zaibatsus Challenged" now grants -10% tank, naval, and aircraft MIO cost
+- National spirit "Nationalize the Zaibatsus" now grants -25% tank, naval, and aircraft MIO cost
  - Focus "Seize Zaibatsu Dockyards" now takes 70 days to complete, from 35
+ - Focus "Nationalize the Zaibatsus" now takes 35 days to complete, from 70
+ - Focus "Let the Zaibatsus Expand" now grants +1 MIO size
+ - Focus "Foreign Workers" now grants +1 MIO size
+ - Focus "Guide the Zaibatsus" now takes 35 days to complete, from 70
 
 
 ### 3.7.3
