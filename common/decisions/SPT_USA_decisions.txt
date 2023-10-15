@@ -494,6 +494,120 @@ SPT_USA_recession_decisions = {
 		ai_will_do = {
 		}
 	}
+	SPT_USA_rebuild_help = {
+
+		allowed = { tag = USA }
+
+		icon = GFX_decision_generic_decision
+
+		available = {
+			not = {has_active_mission = SPT_USA_ongoing_recession}
+			has_completed_focus = SPT_USA_rebuilding_america
+		}
+
+		days_mission_timeout = 1
+		fire_only_once = yes
+
+		
+		activation = {
+			has_active_mission = SPT_USA_ongoing_recession
+			has_completed_focus = SPT_USA_rebuilding_america
+		}
+
+		visible = {
+			#has_active_mission = SPT_USA_ongoing_recession
+			has_completed_focus = SPT_USA_rebuilding_america
+		}
+		
+		cancel_effect = {
+		}
+
+		timeout_effect = {
+			add_days_mission_timeout = {
+				mission = SPT_USA_ongoing_recession
+				days = -30
+			}
+		}
+
+		ai_will_do = {
+		}
+	}
+	SPT_USA_fed_construction_help = {
+
+		allowed = { tag = USA }
+
+		icon = GFX_decision_generic_decision
+
+		available = {
+			not = {has_active_mission = SPT_USA_ongoing_recession}
+			has_completed_focus = SPT_USA_federal_construction
+		}
+
+		days_mission_timeout = 1
+		fire_only_once = yes
+
+		
+		activation = {
+			has_active_mission = SPT_USA_ongoing_recession
+			has_completed_focus = SPT_USA_federal_construction
+		}
+
+		visible = {
+			#has_active_mission = SPT_USA_ongoing_recession
+			has_completed_focus = SPT_USA_federal_construction
+		}
+		
+		cancel_effect = {
+		}
+
+		timeout_effect = {
+			add_days_mission_timeout = {
+				mission = SPT_USA_ongoing_recession
+				days = -30
+			}
+		}
+
+		ai_will_do = {
+		}
+	}
+	SPT_USA_low_taxes_help = {
+
+		allowed = { tag = USA }
+
+		icon = GFX_decision_generic_decision
+
+		available = {
+			not = {has_active_mission = SPT_USA_ongoing_recession}
+			has_completed_focus = SPT_USA_lower_taxes
+		}
+
+		days_mission_timeout = 1
+		fire_only_once = yes
+
+		
+		activation = {
+			has_active_mission = SPT_USA_ongoing_recession
+			has_completed_focus = SPT_USA_lower_taxes
+		}
+
+		visible = {
+			#has_active_mission = SPT_USA_ongoing_recession
+			has_completed_focus = SPT_USA_lower_taxes
+		}
+		
+		cancel_effect = {
+		}
+
+		timeout_effect = {
+			add_days_mission_timeout = {
+				mission = SPT_USA_ongoing_recession
+				days = -30
+			}
+		}
+
+		ai_will_do = {
+		}
+	}
 }
 
 SPT_USA_war_plans = {
