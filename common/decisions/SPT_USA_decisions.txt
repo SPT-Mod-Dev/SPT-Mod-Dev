@@ -853,4 +853,32 @@ SPT_USA_war_plans = {
 		}
 	}
 }
+USA_congress = {
 
+	SPT_USA_pay_farm_subsidies_landon = {
+		icon = ger_mefo_bills
+		available = {
+			has_government = democratic
+			OR = {
+				check_variable = { senators_support < senators_total }
+				check_variable = { representatives_support < representatives_total }
+			}
+		}
+		visible = { 
+			has_completed_focus = SPT_USA_review_the_budget
+		 }
+		cost = 0
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				congress_low_support_trigger = yes
+				factor = 0
+			}
+		}
+		days_remove = 90
+		modifier = { consumer_goods_factor = 0.05 }
+		remove_effect = {
+			USA_congress_small_support = yes
+		}
+	}
+}
