@@ -1355,15 +1355,6 @@
 				remove_idea = JAP_zaibatsu_expansion
 				add_idea = JAP_zaibatsu_expansion_improved
 			}
-			IF = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}	
-				every_military_industrial_organization = {
-					tooltip = every_mio_tt
-					add_mio_size = 1
-				}
-			}
 		}
 	}
 
@@ -6115,14 +6106,6 @@
 				add_idea = JAP_cheap_arty_improved
 				remove_idea = JAP_cheap_arty
 			}
-			IF = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}
-				mio:JAP_osaka_army_arsenal_artillery_organization = {
-					add_mio_funds = 500
-				}
-			}
 		}
 	}
 
@@ -6154,23 +6137,16 @@
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
-			army_experience = 10
+			army_experience = 15
 			add_tech_bonus = {
 				name = JAP_armored_divisions
 				bonus = 1.0
 				uses = 1
 				category = armor	
 			}
-			hidden_effect = {JAP_armor_designer_swap = yes}
-			custom_effect_tooltip = JAP_armored_divisions_tt
-
-			IF = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}
-				mio:JAP_osaka_army_arsenal_organization = {
-					add_mio_funds = 500
-				}
+			mio:JAP_osaka_army_arsenal_organization = {
+				add_mio_size = 1
+				unlock_mio_trait_tooltip = SPT_JAP_armored_divisions_trait_tk
 			}
 		}
 	}
