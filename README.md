@@ -33,12 +33,11 @@
  - Focus "Seize Zaibatsu Dockyards" now takes 70 days to complete, from 35
  - Focus "Nationalize the Zaibatsus" now takes 35 days to complete, from 70
  - Focus "Let the Zaibatsus Expand" now grants +1 MIO size
- - Focus "Foreign Workers" now grants +1 MIO size
  - Focus "Supremacy of Technology" now grants +10% MIO funds gain
- - Focus "Effective Artillery Designs" now grants +500 MIO funds to Osaka Army Arsenal (artillery designer)
- - Focus "Armored Divisions" now grants +500 MIO funds to Osaka Army Arsenal (tank designer)
+ - Focus "Armored Divisions" now grants +1 MIO size to Osaka Army Arsenal (tank designer)
  - National Spirit "Supremacy of Will" now grants -5% army doctrine cost per level
  - Focus "The Zero" now grants +500 MIO funds to Yokosuka
+ - Focus "Armored Divisions" now grants its bonus as an MIO trait, +1 MIO size to Osaka Army Arsenal, and an extra 5 army xp
 
 ### 3.7.3
 
