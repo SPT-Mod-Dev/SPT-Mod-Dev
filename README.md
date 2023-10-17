@@ -17,20 +17,28 @@
  - Focus "Boots on the Ground" now grants 7.5% attack, recovery rate, and organization, from 10%
  - National spirit "Subsidised Military Industry" now grants 5% factory output, from 10%
  - National spirit "Subsidised Naval Industry" now grants 10% dockyard output, from 15%
+ - Focus "Review The Budget" now unlocks "Pay Farm Subsidies" decision
+ - Focuses "Subsidise the Military Industry" and "Subsidised the Naval Industry" now grant +15% MIO funds gain
+ - Focus "Break the Monopolies" now grants +25% MIO funds gain
+ - Focus "Booming Interior Economy" now grants +1 building slot for every state with the modifier "Booming Interior Economy"
+ - Focus "Wartime Industry" now grants +1000 MIO funds
 
 #### JAPAN
  - Rebalanced spirits and focuses to better fit the new consumer goods rework
  - Focus "The Zaibatsus" now grants +5% resource gain efficiency instead of -2.5% consumer goods if Japan has "Nationalize the Zaibatsus" spirit
  - Focus "Stockpiling Strategies" now grants +5% resource gain efficiency instead of +10%
  - National spirit "Zaibatsus Challenged" now grants 10% Civilian and Military Factory Construction Speed, from 12.5%
- - National spirit "Zaibatsus Challenged" now grants -10% tank, naval, and aircraft MIO cost
-- National spirit "Nationalize the Zaibatsus" now grants -25% tank, naval, and aircraft MIO cost
+ - National spirit "Zaibatsus Challenged" now grants -10% tank, naval, materiel, and aircraft MIO cost
+- National spirit "Nationalize the Zaibatsus" now grants -25% tank, naval, materiel, and aircraft MIO cost
  - Focus "Seize Zaibatsu Dockyards" now takes 70 days to complete, from 35
  - Focus "Nationalize the Zaibatsus" now takes 35 days to complete, from 70
  - Focus "Let the Zaibatsus Expand" now grants +1 MIO size
  - Focus "Foreign Workers" now grants +1 MIO size
- - Focus "Guide the Zaibatsus" now takes 35 days to complete, from 70
-
+ - Focus "Supremacy of Technology" now grants +10% MIO funds gain
+ - Focus "Effective Artillery Designs" now grants +500 MIO funds to Osaka Army Arsenal (artillery designer)
+ - Focus "Armored Divisions" now grants +500 MIO funds to Osaka Army Arsenal (tank designer)
+ - National Spirit "Supremacy of Will" now grants -5% army doctrine cost per level
+ - Focus "The Zero" now grants +500 MIO funds to Yokosuka
 
 ### 3.7.3
 

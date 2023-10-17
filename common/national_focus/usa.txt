@@ -84,20 +84,6 @@ focus_tree = {
 		}
 		available = {
 		}
-		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					has_completed_focus = SPT_USA_towards_landon
-				}
-			}
-
-		}
 		bypass = {
 		}
 		cancel_if_invalid = yes
@@ -2623,6 +2609,11 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			#SPT change to add MIO funds
+			every_military_industrial_organization = {
+				tooltip = every_mio_tt
+				add_mio_funds = 1000
+			}
 		}
 	}
 
@@ -3596,6 +3587,10 @@ focus_tree = {
 				}
 			}
 			custom_effect_tooltip = SPT_USA_recession_90_remove_from_focus_tt
+			every_military_industrial_organization = {
+				tooltip = every_mio_tt
+				add_mio_funds_gain_factor = 0.15
+			}
 		}
 	}
 	focus = {
@@ -3628,6 +3623,10 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = SPT_USA_subsidies_for_mils
 			custom_effect_tooltip = SPT_USA_recession_90_remove_from_focus_tt
+			every_military_industrial_organization = {
+				tooltip = every_mio_tt
+				add_mio_funds_gain_factor = 0.15
+			}
 		}
 	}
 	focus = {
@@ -3889,7 +3888,7 @@ focus_tree = {
 					is_fully_controlled_by = ROOT
 					is_coastal = no
 				}
-				#add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 1
 				add_dynamic_modifier = {
 					modifier = SPT_USA_booming_interior_economy
 					scope = USA
@@ -4061,6 +4060,10 @@ focus_tree = {
 				}
 			}
 			custom_effect_tooltip = SPT_USA_review_the_budget_tt
+			unlock_decision_tooltip = {
+				decision = SPT_USA_pay_farm_subsidies_landon
+				show_effect_tooltip = yes
+			}
 		}
 	}
 	focus = {
@@ -4382,6 +4385,7 @@ focus_tree = {
 				}
 				
 			}
+			
 		}
 		completion_reward = {
 			USA_great_depression_level_down = yes
@@ -4392,6 +4396,7 @@ focus_tree = {
 			}
 			custom_effect_tooltip = SPT_USA_great_depression_cooldown_tt
 			USA_congress_medium_opposition = yes
+			
 			hidden_effect = {
 				add_to_variable = {
 					SPT_USA_consumer_goods_factor = 0.025
@@ -4401,6 +4406,10 @@ focus_tree = {
 				}
 			}
 			custom_effect_tooltip = SPT_USA_break_monopolies_tt
+			every_military_industrial_organization = {
+				tooltip = every_mio_tt
+				add_mio_funds_gain_factor = 0.25
+			}
 		}
 	}
 	focus = {
