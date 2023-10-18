@@ -1292,7 +1292,7 @@
 		y = 1
 		relative_position_id = JAP_develop_chinese_resources
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -1312,6 +1312,10 @@
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			add_ideas = JAP_zaibatsu_expansion
+			swap_ideas = {
+				remove_idea = JAP_guide_the_zaibatsus
+				add_idea = JAP_zaibatsus_empowered
+			}
 			IF = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
@@ -1977,6 +1981,15 @@
 					SPT_JAP_local_resources_factor = 0.05
 				}
 				custom_effect_tooltip = SPT_JAP_the_zaibatsus_nationalized_tt
+			}
+			else_if = {
+				limit = {
+					has_idea = JAP_zaibatsus_empowered
+				}
+				add_to_variable = {
+					SPT_JAP_production_speed_infrastructure_factor = 0.1
+				}
+				custom_effect_tooltip = SPT_JAP_the_zaibatsus_empowered_tt
 			}
 		}
 	}
@@ -3525,7 +3538,7 @@
 
 		search_filters = 	{ }
 		completion_reward = {
-			add_stability = -0.05
+			#add_stability = -0.05
 			swap_ideas = {
 				remove_idea = JAP_zaibatsus_challenged
 				add_idea = JAP_nationalize_the_zaibatsus
@@ -6696,9 +6709,6 @@
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}	
-				mio:JAP_yokosuka_organization = {
-					add_mio_funds = 500
-				}
 			}
 			else = {
 				add_ideas = yokosuka #SPT change adds the naval designer on completion	
