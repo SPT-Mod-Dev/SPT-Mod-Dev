@@ -25,6 +25,7 @@
 
 #### JAPAN
  - Rebalanced spirits and focuses to better fit the new consumer goods rework
+ - National spirit "State Shintoism" no longer grants +20% factory output
  - Focus "The Zaibatsus" now grants +5% resource gain efficiency instead of -2.5% consumer goods if Japan has "Nationalize the Zaibatsus" spirit
  - Focus "Stockpiling Strategies" now grants +5% resource gain efficiency instead of +10%
  - National spirit "Zaibatsus Challenged" now grants -10% tank, naval, materiel, and aircraft MIO cost
