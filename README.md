@@ -4,6 +4,7 @@
 
 #### General
  - Advisors updated to match new AAT consumer goods rework
+ - Disabled International Market for all countries
 
 #### USA
  - Rebalanced spirits and focuses to better fit the new consumer goods rework
