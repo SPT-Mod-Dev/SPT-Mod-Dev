@@ -1184,8 +1184,16 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			custom_effect_tooltip = available_designer
-			show_ideas_tooltip = FRA_hotchkiss
+			IF = {
+				limit = { has_dlc = "Arms Against Tyranny" }
+				mio:FRA_renault_organization = {
+					add_mio_funds = 2000
+				}
+			}
+			ELSE = {
+				custom_effect_tooltip = available_designer
+				show_ideas_tooltip = FRA_hotchkiss
+			}
 		}
 	}
 	focus = {
@@ -1531,8 +1539,19 @@
 				uses = 2
 				category = land_doctrine
 			}
-			custom_effect_tooltip = available_designer
-			show_ideas_tooltip = FRA_AMX
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				mio:FRA_hotchkiss_organization = {
+					add_mio_funds = 1500
+					add_mio_research_bonus = 0.02
+				}
+			}
+			ELSE = {
+				custom_effect_tooltip = available_designer
+				show_ideas_tooltip = FRA_AMX
+			}
 		}
 	}	
 
