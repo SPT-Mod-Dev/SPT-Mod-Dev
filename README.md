@@ -26,7 +26,7 @@
 
 #### JAPAN
  - Rebalanced spirits and focuses to better fit the new consumer goods rework
- - National spirit "State Shintoism" no longer grants +20% factory output
+ - National spirit "State Shintoism" now grants 10% factory output, from 20%
  - Focus "The Zaibatsus" now grants +5% resource gain efficiency instead of -2.5% consumer goods if Japan has "Nationalize the Zaibatsus" spirit
  - Focus "Stockpiling Strategies" now grants +5% resource gain efficiency instead of +10%
  - National spirit "Zaibatsus Challenged" now grants -10% tank, naval, materiel, and aircraft MIO cost
@@ -40,6 +40,7 @@
  - Focus "Armored Divisions" now grants +1 MIO size to Osaka Army Arsenal (tank designer)
  - National Spirit "Supremacy of Will" now grants -5% army doctrine cost
  - Focus "Armored Divisions" now grants its bonus as an MIO trait, +1 MIO size to Osaka Army Arsenal, and an extra 5 army xp
+ - Focuses "Range Focus" and "Agility Focus" are no longer mutually exclusive
 
 ### 3.7.3
 
