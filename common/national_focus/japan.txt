@@ -6577,7 +6577,7 @@
 		id = JAP_range_focus
 		icon = GFX_focus_generic_multi_role_aircraft
 		prerequisite = { focus = JAP_fighter_modernization }
-		mutually_exclusive = {focus = JAP_agility_focus} #SPT change, made it mutually exclusive with Agility Focus
+		#mutually_exclusive = {focus = JAP_agility_focus}
 		x = -1
 		y = 1
 		relative_position_id = JAP_fighter_modernization
@@ -6623,7 +6623,7 @@
 		id = JAP_agility_focus
 		icon = GFX_goal_generic_air_fighter2
 		prerequisite = { focus = JAP_fighter_modernization }
-		mutually_exclusive = {focus = JAP_range_focus} #SPT change, made it mutually exclusive with Range Focus
+		#mutually_exclusive = {focus = JAP_range_focus} 
 		x = 1
 		y = 1
 		relative_position_id = JAP_fighter_modernization
@@ -7118,11 +7118,25 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			add_ideas = JAP_expand_the_snlf
-			add_tech_bonus = {
-				name = JAP_expand_the_snlf
-				bonus = 1.0
-				uses = 1
-				category = marine_tech	
+			if = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				add_potential_special_forces_tree = yes
+				add_doctrine_cost_reduction = {
+					name = JAP_expand_the_snlf
+					cost_reduction = 0.25
+					uses = 2
+					category = special_forces_doctrine
+				}
+			}
+			else = {
+				add_tech_bonus = {
+					name = JAP_expand_the_snlf
+					bonus = 1.0
+					uses = 1
+					category = marine_tech	
+				}
 			}
 		}
 	}

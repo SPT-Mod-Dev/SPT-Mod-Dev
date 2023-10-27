@@ -722,6 +722,34 @@ focus_tree = {
 			show_ideas_tooltip = ENG_david_stirling
 		}
 	}
+
+	focus = {
+		id = ENG_parachute_regiments
+		prerequisite = { focus = ENG_special_air_service }
+		allow_branch = {
+			has_dlc = "Arms Against Tyranny"
+			always = no
+		}
+		continue_if_invalid = yes
+
+		icon = GFX_focus_generic_paratrooper
+		x = 0
+		y = 2
+		relative_position_id = ENG_special_air_service
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}	
+		completion_reward = {
+			add_potential_special_forces_tree = yes
+			add_doctrine_cost_reduction = {
+				name = ENG_parachute_regiments
+				cost_reduction = 0.25
+				uses = 2
+				category = special_forces_doctrine
+			}
+		}
+	}
 	
 	focus = {
 		id = royal_ordinance_focus
