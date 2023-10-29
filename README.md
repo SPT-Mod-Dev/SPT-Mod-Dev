@@ -3,6 +3,7 @@
 ### 3.8.0
 
 #### General
+ - Updated to work with AAT
  - Advisors updated to match new AAT consumer goods rework
  - Disabled International Market for all countries
  - Disabled the special forces tech "Combat Insertion"
