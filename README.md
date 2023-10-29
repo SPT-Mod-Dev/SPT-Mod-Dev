@@ -5,6 +5,10 @@
 #### General
  - Advisors updated to match new AAT consumer goods rework
  - Disabled International Market for all countries
+ - Disabled the special forces tech "Combat Insertion"
+
+#### Finland
+ - (Temporarily) Reverted Finland back to vanilla and remove them as a playable nation 
 
 #### USA
  - Rebalanced spirits and focuses to better fit the new consumer goods rework
