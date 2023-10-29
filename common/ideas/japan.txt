@@ -23,7 +23,7 @@ ideas = {
 				#SPTChange
 				army_core_attack_factor = 0.2
 				army_core_defence_factor = 0.2
-				industrial_capacity_factory = 0.2
+				industrial_capacity_factory = 0.1
 			}
 		}
 	
@@ -226,6 +226,11 @@ ideas = {
 				production_speed_dockyard_factor = 0.15
 				production_factory_max_efficiency_factor = 0.1
 				production_factory_efficiency_gain_factor = -0.1
+				consumer_goods_factor = 0.05
+				tank_manufacturer_cost_factor = -0.25
+				aircraft_manufacturer_cost_factor = -0.25
+				naval_manufacturer_cost_factor = -0.25
+				materiel_manufacturer_cost_factor = -0.25
 			}
 		}
 
@@ -251,7 +256,7 @@ ideas = {
 				production_speed_arms_factory_factor = 0.10
 				production_speed_dockyard_factor = 0.05
 				industrial_capacity_factory = 0.05
-				consumer_goods_factor = 0.05
+				consumer_goods_factor = 0.1
 			}
 		}
 
@@ -270,13 +275,21 @@ ideas = {
 			picture = jap_zaibatsu_ally
 			
 			modifier = {
-				political_power_cost = 0.5
+				#SPT change to rebalance Empower the Zaibatsus to become an upgrade to Guide The Zaibatsus
+				political_power_cost = 0.3
 				trade_laws_cost_factor = 0.25
 				economy_cost_factor = 0.25
+				tank_manufacturer_cost_factor = 0.15
+				aircraft_manufacturer_cost_factor = 0.15
+				naval_manufacturer_cost_factor = 0.15
+				materiel_manufacturer_cost_factor = 0.15
 				production_speed_industrial_complex_factor = 0.10
 				production_speed_arms_factory_factor = 0.10
-				production_speed_dockyard_factor = 0.10
-				consumer_goods_factor = 0.05
+				production_speed_dockyard_factor = 0.05
+				industrial_capacity_factory = 0.05
+				industrial_capacity_dockyard = 0.1
+				production_speed_buildings_factor = 0.05
+				consumer_goods_factor = 0.15
 			}
 		}
 
@@ -296,11 +309,15 @@ ideas = {
 			
 			modifier = {
 				#SPT change, rebalanced for more construction speed,less consumer goods, and more stability loss
-				stability_factor = -0.1
+				stability_factor = -0.1 
 				production_speed_industrial_complex_factor = 0.125
 				production_speed_arms_factory_factor = 0.125
 				production_speed_dockyard_factor = 0.15
-				consumer_goods_factor = 0.025
+				consumer_goods_factor = 0.05
+				tank_manufacturer_cost_factor = -0.1
+				aircraft_manufacturer_cost_factor = -0.1
+				naval_manufacturer_cost_factor = -0.1
+				materiel_manufacturer_cost_factor = -0.1
 			}
 		}
 
@@ -716,6 +733,8 @@ ideas = {
 				army_org_Factor = 0.05 #added org buff
 				#army_attack_factor = 0.05
 				army_morale_factor = 0.05
+				#SPT change added land doctrine cost reduction
+				land_doctrine_cost_factor = -0.05
 			}
 		}
 
@@ -1602,6 +1621,7 @@ ideas = {
 				army_org_Factor = 0.05
 				army_morale_factor = 0.15
 				weekly_casualties_war_support = 0.001
+				land_doctrine_cost_factor = -0.05
 			}
 		}
 
@@ -1699,8 +1719,8 @@ ideas = {
 			picture = generic_economic_increase
 
 			modifier = {
-				non_core_manpower = -0.15
-				local_resources_factor = 0.10
+				non_core_manpower = -0.2
+				local_resources_factor = 0.15
 				production_speed_infrastructure_factor = 0.1
 				production_speed_rail_way_factor = 0.3
 				industrial_capacity_factory = 0.05

@@ -1,4 +1,47 @@
 # Saving Private Tryin' Historical MP Full Changelog
+
+### 3.8.0
+
+#### General
+ - Advisors updated to match new AAT consumer goods rework
+ - Disabled International Market for all countries
+
+#### USA
+ - Rebalanced spirits and focuses to better fit the new consumer goods rework
+ - Focus "Money Only" now takes 35 days to complete, from 70
+ - National spirit "Forming New Cabinet" now lasts for 365 days, from 200
+ - Focus "Federal Construction" now takes 35 days to complete, from 70
+ - Focuses "Rebuilding America", "Lower Taxes", and "Federal Construction" now reduce the duration of Ongoing Recession mission by 30 days each
+ - All War Plan Upgrade focuses now take 70 days to complete, from 35
+ - Focus "Standard Oil of California" now requires "Campaign for Votes" instead of "Industrial R&D"
+ - National spirit "Rallying the Nation" now grants +15% Military Factory Construction Speed
+ - Focus "Boots on the Ground" now grants 7.5% attack, recovery rate, and organization, from 10%
+ - National spirit "Subsidised Military Industry" now grants 5% factory output, from 10%
+ - National spirit "Subsidised Naval Industry" now grants 10% dockyard output, from 15%
+ - Focus "Review The Budget" now unlocks "Pay Farm Subsidies" decision
+ - Focuses "Subsidise the Military Industry" and "Subsidised the Naval Industry" now grant +15% MIO funds gain
+ - Focus "Break the Monopolies" now grants +25% MIO funds gain
+ - Focus "Booming Interior Economy" now grants +1 building slot for every state with the modifier "Booming Interior Economy"
+ - Focus "Wartime Industry" now grants +1000 MIO funds
+
+#### JAPAN
+ - Rebalanced spirits and focuses to better fit the new consumer goods rework
+ - National spirit "State Shintoism" now grants 10% factory output, from 20%
+ - Focus "The Zaibatsus" now grants +5% resource gain efficiency instead of -2.5% consumer goods if Japan has "Nationalize the Zaibatsus" spirit
+ - Focus "Stockpiling Strategies" now grants +5% resource gain efficiency instead of +10%
+ - National spirit "Zaibatsus Challenged" now grants -10% tank, naval, materiel, and aircraft MIO cost
+ - National spirit "Nationalize the Zaibatsus" now grants -25% tank, naval, materiel, and aircraft MIO cost
+ - Focus "Seize Zaibatsu Dockyards" now takes 70 days to complete, from 35
+ - Focus "Nationalize the Zaibatsus" no longer grants -5% stability
+ - Focus "Let the Zaibatsus Expand" now grants +1 MIO size
+ - Focus "Let the Zaibatsus Expand" now takes 70 days to complete, from 35
+ - Focus "Let the Zaibatsus Expand" now grants national spirit "Zaibatsus Empowered"
+ - Focus "Supremacy of Technology" now grants +10% MIO funds gain
+ - Focus "Armored Divisions" now grants +1 MIO size to Osaka Army Arsenal (tank designer)
+ - National Spirit "Supremacy of Will" now grants -5% army doctrine cost
+ - Focus "Armored Divisions" now grants its bonus as an MIO trait, +1 MIO size to Osaka Army Arsenal, and an extra 5 army xp
+ - Focuses "Range Focus" and "Agility Focus" are no longer mutually exclusive
+
 ### 3.7.3
 
 #### General

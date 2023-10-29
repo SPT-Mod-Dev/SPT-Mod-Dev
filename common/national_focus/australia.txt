@@ -3536,7 +3536,19 @@
 		search_filters = {  FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			add_ideas = AST_commonwealth_aircraft_corporation
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				custom_effect_tooltip = available_mio_tt
+				show_mio_tooltip = AST_com_aircraft_corporation_organization
+				mio:AST_com_aircraft_corporation_organization = {
+					add_mio_size = 2
+				}
+			}
+			ELSE = {
+				add_ideas = AST_commonwealth_aircraft_corporation 
+			}
 		}
 	}
 
