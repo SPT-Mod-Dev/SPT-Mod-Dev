@@ -1,5 +1,15 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.8.1
+### Australia
+ - Expand the northern railway now takes 35 days, from 70
+
+### MIO
+ - Made Vickers-Armstrong available for all commonwealth nations
+ - Vickers-Armstrong: "Expand production facilities" production effeciency cap and efficiency gain 10% -> 5%
+ - Infantry tank designer: "Production Division" production efficiency gain 10% -> 5%
+                           "Modular Construction" production efficiency gain and efficiency cap 10% -> 5%
+
 ### 3.8.0
 
 #### General
