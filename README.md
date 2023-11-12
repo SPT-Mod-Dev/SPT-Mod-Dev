@@ -4,11 +4,20 @@
 ### Australia
  - Expand the northern railway now takes 35 days, from 70
 
+### Soviet Union
+ - War support from "Turkey Seizes Control Over the Bosporus" 10% -> 5%
+
+### Manchukuo
+ - Focus "From Mountaineer regiments": Removed special mountaineer buff
+                                       Added 4 75% special forces doctrine cost reductions
+ - Clarified Big/Small Manchu event
+
 ### MIO
  - Made Vickers-Armstrong available for all commonwealth nations
  - Vickers-Armstrong: "Expand production facilities" production effeciency cap and efficiency gain 10% -> 5%
  - Infantry tank designer: "Production Division" production efficiency gain 10% -> 5%
                            "Modular Construction" production efficiency gain and efficiency cap 10% -> 5%
+ - Standardized Prodction: "Standardized Components" production efficiency gain 15% -> 5%
 
 ### 3.8.0
 
