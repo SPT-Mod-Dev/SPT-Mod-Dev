@@ -19,6 +19,7 @@
                            "Modular Construction" production efficiency gain and efficiency cap 10% -> 5%
  - Standardized Prodction: "Standardized Components" production efficiency gain 15% -> 5%
  - Halved all Air Mio effects of "Light aircraft manufacturer", "CAS aircraft manufacturer", "High Agility Fighter Aircraft manufacturer" and "Range Focused Aircraft Manufacturer"
+
 ### 3.8.0
 
 #### General
