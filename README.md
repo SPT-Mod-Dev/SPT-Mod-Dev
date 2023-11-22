@@ -1,5 +1,11 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.8.2 "the fun update"
+
+#### General
+ - Guerilla Tactics tactic now grants -40% attacker damage, from -70%
+ - Guerilla Tactics tactic now grants -35% attacker damage, from -60%
+
 ### 3.8.1
 ### Australia
  - Expand the northern railway now takes 35 days, from 70
