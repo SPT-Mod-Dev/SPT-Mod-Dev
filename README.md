@@ -3,11 +3,11 @@
 ### 3.8.2 "the fun update"
 
 ### General
- - Guerilla Tactics tactic now grants -40% attacker damage, from -70%
- - Guerilla Tactics tactic now grants -35% attacker damage, from -60%
+ - Guerilla Tactics tactic now grants -50% attacker damage, from -70%
+ - Guerilla Tactics tactic now grants -40% attacker damage, from -60%
 
 ### Tank designer
-- Medium and superheavy tanks can now use their correct turrets and connon
+- Modern and superheavy tanks can now use their correct turrets and connon
 
 ### Mongolia
  - Spirit "Build an Indipendent Economy" all tank production now -15% (down form 15/20/25 for light/mediums/heavies)
