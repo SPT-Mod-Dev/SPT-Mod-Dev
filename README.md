@@ -1,5 +1,20 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.8.2 "the fun update"
+
+### General
+ - Guerilla Tactics tactic now grants -50% attacker damage, from -70%
+ - Guerilla Tactics tactic now grants -40% attacker damage, from -60%
+
+### Tank designer
+- Modern and superheavy tanks can now use their correct turrets and connon
+
+### Mongolia
+ - Spirit "Build an Indipendent Economy" all tank production now -15% (down form 15/20/25 for light/mediums/heavies)
+ - Spirit "The Flying Circus" Special forces defence and attack +25% -> +10%
+                              Encirclement penalty +25% -> 15%
+
+
 ### 3.8.1
 ### Australia
  - Expand the northern railway now takes 35 days, from 70
