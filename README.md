@@ -7,6 +7,7 @@
  - Guerilla Tactics tactic now grants -40% attacker damage, from -60%
 
 ### Rule Change
+- Changed Spain rule 3 to "May join the Axis ONLY if French West Africa is under Axis control."
 
 ### Tank designer
 - Modern and superheavy tanks can now use their correct turrets and cannon
