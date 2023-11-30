@@ -13,7 +13,7 @@
 - Modern and superheavy tanks can now use their correct turrets and cannon
 
 ### Mongolia
- - Spirit "Build an Indipendent Economy" all tank production now -15% (down from 15/20/25 for light/mediums/heavies)
+ - Spirit "Build an Independent Economy" all tank production now -15% (down from 15/20/25 for light/mediums/heavies)
  - Spirit "The Flying Circus" Special forces defence and attack +25% -> +10%
                               Encirclement penalty +25% -> 15%
 
