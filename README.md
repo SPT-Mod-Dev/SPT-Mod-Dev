@@ -33,7 +33,10 @@
 ### General
  - Changed in game speed to reflect old speed (games will now be played in 3/4 speed instead of 2/3)
 
- ### India
+### Rule Change
+ - Changed War Rule 9 to not include support companies
+
+### India
  - Focus "Assam Oil" increased oil resources 3 -> 10 oil
  - Focus "Integrate Princley Railways" focus time 35 -> 70 days
  - Focus "Strengthen Ties With British Investors" Autonomy value 150 -> 100
