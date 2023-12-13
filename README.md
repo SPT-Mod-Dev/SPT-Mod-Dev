@@ -1,4 +1,5 @@
 # Saving Private Tryin' Historical MP Full Changelog
+
 ### 3.8.3
 
 ### General
@@ -12,17 +13,22 @@
  - Focus "British Arms Investors" Autonomy value -250 -> -200
  - Focus "Imperial Service Troops" Autonomy value -50 -> +50
  
-### 3.8.2 "the fun update"
+
+### 3.8.2
+
 
 ### General
  - Guerilla Tactics tactic now grants -50% attacker damage, from -70%
  - Guerilla Tactics tactic now grants -40% attacker damage, from -60%
 
+### Rule Change
+- Changed Spain rule 3 to "May join the Axis ONLY if French West Africa is under Axis control."
+
 ### Tank designer
-- Modern and superheavy tanks can now use their correct turrets and connon
+- Modern and superheavy tanks can now use their correct turrets and cannon
 
 ### Mongolia
- - Spirit "Build an Indipendent Economy" all tank production now -15% (down form 15/20/25 for light/mediums/heavies)
+ - Spirit "Build an Independent Economy" all tank production now -15% (down from 15/20/25 for light/mediums/heavies)
  - Spirit "The Flying Circus" Special forces defence and attack +25% -> +10%
                               Encirclement penalty +25% -> 15%
 
