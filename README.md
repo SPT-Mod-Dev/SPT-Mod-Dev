@@ -1,6 +1,21 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.8.3
+
+### General
+ - Changed in game speed to reflect old speed (games will now be played in 3/4 speed instead of 2/3)
+
+ ### India
+ - Focus "Assam Oil" increased oil resources 3 -> 10 oil
+ - Focus "Integrate Princley Railways" focus time 35 -> 70 days
+ - Focus "Strengthen Ties With British Investors" Autonomy value 150 -> 100
+ - Focus "British Rail Investors" Autonomy value -250 -> -200
+ - Focus "British Arms Investors" Autonomy value -250 -> -200
+ - Focus "Imperial Service Troops" Autonomy value -50 -> +50
+ 
+
 ### 3.8.2
+
 
 ### General
  - Guerilla Tactics tactic now grants -50% attacker damage, from -70%
