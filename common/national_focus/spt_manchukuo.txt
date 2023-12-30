@@ -1078,8 +1078,14 @@
 					anti_communist
 				}
 			}
+			JAP = { 
+				set_autonomy = {
+					target = MAN
+					autonomy_state = autonomy_wtt_imperial_associate
+				}
+			}	
 		}
-	}
+	}	
 
 	focus = {
 		id = SPT_MAN_collective_farms
@@ -1178,32 +1184,60 @@
 				random_owned_state = {
 					add_building_construction = {
 						type = infrastructure
-						level = 1
+						level = 2
 						instant_build = yes
 					}
 				}
 				random_owned_state = {
 					add_building_construction = {
 						type = infrastructure
-						level = 1
+						level = 2
 						instant_build = yes
 					}
 				}
 				random_owned_state = {
 					add_building_construction = {
 						type = infrastructure
-						level = 1
+						level = 2
 						instant_build = yes
 					}
 				}
 				random_owned_state = {
 					add_building_construction = {
 						type = infrastructure
-						level = 1
+						level = 2
 						instant_build = yes
 					}
 				}
-			
+				random_owned_state = {
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+				612 = {
+					add_extra_state_shared_building_slots = 2
+				}
+				611 = {
+					add_extra_state_shared_building_slots = 2
+				}
+				610 = {
+					add_extra_state_shared_building_slots = 2
+				}
+				761 = {
+					add_extra_state_shared_building_slots = 2
+				}
+				714 = {
+					add_extra_state_shared_building_slots = 2
+				}
+				717 = {
+					add_extra_state_shared_building_slots = 2
+				}
+				328 = {
+					add_extra_state_shared_building_slots = 3
+					set_state_category = city
+				}
 		}
 			
 	}
@@ -1219,7 +1253,7 @@
 		cost = 10
 
 		ai_will_do = {
-			factor = 2
+			factor = 5
 		}
 
 		available = {
@@ -1310,7 +1344,13 @@
 		completion_reward = {
 		
 			add_ideas = MAN_japanese_corporativism	
-			
+			JAP = { 
+				set_autonomy = {
+					target = MAN
+					autonomy_state = autonomy_wtt_imperial_associate
+				}
+			}
+			MAN_low_legitimacy_level_down = yes
 		}
 			
 	}
@@ -1537,6 +1577,10 @@
 				bonus = 1.0
 				uses = 2
 				category = industry
+			}
+			add_equipment_to_stockpile = {
+				type = train_equipment
+				amount = 2
 			}
 		}
 	}
@@ -1810,7 +1854,7 @@
 		cost = 10
 
 		ai_will_do = {
-			factor = 2
+			factor = 5
 		}
 
 		available = {
@@ -1851,7 +1895,7 @@
 		cost = 10
 
 		ai_will_do = {
-			factor = 2
+			factor = 5
 		}
 
 		available = {
