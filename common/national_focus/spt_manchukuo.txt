@@ -13,7 +13,7 @@
 
 	default = no
 
-	continuous_focus_position = { x = 20 y = 1600 }
+	continuous_focus_position = { x = 20 y = 2000 }
 
 #	focus = {
 #		id = CHI_
@@ -303,7 +303,7 @@
 		id = SPT_MAN_army_modernization
 		icon = GFX_focus_chi_army_reform
 		prerequisite = { focus = SPT_MAN_the_japanese_colony }
-		x = 6
+		x = 9
 		y = 1
 		relative_position_id = SPT_MAN_the_japanese_colony
 
@@ -370,6 +370,32 @@
 				bonus = 3
 				uses = 1
 				category = infantry_weapons
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_MAN_japanese_training_of_marines
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = SPT_MAN_modern_rifles }
+		x = 1
+		y = 1
+		relative_position_id = SPT_MAN_modern_rifles
+
+		cost = 10
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		
+
+		completion_reward = {
+			add_ideas = MAN_japanese_training_of_marines
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = marine_tech
 			}
 		}
 	}
@@ -577,7 +603,7 @@
 		icon = GFX_focus_chi_legislative_yuan
 		prerequisite = { focus = SPT_MAN_recruit_qing_loyalists }
 		
-		x = -3
+		x = -5
 		y = 1
 		relative_position_id = SPT_MAN_recruit_qing_loyalists
 
@@ -602,6 +628,48 @@
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			add_ideas = MAN_qing_army
+			add_timed_idea = {
+				idea = MAN_reform_the_qing_army
+				days = 180
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_MAN_development_of_tanks
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = SPT_MAN_reform_the_qing_army }
+		
+		x = 1
+		y = 1
+		relative_position_id = SPT_MAN_reform_the_qing_army
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = MAN_development_of_tanks
+			add_tech_bonus = {
+				name = MAN_development_of_tanks
+				bonus = 0.75
+				uses = 2
+				category = armor
+			}
 		}
 	}
 
@@ -610,7 +678,7 @@
 		icon = GFX_focus_ETH_freedom_at_gunpoint
 		prerequisite = { focus = SPT_MAN_reform_the_qing_army }
 		
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = SPT_MAN_reform_the_qing_army
 
@@ -758,6 +826,75 @@
 		}
 	}
 
+
+	focus = {
+		id = SPT_MAN_new_imperial_university
+		icon = GFX_focus_research
+		prerequisite = { focus = SPT_MAN_integrate_the_south }
+		
+		x = 1
+		y = 1
+		relative_position_id = SPT_MAN_integrate_the_south
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_research_slot = 1
+		}
+
+		
+	}
+
+	focus = {
+		id = SPT_MAN_reopen_university_of_beijing
+		icon = GFX_focus_research
+		prerequisite = { focus = SPT_MAN_new_imperial_university }
+		
+		x = 0
+		y = 1
+		relative_position_id = SPT_MAN_new_imperial_university
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			num_of_factories > 50
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_research_slot = 1
+		}
+
+		
+	}
+
+
 	focus = {
 		id = SPT_MAN_return_of_the_qing
 		icon = GFX_spt_focus_return_qing
@@ -775,6 +912,7 @@
 		}
 
 		available = {
+			has_completed_focus = SPT_MAN_the_two_emperors
 		}
 
 		bypass = {
@@ -794,12 +932,44 @@
 		}
 	}
 
+	focus = {
+		id = SPT_MAN_new_chinese_economic_policy
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = SPT_MAN_return_of_the_qing }
+		x = 0
+		y = 1
+		relative_position_id = SPT_MAN_return_of_the_qing
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+		
+			add_ideas = MAN_new_chinese_economic_policy
+			
+		}
+			
+	}
+
+
 	#Japanese settlers branch
 	focus = {
 		id = SPT_MAN_invite_japanese_settlers
 		icon = GFX_spt_focus_japanese_settlers
 		prerequisite = { focus = SPT_MAN_the_japanese_colony }
-		x = 2
+		x = 3
 		y = 1
 		relative_position_id = SPT_MAN_the_japanese_colony
 
@@ -867,11 +1037,11 @@
 	focus = {
 		id = SPT_MAN_the_two_emperors
 		icon = GFX_focus_ETH_an_empire_in_the_shade_of_the_sun
-		prerequisite = { focus = SPT_MAN_return_of_the_qing }
+		prerequisite = { focus = SPT_MAN_integrate_the_northwest }
 		
-		x = 0
+		x = -1
 		y = 1
-		relative_position_id = SPT_MAN_return_of_the_qing
+		relative_position_id = SPT_MAN_integrate_the_northwest
 
 		cost = 10
 
@@ -881,6 +1051,7 @@
 
 		available = {
 			is_subject_of = JAP
+			has_completed_focus = SPT_MAN_integrate_the_south
 		}
 
 		bypass = {
@@ -895,6 +1066,7 @@
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			remove_ideas = MAN_kwantung_veto
 			set_cosmetic_tag = MAN_Chinese_Empire
 			create_country_leader = {
 				name = "Xuantong"
@@ -979,10 +1151,106 @@
 	}
 
 	focus = {
+		id = SPT_MAN_improve_local_infrastructure
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = { focus = SPT_MAN_zaibatsu_loans }
+		x = 0
+		y = 1
+		relative_position_id = SPT_MAN_zaibatsu_loans
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+		
+				random_owned_state = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_state = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_state = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_state = {
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			
+		}
+			
+	}
+
+	focus = {
+		id = SPT_MAN_survey_new_resource_deposits
+		icon = GFX_focus_generic_mining_industry
+		prerequisite = { focus = SPT_MAN_improve_local_infrastructure }
+		x = 0
+		y = 1
+		relative_position_id = SPT_MAN_improve_local_infrastructure
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+
+			unlock_decision_tooltip = MAN_survey_new_resource_deposits	
+
+		}
+	}
+
+
+
+	focus = {
 		id = SPT_MAN_import_civilian_industry
 		icon = GFX_goal_generic_construct_civ_factory
 		prerequisite = { focus = SPT_MAN_zaibatsu_loans }
-		x = -1
+		x = -2
 		y = 1
 		relative_position_id = SPT_MAN_zaibatsu_loans
 
@@ -1017,10 +1285,43 @@
 	}
 
 	focus = {
+		id = SPT_MAN_japanese_corporativism
+		icon = GFX_focus_generic_modernize_industry
+		prerequisite = { focus = SPT_MAN_import_civilian_industry }
+		x = 0
+		y = 1
+		relative_position_id = SPT_MAN_import_civilian_industry
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+		
+			add_ideas = MAN_japanese_corporativism	
+			
+		}
+			
+	}
+
+
+
+	focus = {
 		id = SPT_MAN_import_military_industry
 		icon = GFX_goal_generic_construct_mil_factory
 		prerequisite = { focus = SPT_MAN_zaibatsu_loans }
-		x = 1
+		x = 2
 		y = 1
 		relative_position_id = SPT_MAN_zaibatsu_loans
 
@@ -1133,11 +1434,11 @@
 	focus = {
 		id = SPT_MAN_research_and_education_department
 		icon = GFX_focus_research2
-		prerequisite = { focus = SPT_MAN_import_civilian_industry }
-		prerequisite = { focus = SPT_MAN_import_military_industry }
-		x = 1
+		prerequisite = { focus = SPT_MAN_collective_farms }
+		
+		x = -2
 		y = 1
-		relative_position_id = SPT_MAN_import_civilian_industry
+		relative_position_id = SPT_MAN_collective_farms
 
 		cost = 10
 
@@ -1170,7 +1471,7 @@
 	focus = {
 		id = SPT_MAN_first_five_year_plan
 		icon = GFX_focus_SOV_organize_wreckers
-		x = 10
+		x = 16
 		y = 0
 		relative_position_id = SPT_MAN_pacify_the_countryside
 
@@ -1199,6 +1500,7 @@
 			country_event = wtt_manchukou.11
 		}
 	}
+
 
 	focus = {
 		id = SPT_MAN_trade_delegation
@@ -1313,7 +1615,7 @@
 		id = SPT_MAN_invite_japanese_investors
 		icon = GFX_focus_chi_collaboration_with_the_japanese
 		prerequisite = { focus = SPT_MAN_first_five_year_plan }
-		x = -1
+		x = -2
 		y = 1
 		relative_position_id = SPT_MAN_first_five_year_plan
 
@@ -1501,7 +1803,7 @@
 		id = SPT_MAN_develop_aluminum_sources
 		icon = GFX_focus_generic_aluminum
 		prerequisite = { focus = SPT_MAN_expand_the_railways }
-		x = -2
+		x = -1
 		y = 1
 		relative_position_id = SPT_MAN_expand_the_railways
 
@@ -1539,10 +1841,46 @@
 	}
 
 	focus = {
+		id = SPT_MAN_develop_oil_deposits
+		icon = GFX_focus_generic_offshore_oil_rig
+		prerequisite = { focus = SPT_MAN_develop_aluminum_sources }
+		x = 0
+		y = 1
+		relative_position_id = SPT_MAN_develop_aluminum_sources
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+
+			unlock_decision_tooltip = MAN_develop_oil_deposits		
+
+		}
+	}
+
+	focus = {
 		id = SPT_MAN_expand_showa_steel_works
 		icon = GFX_focus_SOV_south_manchuria_railway
 		prerequisite = { focus = SPT_MAN_expand_the_railways }
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = SPT_MAN_expand_the_railways
 
@@ -2156,7 +2494,9 @@
 		x = 1
 		y = 1
 		relative_position_id = SPT_MAN_staff_the_court_with_manchus
-
+		allow_branch = { date > 1956.1.1
+			
+		}
 		cost = 10
 
 		ai_will_do = {
@@ -2804,7 +3144,296 @@
 		}
 	}
 
-# 
 
-	#shared_focus = CHI_invite_foreign_investors
+	focus = {
+		id = SPT_MAN_develop_manchukan_shipyards
+
+		
+		icon = GFX_goal_generic_construct_naval_dockyard
+		relative_position_id = SPT_MAN_first_five_year_plan
+		x = 6
+		y = 0
+		cost = 10
+
+		available = {
+			any_state = {
+                is_controlled_by = ROOT
+                is_core_of = ROOT
+                is_coastal = yes
+            }
+		}
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			navy_experience = 35	 
+			random_owned_controlled_state = {
+                limit = {
+                    is_core_of = ROOT
+                    is_coastal = yes
+                }
+                add_extra_state_shared_building_slots = 3
+                add_building_construction = {
+                    type = dockyard
+                    level = 2
+                    instant_build = yes
+                }
+            }
+		}
+	}
+
+
+	focus = {
+		id = SPT_MAN_reform_manchukuo_navy
+
+		prerequisite = { focus = SPT_MAN_develop_manchukan_shipyards }
+		icon = GFX_focus_generic_destroyer
+		relative_position_id = SPT_MAN_develop_manchukan_shipyards
+		x = 0
+		y = 1
+		cost = 10
+
+		available = {
+		}
+			
+		
+		
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+			navy_experience = 15
+			add_doctrine_cost_reduction = {
+				name = SPT_MAN_a_coastal_fleet
+			    cost_reduction = 0.5
+			    uses = 2
+				category = naval_doctrine
+			}
+			add_tech_bonus = {
+				name = SPT_MAN_a_coastal_fleet
+			    bonus = 1.0
+			    uses = 1
+				category = dd_tech
+			}
+			if = { 
+				limit = { has_dlc = "Man the Guns" }
+				set_technology = { coastal_defense_ships = 1 } 
+				set_technology = { early_ship_hull_light = 1}
+				set_technology = { basic_battery = 1}
+				set_technology = { basic_torpedo = 1}
+			}
+
+			
+		}
+	}
+
+	focus = {
+		id = SPT_MAN_expanding_the_trade_fleet
+
+		prerequisite = { focus = SPT_MAN_develop_manchukan_shipyards }
+		icon = GFX_goal_generic_navy_cruiser
+		relative_position_id = SPT_MAN_develop_manchukan_shipyards
+		x = 2
+		y = 1
+		cost = 10
+
+		available = {
+		}
+			
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+			add_ideas = MAN_trade_fleet
+			add_equipment_to_stockpile = {
+				type = convoy
+				amount = 200
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_MAN_prepare_new_fleet
+
+		prerequisite = { focus = SPT_MAN_reform_manchukuo_navy }
+		icon = GFX_goal_generic_navy_battleship
+		relative_position_id = SPT_MAN_reform_manchukuo_navy
+		x = 0
+		y = 1
+		cost = 10
+
+		available = {
+			has_completed_focus = SPT_MAN_integrate_the_south
+			any_state = {
+                is_controlled_by = ROOT
+                is_core_of = ROOT
+                is_coastal = yes
+            }
+		}
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			navy_experience = 50
+			add_tech_bonus = {
+				name = SPT_MAN_light_cruiser_project
+				bonus = 1.0
+				uses = 1
+				category = cl_tech
+			}
+			add_tech_bonus = {
+				name = SPT_MAN_battleship_project
+				bonus = 2.0
+				uses = 1
+				category = bb_tech
+			} 
+			random_owned_controlled_state = {
+                limit = {
+                    is_core_of = ROOT
+                    is_coastal = yes
+                }
+                add_extra_state_shared_building_slots = 3
+                add_building_construction = {
+                    type = dockyard
+                    level = 2
+                    instant_build = yes
+                }
+            }
+		}
+	}
+
+	focus = {
+		id = SPT_MAN_kickstart_plane_production
+
+		
+		icon = GFX_focus_generic_air_bases
+		relative_position_id = SPT_MAN_develop_manchukan_shipyards
+
+		x = 6
+		y = 0
+		cost = 10
+
+		available = {
+			any_state = {
+                is_controlled_by = ROOT
+                is_core_of = ROOT
+            }
+			num_of_factories > 25
+		}
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			air_experience = 50
+			random_owned_controlled_state = {
+                add_building_construction = {
+                    type = air_base
+                    level = 2
+                    instant_build = yes
+                }
+            }
+			add_tech_bonus = {
+				name = MAN_development_of_planes
+				bonus = 0.75
+				uses = 2
+				category = air_equipment
+			}
+			country_event = spt_man.1
+		}
+	}
+
+	focus = {
+		id = SPT_MAN_focus_on_fighter_production
+		icon = GFX_focus_NORDIC_dem_airforce
+		relative_position_id = SPT_MAN_kickstart_plane_production
+		prerequisite = {
+			focus = SPT_MAN_kickstart_plane_production
+		}
+		x = -1.5
+		y = 1
+		cost = 10
+
+		available = {
+
+		}
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			air_experience = 50
+			
+			add_tech_bonus = {
+				name = MAN_development_of_fighters
+				bonus = 1
+				uses = 1
+				category = light_fighter
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_MAN_medium_range_bomber_projects
+		icon = GFX_goal_generic_air_bomber
+		relative_position_id = SPT_MAN_kickstart_plane_production
+		prerequisite = {
+			focus = SPT_MAN_kickstart_plane_production
+		}
+		x = 1.5
+		y = 1
+		cost = 10
+
+		available = {
+
+		}
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			air_experience = 50
+			
+			add_tech_bonus = {
+				name = MAN_development_of_bombers
+				bonus = 1
+				uses = 1
+				category = medium_air
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_MAN_streamlined_fighter_production
+		icon = GFX_goal_generic_air_bomber
+		relative_position_id = SPT_MAN_focus_on_fighter_production
+		prerequisite = {
+			focus = SPT_MAN_focus_on_fighter_production
+		}
+		mutually_exclusive = {
+			focus = SPT_MAN_streamlined_bomber_production
+		}
+		x = 0
+		y = 1
+		cost = 10
+
+		available = {
+
+		}
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			air_experience = 50
+			
+			add_ideas = MAN_streamlined_fighter_production
+		}
+	}
+
+	focus = {
+		id = SPT_MAN_streamlined_bomber_production
+		icon = GFX_goal_generic_air_bomber
+		relative_position_id = SPT_MAN_medium_range_bomber_projects
+		prerequisite = {
+			focus = SPT_MAN_medium_range_bomber_projects
+		}
+		mutually_exclusive = {
+			focus = SPT_MAN_streamlined_fighter_production
+		}
+		x = 0
+		y = 1
+		cost = 10
+
+		available = {
+
+		}
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			air_experience = 50
+			
+			add_ideas = MAN_streamlined_bomber_production
+		}
+	}
+
 }
