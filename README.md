@@ -1,5 +1,11 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.8.4
+
+### General
+
+ - Added 2 new straits: Strait of Malacca and Sunda Strait
+
 ### 3.8.3
 
 ### General
