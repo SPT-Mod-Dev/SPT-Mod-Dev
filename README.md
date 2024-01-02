@@ -6,6 +6,9 @@
 
  - Added 2 new straits: Strait of Malacca and Sunda Strait
 
+ ### Italy
+  - Balbo and Grandi are now available leaders
+
 ### 3.8.3
 
 ### General

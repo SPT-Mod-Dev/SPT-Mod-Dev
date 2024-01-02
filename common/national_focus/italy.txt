@@ -8570,25 +8570,25 @@ focus_tree = {
 		mutually_exclusive = { focus = ITA_culto_del_duce focus = ITA_defy_the_duce }
 
 		allow_branch = {
-			always = no
+			#always = no
 			has_dlc = "By Blood Alone"
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = { has_completed_focus = ITA_defy_the_duce	}
-			}
+			# if = {
+			# 	limit = {
+			# 		has_game_rule = {
+			# 			rule = obsolete_focus_branches_visibility
+			# 			option = HIDE
+			# 		}
+			# 	}
+			# 	NOT = { has_completed_focus = ITA_defy_the_duce	}
+			# }
 		}
 
-		x = 20
+		x = 15
 		y = 2
 		relative_position_id = ITA_triumph_in_africa_bba
 
 		offset = {
-			x = -12
+			x = -10
 			y = 0
 			trigger = {
 				has_game_rule = {
@@ -8600,8 +8600,8 @@ focus_tree = {
 		}
 
 		offset = {
-			x = -12
-			y = 0
+			x = -15
+			y = 1
 			trigger = {
 				has_game_rule = {
 					rule = obsolete_focus_branches_visibility
@@ -8614,10 +8614,10 @@ focus_tree = {
 		cost = 5
 		available = {
 			is_at_peace_exiled_countries_excluded = yes
-			power_balance_value = {
-				id = ITA_power_balance
-				value < 0.01
-			}
+			# power_balance_value = {
+			# 	id = ITA_power_balance
+			# 	value < 0.01
+			# }
 		}
 
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_BALANCE_OF_POWER}
@@ -8942,7 +8942,7 @@ focus_tree = {
 						option = HIDE
 					}
 				}
-				NOT = { has_completed_focus = ITA_defy_the_duce }
+				#NOT = { has_completed_focus = ITA_defy_the_duce }
 				NOT = { has_completed_focus = ITA_convene_the_grand_council }
 			}
 		}
@@ -9337,14 +9337,14 @@ focus_tree = {
 		
 		id = ITA_ministero_della_cultura_popolare #Alt name would be Ministry of Popular Culture (1937-1943)
 		icon = GFX_focus_generic_italy_propaganda
-		prerequisite = { focus = ITA_culto_del_duce}
+		prerequisite = { focus = ITA_culto_del_duce focus = ITA_convene_the_grand_council}
 
 		x = 3
-		y = 1
+		y = 2
 		relative_position_id = ITA_culto_del_duce
 
 		offset = {
-			x = -10
+			x = -11 
 			y = 0
 			trigger = {
 				has_game_rule = {
@@ -9528,14 +9528,14 @@ focus_tree = {
 	focus = {
 		id = ITA_security_militias
 		icon = GFX_goal_generic_military_sphere
-		prerequisite = { focus = ITA_culto_del_duce}
+		prerequisite = { focus = ITA_culto_del_duce focus = ITA_convene_the_grand_council }
 
 		x = 6
-		y = 1
+		y = 2
 		relative_position_id = ITA_culto_del_duce
 
 		offset = {
-			x = -11
+			x = 2
 			y = 0
 			trigger = {
 				has_game_rule = {
@@ -9583,7 +9583,7 @@ focus_tree = {
 
 		offset = {
 			x = 0
-			y = -1
+			y = 0
 			trigger = {
 				has_game_rule = {
 					rule = obsolete_focus_branches_visibility
@@ -9708,16 +9708,16 @@ focus_tree = {
 	focus = {
 		id = ITA_towards_a_greater_italy
 		icon = GFX_focus_ITA_greater_italy
-		prerequisite = { focus = ITA_strengthen_the_regime }
+		prerequisite = { focus = ITA_strengthen_the_regime focus = ITA_blackshirt_loyalty }
 		mutually_exclusive = { focus = ITA_mare_nostrum_bba }
 
 		x = 0
-		y = 1
+		y = 5
 		relative_position_id = ITA_strengthen_the_regime
 		cost = 5
 
 		offset = {
-			x = 8
+			x = 1
 			y = 0
 			trigger = {
 				has_game_rule = {
@@ -9725,6 +9725,17 @@ focus_tree = {
 					option = HIDE
 				}
 				has_completed_focus = ITA_convene_the_grand_council
+			}
+		}
+		offset = {
+			x = 0
+			y = -3
+			trigger = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+				has_completed_focus = ITA_culto_del_duce
 			}
 		}
 
@@ -9953,12 +9964,12 @@ focus_tree = {
 	focus = {
 		id = ITA_heroes_of_the_nation
 		icon = GFX_focus_generic_military_dictatorship
-		prerequisite = { focus = ITA_towards_a_greater_italy }
+		#prerequisite = { focus = ITA_towards_a_greater_italy }
 		prerequisite = { focus = ITA_devotion }
 		mutually_exclusive = { focus = ITA_capo_supremo }
-		x = -4
+		x = -1
 		y = 1
-		relative_position_id = ITA_towards_a_greater_italy
+		relative_position_id = ITA_devotion
 		cost = 10
 		available = {
 		}
@@ -10077,12 +10088,12 @@ focus_tree = {
 		
 		id = ITA_capo_supremo
 		icon = GFX_focus_ITA_capo_supremo
-		prerequisite = { focus = ITA_towards_a_greater_italy }
+		#prerequisite = { focus = ITA_towards_a_greater_italy }
 		prerequisite = { focus = ITA_devotion }
 		mutually_exclusive = { focus = ITA_heroes_of_the_nation }
-		x = -2
+		x = 1
 		y = 1
-		relative_position_id = ITA_towards_a_greater_italy
+		relative_position_id = ITA_devotion
 		cost = 10
 		available = {
 			has_country_leader = {
@@ -10634,7 +10645,7 @@ focus_tree = {
 		relative_position_id = ITA_convene_the_grand_council
 
 		allow_branch = {
-			always = no
+			#always = no
 			has_dlc = "By Blood Alone"
 			if = {
 				limit = {
@@ -10644,7 +10655,7 @@ focus_tree = {
 					}
 				}
 				NOT = { has_completed_focus = ITA_culto_del_duce }
-				NOT = { has_completed_focus = ITA_defy_the_duce }
+				#NOT = { has_completed_focus = ITA_defy_the_duce }
 			}
 		}
 
@@ -10654,10 +10665,10 @@ focus_tree = {
 		cost = 5
 		available = {
 			has_government = fascism
-			power_balance_value = {
-				id = ITA_power_balance
-				value < -0.09
-			}		
+			# power_balance_value = {
+			# 	id = ITA_power_balance
+			# 	value < -0.09
+			# }		
 		}
 
 		search_filters = {FOCUS_FILTER_BALANCE_OF_POWER}
@@ -10682,13 +10693,15 @@ focus_tree = {
 		prerequisite = { focus = ITA_depose_mussolini }
 		mutually_exclusive = { focus = ITA_dino_grandi_focus focus = ITA_monarchia_d_italia }
 		relative_position_id = ITA_depose_mussolini
-		x = -10
+		x = -5
 		y = 1
 
 		cost = 5
 		available = {
 			has_character = ITA_italo_balbo
 		}
+
+		
 
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH FOCUS_FILTER_STABILITY FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_BALANCE_OF_POWER}
 
@@ -10734,7 +10747,7 @@ focus_tree = {
 		prerequisite = { focus = ITA_depose_mussolini }
 		mutually_exclusive = { focus = ITA_italo_balbo_focus focus = ITA_monarchia_d_italia }
 		relative_position_id = ITA_depose_mussolini
-		x = 0
+		x = 5
 		y = 1
 
 		cost = 5
@@ -10948,7 +10961,7 @@ focus_tree = {
 		prerequisite = { focus = ITA_the_fate_of_mussolini }
 		mutually_exclusive = { focus = ITA_a_greater_purpose }
 		relative_position_id = ITA_the_fate_of_mussolini
-		x = -1
+		x = 0
 		y = 1
 
 		cost = 10
@@ -11025,6 +11038,10 @@ focus_tree = {
 		y = 1
 
 		cost = 10
+		#SPT change to block focuses
+		allow_branch = {
+			always = no
+		}
 		available = {
 			has_government = fascism
 			power_balance_value = {
@@ -11175,7 +11192,7 @@ focus_tree = {
 		x = -1
 		y = 2
 
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 		available = {
 			has_completed_focus = ITA_stop_the_squandering
 		}
@@ -11208,7 +11225,7 @@ focus_tree = {
 		y = 2		
 		relative_position_id = ITA_italo_balbo_focus
 
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 		available = {}		
 
 		search_filters = {FOCUS_FILTER_AIR_XP FOCUS_FILTER_INDUSTRY FOCUS_FILTER_BALANCE_OF_POWER}
@@ -11285,7 +11302,7 @@ focus_tree = {
 		x = 3
 		y = 2
 
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 		available = {
 			OR = {
 				any_controlled_state = {
@@ -11806,6 +11823,10 @@ focus_tree = {
 		y = 1
 
 		cost = 10
+		#SPT change to block focuses
+		allow_branch = {
+			always = no
+		}
 		available = {
 			is_subject = no
 			ENG = { 
@@ -11889,6 +11910,10 @@ focus_tree = {
 		y = 0
 
 		cost = 10
+		#SPT change to block focuses
+		allow_branch = {
+			always = no
+		}
 		available = {
 			is_subject = no
 			FRA = { 
@@ -12090,10 +12115,10 @@ focus_tree = {
 		prerequisite = { focus = ITA_dino_grandi_focus }
 		prerequisite = { focus = ITA_consolidate_power }
 		relative_position_id = ITA_dino_grandi_focus
-		x = -1
+		x = 0
 		y = 2
 
-		cost = 10
+		cost = 5 # SPT change 10 -> 5
 		available = {
 			power_balance_value = {
 				id = ITA_power_balance
@@ -12116,7 +12141,7 @@ focus_tree = {
 		prerequisite = { focus = ITA_reorganize_the_party }
 		prerequisite = { focus = ITA_purge_the_party }
 		relative_position_id = ITA_reorganize_the_party
-		x = 0
+		x = -1
 		y = 2
 
 		cost = 10
@@ -12176,10 +12201,10 @@ focus_tree = {
 
 		#icon = 
 		relative_position_id = ITA_reorganize_the_party
-		x = 2
+		x = 1
 		y = 1
 
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 		available = {}
 		
 
@@ -12201,7 +12226,7 @@ focus_tree = {
 		x = 0
 		y = 1
 
-		cost = 10
+		cost =5 #SPT change 10 -> 5
 		available = {}
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY}
@@ -12222,7 +12247,7 @@ focus_tree = {
 		prerequisite = { focus = ITA_meritocracy }
 		prerequisite = { focus = ITA_improve_the_industries }
 		relative_position_id = ITA_reorganize_the_party
-		x = 1
+		x = 0
 		y = 3
 
 		cost = 10
@@ -12359,6 +12384,12 @@ focus_tree = {
 		y = 1
 		relative_position_id = ITA_depose_mussolini
 		cost = 5
+
+		#SPT change to block focuses
+		allow_branch = {
+			always = no
+		}
+
 		available = {
 			neutrality > 0.25
 		}
@@ -14788,10 +14819,10 @@ focus_tree = {
 			}
 		}
 
-		x = 16
+		x = 29
 		y = 1
 		offset = {
-			x = 0
+			x = -14
 			y = 0
 			trigger = {
 				OR = {
