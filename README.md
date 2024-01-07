@@ -1,5 +1,11 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.8.5
+
+### Japan
+
+ - Nashin Ron Rapid Development spirits now last for 250 days, from 200
+
 ### 3.8.4
 
 ### General
