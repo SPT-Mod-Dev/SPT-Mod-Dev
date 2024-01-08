@@ -2,6 +2,10 @@
 
 ### 3.8.5
 
+### General
+
+- Spirit of the Academy "Meticolous Preparation" Planning bonus 7.5% -> 2.5%
+
 ### Japan
 
  - Nashin Ron Rapid Development spirits now last for 250 days, from 200
