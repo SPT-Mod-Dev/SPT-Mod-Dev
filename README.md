@@ -5,6 +5,9 @@
 ### Japan
 
  - Nashin Ron Rapid Development spirits now last for 250 days, from 200
+ - Decision "Ichi Go" available after 1 june 1939
+ - Spirit "Challange the Zaibazus" mililitary and civilian factory construction speed 12.5% -> 10%
+ 
 
 ### 3.8.4
 
