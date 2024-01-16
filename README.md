@@ -5,14 +5,18 @@
 ### General
 
 - Spirit of the Academy "Meticolous Preparation" Planning bonus 7.5% -> 2.5%
-- Added impassable terrain to papua and borneo
-- Added Bab-el-Mandeb Strait
+- Added impassable terrain to Papua and Borneo
+- Added Bab-el-Mandeb Strait (Yemen-Djibouti strait)
 
 ### Japan
 
  - Nashin Ron Rapid Development spirits now last for 250 days, from 200
  - Decision "Ichi Go" available after 1 june 1939
  - Spirit "Challange the Zaibazus" mililitary and civilian factory construction speed 12.5% -> 10%
+ - Focus "Long Term Planning" now grants +5% efficiency cap, from 10%
+ - Focus "The Zaibatsus" tooltip now displays all possible bonuses before choosing a path and shows only the selected path once completed
+ - Focus "Strike The Islands" now grants +15% naval invasion planning, from +20%
+ - "Bushido Spirit" trait now reduces Armor attack and defense, to prevent unintended leader choices
  
 
 ### 3.8.4
