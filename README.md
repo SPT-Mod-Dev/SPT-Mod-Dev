@@ -5,6 +5,8 @@
 ### General
 
 - Spirit of the Academy "Meticolous Preparation" Planning bonus 7.5% -> 2.5%
+- Added impassable terrain to papua and borneo
+- Added Bab-el-Mandeb Strait
 
 ### Japan
 
