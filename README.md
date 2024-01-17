@@ -3,10 +3,17 @@
 ### 3.8.5
 
 ### General
-
+- Integrated the Host Tool Mod 
 - Spirit of the Academy "Meticolous Preparation" Planning bonus 7.5% -> 2.5%
 - Added impassable terrain to Papua and Borneo
 - Added Bab-el-Mandeb Strait (Yemen-Djibouti strait)
+
+### Germany
+ - Removed the communist advisor
+
+### Soviet Union
+ - Removed the ability to fire the head of the NKVD
+ - Increased the consumer goods gained in "Third Five Year Plan" 2.5% -> 10%
 
 ### Japan
 
