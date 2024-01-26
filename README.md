@@ -1,5 +1,21 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.8.6
+
+### General
+- Fixed the special forces specilisation decision
+- Increased consumer goods from warbonds to 20%
+
+### United Kingdom
+- Re-added "Airborne Forces Depot" focus
+
+### Finland
+- Prevented them declaring on the Soviets when Germany does
+
+### Portugal
+- Disabled portugal from being able to send volunteers to the civil war
+
+
 ### 3.8.5
 
 ### General
