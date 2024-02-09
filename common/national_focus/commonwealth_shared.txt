@@ -53,21 +53,21 @@ shared_focus = {
 		}
 	}
 	offset = {
-		x = 35
+		x = 33
 		y = 0
 		trigger = {
 			has_focus_tree = new_zealander_focus
 		}
 	}
 	offset = {
-		x = 50
+		x = 46
 		y = 0
 		trigger = {
 			has_focus_tree = indian_focus
 		}
 	}
 	offset = {
-		x = 35
+		x = 33
 		y = 0
 		trigger = {
 			has_focus_tree = south_african_focus
@@ -280,7 +280,7 @@ joint_focus = {
 		focus = SPT_CW_plane_specialization
 	}
 
-	cost = 5
+	cost = 10
 
 	ai_will_do = {
 	}
@@ -309,7 +309,7 @@ joint_focus = {
 }
 joint_focus = {
 	id = SPT_CW_plane_specialization
-	icon = GFX_focus_NORDIC_dem_institution_1
+	icon = GFX_spt_CW_plane
 	text_icon = NORDIC_focus_style
 	x = 1
 	y = 1
@@ -321,7 +321,7 @@ joint_focus = {
 		focus = SPT_CW_paratrooper_specialization
 	}
 
-	cost = 5
+	cost = 10
 
 	ai_will_do = {
 	}
@@ -362,7 +362,7 @@ joint_focus = {
 		focus = SPT_CW_naval_bomber_focus
 	}
 
-	cost = 5
+	cost = 10
 
 	ai_will_do = {
 	}
@@ -396,7 +396,7 @@ joint_focus = {
 		focus = SPT_CW_naval_bomber_focus
 	}
 
-	cost = 5
+	cost = 10
 
 	ai_will_do = {
 	}
@@ -433,7 +433,7 @@ joint_focus = {
 		focus = SPT_CW_cas_focus
 	}
 
-	cost = 5
+	cost = 10
 
 	ai_will_do = {
 	}
@@ -488,7 +488,7 @@ joint_focus = {
 }
 joint_focus = {
 	id = SPT_CW_carrier_focus
-	icon = GFX_focus_NORDIC_dem_institution_1
+	icon = GFX_spt_CW_carrier
 	text_icon = NORDIC_focus_style
 	x = -2
 	y = 1
@@ -511,6 +511,9 @@ joint_focus = {
 				not = { has_idea = SPT_CW_specialized }	
 			}
 			has_idea = SPT_CW_allied_navy_ns_1
+			NOT = {
+				has_completed_focus = SPT_CW_escort_focus
+			}
 		}
 	}
 
@@ -613,13 +616,13 @@ joint_focus = {
 	prerequisite = {
 		focus = SPT_CW_dockyard_effort
 	}
-	cost = 5
+	cost = 10
 
 	ai_will_do = {
 	}
 
 	available = {
-		
+		has_idea = SPT_CW_allied_navy_ns_2_carrier
 	}
 
 	cancel_if_invalid = yes
@@ -635,7 +638,7 @@ joint_focus = {
 }
 joint_focus = {
 	id = SPT_CW_marine_focus
-	icon = GFX_focus_NORDIC_dem_institution_1
+	icon = GFX_spt_CW_marines
 	text_icon = NORDIC_focus_style
 	x = 2
 	y = 1
@@ -646,7 +649,7 @@ joint_focus = {
 	prerequisite = {
 		focus = SPT_CW_escort_focus
 	}
-	cost = 5
+	cost = 10
 
 	ai_will_do = {
 	}
@@ -675,7 +678,7 @@ joint_focus = {
 }
 shared_focus = {
 	id = SPT_CW_combined_offensives
-	icon = GFX_focus_NORDIC_dem_institution_1
+	icon = GFX_goal_generic_amphibious_assault
 	x = 4
 	y = 1
 	relative_position_id = SPT_CW_allied_navy
@@ -704,7 +707,7 @@ shared_focus = {
 }
 shared_focus = {
 	id = SPT_CW_joint_command
-	icon = GFX_focus_NORDIC_dem_institution_1
+	icon = GFX_focus_POL_complete_april_constitution
 	x = 0
 	y = 1
 	relative_position_id = SPT_CW_allied_army
@@ -732,7 +735,7 @@ shared_focus = {
 }
 shared_focus = {
 	id = SPT_CW_army_training
-	icon = GFX_focus_NORDIC_dem_institution_1
+	icon = GFX_focus_SWE_varnplikt
 	x = 0
 	y = 1
 	relative_position_id = SPT_CW_joint_command
@@ -760,7 +763,7 @@ shared_focus = {
 }
 joint_focus = {
 	id = SPT_CW_tank_specialization
-	icon = GFX_focus_NORDIC_dem_institution_1
+	icon = GFX_spt_CW_armor
 	text_icon = NORDIC_focus_style
 	x = -1
 	y = 1
@@ -768,7 +771,7 @@ joint_focus = {
 	prerequisite = {
 		focus = SPT_CW_army_training
 	}
-	cost = 5
+	cost = 10
 
 	ai_will_do = {
 	}
@@ -797,7 +800,7 @@ joint_focus = {
 }
 joint_focus = {
 	id = SPT_CW_amph_tank
-	icon = GFX_focus_NORDIC_dem_institution_1
+	icon = GFX_focus_ICE_the_viking_spirit
 	x = -2
 	y = 2
 	relative_position_id = SPT_CW_tank_specialization
@@ -816,7 +819,7 @@ joint_focus = {
 	mutually_exclusive = {
 		focus = SPT_CW_tank_production
 	}
-	cost = 5
+	cost = 10
 
 	ai_will_do = {
 	}
@@ -838,7 +841,7 @@ joint_focus = {
 }
 joint_focus = {
 	id = SPT_CW_tank_production
-	icon = GFX_focus_NORDIC_dem_institution_1
+	icon = GFX_focus_generic_tank_production
 	x = 0
 	y = 2
 	relative_position_id = SPT_CW_tank_specialization
@@ -851,7 +854,7 @@ joint_focus = {
 	mutually_exclusive = {
 		focus = SPT_CW_tank_destroyer
 	}
-	cost = 5
+	cost = 10
 
 	ai_will_do = {
 	}
@@ -873,7 +876,7 @@ joint_focus = {
 }
 joint_focus = {
 	id = SPT_CW_tank_destroyer
-	icon = GFX_focus_NORDIC_dem_institution_1
+	icon = GFX_focus_generic_army_tanks2
 	x = 2
 	y = 2
 	relative_position_id = SPT_CW_tank_specialization
@@ -886,7 +889,7 @@ joint_focus = {
 	mutually_exclusive = {
 		focus = SPT_CW_tank_production
 	}
-	cost = 5
+	cost = 10
 
 	ai_will_do = {
 	}
@@ -908,7 +911,7 @@ joint_focus = {
 }
 joint_focus = {
 	id = SPT_CW_mountaineer_focus
-	icon = GFX_focus_NORDIC_dem_institution_1
+	icon = GFX_spt_CW_mountain
 	text_icon = NORDIC_focus_style
 	x = 1
 	y = 1
@@ -916,7 +919,7 @@ joint_focus = {
 	prerequisite = {
 		focus = SPT_CW_army_training
 	}
-	cost = 5
+	cost = 10
 
 	ai_will_do = {
 	}
