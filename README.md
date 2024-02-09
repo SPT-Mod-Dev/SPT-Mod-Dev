@@ -1,5 +1,12 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.8.7
+
+### Mongolia
+Indipendent economy: Political power gain -0.1 -> -0.25
+Collectivized Economy: Tanks cost modifiers -10% -> 0
+                       Production efficiency cap 0% -> 10%
+                       
 ### 3.8.6
 
 ### General
