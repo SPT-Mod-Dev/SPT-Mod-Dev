@@ -3,6 +3,15 @@
 ### 3.8.6
 
 ### General
+
+ - Added new "Together For Victory" Joint Focus Tree for Commonwealth minors
+
+### UK
+ - Focus "Commonwealth Ties" time reduced to 35 days, from 70
+
+### 3.8.6
+
+### General
 - Fixed the special forces specilisation decision
 - Increased consumer goods from warbonds to 20%
 

@@ -180,7 +180,7 @@ shared_focus = {
 }
 shared_focus = {
 	id = SPT_CW_joint_air_training
-	icon = GFX_focus_NORDIC_dem_selector_airforce
+	icon = GFX_goal_generic_build_airforce
 	x = 0
 	y = 1
 	relative_position_id = SPT_CW_allied_air
@@ -304,6 +304,17 @@ joint_focus = {
 		}
 		hidden_effect = {
 			add_ideas = SPT_CW_specialized
+		}
+		if = {
+			limit = {
+				has_dlc = "Arms Against Tyranny"
+			}
+			add_doctrine_cost_reduction = {
+				name = SPT_CW_para_doctrine_boost
+				cost_reduction = 0.9
+				uses = 2
+				category = para_tech
+			}
 		}
 	}
 }
@@ -674,6 +685,17 @@ joint_focus = {
 		hidden_effect = {
 			add_ideas = SPT_CW_specialized
 		}
+		if = {
+			limit = {
+				has_dlc = "Arms Against Tyranny"
+			}
+			add_doctrine_cost_reduction = {
+				name = SPT_CW_marine_doctrine_boost
+				cost_reduction = 0.9
+				uses = 2
+				category = marine_tech
+			}
+		}
 	}
 }
 shared_focus = {
@@ -943,6 +965,17 @@ joint_focus = {
 		swap_ideas = {
 			remove_idea = SPT_CW_allied_army_ns_3
 			add_idea = SPT_CW_allied_army_ns_4_mount
+		}
+		if = {
+			limit = {
+				has_dlc = "Arms Against Tyranny"
+			}
+			add_doctrine_cost_reduction = {
+				name = SPT_CW_mount_doctrine_boost
+				cost_reduction = 0.9
+				uses = 2
+				category = mountaineers_tech
+			}
 		}
 	}
 }
