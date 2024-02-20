@@ -21,10 +21,319 @@ focus_tree = {
 	default = no
 
 	focus = {
+		id = GER_autarky
+		icon = GFX_focus_spa_the_spanish_miracle
+
+		x = 7
+		y = 0
+		
+		cost = 10
+		
+		ai_will_do = {
+			factor = 9
+		}
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			add_tech_bonus = {
+				name = GER_autarky
+				bonus = 1.0
+				uses = 2
+				category = industry
+			}
+
+			add_ideas = GER_autarky_idea
+		}
+	}
+	
+	focus = {
+		id = SPT_GER_three_year_plan
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = GER_autarky }
+		mutually_exclusive = { focus = GER_four_year_plan }
+		x = 6
+		y = 1
+		relative_position_id = GER_autarky
+		cost = 10
+		ai_will_do = {
+			factor = 12
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = GER_three_year_plan_idea
+				days = 360
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			
+			}
+		}
+	}
+	focus = {
+		id = SPT_GER_short_term_rearmament
+		icon = GFX_focus_generic_tank_production
+		prerequisite = { focus = SPT_GER_three_year_plan }
+		
+		x = 0
+		y = 1
+		relative_position_id = SPT_GER_three_year_plan
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+			add_timed_idea = {
+				idea = GER_arms_subsidies_program
+				days = 360
+			}
+
+			add_dynamic_modifier = {
+				modifier = GER_cannibalized_civilain_economy	
+			}
+			set_variable = {
+				GER_research_speed = -0.05
+			}
+			
+		}
+
+	}
+	focus = {
+		id = SPT_GER_Metallurgische_Forschungs
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = SPT_GER_short_term_rearmament }
+		x = 0
+		y = 1
+		relative_position_id = SPT_GER_short_term_rearmament
+		cost = 5
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+
+			add_to_variable = {
+				GER_CCE_consumer = 0.03
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+			random_owned_controlled_state = {
+				limit = { 
+					is_core_of = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+		}
+	}
+	focus = {
+		id = SPT_GER_Fund_the_Froriep_GmbH
+		icon = GFX_focus_secret_rearmament
+		prerequisite = { focus = SPT_GER_short_term_rearmament }
+		x = 2
+		y = 1
+		relative_position_id = SPT_GER_short_term_rearmament
+		cost = 5
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = infantry_weapons
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+		}
+	}
+	focus = {
+		id = SPT_GER_extend_the_arms_subisdies_program
+		icon = GFX_focus_SWI_issue_war_bonds
+		prerequisite = { focus = SPT_GER_Fund_the_Froriep_GmbH }
+		x = 0
+		y = 1
+		relative_position_id = SPT_GER_Fund_the_Froriep_GmbH
+		cost = 5
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			has_idea = GER_arms_subsidies_program			
+		
+		}
+		completion_reward = {
+			
+			if = {
+				limit = {
+					has_idea = general_staff
+					
+				}
+				
+				modify_timed_idea = {
+					idea = GER_arms_subsidies_program
+					days = 180
+				}
+			
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = artillery
+			}
+			
+			add_to_variable = {
+				GER_CCE_consumer = 0.03
+			}
+			add_to_variable = {
+				GER_civ_build_speed = -0.1
+			}
+			add_to_variable = {
+				GER_building_slots = -0.05
+			}
+		}
+	}
+	focus = {
+		id = SPT_GER_Nationalize_steel_producion
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = SPT_GER_Metallurgische_Forschungs }
+		x = 0
+		y = 1
+		relative_position_id = SPT_GER_Metallurgische_Forschungs
+		cost = 5
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+			random_owned_controlled_state = {
+				limit = { 
+					is_core_of = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+		}
+	}
+	focus = {
 		id = GER_four_year_plan
 		icon = GFX_goal_generic_construction
-		x = 6
-		y = 0
+		prerequisite = { focus = GER_autarky }
+		mutually_exclusive = { focus = SPT_GER_three_year_plan }
+		x = 0
+		y = 1
+		relative_position_id = GER_autarky
 		cost = 10
 		ai_will_do = {
 			factor = 12
@@ -35,7 +344,11 @@ focus_tree = {
 				name = GER_four_year_plan
 				bonus = 1.0
 				uses = 2
-				category = industry
+				technology = excavation1
+				technology = excavation2
+				technology = excavation3
+				technology = excavation4
+				technology = excavation5
 			}
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = hjalmar_schacht
@@ -46,11 +359,11 @@ focus_tree = {
 	focus = {
 		id = GER_west_wall
 		icon = GFX_goal_generic_construct_military
-		prerequisite = { focus = GER_four_year_plan }
-		x = -5
+		prerequisite = { focus = GER_autarky }
+		x = -6
 		y = 1
-		relative_position_id = GER_four_year_plan
-		cost = 10
+		relative_position_id = GER_autarky
+		cost = 5
 		ai_will_do = {
 			factor = 8
 		}
@@ -1144,42 +1457,32 @@ focus_tree = {
 		}
 	}
 
+
 	focus = {
-		id = GER_autarky
-		icon = GFX_focus_spa_the_spanish_miracle
+		id = GER_grosraumwirtschaft
+		icon = GFX_goal_generic_construct_infrastructure
 		prerequisite = { focus = GER_four_year_plan }
-		x = 4
+		x = 2
 		y = 1
 		relative_position_id = GER_four_year_plan
-		cost = 10
+		cost = 5
 		
 		ai_will_do = {
-			factor = 9
+			factor = 1
 		}
-		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			add_tech_bonus = {
-				name = GER_autarky
-				bonus = 1.0
-				uses = 2
-				technology = excavation1
-				technology = excavation2
-				technology = excavation3
-				technology = excavation4
-				technology = excavation5
-			}
-			add_ideas = GER_autarky_idea
+			add_ideas = GER_grosraumwirtschaft
 		}
 	}
-
 	focus = {
 		id = GER_hermann_goring_werke
 		icon = GFX_goal_generic_construct_civ_factory
 		dynamic = yes
-		prerequisite = { focus = GER_autarky }
-		x = 2
+		prerequisite = { focus = GER_grosraumwirtschaft }
+		x = 0
 		y = 1
-		relative_position_id = GER_autarky
+		relative_position_id = GER_grosraumwirtschaft
 		cost = 10
 		ai_will_do = {
 			factor = 9
@@ -1333,10 +1636,10 @@ focus_tree = {
 	focus = {
 		id = GER_coal_liquidization
 		icon = GFX_goal_generic_oil_refinery
-		prerequisite = { focus = GER_autarky }
-		x = 0
+		prerequisite = { focus = GER_grosraumwirtschaft focus = SPT_GER_short_term_rearmament}
+		x = 2
 		y = 1
-		relative_position_id = GER_autarky
+		relative_position_id = GER_grosraumwirtschaft
 		cost = 10
 		ai_will_do = {
 			factor = 4
@@ -1395,8 +1698,8 @@ focus_tree = {
 		id = GER_extra_tech_slot
 		icon = GFX_focus_research
 		text = extra_tech_slot
-		prerequisite = { focus = GER_kdf_wagen focus = GER_synthetic_rubber }
-		x = -1
+		prerequisite = { focus = GER_kdf_wagen focus = GER_synthetic_rubber focus = SPT_GER_Nationalize_steel_producion }
+		x = 2
 		y = 1
 		relative_position_id = GER_kdf_wagen
 		cost = 10
@@ -1414,10 +1717,10 @@ focus_tree = {
 	focus = {
 		id = GER_autobahn
 		icon = GFX_goal_generic_construct_infrastructure
-		prerequisite = { focus = GER_autarky }
+		prerequisite = { focus = GER_four_year_plan }
 		x = -2
 		y = 1
-		relative_position_id = GER_autarky
+		relative_position_id = GER_four_year_plan
 		cost = 10
 		ai_will_do = {
 			factor = 12
@@ -1479,15 +1782,35 @@ focus_tree = {
 			}		
 		}
 	}
+	focus = {
+		id = SPT_GER_Wiesprecheichaus
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = GER_grosraumwirtschaft }
+		
+		x = -2
+		y = 1
+		relative_position_id = GER_grosraumwirtschaft
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			swap_ideas =  {
+				remove_idea = GER_grosraumwirtschaft
+			  	add_idea = GER_grosraumwirtschaft2
+				}
+		}
+
+	}
 
 	focus = {
 		id = GER_german_war_economy
 		icon = GFX_goal_generic_construct_mil_factory
-		prerequisite = { focus = GER_autobahn }
+		prerequisite = { focus = SPT_GER_Wiesprecheichaus }
 		mutually_exclusive = { focus = GER_integrate_war_economies }
 		x = 0
 		y = 1
-		relative_position_id = GER_autobahn
+		relative_position_id = SPT_GER_Wiesprecheichaus
 		cost = 10
 		ai_will_do = {
 			factor = 1
@@ -1568,31 +1891,15 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = GER_grosraumwirtschaft
-		icon = GFX_goal_generic_construct_infrastructure
-		prerequisite = { focus = GER_four_year_plan }
-		x = 0
-		y = 1
-		relative_position_id = GER_four_year_plan
-		cost = 10
-		
-		ai_will_do = {
-			factor = 1
-		}
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-		completion_reward = {
-			add_ideas = GER_grosraumwirtschaft
-		}
-	}
+
 
 	focus = {
 		id = GER_align_hungary
 		icon = GFX_focus_hun_elect_a_king
-		prerequisite = { focus = GER_grosraumwirtschaft }
-		x = 0
+		prerequisite = { focus = GER_autobahn }
+		x = -0
 		y = 1
-		relative_position_id = GER_grosraumwirtschaft
+		relative_position_id = GER_autobahn
 		cost = 5 #SPTChange 10 -> 5
 		
 		ai_will_do = {
@@ -1653,10 +1960,10 @@ focus_tree = {
 	focus = {
 		id = GER_align_romania
 		icon = GFX_focus_invite_romania
-		prerequisite = { focus = GER_grosraumwirtschaft }
+		prerequisite = { focus = GER_autobahn }
 		x = -2
 		y = 1
-		relative_position_id = GER_grosraumwirtschaft
+		relative_position_id = GER_autobahn
 		cost = 5 #SPTChange 10 ->5
 		
 		ai_will_do = {
@@ -2030,7 +2337,7 @@ focus_tree = {
 		id = GER_air_innovation
 		text = air_innovation
 		icon = GFX_goal_generic_build_airforce
-		x = 16
+		x = 19
 		y = 0
 		cost = 10
 		ai_will_do = {
@@ -2263,7 +2570,7 @@ focus_tree = {
 	focus = {
 		id = GER_army_innovation
 		icon = GFX_goal_generic_axis_build_infantry
-		x = 19
+		x = 23
 		y = 0
 		cost = 10
 		ai_will_do = {
@@ -2458,7 +2765,7 @@ focus_tree = {
 		icon = GFX_goal_generic_air_fighter2
 		prerequisite = { focus = GER_strategic_air_effort focus = GER_tactical_air_effort focus = GER_soviet_treaty }
 		x = 0
-		y = 2
+		y = 3
 		relative_position_id = GER_strategic_air_effort
 		cost = 10
 		ai_will_do = {
@@ -2549,7 +2856,7 @@ focus_tree = {
 		icon = GFX_focus_rocketry
 		prerequisite = { focus = GER_extra_tech_slot }
 		prerequisite = { focus = GER_air_innovation_2 }
-		x = 2
+		x = 3
 		y = 1
 		relative_position_id = GER_extra_tech_slot
 		cost = 10
@@ -2580,7 +2887,7 @@ focus_tree = {
 		id = GER_wunderwaffe
 		icon = GFX_focus_wonderweapons
 		prerequisite = { focus = GER_rocketry_focus }
-		x = -2
+		x = -4
 		y = 2
 		relative_position_id = GER_air_innovation_2
 		cost = 10
@@ -2603,7 +2910,7 @@ focus_tree = {
 	
 	focus = { #should already be signed in 39
 		id = GER_mol_rib_pact
-		icon = GFX_spt_focus_molotov_rib
+		icon = GFX_focus_generic_polish_deal
 		prerequisite = { focus = GER_soviet_treaty }
 		mutually_exclusive = { focus = GER_anti_soviet_pact }
 		available = {
@@ -2739,9 +3046,9 @@ focus_tree = {
 
 	focus = {
 		id = GER_rhineland
-		icon = GFX_spt_focus_rhineland
+		icon = GFX_goal_rhineland
 		mutually_exclusive = { focus = GER_oppose_hitler }
-		x = 26
+		x = 30
 		y = 0
 		cost = 10
 		available = {
@@ -2771,72 +3078,6 @@ focus_tree = {
 				}
 			}
 		}		
-	}
-
-	focus = {
-		id = GER_swedish_trade_agreement
-		icon = GFX_goal_generic_major_alliance
-		prerequisite = { focus = GER_rhineland }
-		available = {
-			is_subject = no
-			AND = {
-				country_exists = SWE
-				SWE = { is_subject = no }
-				NOT = { has_war_with = SWE }
-				SWE = {
-					custom_trigger_tooltip = {
-						tooltip = GER_alone_or_peace_faction_tt
-						is_alone_or_in_faction_at_peace_with_GER = yes
-					}
-				}
-			}
-		}
-		x = 4
-
-		y = 1
-		relative_position_id = GER_rhineland
-		cost = 10
-		ai_will_do = {
-		}
-
-		available_if_capitulated = yes
-
-		completion_reward = {
-			SWE = {
-				country_event = { id = AAT_germany.1 hours = 5 random_hours = 5 }
-			}
-
-			custom_effect_tooltip = if_they_accept_tt
-			#SPTChange hid tooltip
-			#effect_tooltip = {
-			#	SWE = {
-			#		add_offsite_building = {
-			#			type = industrial_complex
-			#			level = 2
-			#		}
-			#
-			#		add_offsite_building = {
-			#			type = arms_factory
-			#			level = 1
-			#		}
-			#
-			#		add_timed_idea = {
-			#			idea = GER_german_swedish_trade_agreement
-			#			days = 480
-			#		}
-			#
-			#		give_resource_rights = {
-			#			receiver = ROOT 
-			#			state = 918 #Västerbotten 
-			#		}
-			#	}
-			#
-			#	add_opinion_modifier = {
-			#		target = SWE # target of the relation
-			#		modifier = GER_SWE_historic_trade_Partners
-			#	}
-			#}
-		}
 	}
 
 	focus = {
@@ -3227,7 +3468,7 @@ focus_tree = {
 
 	focus = {
 		id = GER_anschluss
-		icon = GFX_spt_focus_anschluss
+		icon = GFX_focus_generic_fascist_propaganda
 		prerequisite = { focus = GER_rhineland }
 		available_if_capitulated = no
 		available = {
@@ -3452,11 +3693,10 @@ focus_tree = {
 
 	focus = {
 		id = GER_demand_memel
-		icon = GFX_spt_focus_eastern_claims
+		icon = GFX_goal_generic_forceful_treaty
 		prerequisite = { focus = GER_anschluss }
 		available = { is_subject = no }
-		x = -4
-
+		x = 4
 		y = 1
 		relative_position_id = GER_anschluss
 		cost = 8 #SPTChange 10 -> 8
@@ -3496,9 +3736,8 @@ focus_tree = {
 
 	focus = {
 		id = GER_danzig_or_war
-		icon = GFX_spt_focus_danzig
+		icon = GFX_focus_POL_clamp_down_on_danzig
 		prerequisite = { focus = GER_demand_memel }
-		prerequisite = { focus = GER_mol_rib_pact }
 		mutually_exclusive = { focus = GER_danzig_vs_slovakia }
 		will_lead_to_war_with = POL
 		available = {
@@ -3513,7 +3752,6 @@ focus_tree = {
 					original_tag = POL
 				}
 			}
-			has_completed_focus = GER_mol_rib_pact #SPT change to require molotov-ribbentrop pact
 			OR = {
 				POL = {
 					has_civil_war = no
@@ -3554,7 +3792,7 @@ focus_tree = {
 			}
 		}
 		cancel_if_invalid = no
-		x = -1
+		x = 0
 		y = 1
 		relative_position_id = GER_demand_memel
 		cost = 1
@@ -3648,7 +3886,7 @@ focus_tree = {
 	
 	focus = {
 		id = GER_weserubung
-		icon = GFX_spt_focus_weserubung
+		icon = GFX_goal_generic_more_territorial_claims
 		prerequisite = { focus = GER_danzig_or_war }
 		mutually_exclusive = { focus = GER_denmark_friend }
 		will_lead_to_war_with = DEN 
@@ -3750,7 +3988,7 @@ focus_tree = {
 	
 	focus = {
 		id = GER_around_maginot
-		icon = GFX_spt_focus_around_maginot
+		icon = GFX_goal_generic_attack_allies
 		prerequisite = { focus = GER_danzig_or_war }
 		
 		available = {
@@ -3985,7 +4223,7 @@ focus_tree = {
 	
 	focus = {
 		id = GER_demand_sudetenland
-		icon = GFX_spt_focus_sudetenland
+		icon = GFX_goal_demand_sudetenland
 		prerequisite = { focus = GER_anschluss }
 		mutually_exclusive = { focus = GER_czech_friend }
 		will_lead_to_war_with = CZE
@@ -4015,7 +4253,7 @@ focus_tree = {
 			is_puppet = yes
 		}
 		cancel_if_invalid = yes
-		x = 3
+		x = -4
 		y = 1
 		relative_position_id = GER_anschluss
 		cost = 8 #SPTChange 10 -> 8
@@ -4170,7 +4408,7 @@ focus_tree = {
 
 	focus = {
 		id = GER_first_vienna_award
-		icon = GFX_spt_focus_first_vienna
+		icon = GFX_focus_hun_elect_a_king
 		prerequisite = { focus = GER_demand_sudetenland }
 		bypass = {
 			OR = {
@@ -4210,7 +4448,7 @@ focus_tree = {
 
 	focus = {
 		id = GER_end_of_czechoslovakia
-		icon = GFX_spt_focus_fate_of_czechs
+		icon = GFX_focus_generic_fascist_troops
 		prerequisite = { focus = GER_first_vienna_award }
 		available = { 
 			is_subject = no
@@ -4308,11 +4546,11 @@ focus_tree = {
 
 	focus = {
 		id = GER_second_vienna_award
-		icon = GFX_spt_focus_second_vienna
+		icon = GFX_focus_YUG_autonomous_transylvania
 		prerequisite = {focus = GER_end_of_czechoslovakia }
-		x = 0
-		y = 1
-		relative_position_id = GER_end_of_czechoslovakia
+		x = -1
+		y = 3
+		relative_position_id = GER_czech_friend
 		cost = 5 #SPTChange 10 -> 5
 		ai_will_do = {
 			factor = 10
@@ -4798,7 +5036,7 @@ focus_tree = {
 	focus = {
 		id = GER_naval_rearmament
 		icon = GFX_goal_generic_build_navy
-		x = 34
+		x = 38
 		y = 0
 		cost = 5
 		ai_will_do = {
@@ -9251,7 +9489,7 @@ focus_tree = {
 		x = 0
 		y = 1
 
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}

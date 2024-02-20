@@ -1212,7 +1212,10 @@ GER_military_buildup = {
 		icon = generic_air
 
 		available = {
-			has_war = yes
+			or = { 
+				has_war = yes
+				has_completed_focus = SPT_GER_short_term_rearmament #SPTchange
+			}
 			#SPTChange removed plane count checks
 			# AND = {
 			# 	has_deployed_air_force_size = {
