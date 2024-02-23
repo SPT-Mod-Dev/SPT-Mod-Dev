@@ -93,29 +93,14 @@ focus_tree = {
 		ai_will_do = {
 			factor = 1
 		}
+
 		completion_reward = {
 
 			add_timed_idea = {
 				idea = GER_arms_subsidies_program
-				days = 360
+				days = 365
 			}
-
-			add_dynamic_modifier = {
-				modifier = GER_cannibalized_civilain_economy	
-			}
-			set_variable = {
-				GER_research_speed = -0.05
-			}
-			set_variable = {
-				GER_CCE_consumer = 0.05
-			}
-			set_variable = {
-				SPT_GER_production_factory_max_efficiency_factor = -0.05
-			}
-			set_variable = {
-				GER_civ_build_speed = -0.05
-			}
-
+			add_ideas = GER_cannibalized_civilain_economy
 			
 		}
 
@@ -133,9 +118,7 @@ focus_tree = {
 		}
 		completion_reward = {
 
-			add_to_variable = {
-				GER_CCE_consumer = 0.03
-			}
+
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT
@@ -202,7 +185,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_tech_bonus = {
-				bonus = 0.5
+				bonus = 0.4
 				uses = 2
 				category = infantry_weapons
 			}
@@ -236,15 +219,11 @@ focus_tree = {
 		ai_will_do = {
 			factor = 10
 		}
-		available = {
-			has_idea = GER_arms_subsidies_program			
-		
-		}
 		completion_reward = {
 			
 			if = {
 				limit = {
-					has_idea = general_staff
+					has_idea = GER_arms_subsidies_program
 					
 				}
 				
@@ -254,22 +233,37 @@ focus_tree = {
 				}
 			
 			}
+			else = {
+				add_timed_idea = {
+					idea = GER_arms_subsidies_program
+					days = 180
+				}
+			}
+
+
 			add_tech_bonus = {
-				bonus = 0.5
+				bonus = 0.4
 				uses = 2
 				category = artillery
 			}
-			
-			add_to_variable = {
-				GER_CCE_consumer = 0.1
+			if = {
+				limit = {
+					has_idea = GER_cannibalized_civilain_economy_2
+				}
+				swap_ideas = {
+					remove_idea =GER_cannibalized_civilain_economy_2
+					add_idea = GER_cannibalized_civilain_economy_3
+				}
+
 			}
-			add_to_variable = {
-				GER_civ_build_speed = -0.05
-			}
-			set_variable = {
-				SPT_GER_production_factory_efficiency_gain_factor = -0.075
+			else = {
+				swap_ideas = {
+					remove_idea =GER_cannibalized_civilain_economy
+					add_idea = GER_cannibalized_civilain_economy_2
+				}
 			}
 
+			
 		}
 	}
 	focus = {
@@ -284,6 +278,22 @@ focus_tree = {
 			factor = 10
 		}
 		completion_reward = {
+			if = {
+				limit = {
+					has_idea = GER_cannibalized_civilain_economy_2
+				}
+				swap_ideas = {
+					remove_idea =GER_cannibalized_civilain_economy_2
+					add_idea = GER_cannibalized_civilain_economy_3
+				}
+
+			}
+			else = {
+				swap_ideas = {
+					remove_idea =GER_cannibalized_civilain_economy
+					add_idea = GER_cannibalized_civilain_economy_2
+				}
+			}
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT
@@ -1817,11 +1827,11 @@ focus_tree = {
 	focus = {
 		id = GER_german_war_economy
 		icon = GFX_goal_generic_construct_mil_factory
-		prerequisite = { focus = SPT_GER_Wiesprecheichaus }
-		mutually_exclusive = { focus = GER_integrate_war_economies }
-		x = 0
+		prerequisite = { focus = SPT_GER_Nationalize_steel_producion }
+		prerequisite = { focus = SPT_GER_extend_the_arms_subisdies_program }
+		x = 1
 		y = 1
-		relative_position_id = SPT_GER_Wiesprecheichaus
+		relative_position_id = SPT_GER_Nationalize_steel_producion
 		cost = 10
 		ai_will_do = {
 			factor = 1
@@ -2037,7 +2047,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_merge_plants
 		prerequisite = { focus = GER_align_hungary }
 		prerequisite = { focus = GER_align_romania }
-		mutually_exclusive = { focus = GER_german_war_economy }
+		prerequisite = { focus = SPT_GER_Wiesprecheichaus }
 		x = 0
 		y = 1
 		relative_position_id = GER_align_hungary
@@ -3387,6 +3397,7 @@ focus = {
 	
 	available = {
 		is_subject = no
+		date > 1941.6.1
 	}
 	x = 0
 	y = 1
@@ -3424,7 +3435,7 @@ focus = {
 		modifier = {
 			factor = 0
 			is_historical_focus_on = yes
-			date < 1939.1.1
+			date < 1941.6.1
 		}
 	}	
 	completion_reward = {
@@ -3821,6 +3832,7 @@ focus = {
 	mutually_exclusive = { focus = GER_danzig_vs_slovakia }
 	will_lead_to_war_with = POL
 	available = {
+		date > 1939.1.1
 		is_subject = no
 		has_army_manpower = { size > 949999 } #100 div			
 		#Make custom trigger tooltip here
@@ -3832,7 +3844,7 @@ focus = {
 				original_tag = POL
 			}
 		}
-		has_completed_focus = GER_mol_rib_pact #SPT change to require molotov-ribbentrop pact
+		
 		OR = {
 			POL = {
 				has_civil_war = no
