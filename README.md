@@ -17,6 +17,11 @@
 ### USA
  - Focus "Subsidies For The Farmers" consumergoods -5% -> -10%
 
+### Mongolia
+Indipendent economy: Political power gain -0.1 -> -0.25
+Collectivized Economy: Tanks cost modifiers -10% -> 0
+                       Production efficiency cap 0% -> 10%
+
 ### Army high command 
 (Lowered to balance for extra experiance gained from the shared commonwealth focus tree)
  - Relief of Command Army Experience 25% -> 15%
