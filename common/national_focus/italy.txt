@@ -8987,21 +8987,17 @@ focus_tree = {
 		relative_position_id = ITA_culto_del_duce
 		cost = 5
 		available = {
-			has_country_leader = {
-				character = ITA_benito_mussolini
-				ruling_only = yes
-			}
-			if = {
-				limit = {
-					NOT = {has_war_with = ENG}
+			AND = {
+				has_country_leader = {
+					character = ITA_benito_mussolini
+					ruling_only = yes
 				}
-				power_balance_value = {
-					id = ITA_power_balance
-					value > 0.499
-				}
-				custom_trigger_tooltip = {
-					tooltip = "Requires 50+ value towards Mussolini in the Balance of Power"
-					always = yes
+				OR = {
+					has_war_with = ENG
+					power_balance_value = {
+						id = ITA_power_balance
+						value > 0.499
+					}
 				}
 			}
 			
@@ -9075,9 +9071,12 @@ focus_tree = {
 		relative_position_id = ITA_the_man_of_providence
 		cost = 5
 		available = {
-			power_balance_value = {
-				id = ITA_power_balance
-				value > 0.699
+			OR = {
+				has_war_with = ENG
+				power_balance_value = {
+					id = ITA_power_balance
+					value > 0.699
+				}
 			}
 		}
 
@@ -9110,13 +9109,18 @@ focus_tree = {
 		relative_position_id = ITA_boost_the_grand_council_of_fascism
 		cost = 5
 		available = {
-			has_country_leader = {
-				character = ITA_benito_mussolini
-				ruling_only = yes
-			}
-			power_balance_value = {
-				id = ITA_power_balance
-				value > 0.649
+			AND = {
+				has_country_leader = {
+					character = ITA_benito_mussolini
+					ruling_only = yes
+				}
+				OR = {
+					has_war_with = ENG
+					power_balance_value = {
+						id = ITA_power_balance
+						value > 0.649
+					}
+				}
 			}
 		}
 
@@ -10914,12 +10918,14 @@ focus_tree = {
 
 		cost = 5
 		available = {
-			power_balance_value = {
-				id = ITA_power_balance
-				value > 0.14
+			OR = {
+				has_war_with = ENG
+				power_balance_value = {
+					id = ITA_power_balance
+					value > 0.14
+				}
 			}
 		}
-		
 
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_BALANCE_OF_POWER}
 
@@ -10940,9 +10946,12 @@ focus_tree = {
 
 		cost = 5
 		available = {
-			power_balance_value = {
-				id = ITA_power_balance
-				value > 0.29
+			OR = {
+				has_war_with = ENG
+				power_balance_value = {
+					id = ITA_power_balance
+					value > 0.29
+				}
 			}
 		}
 		
@@ -10966,10 +10975,15 @@ focus_tree = {
 
 		cost = 10
 		available = {
+			AND = {
 			has_government = fascism
-			power_balance_value = {
-				id = ITA_power_balance
-				value > 0.6
+				OR = {
+					has_war_with = ENG
+					power_balance_value = {
+						id = ITA_power_balance
+						value > 0.6
+					}
+				}
 			}
 		}
 		
@@ -12120,9 +12134,12 @@ focus_tree = {
 
 		cost = 5 # SPT change 10 -> 5
 		available = {
-			power_balance_value = {
-				id = ITA_power_balance
-				value > 0.04
+			OR = {
+				has_war_with = ENG
+				power_balance_value = {
+					id = ITA_power_balance
+					value > 0.04
+				}
 			}
 		}
 		
@@ -12146,10 +12163,13 @@ focus_tree = {
 
 		cost = 10
 		available = {
-			power_balance_value = {
-				id = ITA_power_balance
-				value > 0.14
-			}
+			OR = {
+				has_war_with = ENG
+				power_balance_value = {
+					id = ITA_power_balance
+					value > 0.14
+				}
+			}	
 		}
 		
 		search_filters = {FOCUS_FILTER_RESEARCH FOCUS_FILTER_POLITICAL FOCUS_FILTER_BALANCE_OF_POWER}
