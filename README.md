@@ -1,5 +1,38 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+
+### 3.9.0 
+
+### Commonwealth
+ - Added new shared tree, unlocks once UK completes "Commonwealth Ties"
+
+### Germany
+ - Reworked industry path to allow for early war path
+ - Focus "Short Term Rearmament" allows for Jaegernotprogramm decision 
+ - Jaegernotprogramm war support -5% -> -10%
+                     Decision active time 360 -> 180 days
+
+### UK
+ - Focuses "Develop the Raj", "Indian Autonomy", "Development in Canada", "Development in Australia", "Develop South Africa" focus time 70 day -> 56 days
+  - Focus "Commonwealth Ties" -70 days -> 35 days
+
+### USA
+ - Focus "Subsidies For The Farmers" consumer goods -5% -> -10%
+
+### Mongolia
+ - Independent economy: Political power gain -0.1 -> -0.25
+ - Collectivized Economy: Tanks cost modifiers -10% -> 0
+                       Production efficiency cap 0% -> 10%
+
+### Italy
+ - Focuses that require Politcal BOP now available after Mediterranean BOP activates
+
+### Army high command 
+(Lowered to balance for extra experience gained from the shared commonwealth focus tree)
+ - Relief of Command Army Experience 25% -> 15%
+             Army Advisor Cost -50% -> 25%
+
+=======
 ### 3.8.7
 
 ### Mongolia
@@ -15,6 +48,7 @@ Collectivized Economy: Tanks cost modifiers -10% -> 0
 
 ### UK
  - Focus "Commonwealth Ties" time reduced to 35 days, from 70
+
 
 ### 3.8.6
 
