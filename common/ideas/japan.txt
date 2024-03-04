@@ -1,5 +1,56 @@
 ideas = {
 
+	hidden_ideas = {
+		SPT_JAP_zaibatsu_guide_chosen = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				
+			}
+		}
+		SPT_JAP_zaibatsu_empower_chosen = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				
+			}
+		}
+		SPT_JAP_zaibatsu_challenge_chosen = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				
+			}
+		}
+		SPT_JAP_zaibatsu_nationalize_chosen = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				
+			}
+		}
+	}
+
 	country = {
 	
 	
@@ -23,7 +74,7 @@ ideas = {
 				#SPTChange
 				army_core_attack_factor = 0.2
 				army_core_defence_factor = 0.2
-				industrial_capacity_factory = 0.2
+				industrial_capacity_factory = 0.1
 			}
 		}
 	
@@ -221,12 +272,16 @@ ideas = {
 			modifier = {
 				#SPT change, rebalanced to become an upgrade to JAP_zaibatsus_challenged
 				stability_factor = -0.1
-				production_speed_industrial_complex_factor = 0.125
-				production_speed_arms_factory_factor = 0.125
+				production_speed_industrial_complex_factor = 0.1
+				production_speed_arms_factory_factor = 0.1
 				production_speed_dockyard_factor = 0.15
 				production_factory_max_efficiency_factor = 0.1
 				production_factory_efficiency_gain_factor = -0.1
 				consumer_goods_factor = 0.05
+				tank_manufacturer_cost_factor = -0.25
+				aircraft_manufacturer_cost_factor = -0.25
+				naval_manufacturer_cost_factor = -0.25
+				materiel_manufacturer_cost_factor = -0.25
 			}
 		}
 
@@ -271,13 +326,21 @@ ideas = {
 			picture = jap_zaibatsu_ally
 			
 			modifier = {
-				political_power_cost = 0.5
+				#SPT change to rebalance Empower the Zaibatsus to become an upgrade to Guide The Zaibatsus
+				political_power_cost = 0.3
 				trade_laws_cost_factor = 0.25
 				economy_cost_factor = 0.25
+				tank_manufacturer_cost_factor = 0.15
+				aircraft_manufacturer_cost_factor = 0.15
+				naval_manufacturer_cost_factor = 0.15
+				materiel_manufacturer_cost_factor = 0.15
 				production_speed_industrial_complex_factor = 0.10
 				production_speed_arms_factory_factor = 0.10
-				production_speed_dockyard_factor = 0.10
-				consumer_goods_factor = 0.1
+				production_speed_dockyard_factor = 0.05
+				industrial_capacity_factory = 0.05
+				industrial_capacity_dockyard = 0.1
+				production_speed_buildings_factor = 0.05
+				consumer_goods_factor = 0.15
 			}
 		}
 
@@ -298,10 +361,14 @@ ideas = {
 			modifier = {
 				#SPT change, rebalanced for more construction speed,less consumer goods, and more stability loss
 				stability_factor = -0.1 
-				production_speed_industrial_complex_factor = 0.125
-				production_speed_arms_factory_factor = 0.125
+				production_speed_industrial_complex_factor = 0.1
+				production_speed_arms_factory_factor = 0.1
 				production_speed_dockyard_factor = 0.15
 				consumer_goods_factor = 0.05
+				tank_manufacturer_cost_factor = -0.1
+				aircraft_manufacturer_cost_factor = -0.1
+				naval_manufacturer_cost_factor = -0.1
+				materiel_manufacturer_cost_factor = -0.1
 			}
 		}
 
@@ -717,6 +784,8 @@ ideas = {
 				army_org_Factor = 0.05 #added org buff
 				#army_attack_factor = 0.05
 				army_morale_factor = 0.05
+				#SPT change added land doctrine cost reduction
+				land_doctrine_cost_factor = -0.05
 			}
 		}
 
@@ -761,41 +830,41 @@ ideas = {
 				defense_bonus_against = -0.05
 			}
 
-			targeted_modifier = {
-				tag = PRC
-				attack_bonus_against = -0.1
-				defense_bonus_against = -0.05
-			}
+			# targeted_modifier = {
+			# 	tag = PRC
+			# 	attack_bonus_against = -0.1
+			# 	defense_bonus_against = -0.05
+			# }
 
-			targeted_modifier = {
-				tag = SHX
-				attack_bonus_against = -0.1
-				defense_bonus_against = -0.05
-			}
+			# targeted_modifier = {
+			# 	tag = SHX
+			# 	attack_bonus_against = -0.1
+			# 	defense_bonus_against = -0.05
+			# }
 
-			targeted_modifier = {
-				tag = XSM
-				attack_bonus_against = -0.1
-				defense_bonus_against = -0.05
-			}
+			# targeted_modifier = {
+			# 	tag = XSM
+			# 	attack_bonus_against = -0.1
+			# 	defense_bonus_against = -0.05
+			# }
 
-			targeted_modifier = {
-				tag = YUN
-				attack_bonus_against = -0.1
-				defense_bonus_against = -0.05
-			}
+			# targeted_modifier = {
+			# 	tag = YUN
+			# 	attack_bonus_against = -0.1
+			# 	defense_bonus_against = -0.05
+			# }
 
-			targeted_modifier = {
-				tag = GXC
-				attack_bonus_against = -0.1
-				defense_bonus_against = -0.05
-			}
+			# targeted_modifier = {
+			# 	tag = GXC
+			# 	attack_bonus_against = -0.1
+			# 	defense_bonus_against = -0.05
+			# }
 
-			targeted_modifier = {
-				tag = SIK
-				attack_bonus_against = -0.1
-				defense_bonus_against = -0.05
-			}
+			# targeted_modifier = {
+			# 	tag = SIK
+			# 	attack_bonus_against = -0.1
+			# 	defense_bonus_against = -0.05
+			# }
 		}
 
 		JAP_intervene_in_china_2 = {
@@ -820,41 +889,41 @@ ideas = {
 				defense_bonus_against = -0.10
 			}
 
-			targeted_modifier = {
-				tag = PRC
-				attack_bonus_against = -0.2
-				defense_bonus_against = -0.10
-			}
+			# targeted_modifier = {
+			# 	tag = PRC
+			# 	attack_bonus_against = -0.2
+			# 	defense_bonus_against = -0.10
+			# }
 
-			targeted_modifier = {
-				tag = SHX
-				attack_bonus_against = -0.2
-				defense_bonus_against = -0.10
-			}
+			# targeted_modifier = {
+			# 	tag = SHX
+			# 	attack_bonus_against = -0.2
+			# 	defense_bonus_against = -0.10
+			# }
 
-			targeted_modifier = {
-				tag = XSM
-				attack_bonus_against = -0.2
-				defense_bonus_against = -0.10
-			}
+			# targeted_modifier = {
+			# 	tag = XSM
+			# 	attack_bonus_against = -0.2
+			# 	defense_bonus_against = -0.10
+			# }
 
-			targeted_modifier = {
-				tag = YUN
-				attack_bonus_against = -0.2
-				defense_bonus_against = -0.10
-			}
+			# targeted_modifier = {
+			# 	tag = YUN
+			# 	attack_bonus_against = -0.2
+			# 	defense_bonus_against = -0.10
+			# }
 
-			targeted_modifier = {
-				tag = GXC
-				attack_bonus_against = -0.2
-				defense_bonus_against = -0.10
-			}
+			# targeted_modifier = {
+			# 	tag = GXC
+			# 	attack_bonus_against = -0.2
+			# 	defense_bonus_against = -0.10
+			# }
 
-			targeted_modifier = {
-				tag = SIK
-				attack_bonus_against = -0.2
-				defense_bonus_against = -0.1
-			}
+			# targeted_modifier = {
+			# 	tag = SIK
+			# 	attack_bonus_against = -0.2
+			# 	defense_bonus_against = -0.1
+			# }
 		}
 
 		JAP_intervene_in_china_3 = {
@@ -879,41 +948,41 @@ ideas = {
 				defense_bonus_against = -0.15
 			}
 
-			targeted_modifier = {
-				tag = PRC
-				attack_bonus_against = -0.3
-				defense_bonus_against = -0.15
-			}
+			# targeted_modifier = {
+			# 	tag = PRC
+			# 	attack_bonus_against = -0.3
+			# 	defense_bonus_against = -0.15
+			# }
 
-			targeted_modifier = {
-				tag = SHX
-				attack_bonus_against = -0.3
-				defense_bonus_against = -0.15
-			}
+			# targeted_modifier = {
+			# 	tag = SHX
+			# 	attack_bonus_against = -0.3
+			# 	defense_bonus_against = -0.15
+			# }
 
-			targeted_modifier = {
-				tag = XSM
-				attack_bonus_against = -0.3
-				defense_bonus_against = -0.15
-			}
+			# targeted_modifier = {
+			# 	tag = XSM
+			# 	attack_bonus_against = -0.3
+			# 	defense_bonus_against = -0.15
+			# }
 
-			targeted_modifier = {
-				tag = YUN
-				attack_bonus_against = -0.3
-				defense_bonus_against = -0.15
-			}
+			# targeted_modifier = {
+			# 	tag = YUN
+			# 	attack_bonus_against = -0.3
+			# 	defense_bonus_against = -0.15
+			# }
 
-			targeted_modifier = {
-				tag = GXC
-				attack_bonus_against = -0.3
-				defense_bonus_against = -0.15
-			}
+			# targeted_modifier = {
+			# 	tag = GXC
+			# 	attack_bonus_against = -0.3
+			# 	defense_bonus_against = -0.15
+			# }
 
-			targeted_modifier = {
-				tag = SIK
-				attack_bonus_against = -0.3
-				defense_bonus_against = -0.15
-			}
+			# targeted_modifier = {
+			# 	tag = SIK
+			# 	attack_bonus_against = -0.3
+			# 	defense_bonus_against = -0.15
+			# }
 		}
 
 		JAP_intervene_in_china_4 = {
@@ -938,41 +1007,41 @@ ideas = {
 				defense_bonus_against = -0.20
 			}
 
-			targeted_modifier = {
-				tag = PRC
-				attack_bonus_against = -0.4
-				defense_bonus_against = -0.20
-			}
+			# targeted_modifier = {
+			# 	tag = PRC
+			# 	attack_bonus_against = -0.4
+			# 	defense_bonus_against = -0.20
+			# }
 
-			targeted_modifier = {
-				tag = SHX
-				attack_bonus_against = -0.4
-				defense_bonus_against = -0.20
-			}
+			# targeted_modifier = {
+			# 	tag = SHX
+			# 	attack_bonus_against = -0.4
+			# 	defense_bonus_against = -0.20
+			# }
 
-			targeted_modifier = {
-				tag = XSM
-				attack_bonus_against = -0.4
-				defense_bonus_against = -0.20
-			}
+			# targeted_modifier = {
+			# 	tag = XSM
+			# 	attack_bonus_against = -0.4
+			# 	defense_bonus_against = -0.20
+			# }
 
-			targeted_modifier = {
-				tag = YUN
-				attack_bonus_against = -0.4
-				defense_bonus_against = -0.20
-			}
+			# targeted_modifier = {
+			# 	tag = YUN
+			# 	attack_bonus_against = -0.4
+			# 	defense_bonus_against = -0.20
+			# }
 
-			targeted_modifier = {
-				tag = GXC
-				attack_bonus_against = -0.4
-				defense_bonus_against = -0.20
-			}
+			# targeted_modifier = {
+			# 	tag = GXC
+			# 	attack_bonus_against = -0.4
+			# 	defense_bonus_against = -0.20
+			# }
 
-			targeted_modifier = {
-				tag = SIK
-				attack_bonus_against = -0.4
-				defense_bonus_against = -0.2
-			}
+			# targeted_modifier = {
+			# 	tag = SIK
+			# 	attack_bonus_against = -0.4
+			# 	defense_bonus_against = -0.2
+			# }
 		}
 
 		JAP_intervene_in_china_5 = {
@@ -997,41 +1066,41 @@ ideas = {
 				defense_bonus_against = -0.25
 			}
 
-			targeted_modifier = {
-				tag = PRC
-				attack_bonus_against = -0.5
-				defense_bonus_against = -0.25
-			}
+			# targeted_modifier = {
+			# 	tag = PRC
+			# 	attack_bonus_against = -0.5
+			# 	defense_bonus_against = -0.25
+			# }
 
-			targeted_modifier = {
-				tag = SHX
-				attack_bonus_against = -0.5
-				defense_bonus_against = -0.25
-			}
+			# targeted_modifier = {
+			# 	tag = SHX
+			# 	attack_bonus_against = -0.5
+			# 	defense_bonus_against = -0.25
+			# }
 
-			targeted_modifier = {
-				tag = XSM
-				attack_bonus_against = -0.5
-				defense_bonus_against = -0.25
-			}
+			# targeted_modifier = {
+			# 	tag = XSM
+			# 	attack_bonus_against = -0.5
+			# 	defense_bonus_against = -0.25
+			# }
 
-			targeted_modifier = {
-				tag = YUN
-				attack_bonus_against = -0.5
-				defense_bonus_against = -0.25
-			}
+			# targeted_modifier = {
+			# 	tag = YUN
+			# 	attack_bonus_against = -0.5
+			# 	defense_bonus_against = -0.25
+			# }
 
-			targeted_modifier = {
-				tag = GXC
-				attack_bonus_against = -0.5
-				defense_bonus_against = -0.25
-			}
+			# targeted_modifier = {
+			# 	tag = GXC
+			# 	attack_bonus_against = -0.5
+			# 	defense_bonus_against = -0.25
+			# }
 
-			targeted_modifier = {
-				tag = SIK
-				attack_bonus_against = -0.5
-				defense_bonus_against = -0.25
-			}
+			# targeted_modifier = {
+			# 	tag = SIK
+			# 	attack_bonus_against = -0.5
+			# 	defense_bonus_against = -0.25
+			# }
 		}
 
 		JAP_ichi_go = {		
@@ -1054,41 +1123,41 @@ ideas = {
 				defense_bonus_against = 0.05
 			}
 
-			targeted_modifier = {
-				tag = PRC
-				attack_bonus_against = 0.2
-				defense_bonus_against = 0.05
-			}
+			# targeted_modifier = {
+			# 	tag = PRC
+			# 	attack_bonus_against = 0.2
+			# 	defense_bonus_against = 0.05
+			# }
 
-			targeted_modifier = {
-				tag = SHX
-				attack_bonus_against = 0.2
-				defense_bonus_against = 0.05
-			}
+			# targeted_modifier = {
+			# 	tag = SHX
+			# 	attack_bonus_against = 0.2
+			# 	defense_bonus_against = 0.05
+			# }
 
-			targeted_modifier = {
-				tag = XSM
-				attack_bonus_against = 0.2
-				defense_bonus_against = 0.05
-			}
+			# targeted_modifier = {
+			# 	tag = XSM
+			# 	attack_bonus_against = 0.2
+			# 	defense_bonus_against = 0.05
+			# }
 
-			targeted_modifier = {
-				tag = YUN
-				attack_bonus_against = 0.2
-				defense_bonus_against = 0.05
-			}
+			# targeted_modifier = {
+			# 	tag = YUN
+			# 	attack_bonus_against = 0.2
+			# 	defense_bonus_against = 0.05
+			# }
 
-			targeted_modifier = {
-				tag = GXC
-				attack_bonus_against = 0.2
-				defense_bonus_against = 0.05
-			}
+			# targeted_modifier = {
+			# 	tag = GXC
+			# 	attack_bonus_against = 0.2
+			# 	defense_bonus_against = 0.05
+			# }
 
-			targeted_modifier = {
-				tag = SIK
-				attack_bonus_against = 0.2
-				defense_bonus_against = 0.05
-			}
+			# targeted_modifier = {
+			# 	tag = SIK
+			# 	attack_bonus_against = 0.2
+			# 	defense_bonus_against = 0.05
+			# }
 		}
 
 		JAP_the_london_naval_treaty = {
@@ -1603,6 +1672,7 @@ ideas = {
 				army_org_Factor = 0.05
 				army_morale_factor = 0.15
 				weekly_casualties_war_support = 0.001
+				land_doctrine_cost_factor = -0.05
 			}
 		}
 
@@ -1700,8 +1770,8 @@ ideas = {
 			picture = generic_economic_increase
 
 			modifier = {
-				non_core_manpower = -0.15
-				local_resources_factor = 0.10
+				non_core_manpower = -0.2
+				local_resources_factor = 0.15
 				production_speed_infrastructure_factor = 0.1
 				production_speed_rail_way_factor = 0.3
 				industrial_capacity_factory = 0.05

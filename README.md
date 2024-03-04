@@ -1,9 +1,99 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.8.5
+
+### General
+
+- Spirit of the Academy "Meticolous Preparation" Planning bonus 7.5% -> 2.5%
+- Added impassable terrain to Papua and Borneo
+- Added Bab-el-Mandeb Strait (Yemen-Djibouti strait)
+
+### Japan
+
+ - Nashin Ron Rapid Development spirits now last for 250 days, from 200
+ - Decision "Ichi Go" available after 1 june 1939
+ - Spirit "Challange the Zaibazus" mililitary and civilian factory construction speed 12.5% -> 10%
+ - Focus "Long Term Planning" now grants +5% efficiency cap, from 10%
+ - Focus "The Zaibatsus" tooltip now displays all possible bonuses before choosing a path and shows only the selected path once completed
+ - Focus "Strike The Islands" now grants +15% naval invasion planning, from +20%
+ - "Bushido Spirit" trait now reduces Armor attack and defense, to prevent unintended leader choices
+ 
+
+### 3.8.4
+
+### General
+
+ - Added 2 new straits: Strait of Malacca and Sunda Strait
+
+ ### Italy
+  - Balbo and Grandi are now available leaders
+
+### 3.8.3
+
+### General
+ - Changed in game speed to reflect old speed (games will now be played in 3/4 speed instead of 2/3)
+
+### Rule Change
+ - Changed War Rule 9 to not include support companies
+
+### India
+ - Focus "Assam Oil" increased oil resources 3 -> 10 oil
+ - Focus "Integrate Princley Railways" focus time 35 -> 70 days
+ - Focus "Strengthen Ties With British Investors" Autonomy value 150 -> 100
+ - Focus "British Rail Investors" Autonomy value -250 -> -200
+ - Focus "British Arms Investors" Autonomy value -250 -> -200
+ - Focus "Imperial Service Troops" Autonomy value -50 -> +50
+ 
+
+### 3.8.2
+
+
+### General
+ - Guerilla Tactics tactic now grants -50% attacker damage, from -70%
+ - Guerilla Tactics tactic now grants -40% attacker damage, from -60%
+
+### Rule Change
+- Changed Spain rule 3 to "May join the Axis ONLY if French West Africa is under Axis control."
+
+### Tank designer
+- Modern and superheavy tanks can now use their correct turrets and cannon
+
+### Mongolia
+ - Spirit "Build an Independent Economy" all tank production now -15% (down from 15/20/25 for light/mediums/heavies)
+ - Spirit "The Flying Circus" Special forces defence and attack +25% -> +10%
+                              Encirclement penalty +25% -> 15%
+
+
+### 3.8.1
+### Australia
+ - Expand the northern railway now takes 35 days, from 70
+
+### Soviet Union
+ - War support from "Turkey Seizes Control Over the Bosporus" 10% -> 5%
+
+### Manchukuo
+ - Focus "From Mountaineer regiments": Removed special mountaineer buff
+                                       Added 4 75% special forces doctrine cost reductions
+ - Clarified Big/Small Manchu event
+
+### MIO
+ - Made Vickers-Armstrong available for all commonwealth nations
+ - Vickers-Armstrong: "Expand production facilities" production effeciency cap and efficiency gain 10% -> 5%
+ - Infantry tank designer: "Production Division" production efficiency gain 10% -> 5%
+                           "Modular Construction" production efficiency gain and efficiency cap 10% -> 5%
+ - Standardized Prodction: "Standardized Components" production efficiency gain 15% -> 5%
+ - Halved all Air Mio effects of "Light aircraft manufacturer", "CAS aircraft manufacturer", "High Agility Fighter Aircraft manufacturer" and "Range Focused Aircraft Manufacturer"
+
 ### 3.8.0
 
 #### General
+ - Updated to work with AAT
  - Advisors updated to match new AAT consumer goods rework
+ - Disabled International Market for all countries
+ - Disabled the special forces tech "Combat Insertion"
+
+#### Finland
+ - (Temporarily) Reverted Finland back to vanilla and remove them as a playable nation 
 
 #### USA
  - Rebalanced spirits and focuses to better fit the new consumer goods rework
@@ -15,12 +105,31 @@
  - Focus "Standard Oil of California" now requires "Campaign for Votes" instead of "Industrial R&D"
  - National spirit "Rallying the Nation" now grants +15% Military Factory Construction Speed
  - Focus "Boots on the Ground" now grants 7.5% attack, recovery rate, and organization, from 10%
+ - National spirit "Subsidised Military Industry" now grants 5% factory output, from 10%
+ - National spirit "Subsidised Naval Industry" now grants 10% dockyard output, from 15%
+ - Focus "Review The Budget" now unlocks "Pay Farm Subsidies" decision
+ - Focuses "Subsidise the Military Industry" and "Subsidised the Naval Industry" now grant +15% MIO funds gain
+ - Focus "Break the Monopolies" now grants +25% MIO funds gain
+ - Focus "Booming Interior Economy" now grants +1 building slot for every state with the modifier "Booming Interior Economy"
+ - Focus "Wartime Industry" now grants +1000 MIO funds
 
 #### JAPAN
  - Rebalanced spirits and focuses to better fit the new consumer goods rework
+ - National spirit "State Shintoism" now grants 10% factory output, from 20%
  - Focus "The Zaibatsus" now grants +5% resource gain efficiency instead of -2.5% consumer goods if Japan has "Nationalize the Zaibatsus" spirit
  - Focus "Stockpiling Strategies" now grants +5% resource gain efficiency instead of +10%
-
+ - National spirit "Zaibatsus Challenged" now grants -10% tank, naval, materiel, and aircraft MIO cost
+ - National spirit "Nationalize the Zaibatsus" now grants -25% tank, naval, materiel, and aircraft MIO cost
+ - Focus "Seize Zaibatsu Dockyards" now takes 70 days to complete, from 35
+ - Focus "Nationalize the Zaibatsus" no longer grants -5% stability
+ - Focus "Let the Zaibatsus Expand" now grants +1 MIO size
+ - Focus "Let the Zaibatsus Expand" now takes 70 days to complete, from 35
+ - Focus "Let the Zaibatsus Expand" now grants national spirit "Zaibatsus Empowered"
+ - Focus "Supremacy of Technology" now grants +10% MIO funds gain
+ - Focus "Armored Divisions" now grants +1 MIO size to Osaka Army Arsenal (tank designer)
+ - National Spirit "Supremacy of Will" now grants -5% army doctrine cost
+ - Focus "Armored Divisions" now grants its bonus as an MIO trait, +1 MIO size to Osaka Army Arsenal, and an extra 5 army xp
+ - Focuses "Range Focus" and "Agility Focus" are no longer mutually exclusive
 
 ### 3.7.3
 
