@@ -3,7 +3,7 @@
 ### 3.10.1
 
 #### General
- - Updated the mod for AOT
+ - Updated the mod for TOA
  - Made it free to set the mio for equipment
 
 ### 3.9.0 
