@@ -1,5 +1,10 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.10.1
+
+#### General
+ - Updated the mod for AOT
+ - Made it free to set the mio for equipment
 
 ### 3.9.0 
 
