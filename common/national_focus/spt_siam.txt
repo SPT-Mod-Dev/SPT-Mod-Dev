@@ -455,10 +455,15 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 					
 	focus = {
-		id = SIA_Rattanakosin_ambition
+		id = SIA_rattanakosin_ambition
 		icon = GFX_focus_ETH_restore_the_empire_of_axum
 		prerequisite = { focus = SIA_wichitwathakan_ideals }
 		prerequisite = { focus = SIA_adopt_japanese_ideals }
@@ -484,7 +489,35 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 	}
-				
+	
+					
+	focus = {
+		id = SIA_ankgor_wat
+		icon = GFX_focus_SOV_third_rome
+		prerequisite = { focus = SIA_rattanakosin_ambition }
+		x = 5
+		y = 7
+	
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+	}
+	
 	focus = {
 		id = SIA_industry
 		icon = GFX_focus_generic_industry_2
@@ -509,6 +542,16 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = SIA_industry
+				bonus = 1.0
+				uses = 2
+				category = industry
+			}
+		}
 	}
 					
 	focus = {
@@ -536,6 +579,33 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			random_owned_controlled_state = {	
+				prioritize = { 289 }
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+				}	
+				add_extra_state_shared_building_slots = 1					
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 724 }	
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+				}	
+				add_extra_state_shared_building_slots = 1					
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}				
+			}
+		}
+		
 	}
 					
 	focus = {
@@ -563,6 +633,32 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			random_owned_controlled_state = {	
+				prioritize = { 289 }
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+				}	
+				add_extra_state_shared_building_slots = 2	
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 724 }	
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+				}	
+				add_extra_state_shared_building_slots = 1					
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+				}				
+			}
+		}
 	}
 					
 	focus = {
@@ -590,6 +686,32 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			random_owned_controlled_state = {	
+				prioritize = { 869 }
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+				}	
+				add_extra_state_shared_building_slots = 1			
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 868 }	
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+				}	
+				add_extra_state_shared_building_slots = 1					
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}				
+			}
+		}
 	}
 					
 	focus = {
@@ -617,6 +739,32 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			random_owned_controlled_state = {	
+				prioritize = { 869 }
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+				}	
+				add_extra_state_shared_building_slots = 1			
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 868 }	
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+				}	
+				add_extra_state_shared_building_slots = 1					
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+				}				
+			}
+		}
 	}
 					
 	focus = {
@@ -644,6 +792,32 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			random_owned_controlled_state = {	
+				prioritize = { 289 }
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+				}	
+				add_extra_state_shared_building_slots = 1			
+				add_building_construction = {
+					type = dockyard
+					level = 1
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 724 }	
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+				}	
+				add_extra_state_shared_building_slots = 1			
+				add_building_construction = {
+					type = dockyard
+					level = 1
+				}				
+			}
+		}
 	}
 					
 	focus = {
@@ -671,6 +845,32 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			random_owned_controlled_state = {	
+				prioritize = { 289 }
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+				}	
+				add_extra_state_shared_building_slots = 2				
+				add_building_construction = {
+					type = dockyard
+					level = 2
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 724 }	
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+				}	
+				add_extra_state_shared_building_slots = 2				
+				add_building_construction = {
+					type = dockyard
+					level = 2
+				}				
+			}
+		}
 	}
 				
 	focus = {
@@ -698,6 +898,21 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }					
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+			}		
+		}
 	}
 				
 	focus = {
@@ -727,6 +942,17 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = SIA_further_industrialisation
+				bonus = 1.0
+				uses = 2
+				category = industry
+			}
+		
+		}
 	}
 				
 	focus = {
@@ -755,6 +981,11 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_to_variable = { SIA_thai_spirits = x }
+		}
 	}
 				
 	focus = {
@@ -782,6 +1013,11 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_ideas = SIA_thai_spirit
+		}
 	}
 				
 	focus = {
@@ -809,6 +1045,12 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_to_variable = { SIA_thai_spirits = x }
+		}
+		
 	}
 				
 	focus = {
@@ -836,6 +1078,12 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_ideas = SIA_educated_population
+		}
+		
 	}
 						
 	focus = {
@@ -863,6 +1111,11 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_research_slot = 1
+		}
 	}
 						
 	focus = {
@@ -890,6 +1143,24 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			724 = {
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }					
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_resource = {
+					type = rubber
+					amount = 24
+				}
+			}		
+		}
 	}
 						
 	focus = {
@@ -917,11 +1188,29 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			289 = {
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }					
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_resource = {
+					type = oil
+					amount = 12
+				}
+			}		
+		}
 	}
 					
 	focus = {
-		id = SIA_ankgor_wat
-		icon = GFX_focus_SOV_third_rome
+		id = SIA_bridge
+		icon = GFX_goal_generic_construct_infrastructure
 		prerequisite = { focus = SIA_civs_two focus = SIA_mils_two focus = SIA_docks_two }
 		x = 15
 		y = 3
@@ -944,19 +1233,30 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = SIA_bridge
+				bonus = 1.0
+				uses = 2
+				category = construction_tech
+			}
+		}
+
 	}
 					
 	focus = {
 		id = SIA_burma_railway
 		icon = GFX_focus_generic_railroad
-		prerequisite = { focus = SIA_ankgor_wat }
+		prerequisite = { focus = SIA_bridge }
 		x = 15
 		y = 4
 	
 
 		cost = 10
 
-		ai_will_do = {
+		ai_will_do = {		
 			factor = 1
 		}
 
@@ -971,6 +1271,28 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+	
+		completion_reward = {
+			289 = {
+				limit = {
+					controls_state = 289
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			869 = {
+				limit = {
+					controls_state = 869
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			build_railway = { # Siam - Lanna
+			level = 2
+			path = {
+					7408 10250 10221 12173 10411 7572 7353 7492 1488
+				}				
+			}
+		}
 	}
 					
 	focus = {
@@ -998,6 +1320,16 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = SIA_electronics
+				bonus = 1.0
+				uses = 2
+				category = electronics
+			}
+		}
 	}
 					
 	focus = {
@@ -1025,6 +1357,18 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_ideas = SIA_propaganda
+
+			add_tech_bonus = {
+				name = SIA_radio_control
+				bonus = 1.0
+				uses = 2
+				category = radar_tech
+			}
+		}
 	}
 			
 	focus = {
@@ -1167,7 +1511,7 @@ focus_tree = {
 		id = SIA_thai_might
 		icon = GFX_focus_secret_rearmament
 		prerequisite = { focus = SIA_rally_people }
-		x = 32
+		x = 28
 		y = 3
 	
 
@@ -1359,7 +1703,7 @@ focus_tree = {
 		id = SIA_support_equipment
 		icon = GFX_goal_generic_small_arms
 		prerequisite = { focus = SIA_expand_military }
-		x = 28
+		x = 32
 		y = 3
 	
 
