@@ -40,7 +40,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 	
 	}
 	
@@ -69,7 +69,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 	
 	}
 	
@@ -99,6 +99,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 
 	
 	}
@@ -127,12 +128,17 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+
+		completion_reward = {
+			add_political_power = 120
+		}
 	}
 						
 	focus = {
 		id = SIA_defence_against_communism
 		icon = GFX_goal_generic_war_with_comintern
-		prerequisite = { focus = SIA_do_facism }
+		prerequisite = { focus = SIA_do_fascism }
 		x = 3
 		y = 2
 	
@@ -157,7 +163,7 @@ focus_tree = {
 	}
 					
 	focus = {
-		id = SIA_do_facism
+		id = SIA_do_fascism
 		icon = GFX_goal_support_fascism
 		prerequisite = { focus = SIA_remember_revolution }
 		x = 4
@@ -181,13 +187,22 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+
+		completion_reward = {
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.10
+			}
+			add_ideas = { SIA_fascism = x }
+		}
 	}
 						
 	focus = {
 		id = SIA_phibun
 		icon = GFX_focus_mex_support_general_cedillo
 		prerequisite = { focus = SIA_monarchy_keep focus = SIA_monarchy_kill }
-		prerequisite = { focus = SIA_do_facism }
+		prerequisite = { focus = SIA_do_fascism }
 		x = 6
 		y = 2
 	
@@ -209,6 +224,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 	}
 						
 	focus = {
@@ -237,6 +253,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 	}
 						
 	focus = {
@@ -264,6 +281,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 	}
 						
 	focus = {
@@ -291,6 +309,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 	}
 						
 	focus = {
@@ -318,6 +337,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 	}
 						
 	focus = {
@@ -345,6 +365,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 	}
 							
 	focus = {
@@ -373,6 +394,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 	}
 							
 	focus = {
@@ -401,6 +423,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 	}
 							
 	focus = {
@@ -428,6 +451,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 	}
 						
 	focus = {
@@ -488,6 +512,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 	}
 	
 					
@@ -516,6 +541,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 	}
 	
 	focus = {
@@ -1147,9 +1173,6 @@ focus_tree = {
 
 		completion_reward = {
 			724 = {
-				limit = {
-					ROOT = { has_full_control_of_state = PREV }					
-				}
 				add_building_construction = {
 					type = infrastructure
 					level = 1
@@ -1192,9 +1215,6 @@ focus_tree = {
 
 		completion_reward = {
 			289 = {
-				limit = {
-					ROOT = { has_full_control_of_state = PREV }					
-				}
 				add_building_construction = {
 					type = infrastructure
 					level = 1
@@ -1275,15 +1295,9 @@ focus_tree = {
 	
 		completion_reward = {
 			289 = {
-				limit = {
-					controls_state = 289
-				}
 				add_extra_state_shared_building_slots = 2
 			}
 			869 = {
-				limit = {
-					controls_state = 869
-				}
 				add_extra_state_shared_building_slots = 2
 			}
 			build_railway = { # Siam - Lanna
@@ -1478,6 +1492,18 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_MANPOWER }
+
+		completion_reward = {
+			if = {
+				limit = { has_idea = volunteer_only }
+				add_ideas = limited_conscription
+			}
+		
+			else = {
+				add_ideas = extensive_conscription
+			}
+		}
 	}
 				
 	focus = {
@@ -1505,6 +1531,11 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_MANPOWER }
+
+		completion_reward = {
+			add_ideas = { SIA_rallied_people = x}
+		}
 	}
 				
 	focus = {
@@ -1697,6 +1728,17 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = SIA_infantry_equipment
+				bonus = 0.75
+				uses = 3
+				category = infantry_tech
+			}
+		}
+		
 	}
 				
 	focus = {
@@ -1724,6 +1766,16 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = SIA_support_equipment
+				bonus = 1.0
+				uses = 2
+				category = support_tech
+			}
+		}
 	}
 				
 	focus = {
@@ -1752,6 +1804,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+	
 	}
 				
 	focus = {
@@ -1779,6 +1832,16 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = SIA_trucks
+				bonus = 3.0
+				uses = 2
+				category = motorized_equipment
+			}
+		}
 	}
 				
 	focus = {
@@ -1806,6 +1869,16 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = SIA_trains
+				bonus = 3.0
+				uses = 2
+				category = train_tech
+			}
+		}
 	}
 				
 	focus = {
@@ -2012,36 +2085,6 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SIA_mountaineers
-		icon = GFX_focus_GRE_a_land_of_mountains
-		prerequisite = { focus = SIA_land_doctrine }
-		prerequisite = { focus = SIA_mountaineer }
-		x = 24
-		y = 9
-	
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-			
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-	
-	}
-
-	focus = {
 		id = SIA_land_doctrine
 		icon = GFX_goal_generic_army_doctrines
 		prerequisite = { focus = SIA_subs }
@@ -2067,6 +2110,16 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 2
+				name = SIA_land_doctrine
+				category = land_doctrine
+			} 
+		}
 
 
 	}
@@ -2097,16 +2150,26 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = SIA_tank
+				bonus = 1.0
+				uses = 2
+				category = armor
+			}
+		}
 	
 		
 	}
 	
 	focus = {
-		id = SIA_tanks
-		icon = GFX_goal_generic_army_tanks
-		prerequisite = { focus = SIA_tank }
+		id = SIA_support_gun
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = SIA_tank focus = SIA_mountaineer }
 		prerequisite = { focus = SIA_land_doctrine }
-		x = 22
+		x = 23
 		y = 9
 		
 	
@@ -2127,7 +2190,16 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-	
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = SIA_support_gun
+				bonus = 1.0
+				uses = 2
+				category = artillery
+			}
+		}
 		
 	}
 		
@@ -2239,6 +2311,16 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+			completion_reward = {
+				add_doctrine_cost_reduction = {
+					cost_reduction = 0.5
+					uses = 2
+					name = SIA_water_doctrine
+					category = naval_doctrine
+				} 
+			}
 	}
 		
 	focus = {
@@ -2267,6 +2349,16 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 2
+				name = SIA_sky_doctrine
+				category = air_doctrine
+			} 
+		}
 	}
 				
 	focus = {
@@ -2575,7 +2667,7 @@ focus_tree = {
 	focus = {
 		id = SIA_west_compliance
 		icon = GFX_focus_NOR_approach_the_fatherland_league
-		prerequisite = { focus = SIA_mountaineers focus = SIA_tanks }
+		prerequisite = { focus = SIA_support_gun }
 		prerequisite = { focus = SIA_subss }
 		x = 25
 		y = 10
@@ -2599,7 +2691,6 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 	}
-	
 	
 
 }
