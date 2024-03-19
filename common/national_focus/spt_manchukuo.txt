@@ -928,9 +928,15 @@
 		completion_reward = {
 			JAP = {
 				country_event = spt.22
-			}
+				set_autonomy = {
+				target = MAN
+				autonomy_state = autonomy_spt_man_autonomous_china
+				end_wars = no
+				end_civil_wars = no
+				}
+			}	
 		}
-	}
+	}	
 
 	focus = {
 		id = SPT_MAN_new_chinese_economic_policy
@@ -1076,12 +1082,6 @@
 				traits = {
 					popular_figurehead
 					anti_communist
-				}
-			}
-			JAP = { 
-				set_autonomy = {
-					target = MAN
-					autonomy_state = autonomy_wtt_imperial_associate
 				}
 			}	
 		}
@@ -1341,7 +1341,7 @@
 			JAP = { 
 				set_autonomy = {
 					target = MAN
-					autonomy_state = autonomy_wtt_imperial_associate
+					autonomy_state = autonomy_spt_man_blank_state
 				}
 			}
 			MAN_low_legitimacy_level_down = yes
@@ -3473,5 +3473,4 @@
 			add_ideas = MAN_streamlined_bomber_production
 		}
 	}
-
-}
+ }
