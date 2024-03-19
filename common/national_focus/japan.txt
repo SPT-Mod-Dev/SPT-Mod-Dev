@@ -1774,7 +1774,7 @@
 
 		completion_reward = {
 			add_to_variable = {
-				SPT_JAP_naval_invasion_planning_bonus_speed = 0.2
+				SPT_JAP_naval_invasion_planning_bonus_speed = 0.15
 			}
 			add_to_variable = {
 				SPT_JAP_special_forces_attack_factor = 0.05
@@ -1959,6 +1959,9 @@
 				limit = {
 					has_idea = JAP_guide_the_zaibatsus
 				}
+				hidden_effect = {
+					add_ideas = SPT_JAP_zaibatsu_guide_chosen
+				}
 				add_to_variable = {
 					SPT_JAP_production_factory_efficiency_gain_factor = 0.05
 				}
@@ -1967,6 +1970,9 @@
 			else_if = {
 				limit = {
 					has_idea = JAP_zaibatsus_challenged
+				}
+				hidden_effect = {
+					add_ideas = SPT_JAP_zaibatsu_challenge_chosen
 				}
 				add_to_variable = {
 					SPT_JAP_production_factory_start_efficiency_factor = 0.1
@@ -1977,6 +1983,9 @@
 				limit = {
 					has_idea = JAP_nationalize_the_zaibatsus
 				}
+				hidden_effect = {
+					add_ideas = SPT_JAP_zaibatsu_nationalize_chosen
+				}
 				add_to_variable = {
 					SPT_JAP_local_resources_factor = 0.05
 				}
@@ -1985,6 +1994,59 @@
 			else_if = {
 				limit = {
 					has_idea = JAP_zaibatsus_empowered
+				}
+				hidden_effect = {
+					add_ideas = SPT_JAP_zaibatsu_empower_chosen
+				}
+				add_to_variable = {
+					SPT_JAP_production_speed_infrastructure_factor = 0.1
+				}
+				custom_effect_tooltip = SPT_JAP_the_zaibatsus_empowered_tt
+			}
+			else = {
+				custom_effect_tooltip = SPT_JAP_the_zaibatsus_undecided_guide_tt
+				custom_effect_tooltip = SPT_JAP_the_zaibatsus_guided_tt
+				custom_effect_tooltip = SPT_JAP_the_zaibatsus_undecided_empower_tt
+				custom_effect_tooltip = SPT_JAP_the_zaibatsus_empowered_tt
+				custom_effect_tooltip = SPT_JAP_the_zaibatsus_undecided_challenge_tt
+				custom_effect_tooltip = SPT_JAP_the_zaibatsus_challenged_tt
+				custom_effect_tooltip = SPT_JAP_the_zaibatsus_undecided_nationalize_tt
+				custom_effect_tooltip = SPT_JAP_the_zaibatsus_nationalized_tt
+			}
+		}
+
+		complete_tooltip = {
+			custom_effect_tooltip = SPT_JAP_the_zaibatsus_tt
+			if = {
+				limit = {
+					has_idea = SPT_JAP_zaibatsu_guide_chosen
+				}
+				add_to_variable = {
+					SPT_JAP_production_factory_efficiency_gain_factor = 0.05
+				}
+				custom_effect_tooltip = SPT_JAP_the_zaibatsus_guided_tt
+			}
+			else_if = {
+				limit = {
+					has_idea = SPT_JAP_zaibatsu_challenge_chosen
+				}
+				add_to_variable = {
+					SPT_JAP_production_factory_start_efficiency_factor = 0.1
+				}
+				custom_effect_tooltip = SPT_JAP_the_zaibatsus_challenged_tt
+			}
+			else_if = {
+				limit = {
+					has_idea = SPT_JAP_zaibatsu_nationalize_chosen
+				}
+				add_to_variable = {
+					SPT_JAP_local_resources_factor = 0.05
+				}
+				custom_effect_tooltip = SPT_JAP_the_zaibatsus_nationalized_tt
+			}
+			else_if = {
+				limit = {
+					has_idea = SPT_JAP_zaibatsu_empower_chosen
 				}
 				add_to_variable = {
 					SPT_JAP_production_speed_infrastructure_factor = 0.1
@@ -2099,7 +2161,7 @@
 
 			add_timed_idea = {
 				idea = SPT_JAP_rapid_arms_dev
-				days = 200
+				days = 250
 			}
 		}
 	}
@@ -2224,7 +2286,7 @@
 			custom_effect_tooltip = SPT_JAP_quick_retooling_tt
 			add_timed_idea = {
 				idea = SPT_JAP_quick_retool
-				days = 200
+				days = 250
 			}
 		}
 	}
@@ -2258,7 +2320,7 @@
 				SPT_JAP_production_factory_efficiency_gain_factor = 0.05
 			}
 			add_to_variable = {
-				SPT_JAP_factory_max_efficiency_factor = 0.1
+				SPT_JAP_factory_max_efficiency_factor = 0.05
 			}
 			#add_to_variable = {
 			#	SPT_JAP_consumer_goods_factor = -0.05
@@ -2301,7 +2363,7 @@
 			custom_effect_tooltip = SPT_JAP_factory_mobilization_tt
 			add_timed_idea = {
 				idea = SPT_JAP_factory_mobi
-				days = 200
+				days = 250
 			}
 		}
 	}
@@ -2875,12 +2937,17 @@
 
 		available = {
 			OR = {
-				has_full_control_of_state = 333
-				has_full_control_of_state = 672
-				has_full_control_of_state = 334
+				controls_state = 333
+				controls_state = 672
+				controls_state = 334
 			}
-			has_full_control_of_state = 336
-			has_full_control_of_state = 671
+			controls_state = 336
+			OR = {
+				controls_state = 671 
+			SIA = {
+				controls_state = 671
+			}
+			}
 		}
 
 		bypass = {

@@ -1,5 +1,7 @@
 ﻿focus_tree = {
 	id = australian_focus
+
+	shared_focus = SPT_CW_Together_for_victory #SPT change, added shared focus tree
 	
 	country = {
 		factor = 0
@@ -3197,6 +3199,12 @@
 			ENG = { has_government = ROOT }
 			MAL = {
 				is_puppet_of = ENG
+			}
+			#SPT change to prevent unintended interactions as a result of puppeting a nation during war
+			NOT = {
+				MAL = {
+					has_war_with = JAP
+				}
 			}
 		}
 		

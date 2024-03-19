@@ -1,6 +1,130 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.10.1
+
+#### General
+ - Updated the mod for TOA
+ - Made it free to set the mio for equipment
+
+### 3.9.0 
+
+### Commonwealth
+ - Added new shared tree, unlocks once UK completes "Commonwealth Ties"
+
+### Germany
+ - Reworked industry path to allow for early war path
+ - Focus "Short Term Rearmament" allows for Jaegernotprogramm decision 
+ - Jaegernotprogramm war support -5% -> -10%
+                     Decision active time 360 -> 180 days
+
+### UK
+ - Focuses "Develop the Raj", "Indian Autonomy", "Development in Canada", "Development in Australia", "Develop South Africa" focus time 70 day -> 56 days
+  - Focus "Commonwealth Ties" -70 days -> 35 days
+
+### USA
+ - Focus "Subsidies For The Farmers" consumer goods -5% -> -10%
+
+### Mongolia
+ - Independent economy: Political power gain -0.1 -> -0.25
+ - Collectivized Economy: Tanks cost modifiers -10% -> 0
+                       Production efficiency cap 0% -> 10%
+
+### Italy
+ - Focuses that require Politcal BOP now available after Mediterranean BOP activates
+
+### Army high command 
+(Lowered to balance for extra experience gained from the shared commonwealth focus tree)
+ - Relief of Command Army Experience 25% -> 15%
+             Army Advisor Cost -50% -> 25%
+
+=======
+### 3.8.7
+
+### Mongolia
+Indipendent economy: Political power gain -0.1 -> -0.25
+Collectivized Economy: Tanks cost modifiers -10% -> 0
+                       Production efficiency cap 0% -> 10%
+                       
+### 3.8.6
+
+### General
+
+ - Added new "Together For Victory" Joint Focus Tree for Commonwealth minors
+
+### UK
+ - Focus "Commonwealth Ties" time reduced to 35 days, from 70
+
+
+### 3.8.6
+
+### General
+- Fixed the special forces specilisation decision
+- Increased consumer goods from warbonds to 20%
+
+### United Kingdom
+- Re-added "Airborne Forces Depot" focus
+
+### Finland
+- Prevented them declaring on the Soviets when Germany does
+
+### Portugal
+- Disabled portugal from being able to send volunteers to the civil war
+
+
+### 3.8.5
+
+### General
+- Integrated the Host Tool Mod 
+- Spirit of the Academy "Meticolous Preparation" Planning bonus 7.5% -> 2.5%
+- Added impassable terrain to Papua and Borneo
+- Added Bab-el-Mandeb Strait (Yemen-Djibouti strait)
+
+### Germany
+ - Removed the communist advisor
+
+### Soviet Union
+ - Removed the ability to fire the head of the NKVD
+ - Increased the consumer goods gained in "Third Five Year Plan" 2.5% -> 10%
+
+### Japan
+
+ - Nashin Ron Rapid Development spirits now last for 250 days, from 200
+ - Decision "Ichi Go" available after 1 june 1939
+ - Spirit "Challange the Zaibazus" mililitary and civilian factory construction speed 12.5% -> 10%
+ - Focus "Long Term Planning" now grants +5% efficiency cap, from 10%
+ - Focus "The Zaibatsus" tooltip now displays all possible bonuses before choosing a path and shows only the selected path once completed
+ - Focus "Strike The Islands" now grants +15% naval invasion planning, from +20%
+ - "Bushido Spirit" trait now reduces Armor attack and defense, to prevent unintended leader choices
+ 
+
+### 3.8.4
+
+### General
+
+ - Added 2 new straits: Strait of Malacca and Sunda Strait
+
+ ### Italy
+  - Balbo and Grandi are now available leaders
+
+### 3.8.3
+
+### General
+ - Changed in game speed to reflect old speed (games will now be played in 3/4 speed instead of 2/3)
+
+### Rule Change
+ - Changed War Rule 9 to not include support companies
+
+### India
+ - Focus "Assam Oil" increased oil resources 3 -> 10 oil
+ - Focus "Integrate Princley Railways" focus time 35 -> 70 days
+ - Focus "Strengthen Ties With British Investors" Autonomy value 150 -> 100
+ - Focus "British Rail Investors" Autonomy value -250 -> -200
+ - Focus "British Arms Investors" Autonomy value -250 -> -200
+ - Focus "Imperial Service Troops" Autonomy value -50 -> +50
+ 
+
 ### 3.8.2
+
 
 ### General
  - Guerilla Tactics tactic now grants -50% attacker damage, from -70%
