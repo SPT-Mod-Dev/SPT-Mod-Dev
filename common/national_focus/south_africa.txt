@@ -92,7 +92,7 @@
 
 	focus = {
 		id = SAF_emergency_workers
-		icon = GFX_goal_generic_production
+		icon = GFX_spt_focus_foreign_workers
 		prerequisite = { focus = SAF_war_measures_act }
 		x = -1
 		y = 1
@@ -211,7 +211,7 @@
 
 	focus = {
 		id = SAF_expand_the_cape_corps
-		icon = GFX_goal_generic_demand_territory
+		icon = GFX_spt_focus_cape_corps
 		prerequisite = { focus = SAF_reconstitute_the_cape_corps }
 		mutually_exclusive = { focus = SAF_outlaw_strikes }
 		x = -1
@@ -253,7 +253,7 @@
 
 	focus = {
 		id = SAF_outlaw_strikes
-		icon = GFX_goal_generic_consumer_goods
+		icon = GFX_spt_focus_no_strikes
 		prerequisite = { focus = SAF_work_for_all_poor }
 		mutually_exclusive = { focus = SAF_expand_the_cape_corps }
 		x = 4
@@ -1993,7 +1993,7 @@
 
 	focus = {
 		id = SAF_south_african_railways
-		icon = GFX_goal_generic_construct_infrastructure
+		icon = GFX_focus_generic_railroad
 		x = 10
 		y = 0
 
@@ -2081,6 +2081,14 @@
 				}
 				set_state_flag = SAF_expand_the_mining_industry_IC
 			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
 			add_tech_bonus = {
 				name = SAF_expand_the_mining_industry
 				bonus = 1.0
@@ -2091,6 +2099,7 @@
 				technology = excavation4
 				technology = excavation5
 			}
+
 		}
 	}
 
@@ -2125,7 +2134,7 @@
 			add_tech_bonus = {
 				name = SAF_heavy_engineering
 				bonus = 1.0
-				uses = 1
+				uses = 2 #SPTchange 1 -> 2
 				category = industry
 			}
 		}
@@ -2165,33 +2174,25 @@
 				}
 				add_building_construction = {
 					type = infrastructure
-					level = 1
+					level = 2 #SPTchange 1 -> 2
 					instant_build = yes
 				}
 			}
-			random_state = {
-				limit = {
-					has_state_flag = SAF_infrastructure_effort_Inf2
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
+
 		}
 
 		completion_reward = {
+			
 			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
 						building = infrastructure
-						size > 0
+						size > 1
 					}
 				}
 				add_building_construction = {
 					type = infrastructure
-					level = 1
+					level = 2 
 					instant_build = yes
 				}
 				set_state_flag = SAF_infrastructure_effort_Inf
@@ -2200,12 +2201,12 @@
 						is_controlled_by = ROOT
 						free_building_slots = {
 							building = infrastructure
-							size > 0
+							size > 1
 						}
 					}
 					add_building_construction = {
 						type = infrastructure
-						level = 1
+						level = 2
 						instant_build = yes
 					}
 					set_state_flag = SAF_infrastructure_effort_Inf2

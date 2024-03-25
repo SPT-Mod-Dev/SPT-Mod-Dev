@@ -1,6 +1,4 @@
-
 spt_category = {
-	
 	AST_annex_new_zealand_decision = {
 		allowed = {
 			original_tag = AST
@@ -12,15 +10,16 @@ spt_category = {
 			is_ai = no
 		}
 		complete_effect = {
-			annex_country = { target = NZL transfer_troops = yes }
+			annex_country = {
+				target = NZL
+				transfer_troops = yes
+			}
 			add_state_core = 284
 			add_state_core = 726
 			add_state_core = 723
-
 		}
 		fire_only_once = yes
 	}
-
 	ITA_supply_spirit_decision = {
 		allowed = {
 			original_tag = ITA
@@ -37,22 +36,17 @@ spt_category = {
 				controls_state = 452
 			}
 		}
-
 		fire_only_once = yes
-	
-
 		complete_effect = {
 			add_timed_idea = {
 				idea = supply_spirit
 				days = 180
 			}
 		}
-
 		ai_will_do = {
 			factor = 1
 		}
 	}
-
 	SIA_request_indochina_decision = {
 		allowed = {
 			original_tag = SIA
@@ -65,48 +59,19 @@ spt_category = {
 				controls_state = 670
 				controls_state = 671
 				controls_state = 741
-				controls_state = 286	
+				controls_state = 286
 			}
 		}
-
 		fire_only_once = yes
-
 		complete_effect = {
-			JAP ={
+			JAP = {
 				country_event = {
 					id = spt.4
 					days = 3
 				}
-			} 
-		}
-	}
-	
-	ITA_pacify_yugoslavia_decision = {
-		allowed = {
-			original_tag = ITA
-		}
-		available = {
-			has_war_with_non_exiled_country = no
-			any_owned_state = {
-				is_core_of = YUG
-				NOT = {is_core_of=ITA}
-				NOT = {state = 163}
-			}
-			
-		}
-		fire_only_once = yes
-		complete_effect = {
-			every_owned_state = {
-				limit = {
-					is_core_of = YUG
-					NOT = {is_core_of=ITA}
-					NOT = {state = 163}
-				}
-				add_compliance = 80
 			}
 		}
 	}
-
 	ARG_request_falkland_islands = {
 		allowed = {
 			original_tag = ARG
@@ -121,7 +86,6 @@ spt_category = {
 			}
 		}
 		fire_only_once = yes
-
 		complete_effect = {
 			ENG = {
 				country_event = {
@@ -131,7 +95,6 @@ spt_category = {
 			}
 		}
 	}
-
 	JAP_declare_war_on_allies = {
 		allowed = {
 			original_tag = JAP
@@ -141,20 +104,20 @@ spt_category = {
 			has_completed_focus = JAP_strike_south_completed
 		}
 		fire_only_once = yes
-
-        complete_effect = {
-            every_country = {
-                limit = {is_in_faction_with = ENG}
-                JAP = {
-                    declare_war_on = {
-                        target = PREV
-                        type = annex_everything
-                    }
-                }
-            }
-        }
-    }
-
+		complete_effect = {
+			every_country = {
+				limit = {
+					is_in_faction_with = ENG
+				}
+				JAP = {
+					declare_war_on = {
+						target = PREV
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
 	FRA_push_into_italy = {
 		allowed = {
 			OR = {
@@ -162,7 +125,6 @@ spt_category = {
 				original_tag = ENG
 			}
 		}
-
 		visible = {
 			is_ai = no
 			has_war_with = ITA
@@ -174,28 +136,37 @@ spt_category = {
 			NOT = {
 				AND = {
 					original_tag = ENG
-					FRA = { is_ai = no }
+					FRA = {
+						is_ai = no
+					}
 				}
 			}
 			NOT = {
 				has_global_flag = Push_into_Italy
 			}
 		}
-
 		fire_only_once = yes
-
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = france_fallen_tt
-				has_global_flag = france_fallen #There might be a vanilla flag but i dont trust it
+				has_global_flag = france_fallen				#There might be a vanilla flag but i dont trust it
 			}
-			16 = { controlled_by_allies = yes}
-			735 = { controlled_by_allies = yes}
-			851 = { controlled_by_allies = yes}
-			21 = { controlled_by_allies = yes}
-			32 = { controlled_by_allies = yes}
+			16 = {
+				controlled_by_allies = yes
+			}
+			735 = {
+				controlled_by_allies = yes
+			}
+			851 = {
+				controlled_by_allies = yes
+			}
+			21 = {
+				controlled_by_allies = yes
+			}
+			32 = {
+				controlled_by_allies = yes
+			}
 		}
-
 		complete_effect = {
 			set_global_flag = Push_into_Italy
 			ITA = {
@@ -203,25 +174,38 @@ spt_category = {
 					limit = {
 						is_in_home_area = yes
 						is_coastal = yes
-						
-						NOT = {state = 115}
+						NOT = {
+							state = 115
+						}
 					}
 					custom_effect_tooltip = FRA_push_into_italy_tt
 					hidden_effect = {
 						if = {
-							limit = { has_dynamic_modifier = { modifier = PAC_home_defense_1 } }
+							limit = {
+								has_dynamic_modifier = {
+									modifier = PAC_home_defense_1
+								}
+							}
 							remove_dynamic_modifier = {
 								modifier = PAC_home_defense_1
 							}
 						}
 						if = {
-							limit = { has_dynamic_modifier = { modifier = PAC_home_defense_2 } }
+							limit = {
+								has_dynamic_modifier = {
+									modifier = PAC_home_defense_2
+								}
+							}
 							remove_dynamic_modifier = {
 								modifier = PAC_home_defense_2
 							}
 						}
 						if = {
-							limit = { has_dynamic_modifier = { modifier = PAC_home_defense_3 } }
+							limit = {
+								has_dynamic_modifier = {
+									modifier = PAC_home_defense_3
+								}
+							}
 							remove_dynamic_modifier = {
 								modifier = PAC_home_defense_3
 							}
@@ -229,53 +213,41 @@ spt_category = {
 					}
 				}
 			}
-			
 		}
 	}
-
 	ENG_annex_malaya = {
 		allowed = {
 			original_tag = ENG
 		}
-
 		days_remove = 90
 		cost = 50
-
 		visible = {
 			MAL = {
 				exists = yes
 			}
-
 		}
-
 		available = {
 			has_war = no
 		}
-
 		cancel_trigger = {
 			has_war = yes
 		}
-
 		modifier = {
 			consumer_goods_factor = 0.1
 		}
-
 		remove_effect = {
 			annex_country = {
 				target = MAL
 				transfer_troops = no
 			}
-
-			336  = {
+			336 = {
 				add_compliance = 100
 			}
 			333 = {
 				add_compliance = 100
 			}
 		}
-
 	}
-
 	JAP_annex_manchuko = {
 		allowed = {
 			original_tag = JAP
@@ -287,30 +259,46 @@ spt_category = {
 			is_ai = no
 		}
 		complete_effect = {
-			
-			annex_country = { target = MAN transfer_troops = yes }
-			hidden_effect = {
-				611 = { add_compliance = 50 }
-				612 = { add_compliance = 50 }
-				610 = { add_compliance = 50 }
-				715 = { add_compliance = 50 }
-				716 = { add_compliance = 50 }
-				328 = { add_compliance = 50 }
-				717 = { add_compliance = 50 }
-				714 = { add_compliance = 50 }
-				761 = { add_compliance = 50 }
+			annex_country = {
+				target = MAN
+				transfer_troops = yes
 			}
-
+			hidden_effect = {
+				611 = {
+					add_compliance = 50
+				}
+				612 = {
+					add_compliance = 50
+				}
+				610 = {
+					add_compliance = 50
+				}
+				715 = {
+					add_compliance = 50
+				}
+				716 = {
+					add_compliance = 50
+				}
+				328 = {
+					add_compliance = 50
+				}
+				717 = {
+					add_compliance = 50
+				}
+				714 = {
+					add_compliance = 50
+				}
+				761 = {
+					add_compliance = 50
+				}
+			}
 		}
 		fire_only_once = yes
 	}
-
-
 }
 
 USA_PAC_category = {
 	USA_PAC_island_targets = {
-
 		available = {
 			controls_state = 526
 			controls_state = 524
@@ -322,41 +310,40 @@ USA_PAC_category = {
 			controls_state = 633
 			controls_state = 591
 			controls_state = 555
-			
 			hidden_trigger = {
 				always = no
 			}
 		}
-
 		icon = mission_icon
-
 	}
-	
 	USA_PAC_island_defense = {
-
 		available = {
-			
 			controls_state = 629
 			controls_state = 630
 			controls_state = 631
 			controls_state = 632
 			controls_state = 638
-			PHI = {controls_state = 327}
-			PHI = {controls_state = 627}
-			AST = {controls_state = 634}
-			AST = {controls_state = 523}
-			AST = {controls_state = 737}
-			
-	
+			PHI = {
+				controls_state = 327
+			}
+			PHI = {
+				controls_state = 627
+			}
+			AST = {
+				controls_state = 634
+			}
+			AST = {
+				controls_state = 523
+			}
+			AST = {
+				controls_state = 737
+			}
 			hidden_trigger = {
 				always = no
 			}
 		}
-
 		icon = mission_icon
-
 	}
-	
 	USA_PAC_prepare_assault = {
 		days_remove = 30
 		cost = 50
@@ -396,16 +383,14 @@ USA_PAC_category = {
 						state = 633
 						state = 591
 						state = 555
-					} 
+					}
 				}
 				add_dynamic_modifier = {
 					modifier = USA_impending_assault
 				}
 			}
 		}
-				
 	}
-
 	USA_PAC_secure_island = {
 		activation = {
 			always = no
@@ -413,9 +398,8 @@ USA_PAC_category = {
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = capture_island_tt
-				has_country_flag = USA_captured_island	
+				has_country_flag = USA_captured_island
 			}
-			
 		}
 		cancel_trigger = {
 			hidden_trigger = {
@@ -453,14 +437,10 @@ USA_PAC_category = {
 					}
 				}
 			}
-				
 		}
-
 		is_good = no
 		days_mission_timeout = 30
-		
 	}
-
 	USA_PAC_fortify_islands = {
 		cost = 50
 		fire_only_once = yes
@@ -469,12 +449,10 @@ USA_PAC_category = {
 			production_speed_coastal_bunker_factor = 1
 		}
 	}
-
 }
 
 JAP_PAC_category = {
 	JAP_PAC_island_targets = {
-		
 		available = {
 			controls_state = 629
 			controls_state = 630
@@ -486,21 +464,14 @@ JAP_PAC_category = {
 			controls_state = 634
 			controls_state = 523
 			controls_state = 737
-			
 			hidden_trigger = {
 				always = no
 			}
 		}
-
 		icon = mission_icon
-
-
 	}
-	
 	JAP_PAC_island_defense = {
-
 		available = {
-
 			controls_state = 526
 			controls_state = 524
 			controls_state = 645
@@ -512,19 +483,16 @@ JAP_PAC_category = {
 			controls_state = 555
 			OR = {
 				controls_state = 591
-				MAN = {controls_state = 591}
+				MAN = {
+					controls_state = 591
+				}
 			}
-			
-			
 			hidden_trigger = {
 				always = no
 			}
-		
 		}
 		icon = mission_icon
-
 	}
-
 	JAP_PAC_prepare_assault = {
 		days_remove = 30
 		cost = 50
@@ -565,15 +533,14 @@ JAP_PAC_category = {
 						state = 633
 						state = 591
 						state = 555
-					} 
+					}
 				}
 				add_dynamic_modifier = {
 					modifier = JAP_impending_assault
 				}
 			}
-		}		
-	}		
-
+		}
+	}
 	JAP_PAC_secure_island = {
 		activation = {
 			always = no
@@ -581,9 +548,8 @@ JAP_PAC_category = {
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = capture_island_tt
-				has_country_flag = JAP_captured_island	
+				has_country_flag = JAP_captured_island
 			}
-			
 		}
 		cancel_trigger = {
 			NOT = {
@@ -621,14 +587,10 @@ JAP_PAC_category = {
 					}
 				}
 			}
-				
 		}
-
 		is_good = no
 		days_mission_timeout = 30
-		
 	}
-
 	JAP_PAC_fortify_islands = {
 		cost = 50
 		fire_only_once = yes
@@ -641,44 +603,57 @@ JAP_PAC_category = {
 
 ENG_MED_category = {
 	ENG_MED_island_targets = {
-
 		available = {
-			114 = { controlled_by_allies = yes }
-			115 = { controlled_by_allies = yes }
-			182 = { controlled_by_allies = yes }
-			164 = { controlled_by_allies = yes }
-			448 = { controlled_by_allies = yes }
-			450 = { controlled_by_allies = yes }
-
+			114 = {
+				controlled_by_allies = yes
+			}
+			115 = {
+				controlled_by_allies = yes
+			}
+			182 = {
+				controlled_by_allies = yes
+			}
+			164 = {
+				controlled_by_allies = yes
+			}
+			448 = {
+				controlled_by_allies = yes
+			}
+			450 = {
+				controlled_by_allies = yes
+			}
 			hidden_trigger = {
 				always = no
 			}
 		}
-
 		icon = mission_icon
-
 	}
-	
 	ENG_MED_island_defense = {
-
 		available = {
-			
-			116 = { controlled_by_allies = yes }
-			446 = { controlled_by_allies = yes }
-			118 = { controlled_by_allies = yes }
-			1 = { controlled_by_allies = yes }
-			183 = { controlled_by_allies = yes }
-			459 = { controlled_by_allies = yes }
-	
+			116 = {
+				controlled_by_allies = yes
+			}
+			446 = {
+				controlled_by_allies = yes
+			}
+			118 = {
+				controlled_by_allies = yes
+			}
+			1 = {
+				controlled_by_allies = yes
+			}
+			183 = {
+				controlled_by_allies = yes
+			}
+			459 = {
+				controlled_by_allies = yes
+			}
 			hidden_trigger = {
 				always = no
 			}
 		}
-
 		icon = mission_icon
-
 	}
-	
 	ENG_MED_feign_weakness = {
 		days_remove = 60
 		custom_cost_trigger = {
@@ -687,8 +662,8 @@ ENG_MED_category = {
 		custom_cost_text = decision_cost_CP_30
 		days_re_enable = 180
 		modifier = {
-			army_attack_factor = 0.3
-			army_defence_factor = 0.3
+			army_attack_factor = 0.15
+			army_defence_factor = 0.15
 		}
 		complete_effect = {
 			med_balance_ita_10_effect = yes
@@ -699,9 +674,7 @@ ENG_MED_category = {
 				country_event = spt.17
 			}
 		}
-		
 	}
-
 	ENG_MED_fortify_positions = {
 		cost = 25
 		fire_only_once = yes
@@ -711,7 +684,6 @@ ENG_MED_category = {
 			production_speed_bunker_factor = 1
 		}
 	}
-
 	ENG_MED_expand_supply_capacity = {
 		cost = 50
 		fire_only_once = yes
@@ -722,49 +694,61 @@ ENG_MED_category = {
 			supply_consumption_factor = 0.1
 		}
 	}
-
 }
 
 ITA_MED_category = {
 	ITA_MED_island_targets = {
-
 		available = {
-			116 = { controlled_by_axis = yes }
-			446 = { controlled_by_axis = yes }
-			118 = { controlled_by_axis = yes }
-			1 = { controlled_by_axis = yes }
-			183 = { controlled_by_axis = yes }
-			459 = { controlled_by_axis = yes }
-
+			116 = {
+				controlled_by_axis = yes
+			}
+			446 = {
+				controlled_by_axis = yes
+			}
+			118 = {
+				controlled_by_axis = yes
+			}
+			1 = {
+				controlled_by_axis = yes
+			}
+			183 = {
+				controlled_by_axis = yes
+			}
+			459 = {
+				controlled_by_axis = yes
+			}
 			hidden_trigger = {
 				always = no
 			}
 		}
-
 		icon = mission_icon
-
 	}
-	
 	ITA_MED_island_defense = {
-
 		available = {
-			
-			114 = { controlled_by_axis = yes }
-			115 = { controlled_by_axis = yes }
-			182 = { controlled_by_axis = yes }
-			164 = { controlled_by_axis = yes }
-			448 = { controlled_by_axis = yes }
-			450 = { controlled_by_axis = yes }
-	
+			114 = {
+				controlled_by_axis = yes
+			}
+			115 = {
+				controlled_by_axis = yes
+			}
+			182 = {
+				controlled_by_axis = yes
+			}
+			164 = {
+				controlled_by_axis = yes
+			}
+			448 = {
+				controlled_by_axis = yes
+			}
+			450 = {
+				controlled_by_axis = yes
+			}
 			hidden_trigger = {
 				always = no
 			}
 		}
-
 		icon = mission_icon
-
 	}
-	
 	ITA_MED_feign_weakness = {
 		days_remove = 60
 		custom_cost_trigger = {
@@ -773,8 +757,8 @@ ITA_MED_category = {
 		custom_cost_text = decision_cost_CP_30
 		days_re_enable = 180
 		modifier = {
-			army_attack_factor = 0.3
-			army_defence_factor = 0.3
+			army_attack_factor = 0.15
+			army_defence_factor = 0.15
 		}
 		complete_effect = {
 			med_balance_eng_10_effect = yes
@@ -786,9 +770,6 @@ ITA_MED_category = {
 			}
 		}
 	}
-
-	
-
 	ITA_MED_fortify_positions = {
 		cost = 25
 		fire_only_once = yes
@@ -798,7 +779,6 @@ ITA_MED_category = {
 			production_speed_bunker_factor = 1
 		}
 	}
-
 	ITA_MED_expand_supply_capacity = {
 		cost = 50
 		fire_only_once = yes
@@ -809,49 +789,66 @@ ITA_MED_category = {
 			supply_consumption_factor = 0.1
 		}
 	}
-
 }
 
-
 SPT_propaganda_campaigns = {
-	JAP_me_want_supply= {
+	JAP_me_want_supply = {
 		days_remove = 10
-		
-		
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = need_spare_slot_tt
 				OR = {
-					check_variable = {PROP_poster_left_icon_frame = 2}
-					check_variable = {PROP_poster_centre_icon_frame = 2}
-					check_variable = {PROP_poster_right_icon_frame = 2}
+					check_variable = {
+						PROP_poster_left_icon_frame = 2
+					}
+					check_variable = {
+						PROP_poster_centre_icon_frame = 2
+					}
+					check_variable = {
+						PROP_poster_right_icon_frame = 2
+					}
 				}
-			}	
+			}
 		}
 		modifier = {
 			supply_factor = 1
 		}
-
 		complete_effect = {
-			set_temp_variable = {frame = 3}
+			set_temp_variable = {
+				frame = 3
+			}
 			if = {
-				limit = { check_variable = {PROP_poster_left_icon_frame = 2} }
+				limit = {
+					check_variable = {
+						PROP_poster_left_icon_frame = 2
+					}
+				}
 				set_country_flag = {
 					flag = PROP_left_days_remaining
 					days = 10
 					value = 1
 				}
-				set_variable = {PROP_poster_left_icon_frame = frame}
-				set_temp_variable = {slot = 1}
+				set_variable = {
+					PROP_poster_left_icon_frame = frame
+				}
+				set_temp_variable = {
+					slot = 1
+				}
 			}
 			else_if = {
-				limit = { check_variable = {PROP_poster_centre_icon_frame = 2} }
+				limit = {
+					check_variable = {
+						PROP_poster_centre_icon_frame = 2
+					}
+				}
 				set_country_flag = {
 					flag = PROP_centre_days_remaining
 					days = 10
 					value = 1
 				}
-				set_variable = {PROP_poster_centre_icon_frame = frame}
+				set_variable = {
+					PROP_poster_centre_icon_frame = frame
+				}
 			}
 			else = {
 				set_country_flag = {
@@ -859,100 +856,91 @@ SPT_propaganda_campaigns = {
 					days = 10
 					value = 1
 				}
-				set_variable = {PROP_poster_right_icon_frame = frame}
+				set_variable = {
+					PROP_poster_right_icon_frame = frame
+				}
 			}
-			
 		}
-
 		remove_effect = {
-			set_temp_variable = {frame = 3}
+			set_temp_variable = {
+				frame = 3
+			}
 			if = {
 				limit = {
-					check_variable = {PROP_poster_left_icon_frame = frame}
+					check_variable = {
+						PROP_poster_left_icon_frame = frame
+					}
 				}
-				set_variable = {PROP_poster_left_icon_frame = 2}
+				set_variable = {
+					PROP_poster_left_icon_frame = 2
+				}
 			}
 			else_if = {
 				limit = {
-					check_variable = {PROP_poster_centre_icon_frame = frame}
+					check_variable = {
+						PROP_poster_centre_icon_frame = frame
+					}
 				}
-				set_variable = {PROP_poster_centre_icon_frame = 2}
+				set_variable = {
+					PROP_poster_centre_icon_frame = 2
+				}
 			}
 			else = {
-				set_variable = {PROP_poster_right_icon_frame = 2}
+				set_variable = {
+					PROP_poster_right_icon_frame = 2
+				}
 			}
 		}
 	}
-	
-	
 	SPT_unlock_slot = {
 		complete_effect = {
 			prop_add_slot = yes
 		}
 	}
-
 }
 
-
 SPT_manchukuo_china_integration = {
-
-
 	MAN_border_integration = {
-
-			icon = GFX_decision_generic_operation
-
-			days_remove = 90
-
-			modifier = {
-				political_power_gain = -0.5
-			}
-
-			
-			available = {
-				original_tag = MAN
-				has_completed_focus = SPT_MAN_integrate_the_border_region
-			}
-			visible = {
-				original_tag = MAN
-				has_completed_focus = SPT_MAN_recruit_qing_loyalists
-			}
-			complete_effect = {
-
-				MAN_low_legitimacy_level_down = yes
-				add_state_core = 621
-				add_state_core = 622
-				add_state_core = 615
-				add_state_core = 608
-				add_state_core = 614
-				add_state_core = 597
-				add_state_core = 746
-				add_state_core = 608
-				add_state_core = 601
-				add_state_core = 743
-				add_state_core = 607
-				add_state_core = 598
-				add_state_core = 607
-				add_state_core = 744
-				add_state_core = 620
-				add_state_core = 606
-				
-	
-			}
-			fire_only_once = yes
-		
-	}
-
-	MAN_southern_integration = {
-
 		icon = GFX_decision_generic_operation
-
 		days_remove = 90
-
 		modifier = {
 			political_power_gain = -0.5
 		}
-
-		
+		available = {
+			original_tag = MAN
+			has_completed_focus = SPT_MAN_integrate_the_border_region
+		}
+		visible = {
+			original_tag = MAN
+			has_completed_focus = SPT_MAN_recruit_qing_loyalists
+		}
+		complete_effect = {
+			MAN_low_legitimacy_level_down = yes
+			add_state_core = 621
+			add_state_core = 622
+			add_state_core = 615
+			add_state_core = 608
+			add_state_core = 614
+			add_state_core = 597
+			add_state_core = 746
+			add_state_core = 608
+			add_state_core = 601
+			add_state_core = 743
+			add_state_core = 607
+			add_state_core = 598
+			add_state_core = 607
+			add_state_core = 744
+			add_state_core = 620
+			add_state_core = 606
+		}
+		fire_only_once = yes
+	}
+	MAN_southern_integration = {
+		icon = GFX_decision_generic_operation
+		days_remove = 90
+		modifier = {
+			political_power_gain = -0.5
+		}
 		available = {
 			original_tag = MAN
 			has_completed_focus = SPT_MAN_integrate_the_south
@@ -962,7 +950,6 @@ SPT_manchukuo_china_integration = {
 			has_completed_focus = SPT_MAN_recruit_qing_loyalists
 		}
 		complete_effect = {
-
 			MAN_low_legitimacy_level_down = yes
 			add_state_core = 605
 			add_state_core = 750
@@ -985,255 +972,61 @@ SPT_manchukuo_china_integration = {
 			add_state_core = 728
 			add_state_core = 729
 			add_state_core = 326
-
-
 		}
 		fire_only_once = yes
-	
-}
-
-MAN_northwestern_integration = {
-
-	icon = GFX_decision_generic_operation
-
-	days_remove = 90
-
-	modifier = {
-		political_power_gain = -0.5
 	}
-
-	
-	available = {
-		original_tag = MAN
-		has_completed_focus = SPT_MAN_integrate_the_northwest
-	}
-	visible = {
-		original_tag = MAN
-		has_completed_focus = SPT_MAN_recruit_qing_loyalists
-	}
-	complete_effect = {
-		
-		MAN_low_legitimacy_level_down = yes
-		add_state_core = 283
-		add_state_core = 616
-		add_state_core = 756
-		add_state_core = 755
-		add_state_core = 754
-		add_state_core = 604
-		add_state_core = 759
-		add_state_core = 760
-		add_state_core = 618
-		add_state_core = 617
-		add_state_core = 287
-		add_state_core = 619
-		add_state_core = 601
-		add_state_core = 752
-		add_state_core = 753
-
-	}
-	fire_only_once = yes
-
-}
-
-
-}
-
-SPT_winter_war = {
-	FIN_winter_war = {
-			
-		name = winter_war
-		allowed = {
-			tag = FIN
+	MAN_northwestern_integration = {
+		icon = GFX_decision_generic_operation
+		days_remove = 90
+		modifier = {
+			political_power_gain = -0.5
 		}
-
-		icon = GFX_decision_category_border_war
-		
-		
-		activation = {
-			has_war_with = SOV
+		available = {
+			original_tag = MAN
+			has_completed_focus = SPT_MAN_integrate_the_northwest
 		}
 		visible = {
-			has_war_with = SOV
-		}
-		fire_only_once = yes
-
-		available = {
-			OR = { 
-				hidden_trigger = {
-					SOV = {
-						controls_state = 146
-					}
-				}
-				custom_trigger_tooltip = {
-					tooltip = SOV_controlls_viipuri_tt
-					always = no
-				}
-				casualties_inflicted_by = {
-				opponent = SOV
-				thousands > 70
-				}
-				hidden_trigger = {
-					SOV = {
-						owns_state = 146
-					}
-				}
-				FIN = {
-					surrender_progress > 0.50
-				}
-			}
-		}
-		is_good = yes
-		days_mission_timeout = 210
-		fire_only_once = yes
-		timeout_effect = {
-			country_event = { 
-				id = spt_finland.1
-				days = 1
-			}
-			white_peace = {
-				tag = SOV
-			}
+			original_tag = MAN
+			has_completed_focus = SPT_MAN_recruit_qing_loyalists
 		}
 		complete_effect = {
-			white_peace = {
-				tag = SOV
-			}
-			SOV = {
-				set_state_owner = 146
-			}
-			hidden_effect = {
-				SOV = {
-					set_state_controller = 146
-				}
-			}
-			SOV = { 
-				set_state_owner = 147
-			}
-			hidden_effect = {
-				SOV = {
-					set_state_controller = 147
-				}
-			}
-			country_event = { 
-				id = spt_finland.2
-				days = 1
-			}
-		}
-	}
-	SOV_winter_war = {
-
-		allowed = {
-			tag = SOV
-		}
-		name = winter_war
-
-		icon = GFX_decision_category_border_war
-		
-		
-		activation = {
-			has_war_with = FIN
-		}
-		visible = {
-			has_war_with = FIN
+			MAN_low_legitimacy_level_down = yes
+			add_state_core = 283
+			add_state_core = 616
+			add_state_core = 756
+			add_state_core = 755
+			add_state_core = 754
+			add_state_core = 604
+			add_state_core = 759
+			add_state_core = 760
+			add_state_core = 618
+			add_state_core = 617
+			add_state_core = 287
+			add_state_core = 619
+			add_state_core = 601
+			add_state_core = 752
+			add_state_core = 753
 		}
 		fire_only_once = yes
-
-		available = {
-			OR = { 
-				hidden_trigger = {
-					SOV = {
-						controls_state = 146
-					}
-				}
-				custom_trigger_tooltip = {
-					tooltip = SOV_controlls_viipuri_tt
-					always = no
-				}	
-				casualties_inflicted_by = {
-					opponent = SOV
-					thousands > 70
-					}
-				hidden_trigger = {
-					SOV = {
-						owns_state = 146
-					}
-				}
-				FIN = {
-					surrender_progress > 0.50
-				}
-			}
-		}
-		is_good = no
-		days_mission_timeout = 210
-		fire_only_once = yes
-		timeout_effect = {
-			country_event = { 
-				id = spt_finland.4
-				days = 1
-			}
-			white_peace = {
-				tag = FIN
-			}
-		}
-		complete_effect = {
-			white_peace = {
-				tag = FIN
-			}
-			SOV = {
-				set_state_owner  = 146
-			}
-			hidden_effect = {
-				SOV = {
-					set_state_controller = 146
-				}
-			}
-			SOV = { 
-				set_state_owner = 147
-			}
-			hidden_effect = {
-				SOV = {
-					set_state_controller = 147
-				}
-			}
-			country_event = { 
-				id = spt_finland.3
-				days = 1
-			}
-
-			
-		}
-	}
-	Appoint_Timoshenko = {
-		
-		icon = GFX_decision_SOV_the_military_conspiracy
-		allowed = {
-			tag = SOV
-		}
-		available = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		visible = {
-			has_war_with = FIN
-		}
-		fire_only_once = yes
-		days_remove = 30
-		remove_effect = {
-			remove_ideas = No_retreat_allowed
-		}
 	}
 }
+
+
+
 # No_retreat_allowed SOV_semyon_timoshenko
-
-JAP_manchuria_development ={ #Converted manchurian focuses into decisions
-							 #Japanese Settlers focus merged into Light Industry and Heavy Industry decision
+JAP_manchuria_development = {
+	#Converted manchurian focuses into decisions
+	#Japanese Settlers focus merged into Light Industry and Heavy Industry decision
 	JAP_manchu_lightindustry = {
 		allowed = {
 			original_tag = JAP
 		}
 		available = {
 			has_completed_focus = JAP_the_manchurian_project
+			OR = {
+				MAN = {exists = yes}
+				any_controlled_state = {is_core_of = MAN}
+			}
 		}
 		fire_only_once = yes
 		days_remove = 140
@@ -1242,137 +1035,164 @@ JAP_manchuria_development ={ #Converted manchurian focuses into decisions
 			civilian_factory_use = 2
 		}
 		remove_effect = {
-			random_country = {
+			random_state = {
 				limit = {
-					original_tag = MAN
+					is_core_of = MAN
+					OR = {
+						is_fully_controlled_by = JAP
+						is_fully_controlled_by = MAN
+					}
 				}
-				random_owned_controlled_state = {
-					add_extra_state_shared_building_slots = 3
-					add_building_construction = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
 					type = industrial_complex
 					level = 2
 					instant_build = yes
+				}
+			}
+			random_state = {
+				limit = {
+					is_core_of = MAN
+					OR = {
+						is_fully_controlled_by = JAP
+						is_fully_controlled_by = MAN
 					}
 				}
-				random_owned_controlled_state = {
-					add_extra_state_shared_building_slots = 3
-					add_building_construction = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
 					type = industrial_complex
 					level = 2
 					instant_build = yes
-					}
 				}
-				}
-				
 			}
 		}
-		JAP_manchu_heavyindustry = {
-			allowed = {
-				original_tag = JAP
-			}
-			available = {
-				has_completed_focus = JAP_the_manchurian_project
-			}
-			fire_only_once = yes
-			days_remove = 140
-			cost = 25
-			modifier = {
-				civilian_factory_use = 2
-			}
-			remove_effect = {
-				random_country = {
-					limit = {
-						original_tag = MAN
-					}
-					random_owned_controlled_state = {
-						add_extra_state_shared_building_slots = 3
-						add_building_construction = {
-						type = arms_factory
-						level = 2
-						instant_build = yes
-						}
-					}
-					random_owned_controlled_state = {
-						add_extra_state_shared_building_slots = 3
-						add_building_construction = {
-						type = arms_factory
-						level = 2
-						instant_build = yes
-						}
-					}
-					}
-					
-				}
-			}
-
-			JAP_manchu_steelworks = {
-				allowed = {
-					original_tag = JAP
-				}
-				available = {
-					has_completed_focus = JAP_the_manchurian_project
-				}
-				fire_only_once = yes
-				days_remove = 70
-				cost = 50
-				modifier = {
-					civilian_factory_use = 2
-				}
-				remove_effect = {
-					random_country = {
-						limit = {
-							original_tag = MAN
-						}
-						716 = {
-								add_resource = {
-									type = steel
-									amount = 16
-								}				
-							add_extra_state_shared_building_slots = 3
-							add_building_construction = {
-								type = industrial_complex
-								level = 2
-								instant_build = yes
-							}
-						}
-						}
-						
-					}
-				}
-
-				JAP_manchu_aluminum = {
-					allowed = {
-						original_tag = JAP
-					}
-					available = {
-						has_completed_focus = JAP_the_manchurian_project
-					}
-					fire_only_once = yes
-					days_remove = 70
-					cost = 50
-					modifier = {
-						civilian_factory_use = 2
-					}
-					remove_effect = {
-						random_country = {
-							limit = {
-								original_tag = MAN
-							}
-							328 = {
-									add_resource = {
-										type = aluminium
-										amount = 12
-									}
-								add_extra_state_shared_building_slots = 2
-								add_building_construction = {
-									type = industrial_complex
-									level = 2
-									instant_build = yes
-								}
-							}
-							}
-							
-						}
-					}	
 	}
+	JAP_manchu_heavyindustry = {
+		allowed = {
+			original_tag = JAP
+		}
+		available = {
+			has_completed_focus = JAP_the_manchurian_project
+			OR = {
+				MAN = {exists = yes}
+				any_controlled_state = {is_core_of = MAN}
+			}
+		}
+		fire_only_once = yes
+		days_remove = 140
+		cost = 25
+		modifier = {
+			civilian_factory_use = 2
+		}
+		remove_effect = {
+			random_state = {
+				limit = {
+					is_core_of = MAN
+					OR = {
+						is_fully_controlled_by = JAP
+						is_fully_controlled_by = MAN
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_state = {
+				limit = {
+					is_core_of = MAN
+					OR = {
+						is_fully_controlled_by = JAP
+						is_fully_controlled_by = MAN
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	JAP_manchu_steelworks = {
+		allowed = {
+			original_tag = JAP
+		}
+		available = {
+			has_completed_focus = JAP_the_manchurian_project
+			OR = {
+				JAP = {
+					has_full_control_of_state = 716
+				}
+				MAN = {
+					has_full_control_of_state = 716
+				}
+			}
+		}
+		fire_only_once = yes
+		days_remove = 70
+		cost = 50
+		modifier = {
+			civilian_factory_use = 2
+		}
+		remove_effect = {
+			716 = {
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	JAP_manchu_aluminum = {
+		allowed = {
+			original_tag = JAP
+		}
+		available = {
+			has_completed_focus = JAP_the_manchurian_project
+			OR = {
+				JAP = {
+					has_full_control_of_state = 328
+				}
+				MAN = {
+					has_full_control_of_state = 328
+				}
+			}
+		}
+		fire_only_once = yes
+		days_remove = 70
+		cost = 50
+		modifier = {
+			civilian_factory_use = 2
+		}
+		remove_effect = {
+			328 = {
+				add_resource = {
+					type = aluminium
+					amount = 12
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	
+
+
+}
+
 

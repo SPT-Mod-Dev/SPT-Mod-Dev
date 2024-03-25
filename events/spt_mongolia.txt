@@ -1,0 +1,680 @@
+add_namespace = spt_mongolia
+
+##### GREAT PURGE - opt 1 governement controll opt 2 moscow control
+
+country_event = { #genden returns
+	id = spt_mongolia.1
+	title = spt_mongolia.1.t
+	desc = spt_mongolia.1.desc
+	picture = GFX_report_event_fascist_speech
+	#
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = spt_mongolia.1.a
+		add_country_leader_trait = figurehead_president
+		remove_country_leader_trait = the_absentee_president
+		country_event = {
+			id = spt_mongolia.2
+			days = 23
+		}
+		add_ideas = mon_low_gov_cont
+		add_country_leader_trait = figurehead_president
+	}
+}
+country_event = { #military purges
+	id = spt_mongolia.2
+	title = spt_mongolia.2.t
+	desc = spt_mongolia.2.desc
+	picture = GFX_report_event_canada_patriation
+
+	#
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = spt_mongolia.2.a
+		hidden_effect = {
+		country_event = {
+			id = spt_mongolia.3
+			days = 23
+		}
+	}
+		MON_gov_higher = yes
+		add_stability = -0.05
+		add_war_support = -0.05
+		add_popularity = {
+			ideology = communism
+			popularity = -0.10
+		}
+	}
+	option = {
+		name = spt_mongolia.2.b
+		country_event = {
+			id = spt_mongolia.3
+			days = 23
+		}
+		MON_gov_lower = yes
+
+		330 = {
+			add_manpower = -12500
+		}
+		820 = {
+			add_manpower = -12500
+		}
+
+		add_timed_idea = {
+			idea = mon_military_purge
+			days = 365
+		}
+	}
+}
+country_event = { #religous purges
+	id = spt_mongolia.3
+	title = spt_mongolia.3.t
+	desc = spt_mongolia.3.desc
+	picture = GFX_report_event_canadian_soldiers
+	#
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = spt_mongolia.3.a
+		hidden_effect = {
+		country_event = {
+			id = spt_mongolia.4
+			days = 23
+		}
+	}
+		MON_gov_higher = yes
+		add_stability = -0.05
+		add_war_support = -0.05
+		add_popularity = {
+			ideology = communism
+			popularity = -0.10
+		}
+	}
+	option = {
+		name = spt_mongolia.3.b
+		hidden_effect = {
+		country_event = {
+			id = spt_mongolia.4
+			days = 23
+		}
+	}
+		MON_gov_lower = yes
+
+		330 = {
+			add_manpower = -12500
+		}
+		820 = {
+			add_manpower = -12500
+		}
+		818 = {
+			add_manpower = -12500
+		}
+
+		add_ideas = mon_crackdown_on_religion
+	}
+}
+country_event = {
+	id = spt_mongolia.4 #deal with genden
+	title = spt_mongolia.4.t
+	desc = spt_mongolia.4.desc
+	picture = GFX_report_event_hitler_china
+	#
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = spt_mongolia.4.a
+		MON_gov_higher = yes
+		hidden_effect = {
+			add_ideas = mon_genden_purge_alive
+		}
+		add_stability = 0.05
+		add_popularity = {
+			ideology = communism
+			popularity = -0.10
+		}
+		retire_country_leader = yes
+		add_country_leader_role = {
+			character = MON_anandyn_amar
+			promote_leader = yes
+			country_leader = {
+				ideology = marxism
+				expire = 1965.1.1.1
+			}
+		}
+	}
+	option = {
+		name = spt_mongolia.4.b
+		MON_gov_lower = yes
+		hidden_effect = {
+		add_ideas = mon_genden_purge_dead
+		}
+		add_stability = -0.05
+		add_manpower = -1
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = -1
+		}
+		retire_country_leader = yes
+		add_country_leader_role = {
+			character = MON_anandyn_amar
+			promote_leader = yes
+			country_leader = {
+				ideology = marxism
+				expire = 1965.1.1.1
+			}
+		}
+	}
+}
+country_event = { #center wins
+#not used in game as of now, don't remove for consistency sake
+	id = spt_mongolia.5
+	title = spt_mongolia.5.t
+	desc = spt_mongolia.5.desc
+	picture = GFX_report_event_soviet_army_greeted
+	#
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = spt_mongolia.5.a
+	}
+	option = {
+		name = spt_mongolia.5.b
+		add_stability = -0.5
+		hidden_effect = {
+			set_country_flag = mon_center_win
+			add_stability = 0.5
+		}
+	}
+}
+country_event = { #party survives
+	id = spt_mongolia.6
+	title = spt_mongolia.6.t
+	desc = spt_mongolia.6.desc
+	picture = GFX_report_event_saf_coup
+	#
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = { #left prevails
+		name = spt_mongolia.6.a
+		hidden_effect = {
+			country_event = {
+				id = spt_mongolia.7
+				days = 10
+			}
+		}
+		SOV = {
+			remove_from_faction = MON
+			end_puppet = MON
+		}
+	}
+	option = { #nationalists
+		name = spt_mongolia.6.b
+		hidden_effect = {
+			country_event = {
+				id = spt_mongolia.8
+				days = 10
+			}
+		}
+		SOV = {
+			remove_from_faction = MON
+			end_puppet = MON
+		}
+	}
+}
+country_event = { # LEFT PREVAILS
+	id = spt_mongolia.7
+	title = spt_mongolia.7.t
+	desc = spt_mongolia.7.desc
+	picture = GFX_report_event_communists_cheer
+	#
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = spt_mongolia.7.a
+		complete_national_focus = MON_left
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = -1500
+		}
+		add_manpower = -2500
+		IF = {
+			limit = {
+			has_idea  = mon_genden_purge_alive
+			}
+			country_event = {
+				id = spt_mongolia.9
+				days = 10
+			}
+		}
+	}
+}
+#country_event = {
+#	id = spt_news_mongolia.1
+#	title = spt_news_mongolia.1.t
+#	desc = spt_news_mongolia.1.desc
+#	picture = GFX_news_event_generic_read_write
+#	major = yes
+#	is_triggered_only = yes
+#	option = {
+#		name = spt_news_mongolia.1.a
+#	}
+#}
+country_event = { # NATIONALIST GAMBIT PAYS OFF
+	id = spt_mongolia.8
+	title = spt_mongolia.8.t
+	desc = spt_mongolia.8.desc
+	picture = GFX_report_event_SOV_national_academy_of_sciences
+	#
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = spt_mongolia.8.a
+		complete_national_focus = MON_nationalist
+		retire_country_leader = yes
+		set_politics = {
+			ruling_party = neutrality
+			elections_allowed = no
+		}
+		remove_ideas = mon_memories_of_32
+		add_country_leader_role = {
+			character = MON_genepil
+			promote_leader = yes
+			country_leader = {
+				ideology = despotism
+				expire = 1965.1.1.1
+			}
+		}
+	}
+}
+country_event = { #bringing genden back
+	id = spt_mongolia.9
+	title = spt_mongolia.9.t
+	desc = spt_mongolia.9.desc
+	picture = GFX_report_event_gre_venizelos_speech
+	#
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = { # yup
+		name = spt_mongolia.9.a
+		retire_country_leader = yes
+		add_country_leader_role = {
+			character = MON_genden_pelijd_2
+			promote_leader = yes
+			country_leader = {
+				ideology = marxism
+				expire = 1965.1.1.1
+			}
+		}
+	}
+	option = { # no
+		name = spt_mongolia.9.b
+	}
+
+	
+}
+
+# _____ ______ _   _ _______ ______ _____  
+#/ ____|  ____| \ | |__   __|  ____|  __ \ 
+#| |    | |__  |  \| |  | |  | |__  | |__) |
+#| |    |  __| | . ` |  | |  |  __| |  _  / 
+#| |____| |____| |\  |  | |  | |____| | \ \ 
+# \_____|______|_| \_|  |_|  |______|_|  \_\
+
+country_event = { #### Mech Sov Aid
+id = spt_mongolia.10
+title = spt_mongolia.10.t
+desc = spt_mongolia.10.desc
+picture = GFX_report_event_generic_truck
+#
+is_triggered_only = yes
+fire_only_once = yes
+option = { #yes
+	name = spt_mongolia.10.a
+	add_timed_idea = {
+		idea = sov_mon_mech
+		days = 60
+	}
+	MON = {
+		add_ideas = mon_mech
+		add_tech_bonus = {
+			bonus = 2
+			uses = 1
+			category = motorized_equipment
+		}
+	}
+}
+option = {
+	name = spt_mongolia.10.b
+}
+}
+
+country_event = {
+	id = spt_mongolia.11
+	title = spt_mongolia.11.t
+	desc = spt_mongolia.11.desc
+	picture = GFX_report_event_generic_factory
+	#
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = spt_mongolia.11.a
+		random_owned_controlled_state = {
+			limit = {
+				industrial_complex > 2
+			}
+			remove_building = {
+				type = industrial_complex
+				level = 2
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				industrial_complex > 1
+			}
+			remove_building = {
+				type = industrial_complex
+				level = 1
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				industrial_complex > 1
+			}
+			remove_building = {
+				type = industrial_complex
+				level = 1
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				industrial_complex > 2
+			}
+			remove_building = {
+				type = industrial_complex
+				level = 2
+			}
+		}
+		MON = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	option = {
+		name = spt_mongolia.11.b
+	}
+}
+country_event = {
+	id = spt_mongolia.12
+	title = spt_mongolia.12.t
+	desc = spt_mongolia.12.desc
+	picture = GFX_report_event_tank_factory
+	#
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = spt_mongolia.12.a
+		add_timed_idea = {
+			idea = sov_mon_arms_factory
+			days = 90
+		}
+		random_owned_controlled_state = {
+			limit = {
+				arms_factory > 2
+			}
+			remove_building = {
+				type = arms_factory
+				level = 2
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				arms_factory > 2
+			}
+			remove_building = {
+				type = arms_factory
+				level = 2
+			}
+		}
+		MON = {
+			add_timed_idea = {
+				idea = mon_arms_factory
+				days = 180
+			}
+			random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+			random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+
+	}
+	option = {
+		name = spt_mongolia.12.b
+	}
+}
+
+
+
+###################### NATIONALIST ECONOMIC AID
+
+country_event = {
+	id = spt_mongolia.14
+	title = spt_mongolia.14.t
+	desc = spt_mongolia.14.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_generic_factory
+
+	option = {
+		name = spt_mongolia.14.a #### mils
+		random_owned_controlled_state = {
+			limit = {
+				arms_factory > 2
+			}
+			remove_building = {
+				type = arms_factory
+				level = 2
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				arms_factory > 2
+			}
+			remove_building = {
+				type = arms_factory
+				level = 2
+			}
+		}
+		MON = {
+			random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+			random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+	}
+	option = {
+		name = spt_mongolia.14.b #### civs
+		random_owned_controlled_state = {
+			limit = {
+				industrial_complex > 2
+			}
+			remove_building = {
+				type = industrial_complex
+				level = 2
+			}
+		}
+		random_owned_controlled_state = {
+			limit = {
+				industrial_complex > 2
+			}
+			remove_building = {
+				type = industrial_complex
+				level = 2
+			}
+		}
+		MON = {
+			random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+			random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+	}
+	option = { #nah
+		name = spt_mongolia.14.c
+	}
+
+}
+##################### MON-CHINA WAR SHARED
+
+country_event = { #people jumping the border to help china
+	id = spt_mongolia.13
+	title = spt_mongolia.13.t
+	desc = spt_mongolia.13.desc
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = spt_mongolia.13.a
+		add_ideas = mon_jump_border
+		set_rule = { can_send_volunteers = yes }
+	}
+}
+country_event = { #annex sinkinag funny thingy
+	id = spt_mongolia.15
+	title = spt_mongolia.15.t
+	desc = spt_mongolia.15.desc
+	picture = GFX_report_event_spr_civil_war_faction_defeated
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = spt_mongolia.15.a
+		transfer_state = 618
+		transfer_state = 760
+		transfer_state = 617
+		transfer_state = 759
+		transfer_state = 287
+		transfer_state = 619
+	}
+}
+
+country_event = { #changelog
+	id = spt_mongolia.16
+	title = spt_mongolia.16.t
+	desc = spt_mongolia.16.desc
+	is_triggered_only = yes
+	option = {
+		name = spt_mongolia.16.a
+	}
+}
+country_event = { #mon history lesson
+	id = spt_mongolia.17
+	title = spt_mongolia.17.t
+	desc = spt_mongolia.17.desc
+	is_triggered_only = yes
+	option = {
+		name = spt_mongolia.17.a
+	}
+}
+country_event = {
+	id = spt_mongolia.18
+	title = spt_mongolia.18.t
+	desc = spt_mongolia.18.desc
+	picture = GFX_report_event_soviet_purge_speech
+	is_triggered_only = yes
+	option = {
+		name = spt_mongolia.18.a
+	}
+	option = {
+		name = spt_mongolia.18.b
+		set_country_flag = mon_center_win_2
+		add_ideas = mon_amogus
+	}
+}
+
+
+
+############################ NATIONALIST ECONOMIC AID
+
+##########################################
+
+#_      ______ ______ _______   ________      ________ _   _ _______ _____ 
+#| |    |  ____|  ____|__   __| |  ____\ \    / /  ____| \ | |__   __/ ____|
+#| |    | |__  | |__     | |    | |__   \ \  / /| |__  |  \| |  | | | (___  
+#| |    |  __| |  __|    | |    |  __|   \ \/ / |  __| | . ` |  | |  \___ \ 
+#| |____| |____| |       | |    | |____   \  /  | |____| |\  |  | |  ____) |
+#|______|______|_|       |_|    |______|   \/   |______|_| \_|  |_| |_____/
+

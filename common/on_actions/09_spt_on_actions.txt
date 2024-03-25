@@ -1,6 +1,22 @@
 on_actions = {
 	on_startup = {
 		effect = {
+			#Suck it sticky
+			#Prevent countries joining faction
+			YUG = {
+				set_rule = { can_join_factions = no }
+			}
+			GRE = {
+				set_rule = { can_join_factions = no }
+			}
+			POR = {
+				set_rule = { can_join_factions = no }
+			}
+			TUR = {
+				set_rule = { can_join_factions = no }
+			}
+			
+			
 			#Gives all players training division
 			every_country = {
 				limit = {
@@ -292,12 +308,30 @@ on_actions = {
 				}
 			}
 
-			FIN = {
-			  country_event = { 
-				  days = 1814
-				  id = spt_finland.45
+			
+
+			MON = {
+				country_event = { 
+					days = 75
+					id = spt_mongolia.5
+				}
 			  }
+
+
+			if = {
+				limit = {
+					is_historical_focus_on = no
+				}
+
+				GER = { news_event = spt.112 }
+				
+				sound_effect = "spt_pipe_falling"
 			}
+			
+			
+			
+
+
 			
 
 		}
@@ -585,6 +619,33 @@ on_actions = {
 					}
 				}
 			}
+
+			#ENG loses Suez or Gibraltar (triggers Shipping Routes Disrupted event for ENG)
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							#Gibraltar
+							118 = { NOT = {is_controlled_by = ENG }}
+							118 = { is_owned_by = ENG }
+						}
+						AND = {
+							#Suez
+							446 = { NOT = {is_controlled_by = ENG }}
+							446 = { is_owned_by = ENG }
+						}
+					}
+					ENG = {
+						NOT = {has_idea = spt_disrupted_shipping_hidden}
+					}
+				}
+				ENG = {
+					country_event = {
+						id = spt.111
+						days = 1
+					}
+				}
+			}
 		}
 	}
 	on_capitulation = {
@@ -762,7 +823,35 @@ on_actions = {
 					}
 				}
 				JAP = {
-					add_ideas = JAP_tora_tora_tora_idea
+					#add_ideas = JAP_tora_tora_tora_idea
+					add_timed_idea = {
+						idea = JAP_tora_tora_tora_idea
+						days = 180
+					}
+				}
+			}
+
+
+			if = {
+				limit = {
+					ROOT = {
+						tag = JAP
+					}
+					FROM = {
+						tag = CHI
+					}
+				}
+				MON = {
+					country_event = { 
+						id = spt_mongolia.13
+						days = 7
+					}
+				}
+				MON = {
+					country_event = {
+						id = spt_mongolia.15
+						days = 35
+					}
 				}
 			}
 		}
@@ -880,23 +969,6 @@ on_actions = {
 					}
 				}
 				clr_global_flag = Med_War
-			}
-		}
-	}
-	on_army_leader_promoted = {
-		effect = {
-			if = {
-				limit = {
-					FROM = {
-						original_tag = SOV
-					}
-					ROOT = {
-						has_id = 404
-					}
-				}
-				SOV = {
-					activate_decision = Appoint_Timoshenko
-				}
 			}
 		}
 	}

@@ -44,6 +44,13 @@ fin_martial_law = {
 
 ############################# LODOMIR
 
+fin_AAT_continuation_war = {
+	icon = GFX_modifiers_SWI_attack_from_the_mountains
+	breakthrough_factor = 0.25
+	army_attack_factor = 0.25
+	dig_in_speed_factor = 0.25
+}
+
 
 JAP_impending_assault = {
 	icon = GFX_modifiers_SWI_attack_from_the_mountains
@@ -102,7 +109,33 @@ JAP_pan_asian_integration = {
 	state_production_speed_buildings_factor = 0.1
 	local_factories = 0.2
 	local_supplies = 0.2
-	local_non_core_manpower = -0.075
+	local_non_core_manpower = -0.1
+}
+
+
+mon_lack_of_military_leadership = {
+	icon = GFX_idea_SOV_third_five_year_plan_military
+	military_leader_cost_factor = MON_lack_leader
+	army_org_factor = MON_lack_org
+	army_speed_factor = MON_lack_speed
+	army_attack_factor = MON_lack_attack
+	army_defence_factor = MON_lack_defence
+}
+mon_preindustrial_economy = {
+	icon = GFX_idea_SOV_third_five_year_plan_military
+
+	industrial_capacity_factory = MON_pre_ind_capt
+	production_speed_buildings_factor = MON_pre_speed_build
+	consumer_goods_factor = MON_pre_cons_good
+	production_factory_efficiency_gain_factor = MON_pre_eff_gain
+
+}
+mon_decentralised_society = {
+	icon = GFX_idea_SOV_third_five_year_plan_military
+
+	conscription_factor = MON_dec_conscr_fact
+	stability_factor = MON_dec_stability_fact
+	research_speed_factor = MON_dec_res_fact
 }
 
 SPT_JAP_nanshin_ron = { #NATIONAL SPIRIT
@@ -142,6 +175,7 @@ SPT_JAP_nanshin_ron = { #NATIONAL SPIRIT
 	air_doctrine_cost_factor = SPT_JAP_air_doctrine_cost_factor
 	naval_doctrine_cost_factor = SPT_JAP_naval_doctrine_cost_factor
 	war_support_factor = SPT_JAP_war_support_factor
+	production_speed_infrastructure_factor = SPT_JAP_production_speed_infrastructure_factor
 }
 
 SPT_USA_economic_boost_coast = {
@@ -168,7 +202,39 @@ SPT_USA_booming_coast_economy = {
 SPT_USA_booming_interior_economy = {
 	enable = { always = yes  }
 	icon = GFX_modifiers_SOV_civilian_labor_in_defense
-	state_production_speed_buildings_factor = 0.05
-	state_production_speed_industrial_complex_factor = 0.1
-	state_production_speed_arms_factory_factor = 0.1
+	state_production_speed_buildings_factor = 0.1
+	state_production_speed_industrial_complex_factor = 0.05
+	state_production_speed_arms_factory_factor = 0.05
+}
+
+SPT_USA_landons_america = { #NATIONAL SPIRIT
+	enable = { always = yes }
+
+	icon = GFX_idea_generic_economic_increase
+
+	political_power_gain = SPT_USA_political_power_gain
+	consumer_goods_factor = SPT_USA_consumer_goods_factor
+	production_factory_max_efficiency_factor = SPT_USA_factory_max_efficiency_factor
+	production_factory_efficiency_gain_factor = SPT_USA_production_factory_efficiency_gain_factor
+	industrial_capacity_factory = SPT_USA_industrial_capacity_factory
+	production_lack_of_resource_penalty_factor = SPT_USA_production_lack_of_resource_penalty_factor
+	production_speed_buildings_factor = SPT_USA_production_speed_buidlings_factor
+	production_factory_start_efficiency_factor = SPT_USA_production_factory_start_efficiency_factor
+	global_building_slots_factor = SPT_USA_global_building_slots_factor
+	production_speed_arms_factory_factor = SPT_USA_production_speed_arms_factory_factor
+	industrial_capacity_dockyard = SPT_USA_industrial_capacity_dockyard
+	production_speed_dockyard_factor = SPT_USA_production_speed_dockyard_factor
+	war_support_factor = SPT_USA_war_support_factor
+	stability_factor = SPT_USA_stability_factor
+	production_speed_industrial_complex_factor = SPT_USA_production_speed_industrial_complex_factor
+	communism_drift = SPT_USA_communism_drift
+	fascism_drift = SPT_USA_fascism_drift
+	democratic_drift = SPT_USA_democratic_drift
+	operative_slot = SPT_USA_operative_slot
+	special_forces_cap = SPT_USA_special_forces_cap
+	conscription_factor = SPT_USA_conscription_factor
+	army_attack_factor = SPT_USA_army_attack_factor
+	army_morale_factor = SPT_USA_army_morale_factor
+	army_org_factor = SPT_USA_army_org_factor
+
 }

@@ -29,11 +29,21 @@ USA_PAC_category = {
 	allowed = {
 		original_tag = USA
 	}
+	visible = {
+		has_power_balance = {
+			id = USA_PAC_pacific_front
+		}
+	}
 }
 
 JAP_PAC_category = {
 	allowed = {
 		original_tag = JAP
+	}
+	visible = {
+		has_power_balance = {
+			id = JAP_PAC_pacific_front
+		}
 	}	
 }
 
@@ -41,11 +51,23 @@ ENG_MED_category = {
 	allowed = {
 		original_tag = ENG
 	}
+	visible = {
+		has_power_balance = {
+			id = ENG_MED_med_front
+		}
+ 
+	}
 }
 
 ITA_MED_category = {
 	allowed = {
 		original_tag = ITA
+	}
+	
+	visible = {
+		has_power_balance = {
+			id = ITA_MED_med_front
+		}
 	}	
 }
 
@@ -81,23 +103,6 @@ SPT_tutorial_decisions = {
 }
 
 
-FIN_purchse_foreign_equipment_decisions = {
-	allowed = {
-		tag = FIN
-	}
-	priority = {
-		base = 420
-	}
-	
-}
-FIN_integration_of_karelia = {
-	allowed = {
-		tag = FIN
-	}
-	priority = {
-		base = 200
-	}
-}
 SPT_winter_war = {
 	priority = {
 		base = 800
@@ -115,6 +120,56 @@ JAP_tripartite_decisions = {
 	allowed = {
 		original_tag = JAP
 	}
+}
+
+MON_soviet_economic_aid_decisions = {
+	priority = {
+		base = 2137
+	}
+	allowed = {
+		original_tag = MON
+	}
+}
+MON_center_win_decisions = {
+	priority = 1500
+	allowed = {
+		original_tag = MON
+	}
+	visible = {
+		has_country_flag = mon_center_win_2
+		NOT = {
+			has_country_flag = mon_center_win_3
+		}
+	}
+}
+MON_international_economic_aid_decisions = {
+	priority = {
+		base = 2137
+	}
+	allowed = {
+		original_tag = MON
+	}
+}
+MON_prospect_for_resources = {
+	priority = {
+		base = 2000
+	}
+	allowed = {
+		original_tag = MON
+	}
+}
+MON_info = {
+	priority = {
+		base = 3000
+	}
+allowed = {
+	original_tag = MON
+}
+visible = {
+	NOT = {
+		has_country_flag = MON_info_off
+	}
+}
 }
 
 SPT_USA_recession_decisions = {
@@ -141,14 +196,4 @@ SPT_USA_war_plans = {
 		has_completed_focus = USA_war_plans_division
 	}
 }
-USA_war_plans = { #yes ginger, i know this is counted as a duplicate
-				  #but to actually prevent the vanilla decisions from appearing
-				  #this becomes necessary, so for the love of all that is holy
-				  #do not remove this, i will stab you.
-	allowed = {
-		original_tag = USA
-	}
-	visible = {
-		always = no
-	}
-}
+

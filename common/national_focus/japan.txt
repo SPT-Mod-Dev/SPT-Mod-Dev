@@ -956,7 +956,7 @@
 		id = JAP_purge_the_kodoha_faction
 		icon = GFX_focus_jap_showa_restoration
 		mutually_exclusive = { focus = JAP_the_unthinkable_option focus = JAP_support_the_kodoha_faction focus = JAP_strengthen_civilian_government }
-		x = 11
+		x = 6
 		y = 0
 		relative_position_id = JAP_the_unthinkable_option
 		offset = {
@@ -1117,6 +1117,15 @@
 
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 		completion_reward = {
+			hidden_effect = {
+				CHI = {
+					add_ai_strategy = {
+						type = befriend
+						id = SOV
+						value = 1000
+					}
+				}
+			}
 			if = {
 				limit = {
 					CHI = { #if CHI owns one of these states, they get the event
@@ -1303,12 +1312,25 @@
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			add_ideas = JAP_zaibatsu_expansion
+			swap_ideas = {
+				remove_idea = JAP_guide_the_zaibatsus
+				add_idea = JAP_zaibatsus_empowered
+			}
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}	
+				every_military_industrial_organization = {
+					tooltip = every_mio_tt
+					add_mio_size = 1
+				}
+			}
 		}
 	}
 
 	focus = {
 		id = JAP_foreign_workers
-		icon = GFX_goal_generic_construct_civ_factory
+		icon = GFX_spt_focus_foreign_workers
 		prerequisite = { focus = JAP_zaibatsu_investment }
 		x = 0
 		y = 1
@@ -1342,7 +1364,7 @@
 
 	focus = {
 		id = JAP_pan_asia_movement
-		icon = GFX_focus_spr_masters_of_our_own_fate
+		icon = GFX_spt_focus_pan_asia
 		prerequisite = { focus = JAP_intervene_in_china }
 		mutually_exclusive = { focus = JAP_develop_chinese_resources }
 		x = -1
@@ -1380,6 +1402,7 @@
 					scope = JAP
 				}
 			}
+			set_cosmetic_tag = JAP_pan_asia_empire
 		}
 	}
 
@@ -1421,7 +1444,7 @@
 
 	focus = {
 		id = JAP_showa_restored
-		icon = GFX_focus_AST_war_japan
+		icon = GFX_spt_focus_showa_restored
 		prerequisite = { focus = JAP_pan_asia_movement }
 		x = 1
 		y = 1
@@ -1500,7 +1523,7 @@
 		#prerequisite = { focus = JAP_greater_east_asian_co_prosperity_sphere }
 		prerequisite = { focus = JAP_sign_tripartite_pact }
 		x = -2
-		y = 4
+		y = 3
 		relative_position_id = JAP_liaison_conference
 
 		cost = 5 #SPT change 10 -> 5
@@ -1552,7 +1575,7 @@
 		icon = GFX_focus_chi_mission_to_the_soviet_union
 		prerequisite = { focus = JAP_strike_south_doctrine }
 		x = 0
-		y = 1
+		y = 2
 		relative_position_id = JAP_strike_south_doctrine
 		dynamic = yes  
 
@@ -1644,7 +1667,7 @@
 
 		completion_reward = {
 			add_to_variable = {
-				SPT_JAP_max_planning = 0.1
+				SPT_JAP_max_planning = 0.05
 			}
 			add_to_variable = {
 				SPT_JAP_planning_speed = 0.1
@@ -1751,7 +1774,7 @@
 
 		completion_reward = {
 			add_to_variable = {
-				SPT_JAP_naval_invasion_planning_bonus_speed = 0.2
+				SPT_JAP_naval_invasion_planning_bonus_speed = 0.15
 			}
 			add_to_variable = {
 				SPT_JAP_special_forces_attack_factor = 0.05
@@ -1936,7 +1959,10 @@
 				limit = {
 					has_idea = JAP_guide_the_zaibatsus
 				}
-				set_variable = {
+				hidden_effect = {
+					add_ideas = SPT_JAP_zaibatsu_guide_chosen
+				}
+				add_to_variable = {
 					SPT_JAP_production_factory_efficiency_gain_factor = 0.05
 				}
 				custom_effect_tooltip = SPT_JAP_the_zaibatsus_guided_tt
@@ -1945,7 +1971,10 @@
 				limit = {
 					has_idea = JAP_zaibatsus_challenged
 				}
-				set_variable = {
+				hidden_effect = {
+					add_ideas = SPT_JAP_zaibatsu_challenge_chosen
+				}
+				add_to_variable = {
 					SPT_JAP_production_factory_start_efficiency_factor = 0.1
 				}
 				custom_effect_tooltip = SPT_JAP_the_zaibatsus_challenged_tt
@@ -1954,10 +1983,75 @@
 				limit = {
 					has_idea = JAP_nationalize_the_zaibatsus
 				}
-				set_variable = {
-					SPT_JAP_consumer_goods_factor = -0.025
+				hidden_effect = {
+					add_ideas = SPT_JAP_zaibatsu_nationalize_chosen
+				}
+				add_to_variable = {
+					SPT_JAP_local_resources_factor = 0.05
 				}
 				custom_effect_tooltip = SPT_JAP_the_zaibatsus_nationalized_tt
+			}
+			else_if = {
+				limit = {
+					has_idea = JAP_zaibatsus_empowered
+				}
+				hidden_effect = {
+					add_ideas = SPT_JAP_zaibatsu_empower_chosen
+				}
+				add_to_variable = {
+					SPT_JAP_production_speed_infrastructure_factor = 0.1
+				}
+				custom_effect_tooltip = SPT_JAP_the_zaibatsus_empowered_tt
+			}
+			else = {
+				custom_effect_tooltip = SPT_JAP_the_zaibatsus_undecided_guide_tt
+				custom_effect_tooltip = SPT_JAP_the_zaibatsus_guided_tt
+				custom_effect_tooltip = SPT_JAP_the_zaibatsus_undecided_empower_tt
+				custom_effect_tooltip = SPT_JAP_the_zaibatsus_empowered_tt
+				custom_effect_tooltip = SPT_JAP_the_zaibatsus_undecided_challenge_tt
+				custom_effect_tooltip = SPT_JAP_the_zaibatsus_challenged_tt
+				custom_effect_tooltip = SPT_JAP_the_zaibatsus_undecided_nationalize_tt
+				custom_effect_tooltip = SPT_JAP_the_zaibatsus_nationalized_tt
+			}
+		}
+
+		complete_tooltip = {
+			custom_effect_tooltip = SPT_JAP_the_zaibatsus_tt
+			if = {
+				limit = {
+					has_idea = SPT_JAP_zaibatsu_guide_chosen
+				}
+				add_to_variable = {
+					SPT_JAP_production_factory_efficiency_gain_factor = 0.05
+				}
+				custom_effect_tooltip = SPT_JAP_the_zaibatsus_guided_tt
+			}
+			else_if = {
+				limit = {
+					has_idea = SPT_JAP_zaibatsu_challenge_chosen
+				}
+				add_to_variable = {
+					SPT_JAP_production_factory_start_efficiency_factor = 0.1
+				}
+				custom_effect_tooltip = SPT_JAP_the_zaibatsus_challenged_tt
+			}
+			else_if = {
+				limit = {
+					has_idea = SPT_JAP_zaibatsu_nationalize_chosen
+				}
+				add_to_variable = {
+					SPT_JAP_local_resources_factor = 0.05
+				}
+				custom_effect_tooltip = SPT_JAP_the_zaibatsus_nationalized_tt
+			}
+			else_if = {
+				limit = {
+					has_idea = SPT_JAP_zaibatsu_empower_chosen
+				}
+				add_to_variable = {
+					SPT_JAP_production_speed_infrastructure_factor = 0.1
+				}
+				custom_effect_tooltip = SPT_JAP_the_zaibatsus_empowered_tt
 			}
 		}
 	}
@@ -2061,13 +2155,13 @@
 				}
 			}
 			set_variable = {
-				SPT_JAP_production_speed_arms_factory_factor = -0.2
+				SPT_JAP_production_speed_arms_factory_factor = -0.4
 			}
 			custom_effect_tooltip = SPT_JAP_rapid_development_tt
 
 			add_timed_idea = {
 				idea = SPT_JAP_rapid_arms_dev
-				days = 365
+				days = 250
 			}
 		}
 	}
@@ -2082,7 +2176,7 @@
 		y = 1
 		relative_position_id = SPT_JAP_the_zaibatsus
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 2
@@ -2184,15 +2278,15 @@
 
 		completion_reward = {
 			add_to_variable = {
-				SPT_JAP_factory_max_efficiency_factor = -0.05
+				SPT_JAP_factory_max_efficiency_factor = -0.1
 			}
 			add_to_variable = {
-				SPT_JAP_production_factory_efficiency_gain_factor = -0.1
+				SPT_JAP_production_factory_efficiency_gain_factor = -0.2
 			}
 			custom_effect_tooltip = SPT_JAP_quick_retooling_tt
 			add_timed_idea = {
 				idea = SPT_JAP_quick_retool
-				days = 365
+				days = 250
 			}
 		}
 	}
@@ -2205,7 +2299,7 @@
 		y = 1
 		relative_position_id = SPT_JAP_steady_development
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 2
@@ -2226,8 +2320,11 @@
 				SPT_JAP_production_factory_efficiency_gain_factor = 0.05
 			}
 			add_to_variable = {
-				SPT_JAP_factory_max_efficiency_factor = 0.1
+				SPT_JAP_factory_max_efficiency_factor = 0.05
 			}
+			#add_to_variable = {
+			#	SPT_JAP_consumer_goods_factor = -0.05
+			#}
 			custom_effect_tooltip = SPT_JAP_long_term_tt
 		}
 	}
@@ -2261,12 +2358,12 @@
 				SPT_JAP_conscription = -0.005
 			}
 			add_to_variable = {
-				SPT_JAP_industrial_capacity_factory = -0.1
+				SPT_JAP_industrial_capacity_factory = -0.2
 			}
 			custom_effect_tooltip = SPT_JAP_factory_mobilization_tt
 			add_timed_idea = {
 				idea = SPT_JAP_factory_mobi
-				days = 365
+				days = 250
 			}
 		}
 	}
@@ -2279,7 +2376,7 @@
 		y = 1
 		relative_position_id = SPT_JAP_long_term_planning
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 2
@@ -2301,6 +2398,9 @@
 			}
 			set_variable = {
 				SPT_JAP_navy_fuel_consumption_factor = -0.05
+			}
+			add_to_variable = {
+				SPT_JAP_local_resources_factor = 0.05
 			}
 			custom_effect_tooltip = SPT_JAP_stockpiling_strats_tt
 			random_owned_controlled_state = {
@@ -2404,7 +2504,7 @@
 
 		completion_reward = {
 			set_variable = {
-				SPT_JAP_global_building_slots_factor = 0.2
+				SPT_JAP_global_building_slots_factor = 0.1
 			}
 			custom_effect_tooltip = SPT_JAP_industry_reorganized_tt
 
@@ -2915,7 +3015,7 @@
 		icon = GFX_focus_chi_mission_to_germany
 		prerequisite = { focus = JAP_liaison_conference }
 		x = -2
-		y = 2
+		y = 1
 		relative_position_id = JAP_liaison_conference
 
 		cost = 2 #SPT change 10 -> 2
@@ -2989,7 +3089,7 @@
 
 	focus = {
 		id = JAP_guide_the_zaibatsus
-		icon = GFX_focus_jap_zaibatsu
+		icon = GFX_spt_focus_guide_zaibatsus
 		prerequisite = { focus = JAP_purge_the_kodoha_faction }
 		mutually_exclusive = { focus = JAP_challenge_the_zaibatsus}
 		x = 2
@@ -3067,7 +3167,7 @@
 
 	focus = {
 		id = JAP_nationalize_war_industry
-		icon = GFX_goal_generic_construct_mil_factory
+		icon = GFX_spt_focus_national_war_industry
 		prerequisite = { focus = JAP_guide_the_zaibatsus }
 		prerequisite = { focus = JAP_national_mobilization_law }
 		x = 0
@@ -3099,7 +3199,7 @@
 					has_state_flag = JAP_nationalize_war_industry_AF
 				}
 				add_building_construction = {
-					type = arms_factory
+					type = industrial_complex #SPT change arms factory -> industrial complex
 					level = 2
 					instant_build = yes
 				}
@@ -3136,7 +3236,7 @@
 				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
-					type = arms_factory
+					type = industrial_complex #SPT change arms factory -> industrial complex
 					level = 2
 					instant_build = yes
 				}
@@ -3310,7 +3410,7 @@
 
 	focus = {
 		id = JAP_imperial_arsenals
-		icon = GFX_goal_generic_construct_mil_factory
+		icon = GFX_spt_focus_imperial_arsenal
 
 		prerequisite = { focus = JAP_challenge_the_zaibatsus }
 		prerequisite = {focus = JAP_national_mobilization_law}
@@ -3425,7 +3525,7 @@
 		y = 2
 		relative_position_id = JAP_imperial_arsenals
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 3
@@ -3475,14 +3575,14 @@
 
 	focus = {
 		id = SPT_JAP_nationalized_zaibatsus
-		icon = GFX_focus_jap_zaibatsu
+		icon = GFX_spt_focus_national_zaibatsus
 		prerequisite = { focus = JAP_seize_zaibatsu_docks }
 		prerequisite = { focus = JAP_national_defense_state}
 		x = 0
 		y = 1
 		relative_position_id = JAP_seize_zaibatsu_docks
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -3500,6 +3600,7 @@
 
 		search_filters = 	{ }
 		completion_reward = {
+			#add_stability = -0.05
 			swap_ideas = {
 				remove_idea = JAP_zaibatsus_challenged
 				add_idea = JAP_nationalize_the_zaibatsus
@@ -3509,7 +3610,7 @@
 
 	focus = {
 		id = JAP_national_defense_state
-		icon = GFX_focus_AST_war_japan
+		icon = GFX_spt_focus_national_defense_state
 		prerequisite = { focus = JAP_nationalize_war_industry  focus = JAP_imperial_arsenals}
 		x = -1
 		y = 2
@@ -3866,7 +3967,7 @@
 	focus = {
 		#SPT change, anchored to purge the kodoha, and changed requirements
 		id = JAP_challenge_the_zaibatsus
-		icon = GFX_focus_jap_zaibatsu
+		icon = GFX_spt_focus_challenge_zaibatsus
 		prerequisite = { focus = JAP_purge_the_kodoha_faction }
 		mutually_exclusive = {focus = JAP_guide_the_zaibatsus}
 		x = 4
@@ -5476,7 +5577,12 @@
 		}
 
 		available = {
-			MAN = { is_subject_of = ROOT }
+			OR = {
+				MAN = { is_subject_of = ROOT }
+				any_controlled_state = {
+					is_core_of = MAN
+				}
+			}
 		}
 
 		bypass = {
@@ -5489,10 +5595,13 @@
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_WAR_SUPPORT }
 		completion_reward = {
-			MAN = {				
-				add_stability = 0.1
-				add_war_support = 0.1
-				add_political_power = 150
+			if = {
+				limit = {MAN = { is_subject_of = ROOT } }
+				MAN = {				
+					add_stability = 0.1
+					add_war_support = 0.1
+					add_political_power = 150
+				}
 			}
 			
 		custom_effect_tooltip = JAP_the_manchurian_project_tt
@@ -5954,6 +6063,11 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			add_ideas = JAP_supremacy_of_technology
+			#SPT change to give supremacy of tech a boost
+			every_military_industrial_organization = {
+				tooltip = every_mio_tt
+				add_mio_funds_gain_factor = 0.10
+			}
 		}
 	}
 
@@ -6067,7 +6181,6 @@
 				add_idea = JAP_cheap_arty_improved
 				remove_idea = JAP_cheap_arty
 			}
-			
 		}
 	}
 
@@ -6099,15 +6212,17 @@
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
-			army_experience = 10
+			army_experience = 15
 			add_tech_bonus = {
 				name = JAP_armored_divisions
 				bonus = 1.0
 				uses = 1
 				category = armor	
 			}
-			hidden_effect = {JAP_armor_designer_swap = yes}
-			custom_effect_tooltip = JAP_armored_divisions_tt
+			mio:JAP_osaka_army_arsenal_organization = {
+				add_mio_size = 1
+				unlock_mio_trait_tooltip = SPT_JAP_armored_divisions_trait_tk
+			}
 		}
 	}
 
@@ -6268,7 +6383,7 @@
 
 
 		completion_reward = {
-			army_experience = 15 #SPT change added 15 army xp reward
+			army_experience = 30 #SPT change added 30 army xp reward
 			custom_effect_tooltip = available_chief_of_army
 			show_ideas_tooltip = hajime_sugiyama
 		}
@@ -6357,7 +6472,7 @@
 	}
 	focus = {
 		id = JAP_revive_bushido
-		icon = GFX_focus_ITA_generic_fascist_workers
+		icon = GFX_spt_focus_bushido_spirit
 		prerequisite = { focus = JAP_fearless_army}
 		x = 0
 		y = 3
@@ -6524,7 +6639,7 @@
 		id = JAP_range_focus
 		icon = GFX_focus_generic_multi_role_aircraft
 		prerequisite = { focus = JAP_fighter_modernization }
-		mutually_exclusive = {focus = JAP_agility_focus} #SPT change, made it mutually exclusive with Agility Focus
+		#mutually_exclusive = {focus = JAP_agility_focus}
 		x = -1
 		y = 1
 		relative_position_id = JAP_fighter_modernization
@@ -6549,11 +6664,20 @@
 
 
 		completion_reward = {
-			#custom_effect_tooltip = available_designer
-			hidden_effect = {
-			show_ideas_tooltip = aichi
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}	
+				custom_effect_tooltip = available_mio_tt
+				show_mio_tooltip = JAP_aichi_organization
+				mio:JAP_aichi_organization = {
+					add_mio_funds = 1500
+				}
 			}
-			add_ideas = aichi
+			ELSE = {
+				custom_effect_tooltip = available_designer
+				show_ideas_tooltip = aichi
+			}
 		}
 	}
 
@@ -6561,7 +6685,7 @@
 		id = JAP_agility_focus
 		icon = GFX_goal_generic_air_fighter2
 		prerequisite = { focus = JAP_fighter_modernization }
-		mutually_exclusive = {focus = JAP_range_focus} #SPT change, made it mutually exclusive with Range Focus
+		#mutually_exclusive = {focus = JAP_range_focus} 
 		x = 1
 		y = 1
 		relative_position_id = JAP_fighter_modernization
@@ -6590,11 +6714,20 @@
 
 
 		completion_reward = {
-			#custom_effect_tooltip = available_designer
-			hidden_effect = {
-			show_ideas_tooltip = mitsubishi
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}	
+				custom_effect_tooltip = available_mio_tt
+				show_mio_tooltip = JAP_mitsubishi_organization
+				mio:JAP_mitsubishi_organization = {
+					add_mio_funds = 1500
+				}
 			}
-			add_ideas = mitsubishi
+			ELSE = {
+				custom_effect_tooltip = available_designer
+				show_ideas_tooltip = mitsubishi
+			}
 			#remove_ideas = JAP_duplicate_research_efforts #SPTChange #Changed it again to rebalance air focuses
 		}
 	}
@@ -6634,8 +6767,16 @@
 		completion_reward = {
 			custom_effect_tooltip = JAP_the_zero_tt
 			add_ideas = JAP_the_zero_spirit #SPT change adds new spirit on completion
-			add_ideas = yokosuka #SPT change adds the naval designer on completion
+			IF = { #SPT change to award mio funds to yokosuka
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}	
+			}
+			else = {
+				add_ideas = yokosuka #SPT change adds the naval designer on completion	
+			}
 			hidden_effect = { 
+
 				if = {
 					limit = {
 						NOT = {
@@ -7039,11 +7180,25 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			add_ideas = JAP_expand_the_snlf
-			add_tech_bonus = {
-				name = JAP_expand_the_snlf
-				bonus = 1.0
-				uses = 1
-				category = marine_tech	
+			if = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				add_potential_special_forces_tree = yes
+				add_doctrine_cost_reduction = {
+					name = JAP_expand_the_snlf
+					cost_reduction = 0.25
+					uses = 2
+					category = special_forces_doctrine
+				}
+			}
+			else = {
+				add_tech_bonus = {
+					name = JAP_expand_the_snlf
+					bonus = 1.0
+					uses = 1
+					category = marine_tech	
+				}
 			}
 		}
 	}
@@ -7270,8 +7425,20 @@
 				instant_build = yes
 			}
 		}
+		IF = {
+			limit = {
+				has_dlc = "Arms Against Tyranny"
+			}	
+			custom_effect_tooltip = available_mio_tt
+			show_mio_tooltip = JAP_kure_naval_arsenal_organization
+			mio:JAP_kure_naval_arsenal_organization = {
+				add_mio_size = 2
+			}
+		}
+		ELSE = {
 			custom_effect_tooltip = available_designer
 			show_ideas_tooltip = kure_naval_arsenal
+		}
 		}
 		
 	}

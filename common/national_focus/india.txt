@@ -1291,7 +1291,7 @@ focus_tree = {
 				remove_idea = RAJ_princely_states_donations
 			}
 			add_autonomy_ratio = {
-				value = -0.05
+				value = 0.05 #SPTchange -0.05 -> 0.05
 				localization = RAJ_imperial_service_troops
 			}
 		}
@@ -2788,7 +2788,7 @@ focus_tree = {
 			432 = {
 				add_resource = {
 					type = oil
-					amount = 3
+					amount = 10 #SPTchange 3 -> 10
 				}
 			}
 		}
@@ -3000,7 +3000,7 @@ focus_tree = {
 
 	focus = {
 		id = RAJ_found_scindia_shipyard
-		icon = GFX_goal_generic_construct_naval_dockyard
+		icon = GFX_focus_POL_develop_polish_shipbuilding
 		prerequisite = { focus = RAJ_east_india_railways }
 		x = 2
 		y = 0
@@ -3160,7 +3160,7 @@ focus_tree = {
 
 	focus = {
 		id = RAJ_cruiser_effort
-		icon = GFX_goal_generic_navy_battleship
+		icon = GFX_focus_generic_cruiser2
 		prerequisite = { focus = RAJ_royal_indian_navy }
 		x = 2
 		y = 2
@@ -3315,7 +3315,7 @@ focus_tree = {
 
 	focus = {
 		id = RAJ_east_india_railways
-		icon = GFX_goal_generic_construct_infrastructure
+		icon = GFX_focus_generic_railroad
 		prerequisite = { focus = RAJ_great_indian_peninsula_railway }
 		x = 4
 		y = 1
@@ -3381,7 +3381,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = RAJ_east_india_railways
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 25
@@ -3431,7 +3431,7 @@ focus_tree = {
 
 	focus = {
 		id = RAJ_ishapore_arsenal
-		icon = GFX_goal_generic_construct_mil_factory
+		icon = GFX_goal_generic_build_tank
 		prerequisite = { focus = RAJ_east_india_railways }
 		x = 3
 		y = 1
@@ -3562,7 +3562,7 @@ focus_tree = {
 	
 	focus = {
 		id = RAJ_land_clearance
-		icon = GFX_goal_generic_construct_civilian
+		icon = GFX_focus_generic_land_reclamation
 		prerequisite = { focus = RAJ_administrative_oversight }
 		mutually_exclusive = { focus = RAJ_workforce_integration }
 		x = -1
@@ -3600,7 +3600,7 @@ focus_tree = {
 	
 	focus = {
 		id = RAJ_workforce_integration
-		icon = GFX_goal_generic_army_doctrines
+		icon = GFX_focus_generic_industry_2
 		prerequisite = { focus = RAJ_administrative_oversight }
 		mutually_exclusive = { focus = RAJ_land_clearance }
 		x = 1
@@ -3659,7 +3659,7 @@ focus_tree = {
 		available = {
 			OR = {
 				AND = {
-					compare_autonomy_progress_ratio > 0.4
+					compare_autonomy_progress_ratio > 0.2
 					compare_autonomy_state > autonomy_puppet
 					is_subject_of = ENG
 				}
@@ -3681,7 +3681,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		complete_tooltip = {
 			add_autonomy_ratio = {
-				value = -0.15
+				value = -0.1 #SPTchange 0.15 -> 0.1
 				localization = RAJ_strengthen_ties_with_british_investors
 			}
 			random_state = {
@@ -3710,7 +3710,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_autonomy_ratio = {
-				value = -0.15
+				value = -0.1 #SPTchange 0.15 -> 0.1
 				localization = RAJ_strengthen_ties_with_british_investors
 			}
 			random_owned_controlled_state = {
@@ -3781,7 +3781,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		complete_tooltip = {
 			add_autonomy_ratio = {
-				value = -0.25
+				value = -0.2 #SPTchange 0.25 -> 0.2
 				localization = RAJ_british_rail_investors
 			}
 			add_ideas = RAJ_british_rail_investors
@@ -3811,7 +3811,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_autonomy_ratio = {
-				value = -0.25
+				value = -0.2 #SPTchange 0.25 -> 0.2
 				localization = RAJ_british_rail_investors
 			}
 			add_ideas = RAJ_british_rail_investors
@@ -3883,7 +3883,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		complete_tooltip = {
 			add_autonomy_ratio = {
-				value = -0.25
+				value = -0.2 #SPTchange 0.25 -> 0.2
 				localization = RAJ_british_arms_investors
 			}
 			random_state = {
@@ -3912,7 +3912,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_autonomy_ratio = {
-				value = -0.25
+				value = -0.2 #SPTchange 0.25 -> 0.2
 				localization = RAJ_british_arms_investors
 			}
 			random_owned_controlled_state = {

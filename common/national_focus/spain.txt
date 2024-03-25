@@ -2698,7 +2698,7 @@ focus_tree = {
 		bypass = {
 		}
 		prerequisite = { focus = SPA_motorization }
-		prerequisite = { focus = SPA_join_the_axis }
+		
 		
 		icon = GFX_goal_generic_army_tanks
 		x = 1
@@ -3498,6 +3498,15 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.1
 			activate_mission = SPA_carlist_uprising_mission
+			#SPTchange add remove_ideas to fix bug
+			hidden_effect = {
+				if = {
+					limit = {
+						has_idea =  SPA_awaiting_the_rebellion
+					}
+					remove_ideas =  SPA_awaiting_the_rebellion
+				}
+			}
 		}
 	}
 
@@ -4859,7 +4868,7 @@ focus_tree = {
 		}
 		bypass = {
 		}
-		prerequisite = { focus = SPA_expand_spanish_bases focus = SPA_dictator_for_life focus = SPA_restore_the_monarchy }
+		prerequisite = { focus = SPA_dictator_for_life focus = SPA_restore_the_monarchy }
 		
 		icon = GFX_goal_generic_navy_doctrines_tactics
 		x = -3
@@ -5093,31 +5102,12 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 		completion_reward = {
-			if = {
-				limit = {
-					ENG = { has_government = democratic }
-				}
-				effect_tooltip = {
-					290 = {
-						add_extra_state_shared_building_slots = 3
-						add_building_construction = {
-							type = industrial_complex
-							level = 2
-							instant_build = yes
-						}
-					}
-				}
-				custom_effect_tooltip = SPA_the_tangiers_enclave_tt
-				ENG = { country_event = { id = lar_spain.36 hours = 6 random_hours = 18 } }
-			}
-			else = {
-				290 = {
-					add_extra_state_shared_building_slots = 3
-					add_building_construction = {
-						type = industrial_complex
-						level = 2
-						instant_build = yes
-					}
+			290 = {
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
 				}
 			}
 		}
@@ -11565,6 +11555,13 @@ focus_tree = {
 			activate_mission = SPR_anarchist_uprising_mission
 			custom_effect_tooltip = available_military_high_command
 			show_ideas_tooltip = SPR_antonio_escobar_huerta
+			add_ai_strategy = {
+				type = befriend
+				id = SOV
+				value = 1000
+			}
+			give_military_access = SOV
+
 		}
 	}
 

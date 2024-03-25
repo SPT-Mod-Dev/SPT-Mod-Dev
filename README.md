@@ -1,7 +1,372 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.8.5
+
+### General
+
+- Spirit of the Academy "Meticolous Preparation" Planning bonus 7.5% -> 2.5%
+- Added impassable terrain to Papua and Borneo
+- Added Bab-el-Mandeb Strait (Yemen-Djibouti strait)
+
+### Japan
+
+ - Nashin Ron Rapid Development spirits now last for 250 days, from 200
+ - Decision "Ichi Go" available after 1 june 1939
+ - Spirit "Challange the Zaibazus" mililitary and civilian factory construction speed 12.5% -> 10%
+ - Focus "Long Term Planning" now grants +5% efficiency cap, from 10%
+ - Focus "The Zaibatsus" tooltip now displays all possible bonuses before choosing a path and shows only the selected path once completed
+ - Focus "Strike The Islands" now grants +15% naval invasion planning, from +20%
+ - "Bushido Spirit" trait now reduces Armor attack and defense, to prevent unintended leader choices
+ 
+
+### 3.8.4
+
+### General
+
+ - Added 2 new straits: Strait of Malacca and Sunda Strait
+
+ ### Italy
+  - Balbo and Grandi are now available leaders
+
+### 3.8.3
+
+### General
+ - Changed in game speed to reflect old speed (games will now be played in 3/4 speed instead of 2/3)
+
+### Rule Change
+ - Changed War Rule 9 to not include support companies
+
+### India
+ - Focus "Assam Oil" increased oil resources 3 -> 10 oil
+ - Focus "Integrate Princley Railways" focus time 35 -> 70 days
+ - Focus "Strengthen Ties With British Investors" Autonomy value 150 -> 100
+ - Focus "British Rail Investors" Autonomy value -250 -> -200
+ - Focus "British Arms Investors" Autonomy value -250 -> -200
+ - Focus "Imperial Service Troops" Autonomy value -50 -> +50
+ 
+
+### 3.8.2
+
+
+### General
+ - Guerilla Tactics tactic now grants -50% attacker damage, from -70%
+ - Guerilla Tactics tactic now grants -40% attacker damage, from -60%
+
+### Rule Change
+- Changed Spain rule 3 to "May join the Axis ONLY if French West Africa is under Axis control."
+
+### Tank designer
+- Modern and superheavy tanks can now use their correct turrets and cannon
+
+### Mongolia
+ - Spirit "Build an Independent Economy" all tank production now -15% (down from 15/20/25 for light/mediums/heavies)
+ - Spirit "The Flying Circus" Special forces defence and attack +25% -> +10%
+                              Encirclement penalty +25% -> 15%
+
+
+### 3.8.1
+### Australia
+ - Expand the northern railway now takes 35 days, from 70
+
+### Soviet Union
+ - War support from "Turkey Seizes Control Over the Bosporus" 10% -> 5%
+
+### Manchukuo
+ - Focus "From Mountaineer regiments": Removed special mountaineer buff
+                                       Added 4 75% special forces doctrine cost reductions
+ - Clarified Big/Small Manchu event
+
+### MIO
+ - Made Vickers-Armstrong available for all commonwealth nations
+ - Vickers-Armstrong: "Expand production facilities" production effeciency cap and efficiency gain 10% -> 5%
+ - Infantry tank designer: "Production Division" production efficiency gain 10% -> 5%
+                           "Modular Construction" production efficiency gain and efficiency cap 10% -> 5%
+ - Standardized Prodction: "Standardized Components" production efficiency gain 15% -> 5%
+ - Halved all Air Mio effects of "Light aircraft manufacturer", "CAS aircraft manufacturer", "High Agility Fighter Aircraft manufacturer" and "Range Focused Aircraft Manufacturer"
+
+### 3.8.0
+
+#### General
+ - Updated to work with AAT
+ - Advisors updated to match new AAT consumer goods rework
+ - Disabled International Market for all countries
+ - Disabled the special forces tech "Combat Insertion"
+
+#### Finland
+ - (Temporarily) Reverted Finland back to vanilla and remove them as a playable nation 
+
+#### USA
+ - Rebalanced spirits and focuses to better fit the new consumer goods rework
+ - Focus "Money Only" now takes 35 days to complete, from 70
+ - National spirit "Forming New Cabinet" now lasts for 365 days, from 200
+ - Focus "Federal Construction" now takes 35 days to complete, from 70
+ - Focuses "Rebuilding America", "Lower Taxes", and "Federal Construction" now reduce the duration of Ongoing Recession mission by 30 days each
+ - All War Plan Upgrade focuses now take 70 days to complete, from 35
+ - Focus "Standard Oil of California" now requires "Campaign for Votes" instead of "Industrial R&D"
+ - National spirit "Rallying the Nation" now grants +15% Military Factory Construction Speed
+ - Focus "Boots on the Ground" now grants 7.5% attack, recovery rate, and organization, from 10%
+ - National spirit "Subsidised Military Industry" now grants 5% factory output, from 10%
+ - National spirit "Subsidised Naval Industry" now grants 10% dockyard output, from 15%
+ - Focus "Review The Budget" now unlocks "Pay Farm Subsidies" decision
+ - Focuses "Subsidise the Military Industry" and "Subsidised the Naval Industry" now grant +15% MIO funds gain
+ - Focus "Break the Monopolies" now grants +25% MIO funds gain
+ - Focus "Booming Interior Economy" now grants +1 building slot for every state with the modifier "Booming Interior Economy"
+ - Focus "Wartime Industry" now grants +1000 MIO funds
+
+#### JAPAN
+ - Rebalanced spirits and focuses to better fit the new consumer goods rework
+ - National spirit "State Shintoism" now grants 10% factory output, from 20%
+ - Focus "The Zaibatsus" now grants +5% resource gain efficiency instead of -2.5% consumer goods if Japan has "Nationalize the Zaibatsus" spirit
+ - Focus "Stockpiling Strategies" now grants +5% resource gain efficiency instead of +10%
+ - National spirit "Zaibatsus Challenged" now grants -10% tank, naval, materiel, and aircraft MIO cost
+ - National spirit "Nationalize the Zaibatsus" now grants -25% tank, naval, materiel, and aircraft MIO cost
+ - Focus "Seize Zaibatsu Dockyards" now takes 70 days to complete, from 35
+ - Focus "Nationalize the Zaibatsus" no longer grants -5% stability
+ - Focus "Let the Zaibatsus Expand" now grants +1 MIO size
+ - Focus "Let the Zaibatsus Expand" now takes 70 days to complete, from 35
+ - Focus "Let the Zaibatsus Expand" now grants national spirit "Zaibatsus Empowered"
+ - Focus "Supremacy of Technology" now grants +10% MIO funds gain
+ - Focus "Armored Divisions" now grants +1 MIO size to Osaka Army Arsenal (tank designer)
+ - National Spirit "Supremacy of Will" now grants -5% army doctrine cost
+ - Focus "Armored Divisions" now grants its bonus as an MIO trait, +1 MIO size to Osaka Army Arsenal, and an extra 5 army xp
+ - Focuses "Range Focus" and "Agility Focus" are no longer mutually exclusive
+
+### 3.7.3
+
+#### General
+- Nerfed "Feign Weakness" decision's attack and defense bonuses in the meditterenean bops `30%` -> `15%`
+- Added some new focus gfxs
+### 3.7.2
+
+#### Rule Change
+- Edit rule so Germany can now only declare on soviet union after 1941.06.01.
+
+#### General
+- Increased Concentrated Industry dockyard output `10%` -> `15%`
+- State of Gibraltar now has two tiles [So it can be invaded from outside the med]
+- Soviet Inion now get mill access to Republican Spain to avoid reinforcement glitch [volunteers wouldnt reinforce]
+- Germany,Uk,USA and Romania got some new focus icons [stickmin made me give him credit]
+
+#### Manchuko
+- Name and colour now changes depending on whether they go Big or Small Manchu
+
+#### Japan
+- Name now changes to "Empire of Japan" if they take "大日本帝國" (which translates to Pan Asia) 
+ 
+#### USA
+- Reduced Bureau of ships days `70` -> `35` 
+- Changed requirements to lend lease focus to fix bug
+
+#### Germany
+- Reduced focus days for "War with Soviet Union" `14` -> `7`
+
+
+### 3.7.1
+
+#### Rule Change
+- Added rule "May only take coastal states when annexing China if Manchuko has completed "Chinese Leadership." for Japan.
+
+#### General
+- Increased compliance tickdown for harsquote `0.08`->`0.12`
+- Decreased local factories for harsh quotas `25%` -> `20%`
+
+#### Australia
+- Made it quicker to access another research slot
+
+#### Japan
+- Focus "Long Term Planning" no longer grants -5% consumer goods
+- Focus "The Manchurian Project" no longer requires Manchukuo to exist to be taken
+- "Manchurian Project" decisions will now have their effects apply even if Manchukuo does not exist
+- Focus "Nationalize War Industry" now grants 4 civilian factories, instead of 2 civilian and 2 military factories
+- Focus "Nationalize Zaibatsus" now grants -5% stability
+- Focus "The Armed Forces" now grants +5% max planning, from +10%
+- Focus "Complete Industry Reorganization" now grants +10% max factories, from +20%
+- Pan-Asian Integration state modifier now grants -10% non-core manpower, from -7.5%
+- Focus "Army Expansion" now grants +30 army experience, from +15
+- National Spirit "Tora! Tora! Tora!" now correctly lasts for only 6 months
+
+##### South Africa
+- Increased civs from "Expand the mining industry" `2` -> `4`
+- Increased research bonuses for industry from "Heavy engineering" `1` -> `2`
+- Increased the amount of infrastructure given from "Infrastructure Effort" `2` -> `4`
+
+#### Tank Designer
+- Reduced research cost for Medium 1 `2x` -> `1x``
+- Increased medium tank cannon soft attack `23.5` -> `24.5` and hard attack `16` -> `17`
+- Increased medium tank cannon 2 soft attack `28.5` -> `30` and hard attack `19` -> `20.5`
+- Decreased medium tank cannon 2 tungsten cost `3` -> `2``
+- Increased high velocity cannon hard attack `25.5` -> `28`
+- Decreased high velocity cannon 2 tungsten cost `3` -> `2`
+- Decreased heavy cannon 1 and heavy cannon 2 soft and hard attack by `1`
+
+
+#### Ship Designer
+- Increased Submarine 1 hull cost `220` -> `300`
+- Increased Submarine 2 hull cost `250` -> `350`
+
+### 3.7.0
+
+#### General
+- Game coded in some rules and removed them from the ruleset
+- Reduced production reduction from mech upgrades `-10%` -> `-5%`
+- Added topbar displaying your resources
+- Fixed most of loading quotes being hidden
+- Hid logistic strikes and minelaying, minesweeping air missions 
+
+
+#### Romania
+- Reworked the focus tree
+
+#### USA
+- Added alf landon's path
+
+#### Mongolia
+- Added Mongolia as a playable country with a new focus tree
+
+#### Japan
+
+- Nanshin Ron Steady Development Focuses now take 35 days to complete, from 70
+- Nanshin Ron Rapid Development Focuses now grant their buffs for 200 days, from 365
+- National Spirit "Rapid Development" now grants 60% mil construction speed, from 40%
+- Focus "Rapid Development" now grants -40% mil construction speed, from -20%
+- National Spirit "Quick Retooling" now grants 20% efficiency cap and 40% efficiency growth, from 15% efficiency cap and 30% efficiency growth
+- Focus "Quick Retooling" now grants -20% efficiency growth and -10% efficiency cap, from -10% efficiency growth and -5% efficiency cap
+- National Spirit "Factory Mobilization" now grants 40% factory output, from 30%
+- Focus "Factory Mobilization" now grants -20% factory output, from -10%
+- Focus "Long Term Planning" now grants -5% consumer goods
+- Focus "Stockpiling Strategies" now grants 10% resource gain efficiency 
+
+
+### 3.6.5
+
+### General
+ - Added allied debuffs for loosing the mediterranean front
+
+ - Added temporary Allied supply and fuel consumtion debuff for losing Suez or Gibraltar
+
+ - France and Soviet Union no longer start with small cannon 2
+
+### Focus 
+ - Spain Tangiers enclave no longer gives UK war goal
+
+### 3.6.4
+
+### General
+- Finland
+   - Finnish industrial Concern: Factory output 20% -> 12.5%
+
+ - Soviet Union
+   - Spirit "Victory in the winter war" if Finaln is player now lasts 210 day
+
+ - Turkey kan no longer do focuses beyond "Reconfigure Turkish Foreign Policy" to prevent them from joinng factions
+### Rules
+ - Soviets may now only send 5 volunteers to China
+
+### Focus
+ - Spain
+   - "Tangiers Enclave" can no longer give UK a war goal
+   - "An Armoured Corps" no longer requires "Join The Axis"
+
+ - Manchukuo
+    - "Research And Education Department" required factories 50 -> 25
+### Army Dooctrine
+
+- Mobile Warfare
+   - Mechanized Offensive: Motirized org +15 -> +5
+                           Mechanised org +15 -> +5
+                           Amtrack org +15 -> +5
+### 3.6.3
+
+### Focus Tree
+### General
+ - Italy 
+    - Allowed starting units to be deleted
+    - Removed decision to add compliance
+    
+ - Germany
+    - Hid event about patience running thin with Yugoslavia
+
+- Removed minesweeping and minelaying buttons
+ 
+### Focus
+ - USA
+    - Major rebalance of new part of focus tree
+
+ - Italy
+    - Added focus to get compliance on Yugoslvavian cores
+
+ - Soviet 
+    - Removed "Mine Warfare" focus
+
+### Airplane designer
+ - Radio Navigation: Sub detection 4 -> 6
+ - Radio Navigation II: Sub detection 6 -> 9
+
+
+### USA 
+
+    - Focus "Subsidise The Military Industry" now reduces Ongoing Recession by 90 days, from 60
+    - Focus "Subsidise The Naval Industry" now reduces Ongoing Recession by 90 days, from 60
+    - Focus "Subsidies for the Farmers" now reduces Ongoing Recession by 90 days, from 60
+    - Focus "Subsidise the Mining Industry" now reduces Ongoing Recession by 90 days, from 60
+    - Focus "Revitalised Interior Economy" now grants 10% construction speed from 5%, and 5% military construction speed and 5% civilian construction speed from 10%
+    - National Spirit "Home Front" now grants 5% military construction speed, from 10%
+    - National Spirit "Dust Bowl Relief" no longer grants -2.5% consumer goods, and had its Stability reduced to 2.5% from 5%
+    - National Spirit "Subsidised Mining Industry" now grants 15% resources from 10%
+    - National Spirit "Subisdised Farming Industry" now grants 2.5% consumer goods, from 5%, and 7.5% stability from 10%
+    - National Spirit "The 1937 Recession" now grants -0.15 political power gain
+    - National Spirit "Subsidised Naval Industry" no longer grants dockyard construction speed, instead it grants +15% dockyard output
+    - National Spirit "Subsidised Military Industry" no longer grants military factory construction speed. And grants 10% factory output from 5%
+    - War Plans focuses have been shortened to 35 days
+    - War Plans focuses now start at 5% attack and defense vs targetted countries, but grant 2.5% attack and defense per focus completed.
+    - Focus "The Giant Wakes" now requires 30% war support, from 35%
+    - Focus "USACE Projects" now requires 20% war support, from 30%
+    - Focus "Military Construction" completion time reduced to 35 days, from 70
+    - Focus "Mobilise The People" now grants 2 less civilian factories
+    - Focus "Prepare The War Industry" now grants 2 less military factories
+    - Focus "Expand Federal Taxes" now has scaling senate opposition based on war support
+    - Focus "National Youth Organization" now grants 2 building slots per state, from 3
+    - Focus "Fair Labor Standards" completion time reduced to 35 days, from 70
+    - Focus "Subsidies for the Farmers" completion time increased to 70 days, from 35
+    - Focus "Subsidies for the Mining Industry" completion time increased to 70 days, from 35
+    - "The Recession of 1937" event now also grants medium senate and house opposion
+
+### 3.6.2
+
+### General
+
+ - All non-playable nations have had their ahistorical paths ,either blocked or removed, to prevent mishaps.
+
+### Focus Trees
+ - USA:
+	- New expanded USA focus tree.
+ 
+ - Hungary:
+	- Hungary can now go down the Fascist King route.
+ 
+ - Italy:
+	- Request Control Of French Territories focus now asks for the correct territories and does not require Vichy to exist to be taken.
+ 
+ - Finland:
+	- Replaced "Retake Karjala" with "Mobilised The Nation"
+	- Fixed add fascism popularity in "Proclaim Greater Finland"
+	- Fixed the field hospital spirit in "The Great Red Menace".
+    - Buffed "The Great Red Menace"
+
+### Events
+
+ - New Scuttle The French Navy event chain, which allows for Germany to capture a portion of the french navy after capitulating them. [ done to balance for a lack of Vichy France ].
+
+ ### 3.6.1
+### General
+
+- Soviet Union
+    - Third Five Year Plan focus Consumer Goods buff 0% -> 2.5%
+
+
 ### 3.6.0
-### Gerneral
+
+### General
  - All of axis now affected by mediterranean balance of power
  - IEA will no longer make your eyes bleed
  - "Radio Propaganda" and "Utilize Domestic Film Industry" decisions now require higher World Tension values

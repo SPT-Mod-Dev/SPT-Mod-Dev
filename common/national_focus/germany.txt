@@ -2603,7 +2603,7 @@ focus_tree = {
 	
 	focus = { #should already be signed in 39
 		id = GER_mol_rib_pact
-		icon = GFX_focus_generic_polish_deal
+		icon = GFX_spt_focus_molotov_rib
 		prerequisite = { focus = GER_soviet_treaty }
 		mutually_exclusive = { focus = GER_anti_soviet_pact }
 		available = {
@@ -2739,7 +2739,7 @@ focus_tree = {
 
 	focus = {
 		id = GER_rhineland
-		icon = GFX_goal_rhineland
+		icon = GFX_spt_focus_rhineland
 		mutually_exclusive = { focus = GER_oppose_hitler }
 		x = 26
 		y = 0
@@ -2771,6 +2771,72 @@ focus_tree = {
 				}
 			}
 		}		
+	}
+
+	focus = {
+		id = GER_swedish_trade_agreement
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = GER_rhineland }
+		available = {
+			is_subject = no
+			AND = {
+				country_exists = SWE
+				SWE = { is_subject = no }
+				NOT = { has_war_with = SWE }
+				SWE = {
+					custom_trigger_tooltip = {
+						tooltip = GER_alone_or_peace_faction_tt
+						is_alone_or_in_faction_at_peace_with_GER = yes
+					}
+				}
+			}
+		}
+		x = 4
+
+		y = 1
+		relative_position_id = GER_rhineland
+		cost = 10
+		ai_will_do = {
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			SWE = {
+				country_event = { id = AAT_germany.1 hours = 5 random_hours = 5 }
+			}
+
+			custom_effect_tooltip = if_they_accept_tt
+			#SPTChange hid tooltip
+			#effect_tooltip = {
+			#	SWE = {
+			#		add_offsite_building = {
+			#			type = industrial_complex
+			#			level = 2
+			#		}
+			#
+			#		add_offsite_building = {
+			#			type = arms_factory
+			#			level = 1
+			#		}
+			#
+			#		add_timed_idea = {
+			#			idea = GER_german_swedish_trade_agreement
+			#			days = 480
+			#		}
+			#
+			#		give_resource_rights = {
+			#			receiver = ROOT 
+			#			state = 918 #Västerbotten 
+			#		}
+			#	}
+			#
+			#	add_opinion_modifier = {
+			#		target = SWE # target of the relation
+			#		modifier = GER_SWE_historic_trade_Partners
+			#	}
+			#}
+		}
 	}
 
 	focus = {
@@ -3161,7 +3227,7 @@ focus_tree = {
 
 	focus = {
 		id = GER_anschluss
-		icon = GFX_focus_generic_fascist_propaganda
+		icon = GFX_spt_focus_anschluss
 		prerequisite = { focus = GER_rhineland }
 		available_if_capitulated = no
 		available = {
@@ -3386,10 +3452,11 @@ focus_tree = {
 
 	focus = {
 		id = GER_demand_memel
-		icon = GFX_goal_generic_forceful_treaty
+		icon = GFX_spt_focus_eastern_claims
 		prerequisite = { focus = GER_anschluss }
 		available = { is_subject = no }
-		x = 4
+		x = -4
+
 		y = 1
 		relative_position_id = GER_anschluss
 		cost = 8 #SPTChange 10 -> 8
@@ -3429,8 +3496,9 @@ focus_tree = {
 
 	focus = {
 		id = GER_danzig_or_war
-		icon = GFX_focus_POL_clamp_down_on_danzig
+		icon = GFX_spt_focus_danzig
 		prerequisite = { focus = GER_demand_memel }
+		prerequisite = { focus = GER_mol_rib_pact }
 		mutually_exclusive = { focus = GER_danzig_vs_slovakia }
 		will_lead_to_war_with = POL
 		available = {
@@ -3486,7 +3554,7 @@ focus_tree = {
 			}
 		}
 		cancel_if_invalid = no
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = GER_demand_memel
 		cost = 1
@@ -3580,7 +3648,7 @@ focus_tree = {
 	
 	focus = {
 		id = GER_weserubung
-		icon = GFX_goal_generic_more_territorial_claims
+		icon = GFX_spt_focus_weserubung
 		prerequisite = { focus = GER_danzig_or_war }
 		mutually_exclusive = { focus = GER_denmark_friend }
 		will_lead_to_war_with = DEN 
@@ -3682,7 +3750,7 @@ focus_tree = {
 	
 	focus = {
 		id = GER_around_maginot
-		icon = GFX_goal_generic_attack_allies
+		icon = GFX_spt_focus_around_maginot
 		prerequisite = { focus = GER_danzig_or_war }
 		
 		available = {
@@ -3917,7 +3985,7 @@ focus_tree = {
 	
 	focus = {
 		id = GER_demand_sudetenland
-		icon = GFX_goal_demand_sudetenland
+		icon = GFX_spt_focus_sudetenland
 		prerequisite = { focus = GER_anschluss }
 		mutually_exclusive = { focus = GER_czech_friend }
 		will_lead_to_war_with = CZE
@@ -3947,7 +4015,7 @@ focus_tree = {
 			is_puppet = yes
 		}
 		cancel_if_invalid = yes
-		x = -4
+		x = 3
 		y = 1
 		relative_position_id = GER_anschluss
 		cost = 8 #SPTChange 10 -> 8
@@ -4102,7 +4170,7 @@ focus_tree = {
 
 	focus = {
 		id = GER_first_vienna_award
-		icon = GFX_focus_hun_elect_a_king
+		icon = GFX_spt_focus_first_vienna
 		prerequisite = { focus = GER_demand_sudetenland }
 		bypass = {
 			OR = {
@@ -4142,7 +4210,7 @@ focus_tree = {
 
 	focus = {
 		id = GER_end_of_czechoslovakia
-		icon = GFX_focus_generic_fascist_troops
+		icon = GFX_spt_focus_fate_of_czechs
 		prerequisite = { focus = GER_first_vienna_award }
 		available = { 
 			is_subject = no
@@ -4240,11 +4308,11 @@ focus_tree = {
 
 	focus = {
 		id = GER_second_vienna_award
-		icon = GFX_focus_YUG_autonomous_transylvania
+		icon = GFX_spt_focus_second_vienna
 		prerequisite = {focus = GER_end_of_czechoslovakia }
-		x = -1
-		y = 3
-		relative_position_id = GER_czech_friend
+		x = 0
+		y = 1
+		relative_position_id = GER_end_of_czechoslovakia
 		cost = 5 #SPTChange 10 -> 5
 		ai_will_do = {
 			factor = 10

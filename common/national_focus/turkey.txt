@@ -80,7 +80,6 @@ focus_tree = {
 		available = {
 			TUR = { has_government = neutrality }
 			is_subject = no
-			always = no
 		}
 		x = -3
 		y = 1
@@ -127,8 +126,6 @@ focus_tree = {
 		ai_will_do = {
 			base = 10
 		}
-
-		
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
@@ -827,6 +824,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = {always = no} #SPTChange hid branch
 		id = TUR_revive_turkish_revolutionism
 		icon = GFX_goal_generic_dangerous_deal
 		mutually_exclusive = { focus = TUR_peace_at_home }
@@ -846,7 +844,6 @@ focus_tree = {
 				has_idea = TUR_fevzi_cakmak_prime_minister
 			}
 		}
-		allow_branch = {always = no}
 		x = 7
 		y = 2
 		relative_position_id = TUR_continue_the_policy_of_etatism
@@ -2077,6 +2074,12 @@ focus_tree = {
 
 	focus = {
 		id = TUR_georgian_manganese_extraction
+		icon = {
+			value = GFX_focus_generic_steel
+			trigger = {
+				SOV = { NOT = { controls_state = 231 } } #APPROPRIATE CONDITIONS FOR GENERIC ICON
+			}
+		}
 		icon = GFX_focus_chi_mission_to_the_soviet_union
 		prerequisite = { focus = TUR_halk_ve_devlet }
 		x = -2
@@ -2089,15 +2092,15 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			if = {
-				limit = {
-					GEO = { exists = yes }
+			every_country = {
+				limit = {	
+					controls_state = 231
+					owns_state = 231
 				}
-				GEO = { country_event = { id = bftb_turkey.38 } }
+				country_event = { id = bftb_turkey.38 }
 			}
-			else = { 
-				SOV = { country_event = { id = bftb_turkey.38 } }
-			}
+				
+			
 		}
 	}
 
@@ -2183,6 +2186,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = {always = no} #SPTChange hid branch
 		id = TUR_pivot_to_the_past
 		icon = GFX_focus_TUR_pivot_to_the_past
 		available = { 
@@ -2191,9 +2195,6 @@ focus_tree = {
 				has_civil_war = no
 			}
 		}
-
-		allow_branch = {always = no}
-
 		mutually_exclusive = { focus = TUR_reconfigure_our_foreign_policy focus = TUR_continue_to_prioritise_balkan_integrity }
 		prerequisite = { focus = TUR_democratic_capstone_focus }
 		x = -12
@@ -2893,25 +2894,25 @@ focus_tree = {
 			base = 10
 		}
 
-		bypass = {
-			custom_trigger_tooltip = { 
-				tooltip = TUR_no_faction_alliance_members_tt
-				AND = {
-					AFG = {
-						NOT = { is_in_faction_with = TUR }
-					}
-					PER = {
-						NOT = { is_in_faction_with = TUR }
-					}
-					IRQ = {
-						NOT = { is_in_faction_with = TUR }
-					}
-					SYR = {
-						NOT = { is_in_faction_with = TUR }
-					}
-				}
-			}
-		}
+		#bypass = {
+		#	custom_trigger_tooltip = { 
+		#		tooltip = TUR_no_faction_alliance_members_tt
+		#		AND = {
+		#			AFG = {
+		#				NOT = { is_in_faction_with = TUR }
+		#			}
+		#			PER = {
+		#				NOT = { is_in_faction_with = TUR }
+		#			}
+		#			IRQ = {
+		#				NOT = { is_in_faction_with = TUR }
+		#			}
+		#			SYR = {
+		#				NOT = { is_in_faction_with = TUR }
+		#			}
+		#		}
+		#	}
+		#}
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
@@ -3225,11 +3226,9 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = {always = no} #SPTChange hid branch
 		id = TUR_continue_to_prioritise_balkan_integrity
 		icon = GFX_goal_generic_national_unity
-
-		allow_branch = {always = no}
-
 		mutually_exclusive = { focus = TUR_reconfigure_our_foreign_policy focus = TUR_pivot_to_the_past }
 		available = {
 			NOT = {
@@ -4870,7 +4869,7 @@ focus_tree = {
 		icon = GFX_focus_chi_british_cooperation
 		prerequisite = { focus = TUR_reconfigure_our_foreign_policy }
 		available = { 
-			NOT = { has_war_with = ENG }
+			always = no #SPTChange always not allowed
 		}
 		x = -12
 		y = 1
@@ -5083,6 +5082,16 @@ focus_tree = {
 				}
 			}
 			add_equipment_to_stockpile = { type = motorized_equipment amount = 275 }
+			if = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				add_equipment_subsidy = {
+					cic = 250
+					equipment_type = motorized_equipment
+					seller_tags = { USA } 
+				}
+			}
 		}
 	}
 
@@ -5127,15 +5136,7 @@ focus_tree = {
 		prerequisite = { focus = TUR_american_motor_factories }
 		prerequisite = { focus = TUR_bomber_schematics }
 		available = {
-			ENG = {
-				NOT = {
-					OR = {
-						has_completed_focus = ENG_the_kings_party
-						has_completed_focus = ENG_concessions_to_the_trade_unions
-					}
-				}
-			}
-			is_subject = no
+			always = no #SPTChange always not allowed
 		}
 		x = 0
 		y = 2
@@ -5545,7 +5546,7 @@ focus_tree = {
 		icon = GFX_focus_chi_mission_to_germany
 		prerequisite = { focus = TUR_reconfigure_our_foreign_policy }
 		available = { 
-			NOT = { has_war_with = GER }
+			always = no #SPTChange always not allowed
 		}
 		x = 0
 		y = 1
@@ -5733,6 +5734,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = {always = no} #SPTChange hid branch
 		id = TUR_the_mediterranean_entente
 		icon = GFX_focus_generic_italy_first
 		mutually_exclusive = { focus = TUR_join_the_axis focus = TUR_join_the_allies focus = TUR_anti_bolshevik_mediterranean_bloc focus = TUR_readdress_the_montreux_convention }
@@ -5741,9 +5743,6 @@ focus_tree = {
 			NOT = { has_war_with = ITA }
 			is_subject = no
 		}
-
-		allow_branch = {always = no}
-
 		x = -1
 		y = 1
 		relative_position_id = TUR_the_italo_turkish_naval_academy
@@ -5765,6 +5764,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = {always = no} #SPTChange hid branch
 		id = TUR_join_the_axis
 		icon = GFX_focus_ger_reichskommisariats
 		mutually_exclusive = { focus = TUR_the_mediterranean_entente focus = TUR_join_the_allies focus = TUR_anti_bolshevik_mediterranean_bloc focus = TUR_readdress_the_montreux_convention }
@@ -5773,10 +5773,13 @@ focus_tree = {
 		available = { 
 			NOT = { has_war_with = GER }
 			is_subject = no
+			GER = {
+				has_capitulated = no
+				exists = yes
+				is_in_faction = yes
+				is_faction_leader = yes
+			}
 		}
-
-		allow_branch = {always = no}
-
 		x = -1
 		y = 1
 		relative_position_id = TUR_invite_german_officers_to_izmir
@@ -5792,7 +5795,11 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			GER = {
-				country_event = { id = generic.2 }
+				country_event = { 
+					id = generic.2 
+					days = 2
+					random_days = 4
+				}
 			}
 		}
 	}
@@ -6295,6 +6302,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = {always = no} #SPTChange hid branch
 		id = TUR_victory_or_death_against_communism
 		icon = GFX_focus_attack_soviet
 		prerequisite = { focus = TUR_end_the_british_hegemony focus = TUR_punish_french_weakness focus = TUR_integrate_german_officers_into_the_army focus = TUR_taking_over_defense_of_the_gulf }
@@ -6305,8 +6313,6 @@ focus_tree = {
 		ai_will_do = {
 			base = 10
 		}
-
-		allow_branch = {always = no}
 
 		bypass = {
 			SOV = {
@@ -6807,7 +6813,7 @@ focus_tree = {
 	focus = {
 		id = TUR_renew_the_turkish_soviet_non_aggression_pact
 		icon = GFX_focus_chi_mission_to_the_soviet_union
-		available = { NOT = { has_country_flag = TUR_ottoman_officers_invited_back } }
+		available = { always = no} #SPTChange always not allowed }
 		prerequisite = { focus = TUR_reconfigure_our_foreign_policy }
 		x = 14
 		y = 1
@@ -6817,10 +6823,7 @@ focus_tree = {
 			base = 10
 		}
 		available = {
-			SOV = {
-				has_government = communism
-				has_civil_war = no
-			}
+			always = no #SPTChange always not allowed
 		}
 
 		bypass = {
@@ -7132,6 +7135,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = {always = no} #SPTChange hid branch
 		id = TUR_anti_bolshevik_mediterranean_bloc
 		icon = GFX_focus_intervention_spain_republic
 		mutually_exclusive = { focus = TUR_the_mediterranean_entente focus = TUR_join_the_axis focus = TUR_join_the_allies focus = TUR_readdress_the_montreux_convention }
@@ -7150,8 +7154,6 @@ focus_tree = {
 		bypass = {
 			is_in_faction = yes
 		}
-
-		allow_branch = {always = no}
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
@@ -7179,6 +7181,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = {always = no} #SPTChange hid branch
 		id = TUR_readdress_the_montreux_convention
 		icon = GFX_focus_generic_black_sea_focus
 		mutually_exclusive = { focus = TUR_the_mediterranean_entente focus = TUR_join_the_axis focus = TUR_join_the_allies focus = TUR_anti_bolshevik_mediterranean_bloc }
@@ -7196,8 +7199,6 @@ focus_tree = {
 		bypass = {
 			is_in_faction = yes
 		}
-
-		allow_branch = {always = no}
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
@@ -7860,6 +7861,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = {always = no} #SPTChange hid branch
 		id = TUR_misak_i_milli
 		icon = GFX_focus_TUR_misak_i_milli
 		prerequisite = { focus = TUR_we_must_not_fall focus = TUR_victory_or_death_against_communism focus = TUR_restoring_our_nations_pride focus = TUR_foreign_brigades_for_the_revolution focus = TUR_issue_an_ultimatium_to_the_bulgarians }
@@ -7870,8 +7872,6 @@ focus_tree = {
 		ai_will_do = {
 			base = 0
 		}
-
-		allow_branch = {always = no}
 
 		search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_FILTER_WAR_SUPPORT }
 		completion_reward = {
