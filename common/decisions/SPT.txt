@@ -1190,9 +1190,83 @@ JAP_manchuria_development = {
 		}
 	}
 
+}
+SPT_FIN_winter_war = {
+
+	picture = GFX_report_event_finnish_soldiers_snow
+	available = {
+		tag = FIN
+	}
+	visible = {
+		has_war_with = SOV
+	}
+
+	SPT_FIN_Hold_Out = {
+		priority = 100
+
+		available = {
+			always = no
+		}
+		
+		days_remove = 210
+
+		remove_effect = {
+			country_event = SPT_FIN_finish_vicotry
+			white_peace = SOV
+		}
+
+		complete_effect = {
+			country_event = SPT_FIN_finish_loss
+			SOV = {
+				set_state_owner = 146
+			}
+			SOV = {
+				set_state_owner = 147
+			}
+			white_peace = SOV
+
+		}
+
+	}
+}
+SPT_SOV_winter_war = {
 	
+	picture = GFX_report_event_finnish_soldiers_snow
+	available = {
+		tag = SOV
+	}
+	visible = {
+		has_war_with = FIN
+	}
 
+	SPT_SOV_crush_the_fins = {
 
+		priority = 100
+
+		available = {
+			always = no
+		}
+		
+		days_remove = 210
+
+		remove_effect = {
+			country_event = SPT_SOV_finish_vicotry
+			white_peace = SOV
+		}
+
+		complete_effect = {
+			country_event = SPT_FIN_finish_loss
+			SOV = {
+				set_state_owner = 146
+			}
+			SOV = {
+				set_state_owner = 147
+			}
+			white_peace = SOV
+
+		}
+
+	}
 }
 
 
