@@ -1,5 +1,11 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.10.2
+
+#### Soviet Union
+- Significantly nerfed the tank refurbishment mio
+- Increased consumer goods from "Third Five Year Plan" +10% -> +20%
+
 ### 3.10.1
 
 #### General
@@ -37,7 +43,6 @@
  - Relief of Command Army Experience 25% -> 15%
              Army Advisor Cost -50% -> 25%
 
-=======
 ### 3.8.7
 
 ### Mongolia
