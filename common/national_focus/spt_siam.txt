@@ -1217,7 +1217,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			add_to_variable = { SIA_thai_spirits = x }
+			add_to_variable = { SIA_thai_spirit = x }
 		}
 		
 	}
@@ -1580,6 +1580,7 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		
 	}
 				
 	focus = {
@@ -1587,7 +1588,7 @@ focus_tree = {
 		icon = GFX_focus_chi_army_reform
 		prerequisite = { focus = SIA_infantry_equipment }
 		prerequisite = { focus = SIA_support_equipment }
-		prerequisite = { focus = SIA_thai_might }
+		prerequisite = { focus = SIA_mobilization }
 		x = 30
 		y = 4
 	
@@ -1612,10 +1613,42 @@ focus_tree = {
 	}
 				
 	focus = {
-		id = SIA_expand_military
-		icon = GFX_goal_generic_military_sphere
+		id = SIA_rally_people
+		icon = GFX_focus_SOV_mobilization_plan
 		prerequisite = { focus = SIA_army_reform }
 		x = 29
+		y = 2
+	
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_MANPOWER }
+
+		completion_reward = {
+			add_ideas = { SIA_rallied_people = x }
+		}
+	}
+				
+	focus = {
+		id = SIA_expand_military
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = SIA_army_reform }
+		x = 31
 		y = 2
 	
 
@@ -1651,40 +1684,8 @@ focus_tree = {
 	}
 				
 	focus = {
-		id = SIA_rally_people
-		icon = GFX_focus_generic_support_the_left_right
-		prerequisite = { focus = SIA_army_reform }
-		x = 31
-		y = 2
-	
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-			
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_MANPOWER }
-
-		completion_reward = {
-			add_ideas = { SIA_rallied_people = x}
-		}
-	}
-				
-	focus = {
-		id = SIA_thai_might
-		icon = GFX_focus_secret_rearmament
+		id = SIA_mobilization
+		icon = GFX_focus_generic_limited_social_mobilization
 		prerequisite = { focus = SIA_rally_people }
 		x = 28
 		y = 3
@@ -1707,12 +1708,18 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+
+		completion_reward = {
+			add_to_variable = { SIA_rallied_people = x }
+		}
+			
+		
 	}
 				
 	focus = {
 		id = SIA_elephants
 		icon = GFX_focus_secret_rearmament
-		prerequisite = { focus = SIA_thai_might }
+		prerequisite = { focus = SIA_support_equipment }
 		prerequisite = { focus = SIA_infantry_warfare }
 		prerequisite = { focus = SIA_jungle_warfare }
 		x = 33
@@ -1763,6 +1770,10 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+	
+		completion_reward = {
+			add_ideas = SIA_foreign_training
+		}
 	}
 				
 	focus = {
@@ -1790,7 +1801,12 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+
+		completion_reward = {
+			add_to_variable = { SIA_foreign_training = x }
+		}
 	}
+	
 				
 	focus = {
 		id = SIA_jungle_warfare
@@ -1923,10 +1939,10 @@ focus_tree = {
 	}
 				
 	focus = {
-		id = SIA_spirit
-		icon = GFX_goal_generic_small_arms
+		id = SIA_thai_might
+		icon = GFX_focus_secret_rearmament
 		prerequisite = { focus = SIA_logistics }
-		prerequisite = { focus = SIA_support_equipment }
+		prerequisite = { focus = SIA_mobilization }
 		x = 27
 		y = 4
 	
@@ -1948,7 +1964,12 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-	
+		
+		completion_reward = {
+			remove_ideas = SIA_rallied_people
+			remove_ideas = SIA_supply
+			add_ideas = SIA_thai_might
+		}
 	}
 				
 	focus = {
@@ -1979,6 +2000,9 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			completion_reward = {
+				add_ideas = SIA_supply
+			}
 			add_tech_bonus = {
 				name = SIA_trucks
 				bonus = 3.0
@@ -2016,10 +2040,13 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			completion_reward = {
+				add_to_variable = { SIA_supply = x }
+			}
 			add_tech_bonus = {
 				name = SIA_trains
 				bonus = 3.0
-				uses = 2
+				uses = 1
 				category = train_tech
 			}
 		}
@@ -2050,6 +2077,12 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+
+		completion_reward = {
+			completion_reward = {
+				add_to_variable = { SIA_supply = x }
+			}
+		}
 	}
 				
 	focus = {
@@ -2077,6 +2110,16 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+
+		completion_reward = {
+			completion_reward = {
+				add_to_variable = { SIA_supply = x }
+			}
+			add_equipment_to_stockpile = {
+				type = convoy
+				amount = 150
+			}
+		}
 	}
 				
 	focus = {
@@ -2225,7 +2268,14 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 	
-		
+		completion_reward = {
+			add_tech_bonus = {
+				name = SIA_mountaineer
+				bonus = 1.0
+				uses = 2
+				category = mountaineers_tech
+			}
+		}
 	}
 	
 	focus = {
@@ -2312,9 +2362,8 @@ focus_tree = {
 		id = SIA_support_gun
 		icon = GFX_goal_generic_army_artillery2
 		prerequisite = { focus = SIA_tank focus = SIA_mountaineer }
-		prerequisite = { focus = SIA_land_doctrine }
 		x = 23
-		y = 9
+		y = 8
 		
 	
 		cost = 10
@@ -2344,18 +2393,85 @@ focus_tree = {
 				category = artillery
 			}
 		}
+	}
+
+	focus = {
+		id = SIA_tankss
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = SIA_tank }
+		prerequisite = { focus = SIA_support_gun }
+		prerequisite = { focus = SIA_land_doctrine }
+		x = 22
+		y = 9
 		
+	
+		cost = 10
+	
+		ai_will_do = {
+			factor = 1
+		}
+	
+		available = {
+	
+		}
+	
+		bypass = {
+				
+		}
+	
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_ideas = SIA_tanks
+		}
+	}
+
+	focus = {
+		id = SIA_mountaineerss
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = SIA_mountaineer }
+		prerequisite = { focus = SIA_support_gun }
+		prerequisite = { focus = SIA_land_doctrine }
+		x = 24
+		y = 9
+		
+	
+		cost = 10
+	
+		ai_will_do = {
+			factor = 1
+		}
+	
+		available = {
+	
+		}
+	
+		bypass = {
+				
+		}
+	
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_ideas = SIA_special_forces
+		}
 	}
 		
 	focus = {
 		id = SIA_sea_oil
 		icon = GFX_focus_generic_offshore_oil_rig
-		prerequisite = { focus = SIA_marine }
+		prerequisite = { focus = SIA_fleet }
 		x = 37
 		y = 8
 	
 
-		cost = 10
+		cost = 20
 
 		ai_will_do = {
 			factor = 1
@@ -2372,13 +2488,49 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+
+		available = {
+			controls_state = 286
+			controls_state = 671
+		}
+	
+		completion_reward = {
+			add_resource = {
+				type = oil
+				amount = 12
+				state = 671
+				state = 286
+			}
+			random_owned_controlled_state = {
+				prioritize = { 286 }	
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+				}	
+				add_extra_state_shared_building_slots = 4				
+				add_building_construction = {
+					type = dockyard
+					level = 4
+				}				
+			}
+			random_owned_controlled_state = {
+				prioritize = { 671 }	
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+				}	
+				add_extra_state_shared_building_slots = 4				
+				add_building_construction = {
+					type = dockyard
+					level = 4
+				}				
+			}
+		}
 	}
 		
 	focus = {
 		id = SIA_marine
 		icon = GFX_focus_ITA_milizia_marittima_di_artiglieria
 		prerequisite = { focus = SIA_go_east }
-		x = 36
+		x = 34
 		y = 7
 	
 
@@ -2399,14 +2551,23 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = SIA_marine
+				bonus = 1.0
+				uses = 2
+				category = marine_tech
+			}
+		}
 	}
 		
 	focus = {
 		id = SIA_marines
-		icon = GFX_focus_ITA_milizia_marittima_di_artiglieria
+		icon = GFX_goal_generic_special_forces
 		prerequisite = { focus = SIA_marine }
 		prerequisite = { focus = SIA_water_doctrine }
-		x = 36
+		x = 34
 		y = 9
 	
 
@@ -2427,6 +2588,10 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = SIA_special_forces
+		}
 	}
 		
 	focus = {
@@ -2530,11 +2695,20 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = SIA_paratroop
+				bonus = 1.0
+				uses = 2
+				category = para_tech
+			}
+		}
 	}
 				
 	focus = {
 		id = SIA_paratroops
-		icon = GFX_focus_generic_paratrooper
+		icon = GFX_goal_generic_special_forces
 		prerequisite = { focus = SIA_paratroop }
 		prerequisite = { focus = SIA_sky_doctrine }
 		x = 29
@@ -2558,6 +2732,10 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+		
+		completion_reward = {
+			add_ideas = SIA_special_forces
+		}
 	}
 			
 	focus = {
@@ -2613,6 +2791,10 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = SIA_planes
+		}
 	}
 			
 	focus = {
@@ -2640,6 +2822,15 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = SIA_subs
+				bonus = 1.0
+				uses = 2
+				category = ss_tech
+			}
+		}
 	}
 				
 	focus = {
@@ -2668,13 +2859,17 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = SIA_subs
+		}
 	}
 				
 	focus = {
 		id = SIA_fleet
 		icon = GFX_goal_generic_navy_battleship
 		prerequisite = { focus = SIA_go_east }
-		x = 34
+		x = 36
 		y = 7
 	
 
@@ -2695,6 +2890,18 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = SIA_fleet
+				bonus = 1.0
+				uses = 4
+				category = ca_tech
+				category = bb_tech
+				category = bc_tech
+				category = dd_tech
+			}
+		}
 	}
 				
 	focus = {
@@ -2702,7 +2909,7 @@ focus_tree = {
 		icon = GFX_goal_generic_navy_battleship
 		prerequisite = { focus = SIA_fleet }
 		prerequisite = { focus = SIA_water_doctrine }
-		x = 34
+		x = 36
 		y = 9
 	
 
@@ -2723,6 +2930,10 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = SIA_ships
+		}
 	}
 			
 	focus = {
@@ -2811,7 +3022,7 @@ focus_tree = {
 	focus = {
 		id = SIA_west_compliance
 		icon = GFX_focus_NOR_approach_the_fatherland_league
-		prerequisite = { focus = SIA_support_gun }
+		prerequisite = { focus = SIA_mountaineerss focus = SIA_tankss }
 		prerequisite = { focus = SIA_subss }
 		x = 25
 		y = 10
