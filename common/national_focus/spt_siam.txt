@@ -43,10 +43,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 
 		completion_reward = {
-			add_popularity = {
-				ideology = fascism
-				popularity = 0.10
-			}
+			
 			add_opinion_modifier = {
 				target = JAP
 				modifier = mexico_german_resource_exchange
@@ -54,6 +51,10 @@ focus_tree = {
 			reverse_add_opinion_modifier  = {
 				target = JAP
 				modifier = mexico_german_resource_exchange
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.10
 			}
 		}
 	
@@ -216,11 +217,11 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 
 		completion_reward = {
+			add_ideas = { SIA_fascism = x }
 			add_popularity = {
 				ideology = fascism
 				popularity = 0.10
-			}
-			add_ideas = { SIA_fascism = x }
+			}	
 		}
 	}
 						
@@ -258,11 +259,16 @@ focus_tree = {
 
 		completion_reward = {
 			set_politics = {
-				ruling_party = fascism_ideology
+				ruling_party = fascism
+				last_election = "1936.1.1"
+				election_frequency = 48
 				elections_allowed = no
-    			long_name = "Khana Ratsadon"
-			}
-		}
+				}
+
+			recruit_character = SIA_plaek_phibunsongkhram
+			promote_character = SIA_plaek_phibunsongkhram
+			retire_character = SIA_nangklao_suriyawongse
+		}	
 	}	
 	
 	focus = {
@@ -295,6 +301,10 @@ focus_tree = {
 
 		completion_reward = {
 			add_stability = 0.1
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
 		}
 	}
 						
@@ -326,7 +336,11 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 
 		completion_reward = {
-			
+			add_country_leader_trait = dictator
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
 		}
 	}
 						
@@ -1435,6 +1449,7 @@ focus_tree = {
 					7408 10250 10221 12173 10411 7572 7353 7492 1488
 				}				
 			}
+			add_country_leader_trait = railroad_enthusiast
 		}
 	}
 					
