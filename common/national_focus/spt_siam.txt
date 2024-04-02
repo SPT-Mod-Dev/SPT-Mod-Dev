@@ -217,7 +217,8 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 
 		completion_reward = {
-			add_ideas = { SIA_fascism = x }
+			add_ideas = { SIA_do_fascism = x }
+
 			add_popularity = {
 				ideology = fascism
 				popularity = 0.10
@@ -265,9 +266,7 @@ focus_tree = {
 				elections_allowed = no
 				}
 
-			recruit_character = SIA_plaek_phibunsongkhram
-			promote_character = SIA_plaek_phibunsongkhram
-			retire_character = SIA_nangklao_suriyawongse
+			promote_character = SIA_plaek_phibunsongkhram	
 		}	
 	}	
 	
@@ -301,9 +300,9 @@ focus_tree = {
 
 		completion_reward = {
 			add_stability = 0.1
-			add_popularity = {
-				ideology = fascism
-				popularity = 0.05
+			swap_ideas = {
+				remove_idea = SIA_political_opposition
+				add_idea = SIA_subdued_opposition
 			}
 		}
 	}
@@ -337,10 +336,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_country_leader_trait = dictator
-			add_popularity = {
-				ideology = fascism
-				popularity = 0.05
-			}
+			remove_ideas = SIA_subdued_opposition
 		}
 	}
 						
@@ -440,6 +436,40 @@ focus_tree = {
 			add_ideas = { SIA_sinophobia = x }
 		}
 
+	}
+
+	focus = {
+		id = SIA_volunteers
+		icon = GFX_focus_chi_collaboration_with_the_japanese
+		prerequisite = { focus = SIA_chinese_oppression }
+		x = 0
+		y = 4
+	
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+
+		completion_reward = {
+			
+		
+		}
+	
 	}
 							
 	focus = {
@@ -608,12 +638,19 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 		
 		available = {
-			
-			JAP = {
+			OR = {
 				controls_state = 741
 				controls_state = 670
 				controls_state = 671
 				controls_state = 286
+
+				JAP = {
+					controls_state = 741
+					controls_state = 670
+					controls_state = 671
+					controls_state = 286
+				}	
+		
 			}
 		}
 
@@ -714,12 +751,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			add_tech_bonus = {
-				name = SIA_industry
-				bonus = 1.0
-				uses = 2
-				category = industry
-			}
+			remove_ideas = SIA_economic_woes
 		}
 	}
 					
@@ -1033,10 +1065,10 @@ focus_tree = {
 				limit = {
 					ROOT = { has_full_control_of_state = PREV }
 				}	
-				add_extra_state_shared_building_slots = 2				
+				add_extra_state_shared_building_slots = 1			
 				add_building_construction = {
 					type = dockyard
-					level = 2
+					level = 1
 				}				
 			}
 		}
@@ -1124,38 +1156,6 @@ focus_tree = {
 		}
 	}
 				
-	focus = {
-		id = SIA_buddha
-		icon = GFX_focus_smiling_buddha
-		prerequisite = { focus = SIA_research_slot }
-		prerequisite = { focus = SIA_educate_people }
-		x = 15
-		y = 7
-	
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-			
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			add_to_variable = { SIA_thai_spirits = x }
-		}
-	}
 				
 	focus = {
 		id = SIA_thai_spirit
@@ -1455,7 +1455,7 @@ focus_tree = {
 					
 	focus = {
 		id = SIA_electronics
-		icon = GFX_goal_generic_radar
+		icon = GFX_goal_generic_production2
 		prerequisite = { focus = SIA_civs_two focus = SIA_mils_two focus = SIA_docks_two }
 		x = 17
 		y = 3
@@ -1492,7 +1492,7 @@ focus_tree = {
 					
 	focus = {
 		id = SIA_radio_control
-		icon = GFX_goal_generic_propaganda
+		icon = GFX_goal_generic_radar 
 		prerequisite = { focus = SIA_electronics }
 		x = 17
 		y = 4
@@ -1518,14 +1518,48 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			add_ideas = SIA_propaganda
-
+			
 			add_tech_bonus = {
 				name = SIA_radio_control
 				bonus = 1.0
 				uses = 2
 				category = radar_tech
 			}
+		}
+	}
+
+	focus = {
+		id = SIA_propaganda
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = SIA_radio_control }
+		x = 18
+		y = 5
+	
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			
+			add_stability = 0.05
+			add_war_support = 0.15
+		
 		}
 	}
 			
@@ -1553,6 +1587,10 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = { SIA_militarism = x }
+		}
 	}
 				
 	focus = {
@@ -1581,6 +1619,11 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 		
+		completion_reward = {
+			completion_reward = {
+				add_to_variable = { SIA_inadequate_military = x }
+			}
+		}
 	}
 				
 	focus = {
@@ -1610,6 +1653,10 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+
+		completion_reward = {
+			remove_ideas = SIA_inadequate_military
+		}
 	}
 				
 	focus = {
@@ -1640,7 +1687,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_MANPOWER }
 
 		completion_reward = {
-			add_ideas = { SIA_rallied_people = x }
+			add_to_variable = { SIA_militarism = x }
 		}
 	}
 				
@@ -1710,7 +1757,7 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_to_variable = { SIA_rallied_people = x }
+			add_to_variable = { SIA_militarism = x }
 		}
 			
 		
@@ -1743,6 +1790,12 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+
+		completion_reward = {
+			category_army = {
+				hard_attack = 0.10
+			}
+		}
 	}
 				
 	focus = {
@@ -1860,6 +1913,9 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+
+		custom_effect_tooltip = available_high_command
+			show_ideas_tooltip = plaek_phibunsongkhram
 	}
 				
 	focus = {
@@ -1941,11 +1997,10 @@ focus_tree = {
 	focus = {
 		id = SIA_thai_might
 		icon = GFX_focus_secret_rearmament
-		prerequisite = { focus = SIA_logistics }
-		prerequisite = { focus = SIA_mobilization }
-		x = 27
-		y = 4
-	
+		prerequisite = { focus = SIA_army_reformed }
+		prerequisite = { focus = SIA_war_ready }
+		x = 30
+		y = 5
 
 		cost = 10
 
@@ -1966,7 +2021,7 @@ focus_tree = {
 		available_if_capitulated = no
 		
 		completion_reward = {
-			remove_ideas = SIA_rallied_people
+			remove_ideas = SIA_militarism
 			remove_ideas = SIA_supply
 			add_ideas = SIA_thai_might
 		}
@@ -2112,9 +2167,7 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			completion_reward = {
-				add_to_variable = { SIA_supply = x }
-			}
+		
 			add_equipment_to_stockpile = {
 				type = convoy
 				amount = 150
@@ -2125,9 +2178,10 @@ focus_tree = {
 	focus = {
 		id = SIA_war_ready
 		icon = GFX_focus_attack_britain
-		prerequisite = { focus = SIA_army_reformed }
-		x = 30
-		y = 5
+		prerequisite = { focus = SIA_logistics }
+		prerequisite = { focus = SIA_mobilization }
+		x = 28
+		y = 4
 	
 
 		cost = 1
@@ -2147,19 +2201,23 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+
+		completion_reward = {
+			add_to_variable = { SIA_militarism = x }
+		}
 	}
 	
 	focus = {
 		id = SIA_go_east
 		icon = GFX_focus_usa_focus_on_asia
-		prerequisite = { focus = SIA_war_ready }
+		prerequisite = { focus = SIA_thai_might }
 		mutually_exclusive = { focus = SIA_go_south }
 		mutually_exclusive = { focus = SIA_go_west }
 		x = 35
 		y = 6
 	
 
-		cost = 10
+		cost = 1
 
 		ai_will_do = {
 			factor = 1
@@ -2183,14 +2241,14 @@ focus_tree = {
 	focus = {
 		id = SIA_go_west
 		icon = GFX_focus_RAJ_all_india_forward_bloc
-		prerequisite = { focus = SIA_war_ready }
+		prerequisite = { focus = SIA_thai_might }
 		mutually_exclusive = { focus = SIA_go_south }
 		mutually_exclusive = { focus = SIA_go_east }
 		x = 25
 		y = 6
 	
 
-		cost = 10
+		cost = 1
 
 		ai_will_do = {
 			factor = 1
@@ -2208,19 +2266,23 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
+		completion_reward = {
+			288 = { add_claim_by = SIA }
+			640 = { add_claim_by = SIA }
+		}
 	}
 
 	focus = {
 		id = SIA_go_south
 		icon = GFX_focus_jap_strike_south
-		prerequisite = { focus = SIA_war_ready }
+		prerequisite = { focus = SIA_thai_might }
 		mutually_exclusive = { focus = SIA_go_west }
 		mutually_exclusive = { focus = SIA_go_east }
 		x = 30
 		y = 6
 		
 	
-		cost = 10
+		cost = 1
 	
 		ai_will_do = {
 			factor = 1
@@ -2238,7 +2300,10 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 	
-		
+		completion_reward = {
+			336 = { add_claim_by = SIA }
+		}
+
 	}
 
 	focus = {
@@ -2366,7 +2431,7 @@ focus_tree = {
 		y = 8
 		
 	
-		cost = 10
+		cost = 5
 	
 		ai_will_do = {
 			factor = 1
@@ -2463,68 +2528,6 @@ focus_tree = {
 		}
 	}
 		
-	focus = {
-		id = SIA_sea_oil
-		icon = GFX_focus_generic_offshore_oil_rig
-		prerequisite = { focus = SIA_fleet }
-		x = 37
-		y = 8
-	
-
-		cost = 20
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-			
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		available = {
-			controls_state = 286
-			controls_state = 671
-		}
-	
-		completion_reward = {
-			add_resource = {
-				type = oil
-				amount = 12
-				state = 671
-				state = 286
-			}
-			random_owned_controlled_state = {
-				prioritize = { 286 }	
-				limit = {
-					ROOT = { has_full_control_of_state = PREV }
-				}	
-				add_extra_state_shared_building_slots = 4				
-				add_building_construction = {
-					type = dockyard
-					level = 4
-				}				
-			}
-			random_owned_controlled_state = {
-				prioritize = { 671 }	
-				limit = {
-					ROOT = { has_full_control_of_state = PREV }
-				}	
-				add_extra_state_shared_building_slots = 4				
-				add_building_construction = {
-					type = dockyard
-					level = 4
-				}				
-			}
-		}
-	}
 		
 	focus = {
 		id = SIA_marine
@@ -2558,6 +2561,14 @@ focus_tree = {
 				bonus = 1.0
 				uses = 2
 				category = marine_tech
+			}
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = SIA_transport
+				bonus = 0.5
+				uses = 2
+				category = tp_tech
 			}
 		}
 	}
@@ -2763,6 +2774,21 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = SIA_air
+				bonus = 1
+				uses = 2
+				category = light_air
+			}
+			add_tech_bonus = {
+				name = SIA_transport
+				bonus = 0.5
+				uses = 2
+				category = air_equipment
+			}
+		}
 	}
 			
 	focus = {
@@ -2962,6 +2988,57 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+
+		available = {
+			controls_state = 286
+			OR = {
+				OR = {
+					controls_state = 632
+					controls_state = 631
+					JAP = {
+						controls_state = 632
+						controls_state = 631
+					}
+				}	
+				OR = {
+					controls_state = 629
+					JAP = {
+						controls_state = 629	
+					}
+				}	
+			}	
+		}
+	
+		completion_reward = {
+			add_resource = {
+				type = oil
+				amount = 12
+				state = 671
+				state = 286
+			}
+			random_owned_controlled_state = {
+				prioritize = { 286 }	
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+				}	
+				add_extra_state_shared_building_slots = 4				
+				add_building_construction = {
+					type = dockyard
+					level = 4
+				}				
+			}
+			random_owned_controlled_state = {
+				prioritize = { 671 }	
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+				}	
+				add_extra_state_shared_building_slots = 4				
+				add_building_construction = {
+					type = dockyard
+					level = 4
+				}				
+			}
+		}
 	}
 			
 	focus = {
@@ -2990,6 +3067,14 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+
+		available = {
+			controls_state = 336
+		}
+
+		completion_reward = {
+			336 = { add_compliance = 50}
+		}
 	}
 			
 	focus = {
@@ -3017,6 +3102,11 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+
+		completion_reward = {
+			add_stability = 0.2
+			add_war_support = 0.2
+		}
 	}
 			
 	focus = {
@@ -3045,6 +3135,16 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
+
+		available = {
+			controls_state = 288
+			controls_state = 640
+		}
+
+		completion_reward = {
+			288 = { add_compliance = 50}
+			640 = { add_compliance = 50}
+		}
 	}
 	
 
