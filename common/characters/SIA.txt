@@ -59,12 +59,32 @@ characters={
 			civilian={
 				large=GFX_portrait_Plaek_Phibunsongkhram
 			}
+			army={
+				small=GFX_portrait_Plaek_Phibunsongkhram
+			}
 		}
 		country_leader={
 			ideology=fascism_ideology
 			traits={ triumphant_revolutionary }
 			expire="1953.1.1.12"
 			id=-1
+		}
+		advisor={
+			slot = high_command
+			idea_token = SIA_plaek_phibunsongkhram
+			ledger = army
+				allowed = {
+					original_tag = SIA
+				}
+				available = {
+					has_completed_focus = SIA_infantry_warfare
+				traits = {
+					army_infantry_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
 		}
 	}
 	SIA_tianliang_huntrakool={
@@ -246,36 +266,8 @@ characters={
 		}
 	}
 
-	SIA_plaek_phibunsongkhram={
-		advisor={
-			
-			
-			slot = high_command
-			idea_token = SIA_plaek_phibunsongkhram
-			ledger = army
-				allowed = {
-					original_tag = SIA
-				}
-				traits = {
-					army_infantry_2
-				}
-				cost = 100
-				ai_will_do = {
-					factor = 1.000
-				}
-		}
-		name="plaek_phibunsongkhram"
-		portraits={
-			army={
-				small="GFX_portrait_Plaek_Phibunsongkhram"
-			}
-		}
-	}
-
 	SIA_phraya_chitnasongkhla={
 		advisor={
-			
-			
 			slot = army_chief
 			idea_token = SIA_phraya_chitnasongkhla
 			allowed = {

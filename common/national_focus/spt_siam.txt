@@ -1764,7 +1764,7 @@ focus_tree = {
 	}
 				
 	focus = {
-		id = SIA_elephants
+		id = SIA_elephantt
 		icon = GFX_focus_secret_rearmament
 		prerequisite = { focus = SIA_support_equipment }
 		prerequisite = { focus = SIA_infantry_warfare }
@@ -1792,9 +1792,7 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			category_army = {
-				hard_attack = 0.10
-			}
+			add_ideas = SIA_elephants
 		}
 	}
 				
@@ -1914,8 +1912,11 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		custom_effect_tooltip = available_high_command
-			show_ideas_tooltip = plaek_phibunsongkhram
+		completion_reward = {
+			custom_effect_tooltip = available_military_high_command
+			show_ideas_tooltip = SIA_plaek_phibunsongkhram	
+		}
+		
 	}
 				
 	focus = {
