@@ -23,7 +23,7 @@ focus_tree = {
 		y = 4
 	
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -165,7 +165,7 @@ focus_tree = {
 		y = 2
 	
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -185,7 +185,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 
 		completion_reward = {
-			add_to_variable = { SIA_fascism = x }
+			swap_ideas = {
+				remove_idea = SIA_do_fascism_0
+				add_idea = SIA_do_fascism_1
+			}
 		}
 	}
 					
@@ -217,7 +220,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 
 		completion_reward = {
-			add_ideas = SIA_do_fascism
+			add_ideas = SIA_do_fascism_0
 
 			add_popularity = {
 				ideology = fascism
@@ -368,7 +371,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 
 		completion_reward = {
-			add_ideas = SIA_siam_regime
+			add_ideas = SIA_siam_regime_0
 		}
 	}
 						
@@ -400,7 +403,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 
 		completion_reward = {
-			add_to_variable = { SIA_siam_regime = x }
+			swap_ideas = {
+				remove_idea = SIA_siam_regime_0
+				add_idea = SIA_siam_regime_1
+			}
 		}
 
 	}
@@ -433,7 +439,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 
 		completion_reward = {
-			add_ideas = SIA_sinophobia 
+			add_ideas = SIA_sinophobia_0
 		}
 
 	}
@@ -444,7 +450,6 @@ focus_tree = {
 		prerequisite = { focus = SIA_chinese_oppression }
 		x = 0
 		y = 4
-	
 
 		cost = 5
 
@@ -465,10 +470,19 @@ focus_tree = {
 		available_if_capitulated = no
 		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 
-		completion_reward = {
-			add_to_variable = { SIA_sinophobia = x }
+		available = {
+			JAP = {
+				has_war_with = CHI
+			}
 		}
-	
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SIA_sinophobia_0
+				add_idea = SIA_sinophobia_1
+			}
+			set_rule = { can_send_volunteers = yes }
+		}
 	}
 							
 	focus = {
@@ -571,8 +585,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 
 		completion_reward = {
-			remove_ideas = { SIA_siam_ideals = x }
-			add_ideas = { SIA_thai_ideals = x }
+			swap_ideas = {
+				remove_idea = SIA_siam_regime_1
+				add_idea = SIA_thai_regime
+			}
 		}
 	}
 						
@@ -1194,7 +1210,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			add_ideas = SIA_thai_spirit
+			add_ideas = SIA_thai_spirit_0
 		}
 	}
 				
@@ -1226,7 +1242,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			add_to_variable = { SIA_thai_spirit = x }
+			swap_ideas = {
+				remove_idea = SIA_thai_spirit_0
+				add_idea = SIA_thai_spirit_1
+			}
 		}
 		
 	}
@@ -1842,7 +1861,7 @@ focus_tree = {
 		available_if_capitulated = no
 	
 		completion_reward = {
-			add_ideas = SIA_foreign_training
+			add_ideas = SIA_foreign_training_0
 		}
 	}
 				
@@ -2146,6 +2165,44 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = {
+		id = SIA_convoy
+		icon = GFX_focus_generic_navy_battleship2
+		prerequisite = { focus = SIA_trains }
+		x = 26
+		y = 2
+	
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SIA_supply_0
+				add_idea = SIA_supply_1
+			}
+			add_equipment_to_stockpile = {
+				type = convoy
+				amount = 150
+			}
+		}
+	}
 				
 	focus = {
 		id = SIA_logistics
@@ -2176,46 +2233,8 @@ focus_tree = {
 		
 		completion_reward = {
 			swap_ideas = {
-				remove_idea = SIA_supply_0
-				add_ideas = SIA_supply_1	
-			}
-		}
-	}
-				
-	focus = {
-		id = SIA_convoy
-		icon = GFX_focus_generic_navy_battleship2
-		prerequisite = { focus = SIA_trains }
-		x = 26
-		y = 2
-	
-
-		cost = 5
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-			
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		completion_reward = {
-			swap_ideas = {
 				remove_idea = SIA_supply_1
-				add_ideas = SIA_supply_2	
-			}
-			add_equipment_to_stockpile = {
-				type = convoy
-				amount = 150
+				add_idea = SIA_supply_2
 			}
 		}
 	}
