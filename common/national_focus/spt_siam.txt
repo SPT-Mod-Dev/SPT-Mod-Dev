@@ -68,7 +68,7 @@ focus_tree = {
 		y = 5
 	
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -315,7 +315,7 @@ focus_tree = {
 		y = 4
 	
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -449,7 +449,7 @@ focus_tree = {
 		cost = 5
 
 		ai_will_do = {
-			factor = 1
+			factor = 0
 		}
 
 		available = {
@@ -587,7 +587,7 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			factor = 1
+			factor = 2
 		}
 
 		available = {
@@ -639,17 +639,27 @@ focus_tree = {
 		available = {
 			OR = {
 				controls_state = 741
-				controls_state = 670
-				controls_state = 671
-				controls_state = 286
-
 				JAP = {
 					controls_state = 741
+				}		
+			}
+			OR ={
+				controls_state = 670
+				JAP = {
 					controls_state = 670
+				}
+			}
+			OR ={
+				controls_state = 671
+				JAP = {
 					controls_state = 671
+				}
+			}
+			OR ={
+				controls_state = 286
+				JAP = {
 					controls_state = 286
-				}	
-		
+				}
 			}
 		}
 
@@ -674,7 +684,7 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			factor = 1
+			factor = 2
 		}
 
 		available = {
@@ -701,23 +711,23 @@ focus_tree = {
 				
 				add_building_construction = {
 					type = infrastructure
-					level = 4
+					level = 3
 					instant_build = yes
 				}
-				add_extra_state_shared_building_slots = 4
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
-					level = 4
+					level = 3
 				}
-				add_extra_state_shared_building_slots = 4
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = arms_factory
-					level = 4
+					level = 3
 				}
-				add_extra_state_shared_building_slots = 4
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = dockyard
-					level = 4
+					level = 3
 				}
 			}
 		}
@@ -819,7 +829,7 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			factor = 1
+			factor = 3
 		}
 
 		available = {
@@ -841,7 +851,7 @@ focus_tree = {
 				limit = {
 					ROOT = { has_full_control_of_state = PREV }
 				}	
-				add_extra_state_shared_building_slots = 2	
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
 					level = 2
@@ -925,7 +935,7 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			factor = 1
+			factor = 2
 		}
 
 		available = {
@@ -1031,7 +1041,7 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			factor = 1
+			factor = 2
 		}
 
 		available = {
@@ -1053,10 +1063,10 @@ focus_tree = {
 				limit = {
 					ROOT = { has_full_control_of_state = PREV }
 				}	
-				add_extra_state_shared_building_slots = 2				
+				add_extra_state_shared_building_slots = 1			
 				add_building_construction = {
 					type = dockyard
-					level = 2
+					level = 1
 				}
 			}
 			random_owned_controlled_state = {
@@ -1265,7 +1275,7 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			factor = 1
+			factor = 4
 		}
 
 		available = {
@@ -1339,7 +1349,7 @@ focus_tree = {
 		cost = 10
 
 		ai_will_do = {
-			factor = 1
+			factor = 3
 		}
 
 		available = {
@@ -1629,7 +1639,7 @@ focus_tree = {
 		icon = GFX_focus_chi_army_reform
 		prerequisite = { focus = SIA_infantry_equipment }
 		prerequisite = { focus = SIA_support_equipment }
-		prerequisite = { focus = SIA_mobilization }
+		prerequisite = { focus = SIA_combined_arms }
 		x = 30
 		y = 4
 	
@@ -1659,7 +1669,7 @@ focus_tree = {
 				
 	focus = {
 		id = SIA_rally_people
-		icon = GFX_focus_SOV_mobilization_plan
+		icon = GFX_focus_generic_limited_social_mobilization
 		prerequisite = { focus = SIA_army_reform }
 		x = 29
 		y = 2
@@ -1729,8 +1739,8 @@ focus_tree = {
 	}
 				
 	focus = {
-		id = SIA_mobilization
-		icon = GFX_focus_generic_limited_social_mobilization
+		id = SIA_infantry_equipment
+		icon = GFX_goal_generic_allies_build_infantry
 		prerequisite = { focus = SIA_rally_people }
 		x = 28
 		y = 3
@@ -1755,7 +1765,12 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_to_variable = { SIA_militarised_population = x }
+			add_tech_bonus = {
+				name = SIA_infantry_equipment
+				bonus = 0.75
+				uses = 3
+				category = infantry_tech
+			}
 		}
 			
 		
@@ -1941,8 +1956,8 @@ focus_tree = {
 	}
 				
 	focus = {
-		id = SIA_infantry_equipment
-		icon = GFX_goal_generic_allies_build_infantry
+		id = SIA_combined_arms
+		icon = GFX_focus_generic_tank_air_support
 		prerequisite = { focus = SIA_expand_military }
 		prerequisite = { focus = SIA_rally_people }
 		x = 30
@@ -1969,12 +1984,9 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			add_tech_bonus = {
-				name = SIA_infantry_equipment
-				bonus = 0.75
-				uses = 3
-				category = infantry_tech
-			}
+			army_experience = 25
+			air_experience = 25
+			navy_experience = 25
 		}
 		
 	}
@@ -2197,7 +2209,7 @@ focus_tree = {
 		id = SIA_war_ready
 		icon = GFX_focus_attack_britain
 		prerequisite = { focus = SIA_logistics }
-		prerequisite = { focus = SIA_mobilization }
+		prerequisite = { focus = SIA_combined_arms }
 		x = 28
 		y = 4
 	
