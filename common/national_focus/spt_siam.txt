@@ -2073,9 +2073,9 @@ focus_tree = {
 	focus = {
 		id = SIA_trucks
 		icon = GFX_focus_generic_truck
-		prerequisite = { focus = SIA_militarism }
-		x = 26
-		y = 1
+		prerequisite = { focus = SIA_trains }
+		x = 24
+		y = 2
 	
 
 		cost = 5
@@ -2111,9 +2111,9 @@ focus_tree = {
 	focus = {
 		id = SIA_trains
 		icon = GFX_focus_generic_railway_gun
-		prerequisite = { focus = SIA_trucks }
+		prerequisite = { focus = SIA_militarism }
 		x = 26
-		y = 2
+		y = 1
 	
 
 		cost = 5
@@ -2137,9 +2137,7 @@ focus_tree = {
 
 		
 		completion_reward = {
-			add_dynamic_modifier = { 
-				modifier = SPT_SIA_supply
-			}	
+			add_ideas = SIA_supply_0
 			add_tech_bonus = {
 				name = SIA_trains
 				bonus = 3.0
@@ -2152,7 +2150,7 @@ focus_tree = {
 	focus = {
 		id = SIA_logistics
 		icon = GFX_focus_generic_supply_line
-		prerequisite = { focus = SIA_trains }
+		prerequisite = { focus = SIA_convoy }
 		x = 26
 		y = 3
 	
@@ -2177,10 +2175,10 @@ focus_tree = {
 
 		
 		completion_reward = {
-			add_to_variable = { 
-				SPT_SIA_supply_node_range = 0.05
-				SPT_SIA_supply_consumption_factor = 0.05
-			}	
+			swap_ideas = {
+				remove_idea = SIA_supply_0
+				add_ideas = SIA_supply_1	
+			}
 		}
 	}
 				
@@ -2188,11 +2186,11 @@ focus_tree = {
 		id = SIA_convoy
 		icon = GFX_focus_generic_navy_battleship2
 		prerequisite = { focus = SIA_trains }
-		x = 24
-		y = 3
+		x = 26
+		y = 2
 	
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -2211,9 +2209,10 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_to_variable = { 
-				SPT_SIA_build_cost_convoy = -0.1
-			}	
+			swap_ideas = {
+				remove_idea = SIA_supply_1
+				add_ideas = SIA_supply_2	
+			}
 			add_equipment_to_stockpile = {
 				type = convoy
 				amount = 150
