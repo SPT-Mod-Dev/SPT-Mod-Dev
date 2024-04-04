@@ -1598,7 +1598,7 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_ideas = SIA_militarised_population
+			add_ideas = SIA_militarised_population_0
 		}
 	}
 				
@@ -1629,7 +1629,10 @@ focus_tree = {
 		available_if_capitulated = no
 		
 		completion_reward = {
-			add_to_variable = { SIA_inadequate_military = x }
+			swap_ideas = {
+				remove_idea = SIA_inadequate_military_0
+				add_idea = SIA_inadequate_military_1
+			}
 		}
 		
 	}
@@ -1663,7 +1666,7 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			remove_ideas = SIA_inadequate_military
+			remove_ideas = SIA_inadequate_military_1
 		}
 	}
 				
@@ -1695,7 +1698,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_MANPOWER }
 
 		completion_reward = {
-			add_to_variable = { SIA_militarised_population = x }
+			swap_ideas = {
+				remove_idea = SIA_militarised_population_0
+				add_idea = SIA_militarised_population_1
+			}
 		}
 	}
 				
@@ -1867,7 +1873,10 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_to_variable = { SIA_foreign_training = x }
+			swap_ideas = {
+				remove_idea = SIA_foreign_training_0
+				add_idea = SIA_foreign_training_1
+			}
 		}
 	}
 	
@@ -2128,12 +2137,14 @@ focus_tree = {
 
 		
 		completion_reward = {
-			add_ideas = SIA_supply	
+			add_dynamic_modifier = { 
+				modifier = SIA_supply
+			}	
 			add_tech_bonus = {
 				name = SIA_trains
 				bonus = 3.0
 				uses = 1
-				category = train_tech
+				category = train_tech 
 			}
 		}
 	}
@@ -2166,7 +2177,10 @@ focus_tree = {
 
 		
 		completion_reward = {
-			add_to_variable = { SIA_supply = x }	
+			add_to_variable = { 
+				SPT_SIA_supply_node_range = 0.05
+				SPT_SIA_supply_consumption_factor = 0.05
+			}	
 		}
 	}
 				
@@ -2197,7 +2211,9 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-		
+			add_to_variable = { 
+				SPT_SIA_build_cost_convoy = -0.1
+			}	
 			add_equipment_to_stockpile = {
 				type = convoy
 				amount = 150
@@ -2233,7 +2249,10 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_to_variable = { SIA_militarised_population = x }
+			swap_ideas = {
+				remove_idea = SIA_militarised_population_1
+				add_idea = SIA_militarised_population_2
+			}
 		}
 	}
 	
