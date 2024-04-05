@@ -1842,7 +1842,7 @@ focus_tree = {
 		y = 1
 	
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -1873,7 +1873,7 @@ focus_tree = {
 		y = 2
 	
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -1908,7 +1908,7 @@ focus_tree = {
 		y = 3
 	
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -1957,7 +1957,7 @@ focus_tree = {
 		y = 3
 	
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -1992,7 +1992,7 @@ focus_tree = {
 		y = 3
 	
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -2083,9 +2083,10 @@ focus_tree = {
 		available_if_capitulated = no
 		
 		completion_reward = {
-			remove_ideas = SIA_militarism
-			remove_ideas = SIA_supply
-			add_ideas = SIA_thai_might
+			swap_ideas = {
+				remove_idea = SIA_militarised_population_1
+				add_idea = SIA_thai_might
+			}
 		}
 	}
 				
@@ -2120,7 +2121,7 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = SIA_trucks
-				bonus = 3.0
+				bonus = 1.0
 				uses = 2
 				category = motorized_equipment
 			}
@@ -2267,10 +2268,7 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = SIA_militarised_population_1
-				add_idea = SIA_militarised_population_2
-			}
+			add_ideas = SIA_allied_war
 		}
 	}
 	
