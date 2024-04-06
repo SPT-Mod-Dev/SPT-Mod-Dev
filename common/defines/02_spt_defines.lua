@@ -22,3 +22,5 @@ NDefines.NCountry.SPECIAL_FORCES_CAP_MIN = 64
 NDefines.NSupply.RAILWAY_CONVERSION_COOLDOWN = 5
 
 NDefines.NMilitary.EXPERIENCE_COMBAT_FACTOR = 0.2
+
+NDefines.NIndustrialOrganisation.DESIGN_TEAM_CHANGE_XP_COST = 0
