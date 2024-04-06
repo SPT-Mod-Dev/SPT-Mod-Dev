@@ -928,9 +928,15 @@
 		completion_reward = {
 			JAP = {
 				country_event = spt.22
-			}
+				set_autonomy = {
+				target = MAN
+				autonomy_state = autonomy_spt_man_autonomous_china
+				end_wars = no
+				end_civil_wars = no
+				}
+			}	
 		}
-	}
+	}	
 
 	focus = {
 		id = SPT_MAN_new_chinese_economic_policy
@@ -1011,7 +1017,7 @@
 			}
 			random_owned_state = {
 				limit = { is_fully_controlled_by = ROOT }
-				add_manpower = 25417
+				add_manpower = 257123
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
@@ -1022,7 +1028,7 @@
 			}
 			random_owned_state = {
 				limit = { is_fully_controlled_by = ROOT }
-				add_manpower = 33846
+				add_manpower = 752341
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
@@ -1076,12 +1082,6 @@
 				traits = {
 					popular_figurehead
 					anti_communist
-				}
-			}
-			JAP = { 
-				set_autonomy = {
-					target = MAN
-					autonomy_state = autonomy_wtt_imperial_associate
 				}
 			}	
 		}
@@ -1341,7 +1341,7 @@
 			JAP = { 
 				set_autonomy = {
 					target = MAN
-					autonomy_state = autonomy_wtt_imperial_associate
+					autonomy_state = autonomy_spt_man_blank_state
 				}
 			}
 			MAN_low_legitimacy_level_down = yes
@@ -1611,10 +1611,10 @@
 				limit = {
 					has_state_flag = MAN_expand_the_textile_industry_IC
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 4
 				add_building_construction = {
 					type = industrial_complex
-					level = 2
+					level = 4
 					instant_build = yes
 				}
 			}
@@ -2079,10 +2079,10 @@
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			716 = {
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 4
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 4 
 					instant_build = yes
 				}
 			}
@@ -3473,5 +3473,4 @@
 			add_ideas = MAN_streamlined_bomber_production
 		}
 	}
-
-}
+ }
