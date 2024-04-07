@@ -686,6 +686,8 @@ focus_tree = {
 			set_state_controller = 671
 			set_state_controller = 286
 			activate_decision = form_rattanakosin_kingdom
+			add_state_core = 671
+			add_state_core = 286
 		}
 	}
 	
@@ -1173,7 +1175,7 @@ focus_tree = {
 		
 		completion_reward = {
 			add_tech_bonus = {
-				name = SIA_further_industrialisation
+				name = SIA_further_industrialisation_tech
 				bonus = 1.0
 				uses = 2
 				category = industry
@@ -1394,7 +1396,7 @@ focus_tree = {
 				}
 				add_resource = {
 					type = oil
-					amount = 12
+					amount = 8
 				}
 			}		
 		}
@@ -1429,7 +1431,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = SIA_bridge
+				name = SIA_bridge_tech
 				bonus = 1.0
 				uses = 2
 				category = construction_tech
@@ -1490,7 +1492,7 @@ focus_tree = {
 		y = 3
 	
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -1511,7 +1513,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = SIA_electronics
+				name = SIA_electronics_tech
 				bonus = 1.0
 				uses = 2
 				category = electronics
@@ -1527,7 +1529,7 @@ focus_tree = {
 		y = 4
 	
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -1549,7 +1551,7 @@ focus_tree = {
 		completion_reward = {
 			
 			add_tech_bonus = {
-				name = SIA_radio_control
+				name = SIA_radio_control_tech
 				bonus = 1.0
 				uses = 2
 				category = radar_tech
@@ -1792,7 +1794,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = SIA_infantry_equipment
+				name = SIA_infantry_equipment_tech
 				bonus = 0.75
 				uses = 3
 				category = infantry_tech
@@ -1850,7 +1852,7 @@ focus_tree = {
 		}
 
 		available = {
-
+			is_in_faction_with = JAP
 		}
 
 		bypass = {
@@ -2049,7 +2051,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = SIA_support_equipment
+				name = SIA_support_equipment_tech
 				bonus = 1.0
 				uses = 2
 				category = support_tech
@@ -2099,7 +2101,7 @@ focus_tree = {
 		y = 2
 	
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -2121,7 +2123,7 @@ focus_tree = {
 		
 		completion_reward = {
 			add_tech_bonus = {
-				name = SIA_trucks
+				name = SIA_trucks_tech
 				bonus = 1.0
 				uses = 2
 				category = motorized_equipment
@@ -2160,7 +2162,7 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = SIA_supply_0
 			add_tech_bonus = {
-				name = SIA_trains
+				name = SIA_trains_tech
 				bonus = 3.0
 				uses = 1
 				category = train_tech 
@@ -2405,7 +2407,7 @@ focus_tree = {
 	
 		completion_reward = {
 			add_tech_bonus = {
-				name = SIA_mountaineer
+				name = SIA_mountaineer_tech
 				bonus = 1.0
 				uses = 2
 				category = mountaineers_tech
@@ -2483,7 +2485,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = SIA_tank
+				name = SIA_tank_tech
 				bonus = 1.0
 				uses = 2
 				category = armor
@@ -2522,7 +2524,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = SIA_support_gun
+				name = SIA_support_gun_tech
 				bonus = 1.0
 				uses = 2
 				category = artillery
@@ -2627,7 +2629,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = SIA_marine
+				name = SIA_marine_tech
 				bonus = 1.0
 				uses = 2
 				category = marine_tech
@@ -2635,7 +2637,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_tech_bonus = {
-				name = SIA_transport
+				name = SIA_transport_tech
 				bonus = 0.5
 				uses = 2
 				category = tp_tech
@@ -2779,7 +2781,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = SIA_paratroop
+				name = SIA_paratroop_tech
 				bonus = 1.0
 				uses = 2
 				category = para_tech
@@ -2847,13 +2849,13 @@ focus_tree = {
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = SIA_air
+				name = SIA_air_tech
 				bonus = 1
 				uses = 2
 				category = light_air
 			}
 			add_tech_bonus = {
-				name = SIA_transport
+				name = SIA_transport_tech
 				bonus = 0.5
 				uses = 2
 				category = air_equipment
@@ -2921,7 +2923,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = SIA_subs
+				name = SIA_subs_tech
 				bonus = 1.0
 				uses = 2
 				category = ss_tech
@@ -2989,7 +2991,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = SIA_fleet
+				name = SIA_fleet_tech
 				bonus = 1.0
 				uses = 4
 				category = ca_tech
@@ -3084,6 +3086,10 @@ focus_tree = {
 				type = oil
 				amount = 12
 				state = 671
+			}
+			add_resource = {
+				type = oil
+				amount = 12
 				state = 286
 			}
 			random_owned_controlled_state = {
@@ -3152,7 +3158,7 @@ focus_tree = {
 		icon = GFX_goal_generic_major_war
 		prerequisite = { focus = SIA_west_compliance focus = SIA_south_compliance focus = SIA_east_compliance }
 		x = 30
-		y = 12
+		y = 11
 	
 
 		cost = 10
