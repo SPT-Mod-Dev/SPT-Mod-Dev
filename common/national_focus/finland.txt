@@ -10864,20 +10864,20 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ARMY_XP FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			army_experience = 25
+			#army_experience = 25 #SPTchacge
 
-			add_tech_bonus = {
-				name = FIN_suomen_maavoimat
-				bonus = 0.75
-				uses = 1
-				category = infantry_weapons
-				category = support_tech
-				category = artillery
-				category = motorized_equipment
-			}
+			# add_tech_bonus = { #SPTchacge
+			# 	name = FIN_suomen_maavoimat
+			# 	bonus = 0.50 #SPTchacge 75% -> 50%
+			# 	uses = 1
+			# 	category = infantry_weapons
+			# 	category = support_tech
+			# 	category = artillery
+			# 	category = motorized_equipment
+			# } 
 			add_doctrine_cost_reduction = {
 				name = FIN_suomen_maavoimat
-				cost_reduction = 0.75
+				cost_reduction = 0.5 #SPTchacge -> 0.75 -> 0.5
 				uses = 1
 				category = land_doctrine
 			}
@@ -11005,14 +11005,14 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ARMY_XP FOCUS_FILTER_MANPOWER }
 
 		completion_reward = {
-			army_experience = 15
+			army_experience = 10 #SPTchacge 15 ->10
 
 			custom_effect_tooltip = FIN_modify_finnish_army_ns_intro
-			add_to_variable = { FIN_finnish_army_experience_gain_army_factor = 0.05 tooltip = experience_gain_army_factor_tt }
+			#add_to_variable = { FIN_finnish_army_experience_gain_army_factor = 0.05 tooltip = experience_gain_army_factor_tt } #SPTchacge
 			add_to_variable = { FIN_finnish_army_dig_in_speed_factor = 0.1 tooltip = dig_in_speed_factor_tt }
 			add_to_variable = { FIN_finnish_army_training_time_factor = -0.1 tooltip = training_time_factor_tt }
 			add_to_variable = { FIN_finnish_army_mobilization_speed = 0.1 tooltip = mobilization_speed_tt }
-			add_to_variable = { FIN_finnish_army_conscription_factor = 0.1 tooltip = conscription_factor_tt }
+			#add_to_variable = { FIN_finnish_army_conscription_factor = 0.1 tooltip = conscription_factor_tt } #SPTchacge
 		}
 	}
 	
@@ -11033,10 +11033,10 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = FIN_modify_finnish_army_ns_intro
 			add_to_variable = { FIN_finnish_army_acclimatization_cold_climate_gain_factor = 0.1 tooltip = acclimatization_cold_climate_gain_factor_tt }
-			add_to_variable = { FIN_finnish_army_cas_damage_reduction = 0.15 tooltip = cas_damage_reduction_tt }
-			add_to_variable = { FIN_finnish_army_winter_attrition_factor = -0.15 tooltip = winter_attrition_factor_tt }
+			#add_to_variable = { FIN_finnish_army_cas_damage_reduction = 0.15 tooltip = cas_damage_reduction_tt } #SPTchacge
+			add_to_variable = { FIN_finnish_army_winter_attrition_factor = -0.1 tooltip = winter_attrition_factor_tt } #SPTchacge 15% -> 10%
 
-			army_experience = 15
+	
 
 			#TODO_Manu: Nice to have: Simo Häyä event chain starting here?
 		}
@@ -11057,13 +11057,13 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ARMY_XP FOCUS_FILTER_MILITARY_CHARACTER }
 
 		completion_reward = {
-			army_experience = 15
+			#army_experience = 15 #SPTchacge
 
 			set_technology = { bicycle_infantry = 1 popup = no }
 
 			custom_effect_tooltip = FIN_modify_finnish_army_ns_intro
 			add_to_variable = { FIN_finnish_army_army_org_factor = 0.1 tooltip = army_org_factor_tt }
-			add_to_variable = { FIN_finnish_army_special_forces_cap = 0.15 tooltip = special_forces_cap_tt }
+			add_to_variable = { FIN_finnish_army_special_forces_cap = 0.1 tooltip = special_forces_cap_tt } #SPTchacge 15% -> 10%
 			add_to_variable = { FIN_finnish_army_breakthrough_factor = 0.05 tooltip = breakthrough_factor_tt }
 			add_to_variable = { FIN_finnish_army_special_forces_out_of_supply_factor = -0.1 tooltip = special_forces_out_of_supply_factor_tt }
 
@@ -11094,8 +11094,8 @@ focus_tree = {
 			army_experience = 15
 
 			custom_effect_tooltip = FIN_modify_finnish_army_ns_intro
-			add_to_variable = { FIN_finnish_army_equipment_capture_factor = 0.3 tooltip = equipment_capture_factor_tt }
-			add_to_variable = { FIN_finnish_army_equipment_conversion_speed = 0.3 tooltip = equipment_conversion_speed_tt }
+			add_to_variable = { FIN_finnish_army_equipment_capture_factor = 0.1 tooltip = equipment_capture_factor_tt } #SPTchacge 30% -> 10%
+			#add_to_variable = { FIN_finnish_army_equipment_conversion_speed = 0.3 tooltip = equipment_conversion_speed_tt } #SPTchacge
 			add_to_variable = { FIN_finnish_army_production_lack_of_resource_penalty_factor = -0.15 tooltip = production_lack_of_resource_penalty_factor_tt }
 
 			if = {
@@ -11216,12 +11216,12 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ARMY_XP }
 
 		completion_reward = {
-			army_experience = 25
+			army_experience = 15 #SPTchacge 25 -> 15
 
 			custom_effect_tooltip = FIN_modify_finnish_army_ns_intro
-			add_to_variable = { FIN_finnish_army_acclimatization_cold_climate_gain_factor = 0.15 tooltip = acclimatization_cold_climate_gain_factor_tt }
-			add_to_variable = { FIN_finnish_army_winter_attrition_factor = -0.15 tooltip = winter_attrition_factor_tt }
-			add_to_variable = { FIN_finnish_army_supply_combat_penalties_on_core_factor = -0.15 tooltip = supply_combat_penalties_on_core_factor_tt }
+			add_to_variable = { FIN_finnish_army_acclimatization_cold_climate_gain_factor = 0.10 tooltip = acclimatization_cold_climate_gain_factor_tt } #SPTchacge 15% -> 10%
+			add_to_variable = { FIN_finnish_army_winter_attrition_factor = -0.10 tooltip = winter_attrition_factor_tt } #SPTchacge 15% -> 10%
+			#add_to_variable = { FIN_finnish_army_supply_combat_penalties_on_core_factor = -0.15 tooltip = supply_combat_penalties_on_core_factor_tt } #SPTchacge
 
 			custom_effect_tooltip = FIN_winter_warfare_battalion_tt
 
@@ -11250,10 +11250,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ARMY_XP FOCUS_FILTER_MILITARY_CHARACTER }
 
 		completion_reward = {
-			army_experience = 25
+			army_experience = 15 #SPTchacge 25 -> 15
 
 			custom_effect_tooltip = FIN_modify_finnish_army_ns_intro
-			add_to_variable = { FIN_finnish_army_org_loss_when_moving = -0.15 tooltip = org_loss_when_moving_tt }
+			#add_to_variable = { FIN_finnish_army_org_loss_when_moving = -0.15 tooltip = org_loss_when_moving_tt } #SPTchacge
 			add_to_variable = { FIN_finnish_army_recon_factor_while_entrenched = 0.1 tooltip = recon_factor_while_entrenched_tt }
 			add_to_variable = { FIN_finnish_army_army_attack_speed_factor = 0.1 tooltip = army_attack_speed_factor_tt }
 
@@ -11738,7 +11738,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ARMY_XP FOCUS_FILTER_MILITARY_CHARACTER FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			army_experience = 25
+			#army_experience = 25 #SPTchacge
 
 			custom_effect_tooltip = FIN_modify_finnish_army_ns_intro
 			add_to_variable = { FIN_finnish_army_intel_from_combat_factor = 0.1 tooltip = intel_from_combat_factor_tt }
@@ -11766,10 +11766,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ARMY_XP FOCUS_FILTER_MILITARY_CHARACTER }
 
 		completion_reward = {
-			army_experience = 35
+			army_experience = 25 #SPTchange 35 -> 25
 
 			custom_effect_tooltip = FIN_modify_finnish_army_ns_intro
-			add_to_variable = { FIN_finnish_army_initiative_factor = 0.02 tooltip = initiative_factor_tt }
+			#add_to_variable = { FIN_finnish_army_initiative_factor = 0.02 tooltip = initiative_factor_tt } #SPTchacge
 			add_to_variable = { FIN_finnish_army_recon_factor_while_entrenched = 0.1 tooltip = recon_factor_while_entrenched_tt }
 			add_to_variable = { FIN_finnish_army_modifier_army_sub_unit_long_range_patrol_support_attack_factor = 0.1 tooltip = modifier_army_sub_unit_long_range_patrol_support_attack_factor_tt }
 			add_to_variable = { FIN_finnish_army_modifier_army_sub_unit_long_range_patrol_support_defence_factor = 0.1 tooltip = modifier_army_sub_unit_long_range_patrol_support_defence_factor_tt }		
