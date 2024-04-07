@@ -2698,13 +2698,13 @@ country_event = {
 		}
 	}
 
-	option = {
-		name = finland.2.b
+	# option = {
+	# 	name = finland.2.b #SPTchange
 
-		ai_chance = {
-			base = 0
-		}
-	}
+	# 	ai_chance = {
+	# 		base = 0
+	# 	}
+	# }
 }
 
 # Finnish demands available - event for FIN (after completing mission and taking the decision to send demands)
@@ -3217,67 +3217,67 @@ country_event = {
 			}
 			give_guarantee = FROM
 
-			FROM = {
-				if = {
-					limit = {
-						has_dlc = "No Step Back"
-					}
-					add_equipment_to_stockpile = { 
-						type = light_tank_chassis_1
-						amount = 50
-						producer = ROOT
-					}
-				}
-				else = {
-					add_equipment_to_stockpile = { 
-						type = light_tank_equipment_1
-						amount = 50
-						producer = ROOT
-					}
-				}
-				if = {
-					limit = {
-						has_dlc = "By Blood Alone"
-					}
-					add_equipment_to_stockpile = { 
-						type = small_plane_airframe_1
-						amount = 50
-						producer = ROOT
-					}
-				}
-				else = {
-					add_equipment_to_stockpile = { 
-						type = fighter_equipment_1
-						amount = 50
-						producer = ROOT
-					}
-				}
-				add_equipment_to_stockpile = { 
-					type = convoy_1
-					amount = 50
-					producer = ROOT
-				}
-				add_equipment_to_stockpile = { 
-					type = artillery_equipment_1
-					amount = 50
-					producer = ROOT
-				}
-				add_equipment_to_stockpile = { 
-					type = anti_air_equipment_1
-					amount = 25
-					producer = ROOT
-				}
-				add_equipment_to_stockpile = { 
-					type = infantry_equipment_1
-					amount = 3000
-					producer = ROOT
-				}
-				add_equipment_to_stockpile = { 
-					type = support_equipment_1
-					amount = 300
-					producer = ROOT
-				}
-			}
+			# FROM = {
+			# 	if = {
+			# 		limit = {
+			# 			has_dlc = "No Step Back"
+			# 		}
+			# 		add_equipment_to_stockpile = { 
+			# 			type = light_tank_chassis_1
+			# 			amount = 50
+			# 			producer = ROOT
+			# 		}
+			# 	}
+			# 	else = {
+			# 		add_equipment_to_stockpile = { 
+			# 			type = light_tank_equipment_1
+			# 			amount = 50
+			# 			producer = ROOT
+			# 		}
+			# 	}
+			# 	if = {
+			# 		limit = {
+			# 			has_dlc = "By Blood Alone"
+			# 		}
+			# 		add_equipment_to_stockpile = { 
+			# 			type = small_plane_airframe_1
+			# 			amount = 50
+			# 			producer = ROOT
+			# 		}
+			# 	}
+			# 	else = {
+			# 		add_equipment_to_stockpile = { 
+			# 			type = fighter_equipment_1
+			# 			amount = 50
+			# 			producer = ROOT
+			# 		}
+			# 	}
+			# 	add_equipment_to_stockpile = { 
+			# 		type = convoy_1
+			# 		amount = 50
+			# 		producer = ROOT
+			# 	}
+			# 	add_equipment_to_stockpile = { 
+			# 		type = artillery_equipment_1
+			# 		amount = 50
+			# 		producer = ROOT
+			# 	}
+			# 	add_equipment_to_stockpile = { 
+			# 		type = anti_air_equipment_1
+			# 		amount = 25
+			# 		producer = ROOT
+			# 	}
+			# 	add_equipment_to_stockpile = { 
+			# 		type = infantry_equipment_1
+			# 		amount = 3000
+			# 		producer = ROOT
+			# 	}
+			# 	add_equipment_to_stockpile = { 
+			# 		type = support_equipment_1
+			# 		amount = 300
+			# 		producer = ROOT
+			# 	}
+			# }
 		}
 		custom_effect_tooltip = FIN_pact_for_continuation_war_ger_tt
 
@@ -3329,36 +3329,36 @@ country_event = {
 	}
 
 	#Inte chicken
-	option = {
-		name = AAT_finland_continuation_war.01.b
+	# option = { #SPTchange
+	# 	name = AAT_finland_continuation_war.01.b
 
-		ai_chance = {
-			base = 0
-			modifier = {
-				add = 100
-				OR = {
-					has_wargoal_against = FROM
-					is_justifying_wargoal_against = FROM
-					is_in_faction_with = SOV
-					has_subject = SOV
-					has_guaranteed = SOV
-				}
-			}
-		}
+	# 	ai_chance = {
+	# 		base = 0
+	# 		modifier = {
+	# 			add = 100
+	# 			OR = {
+	# 				has_wargoal_against = FROM
+	# 				is_justifying_wargoal_against = FROM
+	# 				is_in_faction_with = SOV
+	# 				has_subject = SOV
+	# 				has_guaranteed = SOV
+	# 			}
+	# 		}
+	# 	}
 
-		effect_tooltip = {
-			FROM = {
-				add_opinion_modifier = {
-					target = ROOT
-					modifier = BUL_rejected_our_proposal
-				}
-			}
-		}
+	# 	effect_tooltip = {
+	# 		FROM = {
+	# 			add_opinion_modifier = {
+	# 				target = ROOT
+	# 				modifier = BUL_rejected_our_proposal
+	# 			}
+	# 		}
+	# 	}
 
-		hidden_effect = {
-			FROM = { country_event = { id = AAT_finland_continuation_war.03 hours = 2 } }
-		}
-	}
+	# 	hidden_effect = {
+	# 		FROM = { country_event = { id = AAT_finland_continuation_war.03 hours = 2 } }
+	# 	}
+	# }
 }
 
 
@@ -3377,67 +3377,67 @@ country_event = {
 	option = {
 		name = AAT_finland_continuation_war.02.a
 		
-		ROOT = {
-			if = {
-				limit = {
-					has_dlc = "No Step Back"
-				}
-				add_equipment_to_stockpile = { 
-					type = light_tank_chassis_1
-					amount = 50
-					producer = FROM
-				}
-			}
-			else = {
-				add_equipment_to_stockpile = { 
-					type = light_tank_equipment_1
-					amount = 50
-					producer = FROM
-				}
-			}
-			if = {
-				limit = {
-					has_dlc = "By Blood Alone"
-				}
-				add_equipment_to_stockpile = { 
-					type = small_plane_airframe_1
-					amount = 50
-					producer = FROM
-				}
-			}
-			else = {
-				add_equipment_to_stockpile = { 
-					type = fighter_equipment_1
-					amount = 50
-					producer = FROM
-				}
-			}
-			add_equipment_to_stockpile = { 
-				type = convoy_1
-				amount = 50
-				producer = FROM
-			}
-			add_equipment_to_stockpile = { 
-				type = artillery_equipment_1
-				amount = 50
-				producer = FROM
-			}
-			add_equipment_to_stockpile = { 
-				type = anti_air_equipment_1
-				amount = 25
-				producer = FROM
-			}
-			add_equipment_to_stockpile = { 
-				type = infantry_equipment_1
-				amount = 3000
-				producer = FROM
-			}
-			add_equipment_to_stockpile = { 
-				type = support_equipment_1
-				amount = 300
-				producer = FROM
-			}
-		}
+		# ROOT = { #SPTchange
+		# 	if = {
+		# 		limit = {
+		# 			has_dlc = "No Step Back"
+		# 		}
+		# 		add_equipment_to_stockpile = { 
+		# 			type = light_tank_chassis_1
+		# 			amount = 50
+		# 			producer = FROM
+		# 		}
+		# 	}
+		# 	else = {
+		# 		add_equipment_to_stockpile = { 
+		# 			type = light_tank_equipment_1
+		# 			amount = 50
+		# 			producer = FROM
+		# 		}
+		# 	}
+		# 	if = {
+		# 		limit = {
+		# 			has_dlc = "By Blood Alone"
+		# 		}
+		# 		add_equipment_to_stockpile = { 
+		# 			type = small_plane_airframe_1
+		# 			amount = 50
+		# 			producer = FROM
+		# 		}
+		# 	}
+		# 	else = {
+		# 		add_equipment_to_stockpile = { 
+		# 			type = fighter_equipment_1
+		# 			amount = 50
+		# 			producer = FROM
+		# 		}
+		# 	}
+		# 	add_equipment_to_stockpile = { 
+		# 		type = convoy_1
+		# 		amount = 50
+		# 		producer = FROM
+		# 	}
+		# 	add_equipment_to_stockpile = { 
+		# 		type = artillery_equipment_1
+		# 		amount = 50
+		# 		producer = FROM
+		# 	}
+		# 	add_equipment_to_stockpile = { 
+		# 		type = anti_air_equipment_1
+		# 		amount = 25
+		# 		producer = FROM
+		# 	}
+		# 	add_equipment_to_stockpile = { 
+		# 		type = infantry_equipment_1
+		# 		amount = 3000
+		# 		producer = FROM
+		# 	}
+		# 	add_equipment_to_stockpile = { 
+		# 		type = support_equipment_1
+		# 		amount = 300
+		# 		producer = FROM
+		# 	}
+		#}
 
 		FIN_pact_for_continuation_war_start = yes
 		custom_effect_tooltip = FIN_pact_for_continuation_war_fin_tt
@@ -3543,17 +3543,17 @@ country_event = {
 	fire_only_once = yes
 	
 	immediate = {
-		hidden_effect = {
-			FIN_pact_for_continuation_war_start = yes #In case some treaty was missing
-			#add_to_war = { #This makes Finland join war against the whole bloc of Comintern + Allies + Ethiopia
-			#	targeted_alliance = GER
-			#	enemy = SOV
-			#	hostility_reason = asked_to_join
-			#}
-			declare_war_on = {
-				target = SOV
-				type = topple_government
-			}
+		hidden_effect = { #SPTchange
+			# FIN_pact_for_continuation_war_start = yes #In case some treaty was missing
+			# #add_to_war = { #This makes Finland join war against the whole bloc of Comintern + Allies + Ethiopia
+			# #	targeted_alliance = GER
+			# #	enemy = SOV
+			# #	hostility_reason = asked_to_join
+			# #}
+			# declare_war_on = {
+			# 	target = SOV
+			# 	type = topple_government
+			# }
 		}
 	}
 
@@ -3561,19 +3561,20 @@ country_event = {
 	option = {
 		name = AAT_finland_continuation_war.05.a
 
-		effect_tooltip = {
-			FIN_pact_for_continuation_war_start = yes #In case some treaty was missing
-			add_to_war = {
-				targeted_alliance = GER
-				enemy = SOV
-				hostility_reason = asked_to_join
-			}
-		}
+		# effect_tooltip = { #SPTchange
+		# 	FIN_pact_for_continuation_war_start = yes #In case some treaty was missing
+		# 	add_to_war = {
+		# 		targeted_alliance = GER
+		# 		enemy = SOV
+		# 		hostility_reason = asked_to_join
+		# 	}
+		# }
 
-		hidden_effect = {
-			#Clear flag
-			clr_country_flag = FIN_pact_for_continuation_war_flag
-		}
+		# hidden_effect = {
+		# 	#Clear flag
+		# 	clr_country_flag = FIN_pact_for_continuation_war_flag
+		# }
+		custom_effect_tooltip = SPT_FIN_continuation_war
 	}
 }
 

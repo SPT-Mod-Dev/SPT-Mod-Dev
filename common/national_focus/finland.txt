@@ -4684,7 +4684,7 @@ focus_tree = {
 		icon = GFX_focus_generic_self_management
 		prerequisite = { focus = FIN_finnish_neutrality }
 
-		x = -5
+		x = -4
 		y = 1
 		relative_position_id = FIN_finnish_neutrality
 		cost = 10
@@ -5023,7 +5023,11 @@ focus_tree = {
 		y = 1
 		relative_position_id = FIN_expand_state_military_factories
 		cost = 10
+		allow_branch = {
+			always = no
+		}
 		available = {
+			
 			OR = {
 				has_country_leader = {
 					ruling_only = yes
@@ -5035,7 +5039,6 @@ focus_tree = {
 				}
 			}
 		}
-
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_BALANCE_OF_POWER FOCUS_FILTER_POLITICAL_CHARACTER FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY }
 
 		completion_reward = {
@@ -5143,7 +5146,7 @@ focus_tree = {
 		icon = GFX_focus_FIN_strengthen_military_administration
 		prerequisite = { focus = FIN_expand_state_military_factories }
 		mutually_exclusive = { focus = FIN_dreams_of_expansionism focus = FIN_a_new_course_for_kokoomus }
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = FIN_expand_state_military_factories
 		cost = 10
@@ -5194,7 +5197,7 @@ focus_tree = {
 		icon = GFX_focus_FIN_dreams_of_expansionism
 		prerequisite = { focus = FIN_expand_state_military_factories }
 		mutually_exclusive = { focus = FIN_strengthen_military_administration focus = FIN_a_new_course_for_kokoomus }
-		x = 2
+		x = 1
 		y = 1
 		relative_position_id = FIN_expand_state_military_factories
 		cost = 10
@@ -5543,7 +5546,7 @@ focus_tree = {
 		icon = GFX_focus_FIN_the_lone_wolf
 		prerequisite = { focus = FIN_moderate_politics }
 		mutually_exclusive = { focus = FIN_northern_defense_front focus = FIN_join_the_allies }
-		x = 2
+		x = 0
 		y = 1
 		relative_position_id = FIN_moderate_politics
 		cost = 5
@@ -6089,12 +6092,10 @@ focus_tree = {
 		id = FIN_cooperation_with_germany
 		icon = GFX_focus_chi_mission_to_germany
 		prerequisite = { focus = FIN_the_lone_wolf }
-
 		x = 0
 		y = 1
 		relative_position_id = FIN_the_lone_wolf
 		cost = 5
-		
 		bypass = {
 			OR = {
 				is_in_faction_with = GER
@@ -6114,12 +6115,11 @@ focus_tree = {
 		}
 
 		available = {
-			always = no #SPTChange
 			is_subject = no
-			NOT = { has_government = communism }
-			NOT = { is_in_faction_with = SOV }
+			#NOT = { has_government = communism }
+			#NOT = { is_in_faction_with = SOV }
 			NOT = { has_non_aggression_pact_with = SOV }
-			NOT = { has_guaranteed = SOV }
+			#NOT = { has_guaranteed = SOV }
 			NOT = { has_country_flag = FIN_winter_war_ongoing_flag }
 			GER = {
 				NOT = { has_war_with = ROOT }
@@ -6134,50 +6134,50 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_INTERNATIONAL_TRADE }
 
 		completion_reward = {
-			if = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"	
-				}
-				custom_effect_tooltip = FIN_cooperation_with_germany_subsidies_tt
+			# if = { #SPTchange
+			# 	limit = {
+			# 		has_dlc = "Arms Against Tyranny"	
+			# 	}
+			# 	custom_effect_tooltip = FIN_cooperation_with_germany_subsidies_tt
 
-				hidden_effect = {
-					add_equipment_subsidy = {
-						cic = FIN_basic_subsidies_value
-						equipment_type = small_plane_airframe
-						seller_tags = { GER } 
-					}
-					add_equipment_subsidy = {
-						cic = FIN_basic_subsidies_value
-						equipment_type = medium_plane_airframe
-						seller_tags = { GER } 
-					}
-					add_equipment_subsidy = {
-						cic = FIN_basic_subsidies_value
-						equipment_type = light_tank_chassis
-						seller_tags = { GER } 
-					}
-					add_equipment_subsidy = {
-						cic = FIN_basic_subsidies_value
-						equipment_type = medium_tank_chassis
-						seller_tags = { GER } 
-					}
-					add_equipment_subsidy = {
-						cic = FIN_basic_subsidies_value
-						equipment_type = artillery_equipment
-						seller_tags = { GER } 
-					}
-					add_equipment_subsidy = {
-						cic = FIN_basic_subsidies_value
-						equipment_type = anti_air_equipment
-						seller_tags = { GER } 
-					}
-					add_equipment_subsidy = {
-						cic = FIN_basic_subsidies_value
-						equipment_type = anti_tank_equipment
-						seller_tags = { GER } 
-					}
-				}
-			}
+			# 	hidden_effect = {
+			# 		add_equipment_subsidy = {
+			# 			cic = FIN_basic_subsidies_value
+			# 			equipment_type = small_plane_airframe
+			# 			seller_tags = { GER } 
+			# 		}
+			# 		add_equipment_subsidy = {
+			# 			cic = FIN_basic_subsidies_value
+			# 			equipment_type = medium_plane_airframe
+			# 			seller_tags = { GER } 
+			# 		}
+			# 		add_equipment_subsidy = {
+			# 			cic = FIN_basic_subsidies_value
+			# 			equipment_type = light_tank_chassis
+			# 			seller_tags = { GER } 
+			# 		}
+			# 		add_equipment_subsidy = {
+			# 			cic = FIN_basic_subsidies_value
+			# 			equipment_type = medium_tank_chassis
+			# 			seller_tags = { GER } 
+			# 		}
+			# 		add_equipment_subsidy = {
+			# 			cic = FIN_basic_subsidies_value
+			# 			equipment_type = artillery_equipment
+			# 			seller_tags = { GER } 
+			# 		}
+			# 		add_equipment_subsidy = {
+			# 			cic = FIN_basic_subsidies_value
+			# 			equipment_type = anti_air_equipment
+			# 			seller_tags = { GER } 
+			# 		}
+			# 		add_equipment_subsidy = {
+			# 			cic = FIN_basic_subsidies_value
+			# 			equipment_type = anti_tank_equipment
+			# 			seller_tags = { GER } 
+			# 		}
+			# 	}
+			# }
 
 			GER = {
 				country_event = { id = AAT_finland_continuation_war.01 hours = 8 random_hours = 4 }
@@ -6187,65 +6187,65 @@ focus_tree = {
 			effect_tooltip = {
 				FIN_pact_for_continuation_war_start = yes
 
-				if = {
-					limit = {
-						has_dlc = "No Step Back"
-					}
-					add_equipment_to_stockpile = { 
-						type = light_tank_chassis_1
-						amount = 50
-						producer = GER
-					}
-				}
-				else = {
-					add_equipment_to_stockpile = { 
-						type = light_tank_equipment_1
-						amount = 50
-						producer = GER
-					}
-				}
-				if = {
-					limit = {
-						has_dlc = "By Blood Alone"
-					}
-					add_equipment_to_stockpile = { 
-						type = small_plane_airframe_1
-						amount = 50
-						producer = GER
-					}
-				}
-				else = {
-					add_equipment_to_stockpile = { 
-						type = fighter_equipment_1
-						amount = 50
-						producer = GER
-					}
-				}
-				add_equipment_to_stockpile = { 
-					type = convoy_1
-					amount = 50
-					producer = GER
-				}
-				add_equipment_to_stockpile = { 
-					type = artillery_equipment_1
-					amount = 50
-					producer = GER
-				}
-				add_equipment_to_stockpile = { 
-					type = anti_air_equipment_1
-					amount = 25
-					producer = GER
-				}
-				add_equipment_to_stockpile = { 
-					type = infantry_equipment_1
-					amount = 3000
-					producer = GER
-				}
-				add_equipment_to_stockpile = { 
-					type = support_equipment_1
-					amount = 300
-					producer = GER
-				}
+				# if = { #SPTchange
+				# 	limit = {
+				# 		has_dlc = "No Step Back"
+				# 	}
+				# 	add_equipment_to_stockpile = { 
+				# 		type = light_tank_chassis_1
+				# 		amount = 50
+				# 		producer = GER
+				# 	}
+				# }
+				# else = {
+				# 	add_equipment_to_stockpile = { 
+				# 		type = light_tank_equipment_1
+				# 		amount = 50
+				# 		producer = GER
+				# 	}
+				# }
+				# if = {
+				# 	limit = {
+				# 		has_dlc = "By Blood Alone"
+				# 	}
+				# 	add_equipment_to_stockpile = { 
+				# 		type = small_plane_airframe_1
+				# 		amount = 50
+				# 		producer = GER
+				# 	}
+				# }
+				# else = {
+				# 	add_equipment_to_stockpile = { 
+				# 		type = fighter_equipment_1
+				# 		amount = 50
+				# 		producer = GER
+				# 	}
+				# }
+				# add_equipment_to_stockpile = { 
+				# 	type = convoy_1
+				# 	amount = 50
+				# 	producer = GER
+				# }
+				# add_equipment_to_stockpile = { 
+				# 	type = artillery_equipment_1
+				# 	amount = 50
+				# 	producer = GER
+				# }
+				# add_equipment_to_stockpile = { 
+				# 	type = anti_air_equipment_1
+				# 	amount = 25
+				# 	producer = GER
+				# }
+				# add_equipment_to_stockpile = { 
+				# 	type = infantry_equipment_1
+				# 	amount = 3000
+				# 	producer = GER
+				# }
+				# add_equipment_to_stockpile = { 
+				# 	type = support_equipment_1
+				# 	amount = 300
+				# 	producer = GER
+				# }
 			}
 			custom_effect_tooltip = FIN_pact_for_continuation_war_fin_focus_tt
 		}
@@ -6561,7 +6561,7 @@ focus_tree = {
 		icon = GFX_focus_FIN_weapon_caches
 		prerequisite = { focus = FIN_finnish_neutrality focus = FIN_right_wing_policies }
 
-		x = 3
+		x = 2
 		y = 0
 		relative_position_id = FIN_reach_out_to_scandinavia
 
@@ -6595,7 +6595,7 @@ focus_tree = {
 		icon = GFX_focus_EST_national_pride_in_finland
 		prerequisite = { focus = FIN_finnish_neutrality focus = FIN_right_wing_policies }
 
-		x = 3
+		x = 2
 		y = 0
 		relative_position_id = FIN_weapon_caches
 		cost = 10
