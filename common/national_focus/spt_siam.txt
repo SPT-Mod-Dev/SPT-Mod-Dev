@@ -1944,21 +1944,23 @@ focus_tree = {
 				limit = {
 					original_tag = SIA
 				}	
-				every_army_leader = {
-					random_list = {
-						30 = {
-							modifier = {
-								factor = 0
-								has_trait = jungle_rat
-							}
-							add_trait = { trait = jungle_rat }
+				random_army_leader = {	
+					limit = {
+						NOT = {
+							has_trait = jungle_rat
 						}
-						70 = {
-							#do nothing
-						}
-					}
+					}	
+					add_trait = { trait = jungle_rat }
 				}
-				every_field_marshall = {
+				random_army_leader = {	
+					limit = {
+						NOT = {
+							has_trait = jungle_rat
+						}
+					}	
+					add_trait = { trait = jungle_rat }
+				}
+				every_army_leader = {
 					random_list = {
 						30 = {
 							modifier = {
