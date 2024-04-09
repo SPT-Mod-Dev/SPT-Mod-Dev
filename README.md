@@ -1,9 +1,24 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.10.3
+### 3.11.0 '2 weeks in Helsinki'
 
 #### General
- - MIO apply cost removal has been reverted to costing 5xp due to bugs caused by the change
+ - New Siam Focus Tree
+ - Remade Finland playable
+ - Reverted MIO cost change due to bugs
+ - SPT_no_resource_penalty now grants 50k base fuel gain
+
+#### Germany
+ - Prevented unintended focus tree paths (no more bokoen1 strategies sadge)
+ - German War Economy now sets your economy law to Total Mobilisation
+ - German War Economy now grants 4 military focuses, from 6
+ - Nationalize Steel Production now grants 6 military factories, from 4
+
+#### France
+ - Free France Focus Tree: added offmap civilian and military factories and dockyards to several focuses
+
+#### Canada
+ - Added decision to annex and core South Africa if it is controlled by AI
 
 ### 3.10.2
 
