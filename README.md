@@ -53,7 +53,7 @@
 ### Mongolia
  - Independent economy: Political power gain -0.1 -> -0.25
  - Collectivized Economy: Tanks cost modifiers -10% -> 0
-                       Production efficiency cap 0% -> 10%
+                          Production efficiency cap 0% -> 10%
 
 ### Italy
  - Focuses that require Politcal BOP now available after Mediterranean BOP activates
