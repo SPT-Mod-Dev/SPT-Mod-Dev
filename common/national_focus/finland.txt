@@ -5554,7 +5554,7 @@ focus_tree = {
 			is_subject = no
 			is_in_faction = no
 			threat > 0.5
-			neutrality > 0.85
+			#neutrality > 0.85 #SPTchange
 			NOT = { has_government = democratic }
 			NOT = { has_government = communism }
 		}
@@ -6096,23 +6096,23 @@ focus_tree = {
 		y = 1
 		relative_position_id = FIN_the_lone_wolf
 		cost = 5
-		bypass = {
-			OR = {
-				is_in_faction_with = GER
-				is_subject_of = GER
-				has_subject = SOV
-				has_subject = GER
-				NOT = { country_exists = GER }
-				GER = { has_capitulated = yes }
-				GER = { has_war_with = SOV }
-				SOV = { exists = no }
-				GER = { has_subject = SOV }
-				AND = {
-					has_war_with = SOV
-					NOT = { has_country_flag = FIN_winter_war_ongoing_flag }
-				}
-			}
-		}
+		# bypass = { #SPTchange
+		# 	OR = {
+		# 		is_in_faction_with = GER
+		# 		is_subject_of = GER
+		# 		has_subject = SOV
+		# 		has_subject = GER
+		# 		NOT = { country_exists = GER }
+		# 		#GER = { has_capitulated = yes }
+		# 		#GER = { has_war_with = SOV }
+		# 		#SOV = { exists = no }
+		# 		#GER = { has_subject = SOV }
+		# 		AND = {
+		# 			has_war_with = SOV
+		# 			NOT = { has_country_flag = FIN_winter_war_ongoing_flag }
+		# 		}
+		# 	}
+		# }
 
 		available = {
 			is_subject = no
@@ -6895,10 +6895,10 @@ focus_tree = {
 		relative_position_id = FIN_union_of_finnish_brothers_in_arms
 		cost = 10
 		available = {
-			OR = {
-				has_idea = all_adults_serve
-				has_idea = scraping_the_barrel
-			}
+			# OR = { #SPTchange
+			# 	has_idea = all_adults_serve
+			# 	has_idea = scraping_the_barrel
+			# }
 		}
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
