@@ -680,12 +680,7 @@ focus_tree = {
 			}
 		}
 
-		completion_reward = {
-			set_state_controller = 741
-			set_state_controller = 670
-			set_state_controller = 671
-			set_state_controller = 286
-			activate_decision = form_rattanakosin_kingdom		
+		completion_reward = {		
 			JAP = {
 				country_event = {
 					id = spt.4
@@ -783,7 +778,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			remove_ideas = SIA_economic_woes
+			swap_ideas = {
+				remove_idea = SIA_economic_woes_0
+				add_idea = SIA_economic_woes_1
+			}
 			add_tech_bonus = {
 				name = SIA_further_industrialisation_tech
 				bonus = 1.0
@@ -891,10 +889,10 @@ focus_tree = {
 				limit = {
 					ROOT = { has_full_control_of_state = PREV }
 				}	
-				add_extra_state_shared_building_slots = 1					
+				add_extra_state_shared_building_slots = 2				
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
+					level = 2
 				}				
 			}
 		}
@@ -1190,9 +1188,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		
 		completion_reward = {
+			remove_ideas = SIA_economic_woes_1
 			add_tech_bonus = {
 				name = SIA_further_industrialisation_tech
-				bonus = 3.0
+				bonus = 1.5
 				uses = 2
 				category = industry
 			}
