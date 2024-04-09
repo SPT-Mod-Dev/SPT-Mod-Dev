@@ -1365,24 +1365,40 @@ SPT_winter_war = {
 	}
 }
 SPT_FIN_join_against_SOV = {
-
 	SPT_FIN_join_the_war = {
-		allowed = {
-			tag = FIN
+
+		allowed = { tag = FIN }
+
+		available = {
+			hidden_trigger = { always = no }
 		}
+
+		days_mission_timeout = 90
+		is_good = no
+		fire_only_once = yes
+
+		cancel_trigger = {
+			has_war_with = SOV
+			
+		}
+		
 		activation = {
 			GER = { has_war_with = SOV}
 		}
-		fire_only_once = yes
-		days_mission_timeout = 90
+
+		visible = {
+			GER = { has_war_with = SOV}
+		}
+		
+		cancel_effect = {
+		}
 		timeout_effect = {
 			declare_war_on = {
-			target = SOV
-			type = topple_government
+				target = SOV
+				type = topple_government
 			}
 		}
-		complete_effect = {
-			
+		ai_will_do = {
 		}
 	}
 	SPT_FIN_join_the_war_decision = {

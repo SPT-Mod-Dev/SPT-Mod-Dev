@@ -6527,7 +6527,7 @@ focus_tree = {
 
 		completion_reward = {
 			custom_effect_tooltip = FIN_modify_finnish_army_ns_intro
-			add_to_variable = { FIN_finnish_army_special_forces_cap = 0.2 tooltip = special_forces_cap_tt }
+			add_to_variable = { FIN_finnish_army_special_forces_cap = 0.1 tooltip = special_forces_cap_tt } #SPTchange 0.2 -> 0.1
 
 			add_doctrine_cost_reduction = {
 				name = FIN_modernize_the_army
@@ -6895,10 +6895,11 @@ focus_tree = {
 		relative_position_id = FIN_union_of_finnish_brothers_in_arms
 		cost = 10
 		available = {
-			# OR = { #SPTchange
-			# 	has_idea = all_adults_serve
-			# 	has_idea = scraping_the_barrel
-			# }
+			 OR = { #SPTchange
+			 	has_idea = all_adults_serve
+			 	has_idea = scraping_the_barrel
+				has_idea = service_by_requirement
+			 }
 		}
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -7012,12 +7013,12 @@ focus_tree = {
 			216 = { #OLONETS
 				add_core_of = ROOT
 			}
-			666 = { #NORRBOTTEN
-				add_core_of = ROOT
-			}
-			925 = { #FINNMARK
-				add_core_of = ROOT
-			}
+			# 666 = { #NORRBOTTEN #SPTchange
+			# 	add_core_of = ROOT
+			# }
+			# 925 = { #FINNMARK
+			# 	add_core_of = ROOT
+			# }
 
 			if = {
 				limit = {
