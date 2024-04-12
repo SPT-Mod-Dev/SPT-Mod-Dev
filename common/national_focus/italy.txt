@@ -15730,17 +15730,29 @@ focus_tree = {
 		relative_position_id = ITA_pact_of_steel
 		cost = 2 #SPT change 5 -> 2
 
+		#SPTchange save a bit of trouble
+		bypass = {
+			ITA = {
+				controls_state = 735
+				controls_state = 1
+			}
+		}
+
 		available = {
 			is_puppet = no
-			is_in_faction_with = GER
-			GER = { 
-				controls_state = 16
-				controls_state = 735
-				controls_state = 851	
-				controls_state = 21	
-				controls_state = 32		
-				GER = { is_faction_leader = yes }
+			# SPTchange just make sure France is out
+			FRA = {
+				has_capitulated = yes
+				NOT = {
+					controls_state = 735
+					controls_state = 1
+				}
 			}
+			# is_in_faction_with = GER
+			# GER = {
+			# 	controls_state = 16
+			# 	GER = { is_faction_leader = yes }
+			# }
 			#custom_trigger_tooltip = {
 			 #tooltip = ITA_claims_on_france_tt
 			#	any_other_country = {
@@ -15757,28 +15769,31 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_ANNEXATION}
 
 		completion_reward = {
-			if = {
-				limit = { 
-					any_other_country = {
-						original_tag = FRA
-						has_government = fascism
-						owns_state = 735
-					}
-				}
-				set_global_flag = ITA_claims_on_france_735
-			}
-			if = {
-				limit = { 
-					any_other_country = {
-						original_tag = FRA
-						has_government = fascism
-						owns_state = 1
-					}
-				}
-				set_global_flag = ITA_claims_on_france_1
-			}
+			# SPTchange we removed Vichy France anyway, fuck this
+			transfer_state = 735
+			transfer_state = 1
+			# if = {
+			# 	limit = {
+			# 		any_other_country = {
+			# 			original_tag = FRA
+			# 			has_government = fascism
+			# 			owns_state = 735
+			# 		}
+			# 	}
+			# 	set_global_flag = ITA_claims_on_france_735
+			# }
+			# if = {
+			# 	limit = {
+			# 		any_other_country = {
+			# 			original_tag = FRA
+			# 			has_government = fascism
+			# 			owns_state = 1
+			# 		}
+			# 	}
+			# 	set_global_flag = ITA_claims_on_france_1
+			# }
 
-			GER = { country_event = germany.104 }
+			# GER = { country_event = germany.104 }
 		}
 	}
 
@@ -16079,13 +16094,21 @@ focus_tree = {
 
 		completion_reward = { 
 
-			SWI = {
-				country_event = {
-				    id = BBA_italy_interaction_events.1
-				    days = 2
-				    random = 6
-				}
+			# SPTchange make things easier for dummies
+			ITA = {
+				transfer_state = 846
 			}
+			846 = {
+				add_core_of = ITA
+				remove_core_of = SWI
+			}
+			# SWI = {
+			# 	country_event = {
+			# 	    id = BBA_italy_interaction_events.1
+			# 	    days = 2
+			# 	    random = 6
+			# 	}
+			# }
 
 		}
 	}
