@@ -4,7 +4,7 @@
 
 #### General
  - New Siam Focus Tree
- - Remade Finland playable
+ - Readded Finland as a playable nation
  - Increased MIO cost to 1 due to bugs
  - SPT_no_resource_penalty now grants 50k base fuel gain
 
