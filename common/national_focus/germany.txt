@@ -3362,8 +3362,18 @@ focus = {
 	}
 	
 	available = {
-		is_subject = no
-		date > 1941.6.1
+		OR = {
+			AND = {
+			has_completed_focus = SPT_GER_three_year_plan
+			date > 1941.3.1
+			}
+			AND = {
+			has_completed_focus = GER_four_year_plan
+			date > 1941.6.1
+			}
+	   } 
+	}
+	allow_branch = {
 	}
 	x = 0
 	y = 1
