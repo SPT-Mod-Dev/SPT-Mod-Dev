@@ -1,4 +1,11 @@
 # Saving Private Tryin' Historical MP Full Changelog
+### 3.11.1
+
+### Tank designer
+ - Heavy two man turret: soft and hard attack +5% -> +2.5%
+                          IC cost 4.5 ->4
+ - Heavy three man turret: soft and hard attack +10% -> +5%
+                          IC cost 6.5 -> 6
 
 ### 3.11.0 '2 weeks in Helsinki'
 
