@@ -1,4 +1,50 @@
 # Saving Private Tryin' Historical MP Full Changelog
+### 3.11.1
+
+### El Alamein
+ - Southern El Alamein tile changed to hills
+
+### Tank Designer
+ - Heavy two man turret: soft and hard attack +5% -> +2.5%
+                          IC cost 4.5 -> 4
+ - Heavy three man turret: soft and hard attack +10% -> +5%
+                          IC cost 6.5 -> 6
+### Submarine Designer
+ - Submarine 3/4 cost increased 1000x to prevent their construction
+
+### USA
+ - Moved 'Pacifism no More' to be available before 'Money Only', requiring Germany to complete 'Fate of Czechoslovakia'
+
+### Siam
+ - Educate the Population: Completion time 70 -> 35 days
+                          Research speed +5% -> 10%
+
+### Commonwealth Minors
+ - Infrastructure focuses changed to prioritise useful states
+
+### Main Menu
+ - Fixed back button on new game screen
+ - Added all playable nations to 'interesting'
+
+### 3.11.0 '2 weeks in Helsinki'
+
+#### General
+ - New Siam Focus Tree
+ - Readded Finland as a playable nation
+ - Increased MIO cost to 1 due to bugs
+ - SPT_no_resource_penalty now grants 50k base fuel gain
+
+#### Germany
+ - Prevented unintended focus tree paths (no more bokoen1 strategies sadge)
+ - German War Economy now sets your economy law to Total Mobilisation
+ - German War Economy now grants 4 military focuses, from 6
+ - Nationalize Steel Production now grants 6 military factories, from 4
+
+#### France
+ - Free France Focus Tree: added offmap civilian and military factories and dockyards to several focuses
+
+#### Canada
+ - Added decision to annex and core South Africa if it is controlled by AI
 
 ### 3.10.2
 
@@ -33,7 +79,7 @@
 ### Mongolia
  - Independent economy: Political power gain -0.1 -> -0.25
  - Collectivized Economy: Tanks cost modifiers -10% -> 0
-                       Production efficiency cap 0% -> 10%
+                          Production efficiency cap 0% -> 10%
 
 ### Italy
  - Focuses that require Politcal BOP now available after Mediterranean BOP activates

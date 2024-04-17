@@ -296,6 +296,32 @@ spt_category = {
 		}
 		fire_only_once = yes
 	}
+	CAN_annex_SAF_decision = {
+		allowed = {
+			original_tag = CAN
+		}
+		available = {
+			SAF = {
+				is_ai = yes
+			}
+			is_ai = no
+		}
+		complete_effect = {
+			annex_country = {
+				target = SAF
+				transfer_troops = yes
+			}
+			add_state_core = 275 # Transvaal
+			add_state_core = 541 # Khomas
+			add_state_core = 681 # Cape
+			add_state_core = 719 # Natal
+			add_state_core = 893 # Karas
+			add_state_core = 894 # Kunene
+			add_state_core = 895 # Otjozondjupa
+			add_ideas = SPT_CAN_SAF_union
+		}
+		fire_only_once = yes
+	}
 }
 
 USA_PAC_category = {
@@ -1191,9 +1217,228 @@ JAP_manchuria_development = {
 		}
 	}
 
-	
-
-
 }
+SPT_winter_war = {
+	FIN_winter_war = {
+		name = winter_war
+		allowed = {
+			tag = FIN
+		}
+		icon = GFX_decision_category_border_war
+		activation = {
+			has_war_with = SOV
+		}
+		visible = {
+			has_war_with = SOV
+		}
+		fire_only_once = yes
+		available = {
+			OR = {
+				hidden_trigger = {
+					SOV = {
+						controls_state = 146
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = SOV_controlls_viipuri_tt
+					always = no
+				}
+				casualties_inflicted_by = {
+					opponent = SOV
+					thousands > 70
+				}
+				hidden_trigger = {
+					SOV = {
+						owns_state = 146
+					}
+				}
+				FIN = {
+					surrender_progress > 0.5
+				}
+			}
+		}
+		is_good = yes
+		days_mission_timeout = 210
+		fire_only_once = yes
+		timeout_effect = {
+			country_event = {
+				id = spt_finland.1
+				days = 1
+			}
+			white_peace = {
+				tag = SOV
+			}
+		}
+		complete_effect = {
+			white_peace = {
+				tag = SOV
+			}
+			SOV = {
+				set_state_owner = 146
+			}
+			hidden_effect = {
+				SOV = {
+					set_state_controller = 146
+				}
+			}
+			SOV = {
+				set_state_owner = 147
+			}
+			hidden_effect = {
+				SOV = {
+					set_state_controller = 147
+				}
+			}
+			country_event = {
+				id = spt_finland.2
+				days = 1
+			}
+		}
+	}
+	SOV_winter_war = {
+		allowed = {
+			tag = SOV
+		}
+		name = winter_war
+		icon = GFX_decision_category_border_war
+		activation = {
+			has_war_with = FIN
+		}
+		visible = {
+			has_war_with = FIN
+		}
+		fire_only_once = yes
+		available = {
+			OR = {
+				hidden_trigger = {
+					SOV = {
+						controls_state = 146
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = SOV_controlls_viipuri_tt
+					always = no
+				}
+				casualties_inflicted_by = {
+					opponent = SOV
+					thousands > 70
+				}
+				hidden_trigger = {
+					SOV = {
+						owns_state = 146
+					}
+				}
+				FIN = {
+					surrender_progress > 0.5
+				}
+			}
+		}
+		is_good = no
+		days_mission_timeout = 210
+		fire_only_once = yes
+		timeout_effect = {
+			country_event = {
+				id = spt_finland.4
+				days = 1
+			}
+			white_peace = {
+				tag = FIN
+			}
+		}
+		complete_effect = {
+			white_peace = {
+				tag = FIN
+			}
+			SOV = {
+				set_state_owner = 146
+			}
+			hidden_effect = {
+				SOV = {
+					set_state_controller = 146
+				}
+			}
+			SOV = {
+				set_state_owner = 147
+			}
+			hidden_effect = {
+				SOV = {
+					set_state_controller = 147
+				}
+			}
+			country_event = {
+				id = spt_finland.3
+				days = 1
+			}
+		}
+	}
+	Appoint_Timoshenko = {
+		icon = GFX_decision_SOV_the_military_conspiracy
+		allowed = {
+			tag = SOV
+		}
+		available = {
+				SOV_semyon_timoshenko = { 
+					is_field_marshal = yes
+				}			 
+		}
+		visible = {
+			has_war_with = FIN
+		}
+		fire_only_once = yes
+		days_remove = 30
+		remove_effect = {
+			remove_ideas = No_retreat_allowed
+		}
+	}
+}
+SPT_FIN_join_against_SOV = {
+	SPT_FIN_join_the_war = {
 
+		allowed = { tag = FIN }
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+
+		days_mission_timeout = 90
+		is_good = no
+		fire_only_once = yes
+
+		cancel_trigger = {
+			has_war_with = SOV
+			
+		}
+		
+		activation = {
+			GER = { has_war_with = SOV}
+		}
+
+		visible = {
+			GER = { has_war_with = SOV}
+		}
+		
+		cancel_effect = {
+		}
+		timeout_effect = {
+			declare_war_on = {
+				target = SOV
+				type = topple_government
+			}
+		}
+		ai_will_do = {
+		}
+	}
+	SPT_FIN_join_the_war_decision = {
+		fire_only_once = yes
+		available = {
+			GER = { has_war_with = SOV}
+		}
+		complete_effect = {
+			declare_war_on = {
+				target = SOV
+				type = topple_government
+			}
+		}
+	}
+}
 
