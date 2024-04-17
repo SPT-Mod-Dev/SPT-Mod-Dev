@@ -1,11 +1,22 @@
 # Saving Private Tryin' Historical MP Full Changelog
 ### 3.11.1
 
-### Tank designer
+### El Alamein
+ - Southern El Alamein tile changed to hills
+### Tank Designer
  - Heavy two man turret: soft and hard attack +5% -> +2.5%
                           IC cost 4.5 ->4
  - Heavy three man turret: soft and hard attack +10% -> +5%
                           IC cost 6.5 -> 6
+### Submarine Designer
+ - Submarine 3/4 cost increased 1000x to prevent their construction
+### USA
+ - Moved 'Pacifism no More' to be available before 'Money Only', requiring Germany to complete 'Fate of Czechoslovakia'
+### SAF
+ - Infrastructure Effort changed to prioritise useful states
+### Main Menu
+ - Fixed back button on new game screen
+ - Added all playable nations to 'interesting'
 
 ### 3.11.0 '2 weeks in Helsinki'
 
