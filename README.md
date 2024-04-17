@@ -12,8 +12,8 @@
  - Submarine 3/4 cost increased 1000x to prevent their construction
 ### USA
  - Moved 'Pacifism no More' to be available before 'Money Only', requiring Germany to complete 'Fate of Czechoslovakia'
-### SAF
- - Infrastructure Effort changed to prioritise useful states
+### Commonwealth Minors
+ - Infrastructure focuses changed to prioritise useful states
 ### Main Menu
  - Fixed back button on new game screen
  - Added all playable nations to 'interesting'
