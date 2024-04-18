@@ -19,6 +19,7 @@
  - Educate the Population: Completion time 70 -> 35 days
                           Research speed +5% -> 10%
  - Cultural Mandate focus overhaul
+ - Cooperate with Japan now adds more cooperation with Japan
  - RADAR focus builds RADAR
  - Propaganda Techniques focus rework
  - Better focus GFX for Zbra
