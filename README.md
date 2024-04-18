@@ -23,6 +23,7 @@
                           Fascism 10% -> 0%
  - RADAR focus builds RADAR
  - Propaganda Techniques focus rework
+ - New political advisors available
  - Better focus GFX for Zbra
  - Spelling and grammar fixes
 
