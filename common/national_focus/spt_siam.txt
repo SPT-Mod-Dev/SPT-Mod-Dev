@@ -4,9 +4,9 @@
 # pad thai event/focus branch
 # elephant recon - the best offensive is a good elephant
 # cultural mandate decisions
-# radar building
-# propaganda spies
-# zbra gfx
+# X radar building 
+# X propaganda spies
+# X zbra gfx
 # japan trade rate
 # japan pan asia and integration
 
@@ -385,7 +385,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 
 		completion_reward = {
-			add_ideas = SIA_siam_regime_0
+			add_ideas = SIA_siam_regime
 		}
 	}
 						
@@ -417,10 +417,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
 
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = SIA_siam_regime_0
-				add_idea = SIA_siam_regime_1
+			add_dynamic_modifier = {
+				modifier = SIA_cultural_mandates_dm
 			}
+			custom_effect_tooltip = SIA_cultural_mandates_tt
 		}
 
 	}
@@ -600,7 +600,7 @@ focus_tree = {
 
 		completion_reward = {
 			swap_ideas = {
-				remove_idea = SIA_siam_regime_1
+				remove_idea = SIA_siam_regime
 				add_idea = SIA_thai_regime
 			}
 		}
@@ -1215,7 +1215,7 @@ focus_tree = {
 				
 	focus = {
 		id = SIA_thai_spirit
-		icon = GFX_goal_continuous_non_factory_construct
+		icon = GFX_focus_SWE_landsverk
 		prerequisite = { focus = SIA_civs_two focus = SIA_mils_two focus = SIA_docks_two }
 		x = 15
 		y = 3
@@ -1247,7 +1247,7 @@ focus_tree = {
 				
 	focus = {
 		id = SIA_thai_spirits
-		icon = GFX_focus_SWE_landsverk
+		icon = GFX_focus_DEN_no_regulations
 		prerequisite = { focus = SIA_thai_spirit }
 		x = 15
 		y = 4
@@ -1432,7 +1432,7 @@ focus_tree = {
 					
 	focus = {
 		id = SIA_bridge
-		icon = GFX_goal_generic_construct_infrastructure
+		icon = GFX_focus_generic_resource_extraction
 		prerequisite = { focus = SIA_civs_two focus = SIA_mils_two focus = SIA_docks_two }
 		x = 13
 		y = 3
@@ -1514,7 +1514,7 @@ focus_tree = {
 					
 	focus = {
 		id = SIA_electronics
-		icon = GFX_goal_generic_production2
+		icon = GFX_goal_generic_radar 
 		prerequisite = { focus = SIA_civs_two focus = SIA_mils_two focus = SIA_docks_two }
 		x = 17
 		y = 3
@@ -1551,20 +1551,20 @@ focus_tree = {
 					
 	focus = {
 		id = SIA_radio_control
-		icon = GFX_goal_generic_radar 
+		icon = GFX_focus_generic_energy
 		prerequisite = { focus = SIA_electronics }
 		x = 17
 		y = 4
 	
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
 		}
 
 		available = {
-
+			has_tech = decimetric_radar
 		}
 
 		bypass = {
@@ -1581,15 +1581,27 @@ focus_tree = {
 			add_tech_bonus = {
 				name = SIA_radio_control_tech
 				bonus = 1.0
-				uses = 2
+				uses = 1
 				category = radar_tech
+			}
+			869 = {
+				add_building_construction = {
+					type = radar_station
+					level = 2
+				}	
+			}
+			724 = {
+				add_building_construction = {
+					type = radar_station
+					level = 2
+				}	
 			}
 		}
 	}
 
 	focus = {
 		id = SIA_propaganda
-		icon = GFX_goal_generic_propaganda
+		icon = GFX_focus_generic_vatican_agents
 		prerequisite = { focus = SIA_radio_control }
 		x = 17
 		y = 5
@@ -1602,7 +1614,12 @@ focus_tree = {
 		}
 
 		available = {
-
+			ITA = {
+				has_opinion	= {
+					target = ROOT
+					value > 29
+				}
+			}
 		}
 
 		bypass = {
@@ -1615,10 +1632,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			
-			add_stability = 0.05
-			add_war_support = 0.15
-		
+			add_ideas = SIA_propaganda_techniques
 		}
 	}
 			
@@ -2215,7 +2229,7 @@ focus_tree = {
 
 	focus = {
 		id = SIA_convoy
-		icon = GFX_focus_generic_navy_battleship2
+		icon = GFX_focus_generic_merchant_fleet
 		prerequisite = { focus = SIA_trains }
 		x = 26
 		y = 2
@@ -2540,7 +2554,7 @@ focus_tree = {
 	
 	focus = {
 		id = SIA_support_gun
-		icon = GFX_goal_generic_army_artillery2
+		icon = GFX_focus_SMB_mountain_guns
 		prerequisite = { focus = SIA_tank focus = SIA_mountaineer }
 		x = 23
 		y = 8
@@ -2577,7 +2591,7 @@ focus_tree = {
 
 	focus = {
 		id = SIA_tankss
-		icon = GFX_goal_generic_army_tanks
+		icon = GFX_focus_FIN_foreign_anti_air
 		prerequisite = { focus = SIA_tank }
 		prerequisite = { focus = SIA_support_gun }
 		prerequisite = { focus = SIA_land_doctrine }
@@ -2908,7 +2922,7 @@ focus_tree = {
 			
 	focus = {
 		id = SIA_airs
-		icon = GFX_focus_generic_copy_plane_designs
+		icon = GFX_focus_SOV_flying_clubs
 		prerequisite = { focus = SIA_air }
 		prerequisite = { focus = SIA_sky_doctrine }
 		x = 31
@@ -2976,7 +2990,7 @@ focus_tree = {
 				
 	focus = {
 		id = SIA_subss
-		icon = GFX_goal_generic_navy_submarine
+		icon = GFX_focus_POL_develop_polish_shipbuilding
 		prerequisite = { focus = SIA_land_doctrine }
 		prerequisite = { focus = SIA_subs }
 		x = 26
@@ -3047,7 +3061,7 @@ focus_tree = {
 				
 	focus = {
 		id = SIA_fleets
-		icon = GFX_goal_generic_navy_battleship
+		icon = GFX_focus_ARG_study_the_battle_of_the_river_plate
 		prerequisite = { focus = SIA_fleet }
 		prerequisite = { focus = SIA_water_doctrine }
 		x = 36
