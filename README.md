@@ -18,6 +18,11 @@
 ### Siam
  - Educate the Population: Completion time 70 -> 35 days
                           Research speed +5% -> 10%
+ - Cultural Mandate focus overhaul
+ - RADAR focus builds RADAR
+ - Propaganda Techniques focus rework
+ - Better focus GFX for Zbra
+ - Spelling and grammar fixes
 
 ### Commonwealth Minors
  - Infrastructure focuses changed to prioritise useful states
