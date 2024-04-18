@@ -24,7 +24,7 @@
  - RADAR focus builds RADAR
  - Propaganda Techniques focus rework
  - New political advisors available
- - Extra MIOs made available
+ - New MIOs available
  - Better focus GFX for Zbra
  - Spelling and grammar fixes
 
