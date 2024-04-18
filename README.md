@@ -31,6 +31,7 @@
  - Infrastructure focuses changed to prioritise useful states
 
 ### Main Menu
+ - Removed Stickmiin's funny haha logo
  - Fixed back button on new game screen
  - Added all playable nations to 'interesting'
 
