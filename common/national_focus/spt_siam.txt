@@ -452,7 +452,9 @@ focus_tree = {
 		}
 
 		bypass = {
-			
+			CHI = {
+				exists = no
+			}
 		}
 
 		cancel_if_invalid = yes
@@ -587,7 +589,7 @@ focus_tree = {
 		y = 5
 	
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			base = 68
@@ -1224,7 +1226,8 @@ focus_tree = {
 	focus = {
 		id = SIA_thai_spirit
 		icon = GFX_focus_DEN_no_regulations
-		prerequisite = { focus = SIA_civs_two focus = SIA_mils_two focus = SIA_docks_two }
+		prerequisite = { focus = SIA_civs_two  focus = SIA_docks_two }
+		prerequisite = { focus = SIA_mils_two  focus = SIA_docks_two }
 		x = 15
 		y = 3
 	
@@ -3215,7 +3218,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			336 = { add_compliance = 50}
+			336 = { add_compliance = 30}
 		}
 	}
 			
@@ -3284,8 +3287,18 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			288 = { add_compliance = 50}
-			640 = { add_compliance = 50}
+			hidden_effect = {
+				AFG = {
+					transfer_state = 288
+					transfer_state = 640
+				}
+				288 = { add_core_of = AFG set_compliance = 0 }
+				640 = { add_core_of = AFG set_compliance = 0 }
+				transfer_state = 288
+				transfer_state = 640
+			}
+			288 = { add_compliance = 30}
+			640 = { add_compliance = 30}	
 		}
 	}
 	
