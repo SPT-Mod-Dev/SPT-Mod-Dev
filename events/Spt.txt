@@ -1,5 +1,5 @@
 add_namespace = spt
-
+add_namespace = spt_finland
 #Ger gain control of Oslo
 country_event = {
 	id = spt.1
@@ -62,6 +62,7 @@ country_event = {
 	picture = GFX_report_event_japanese_siam_politicians
 
 	#accept
+	
 	option = {
 		name = spt.4.a
 		SIA = {
@@ -78,6 +79,11 @@ country_event = {
 			country_event = {
 				id = spt.6
 				days = 3
+			}
+		}
+		trigger = {
+			JAP = {
+				is_ai = no
 			}
 		}
 	}
@@ -105,6 +111,16 @@ country_event = {
 		}
 		286 = {
 			transfer_state_to = SIA
+		}
+		set_cosmetic_tag = RAT_UNIFIED
+		741 = { add_core_of = ROOT }
+		670 = { add_core_of = ROOT }
+		#spt change cores vietnam
+		671 = { add_core_of = ROOT } 
+		286 = { add_core_of = ROOT }
+		hidden_effect = {
+			news_event = { id = wtt_news.69 hours = 6 }
+			set_global_flag = form_rattanakosin_kingdom_flag
 		}
 	}
 }
@@ -837,3 +853,76 @@ country_event = {
 	}
 }
 
+#Finland Victory in the winter war
+country_event = {
+	id = spt_finland.1
+	title = spt_finland.1.t
+	desc = spt_finland.1.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_gre_winter_soldiers_celebrating
+	option = {
+		name = spt_finland.1.a
+	}
+}
+
+#Finland Lost winter war
+country_event = {
+	id = spt_finland.2
+	title = spt_finland.2.t
+	desc = spt_finland.2.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_soviet_finnish_pact
+	option = {
+		name = spt_finland.2.a
+	}
+}
+
+#Soviet Victory
+country_event = {
+	id = spt_finland.3
+	title = spt_finland.3.t
+	desc = spt_finland.3.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_soviet_finnish_pact
+	option = {
+		name = spt_finland.3.a
+		trigger = {
+			FIN = {
+				is_ai = yes
+			}
+		}
+		add_timed_idea = {
+			idea = SPT_victory_in_the_winter_war
+			days = 140
+		}
+	}
+	option = {
+		name = spt_finland.3.a
+		trigger = {
+			FIN = {
+				is_ai = no
+			}
+		}
+		add_timed_idea = {
+			idea = SPT_victory_in_the_winter_war
+			days = 210
+		}
+		
+	}
+}
+
+#Soviet Defeat
+country_event = {
+	id = spt_finland.4
+	title = spt_finland.4.t
+	desc = spt_finland.4.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_stalin_propaganda
+	option = {
+		name = spt_finland.4.a
+		add_timed_idea = {
+			idea = SPT_defeat_in_the_winter_war
+			days = 175
+		}
+	}
+}

@@ -16,6 +16,9 @@
 ### search_filters = {FOCUS_FILTER_MILITARY_CHARACTER}
 ### search_filters = {FOCUS_FILTER_INTERNATIONAL_TRADE}
 
+## lmao bro
+## issue track my balls
+
 focus_tree = {
 	id = finnish_focus
 
@@ -37,7 +40,7 @@ focus_tree = {
 
 	continuous_focus_position = { x = 45 y = 1500 }
 
-	shared_focus = NORDIC_form_joint_alliance
+	# shared_focus = NORDIC_form_joint_alliance #SPTChange
 
 
 
@@ -4681,7 +4684,7 @@ focus_tree = {
 		icon = GFX_focus_generic_self_management
 		prerequisite = { focus = FIN_finnish_neutrality }
 
-		x = -5
+		x = -4
 		y = 1
 		relative_position_id = FIN_finnish_neutrality
 		cost = 10
@@ -5020,7 +5023,11 @@ focus_tree = {
 		y = 1
 		relative_position_id = FIN_expand_state_military_factories
 		cost = 10
+		allow_branch = {
+			always = no
+		}
 		available = {
+			
 			OR = {
 				has_country_leader = {
 					ruling_only = yes
@@ -5032,7 +5039,6 @@ focus_tree = {
 				}
 			}
 		}
-
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_BALANCE_OF_POWER FOCUS_FILTER_POLITICAL_CHARACTER FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY }
 
 		completion_reward = {
@@ -5140,7 +5146,7 @@ focus_tree = {
 		icon = GFX_focus_FIN_strengthen_military_administration
 		prerequisite = { focus = FIN_expand_state_military_factories }
 		mutually_exclusive = { focus = FIN_dreams_of_expansionism focus = FIN_a_new_course_for_kokoomus }
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = FIN_expand_state_military_factories
 		cost = 10
@@ -5191,7 +5197,7 @@ focus_tree = {
 		icon = GFX_focus_FIN_dreams_of_expansionism
 		prerequisite = { focus = FIN_expand_state_military_factories }
 		mutually_exclusive = { focus = FIN_strengthen_military_administration focus = FIN_a_new_course_for_kokoomus }
-		x = 2
+		x = 1
 		y = 1
 		relative_position_id = FIN_expand_state_military_factories
 		cost = 10
@@ -5540,7 +5546,7 @@ focus_tree = {
 		icon = GFX_focus_FIN_the_lone_wolf
 		prerequisite = { focus = FIN_moderate_politics }
 		mutually_exclusive = { focus = FIN_northern_defense_front focus = FIN_join_the_allies }
-		x = 2
+		x = 0
 		y = 1
 		relative_position_id = FIN_moderate_politics
 		cost = 5
@@ -5548,7 +5554,7 @@ focus_tree = {
 			is_subject = no
 			is_in_faction = no
 			threat > 0.5
-			neutrality > 0.85
+			#neutrality > 0.85 #SPTchange
 			NOT = { has_government = democratic }
 			NOT = { has_government = communism }
 		}
@@ -6086,37 +6092,34 @@ focus_tree = {
 		id = FIN_cooperation_with_germany
 		icon = GFX_focus_chi_mission_to_germany
 		prerequisite = { focus = FIN_the_lone_wolf }
-
 		x = 0
 		y = 1
 		relative_position_id = FIN_the_lone_wolf
 		cost = 5
-		
-		bypass = {
-			OR = {
-				is_in_faction_with = GER
-				is_subject_of = GER
-				has_subject = SOV
-				has_subject = GER
-				NOT = { country_exists = GER }
-				GER = { has_capitulated = yes }
-				GER = { has_war_with = SOV }
-				SOV = { exists = no }
-				GER = { has_subject = SOV }
-				AND = {
-					has_war_with = SOV
-					NOT = { has_country_flag = FIN_winter_war_ongoing_flag }
-				}
-			}
-		}
+		# bypass = { #SPTchange
+		# 	OR = {
+		# 		is_in_faction_with = GER
+		# 		is_subject_of = GER
+		# 		has_subject = SOV
+		# 		has_subject = GER
+		# 		NOT = { country_exists = GER }
+		# 		#GER = { has_capitulated = yes }
+		# 		#GER = { has_war_with = SOV }
+		# 		#SOV = { exists = no }
+		# 		#GER = { has_subject = SOV }
+		# 		AND = {
+		# 			has_war_with = SOV
+		# 			NOT = { has_country_flag = FIN_winter_war_ongoing_flag }
+		# 		}
+		# 	}
+		# }
 
 		available = {
-			always = no #SPTChange
 			is_subject = no
-			NOT = { has_government = communism }
-			NOT = { is_in_faction_with = SOV }
+			#NOT = { has_government = communism }
+			#NOT = { is_in_faction_with = SOV }
 			NOT = { has_non_aggression_pact_with = SOV }
-			NOT = { has_guaranteed = SOV }
+			#NOT = { has_guaranteed = SOV }
 			NOT = { has_country_flag = FIN_winter_war_ongoing_flag }
 			GER = {
 				NOT = { has_war_with = ROOT }
@@ -6131,50 +6134,50 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_INTERNATIONAL_TRADE }
 
 		completion_reward = {
-			if = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"	
-				}
-				custom_effect_tooltip = FIN_cooperation_with_germany_subsidies_tt
+			# if = { #SPTchange
+			# 	limit = {
+			# 		has_dlc = "Arms Against Tyranny"	
+			# 	}
+			# 	custom_effect_tooltip = FIN_cooperation_with_germany_subsidies_tt
 
-				hidden_effect = {
-					add_equipment_subsidy = {
-						cic = FIN_basic_subsidies_value
-						equipment_type = small_plane_airframe
-						seller_tags = { GER } 
-					}
-					add_equipment_subsidy = {
-						cic = FIN_basic_subsidies_value
-						equipment_type = medium_plane_airframe
-						seller_tags = { GER } 
-					}
-					add_equipment_subsidy = {
-						cic = FIN_basic_subsidies_value
-						equipment_type = light_tank_chassis
-						seller_tags = { GER } 
-					}
-					add_equipment_subsidy = {
-						cic = FIN_basic_subsidies_value
-						equipment_type = medium_tank_chassis
-						seller_tags = { GER } 
-					}
-					add_equipment_subsidy = {
-						cic = FIN_basic_subsidies_value
-						equipment_type = artillery_equipment
-						seller_tags = { GER } 
-					}
-					add_equipment_subsidy = {
-						cic = FIN_basic_subsidies_value
-						equipment_type = anti_air_equipment
-						seller_tags = { GER } 
-					}
-					add_equipment_subsidy = {
-						cic = FIN_basic_subsidies_value
-						equipment_type = anti_tank_equipment
-						seller_tags = { GER } 
-					}
-				}
-			}
+			# 	hidden_effect = {
+			# 		add_equipment_subsidy = {
+			# 			cic = FIN_basic_subsidies_value
+			# 			equipment_type = small_plane_airframe
+			# 			seller_tags = { GER } 
+			# 		}
+			# 		add_equipment_subsidy = {
+			# 			cic = FIN_basic_subsidies_value
+			# 			equipment_type = medium_plane_airframe
+			# 			seller_tags = { GER } 
+			# 		}
+			# 		add_equipment_subsidy = {
+			# 			cic = FIN_basic_subsidies_value
+			# 			equipment_type = light_tank_chassis
+			# 			seller_tags = { GER } 
+			# 		}
+			# 		add_equipment_subsidy = {
+			# 			cic = FIN_basic_subsidies_value
+			# 			equipment_type = medium_tank_chassis
+			# 			seller_tags = { GER } 
+			# 		}
+			# 		add_equipment_subsidy = {
+			# 			cic = FIN_basic_subsidies_value
+			# 			equipment_type = artillery_equipment
+			# 			seller_tags = { GER } 
+			# 		}
+			# 		add_equipment_subsidy = {
+			# 			cic = FIN_basic_subsidies_value
+			# 			equipment_type = anti_air_equipment
+			# 			seller_tags = { GER } 
+			# 		}
+			# 		add_equipment_subsidy = {
+			# 			cic = FIN_basic_subsidies_value
+			# 			equipment_type = anti_tank_equipment
+			# 			seller_tags = { GER } 
+			# 		}
+			# 	}
+			# }
 
 			GER = {
 				country_event = { id = AAT_finland_continuation_war.01 hours = 8 random_hours = 4 }
@@ -6184,65 +6187,65 @@ focus_tree = {
 			effect_tooltip = {
 				FIN_pact_for_continuation_war_start = yes
 
-				if = {
-					limit = {
-						has_dlc = "No Step Back"
-					}
-					add_equipment_to_stockpile = { 
-						type = light_tank_chassis_1
-						amount = 50
-						producer = GER
-					}
-				}
-				else = {
-					add_equipment_to_stockpile = { 
-						type = light_tank_equipment_1
-						amount = 50
-						producer = GER
-					}
-				}
-				if = {
-					limit = {
-						has_dlc = "By Blood Alone"
-					}
-					add_equipment_to_stockpile = { 
-						type = small_plane_airframe_1
-						amount = 50
-						producer = GER
-					}
-				}
-				else = {
-					add_equipment_to_stockpile = { 
-						type = fighter_equipment_1
-						amount = 50
-						producer = GER
-					}
-				}
-				add_equipment_to_stockpile = { 
-					type = convoy_1
-					amount = 50
-					producer = GER
-				}
-				add_equipment_to_stockpile = { 
-					type = artillery_equipment_1
-					amount = 50
-					producer = GER
-				}
-				add_equipment_to_stockpile = { 
-					type = anti_air_equipment_1
-					amount = 25
-					producer = GER
-				}
-				add_equipment_to_stockpile = { 
-					type = infantry_equipment_1
-					amount = 3000
-					producer = GER
-				}
-				add_equipment_to_stockpile = { 
-					type = support_equipment_1
-					amount = 300
-					producer = GER
-				}
+				# if = { #SPTchange
+				# 	limit = {
+				# 		has_dlc = "No Step Back"
+				# 	}
+				# 	add_equipment_to_stockpile = { 
+				# 		type = light_tank_chassis_1
+				# 		amount = 50
+				# 		producer = GER
+				# 	}
+				# }
+				# else = {
+				# 	add_equipment_to_stockpile = { 
+				# 		type = light_tank_equipment_1
+				# 		amount = 50
+				# 		producer = GER
+				# 	}
+				# }
+				# if = {
+				# 	limit = {
+				# 		has_dlc = "By Blood Alone"
+				# 	}
+				# 	add_equipment_to_stockpile = { 
+				# 		type = small_plane_airframe_1
+				# 		amount = 50
+				# 		producer = GER
+				# 	}
+				# }
+				# else = {
+				# 	add_equipment_to_stockpile = { 
+				# 		type = fighter_equipment_1
+				# 		amount = 50
+				# 		producer = GER
+				# 	}
+				# }
+				# add_equipment_to_stockpile = { 
+				# 	type = convoy_1
+				# 	amount = 50
+				# 	producer = GER
+				# }
+				# add_equipment_to_stockpile = { 
+				# 	type = artillery_equipment_1
+				# 	amount = 50
+				# 	producer = GER
+				# }
+				# add_equipment_to_stockpile = { 
+				# 	type = anti_air_equipment_1
+				# 	amount = 25
+				# 	producer = GER
+				# }
+				# add_equipment_to_stockpile = { 
+				# 	type = infantry_equipment_1
+				# 	amount = 3000
+				# 	producer = GER
+				# }
+				# add_equipment_to_stockpile = { 
+				# 	type = support_equipment_1
+				# 	amount = 300
+				# 	producer = GER
+				# }
 			}
 			custom_effect_tooltip = FIN_pact_for_continuation_war_fin_focus_tt
 		}
@@ -6524,7 +6527,7 @@ focus_tree = {
 
 		completion_reward = {
 			custom_effect_tooltip = FIN_modify_finnish_army_ns_intro
-			add_to_variable = { FIN_finnish_army_special_forces_cap = 0.2 tooltip = special_forces_cap_tt }
+			add_to_variable = { FIN_finnish_army_special_forces_cap = 0.1 tooltip = special_forces_cap_tt } #SPTchange 0.2 -> 0.1
 
 			add_doctrine_cost_reduction = {
 				name = FIN_modernize_the_army
@@ -6558,7 +6561,7 @@ focus_tree = {
 		icon = GFX_focus_FIN_weapon_caches
 		prerequisite = { focus = FIN_finnish_neutrality focus = FIN_right_wing_policies }
 
-		x = 3
+		x = 2
 		y = 0
 		relative_position_id = FIN_reach_out_to_scandinavia
 
@@ -6592,7 +6595,7 @@ focus_tree = {
 		icon = GFX_focus_EST_national_pride_in_finland
 		prerequisite = { focus = FIN_finnish_neutrality focus = FIN_right_wing_policies }
 
-		x = 3
+		x = 2
 		y = 0
 		relative_position_id = FIN_weapon_caches
 		cost = 10
@@ -6892,10 +6895,11 @@ focus_tree = {
 		relative_position_id = FIN_union_of_finnish_brothers_in_arms
 		cost = 10
 		available = {
-			OR = {
-				has_idea = all_adults_serve
-				has_idea = scraping_the_barrel
-			}
+			 OR = { #SPTchange
+			 	has_idea = all_adults_serve
+			 	has_idea = scraping_the_barrel
+				has_idea = service_by_requirement
+			 }
 		}
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -7009,12 +7013,12 @@ focus_tree = {
 			216 = { #OLONETS
 				add_core_of = ROOT
 			}
-			666 = { #NORRBOTTEN
-				add_core_of = ROOT
-			}
-			925 = { #FINNMARK
-				add_core_of = ROOT
-			}
+			# 666 = { #NORRBOTTEN #SPTchange
+			# 	add_core_of = ROOT
+			# }
+			# 925 = { #FINNMARK
+			# 	add_core_of = ROOT
+			# }
 
 			if = {
 				limit = {
@@ -10861,20 +10865,20 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ARMY_XP FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			army_experience = 25
+			#army_experience = 25 #SPTchacge
 
-			add_tech_bonus = {
-				name = FIN_suomen_maavoimat
-				bonus = 0.75
-				uses = 1
-				category = infantry_weapons
-				category = support_tech
-				category = artillery
-				category = motorized_equipment
-			}
+			# add_tech_bonus = { #SPTchacge
+			# 	name = FIN_suomen_maavoimat
+			# 	bonus = 0.50 #SPTchacge 75% -> 50%
+			# 	uses = 1
+			# 	category = infantry_weapons
+			# 	category = support_tech
+			# 	category = artillery
+			# 	category = motorized_equipment
+			# } 
 			add_doctrine_cost_reduction = {
 				name = FIN_suomen_maavoimat
-				cost_reduction = 0.75
+				cost_reduction = 0.5 #SPTchacge -> 0.75 -> 0.5
 				uses = 1
 				category = land_doctrine
 			}
@@ -11002,14 +11006,14 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ARMY_XP FOCUS_FILTER_MANPOWER }
 
 		completion_reward = {
-			army_experience = 15
+			army_experience = 10 #SPTchacge 15 ->10
 
 			custom_effect_tooltip = FIN_modify_finnish_army_ns_intro
-			add_to_variable = { FIN_finnish_army_experience_gain_army_factor = 0.05 tooltip = experience_gain_army_factor_tt }
+			#add_to_variable = { FIN_finnish_army_experience_gain_army_factor = 0.05 tooltip = experience_gain_army_factor_tt } #SPTchacge
 			add_to_variable = { FIN_finnish_army_dig_in_speed_factor = 0.1 tooltip = dig_in_speed_factor_tt }
 			add_to_variable = { FIN_finnish_army_training_time_factor = -0.1 tooltip = training_time_factor_tt }
 			add_to_variable = { FIN_finnish_army_mobilization_speed = 0.1 tooltip = mobilization_speed_tt }
-			add_to_variable = { FIN_finnish_army_conscription_factor = 0.1 tooltip = conscription_factor_tt }
+			#add_to_variable = { FIN_finnish_army_conscription_factor = 0.1 tooltip = conscription_factor_tt } #SPTchacge
 		}
 	}
 	
@@ -11030,10 +11034,10 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = FIN_modify_finnish_army_ns_intro
 			add_to_variable = { FIN_finnish_army_acclimatization_cold_climate_gain_factor = 0.1 tooltip = acclimatization_cold_climate_gain_factor_tt }
-			add_to_variable = { FIN_finnish_army_cas_damage_reduction = 0.15 tooltip = cas_damage_reduction_tt }
-			add_to_variable = { FIN_finnish_army_winter_attrition_factor = -0.15 tooltip = winter_attrition_factor_tt }
+			#add_to_variable = { FIN_finnish_army_cas_damage_reduction = 0.15 tooltip = cas_damage_reduction_tt } #SPTchacge
+			add_to_variable = { FIN_finnish_army_winter_attrition_factor = -0.1 tooltip = winter_attrition_factor_tt } #SPTchacge 15% -> 10%
 
-			army_experience = 15
+	
 
 			#TODO_Manu: Nice to have: Simo Häyä event chain starting here?
 		}
@@ -11054,13 +11058,13 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ARMY_XP FOCUS_FILTER_MILITARY_CHARACTER }
 
 		completion_reward = {
-			army_experience = 15
+			#army_experience = 15 #SPTchacge
 
 			set_technology = { bicycle_infantry = 1 popup = no }
 
 			custom_effect_tooltip = FIN_modify_finnish_army_ns_intro
 			add_to_variable = { FIN_finnish_army_army_org_factor = 0.1 tooltip = army_org_factor_tt }
-			add_to_variable = { FIN_finnish_army_special_forces_cap = 0.15 tooltip = special_forces_cap_tt }
+			add_to_variable = { FIN_finnish_army_special_forces_cap = 0.1 tooltip = special_forces_cap_tt } #SPTchacge 15% -> 10%
 			add_to_variable = { FIN_finnish_army_breakthrough_factor = 0.05 tooltip = breakthrough_factor_tt }
 			add_to_variable = { FIN_finnish_army_special_forces_out_of_supply_factor = -0.1 tooltip = special_forces_out_of_supply_factor_tt }
 
@@ -11091,8 +11095,8 @@ focus_tree = {
 			army_experience = 15
 
 			custom_effect_tooltip = FIN_modify_finnish_army_ns_intro
-			add_to_variable = { FIN_finnish_army_equipment_capture_factor = 0.3 tooltip = equipment_capture_factor_tt }
-			add_to_variable = { FIN_finnish_army_equipment_conversion_speed = 0.3 tooltip = equipment_conversion_speed_tt }
+			add_to_variable = { FIN_finnish_army_equipment_capture_factor = 0.1 tooltip = equipment_capture_factor_tt } #SPTchacge 30% -> 10%
+			#add_to_variable = { FIN_finnish_army_equipment_conversion_speed = 0.3 tooltip = equipment_conversion_speed_tt } #SPTchacge
 			add_to_variable = { FIN_finnish_army_production_lack_of_resource_penalty_factor = -0.15 tooltip = production_lack_of_resource_penalty_factor_tt }
 
 			if = {
@@ -11213,12 +11217,12 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ARMY_XP }
 
 		completion_reward = {
-			army_experience = 25
+			army_experience = 15 #SPTchacge 25 -> 15
 
 			custom_effect_tooltip = FIN_modify_finnish_army_ns_intro
-			add_to_variable = { FIN_finnish_army_acclimatization_cold_climate_gain_factor = 0.15 tooltip = acclimatization_cold_climate_gain_factor_tt }
-			add_to_variable = { FIN_finnish_army_winter_attrition_factor = -0.15 tooltip = winter_attrition_factor_tt }
-			add_to_variable = { FIN_finnish_army_supply_combat_penalties_on_core_factor = -0.15 tooltip = supply_combat_penalties_on_core_factor_tt }
+			add_to_variable = { FIN_finnish_army_acclimatization_cold_climate_gain_factor = 0.10 tooltip = acclimatization_cold_climate_gain_factor_tt } #SPTchacge 15% -> 10%
+			add_to_variable = { FIN_finnish_army_winter_attrition_factor = -0.10 tooltip = winter_attrition_factor_tt } #SPTchacge 15% -> 10%
+			#add_to_variable = { FIN_finnish_army_supply_combat_penalties_on_core_factor = -0.15 tooltip = supply_combat_penalties_on_core_factor_tt } #SPTchacge
 
 			custom_effect_tooltip = FIN_winter_warfare_battalion_tt
 
@@ -11247,10 +11251,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ARMY_XP FOCUS_FILTER_MILITARY_CHARACTER }
 
 		completion_reward = {
-			army_experience = 25
+			army_experience = 15 #SPTchacge 25 -> 15
 
 			custom_effect_tooltip = FIN_modify_finnish_army_ns_intro
-			add_to_variable = { FIN_finnish_army_org_loss_when_moving = -0.15 tooltip = org_loss_when_moving_tt }
+			#add_to_variable = { FIN_finnish_army_org_loss_when_moving = -0.15 tooltip = org_loss_when_moving_tt } #SPTchacge
 			add_to_variable = { FIN_finnish_army_recon_factor_while_entrenched = 0.1 tooltip = recon_factor_while_entrenched_tt }
 			add_to_variable = { FIN_finnish_army_army_attack_speed_factor = 0.1 tooltip = army_attack_speed_factor_tt }
 
@@ -11735,7 +11739,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ARMY_XP FOCUS_FILTER_MILITARY_CHARACTER FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			army_experience = 25
+			#army_experience = 25 #SPTchacge
 
 			custom_effect_tooltip = FIN_modify_finnish_army_ns_intro
 			add_to_variable = { FIN_finnish_army_intel_from_combat_factor = 0.1 tooltip = intel_from_combat_factor_tt }
@@ -11763,10 +11767,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ARMY_XP FOCUS_FILTER_MILITARY_CHARACTER }
 
 		completion_reward = {
-			army_experience = 35
+			army_experience = 25 #SPTchange 35 -> 25
 
 			custom_effect_tooltip = FIN_modify_finnish_army_ns_intro
-			add_to_variable = { FIN_finnish_army_initiative_factor = 0.02 tooltip = initiative_factor_tt }
+			#add_to_variable = { FIN_finnish_army_initiative_factor = 0.02 tooltip = initiative_factor_tt } #SPTchacge
 			add_to_variable = { FIN_finnish_army_recon_factor_while_entrenched = 0.1 tooltip = recon_factor_while_entrenched_tt }
 			add_to_variable = { FIN_finnish_army_modifier_army_sub_unit_long_range_patrol_support_attack_factor = 0.1 tooltip = modifier_army_sub_unit_long_range_patrol_support_attack_factor_tt }
 			add_to_variable = { FIN_finnish_army_modifier_army_sub_unit_long_range_patrol_support_defence_factor = 0.1 tooltip = modifier_army_sub_unit_long_range_patrol_support_defence_factor_tt }		

@@ -5634,8 +5634,11 @@ BUL_the_fatherland_front_dec_cat = {
 					has_country_flag = BUL_zveno_joined_ff_flag
 				}
 				custom_trigger_tooltip = {
-					tooltip = BUL_ff_deal_the_final_blow_zveno_pop_tt
-					check_variable = { BUL_zveno_popularity = 5 compare = less_than }
+					tooltip = SPT_BUL_ff_deal_the_final_blow_zveno_pop_tt
+					OR = {
+						check_variable = { BUL_zveno_popularity < 5 }
+						check_variable = { BUL_zveno_loyalty > 95 }
+					}
 				}	
 			}
 			if = {
@@ -5643,8 +5646,11 @@ BUL_the_fatherland_front_dec_cat = {
 					has_country_flag = BUL_bs_joined_ff_flag
 				}
 				custom_trigger_tooltip = {
-					tooltip = BUL_ff_deal_the_final_blow_bs_pop_tt
-					check_variable = { BUL_bs_popularity = 5 compare = less_than }
+					tooltip = SPT_BUL_ff_deal_the_final_blow_bs_pop_tt
+					OR = {
+					check_variable = { BUL_bs_popularity < 5 }
+						check_variable = { BUL_bs_loyalty > 95 }
+					}
 				}
 			}
 			if = {
@@ -5652,8 +5658,11 @@ BUL_the_fatherland_front_dec_cat = {
 					has_country_flag = BUL_bzns_joined_ff_flag
 				}
 				custom_trigger_tooltip = {
-					tooltip = BUL_ff_deal_the_final_blow_bzns_pop_tt
-					check_variable = { BUL_bzns_popularity = 5 compare = less_than }
+					tooltip = SPT_BUL_ff_deal_the_final_blow_bzns_pop_tt
+					OR = {
+						check_variable = { BUL_bzns_popularity < 5 }
+						check_variable = { BUL_bzns_loyalty > 95 }
+					}
 				}
 			}
 		}
@@ -5680,6 +5689,11 @@ BUL_the_fatherland_front_dec_cat = {
 			if = {
 				limit = {
 					has_country_flag = BUL_zveno_joined_ff_flag
+					NOT = {
+						has_country_flag = BUL_zveno_integrated_flag
+						has_country_flag = BUL_zveno_destroyed_flag
+						check_variable = { BUL_zveno_loyalty > 95 }
+					}
 				}
 				set_country_flag = BUL_zveno_destroyed_flag
 				custom_effect_tooltip = BUL_ff_deal_the_final_blow_zveno_destroyed_tt
@@ -5687,6 +5701,11 @@ BUL_the_fatherland_front_dec_cat = {
 			if = {
 				limit = {
 					has_country_flag = BUL_bs_joined_ff_flag
+					NOT = {
+						has_country_flag = BUL_bs_integrated_flag
+						has_country_flag = BUL_bs_destroyed_flag
+						check_variable = { BUL_bs_loyalty > 95 }
+					}
 				}
 				set_country_flag = BUL_bs_destroyed_flag
 				custom_effect_tooltip = BUL_ff_deal_the_final_blow_bs_destroyed_tt
@@ -5694,6 +5713,11 @@ BUL_the_fatherland_front_dec_cat = {
 			if = {
 				limit = {
 					has_country_flag = BUL_bzns_joined_ff_flag
+					NOT = {
+						has_country_flag = BUL_bzns_integrated_flag
+						has_country_flag = BUL_bzns_destroyed_flag
+						check_variable = { BUL_bzns_loyalty > 95 }
+					}
 				}
 				set_country_flag = BUL_bzns_destroyed_flag
 				custom_effect_tooltip = BUL_ff_deal_the_final_blow_bzns_destroyed_tt
