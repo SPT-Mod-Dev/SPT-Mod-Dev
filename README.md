@@ -27,6 +27,7 @@
  - New MIOs available
  - Better focus GFX for Zbra
  - Spelling and grammar fixes
+ - Some other fixes
 
 ### Commonwealth Minors
  - Infrastructure focuses changed to prioritise useful states
