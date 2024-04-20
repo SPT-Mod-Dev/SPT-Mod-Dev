@@ -29,6 +29,9 @@
  - Spelling and grammar fixes
  - Some other fixes
 
+### Manchukuo
+ - Fixed Baba's autonomy states
+
 ### Commonwealth Minors
  - Infrastructure focuses changed to prioritise useful states
 
