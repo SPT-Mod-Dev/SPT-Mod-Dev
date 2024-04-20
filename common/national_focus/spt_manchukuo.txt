@@ -1152,9 +1152,23 @@
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			add_ideas = MAN_zaibatsu_loans
+				custom_effect_tooltip = SPT_MAN_pan_asia_tt
+				every_owned_state = {
+					limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					}
+					add_dynamic_modifier = {
+					modifier = SPT_MAN_pan_asian_integration
+					scope = MAN
+					}
+				}
+			}
 		}
 			
-	}
+	
+
+		
 
 	focus = {
 		id = SPT_MAN_improve_local_infrastructure
