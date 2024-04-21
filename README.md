@@ -16,7 +16,6 @@
                     Hard attack 26 -> 25
  - Heavy cannon III: Soft attack 40 -> 39
                      Hard attack 34 -> 33
-=======
 
 ### Submarine Designer
  - Submarine 3/4 cost increased 1000x to prevent their construction
@@ -38,6 +37,12 @@
  - Spelling and grammar fixes
  - Some other fixes
 
+### Brazil 
+ - Base starting war support 50% -> 15%
+ - 'Ensure Montinued Military Support' Base war support 10% -> 5%
+                                       Focus time 35 days -> 70 days
+ - 'The Cohen Plan' Focus time 70 days -> 35 days
+
 ### Manchukuo
  - Fixed Baba's autonomy states
 
@@ -55,7 +60,7 @@
  - Fixed back button on new game screen
  - Added all playable nations to 'interesting'
 
->>>>>>> ff674c91a0270965cc3d56370dd4d4f9f888c374
+
 ### 3.11.0 '2 weeks in Helsinki'
 
 #### General
@@ -69,6 +74,7 @@
  - German War Economy now sets your economy law to Total Mobilisation
  - German War Economy now grants 4 military focuses, from 6
  - Nationalize Steel Production now grants 6 military factories, from 4
+ - 'War with the USSR' mow available after 1st of march if germany does '3 year plan' path
 
 #### France
  - Free France Focus Tree: added offmap civilian and military factories and dockyards to several focuses
