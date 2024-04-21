@@ -6,7 +6,12 @@
                           IC cost 4.5 ->4
  - Heavy three man turret: soft and hard attack +10% -> +5%
                           IC cost 6.5 -> 6
-
+ - Heavy cannon I: Soft attack 29 -> 28.5
+                   Hard attack 23 -> 22.5
+ - Heavy cannon II: Soft attack 35 -> 34
+                    Hard attack 26 -> 25
+ - Heavy cannon III: Soft attack 40 -> 39
+                     Hard attack 34 -> 33
 ### 3.11.0 '2 weeks in Helsinki'
 
 #### General
