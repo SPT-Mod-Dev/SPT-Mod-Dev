@@ -33,16 +33,19 @@
 ### Manchukuo
  - Fixed Baba's autonomy states
 
+### Finland
+ - When joining the Continuation War, automatically declare on Monglia as well (if they are still in faction)
+
 ### Commonwealth Minors
  - Infrastructure focuses changed to prioritise useful states
+
+### Denmark
+ - Removed protectorate's resistance branch
 
 ### Main Menu
  - Removed Stickmiin's funny haha logo
  - Fixed back button on new game screen
  - Added all playable nations to 'interesting'
-
-### Finland
- - When joining the Continuation War, automatically declare on Monglia as well (if they are still in faction)
 
 ### 3.11.0 '2 weeks in Helsinki'
 
