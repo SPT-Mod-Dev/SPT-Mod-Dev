@@ -1,15 +1,20 @@
 # Saving Private Tryin' Historical MP Full Changelog
 ### 3.11.1 'wtf chafford went sicko mode'
 
-### El Alamein
+### General
+ - Removed Stickmiin's funny haha logo
+ - Fixed back button on new game screen
+ - Added all playable nations to 'interesting'
  - Southern El Alamein tile changed to hills
+
+ ### Pacific Front
+ - Added decision to view targets before the bop is activated
 
 ### Tank Designer
  - Heavy two man turret: soft and hard attack +5% -> +2.5%
                           IC cost 4.5 -> 4
  - Heavy three man turret: soft and hard attack +10% -> +5%
                           IC cost 6.5 -> 6
-<<<<<<< HEAD
  - Heavy cannon I: Soft attack 29 -> 28.5
                    Hard attack 23 -> 22.5
  - Heavy cannon II: Soft attack 35 -> 34
@@ -34,6 +39,7 @@
  - New political advisors available
  - New MIOs available
  - Better focus GFX for Zbra
+ - Added AI strategy
  - Spelling and grammar fixes
  - Some other fixes
 
@@ -54,11 +60,6 @@
 
 ### Denmark
  - Removed protectorate's resistance branch
-
-### Main Menu
- - Removed Stickmiin's funny haha logo
- - Fixed back button on new game screen
- - Added all playable nations to 'interesting'
 
 
 ### 3.11.0 '2 weeks in Helsinki'
