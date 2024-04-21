@@ -1,17 +1,61 @@
 # Saving Private Tryin' Historical MP Full Changelog
-### 3.11.1
+### 3.11.1 'wtf chafford went sicko mode'
 
-### Tank designer
+### El Alamein
+ - Southern El Alamein tile changed to hills
+
+### Tank Designer
  - Heavy two man turret: soft and hard attack +5% -> +2.5%
-                          IC cost 4.5 ->4
+                          IC cost 4.5 -> 4
  - Heavy three man turret: soft and hard attack +10% -> +5%
                           IC cost 6.5 -> 6
+<<<<<<< HEAD
  - Heavy cannon I: Soft attack 29 -> 28.5
                    Hard attack 23 -> 22.5
  - Heavy cannon II: Soft attack 35 -> 34
                     Hard attack 26 -> 25
  - Heavy cannon III: Soft attack 40 -> 39
                      Hard attack 34 -> 33
+=======
+
+### Submarine Designer
+ - Submarine 3/4 cost increased 1000x to prevent their construction
+
+### USA
+ - Moved 'Pacifism no More' to be available before 'Money Only', requiring Germany to complete 'Fate of Czechoslovakia'
+
+### Siam
+ - 'Educate the Population': Completion time 70 -> 35 days
+                          Research speed +5% -> 10%
+ - Cultural Mandate focus overhaul
+ - 'Cooperate with Japan': Now adds more cooperation with Japan 
+                          Fascism 10% -> 0%
+ - RADAR focus builds RADAR
+ - Propaganda Techniques focus rework
+ - New political advisors available
+ - New MIOs available
+ - Better focus GFX for Zbra
+ - Spelling and grammar fixes
+ - Some other fixes
+
+### Manchukuo
+ - Fixed Baba's autonomy states
+
+### Finland
+ - When joining the Continuation War, automatically declare on Monglia as well (if they are still in faction)
+
+### Commonwealth Minors
+ - Infrastructure focuses changed to prioritise useful states
+
+### Denmark
+ - Removed protectorate's resistance branch
+
+### Main Menu
+ - Removed Stickmiin's funny haha logo
+ - Fixed back button on new game screen
+ - Added all playable nations to 'interesting'
+
+>>>>>>> ff674c91a0270965cc3d56370dd4d4f9f888c374
 ### 3.11.0 '2 weeks in Helsinki'
 
 #### General
