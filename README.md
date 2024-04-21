@@ -1,5 +1,5 @@
 # Saving Private Tryin' Historical MP Full Changelog
-### 3.11.1
+### 3.11.1 'wtf chafford went sicko mode'
 
 ### El Alamein
  - Southern El Alamein tile changed to hills
@@ -40,6 +40,9 @@
  - Removed Stickmiin's funny haha logo
  - Fixed back button on new game screen
  - Added all playable nations to 'interesting'
+
+### Finland
+ - When joining the Continuation War, automatically declare on Monglia as well (if they are still in faction)
 
 ### 3.11.0 '2 weeks in Helsinki'
 
