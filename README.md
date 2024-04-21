@@ -9,6 +9,7 @@
                           IC cost 4.5 -> 4
  - Heavy three man turret: soft and hard attack +10% -> +5%
                           IC cost 6.5 -> 6
+
 ### Submarine Designer
  - Submarine 3/4 cost increased 1000x to prevent their construction
 
@@ -28,6 +29,9 @@
  - Better focus GFX for Zbra
  - Spelling and grammar fixes
  - Some other fixes
+
+### Manchukuo
+ - Fixed Baba's autonomy states
 
 ### Commonwealth Minors
  - Infrastructure focuses changed to prioritise useful states
