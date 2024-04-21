@@ -36,6 +36,7 @@
  - New political advisors available
  - New MIOs available
  - Better focus GFX for Zbra
+ - Added AI strategy
  - Spelling and grammar fixes
  - Some other fixes
 
