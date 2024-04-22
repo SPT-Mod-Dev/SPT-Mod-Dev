@@ -50,7 +50,7 @@
  - Better focus GFX for Zbra
  - Added AI strategy
  - Spelling and grammar fixes
- - Some other fixes
+ - Some other balance and fixes
 
 ### Brazil 
  - Base starting war support 50% -> 15%
@@ -69,7 +69,6 @@
 
 ### Denmark
  - Removed protectorate's resistance branch
-
 
 ### 3.11.0 '2 weeks in Helsinki'
 
