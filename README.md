@@ -1,8 +1,14 @@
 # Saving Private Tryin' Historical MP Full Changelog
 ### 3.11.1 'wtf chafford went sicko mode'
 
-### El Alamein
+### General
+ - Removed Stickmiin's funny haha logo
+ - Fixed back button on new game screen
+ - Added all playable nations to 'interesting'
  - Southern El Alamein tile changed to hills
+
+ ### Pacific Front
+ - Added decision to view targets before the bop is activated
 
 ### Tank Designer
  - Heavy two man turret: soft and hard attack +5% -> +2.5%
@@ -18,9 +24,6 @@
 
 ### Submarine Designer
  - Submarine 3/4 cost increased 1000x to prevent their construction
-
-### Pacific Front
- - Added decision to view targets before the bop is activated
 
 ### USA
  - Moved 'Pacifism no More' to be available before 'Money Only', requiring Germany to complete 'Fate of Czechoslovakia'
@@ -40,6 +43,12 @@
  - Spelling and grammar fixes
  - Some other fixes
 
+### Brazil 
+ - Base starting war support 50% -> 15%
+ - 'Ensure Montinued Military Support' Base war support 10% -> 5%
+                                       Focus time 35 days -> 70 days
+ - 'The Cohen Plan' Focus time 70 days -> 35 days
+
 ### Manchukuo
  - Fixed Baba's autonomy states
 
@@ -52,13 +61,6 @@
 ### Denmark
  - Removed protectorate's resistance branch
 
-### Main Menu
- - Removed Stickmiin's funny haha logo
- - Fixed back button on new game screen
- - Added all playable nations to 'interesting'
-
-### Misc
- - Additional SPT decisions
 
 ### 3.11.0 '2 weeks in Helsinki'
 
@@ -73,6 +75,7 @@
  - German War Economy now sets your economy law to Total Mobilisation
  - German War Economy now grants 4 military focuses, from 6
  - Nationalize Steel Production now grants 6 military factories, from 4
+ - 'War with the USSR' mow available after 1st of march if germany does '3 year plan' path
 
 #### France
  - Free France Focus Tree: added offmap civilian and military factories and dockyards to several focuses
