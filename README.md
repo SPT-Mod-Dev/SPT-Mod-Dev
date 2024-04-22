@@ -7,8 +7,14 @@
  - Added all playable nations to 'interesting'
  - Southern El Alamein tile changed to hills
 
- ### Pacific Front
- - Added decision to view targets before the bop is activated
+### Pacific Front
+ - Added decisions to view targets before the bop is activated
+
+### Mediterranean Front
+ - Added decisions to view targets before the bop is activated
+
+### Winter War
+ - Added decisions to view objectives before the war begins
 
 ### Tank Designer
  - Heavy two man turret: soft and hard attack +5% -> +2.5%
@@ -27,6 +33,9 @@
 
 ### USA
  - Moved 'Pacifism no More' to be available before 'Money Only', requiring Germany to complete 'Fate of Czechoslovakia'
+
+### France
+ - Removed ability to deny Hatay
 
 ### Siam
  - 'Educate the Population': Completion time 70 -> 35 days
