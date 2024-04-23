@@ -6,6 +6,7 @@
  - Fixed back button on new game screen
  - Added all playable nations to 'interesting'
  - Southern El Alamein tile changed to hills
+ - Some other balance and fixes
 
 ### Army Spirits
 - Clarified percentage chances of new officer traits from army spirits
@@ -55,7 +56,6 @@
  - Better focus GFX for Zbra
  - Added AI strategy
  - Spelling and grammar fixes
- - Some other balance and fixes
 
 ### Brazil 
  - Base starting war support 50% -> 15%
