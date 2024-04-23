@@ -47,6 +47,7 @@
  - Propaganda Techniques focus rework
  - New political advisors available
  - New MIOs available
+ - Now starts with two generals
  - Better focus GFX for Zbra
  - Added AI strategy
  - Spelling and grammar fixes
