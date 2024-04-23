@@ -7,6 +7,10 @@
  - Added all playable nations to 'interesting'
  - Southern El Alamein tile changed to hills
 
+### Army Spirits
+- Clarified percentage chances of new officer traits from army spirits
+- Moved Engineering Schools back to Superior Firepower
+
 ### Pacific Front
  - Added decisions to view targets before the bop is activated
 
