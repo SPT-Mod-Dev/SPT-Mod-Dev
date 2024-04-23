@@ -1553,7 +1553,7 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = SPT_SIA_electronics_tech
-				bonus = 1.0
+				bonus = 0.75
 				uses = 2
 				category = electronics
 			}
@@ -3223,10 +3223,10 @@ focus_tree = {
 			
 	focus = {
 		id = SPT_SIA_end
-		icon = GFX_goal_generic_major_war
+		icon = GFX_spt_SIA_elephant_large
 		prerequisite = { focus = SPT_SIA_west_compliance focus = SPT_SIA_south_compliance focus = SPT_SIA_east_compliance }
 		x = 27
-		y = 11
+		y = 12
 	
 
 		cost = 10
@@ -3235,8 +3235,23 @@ focus_tree = {
 			base = 1
 		}
 
-		available = {
+		allow_branch = {
+			IF = {
+				limit = { 
+					any_controlled_state = {
+						is_on_continent = africa
+					}
+				}
+			}
+			else = {
+				always = no
+			}
+		}
 
+		available = {
+			any_controlled_state = {
+				is_on_continent = africa
+			}
 		}
 
 		bypass = {
@@ -3248,8 +3263,10 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_stability = 0.2
-			add_war_support = 0.2
+			swap_ideas = {
+				remove_idea = SPT_SIA_elephants
+				add_idea = SPT_SIA_elephants_large
+			}
 		}
 	}
 			
@@ -3287,14 +3304,14 @@ focus_tree = {
 
 		completion_reward = {
 			hidden_effect = {
-				AFG = {
+				CHI = {
 					transfer_state = 288
 					transfer_state = 640
 				}
-				288 = { add_core_of = AFG set_compliance = 0 }
-				640 = { add_core_of = AFG set_compliance = 0 }
 				transfer_state = 288
 				transfer_state = 640
+				288 = { add_core_of = CHI set_compliance = 0 }
+				640 = { add_core_of = CHI set_compliance = 0 }
 			}
 			288 = { add_compliance = 30}
 			640 = { add_compliance = 30}	
