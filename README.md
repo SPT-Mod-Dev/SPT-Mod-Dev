@@ -50,6 +50,7 @@
                           Fascism 10% -> 0%
  - RADAR focus builds RADAR
  - Propaganda Techniques focus rework
+ - 'Siam Wartime Success' is now 'African Elephants'
  - New political advisors available
  - New MIOs available
  - Now starts with two generals
