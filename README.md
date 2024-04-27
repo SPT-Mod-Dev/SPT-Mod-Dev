@@ -41,6 +41,7 @@
 
 ### France
  - Removed ability to deny Hatay
+ - Make rearmament election event less punishing. Limited to France for now.
 
 ### Siam
  - 'Educate the Population': Completion time 70 -> 35 days
@@ -69,9 +70,6 @@
 
 ### Finland
  - When joining the Continuation War, automatically declare on Monglia as well (if they are still in faction)
-
-### France
- - Make rearmament election event less punishing. Limited to France for now.
 
 ### Commonwealth Minors
  - Infrastructure focuses changed to prioritise useful states
