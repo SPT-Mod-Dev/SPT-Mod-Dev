@@ -70,6 +70,9 @@
 ### Finland
  - When joining the Continuation War, automatically declare on Monglia as well (if they are still in faction)
 
+### France
+ - Make rearmament election event less punishing. Limited to France for now.
+
 ### Commonwealth Minors
  - Infrastructure focuses changed to prioritise useful states
 
