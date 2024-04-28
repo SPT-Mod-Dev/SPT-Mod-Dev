@@ -44,16 +44,17 @@
  - Make rearmament election event less punishing. Limited to France for now.
 
 ### Siam
+ - Cultural Mandate focus overhaul
  - 'Educate the Population': Completion time 70 -> 35 days
                           Research speed +5% -> 10%
- - Cultural Mandate focus overhaul
+ - 'Learn from Japan': Now adds Co-Prosperity tech sharing group
  - 'Cooperate with Japan': Now adds more cooperation with Japan 
                           Fascism 10% -> 0%
  - 'Phibun, Prime Minister': Completion time 70 -> 7 days
  - 'Actions are Stronger than Words': Completion time 35 -> 14 days
  - RADAR focus builds RADAR
  - Propaganda Techniques focus rework
- - 'Siam Wartime Success' is now 'African Elephants'
+ - 'Thai Wartime Success' -> 'African Elephants'
  - New political advisors available
  - New MIOs available
  - Now starts with two generals
@@ -67,8 +68,12 @@
                                        Focus time 35 days -> 70 days
  - 'The Cohen Plan' Focus time 70 days -> 35 days
 
+### Japan
+ - Now starts in Co-Prosperity tech sharing group
+
 ### Manchukuo
  - Fixed Baba's autonomy states
+ - 'Law University': Now adds Co-Prosperity tech sharing group
 
 ### Finland
  - When joining the Continuation War, automatically declare on Monglia as well (if they are still in faction)
