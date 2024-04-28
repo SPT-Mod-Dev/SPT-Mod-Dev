@@ -49,6 +49,7 @@
  - Cultural Mandate focus overhaul
  - 'Cooperate with Japan': Now adds more cooperation with Japan 
                           Fascism 10% -> 0%
+ - 'Phibun, Prime Minister': Completion time 70 -> 7 days
  - RADAR focus builds RADAR
  - Propaganda Techniques focus rework
  - 'Siam Wartime Success' is now 'African Elephants'
