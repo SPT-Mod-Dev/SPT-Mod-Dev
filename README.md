@@ -50,6 +50,7 @@
  - 'Cooperate with Japan': Now adds more cooperation with Japan 
                           Fascism 10% -> 0%
  - 'Phibun, Prime Minister': Completion time 70 -> 7 days
+ - 'Actions are Stronger than Words': Completion time 35 -> 14 days
  - RADAR focus builds RADAR
  - Propaganda Techniques focus rework
  - 'Siam Wartime Success' is now 'African Elephants'
