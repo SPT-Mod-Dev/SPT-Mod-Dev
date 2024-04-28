@@ -41,6 +41,7 @@
 
 ### France
  - Removed ability to deny Hatay
+ - Make rearmament election event less punishing. Limited to France for now.
 
 ### Siam
  - 'Educate the Population': Completion time 70 -> 35 days
