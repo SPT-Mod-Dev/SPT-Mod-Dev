@@ -6,7 +6,7 @@ ideas = {
 
 	country = {
 
-		SIA_economic_woes_0 = {
+		SPT_SIA_economic_woes_0 = {
 
 			allowed = {
 			}
@@ -25,7 +25,7 @@ ideas = {
 			}
 		}
 
-		SIA_economic_woes_1 = {
+		SPT_SIA_economic_woes_1 = {
 
 			allowed = {
 			}
@@ -43,7 +43,7 @@ ideas = {
 			}
 		}
 
-		SIA_political_opposition = {
+		SPT_SIA_political_opposition = {
 
 			allowed = {
 			}
@@ -62,7 +62,7 @@ ideas = {
 			}
 		}
 
-		SIA_subdued_opposition = {
+		SPT_SIA_subdued_opposition = {
 
 			allowed = {
 			}
@@ -75,13 +75,13 @@ ideas = {
 			picture = prc_low_popular_support2
 
 			modifier = {
-				political_power_factor = -0.05
-				stability_factor = -0.05
+				political_power_factor = -0.1
+				stability_factor = 0
 				war_support_factor = -0.05
 			}
 		}
 
-		SIA_inadequate_military_0 = {
+		SPT_SIA_inadequate_military_0 = {
 
 			allowed = {
 			}
@@ -95,12 +95,12 @@ ideas = {
 
 			modifier = {
 				war_support_factor = -0.2
-				recruitable_population_factor = -0.25
+				conscription_factor = -0.25
 				experience_gain_army_factor = -0.15
 			}
 		}
 
-		SIA_inadequate_military_1 = {
+		SPT_SIA_inadequate_military_1 = {
 
 			allowed = {
 			}
@@ -114,13 +114,13 @@ ideas = {
 
 			modifier = {
 				war_support_factor = -0.05
-				recruitable_population_factor = -0.1
+				conscription_factor = -0.1
 				experience_gain_army_factor = -0.05
 				
 			}
 		}
 
-		SIA_do_fascism_0 = {
+		SPT_SIA_do_fascism_0 = {
 
 			allowed = {
 			}
@@ -137,7 +137,7 @@ ideas = {
 			}
 		}
 
-		SIA_do_fascism_1 = {
+		SPT_SIA_do_fascism_1 = {
 
 			allowed = {
 			}
@@ -155,7 +155,7 @@ ideas = {
 			}
 		}
 
-		SIA_sinophobia_0 = {
+		SPT_SIA_sinophobia_0 = {
 
 			allowed = {
 			}
@@ -174,7 +174,7 @@ ideas = {
 			}
 		}
 
-		SIA_sinophobia_1 = {
+		SPT_SIA_sinophobia_1 = {
 
 			allowed = {
 			}
@@ -205,7 +205,7 @@ ideas = {
 			}
 		}
 
-		SIA_japanese_advisors = {
+		SPT_SIA_japanese_advisors = {
 	
 			allowed = {
 				always = no
@@ -232,7 +232,7 @@ ideas = {
 		}
 
 
-		SIA_siam_regime_0 = {
+		SPT_SIA_siam_regime = {
 
 			allowed = {
 			}
@@ -242,35 +242,15 @@ ideas = {
 
 			removal_cost = -1
 
-			picture = NOR_kretsen_ns
+			picture = generic_constitutional_guarantees
 
 			modifier = {
-				party_popularity_stability_factor = 0.1
+				party_popularity_stability_factor = 0.05
 				political_power_factor = 0.1
 			}
 		}
 
-		SIA_siam_regime_1 = {
-
-			allowed = {
-			}
-
-			allowed_civil_war = {
-			}
-
-			removal_cost = -1
-
-			picture = NOR_kretsen_ns
-
-			modifier = {
-				party_popularity_stability_factor = 0.1
-				political_power_factor = 0.1
-				trade_laws_cost_factor = -0.25
-				economy_cost_factor = -0.25
-			}
-		}
-
-		SIA_thai_regime = {
+		SPT_SIA_thai_regime = {
 
 			allowed = {
 			}
@@ -283,17 +263,31 @@ ideas = {
 			picture = generic_morale_bonus
 
 			modifier = {
-				party_popularity_stability_factor = 0.1
-				recruitable_population_factor = 0.1
-				political_power_factor = 0.1
-				offensive_war_stability_factor = 0.1
-				consumer_goods_factor = -0.1
-				trade_laws_cost_factor = -0.25
-				economy_cost_factor = -0.25
+				party_popularity_stability_factor = 0.05
+				political_power_factor = 0.2
+				offensive_war_stability_factor = 0.05
 			}
 		}
 
-		SIA_japanese_ideals = {
+		SPT_SIA_japanese_ideals_0 = {
+
+			allowed = {
+			}
+
+			allowed_civil_war = {
+			}
+
+			removal_cost = -1
+
+			picture = imperial_glory_idea
+
+			targeted_modifier = {
+				tag = JAP
+				trade_cost_for_target_factor = -0.5
+			}		
+		}
+
+		SPT_SIA_japanese_ideals_1 = {
 
 			allowed = {
 			}
@@ -309,11 +303,34 @@ ideas = {
 				production_speed_arms_factory_factor = 0.1
 				production_speed_dockyard_factor = 0.1
 				production_speed_industrial_complex_factor = -0.05
-		#		research_speed_factor = -0.05
+				research_speed_factor = -0.05
+			}
+			targeted_modifier = {
+				tag = JAP
+				trade_cost_for_target_factor = -0.5
 			}
 		}
 
-		SIA_thai_spirit_0 = {
+		SPT_SIA_thai_spirit_0 = {
+
+			allowed = {
+			}
+
+			allowed_civil_war = {
+			}
+
+			removal_cost = -1
+
+			picture = generic_production_bonus
+
+			modifier = {
+				production_factory_max_efficiency_factor = 0.05
+				production_speed_buildings_factor = 0.05
+				consumer_goods_factor = -0.05
+			}
+		}
+
+		SPT_SIA_thai_spirit_1 = {
 
 			allowed = {
 			}
@@ -329,32 +346,13 @@ ideas = {
 				production_factory_max_efficiency_factor = 0.05
 				production_speed_buildings_factor = 0.05
 				consumer_goods_factor = -0.1
-			}
-		}
-
-		SIA_thai_spirit_1 = {
-
-			allowed = {
-			}
-
-			allowed_civil_war = {
-			}
-
-			removal_cost = -1
-
-			picture = generic_production_bonus
-
-			modifier = {
-				production_factory_max_efficiency_factor = 0.1
-				production_speed_buildings_factor = 0.05
-				consumer_goods_factor = -0.1
 				production_factory_efficiency_gain_factor = 0.05
 				line_change_production_efficiency_factor  = 0.05
 				
 			}
 		}
 
-		SIA_educated_population = {
+		SPT_SIA_educated_population = {
 
 			allowed = {
 			}
@@ -371,7 +369,26 @@ ideas = {
 			}
 		}
 
-		SIA_allied_war = {
+		SPT_SIA_propaganda_techniques = {
+
+			allowed = {
+			}
+
+			allowed_civil_war = {
+			}
+
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+
+			modifier = {
+				operative_slot = 1
+				enemy_operative_detection_chance_factor = 0.1
+				enemy_operative_intel_extraction_rate = 0.05
+			}
+		}
+
+		SPT_SIA_allied_war = {
 
 			allowed = {
 			}
@@ -389,7 +406,7 @@ ideas = {
 			}
 		}
 
-		SIA_supply_0 = {
+		SPT_SIA_supply_0 = {
 
 			allowed = {
 			}
@@ -410,7 +427,7 @@ ideas = {
 			}
 		}
 
-		SIA_supply_1 = {
+		SPT_SIA_supply_1 = {
 
 			allowed = {
 			}
@@ -435,7 +452,7 @@ ideas = {
 			}
 		}
 
-		SIA_supply_2 = {
+		SPT_SIA_supply_2 = {
 
 			allowed = {
 			}
@@ -464,7 +481,7 @@ ideas = {
 			}
 		}
 
-		SIA_foreign_training_0 = {
+		SPT_SIA_foreign_training_0 = {
 
 			allowed = {
 			}
@@ -482,7 +499,7 @@ ideas = {
 			}
 		}
 
-		SIA_foreign_training_1 = {
+		SPT_SIA_foreign_training_1 = {
 			allowed = {
 			}
 
@@ -501,7 +518,7 @@ ideas = {
 			}
 		}
 
-		SIA_elephants = {
+		SPT_SIA_elephants = {
 
 			allowed = {
 			}
@@ -519,7 +536,25 @@ ideas = {
 			}
 		}
 
-		SIA_militarised_population_0 = {
+		SPT_SIA_elephants_large = {
+
+			allowed = {
+			}
+
+			allowed_civil_war = {
+			}
+
+			removal_cost = -1
+
+			picture = elephant
+			
+			modifier = {
+				army_attack_factor = 0.1
+				breakthrough_factor = 0.2
+			}
+		}
+
+		SPT_SIA_militarised_population_0 = {
 
 			allowed = {
 			}
@@ -537,7 +572,7 @@ ideas = {
 			}
 		}
 
-		SIA_militarised_population_1 = {
+		SPT_SIA_militarised_population_1 = {
 
 			allowed = {
 			}
@@ -556,7 +591,7 @@ ideas = {
 			}
 		}
 
-		SIA_thai_might = {
+		SPT_SIA_thai_might_0 = {
 
 			allowed = {
 			}
@@ -578,7 +613,7 @@ ideas = {
 			}
 		}
 
-		SIA_tanks = {
+		SPT_SIA_tanks = {
 
 			allowed = {
 			}
@@ -606,7 +641,7 @@ ideas = {
 			}
 		}
 
-		SIA_subs = {
+		SPT_SIA_subs_0 = {
 
 			allowed = {
 			}
@@ -629,7 +664,7 @@ ideas = {
 			}
 		}
 		
-		SIA_planes = {
+		SPT_SIA_planes = {
 
 			allowed = {
 			}
@@ -657,7 +692,7 @@ ideas = {
 			}
 		}
 
-		SIA_ships = {
+		SPT_SIA_ships = {
 
 			allowed = {
 			}
@@ -674,13 +709,17 @@ ideas = {
 					instant = yes
 					build_cost_ic = -0.2
 				}
+				screen_ship = {
+					instant = yes
+					build_cost_ic = -0.2
+				}
 			}
 			modifier = {
 				
 			}
 		}
 
-		SIA_special_forces = {
+		SPT_SIA_special_forces = {
 
 			allowed = {
 			}
