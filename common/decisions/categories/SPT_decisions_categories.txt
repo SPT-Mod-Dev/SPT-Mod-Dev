@@ -99,9 +99,24 @@ SPT_tutorial_decisions = {
 
 	visible = {
 		NOT = {has_country_flag = no_tutorial}
+		NOT = {has_country_flag = serious_no_tutorial}
 	}
 }
 
+SPT_return_tutorial_decisions = {
+	priority = {
+		base = 69696969
+	}
+	
+	allowed = {
+		is_ai = no
+	}
+
+	visible = {
+		has_country_flag = no_tutorial
+		NOT = {has_country_flag = serious_no_tutorial}
+	}
+}
 
 SPT_winter_war = {
 	priority = {
@@ -209,7 +224,7 @@ SPT_FIN_join_against_SOV = {
 	}
 }
 
-SIA_cultural_mandates = {
+SPT_SIA_cultural_mandates = {
 	priority = {
 		base = 3000
 	}
@@ -217,6 +232,6 @@ allowed = {
 	original_tag = SIA
 }
 visible = {
-	has_completed_focus = SIA_introduce_cultural_mandate
+	has_completed_focus = SPT_SIA_introduce_cultural_mandate
 }
 }

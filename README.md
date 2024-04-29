@@ -1,14 +1,38 @@
 # Saving Private Tryin' Historical MP Full Changelog
-### 3.11.1
+### 3.11.1 'wtf chafford went sicko mode'
 
-### El Alamein
+### General
+ - Removed Stickmiin's funny haha logo
+ - Fixed back button on new game screen
+ - Added all playable nations to 'interesting'
  - Southern El Alamein tile changed to hills
+ - CAG Night Fighting fixed, and no longer limited to UK
+ - Some other balance and fixes
+
+### Army Spirits
+- Clarified percentage chances of new officer traits from army spirits
+- Moved Engineering Schools back to Superior Firepower
+
+### Pacific Front
+ - Added decisions to view targets before the bop is activated
+
+### Mediterranean Front
+ - Added decisions to view targets before the bop is activated
+
+### Winter War
+ - Added decisions to view objectives before the war begins
 
 ### Tank Designer
  - Heavy two man turret: soft and hard attack +5% -> +2.5%
                           IC cost 4.5 -> 4
  - Heavy three man turret: soft and hard attack +10% -> +5%
                           IC cost 6.5 -> 6
+ - Heavy cannon I: Soft attack 29 -> 28.5
+                   Hard attack 23 -> 22.5
+ - Heavy cannon II: Soft attack 35 -> 34
+                    Hard attack 26 -> 25
+ - Heavy cannon III: Soft attack 40 -> 39
+                     Hard attack 34 -> 33
 
 ### Submarine Designer
  - Submarine 3/4 cost increased 1000x to prevent their construction
@@ -16,30 +40,50 @@
 ### USA
  - Moved 'Pacifism no More' to be available before 'Money Only', requiring Germany to complete 'Fate of Czechoslovakia'
 
+### France
+ - Removed ability to deny Hatay
+ - Make rearmament election event less punishing. Limited to France for now.
+
 ### Siam
+ - Cultural Mandate focus overhaul
  - 'Educate the Population': Completion time 70 -> 35 days
                           Research speed +5% -> 10%
- - Cultural Mandate focus overhaul
+ - 'Learn from Japan': Now adds Co-Prosperity tech sharing group
  - 'Cooperate with Japan': Now adds more cooperation with Japan 
                           Fascism 10% -> 0%
+ - 'Phibun, Prime Minister': Completion time 70 -> 7 days
+ - 'Actions are Stronger than Words': Completion time 35 -> 14 days
  - RADAR focus builds RADAR
  - Propaganda Techniques focus rework
+ - 'Thai Wartime Success' -> 'African Elephants'
  - New political advisors available
  - New MIOs available
+ - Now starts with two generals
  - Better focus GFX for Zbra
+ - Added AI strategy
  - Spelling and grammar fixes
- - Some other fixes
+
+### Brazil 
+ - Base starting war support 50% -> 15%
+ - 'Ensure Montinued Military Support' Base war support 10% -> 5%
+                                       Focus time 35 days -> 70 days
+ - 'The Cohen Plan' Focus time 70 days -> 35 days
+
+### Japan
+ - Now starts in Co-Prosperity tech sharing group
 
 ### Manchukuo
  - Fixed Baba's autonomy states
+ - 'Invite Japanese Advisors': Now adds Co-Prosperity tech sharing group
+
+### Finland
+ - When joining the Continuation War, automatically declare on Monglia as well (if they are still in faction)
 
 ### Commonwealth Minors
  - Infrastructure focuses changed to prioritise useful states
 
-### Main Menu
- - Removed Stickmiin's funny haha logo
- - Fixed back button on new game screen
- - Added all playable nations to 'interesting'
+### Denmark
+ - Removed protectorate's resistance branch
 
 ### 3.11.0 '2 weeks in Helsinki'
 
@@ -54,6 +98,7 @@
  - German War Economy now sets your economy law to Total Mobilisation
  - German War Economy now grants 4 military focuses, from 6
  - Nationalize Steel Production now grants 6 military factories, from 4
+ - 'War with the USSR' mow available after 1st of march if germany does '3 year plan' path
 
 #### France
  - Free France Focus Tree: added offmap civilian and military factories and dockyards to several focuses
