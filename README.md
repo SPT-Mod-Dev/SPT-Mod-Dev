@@ -47,7 +47,7 @@
 ### Siam
  - Cultural Mandate focus overhaul
  - 'Educate the Population': Completion time 70 -> 35 days
-                          Research speed +5% -> 10%
+ - 'Utilise Land': Building slots 2 -> 1
  - 'Learn from Japan': Now adds Co-Prosperity tech sharing group
  - 'Cooperate with Japan': Now adds more cooperation with Japan 
                           Fascism 10% -> 0%
