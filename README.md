@@ -73,7 +73,7 @@
 
 ### Manchukuo
  - Fixed Baba's autonomy states
- - 'Law University': Now adds Co-Prosperity tech sharing group
+ - 'Invite Japanese Advisors': Now adds Co-Prosperity tech sharing group
 
 ### Finland
  - When joining the Continuation War, automatically declare on Monglia as well (if they are still in faction)
