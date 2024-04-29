@@ -6,6 +6,7 @@
  - Fixed back button on new game screen
  - Added all playable nations to 'interesting'
  - Southern El Alamein tile changed to hills
+ - CAG Night Fighting fixed, and no longer limited to UK
  - Some other balance and fixes
 
 ### Army Spirits
