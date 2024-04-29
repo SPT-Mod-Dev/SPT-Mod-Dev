@@ -28,125 +28,6 @@ focus_tree = {
 	default = no
 
 	continuous_focus_position = { x = 300 y = 1400 }
-
-	focus = {
-		id = SPT_SIA_cooperate_japan
-		icon = GFX_focus_chi_collaboration_with_the_japanese
-		prerequisite = { focus = SPT_SIA_chinese_oppression }
-		x = 0
-		y = 1
-		relative_position_id = SPT_SIA_chinese_oppression
-
-		cost = 5
-
-		ai_will_do = {
-			base = 85
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-			
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
-
-		completion_reward = {
-			add_ideas = SPT_SIA_japanese_ideals_0
-			add_opinion_modifier = {
-				target = JAP
-				modifier = SPT_SIA_JAP_relation
-			}
-			reverse_add_opinion_modifier = {
-				target = JAP
-				modifier = SPT_SIA_JAP_relation
-			}
-			add_opinion_modifier = {
-				target = JAP
-				modifier = SPT_SIA_JAP_trade
-			}
-			reverse_add_opinion_modifier = {
-				target = JAP
-				modifier = SPT_SIA_JAP_trade
-			}
-		}
-	
-	}
-	
-	focus = {
-		id = SPT_SIA_learn_japan
-		icon = GFX_focus_generic_license_production
-		prerequisite = { focus = SPT_SIA_cooperate_japan }
-		x = -1
-		y = 1
-		relative_position_id = SPT_SIA_cooperate_japan
-
-		cost = 5
-
-		ai_will_do = {
-			base = 84
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-			
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
-
-		completion_reward = {
-	#		add_ideas = SPT_SIA_japanese_advisors # if baba does this maybe it can come back	
-			add_to_tech_sharing_group = co_prosperity_research			
-		}
-	}
-	
-	focus = {
-		id = SPT_SIA_adopt_japanese_ideals
-		icon = GFX_focus_jap_spiritual_mobilization
-		prerequisite = { focus = SPT_SIA_cooperate_japan }
-		prerequisite = { focus = SPT_SIA_political_executions }
-		x = 1
-		y = 1
-		relative_position_id = SPT_SIA_cooperate_japan
-	
-
-		cost = 10
-
-		ai_will_do = {
-			base = 71
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-			
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
-
-		completion_reward = {
-			swap_ideas = {
-				remove_idea = SPT_SIA_japanese_ideals_0
-				add_idea = SPT_SIA_japanese_ideals_1
-			} 
-		}
-	}
 				
 	focus = {
 		id = SPT_SIA_remember_revolution
@@ -176,41 +57,6 @@ focus_tree = {
 
 		completion_reward = {
 			add_political_power = 120
-		}
-	}
-						
-	focus = {
-		id = SPT_SIA_defence_against_communism
-		icon = GFX_goal_generic_war_with_comintern
-		prerequisite = { focus = SPT_SIA_do_fascism }
-		x = -1
-		y = 1
-		relative_position_id = SPT_SIA_do_fascism
-
-		cost = 5
-
-		ai_will_do = {
-			base = 98
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-			
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
-
-		completion_reward = {
-			swap_ideas = {
-				remove_idea = SPT_SIA_do_fascism_0
-				add_idea = SPT_SIA_do_fascism_1
-			}
 		}
 	}
 					
@@ -249,6 +95,41 @@ focus_tree = {
 				ideology = fascism
 				popularity = 0.05
 			}	
+		}
+	}
+
+	focus = {
+		id = SPT_SIA_defence_against_communism
+		icon = GFX_goal_generic_war_with_comintern
+		prerequisite = { focus = SPT_SIA_do_fascism }
+		x = -1
+		y = 1
+		relative_position_id = SPT_SIA_do_fascism
+
+		cost = 5
+
+		ai_will_do = {
+			base = 98
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SPT_SIA_do_fascism_0
+				add_idea = SPT_SIA_do_fascism_1
+			}
 		}
 	}
 						
@@ -431,7 +312,7 @@ focus_tree = {
 		}
 
 	}
-						
+		
 	focus = {
 		id = SPT_SIA_chinese_oppression
 		icon = GFX_focus_chi_one_china_policy
@@ -465,6 +346,125 @@ focus_tree = {
 			add_ideas = SPT_SIA_sinophobia_0
 		}
 
+	}
+
+	focus = {
+		id = SPT_SIA_cooperate_japan
+		icon = GFX_focus_chi_collaboration_with_the_japanese
+		prerequisite = { focus = SPT_SIA_chinese_oppression }
+		x = 0
+		y = 1
+		relative_position_id = SPT_SIA_chinese_oppression
+
+		cost = 5
+
+		ai_will_do = {
+			base = 85
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+
+		completion_reward = {
+			add_ideas = SPT_SIA_japanese_ideals_0
+			add_opinion_modifier = {
+				target = JAP
+				modifier = SPT_SIA_JAP_relation
+			}
+			reverse_add_opinion_modifier = {
+				target = JAP
+				modifier = SPT_SIA_JAP_relation
+			}
+			add_opinion_modifier = {
+				target = JAP
+				modifier = SPT_SIA_JAP_trade
+			}
+			reverse_add_opinion_modifier = {
+				target = JAP
+				modifier = SPT_SIA_JAP_trade
+			}
+		}
+	
+	}
+
+	focus = {
+		id = SPT_SIA_adopt_japanese_ideals
+		icon = GFX_focus_jap_spiritual_mobilization
+		prerequisite = { focus = SPT_SIA_cooperate_japan }
+		prerequisite = { focus = SPT_SIA_political_executions }
+		x = 1
+		y = 1
+		relative_position_id = SPT_SIA_cooperate_japan
+	
+
+		cost = 10
+
+		ai_will_do = {
+			base = 71
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SPT_SIA_japanese_ideals_0
+				add_idea = SPT_SIA_japanese_ideals_1
+			} 
+		}
+	}
+
+	focus = {
+		id = SPT_SIA_learn_japan
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = SPT_SIA_cooperate_japan }
+		x = -1
+		y = 1
+		relative_position_id = SPT_SIA_cooperate_japan
+
+		cost = 5
+
+		ai_will_do = {
+			base = 84
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INTERNAL_AFFAIRS }
+
+		completion_reward = {
+	#		add_ideas = SPT_SIA_japanese_advisors # if baba does this maybe it can come back	
+			add_to_tech_sharing_group = co_prosperity_research			
+		}
 	}
 
 	focus = {
@@ -1178,50 +1178,10 @@ focus_tree = {
 					level = 1
 					instant_build = yes
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 1
 			}		
 		}
-	}
-				
-	focus = {
-		id = SPT_SIA_further_industrialisation
-		icon = GFX_focus_generic_industry_3
-		prerequisite = { focus = SPT_SIA_thai_spirits }
-		x = 0
-		y = 1
-		relative_position_id = SPT_SIA_thai_spirits
-
-		cost = 10
-
-		ai_will_do = {
-			base = 92
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-			
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-		
-		completion_reward = {
-			remove_ideas = SPT_SIA_economic_woes_1
-			add_tech_bonus = {
-				name = SPT_SIA_further_industrialisation_tech
-				bonus = 1.5
-				uses = 2
-				category = industry
-			}
-		
-		}
-	}
-				
+	}		
 				
 	focus = {
 		id = SPT_SIA_thai_spirit
@@ -1290,6 +1250,45 @@ focus_tree = {
 			}
 		}
 		
+	}
+
+	focus = {
+		id = SPT_SIA_further_industrialisation
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = SPT_SIA_thai_spirits }
+		x = 0
+		y = 1
+		relative_position_id = SPT_SIA_thai_spirits
+
+		cost = 10
+
+		ai_will_do = {
+			base = 92
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		
+		completion_reward = {
+			remove_ideas = SPT_SIA_economic_woes_1
+			add_tech_bonus = {
+				name = SPT_SIA_further_industrialisation_tech
+				bonus = 1.5
+				uses = 2
+				category = industry
+			}
+		
+		}
 	}
 				
 	focus = {
@@ -1713,38 +1712,6 @@ focus_tree = {
 	}
 				
 	focus = {
-		id = SPT_SIA_army_reformed
-		icon = GFX_focus_chi_army_reform
-		prerequisite = { focus = SPT_SIA_infantry_equipment }
-		prerequisite = { focus = SPT_SIA_support_equipment }
-		x = 2
-		y = 1
-		relative_position_id = SPT_SIA_infantry_equipment
-
-		cost = 10
-
-		ai_will_do = {
-			base = 1
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-			
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		completion_reward = {
-			remove_ideas = SPT_SIA_inadequate_military_1
-		}
-	}
-				
-	focus = {
 		id = SPT_SIA_rally_people
 		icon = GFX_focus_generic_limited_social_mobilization
 		prerequisite = { focus = SPT_SIA_army_reform }
@@ -1856,38 +1823,7 @@ focus_tree = {
 		
 	}
 				
-	focus = {
-		id = SPT_SIA_elephant
-		icon = GFX_spt_SIA_elephant
-		prerequisite = { focus = SPT_SIA_support_equipment }
-		prerequisite = { focus = SPT_SIA_infantry_warfare }
-		prerequisite = { focus = SPT_SIA_jungle_warfare }
-		x = 0
-		y = 1
-		relative_position_id = SPT_SIA_infantry_warfare
 
-		cost = 10
-
-		ai_will_do = {
-			base = 3
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-			
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		completion_reward = {
-			add_ideas = SPT_SIA_elephants
-		}
-	}
 				
 	focus = {
 		id = SPT_SIA_japan_training
@@ -1953,7 +1889,6 @@ focus_tree = {
 			}
 		}
 	}
-	
 				
 	focus = {
 		id = SPT_SIA_jungle_warfare
@@ -2053,6 +1988,39 @@ focus_tree = {
 		}
 		
 	}
+
+	focus = {
+		id = SPT_SIA_elephant
+		icon = GFX_spt_SIA_elephant
+		prerequisite = { focus = SPT_SIA_support_equipment }
+		prerequisite = { focus = SPT_SIA_infantry_warfare }
+		prerequisite = { focus = SPT_SIA_jungle_warfare }
+		x = 0
+		y = 1
+		relative_position_id = SPT_SIA_infantry_warfare
+
+		cost = 10
+
+		ai_will_do = {
+			base = 3
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = SPT_SIA_elephants
+		}
+	}
 				
 	focus = {
 		id = SPT_SIA_combined_arms
@@ -2126,6 +2094,38 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = {
+		id = SPT_SIA_army_reformed
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = SPT_SIA_infantry_equipment }
+		prerequisite = { focus = SPT_SIA_support_equipment }
+		x = 2
+		y = 1
+		relative_position_id = SPT_SIA_infantry_equipment
+
+		cost = 10
+
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			remove_ideas = SPT_SIA_inadequate_military_1
+		}
+	}
 				
 	focus = {
 		id = SPT_SIA_thai_might
@@ -2157,44 +2157,6 @@ focus_tree = {
 			swap_ideas = {
 				remove_idea = SPT_SIA_militarised_population_1
 				add_idea = SPT_SIA_thai_might_0
-			}
-		}
-	}
-				
-	focus = {
-		id = SPT_SIA_trucks
-		icon = GFX_focus_generic_truck
-		prerequisite = { focus = SPT_SIA_trains }
-		x = -2
-		y = 1
-		relative_position_id = SPT_SIA_trains
-
-		cost = 10
-
-		ai_will_do = {
-			base = 1
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-			
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		
-		completion_reward = {
-			add_tech_bonus = {
-				name = SPT_SIA_trucks_tech
-				bonus = 1.0
-				uses = 2
-				category = motorized_equipment
 			}
 		}
 	}
@@ -2234,6 +2196,44 @@ focus_tree = {
 				bonus = 3.0
 				uses = 1
 				category = train_tech 
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_SIA_trucks
+		icon = GFX_focus_generic_truck
+		prerequisite = { focus = SPT_SIA_trains }
+		x = -2
+		y = 1
+		relative_position_id = SPT_SIA_trains
+
+		cost = 10
+
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		
+		completion_reward = {
+			add_tech_bonus = {
+				name = SPT_SIA_trucks_tech
+				bonus = 1.0
+				uses = 2
+				category = motorized_equipment
 			}
 		}
 	}
@@ -2712,15 +2712,14 @@ focus_tree = {
 			}
 		}
 	}
-		
+
 	focus = {
-		id = SPT_SIA_marines
-		icon = GFX_goal_generic_special_forces
-		prerequisite = { focus = SPT_SIA_marine }
-		prerequisite = { focus = SPT_SIA_water_doctrine }
-		x = -1
+		id = SPT_SIA_air
+		icon = GFX_focus_generic_copy_plane_designs
+		prerequisite = { focus = SPT_SIA_go_south }
+		x = 1
 		y = 1
-		relative_position_id = SPT_SIA_water_doctrine
+		relative_position_id = SPT_SIA_go_south
 
 		cost = 10
 
@@ -2741,46 +2740,19 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_ideas = SPT_SIA_special_forces
-		}
-	}
-		
-	focus = {
-		id = SPT_SIA_water_doctrine
-		icon = GFX_goal_generic_navy_doctrines_tactics
-		prerequisite = { focus = SPT_SIA_fleet }
-		prerequisite = { focus = SPT_SIA_marine }
-		x = -1
-		y = 1
-		relative_position_id = SPT_SIA_fleet
-
-		cost = 10
-
-		ai_will_do = {
-			base = 1
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-			
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-			completion_reward = {
-				add_doctrine_cost_reduction = {
-					cost_reduction = 0.5
-					uses = 2
-					name = SPT_SIA_water_doctrine
-					category = naval_doctrine
-				} 
+			add_tech_bonus = {
+				name = SPT_SIA_air_tech
+				bonus = 1
+				uses = 2
+				category = light_air
 			}
+			add_tech_bonus = {
+				name = SPT_SIA_transport_tech
+				bonus = 0.5
+				uses = 2
+				category = air_equipment
+			}
+		}
 	}
 		
 	focus = {
@@ -2886,48 +2858,6 @@ focus_tree = {
 		
 		completion_reward = {
 			add_ideas = SPT_SIA_special_forces
-		}
-	}
-			
-	focus = {
-		id = SPT_SIA_air
-		icon = GFX_focus_generic_copy_plane_designs
-		prerequisite = { focus = SPT_SIA_go_south }
-		x = 1
-		y = 1
-		relative_position_id = SPT_SIA_go_south
-
-		cost = 10
-
-		ai_will_do = {
-			base = 1
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-			
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		completion_reward = {
-			add_tech_bonus = {
-				name = SPT_SIA_air_tech
-				bonus = 1
-				uses = 2
-				category = light_air
-			}
-			add_tech_bonus = {
-				name = SPT_SIA_transport_tech
-				bonus = 0.5
-				uses = 2
-				category = air_equipment
-			}
 		}
 	}
 			
@@ -3067,6 +2997,76 @@ focus_tree = {
 				category = bc_tech
 				category = dd_tech
 			}
+		}
+	}
+	
+	focus = {
+		id = SPT_SIA_water_doctrine
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = SPT_SIA_fleet }
+		prerequisite = { focus = SPT_SIA_marine }
+		x = -1
+		y = 1
+		relative_position_id = SPT_SIA_fleet
+
+		cost = 10
+
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+			completion_reward = {
+				add_doctrine_cost_reduction = {
+					cost_reduction = 0.5
+					uses = 2
+					name = SPT_SIA_water_doctrine
+					category = naval_doctrine
+				} 
+			}
+	}
+
+	focus = {
+		id = SPT_SIA_marines
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = SPT_SIA_marine }
+		prerequisite = { focus = SPT_SIA_water_doctrine }
+		x = -1
+		y = 1
+		relative_position_id = SPT_SIA_water_doctrine
+
+		cost = 10
+
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = SPT_SIA_special_forces
 		}
 	}
 				
