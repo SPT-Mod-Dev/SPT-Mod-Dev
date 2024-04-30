@@ -1,4 +1,10 @@
 # Saving Private Tryin' Historical MP Full Changelog
+
+### 3.11.2
+
+### France
+ - Potentially fixed an issue where French North Africa flips to Germany upon capitlation
+
 ### 3.11.1 'wtf chafford went sicko mode'
 
 ### General
