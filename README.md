@@ -2,6 +2,9 @@
 
 ### 3.11.2
 
+### Major Nations
+ - Greatly improved AI behaviour 
+
 ### France
  - Potentially fixed an issue where French North Africa flips to Germany upon capitlation
 

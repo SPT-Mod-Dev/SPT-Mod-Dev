@@ -31,6 +31,8 @@ SPT_JAP_historical = {
 		JAP_army_expansion_law
 		JAP_army_expansion
 		JAP_supremacy_of_will
+		JAP_fearless_army
+		JAP_revive_bushido
 		JAP_new_naval_estimates
 		JAP_carrier_warfare_experiments
 		JAP_first_air_fleet
@@ -38,9 +40,8 @@ SPT_JAP_historical = {
 		JAP_fighter_modernization
 		JAP_agility_focus
 		JAP_the_zero
-		JAP_fearless_army
-		JAP_revive_bushido
 		JAP_army_triumphant	
+		JAP_expand_the_snlf
 		JAP_sign_tripartite_pact
 		JAP_strike_south_doctrine
 		JAP_non_aggression_pact_with_the_soviet_union
@@ -59,17 +60,28 @@ SPT_JAP_historical = {
 	}
 
 	research = {
-		industry = 10
+		industry = 25
 	}
 
 	ideas = {
-		
+
 	}
 
 	traits = {
 		silent_workhorse = 10
 		war_industrialist = 5
 		prince_of_terror = 1
+	}
+
+	ai_strategy = {
+		type = prepare_for_war
+		id = CHI
+		value = 100
+	}
+	ai_strategy = {
+		type = invade
+		id = CHI
+		value = 100
 	}
 
 	# Keep small, as it is used as a factor for some things (such as research needs)
@@ -81,21 +93,4 @@ SPT_JAP_historical = {
 		}
 	}
 
-}
-GER_minor_allies = { #used to make minor European nations like Axis more
-	name = "Minor Japanese Allies"
-	allowed = {
-		OR = {
-			original_tag = MAN
-			original_tag = SIA
-		}
-	}
-	enable = {
-		always = yes
-	}
-	ai_strategy = {
-		type = alliance
-		id = "GER"
-		value = -500
-	}
 }
