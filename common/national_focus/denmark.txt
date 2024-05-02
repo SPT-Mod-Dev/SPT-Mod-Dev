@@ -864,7 +864,7 @@ focus_tree = {
 		mutually_exclusive = {}
 	
 		relative_position_id = DEN_kanslergadeforliget
-		x = 1
+		x = -1 # SPTChange repositioning
 		y = 4
 	
 		cost = 10
@@ -1154,6 +1154,11 @@ focus_tree = {
 		y = 2
 	
 		cost = 10
+
+		#SPT change to block non-historical
+		allow_branch = {
+			always = no
+		}
 	
 		bypass = {
 		}
@@ -1199,7 +1204,7 @@ focus_tree = {
 		mutually_exclusive = {}
 	
 		relative_position_id = DEN_expand_institut_for_teoretisk_fysik
-		x = 1
+		x = 0  # SPTChange repositioning
 		y = 2
 	
 		cost = 10
@@ -1253,6 +1258,11 @@ focus_tree = {
 		y = 3
 	
 		cost = 5
+
+		#SPT change to block non-historical
+		allow_branch = {
+			always = no
+		}
 	
 		bypass = {
 		}
@@ -1677,6 +1687,11 @@ focus_tree = {
 		y = 2
 	
 		cost = 10
+
+		#SPT change to block non-historical
+		allow_branch = {
+			always = no
+		}
 	
 		bypass = {
 		}
@@ -1733,7 +1748,7 @@ focus_tree = {
 		mutually_exclusive = {}
 	
 		relative_position_id = DEN_reorient_production_lines
-		x = 1
+		x = 0  # SPTChange repositioning
 		y = 2
 	
 		cost = 10
@@ -1790,7 +1805,8 @@ focus_tree = {
 		id = DEN_collaboration_government 
 		icon = GFX_goal_generic_alliance
 	
-		x = 18
+		# SPTChange repositioning
+		x = 12
 		y = 0
 
 		allow_branch = {
@@ -3151,7 +3167,7 @@ focus_tree = {
 		mutually_exclusive = { focus = DEN_seek_independence }
 	
 		relative_position_id = DEN_collaboration_government
-		x = 3
+		x = 0 # SPTchange repositioning
 		y = 1
 	
 		cost = 5
@@ -3228,7 +3244,7 @@ focus_tree = {
 		prerequisite = { focus = DEN_align_with_overlord }
 	
 		relative_position_id = DEN_align_with_overlord
-		x = 1
+		x = -2 # SPTChange repositioning
 		y = 1
 	
 		cost = 5
@@ -3451,8 +3467,9 @@ focus_tree = {
 			custom_effect_tooltip = if_they_accept_tt
 			event_option_tooltip = denmark_occupation_event.8.a
 
-			custom_effect_tooltip = if_they_refuse_tt
-			event_option_tooltip = denmark_occupation_event.7.b
+			# SPTchange
+			# custom_effect_tooltip = if_they_refuse_tt
+			# event_option_tooltip = denmark_occupation_event.7.b
 		}
 	}
 
@@ -3544,7 +3561,7 @@ focus_tree = {
 					tooltip = local_resources_factor_tt
 				}
 			}
-			else = { add_cic = 2000 }
+			# else = { add_cic = 2000 }
 			if = {
 				limit = {
 					check_variable = { DEN_industrial_capabilities_consumer_goods < 0.16 }
@@ -3563,7 +3580,7 @@ focus_tree = {
 					tooltip = line_change_production_efficiency_factor_tt
 				}
 			}
-			else = { add_cic = 2000 }
+			# else = { add_cic = 2000 }
 			if = {
 				limit = {
 					check_variable = { DEN_industrial_capabilities_factory_output < 0.06 }
@@ -3582,7 +3599,7 @@ focus_tree = {
 					tooltip = industrial_capacity_dockyard_tt
 				}
 			}
-			else = { add_cic = 2000 }
+			# else = { add_cic = 2000 }
 			if = {
 				limit = {
 					check_variable = { DEN_industrial_capabilities_equipment_conversion < 0.06 }
@@ -3592,7 +3609,7 @@ focus_tree = {
 					tooltip = equipment_conversion_speed_tt
 				}
 			}
-			else = { add_cic = 2000 }
+			# else = { add_cic = 2000 }
 		}
 	}
 
@@ -3653,7 +3670,7 @@ focus_tree = {
 					tooltip = production_lack_of_resource_penalty_factor_tt
 				}
 			}
-			else = { add_cic = 2000 }
+			# else = { add_cic = 2000 }
 			if = {
 				limit = {
 					check_variable = { DEN_war_preparations_max_fuel < 0.11 }
@@ -3663,7 +3680,7 @@ focus_tree = {
 					tooltip = max_fuel_factor_tt
 				}
 			}
-			else = { add_cic = 2000 }
+			# else = { add_cic = 2000 }
 			if = {
 				limit = {
 					check_variable = { DEN_war_preparations_fuel_gain < 0.11 }
@@ -3673,7 +3690,7 @@ focus_tree = {
 					tooltip = fuel_gain_add_factor_tt
 				}
 			}
-			else = { add_cic = 2000 }
+			# else = { add_cic = 2000 }
 			if = {
 				limit = {
 					check_variable = { DEN_war_preparations_fuel_silo_speed < 0.06 }
@@ -3683,7 +3700,7 @@ focus_tree = {
 					tooltip = production_speed_fuel_silo_factor_tt
 				}
 			}
-			else = { add_cic = 2000 }
+			# else = { add_cic = 2000 }
 			
 			if = {
 				limit = {
@@ -3779,46 +3796,47 @@ focus_tree = {
 
 			DEN_bop_occupation_very_low_decrease_effect = yes
 
-			add_equipment_subsidy = {
-				cic = 500
-				equipment_type = small_plane_airframe
-				seller_trigger = DEN_allied_weapons_seller_trigger
-			}
-			add_equipment_subsidy = {
-				cic = 500
-				equipment_type = small_plane_cas_airframe
-				seller_trigger = DEN_allied_weapons_seller_trigger
-			}
-			add_equipment_subsidy = {
-				cic = 500
-				equipment_type = light_tank_chassis
-				seller_trigger = DEN_allied_weapons_seller_trigger
-			}
-			add_equipment_subsidy = {
-				cic = 500
-				equipment_type = medium_tank_chassis
-				seller_trigger = DEN_allied_weapons_seller_trigger
-			}
-			add_equipment_subsidy = {
-				cic = 500
-				equipment_type = infantry_equipment
-				seller_trigger = DEN_allied_weapons_seller_trigger
-			}
-			add_equipment_subsidy = {
-				cic = 500
-				equipment_type = motorized_equipment
-				seller_trigger = DEN_allied_weapons_seller_trigger
-			}
-			add_equipment_subsidy = {
-				cic = 500
-				equipment_type = artillery_equipment
-				seller_trigger = DEN_allied_weapons_seller_trigger
-			}
-			add_equipment_subsidy = {
-				cic = 500
-				equipment_type = anti_air_equipment
-				seller_trigger = DEN_allied_weapons_seller_trigger
-			}
+			# SPTchange The Arms Trade Treaty (ATT) is a multilateral treaty that regulates the international trade in conventional weapons. It entered into force on 24 December 2014.[1] 113 states have ratified the treaty, and a further 28 states have signed but not ratified it. The ATT is an attempt to regulate the international trade of conventional weapons for the purpose of contributing to international and regional peace; reducing human suffering; and promoting co-operation, transparency, and responsible action by and among states.
+			# add_equipment_subsidy = {
+			# 	cic = 500
+			# 	equipment_type = small_plane_airframe
+			# 	seller_trigger = DEN_allied_weapons_seller_trigger
+			# }
+			# add_equipment_subsidy = {
+			# 	cic = 500
+			# 	equipment_type = small_plane_cas_airframe
+			# 	seller_trigger = DEN_allied_weapons_seller_trigger
+			# }
+			# add_equipment_subsidy = {
+			# 	cic = 500
+			# 	equipment_type = light_tank_chassis
+			# 	seller_trigger = DEN_allied_weapons_seller_trigger
+			# }
+			# add_equipment_subsidy = {
+			# 	cic = 500
+			# 	equipment_type = medium_tank_chassis
+			# 	seller_trigger = DEN_allied_weapons_seller_trigger
+			# }
+			# add_equipment_subsidy = {
+			# 	cic = 500
+			# 	equipment_type = infantry_equipment
+			# 	seller_trigger = DEN_allied_weapons_seller_trigger
+			# }
+			# add_equipment_subsidy = {
+			# 	cic = 500
+			# 	equipment_type = motorized_equipment
+			# 	seller_trigger = DEN_allied_weapons_seller_trigger
+			# }
+			# add_equipment_subsidy = {
+			# 	cic = 500
+			# 	equipment_type = artillery_equipment
+			# 	seller_trigger = DEN_allied_weapons_seller_trigger
+			# }
+			# add_equipment_subsidy = {
+			# 	cic = 500
+			# 	equipment_type = anti_air_equipment
+			# 	seller_trigger = DEN_allied_weapons_seller_trigger
+			# }
 		}
 	}
 
@@ -3830,7 +3848,7 @@ focus_tree = {
 		prerequisite = { focus = DEN_align_with_overlord }
 	
 		relative_position_id = DEN_align_with_overlord
-		x = 7
+		x = 4 # SPTChange repositioning
 		y = 1
 	
 		cost = 5
@@ -3899,7 +3917,7 @@ focus_tree = {
 					set_rule = { can_decline_call_to_war = no }
 				}
 
-				DEN_restore_manpower = yes
+				# DEN_restore_manpower = yes # SPTchange
 
 				OVERLORD = {
 					add_opinion_modifier = {
@@ -3922,6 +3940,11 @@ focus_tree = {
 		y = 1
 	
 		cost = 10
+
+		#SPT change to block non-historical
+		allow_branch = {
+			always = no
+		}
 	
 		bypass = {
 			NOR = {
@@ -4120,6 +4143,11 @@ focus_tree = {
 		y = 1
 	
 		cost = 10
+
+		#SPT change to block non-historical
+		allow_branch = {
+			always = no
+		}
 	
 		bypass = {
 			SWE = {
@@ -4285,7 +4313,7 @@ focus_tree = {
 		id = DEN_declare_neutrality
 		icon = GFX_goal_generic_alliance
 	
-		x = 30
+		x = 19 # SPTchange repositioning
 		y = 0
 		
 		allow_branch = {
@@ -4313,7 +4341,7 @@ focus_tree = {
 		}
 
 		offset = {
-			x = -10
+			x = 0 # SPTchange repositioning
 			y = 0
 			trigger = {
 				has_game_rule = {
@@ -4337,7 +4365,7 @@ focus_tree = {
 		}
 
 		offset = {
-			x = 20
+			x = 6 # SPTchange repositioning
 			y = 0
 			trigger = {
 				has_game_rule = {
@@ -4403,7 +4431,7 @@ focus_tree = {
 		mutually_exclusive = { focus = DEN_unify_the_right }
 
 		relative_position_id = DEN_declare_neutrality	
-		x = -10
+		x = 0 # SPTChange repositioning
 		y = 1
 	
 		cost = 5
@@ -4422,7 +4450,7 @@ focus_tree = {
 		}
 
 		offset = {
-			x = 10
+			x = 0 # SPTChange repositioning
 			y = 0
 			trigger = {
 				has_game_rule = {
@@ -5699,6 +5727,11 @@ focus_tree = {
 		y = 5
 	
 		cost = 10
+
+		#SPT change to block non-historical
+		allow_branch = {
+			always = no
+		}
 	
 		bypass = {
 		}
@@ -5793,9 +5826,10 @@ focus_tree = {
 		prerequisite = { focus = DEN_side_with_unions focus = DEN_side_with_industry } 
 		mutually_exclusive = { focus = DEN_full_employment focus = DEN_five_year_plan focus = DEN_full_social_mobilization }
 
-		relative_position_id = DEN_social_stability	
-		x = 2
-		y = 5
+		# SPTChange repositioning
+		relative_position_id = DEN_side_with_industry
+		x = -1
+		y = 1
 	
 		cost = 10
 	
@@ -5865,11 +5899,6 @@ focus_tree = {
 	
 		cost = 5
 
-				#SPT change to block non-historical
-				allow_branch = {
-					always = no
-				}
-	
 		bypass = {
 		}
 	
@@ -9210,7 +9239,7 @@ focus_tree = {
 		icon = GFX_focus_generic_treaty
 
 		relative_position_id = DEN_declare_neutrality
-		x = 28
+		x = 16 # SPTchange repositioning
 		y = 0
 
 		allow_branch = {
@@ -9241,7 +9270,7 @@ focus_tree = {
 		}
 
 		offset = {
-			x = -7
+			x = 0 # SPTchange repositioning
 			y = 0
 			trigger = {
 				has_game_rule = {
@@ -9265,7 +9294,7 @@ focus_tree = {
 		}
 
 		offset = {
-			x = 0
+			x = -10 # SPTchange repositioning
 			y = 0
 			trigger = {
 				has_game_rule = {
@@ -9294,7 +9323,7 @@ focus_tree = {
 		}
 
 		offset = {
-			x = -18
+			x = -7  # SPTChange repositioning
 			y = 0
 			trigger = {
 				has_game_rule = {
@@ -9718,7 +9747,7 @@ focus_tree = {
 						include_locked = yes
 					}
 				}
-				#prioritize = { 99 911 912 37 } 
+				prioritize = { 99 911 912 37 } # SPTchange
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
@@ -9823,7 +9852,7 @@ focus_tree = {
 						include_locked = yes
 					}
 				}
-				#prioritize = { 99 911 912 37 } 
+				prioritize = { 99 911 912 37 } # SPTchange
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
@@ -9953,7 +9982,7 @@ focus_tree = {
 						include_locked = yes
 					}
 				}
-				#prioritize = { 99 911 912 37 } 
+				prioritize = { 99 911 912 37 } # SPTchange
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
@@ -10137,7 +10166,7 @@ focus_tree = {
 						include_locked = yes
 					}
 				}
-				#prioritize = { 99 911 912 37 } 
+				prioritize = { 99 911 912 37 } # SPTChange
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
@@ -11260,203 +11289,204 @@ focus_tree = {
 				}
 			}
 
-			if = {  #Gotland
-				limit = {
-					124 = { is_fully_controlled_by = ROOT }
-					has_completed_focus = DEN_baltic_sea_domination
-				}
-				124 = {
-					add_extra_state_shared_building_slots = 1
-					add_building_construction = {
-						type = dockyard
-						level = 1
-						instant_build = yes
-					}
-					add_building_construction = {
-						type = naval_base
-						level = 2
-						province = 408
-						instant_build = yes
-					}
-					add_building_construction = {
-						type = air_base
-						level = 2
-						instant_build = yes
-					}
-				}
-			}
-			else_if = {
-				limit = { 
-					OR = {
-						NOT = { 
-							124 = { is_fully_controlled_by = ROOT }
-							has_completed_focus = DEN_north_sea_ambitions
-						}
-						AND = {
-							124 = { is_fully_controlled_by = ROOT }
-							NOT = { has_completed_focus = DEN_north_sea_ambitions }
-						}
-						AND = {
-							NOT = { 124 = { is_fully_controlled_by = ROOT }}
-							has_completed_focus = DEN_baltic_sea_domination
-						}
-					}
-				}
-				custom_effect_tooltip = DEN_baltic_sea_domination_completed_tt
-				effect_tooltip = {
-					124 = {
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
-							type = dockyard
-							level = 1
-							instant_build = yes
-						}
-						add_building_construction = {
-							type = naval_base
-							level = 2
-							province = 408
-							instant_build = yes
-						}
-						add_building_construction = {
-							type = air_base
-							level = 2
-							instant_build = yes
-						}
-					}
-				}
-			}
+			# SPTchange no feeding allies
+			# if = {  #Gotland
+			# 	limit = {
+			# 		124 = { is_fully_controlled_by = ROOT }
+			# 		has_completed_focus = DEN_baltic_sea_domination
+			# 	}
+			# 	124 = {
+			# 		add_extra_state_shared_building_slots = 1
+			# 		add_building_construction = {
+			# 			type = dockyard
+			# 			level = 1
+			# 			instant_build = yes
+			# 		}
+			# 		add_building_construction = {
+			# 			type = naval_base
+			# 			level = 2
+			# 			province = 408
+			# 			instant_build = yes
+			# 		}
+			# 		add_building_construction = {
+			# 			type = air_base
+			# 			level = 2
+			# 			instant_build = yes
+			# 		}
+			# 	}
+			# }
+			# else_if = {
+			# 	limit = { 
+			# 		OR = {
+			# 			NOT = { 
+			# 				124 = { is_fully_controlled_by = ROOT }
+			# 				has_completed_focus = DEN_north_sea_ambitions
+			# 			}
+			# 			AND = {
+			# 				124 = { is_fully_controlled_by = ROOT }
+			# 				NOT = { has_completed_focus = DEN_north_sea_ambitions }
+			# 			}
+			# 			AND = {
+			# 				NOT = { 124 = { is_fully_controlled_by = ROOT }}
+			# 				has_completed_focus = DEN_baltic_sea_domination
+			# 			}
+			# 		}
+			# 	}
+			# 	custom_effect_tooltip = DEN_baltic_sea_domination_completed_tt
+			# 	effect_tooltip = {
+			# 		124 = {
+			# 			add_extra_state_shared_building_slots = 1
+			# 			add_building_construction = {
+			# 				type = dockyard
+			# 				level = 1
+			# 				instant_build = yes
+			# 			}
+			# 			add_building_construction = {
+			# 				type = naval_base
+			# 				level = 2
+			# 				province = 408
+			# 				instant_build = yes
+			# 			}
+			# 			add_building_construction = {
+			# 				type = air_base
+			# 				level = 2
+			# 				instant_build = yes
+			# 			}
+			# 		}
+			# 	}
+			# }
 
-			if = { #Faroes
-				limit = {
-					337 = { is_fully_controlled_by = ROOT }
-					has_completed_focus = DEN_north_sea_ambitions
-				}
-				337 = {
-					add_extra_state_shared_building_slots = 1
-					add_building_construction = {
-						type = dockyard
-						level = 1
-						instant_build = yes
-					}
-					add_building_construction = {
-						type = naval_base
-						level = 2
-						province = 13003
-						instant_build = yes
-					}
-					add_building_construction = {
-						type = air_base
-						level = 2
-						instant_build = yes
-					}
-				}
-			}
-			else_if = { 
-				limit = { 
-					OR = {
-						NOT = { 
-							337 = { is_fully_controlled_by = ROOT }
-							has_completed_focus = DEN_baltic_sea_domination
-						}
-						AND = {
-							337 = { is_fully_controlled_by = ROOT }
-							NOT = { has_completed_focus = DEN_baltic_sea_domination }
-						}
-						AND = {
-							NOT = { 337 = { is_fully_controlled_by = ROOT }}
-							has_completed_focus = DEN_north_sea_ambitions
-						}
-					}
-				}
-				custom_effect_tooltip = DEN_north_sea_ambitions_completed_tt
-				effect_tooltip = {
-					337 = {
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
-							type = dockyard
-							level = 1
-							instant_build = yes
-						}
-						add_building_construction = {
-							type = naval_base
-							level = 2
-							province = 13003
-							instant_build = yes
-						}
-						add_building_construction = {
-							type = air_base
-							level = 2
-							instant_build = yes
-						}
-					}
-				}
-			}
+			# if = { #Faroes
+			# 	limit = {
+			# 		337 = { is_fully_controlled_by = ROOT }
+			# 		has_completed_focus = DEN_north_sea_ambitions
+			# 	}
+			# 	337 = {
+			# 		add_extra_state_shared_building_slots = 1
+			# 		add_building_construction = {
+			# 			type = dockyard
+			# 			level = 1
+			# 			instant_build = yes
+			# 		}
+			# 		add_building_construction = {
+			# 			type = naval_base
+			# 			level = 2
+			# 			province = 13003
+			# 			instant_build = yes
+			# 		}
+			# 		add_building_construction = {
+			# 			type = air_base
+			# 			level = 2
+			# 			instant_build = yes
+			# 		}
+			# 	}
+			# }
+			# else_if = { 
+			# 	limit = { 
+			# 		OR = {
+			# 			NOT = { 
+			# 				337 = { is_fully_controlled_by = ROOT }
+			# 				has_completed_focus = DEN_baltic_sea_domination
+			# 			}
+			# 			AND = {
+			# 				337 = { is_fully_controlled_by = ROOT }
+			# 				NOT = { has_completed_focus = DEN_baltic_sea_domination }
+			# 			}
+			# 			AND = {
+			# 				NOT = { 337 = { is_fully_controlled_by = ROOT }}
+			# 				has_completed_focus = DEN_north_sea_ambitions
+			# 			}
+			# 		}
+			# 	}
+			# 	custom_effect_tooltip = DEN_north_sea_ambitions_completed_tt
+			# 	effect_tooltip = {
+			# 		337 = {
+			# 			add_extra_state_shared_building_slots = 1
+			# 			add_building_construction = {
+			# 				type = dockyard
+			# 				level = 1
+			# 				instant_build = yes
+			# 			}
+			# 			add_building_construction = {
+			# 				type = naval_base
+			# 				level = 2
+			# 				province = 13003
+			# 				instant_build = yes
+			# 			}
+			# 			add_building_construction = {
+			# 				type = air_base
+			# 				level = 2
+			# 				instant_build = yes
+			# 			}
+			# 		}
+			# 	}
+			# }
 			
-			if = { #Iceland
-				limit = {
-					100 = { is_fully_controlled_by = ROOT }
-					has_completed_focus = DEN_north_sea_ambitions
-				}
-				100 = {
-					add_extra_state_shared_building_slots = 1
-					add_building_construction = {
-						type = dockyard
-						level = 1
-						instant_build = yes
-					}
-					add_building_construction = {
-						type = naval_base
-						level = 2
-						province = 12674
-						instant_build = yes
-					}
-					add_building_construction = {
-						type = air_base
-						level = 2
-						instant_build = yes
-					}
-				}
-			}
-			else_if = { 
-				limit = { 
-					OR = {
-						NOT = { 
-							100 = { is_fully_controlled_by = ROOT }
-							has_completed_focus = DEN_baltic_sea_domination
-						}
-						AND = {
-							100 = { is_fully_controlled_by = ROOT }
-							NOT = { has_completed_focus = DEN_baltic_sea_domination }
-						}
-						AND = {
-							NOT = { 100 = { is_fully_controlled_by = ROOT }}
-							has_completed_focus = DEN_north_sea_ambitions
-						}
-					}
-				}
-				custom_effect_tooltip = DEN_north_sea_ambitions_completed_tt
-				effect_tooltip = {
-					100 = {
-						add_extra_state_shared_building_slots = 1
-						add_building_construction = {
-							type = dockyard
-							level = 1
-							instant_build = yes
-						}
-						add_building_construction = {
-							type = naval_base
-							level = 2
-							province = 12674
-							instant_build = yes
-						}
-						add_building_construction = {
-							type = air_base
-							level = 2
-							instant_build = yes
-						}
-					}
-				}
-			}
+			# if = { #Iceland
+			# 	limit = {
+			# 		100 = { is_fully_controlled_by = ROOT }
+			# 		has_completed_focus = DEN_north_sea_ambitions
+			# 	}
+			# 	100 = {
+			# 		add_extra_state_shared_building_slots = 1
+			# 		add_building_construction = {
+			# 			type = dockyard
+			# 			level = 1
+			# 			instant_build = yes
+			# 		}
+			# 		add_building_construction = {
+			# 			type = naval_base
+			# 			level = 2
+			# 			province = 12674
+			# 			instant_build = yes
+			# 		}
+			# 		add_building_construction = {
+			# 			type = air_base
+			# 			level = 2
+			# 			instant_build = yes
+			# 		}
+			# 	}
+			# }
+			# else_if = { 
+			# 	limit = { 
+			# 		OR = {
+			# 			NOT = { 
+			# 				100 = { is_fully_controlled_by = ROOT }
+			# 				has_completed_focus = DEN_baltic_sea_domination
+			# 			}
+			# 			AND = {
+			# 				100 = { is_fully_controlled_by = ROOT }
+			# 				NOT = { has_completed_focus = DEN_baltic_sea_domination }
+			# 			}
+			# 			AND = {
+			# 				NOT = { 100 = { is_fully_controlled_by = ROOT }}
+			# 				has_completed_focus = DEN_north_sea_ambitions
+			# 			}
+			# 		}
+			# 	}
+			# 	custom_effect_tooltip = DEN_north_sea_ambitions_completed_tt
+			# 	effect_tooltip = {
+			# 		100 = {
+			# 			add_extra_state_shared_building_slots = 1
+			# 			add_building_construction = {
+			# 				type = dockyard
+			# 				level = 1
+			# 				instant_build = yes
+			# 			}
+			# 			add_building_construction = {
+			# 				type = naval_base
+			# 				level = 2
+			# 				province = 12674
+			# 				instant_build = yes
+			# 			}
+			# 			add_building_construction = {
+			# 				type = air_base
+			# 				level = 2
+			# 				instant_build = yes
+			# 			}
+			# 		}
+			# 	}
+			# }
 			if = { 	#SJAELLAND
 				limit = { 37 = { is_fully_controlled_by = ROOT } }
 				37 = {
@@ -11645,7 +11675,7 @@ focus_tree = {
 						include_locked = yes
 					}
 				}
-				#prioritize = { 99 911 912 37 } 
+				prioritize = { 99 911 912 37 } # SPTchange
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
@@ -11695,16 +11725,17 @@ focus_tree = {
 				category = air_equipment
 			}
 
-			add_equipment_subsidy = {
-				cic = 1000
-				equipment_type = small_plane_cas_airframe
-				seller_tags = { HOL ENG GER SWE } 
-			}
-			add_equipment_subsidy = {
-				cic = 1000
-				equipment_type = small_plane_airframe
-				seller_tags = { HOL ENG GER SWE } 
-			}
+			# SPTchange The Arms Trade Treaty (ATT) is a multilateral treaty that regulates the international trade in conventional weapons. It entered into force on 24 December 2014.[1] 113 states have ratified the treaty, and a further 28 states have signed but not ratified it. The ATT is an attempt to regulate the international trade of conventional weapons for the purpose of contributing to international and regional peace; reducing human suffering; and promoting co-operation, transparency, and responsible action by and among states.
+			# add_equipment_subsidy = {
+			# 	cic = 1000
+			# 	equipment_type = small_plane_cas_airframe
+			# 	seller_tags = { HOL ENG GER SWE } 
+			# }
+			# add_equipment_subsidy = {
+			# 	cic = 1000
+			# 	equipment_type = small_plane_airframe
+			# 	seller_tags = { HOL ENG GER SWE } 
+			# }
 
 			random_core_state = {
 				limit = {
@@ -11715,7 +11746,7 @@ focus_tree = {
 						include_locked = yes
 					}
 				}
-				#prioritize = { 99 911 912 37 } 
+				prioritize = { 99 911 912 37 } # SPTchange
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
 					type = arms_factory
@@ -11966,36 +11997,37 @@ focus_tree = {
 					}
 				}
 			}
-			if = { 	#FAROE ISLANDS
-				limit = { 337 = { is_fully_controlled_by = ROOT } }
-				337 = {
-					add_building_construction = {
-						type = air_base
-						level = 2
-						instant_build = yes
-					}
-				}
-			}
-			if = { 	#ICELAND
-				limit = { 100 = { is_fully_controlled_by = ROOT } }
-				100 = {
-					add_building_construction = {
-						type = air_base
-						level = 1
-						instant_build = yes
-					}
-				}
-			}
-			if = { 	#GREENLAND
-				limit = { 101 = { is_fully_controlled_by = ROOT } }
-				101 = {
-					add_building_construction = {
-						type = air_base
-						level = 1
-						instant_build = yes
-					}
-				}
-			}
+			# SPTchange no feeding allies
+			# if = { 	#FAROE ISLANDS
+			# 	limit = { 337 = { is_fully_controlled_by = ROOT } }
+			# 	337 = {
+			# 		add_building_construction = {
+			# 			type = air_base
+			# 			level = 2
+			# 			instant_build = yes
+			# 		}
+			# 	}
+			# }
+			# if = { 	#ICELAND
+			# 	limit = { 100 = { is_fully_controlled_by = ROOT } }
+			# 	100 = {
+			# 		add_building_construction = {
+			# 			type = air_base
+			# 			level = 1
+			# 			instant_build = yes
+			# 		}
+			# 	}
+			# }
+			# if = { 	#GREENLAND
+			# 	limit = { 101 = { is_fully_controlled_by = ROOT } }
+			# 	101 = {
+			# 		add_building_construction = {
+			# 			type = air_base
+			# 			level = 1
+			# 			instant_build = yes
+			# 		}
+			# 	}
+			# }
 		}
 	}
 
@@ -12284,5 +12316,5 @@ focus_tree = {
 		}
 	}
 
-	shared_focus = NORDIC_form_joint_alliance
+	# shared_focus = NORDIC_form_joint_alliance # SPTchange
 }
