@@ -1475,6 +1475,16 @@ country_event = { #Denmark becomes a puppet
 			}
 
 			play_song =  "rising_tension"
+
+			# Not an SPTchange
+			set_province_name = { 
+				id = 6287 
+				name = spt_copenhagen 
+			}
+			set_province_name = { 
+				id = 9279 
+				name = spt_seethenhagen 
+			}
 		}
 	}
 }
@@ -1842,7 +1852,7 @@ country_event = { #Denmark becomes independent peacefully
 		name = denmark_occupation_event.8.a
 		
 		var:DEN.DEN_overlord_nation = { end_puppet = ROOT }
-		DEN_drop_occupation_tag = yes
+		# DEN_drop_occupation_tag = yes
 		if = {
 			limit = {
 				NOT = {
@@ -1871,7 +1881,7 @@ country_event = { #Denmark becomes independent peacefully
 			retire_country_leader = yes
 		}
 
-		DEN_restore_manpower = yes
+		# DEN_restore_manpower = yes
 
 		if = {
 			limit = {
@@ -1933,6 +1943,7 @@ country_event = { #Denmark becomes independent peacefully
 
 		hidden_effect = {
 			play_song = "danish_song_of_liberation"
+			mark_focus_tree_layout_dirty = yes
 		}
 	}
 }
@@ -2108,7 +2119,9 @@ country_event = { #Denmark asks overlord to join faction
 	option = { #Reject them
 		# SPTchange Germany can only reject AI faction joins.
 		trigger = {
-			is_ai = yes
+			DEN = {
+				is_ai = yes
+			}
 		}
 		name = denmark_occupation_event.100.b
 		ai_chance = {

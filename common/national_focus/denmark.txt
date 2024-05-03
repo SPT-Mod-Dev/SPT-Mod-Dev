@@ -3323,12 +3323,13 @@ focus_tree = {
 		available = {
 			is_subject = yes
 			has_government = var:DEN.DEN_overlord_nation
-			var:DEN.DEN_overlord_nation = {
-				has_opinion = {
-					target = DEN
-					value > 24
-				}
-			}
+			# SPTchange fuck diplomacy
+			# var:DEN.DEN_overlord_nation = {
+			# 	has_opinion = {
+			# 		target = DEN
+			# 		value > 24
+			# 	}
+			# }
 			power_balance_value = {
 				id = DEN_occupation_balance
 				value < 0
@@ -3430,7 +3431,7 @@ focus_tree = {
 		prerequisite = { focus = DEN_increase_cooperation }
 		
 		relative_position_id = DEN_seek_industrial_investments
-		x = -1
+		x = 0 # SPTchange
 		y = 3
 	
 		cost = 1 # SPTchange 5 -> 1
@@ -3441,12 +3442,13 @@ focus_tree = {
 		available = {
 			is_subject = yes
 			has_government = var:DEN.DEN_overlord_nation
-			var:DEN.DEN_overlord_nation = {
-				has_opinion = {
-					target = ROOT
-					value > 49
-				}
-			}
+			# SPTchange fuck diplomacy
+			# var:DEN.DEN_overlord_nation = {
+			# 	has_opinion = {
+			# 		target = ROOT
+			# 		value > 49
+			# 	}
+			# }
 			power_balance_value = {
 				id = DEN_occupation_balance
 				value < 0
@@ -3467,7 +3469,7 @@ focus_tree = {
 			custom_effect_tooltip = if_they_accept_tt
 			event_option_tooltip = denmark_occupation_event.8.a
 
-			# SPTchange
+			# SPTchange: for human denmarks, this will never happen.
 			# custom_effect_tooltip = if_they_refuse_tt
 			# event_option_tooltip = denmark_occupation_event.7.b
 		}
@@ -3720,11 +3722,12 @@ focus_tree = {
 		id = DEN_increase_cooperation
 		icon = GFX_goal_generic_major_alliance
 
-		prerequisite = { focus = DEN_seize_the_production }
-		prerequisite = { focus = DEN_adjust_industrial_prioritize }
+		# SPTchange make an OR
+		prerequisite = { focus = DEN_seize_the_production focus = DEN_adjust_industrial_prioritize }
+		# prerequisite = { focus = DEN_adjust_industrial_prioritize }
 	
 		relative_position_id = DEN_seek_industrial_investments
-		x = 0
+		x = 1 # SPTchange
 		y = 2
 	
 		cost = 5
@@ -3848,7 +3851,7 @@ focus_tree = {
 		prerequisite = { focus = DEN_align_with_overlord }
 	
 		relative_position_id = DEN_align_with_overlord
-		x = 4 # SPTChange repositioning
+		x = 2 # SPTChange repositioning
 		y = 1
 	
 		cost = 1 # SPTchange 5 -> 1
@@ -3859,12 +3862,13 @@ focus_tree = {
 		available = {
 			is_subject = yes
 			has_government = var:DEN.DEN_overlord_nation
-			var:DEN.DEN_overlord_nation = {
-				has_opinion = {
-					target = ROOT
-					value > 24
-				}
-			}
+			# SPTchange fuck diplomacy
+			# var:DEN.DEN_overlord_nation = {
+			# 	has_opinion = {
+			# 		target = ROOT
+			# 		value > 24
+			# 	}
+			# }
 			power_balance_value = {
 				id = DEN_occupation_balance
 				value < 0
@@ -9377,14 +9381,29 @@ focus_tree = {
 							has_completed_focus = DEN_unify_the_right
 						}
 					}
-					AND = {
-						is_subject = no
-						has_country_flag = DEN_unlock_military_branch_flag
-						OR = {
-							has_completed_focus = DEN_political_unity
-							has_completed_focus = DEN_unify_the_right
-						}
-					}
+					# SPTchange
+					# AND = {
+					# 	is_subject = no
+					# 	has_country_flag = DEN_unlock_military_branch_flag
+					# 	OR = {
+					# 		has_completed_focus = DEN_political_unity
+					# 		has_completed_focus = DEN_unify_the_right
+					# 	}
+					# }
+				}
+			}
+		}
+
+		# SPTchange to give poor denmarks their political focuses back
+		offset = {
+			x = 10
+			y = 0
+			trigger = {				
+				is_subject = no
+				has_country_flag = DEN_unlock_military_branch_flag
+				OR = {
+					has_completed_focus = DEN_political_unity
+					has_completed_focus = DEN_unify_the_right
 				}
 			}
 		}
