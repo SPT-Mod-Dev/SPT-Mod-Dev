@@ -1159,7 +1159,9 @@ country_event = { #Someone attacked us :'(
 			custom_effect_tooltip = DEN_denmark_keeps_government_form_tt
 			set_rule = { can_join_factions = no }
 			set_rule = { can_decline_call_to_war = yes }
-			# DEN_limited_manpower = yes # SPTchange
+			# SPTchanges:
+			# DEN_limited_manpower = yes 
+			complete_national_focus = DEN_collaboration_government
 		}
 
 		hidden_effect = {
@@ -1414,6 +1416,8 @@ country_event = { #Denmark becomes a puppet
 			right_side = DEN_autonomy_side	
 			set_value = 0.2
 		}
+
+		complete_national_focus = DEN_collaboration_government # SPTchange
 			
 		hidden_effect = {
 			set_popularities = { #Denmark keeps it government form
