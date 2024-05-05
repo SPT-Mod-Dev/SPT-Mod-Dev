@@ -8,6 +8,12 @@
 ### France
  - Potentially fixed an issue where French North Africa flips to Germany upon capitlation
 
+### Hungary
+ - 'Trade Deal with Germany' now properly applies Interventionism 
+
+### Siam
+ - Fixed Cultural Mandate decisions
+
 ### 3.11.1 'wtf chafford went sicko mode'
 
 ### General
