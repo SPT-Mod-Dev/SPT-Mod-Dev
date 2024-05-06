@@ -1899,7 +1899,7 @@ focus_tree = {
 		id = BRA_federal_development
 		icon = GFX_focus_generic_agricultural_subsidies
 		prerequisite = { focus = BRA_banco_do_brasil  }
-		x = -1
+		x = 0 
 		y = 1
 		relative_position_id = BRA_banco_do_brasil
 		#mutually_exclusive = { focus = BRA_centralize_development }
@@ -1943,65 +1943,65 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = BRA_centralize_development
-		icon = GFX_focus_BRA_new_capital
-		prerequisite = { focus = BRA_banco_do_brasil  }
-		x = 1
-		y = 1
-		relative_position_id = BRA_banco_do_brasil
-		#mutually_exclusive = { focus = BRA_federal_development }
-		cost = 5
-		ai_will_do = {
-			factor = 4
-		}
-		available = {
-		}
+	# focus = { #SPTChange remove weird capital focus
+	# 	id = BRA_centralize_development
+	# 	icon = GFX_focus_BRA_new_capital
+	# 	prerequisite = { focus = BRA_banco_do_brasil  }
+	# 	x = 1
+	# 	y = 1
+	# 	relative_position_id = BRA_banco_do_brasil
+	# 	#mutually_exclusive = { focus = BRA_federal_development }
+	# 	cost = 5
+	# 	ai_will_do = {
+	# 		factor = 4
+	# 	}
+	# 	available = {
+	# 	}
 
-		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+	# 	search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
 
-		completion_reward = {
-			custom_effect_tooltip = BRA_centralize_development_tt
-			set_capital = {
-				state = 505
-				remember_old_capital = no
-			}
-			505 = {
-				add_victory_points = {
-					province = 8140
-					value = 10
-				}
-				add_dynamic_modifier = { modifier = BRA_new_capital_modifier }
-				add_building_construction = {
-					type = supply_node
-					province = 8140
-					level = 1
-					instant_build = yes
-				}	
-				build_railway = {
-					level = 1
-					build_only_on_allied = yes
-					fallback = yes
-					start_province = 12977
-					target_province = 8140
-				}			
-			}
-			hidden_effect = {
-				set_province_name = { id = 8140 name = BRA_new_capital }
-			}
-			#500 = {
-			#	add_victory_points = {
-			#		province = 10980
-			#		value = -5
-			#	}
-			#}
-		}
-	}
+	# 	completion_reward = {
+	# 		custom_effect_tooltip = BRA_centralize_development_tt
+	# 		set_capital = {
+	# 			state = 505
+	# 			remember_old_capital = no
+	# 		}
+	# 		505 = {
+	# 			add_victory_points = {
+	# 				province = 8140
+	# 				value = 10
+	# 			}
+	# 			add_dynamic_modifier = { modifier = BRA_new_capital_modifier }
+	# 			add_building_construction = {
+	# 				type = supply_node
+	# 				province = 8140
+	# 				level = 1
+	# 				instant_build = yes
+	# 			}	
+	# 			build_railway = {
+	# 				level = 1
+	# 				build_only_on_allied = yes
+	# 				fallback = yes
+	# 				start_province = 12977
+	# 				target_province = 8140
+	# 			}			
+	# 		}
+	# 		hidden_effect = {
+	# 			set_province_name = { id = 8140 name = BRA_new_capital }
+	# 		}
+	# 		#500 = {
+	# 		#	add_victory_points = {
+	# 		#		province = 10980
+	# 		#		value = -5
+	# 		#	}
+	# 		#}
+	# 	}
+	# }
 
 	focus = {
 		id = BRA_financial_stimulation
 		icon = GFX_focus_BRA_growth
-		prerequisite = { focus = BRA_centralize_development focus = BRA_federal_development  }
+		prerequisite = { focus = BRA_federal_development  } #focus = BRA_centralize_development
 		x = 0
 		y = 2
 		relative_position_id = BRA_banco_do_brasil
@@ -5155,6 +5155,7 @@ focus_tree = {
 			show_ideas_tooltip = BRA_jose_americo_de_almeida
 			show_ideas_tooltip = BRA_armando_de_sales_oliveira
 			show_ideas_tooltip = BRA_anisio_teixeira
+			show_ideas_tooltip = BRA_minervino_de_oliveira
 		}
 	}
 
