@@ -1450,23 +1450,25 @@ on_actions = {
 
 	# remove protection after captured or capitulation
 	on_state_control_changed = {
-		if = {
-			limit = {
-				FROM = {
-					is_in_faction = yes
+		effect = {
+			if = {
+				limit = {
+					FROM = {
+						is_in_faction = yes
+					}
+
+					FROM.FROM = {
+						has_state_flag = prevent_auto_flip_after_capitulation
+					}
 				}
 
-				FROM.FROM = {
-					has_state_flag = prevent_auto_flip_after_capitulation
-				}
+				FROM.FROM = { clr_state_flag = prevent_auto_flip_after_capitulation }
+				# SPTChange not sure why paradox would do this?
+				# FROM = {
+				# 	set_state_controller = FROM.FROM
+				# }
+				
 			}
-
-			FROM.FROM = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			# SPTChange not sure why paradox would do this?
-			# FROM = {
-			# 	set_state_controller = FROM.FROM
-			# }
-			
 		}
 	}
 
