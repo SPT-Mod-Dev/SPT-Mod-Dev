@@ -99,6 +99,16 @@ SPT_ITA_historical = {
 		id = FRA
 		value = 100
 	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = ETH
+		country_trigger = { 
+			NOT = { ITA = { has_war_with = ENG } }
+			ITA = { has_war_with = ETH }
+		}
+		value = 1000
+	}
+	
 
 	# Keep small, as it is used as a factor for some things (such as research needs)
 	# Recommended around 1.0. Useful for relation between plans

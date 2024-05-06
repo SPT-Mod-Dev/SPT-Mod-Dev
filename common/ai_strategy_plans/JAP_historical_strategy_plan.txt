@@ -88,6 +88,16 @@ SPT_JAP_historical = {
 		id = GER
 		value = -10000
 	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = CHI
+		country_trigger = {
+			NOT = { JAP = { has_war_with = USA } }
+			JAP = { has_war_with = CHI }
+		}
+		value = 100
+	}
+	
 	
 
 	# Keep small, as it is used as a factor for some things (such as research needs)
