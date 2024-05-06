@@ -1,6 +1,6 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.11.2
+### 3.11.2 'https://hoi4.paradoxwikis.com/AI_modding'
 
 ### Major Nations
  - Greatly improved AI behaviour 
