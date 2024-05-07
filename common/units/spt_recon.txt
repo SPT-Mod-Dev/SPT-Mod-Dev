@@ -1,0 +1,96 @@
+sub_units = {
+	elephant_recon_support = { # SPTChange mounted elephant
+		abbreviation = "EREC"
+		sprite = infantry
+		map_icon_category = infantry
+		priority = 0
+		ai_priority = 0
+		active = no
+
+		type = {
+			infantry
+			support
+		}
+		
+		group = support
+		
+		categories = {
+			category_front_line
+			category_support_battalions
+			category_army
+			category_recon
+		}
+
+	
+		combat_width = 0
+	
+		#Size Definitions
+		max_strength = 2
+		max_organisation = 20
+		default_morale = 0.3
+		manpower = 500
+		training_time = 120
+
+		#Misc Abilities
+		weight = 0.1
+		supply_consumption = 0.02
+		recon = 1
+		can_be_parachuted = yes #lol
+
+		# Support nerfs to combat abilities
+		defense = -0.85
+		breakthrough = 8.25
+		soft_attack = 4.5
+		hard_attack = 25
+
+		maximum_speed = 0.6 # move at horsie speeds
+		
+		essential = {
+			infantry_equipment
+			support_equipment
+		}
+
+		need = {
+			infantry_equipment = 100
+			support_equipment = 40
+		}
+		
+		battalion_mult = {
+			category = category_artillery
+			soft_attack = 0.10
+		}
+
+		battalion_mult = {
+			category = category_all_armor
+			hard_attack = 0.10
+		}
+		
+		forest = {
+			movement = 0.10
+		}
+		hills = {
+			movement = 0.10
+		}
+		mountain = {
+			movement = 0.15
+		}
+		jungle = {
+			movement = 0.15
+		}
+		marsh = {
+			movement = 0.10
+		}
+		plains = {
+			movement = 0.10
+		}
+		desert = {
+			movement = 0.10
+		}
+		river = {
+			movement = 0.10
+		}
+		
+		same_support_type = recon # blocks adding other recon types to template
+	}	
+
+}
