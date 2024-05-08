@@ -5422,7 +5422,10 @@ focus_tree = {
 		id = HOL_replace_the_defeatist_government
 		prerequisite = { focus = HOL_oranje_boven focus = HOL_unity_through_democracy }
 		available = {
-			has_war = yes
+			OR = {
+				has_war = yes
+				date > 1941.1.1
+			}
 		}
 		bypass = {
 			has_government = neutrality
@@ -5946,8 +5949,15 @@ focus_tree = {
 	focus = {
 		id = HOL_go_with_britain
 		available = {
-			ENG = { has_government = democratic }
-			threat > 0.25
+			#ENG = { has_government = democratic }
+			#threat > 0.25
+			
+			OR = {
+				GER = {
+					has_war_with = SOV
+				}
+				date > 1941.1.1
+			}
 		}
 		bypass = {
 			is_in_faction_with = ENG
@@ -5958,13 +5968,10 @@ focus_tree = {
 				}
 			}
 		}
-		allow_branch = {
-			always = no
-		}
 		prerequisite = { focus = HOL_oranje_boven focus = HOL_unity_through_democracy }
 		mutually_exclusive = { focus = HOL_lead_the_minor_democracies }
 		icon = GFX_focus_chi_british_cooperation
-		x = 1
+		x = 2
 		y = 1
 		relative_position_id = HOL_unity_through_democracy #SPT change, swapped relative position id
 		cost = 10
