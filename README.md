@@ -11,8 +11,10 @@
 ### Hungary
  - 'Trade Deal with Germany' now properly applies Interventionism 
 
-### Siam
+### Siam 2.0
  - Fixed Cultural Mandate decisions
+ - 'Elephants' and 'African Elephants': Added Elephant Recon Companies
+ - Added Bangkok Flooding event and related Pad Thai branch
 
 ### 3.11.1 'wtf chafford went sicko mode'
 
