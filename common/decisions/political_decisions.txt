@@ -10,7 +10,10 @@ fascism_on_the_rise = {
 
 		visible = {
 			NOT = { has_country_flag = preparation_for_fascist_civil_war }
-			NOT = { tag = SIA } #SPTChange 
+			NOT = { #SPTchange
+				tag = SIA 
+				tag = DEN
+			}
 			OR = {
 				has_idea_with_trait = fascist_demagogue
 				has_idea_with_trait = syncretic_revanchist
@@ -436,8 +439,11 @@ fascism_on_the_rise = {
 			neutrality < 0.9
 		}
 
-		visible = {
-			NOT = { tag = SIA } #SPTChange 
+		visible = {			
+			NOT = { #SPTChange 
+				tag = SIA 
+				tag = DEN
+			}
 			OR = {
 				has_idea_with_trait = fascist_demagogue
 				has_idea_with_trait = syncretic_revanchist
@@ -542,6 +548,7 @@ fascism_on_the_rise = {
 			NOT = {
 				tag = ARG
 				tag = SIA #SPTChange 
+				tag = DEN
 			}
 		}
 	}
