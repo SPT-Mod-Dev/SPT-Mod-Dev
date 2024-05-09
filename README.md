@@ -5,6 +5,10 @@
 ### Major Nations
  - Greatly improved AI behaviour 
 
+### Germany
+
+ - Can now declare war on the Soviet Union 3 months earlier (1.1.1941 or 1.3.1941 depending on which industry branch they have chosen)
+
 ### France
  - Potentially fixed an issue where French North Africa flips to Germany upon capitlation
 
