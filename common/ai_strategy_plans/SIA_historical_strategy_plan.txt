@@ -42,6 +42,9 @@ SPT_SIA_historical = {
 		SPT_SIA_phibun
 		SPT_SIA_learn_japan
 		SPT_SIA_research_slot_two
+		SPT_SIA_reassess_industry
+		SPT_SIA_reassure_people
+		SPT_SIA_pad_thai
 	}
 
 	research = {
@@ -52,6 +55,16 @@ SPT_SIA_historical = {
 
 	ideas = {
 		
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		tag = CHI
+		country_trigger = {
+			NOT = { JAP = { has_war_with = USA } }
+			JAP = { has_war_with = CHI }
+		}
+		value = 10000
 	}
 
 	traits = {

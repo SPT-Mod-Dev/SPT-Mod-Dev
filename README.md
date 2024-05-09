@@ -1,9 +1,12 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.11.2
+### 3.11.2 'https://hoi4.paradoxwikis.com/AI_modding'
 
 ### Major Nations
  - Greatly improved AI behaviour 
+
+### Germany
+ - Can now declare war on the Soviet Union 3 months earlier (1.1.1941 or 1.3.1941 depending on which industry branch they have chosen)
 
 ### France
  - Potentially fixed an issue where French North Africa flips to Germany upon capitlation
@@ -11,8 +14,10 @@
 ### Hungary
  - 'Trade Deal with Germany' now properly applies Interventionism 
 
-### Siam
+### Siam 2.0
  - Fixed Cultural Mandate decisions
+ - 'Elephants' and 'African Elephants': Added Elephant Recon Companies
+ - Added Bangkok Flooding event and related Pad Thai branch
 
 ### 3.11.1 'wtf chafford went sicko mode'
 

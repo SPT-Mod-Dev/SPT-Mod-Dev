@@ -1,16 +1,3 @@
-# siam 2.0
-# pad thai event/focus branch
-# elephant recon - the best offensive is a good elephant
-
-# X japan pan asia and integration
-# X mios
-# X advisors 
-# X cultural mandate decisions
-# X radar building 
-# X propaganda spies
-# X zbra gfx
-# X japan trade rate
-
 
 focus_tree = {
 	id = SPT_siam_focus
@@ -2018,7 +2005,15 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_ideas = SPT_SIA_elephants
+
+			custom_effect_tooltip = SPT_SIA_elephant_recon_support_tt
+	
+			hidden_effect = {
+				set_technology = {
+					elephant_recon_support_tech = 1
+					popup = no
+				}
+			}
 		}
 	}
 				
@@ -2098,8 +2093,7 @@ focus_tree = {
 	focus = {
 		id = SPT_SIA_army_reformed
 		icon = GFX_focus_chi_army_reform
-		prerequisite = { focus = SPT_SIA_infantry_equipment }
-		prerequisite = { focus = SPT_SIA_support_equipment }
+		prerequisite = { focus = SPT_SIA_infantry_equipment focus = SPT_SIA_support_equipment }
 		x = 2
 		y = 1
 		relative_position_id = SPT_SIA_infantry_equipment
@@ -2486,8 +2480,7 @@ focus_tree = {
 	focus = {
 		id = SPT_SIA_land_doctrine
 		icon = GFX_goal_generic_army_doctrines
-		prerequisite = { focus = SPT_SIA_subs }
-		prerequisite = { focus = SPT_SIA_mountaineer focus = SPT_SIA_tank }
+		prerequisite = { focus = SPT_SIA_mountaineer focus = SPT_SIA_tank focus = SPT_SIA_subs }
 		x = 1
 		y = 1
 		relative_position_id = SPT_SIA_mountaineer
@@ -2758,8 +2751,7 @@ focus_tree = {
 	focus = {
 		id = SPT_SIA_sky_doctrine
 		icon = GFX_goal_generic_air_doctrine
-		prerequisite = { focus = SPT_SIA_paratroop }
-		prerequisite = { focus = SPT_SIA_air }
+		prerequisite = { focus = SPT_SIA_paratroop focus = SPT_SIA_air }
 		x = -1
 		y = 1
 		relative_position_id = SPT_SIA_air
@@ -3003,8 +2995,7 @@ focus_tree = {
 	focus = {
 		id = SPT_SIA_water_doctrine
 		icon = GFX_goal_generic_navy_doctrines_tactics
-		prerequisite = { focus = SPT_SIA_fleet }
-		prerequisite = { focus = SPT_SIA_marine }
+		prerequisite = { focus = SPT_SIA_fleet focus = SPT_SIA_marine }
 		x = -1
 		y = 1
 		relative_position_id = SPT_SIA_fleet
@@ -3282,7 +3273,6 @@ focus_tree = {
 			any_controlled_state = {
 				is_on_continent = africa
 			}
-			has_idea = SPT_SIA_elephants
 		}
 
 		bypass = {
@@ -3294,11 +3284,193 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = SPT_SIA_elephants
-				add_idea = SPT_SIA_elephants_large
+
+			custom_effect_tooltip = SPT_SIA_african_elephant_recon_support_tt
+
+			hidden_effect = {
+				set_technology = {
+					african_elephant_recon_support_tech = 1
+					popup = no
+				}
 			}
 		}
 	}
 
+	focus = {
+		id = SPT_SIA_flooding
+		icon = GFX_focus_generic_hydroelectric_energy
+		prerequisite = { }
+		x = 36
+		y = 0
+
+		cost = 0
+
+		ai_will_do = {
+		
+		}
+
+		available = {
+			hidden_trigger = {
+				always = no
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_SIA_flood_tt
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			set_country_flag = SPT_SIA_flood_treatment
+			add_dynamic_modifier = {
+				modifier = SPT_SIA_pad_thai_dm
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_SIA_reassure_people
+		icon = GFX_focus_SOV_restore_cossack_units
+		prerequisite = { focus = SPT_SIA_flooding }
+		x = -1
+		y = 1
+		relative_position_id = SPT_SIA_flooding
+
+		cost = 2
+
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {
+			has_country_flag = {
+				flag = SPT_SIA_flood_treatment
+				days > 100
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_SIA_flood_timer_tt
+				has_country_flag = {
+					flag = SPT_SIA_flood_treatment
+					days > 100
+				}
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			clr_country_flag = SPT_SIA_flood_treatment
+			set_country_flag = SPT_SIA_flood_treatment
+			set_variable = { SPT_SIA_pt_conscr_fact = 0 }
+			set_variable = { SPT_SIA_pt_army_strength_fact = 0 }
+			set_variable = { SPT_SIA_pt_army_speed_fact = 0 }
+			set_variable = { SPT_SIA_pt_speed_build = 0 }
+			custom_effect_tooltip = SPT_SIA_pad_thai_people_tt
+		}
+	}
+
+	focus = {
+		id = SPT_SIA_reassess_industry
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = SPT_SIA_flooding }
+		x = 1
+		y = 1
+		relative_position_id = SPT_SIA_flooding
+
+		cost = 2
+
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {	
+			has_country_flag = {
+				flag = SPT_SIA_flood_treatment
+				days > 100
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_SIA_flood_timer_tt
+				has_country_flag = {
+					flag = SPT_SIA_flood_treatment
+					days > 100
+				}
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			clr_country_flag = SPT_SIA_flood_treatment
+			set_country_flag = SPT_SIA_flood_treatment
+			set_variable = { SPT_SIA_pt_fact_output = 0 }
+			set_variable = { SPT_SIA_pt_dock_output = 0 }
+			set_variable = { SPT_SIA_pt_eff_retention = 0 }
+			set_variable = { SPT_SIA_pt_eff_min = 0 }
+			custom_effect_tooltip = SPT_SIA_pad_thai_industry_tt
+		}
+	}
+
+	focus = {
+		id = SPT_SIA_pad_thai
+		icon = GFX_focus_generic_coffee
+		prerequisite = { focus = SPT_SIA_reassure_people }
+		prerequisite = { focus = SPT_SIA_reassess_industry }
+		x = 0
+		y = 2
+		relative_position_id = SPT_SIA_flooding
+
+		cost = 4
+
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {
+			has_country_flag = {
+				flag = SPT_SIA_flood_treatment
+				days > 100
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_SIA_flood_timer_tt
+				has_country_flag = {
+					flag = SPT_SIA_flood_treatment
+					days > 100
+				}
+			}
+		}
+
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			clr_country_flag = SPT_SIA_flood_treatment
+			every_owned_state = {
+				add_dynamic_modifier = { modifier = SPT_SIA_pad_thai_sm scope = SIA }
+			}	
+		}
+			
+	}
 }

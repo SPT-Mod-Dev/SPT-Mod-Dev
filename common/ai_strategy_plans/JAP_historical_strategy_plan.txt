@@ -15,12 +15,13 @@ SPT_JAP_historical = {
 	#MOD CHANGED the order of the ai_national_focuses
 	ai_national_focuses = {
 		JAP_purge_the_kodoha_faction
-		JAP_guide_the_zaibatsus
+		JAP_challenge_the_zaibatsus
 		JAP_national_mobilization_law
 		JAP_national_research_policy
-		JAP_nationalize_war_industry
+		JAP_imperial_arsenals
 		JAP_national_defense_state
 		JAP_spiritual_mobilization
+		JAP_volunteer_fighting_corps
 		JAP_liaison_conference
 		JAP_greater_east_asian_co_prosperity_sphere
 		JAP_the_manchurian_project
@@ -42,11 +43,19 @@ SPT_JAP_historical = {
 		JAP_the_zero
 		JAP_army_triumphant	
 		JAP_expand_the_snlf
+		JAP_pan_asia_movement
+		JAP_showa_restoration
+		JAP_spread_our_ideals
 		JAP_sign_tripartite_pact
 		JAP_strike_south_doctrine
 		JAP_non_aggression_pact_with_the_soviet_union
 		JAP_alliance_with_siam
+		JAP_cruiser_modernization
+		JAP_long_lance_torpedoes
+		JAP_torpedo_cruisers
 		SPT_JAP_the_zaibatsus
+		JAP_seize_zaibatsu_docks
+		SPT_JAP_nationalized_zaibatsus
 		SPT_JAP_steady_development
 		SPT_JAP_long_term_planning
 		SPT_JAP_stockpiling_strategies
@@ -56,7 +65,13 @@ SPT_JAP_historical = {
 		JAP_strike_the_islands
 		JAP_strike_the_americans
 		SPT_JAP_military_reorganized
+		SPT_JAP_rapid_development
+		SPT_JAP_quick_retooling
+		SPT_JAP_factory_mobilization
 		JAP_strike_south_completed
+		JAP_develop_chinese_resources
+		JAP_employ_tonarigumi
+		JAP_expand_tonarigumi
 	}
 
 	research = {
@@ -76,19 +91,75 @@ SPT_JAP_historical = {
 	ai_strategy = {
 		type = prepare_for_war
 		id = CHI
-		value = 100
+		value = 10000
 	}
 	ai_strategy = {
 		type = invade
 		id = CHI
-		value = 300
+		value = 10000
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 597
+		value = 30000
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 743
+		value = 30000
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 613
+		value = 25000
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 596
+		value = 25000
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 595
+		value = 20000
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 593
+		value = 20000
 	}
 	ai_strategy = {
 		type = send_volunteers_desire
 		id = GER
 		value = -10000
 	}
-	
+	ai_strategy = {
+		type = front_unit_request
+		tag = CHI
+		country_trigger = {
+			NOT = { JAP = { has_war_with = USA } }
+			JAP = { has_war_with = CHI }
+		}
+		value = 10000
+	}
+	ai_strategy = {
+		type = operative_operation
+		value = 10000
+		operation = operation_collaboration_government
+		operation_target = CHI
+	}
+	ai_strategy = {
+		type = intelligence_agency_usable_factories
+		value = 100
+	}
+	ai_strategy = {
+		type = agency_ai_base_num_factories_factor
+		value = -100
+	}
+	ai_strategy = {
+		type = agency_ai_per_upgrade_factories_factor
+		value = -100
+	}
 
 	# Keep small, as it is used as a factor for some things (such as research needs)
 	# Recommended around 1.0. Useful for relation between plans
