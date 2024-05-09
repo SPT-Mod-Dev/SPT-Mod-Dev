@@ -57,6 +57,16 @@ SPT_SIA_historical = {
 		
 	}
 
+	ai_strategy = {
+		type = front_unit_request
+		tag = CHI
+		country_trigger = {
+			NOT = { JAP = { has_war_with = USA } }
+			JAP = { has_war_with = CHI }
+		}
+		value = 10000
+	}
+
 	traits = {
 		captain_of_industry = 10
 		war_industrialist = 5

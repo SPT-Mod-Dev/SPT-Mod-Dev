@@ -50,7 +50,12 @@ SPT_JAP_historical = {
 		JAP_strike_south_doctrine
 		JAP_non_aggression_pact_with_the_soviet_union
 		JAP_alliance_with_siam
+		JAP_cruiser_modernization
+		JAP_long_lance_torpedoes
+		JAP_torpedo_cruisers
 		SPT_JAP_the_zaibatsus
+		JAP_seize_zaibatsu_docks
+		SPT_JAP_nationalized_zaibatsus
 		SPT_JAP_steady_development
 		SPT_JAP_long_term_planning
 		SPT_JAP_stockpiling_strategies
@@ -96,16 +101,32 @@ SPT_JAP_historical = {
 	ai_strategy = {
 		type = invasion_unit_request
 		state = 597
-		value = 20000
+		value = 30000
 	}
 	ai_strategy = {
 		type = invasion_unit_request
 		state = 743
-		value = 25000
-	}ai_strategy = {
+		value = 30000
+	}
+	ai_strategy = {
 		type = invasion_unit_request
 		state = 613
-		value = 15000
+		value = 25000
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 596
+		value = 25000
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 595
+		value = 20000
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 593
+		value = 20000
 	}
 	ai_strategy = {
 		type = send_volunteers_desire
@@ -121,7 +142,24 @@ SPT_JAP_historical = {
 		}
 		value = 10000
 	}
-	
+	ai_strategy = {
+		type = operative_operation
+		value = 10000
+		operation = operation_collaboration_government
+		operation_target = CHI
+	}
+	ai_strategy = {
+		type = intelligence_agency_usable_factories
+		value = 100
+	}
+	ai_strategy = {
+		type = agency_ai_base_num_factories_factor
+		value = -100
+	}
+	ai_strategy = {
+		type = agency_ai_per_upgrade_factories_factor
+		value = -100
+	}
 
 	# Keep small, as it is used as a factor for some things (such as research needs)
 	# Recommended around 1.0. Useful for relation between plans
