@@ -11,6 +11,7 @@ country_event = {
 	desc = finland.1.d
 	picture = GFX_report_event_soviet_tanks_snow
 	
+	timeout_days = 14
 	is_triggered_only = yes
 	#SPTChange commented out option
 	# option = { # Accept demands
@@ -63,13 +64,13 @@ country_event = {
 				is_in_faction_with = FROM
 			}
 		}
-		FROM = {
-			country_event = { days = 5 id = soviet.13 }
+		FROM.SOV = {
+			country_event = { id = soviet.13 days = 5 }
 			effect_tooltip = {
 				create_wargoal = {
 					type = take_state
 					target = FIN
-					generator = { 146 }
+					generator = { 146 147 }
 				}
 			}
 		}
