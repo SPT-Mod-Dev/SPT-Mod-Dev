@@ -1,5 +1,16 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.11.2
+
+### Soviets
+- Winter War war goal now doesn't expire
+
+### Spain
+ - 'Restore the Monarchy' now requires not being fascist
+
+### Japan
+ - AI Japan will now annex China rather than puppeting them
+
 ### 3.11.2 'https://hoi4.paradoxwikis.com/AI_modding'
 
 ### Major Nations
