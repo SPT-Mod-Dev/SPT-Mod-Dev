@@ -2,6 +2,9 @@
 
 ### 3.11.2
 
+### Admirals
+ - Updated traits to be in line with vanilla
+
 ### Soviets
  - Winter War war goal now doesn't expire
  - 'Ideological Loyalty' division recovery rate 20% -> 10%
