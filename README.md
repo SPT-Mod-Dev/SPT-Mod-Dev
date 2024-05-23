@@ -11,6 +11,10 @@
 ### Japan
  - AI Japan will now annex China rather than puppeting them
 
+### Brazil
+ - 'Support the Marines' correctly gives amphibious chassis tech 
+ - Added the mountaineer special forces focus branch
+
 ### 3.11.2 'https://hoi4.paradoxwikis.com/AI_modding'
 
 ### Major Nations
