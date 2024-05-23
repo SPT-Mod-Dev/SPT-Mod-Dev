@@ -10,7 +10,7 @@
  - 'Ideological Loyalty' division recovery rate 20% -> 10%
 
 ### UK
- - Removed ability to warn USA for fleet size when AI
+ - Removed ability to warn for fleet size via naval treaty when AI
 
 ### Spain
  - 'Restore the Monarchy' now requires not being fascist
