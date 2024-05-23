@@ -3,7 +3,8 @@
 ### 3.11.2
 
 ### Soviets
-- Winter War war goal now doesn't expire
+ - Winter War war goal now doesn't expire
+ - 'Ideological Loyalty' division recovery rate 20% -> 10%
 
 ### Spain
  - 'Restore the Monarchy' now requires not being fascist
