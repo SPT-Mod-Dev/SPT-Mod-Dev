@@ -335,16 +335,18 @@ on_actions = {
 			if = {
 				limit = {
 					NOT = { has_global_flag = GER_norr_rights }
-					OR = {
-						original_tag = GER
-						AND = {
-							original_tag = NOR
-							has_government = fascism
-						}	
-						is_in_faction_with = GER
+					110 = { 
+						controller = { 
+							OR = {
+								AND = {
+									original_tag = NOR
+									has_government = fascism
+									NOT = { is_ally_with = GER }
+								}	
+								is_ally_with =  GER
+							}
+						}
 					}
-					controls_state = 110
-					GER = { has_completed_focus = GER_swedish_trade_agreement }
 				}
 				GER = {
 					set_global_flag = GER_norr_rights
@@ -359,14 +361,19 @@ on_actions = {
 				limit = {
 					has_global_flag = GER_norr_rights
 					NOT = {
-						original_tag = GER
-						AND = {
-							original_tag = NOR
-							has_government = fascism
+						110 = { 
+							controller = { 
+								OR = {
+									AND = {
+										original_tag = NOR
+										has_government = fascism
+										NOT = { is_ally_with = GER }
+									}	
+									is_ally_with =  GER
+								}
+							}
 						}
-						is_in_faction_with = GER
 					}
-					controls_state = 110
 					GER = { has_completed_focus = GER_swedish_trade_agreement }
 				}
 				GER = {

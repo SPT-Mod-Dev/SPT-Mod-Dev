@@ -3103,15 +3103,18 @@ focus = {
 		if = {
 			limit = {
 				NOT = { has_global_flag = GER_norr_rights }
-				OR = {
-					original_tag = GER
-					AND = {
-						original_tag = NOR
-						has_government = fascism
-					}	
-					is_in_faction_with = GER
+				110 = { 
+					controller = { 
+						OR = {
+							AND = {
+								original_tag = NOR
+								has_government = fascism
+								NOT = { is_ally_with = GER }
+							}	
+							is_ally_with =  GER
+						}
+					}
 				}
-				controls_state = 110
 			}
 			GER = {
 				set_global_flag = GER_norr_rights
