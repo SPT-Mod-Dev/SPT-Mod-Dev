@@ -5,6 +5,10 @@
 ### Admirals
  - Updated traits to be in line with vanilla
 
+### Germany
+ - Now can select which Quisling path Norway will choose
+ - Fix the Norrland resource decision when Quisling's Coup fires
+
 ### Soviets
  - Winter War war goal now doesn't expire
  - 'Ideological Loyalty' division recovery rate 20% -> 10%
