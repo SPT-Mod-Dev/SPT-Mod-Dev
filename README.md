@@ -12,6 +12,7 @@
 ### Soviets
  - Winter War war goal now doesn't expire
  - 'Ideological Loyalty' division recovery rate 20% -> 10%
+ - 'Tula Arms Plant' production bonuses 10% -> 5%
 
 ### UK
  - Removed ability to warn for fleet size via naval treaty when AI
