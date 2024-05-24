@@ -4337,13 +4337,23 @@ focus_tree = {
 		cost = 5
 		
 		available = {
+			hidden_trigger = {
+				has_country_flag = NOR_do_quisling
+			}
 			if = {
 				limit = {
-					has_variable = NOR_cw_democratic_norway
+					any_other_country = {
+						original_tag = NOR
+						NOT = { has_government = fascism }
+					}
+					has_variable = NOR_cw_democratic_norway	
 				}
 				var:NOR_cw_democratic_norway = {
 					has_capitulated = yes 
 				}
+			}
+			else = {
+				has_civil_war = no 
 			}
 			has_government = fascism
 			fascism > 0.5 
@@ -4380,14 +4390,20 @@ focus_tree = {
 		relative_position_id = NOR_quislings_coup
 		cost = 5
 		available = {
+			hidden_trigger = {
+				has_country_flag = NOR_dont_quisling
+			}
 			if = {
 				limit = {
 					has_variable = NOR_cw_democratic_norway
 				}
 				var:NOR_cw_democratic_norway = {
-					has_capitulated = yes 
+					OR = {
+						has_capitulated = yes 
+						exists = no 
+					}
 				}
-			}			
+			}				
 			has_government = fascism 
 			fascism > 0.5 
 		}

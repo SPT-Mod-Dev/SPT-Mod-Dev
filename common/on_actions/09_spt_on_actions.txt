@@ -327,53 +327,50 @@ on_actions = {
 				
 				sound_effect = "spt_pipe_falling"
 			}
-			
-			
-			
-
-
-			
-
 		}
 	}
 	on_state_control_changed = {
 		effect = {
-			#Checks axis take oslo
+			#Checks axis take oslo SPTChange makes it work idk
 			if = {
 				limit = {
-					FROM.FROM = {
-						state = 110
-					}
+					NOT = { has_global_flag = GER_norr_rights }
 					OR = {
-						ROOT = {
-							original_tag = GER
-						}
-						ROOT = {
-							is_ally_with = GER
-						}
+						original_tag = GER
+						AND = {
+							original_tag = NOR
+							has_government = fascism
+						}	
+						is_in_faction_with = GER
 					}
+					controls_state = 110
+					GER = { has_completed_focus = GER_swedish_trade_agreement }
 				}
-				country_event = {
-					days = 7
-					id = spt.1
+				GER = {
+					set_global_flag = GER_norr_rights
+					country_event = {
+						days = 7
+						id = spt.1
+					}
 				}
 			}
 			#Checks axis lose oslo
 			if = {
 				limit = {
-					FROM.FROM = {
-						state = 110
-					}
-					OR = {
-						FROM = {
-							original_tag = GER
+					has_global_flag = GER_norr_rights
+					NOT = {
+						original_tag = GER
+						AND = {
+							original_tag = NOR
+							has_government = fascism
 						}
-						FROM = {
-							is_ally_with = GER
-						}
+						is_in_faction_with = GER
 					}
+					controls_state = 110
+					GER = { has_completed_focus = GER_swedish_trade_agreement }
 				}
 				GER = {
+					clr_global_flag = GER_norr_rights
 					country_event = {
 						days = 3
 						id = spt.2
