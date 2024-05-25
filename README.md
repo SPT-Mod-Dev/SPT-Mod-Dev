@@ -27,6 +27,7 @@
 ### Brazil
  - 'Support the Marines' correctly gives amphibious chassis tech 
  - Added the mountaineer special forces focus branch
+ - Removed ability to have Minervino de Oliveira as leader and advisor
 
 ### 3.11.2 'https://hoi4.paradoxwikis.com/AI_modding'
 
