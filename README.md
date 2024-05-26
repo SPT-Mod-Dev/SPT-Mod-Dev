@@ -29,6 +29,13 @@
  - Added the mountaineer special forces focus branch
  - Removed ability to have Minervino de Oliveira as leader and advisor
 
+### South Africa
+ - 'Police Windhoek' nows give 5% stability
+ - 'Secure Interests in Africa' nows give 10% stability
+
+### New Zealand
+ - 'Schofield Tank' now provides a bonus for all armour
+
 ### 3.11.2 'https://hoi4.paradoxwikis.com/AI_modding'
 
 ### Major Nations
