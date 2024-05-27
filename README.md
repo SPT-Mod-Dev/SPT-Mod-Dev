@@ -12,6 +12,7 @@
 ### Germany
  - Now can select which Quisling path Norway will choose
  - Fix the Norrland resource decision when Quisling's Coup fires
+ - 'Second Vienna Award' should no longer improperly bypass 
 
 ### Norway
  - Removed the fascist resistance mechanic
