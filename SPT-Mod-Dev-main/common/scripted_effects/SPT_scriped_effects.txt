@@ -1,0 +1,108 @@
+SPT_transfer_ships_FRA_to_HTF = {
+	set_variable = {
+		var = NumShips
+		value = FRA.num_ships_with_type@destroyer
+	}
+	divide_variable = {
+		NumShips = 2
+	}
+	round_variable = NumShip
+	for_loop_effect = {
+		value = ForIntegerCounter
+		start = 0
+		end = NumShips
+		add = 1
+		FRA = {
+			transfer_ship = {
+				type = destroyer
+				target = HTF
+			}
+		}
+	}
+
+	set_variable = {
+		var = NumShips
+		value = FRA.num_ships_with_type@light_cruiser
+	}
+	divide_variable = {
+		NumShips = 2
+	}
+	round_variable = NumShip
+	for_loop_effect = {
+		value = ForIntegerCounter
+		start = 0
+		end = NumShips
+		add = 1
+		FRA = {
+			transfer_ship = {
+				type = light_cruiser
+				target = HTF
+			}
+		}
+	}
+	set_variable = {
+		var = NumShips
+		value = FRA.num_ships_with_type@heavy_cruiser
+	}
+	divide_variable = {
+		NumShips = 2
+	}
+	round_variable = NumShip
+	for_loop_effect = {
+		value = ForIntegerCounter
+		start = 0
+		end = NumShips
+		add = 1
+		FRA = {
+			transfer_ship = {
+				type = heavy_cruiser
+				target = HTF
+			}
+		}
+	}
+	set_variable = {
+		var = NumShips
+		value = FRA.num_ships_with_type@carrier
+	}
+	divide_variable = {
+		NumShips = 2
+	}
+	round_variable = NumShip
+	for_loop_effect = {
+		value = ForIntegerCounter
+		start = 0
+		end = NumShips
+		add = 1
+		FRA = {
+			transfer_ship = {
+				type = carrier
+				target = HTF
+			}
+		}
+	}
+	
+	set_variable = {
+		var = NumShips
+		value = FRA.num_ships_with_type@battleship
+	}
+	divide_variable = {
+		NumShips = 2
+	}
+	round_variable = NumShip
+	for_loop_effect = {
+		value = ForIntegerCounter
+		start = 0
+		end = NumShips
+		add = 1
+		FRA = {
+			transfer_ship = {
+				type = battleship
+				target = HTF
+			}
+		}
+	}
+	FRA = {
+		transfer_navy = {target=ATF}
+	}
+	
+}

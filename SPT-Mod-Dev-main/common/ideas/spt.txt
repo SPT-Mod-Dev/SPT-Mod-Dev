@@ -1,0 +1,174 @@
+ideas = {
+	
+	hidden_ideas = {
+		spt_disrupted_shipping_hidden = {	
+			name = spt_disrupted_shipping_hidden_id
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}	
+			modifier = {
+			}
+		}
+
+	}
+
+	country = {
+		supply_spirit = {	
+				
+			allowed = {
+				original_tag = ITA
+			}
+				
+			modifier = {
+				supply_node_range = 0.1
+				production_speed_supply_node_factor = 3
+				production_speed_rail_way_factor = 1
+			}
+		}
+
+		CHI_illegitimate_government = {
+
+			picture = chi_wargaming_division
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes			
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				surrender_limit = -0.3
+			}
+
+		}
+
+		PAC_total_victory = {
+			picture = generic_victors_of_ww1
+
+			modifier = {
+				army_attack_factor = 0.2
+				army_defence_factor = 0.2
+				army_morale_factor = 0.2
+				war_support_factor = 0.3
+				political_power_factor = 0.2
+				resistance_activity = -0.15
+			}
+		}
+
+
+		SPT_No_Resource_Penalty = {
+			picture = generic_flexible_foreign_policy
+
+			modifier = {
+				production_lack_of_resource_penalty_factor = -1
+				base_fuel_gain = 50000
+			}
+		}
+
+		#Mediterranean BoP Debuff spirits for Axis
+		SPT_Med_BOP_Axis_Debuff_low = {
+			picture = chi_war_of_resistance
+			modifier = {
+				army_org_Factor = -0.05
+				army_morale_factor = -0.05
+				#army_speed_factor = -0.025
+				supply_consumption_factor = 0.025
+			}
+		}
+
+		SPT_Med_BOP_Axis_Debuff_med = {
+			picture = chi_war_of_resistance2
+			modifier = {
+				army_org_Factor = -0.05
+				army_morale_factor = -0.05
+				#army_speed_factor = -0.05
+				supply_consumption_factor = 0.05
+				
+			}
+			targeted_modifier = {
+				tag = SOV
+				attack_bonus_against = -0.05
+				defense_bonus_against = -0.05
+			}
+		}
+		SPT_Med_BOP_Axis_Debuff_high = {
+			picture = chi_war_of_resistance3
+			modifier = {
+				army_org_Factor = -0.075
+				army_morale_factor = -0.075
+				#army_speed_factor = -0.075
+				supply_consumption_factor = 0.075
+			}
+			targeted_modifier = {
+				tag = SOV
+				attack_bonus_against = -0.1
+				defense_bonus_against = -0.1
+			}
+		}
+		
+		#Mediterranean BoP Debuff spirits for Allies
+		SPT_Med_BOP_Allies_Debuff_low = {
+			picture = chi_war_of_resistance
+			modifier = {
+				army_org_Factor = -0.05
+				supply_consumption_factor = 0.05
+			}
+		}
+
+		SPT_Med_BOP_Allies_Debuff_med = {
+			picture = chi_war_of_resistance2
+			modifier = {
+				army_org_Factor = -0.075
+				max_planning_factor = -0.05
+				supply_consumption_factor = 0.075		
+			}
+			targeted_modifier = {
+				tag = GER
+				attack_bonus_against = -0.05
+				defense_bonus_against = -0.05
+			}
+			targeted_modifier = {
+				tag = ITA
+				attack_bonus_against = -0.05
+				defense_bonus_against = -0.05
+			}
+		}
+		SPT_Med_BOP_Allies_Debuff_high = {
+			picture = chi_war_of_resistance3
+			modifier = {
+				army_org_Factor = -0.075
+				max_planning_factor = -0.075
+				supply_consumption_factor = 0.1
+			}
+			targeted_modifier = {
+				tag = GER
+				attack_bonus_against = -0.1
+				defense_bonus_against = -0.1
+			}
+			targeted_modifier = {
+				tag = ITA
+				attack_bonus_against = -0.1
+				defense_bonus_against = -0.1
+			}
+		}
+		
+		SPT_disrupted_shipping = {
+			picture = eng_a_change_in_course
+
+			modifier = {
+				navy_fuel_consumption_factor = 0.15
+				air_fuel_consumption_factor = 0.15
+				supply_consumption_factor = 0.15
+			}
+		}
+	}
+
+}
