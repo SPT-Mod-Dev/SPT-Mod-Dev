@@ -4,7 +4,7 @@
 
 ### General
  - Added Mongolia to the 'Select Country' screen
- - Added multiple nations to host tool 
+ - Added remaining playable nations to host tool 
 
 ### Admirals
  - Updated traits to be in line with vanilla
@@ -13,10 +13,10 @@
  - Now can select which Quisling path Norway will choose
  - Fix the Norrland resource decision when Quisling's Coup fires
  - 'Second Vienna Award' should no longer improperly bypass 
+ - Reworked compliance branch to suit new Scandanavian nations
 
-### Norway
- - Removed the fascist resistance mechanic
- - Removed Quisling's war goal focuses 
+### Japan
+ - AI Japan will now annex China rather than puppeting them
 
 ### Soviets
  - Winter War war goal now doesn't expire
@@ -27,11 +27,12 @@
 ### UK
  - Removed ability to warn for fleet size via naval treaty when AI
 
+### Norway
+ - Removed the fascist resistance mechanic
+ - Removed Quisling's war goal focuses 
+
 ### Spain
  - 'Restore the Monarchy' now requires not being fascist
-
-### Japan
- - AI Japan will now annex China rather than puppeting them
 
 ### Brazil
  - 'Support the Marines' correctly gives amphibious chassis tech 
@@ -44,6 +45,9 @@
 
 ### New Zealand
  - 'Schofield Tank' now provides a bonus for all armour
+
+### Netherlands
+ -  Removed seawolf from Conrad Helfrich
 
 ### 3.11.2 'https://hoi4.paradoxwikis.com/AI_modding'
 
