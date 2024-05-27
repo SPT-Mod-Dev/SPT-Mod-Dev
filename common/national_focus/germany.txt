@@ -9605,8 +9605,7 @@ focus = {
 	icon = GFX_focus_POL_common_organization_of_society
 	prerequisite = { focus = GER_form_the_reichskommissariats }
 	available = {
-		GER = { has_war = no }
-		POL = { has_capitulated = no }
+		NOT = { GER = { has_war_with = POL } }
 	}
 	bypass = {
 		POL = { has_capitulated = yes }
@@ -9622,6 +9621,30 @@ focus = {
 	search_filters = { FOCUS_FILTER_ANNEXATION }
 	completion_reward = {
 		custom_effect_tooltip = GER_pol_compliance_tt
+	}
+}
+
+focus = {
+	id = GER_fra_compliance
+	icon = GFX_focus_focus_fra_border
+	prerequisite = { focus = GER_pol_compliance }
+	available = {
+		NOT = { GER = { has_war_with = FRA } }
+	}
+	bypass = {
+		FRA = { has_capitulated = yes }
+	}
+	cancel_if_invalid = yes
+	x = 0
+	y = 1
+	relative_position_id = GER_pol_compliance
+	cost = 10
+	ai_will_do = {
+		factor = 3
+	}
+	search_filters = { FOCUS_FILTER_ANNEXATION }
+	completion_reward = {
+		custom_effect_tooltip = GER_fra_compliance_tt
 	}
 }
 
@@ -9775,33 +9798,6 @@ focus = {
 		}
 	}
 }
-
-focus = {
-	id = GER_fra_compliance
-	icon = GFX_focus_focus_fra_border
-	prerequisite = { focus = GER_pol_compliance }
-	available = {
-		GER = { has_war = no }
-		FRA = { has_capitulated = no }
-	}
-	bypass = {
-		FRA = { has_capitulated = yes }
-	}
-	cancel_if_invalid = yes
-	x = 0
-	y = 1
-	relative_position_id = GER_pol_compliance
-	cost = 10
-	ai_will_do = {
-		factor = 3
-	}
-	search_filters = { FOCUS_FILTER_ANNEXATION }
-	completion_reward = {
-		custom_effect_tooltip = GER_fra_compliance_tt
-	}
-}
-
-
 
 focus = {
 	id = GER_sca_compliance
