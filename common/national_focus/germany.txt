@@ -9630,18 +9630,22 @@ focus = {
 	prerequisite = { focus = GER_form_the_reichskommissariats }
 	available = {
 		OR = {
-			FHO = {
+			AND = {
+				original_tag = HOL
+				has_government = fascism
 				OR = {
 					is_in_faction_with = GER
 					is_subject_of = GER
 				}
 			}	
-			FBE = {
+			AND = {
+				original_tag = BEL
+				has_government = fascism
 				OR = {
 					is_in_faction_with = GER
 					is_subject_of = GER
 				}
-			}	
+			}		
 		}
 	}
 	cancel_if_invalid = yes
@@ -9657,7 +9661,9 @@ focus = {
 		if = {
 			limit = {
 				NOT = { 
-					FHO = {
+					AND = {
+						original_tag = HOL
+						has_government = fascism
 						OR = {
 							is_in_faction_with = GER
 							is_subject_of = GER
@@ -9670,21 +9676,26 @@ focus = {
 		if = {
 			limit = {
 				NOT = { 
-					FBE = {
+					AND = {
+						original_tag = BEL
+						has_government = fascism
 						OR = {
 							is_in_faction_with = GER
 							is_subject_of = GER
 						}
-					}				
+					}					
 				}
 			}
 			custom_effect_tooltip = GER_integrate_FBE_tt
 		}
 		if = {
-			limit = {
-				FHO = {
+			limit = {	
+				original_tag = HOL
+				has_government = fascism
+				OR = {
 					is_in_faction_with = GER
-				}
+					is_subject_of = GER
+				}	
 			}
 			random_owned_controlled_state = {
 				limit = {
@@ -9720,13 +9731,13 @@ focus = {
 			}
 		}
 		if = {
-			limit = {
-				FBE = {
-					OR = {
+			limit = {	
+				original_tag = BEL
+				has_government = fascism
+				OR = {
 					is_in_faction_with = GER
 					is_subject_of = GER
-					}
-				}
+				}	
 			}
 			random_owned_controlled_state = {
 				limit = {
