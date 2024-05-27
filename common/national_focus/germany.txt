@@ -4668,10 +4668,10 @@ focus = {
 								NOT = { controls_state = 84 }
 							}
 							has_war_with = HUN
-							AND = {
-								is_in_faction_with = GER
-								HUN = { NOT = { is_in_faction_with = GER } }#GER should not want to give territory to Hungary if Romania joined the axis early.
-							}
+							# AND = { # SPTChange avoid bypassing
+							# 	is_in_faction_with = GER
+							# 	HUN = { NOT = { is_in_faction_with = GER } }#GER should not want to give territory to Hungary if Romania joined the axis early.
+							# }
 						}
 					}
 				}
@@ -4679,7 +4679,7 @@ focus = {
 					BUL = { is_friend_or_potential_friend_of_GER = no }
 					ROM = {
 						OR = {
-							NOT = { controls_state = 77 }
+							# NOT = { controls_state = 77 }
 							has_war_with = BUL					
 						}
 					}					

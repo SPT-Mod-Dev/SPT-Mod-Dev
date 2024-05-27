@@ -2,12 +2,20 @@
 
 ### 3.11.2
 
+### General
+ - Added Mongolia to the 'Select Country' screen
+ - Added multiple nations to host tool 
+
 ### Admirals
  - Updated traits to be in line with vanilla
 
 ### Germany
  - Now can select which Quisling path Norway will choose
  - Fix the Norrland resource decision when Quisling's Coup fires
+
+### Norway
+ - Removed the fascist resistance mechanic
+ - Removed Quisling's war goal focuses 
 
 ### Soviets
  - Winter War war goal now doesn't expire
