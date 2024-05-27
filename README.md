@@ -49,6 +49,11 @@
 ### Netherlands
  -  Removed seawolf from Conrad Helfrich
 
+### Japan
+ - Added a date check for Steady Development
+ - National Spirit 'Desperate Measures' will now be removed if BOP reaches at least 25% American Dominance
+ - Focus 'Guide The Zaibatsus' now takes 35 days to complete, from 70
+
 ### 3.11.2 'https://hoi4.paradoxwikis.com/AI_modding'
 
 ### Major Nations
