@@ -11,9 +11,9 @@
 
 ### Germany
  - Now can select which Quisling path Norway will choose
- - Fix the Norrland resource decision when Quisling's Coup fires
+ - Fix the Norrland resource event when Quisling's Coup fires
  - 'Second Vienna Award' should no longer improperly bypass 
- - Reworked compliance branch to suit new Scandanavian nations
+ - Reworked compliance branch focuses for Scandanavia and Benelux
 
 ### Japan
  - AI Japan will now annex China rather than puppeting them
