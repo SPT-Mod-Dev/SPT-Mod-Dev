@@ -210,7 +210,7 @@ country_event = {
 	option = {# transfer Slovakia
 		name = spt.10.a
 		ai_chance = {
-			factor = 50
+			base = 50
 		}
 		HUN = { country_event = spt.11 }
 		hidden_effect = {
@@ -221,7 +221,7 @@ country_event = {
 	option = {# refuse
 		name = spt.10.b
 		ai_chance = {
-			factor = 50
+			base = 0
 			modifier = {
 				is_in_faction = yes
 				HUN = { is_in_faction = no }
@@ -540,56 +540,6 @@ country_event = { #Get compliance from Poland
 
 }
 
-country_event = { #Get compliance from Netherlands
-	id = spt.101
-	title = spt.101.t
-	desc = spt.101.desc
-	picture = GFX_report_event_generic_read_write
-	is_triggered_only = yes
-	fire_only_once = yes
-	option = {
-		name = spt.101.a
-		hidden_effect = {
-			every_state = {
-				limit = {
-					is_core_of = HOL
-					is_on_continent = europe
-				}
-				add_compliance = 50
-				
-				
-			}
-		}
-		
-		custom_effect_tooltip = spt.101_tt
-	}
-
-}
-country_event = { #Get compliance from Belgium
-	id = spt.102
-	title = spt.102.t
-	desc = spt.102.desc
-	picture = GFX_report_event_generic_read_write
-	is_triggered_only = yes
-	fire_only_once = yes
-	option = {
-		name = spt.102.a
-		hidden_effect = {
-			every_state = {
-				limit = {
-					is_core_of = BEL
-					is_on_continent = europe
-				}
-				add_compliance = 50
-				
-				
-			}
-		}
-		
-		custom_effect_tooltip = spt.102_tt
-	}
-
-}
 country_event = { #Get compliance from France
 	id = spt.103
 	title = spt.103.t
@@ -616,55 +566,7 @@ country_event = { #Get compliance from France
 	}
 
 }
-country_event = { #Get compliance from Denmark
-	id = spt.104
-	title = spt.104.t
-	desc = spt.104.desc
-	picture = GFX_report_event_generic_read_write
-	is_triggered_only = yes
-	fire_only_once = yes
-	option = {
-		name = spt.104.a
-		hidden_effect = {
-			every_state = {
-				limit = {
-					is_core_of = DEN
-					is_on_continent = europe
-				}
-				add_compliance = 50
-				
-				
-			}
-		}
-		
-		custom_effect_tooltip = spt.104_tt
-	}
-	
-}
 
-country_event = { #Get compliance from Norway
-	id = spt.105
-	title = spt.105.t
-	desc = spt.105.desc
-	picture = GFX_report_event_generic_read_write
-	is_triggered_only = yes
-	option = {
-		hidden_effect = {
-			every_state = {
-				limit = {
-					is_core_of = NOR
-					is_on_continent = europe
-				}
-				add_compliance = 50
-				
-				
-			}
-		}
-		
-		custom_effect_tooltip = spt.105_tt
-	}
-	
-}
 country_event = { #USA remove bureau of ordnance
 	id = spt.106
 	title = spt.106.t
