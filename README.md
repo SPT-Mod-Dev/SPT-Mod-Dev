@@ -1,5 +1,69 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.11.3 'Where were you when soviet was kill'
+
+### General
+ - Added Mongolia to the 'Select Country' screen
+ - Added remaining playable nations to host tool
+ - Updated admiral traits to be in line with vanilla 
+ - Added new loading screen quotes
+
+### Germany
+ - Now can select which Quisling path Norway will choose
+ - Fix the Norrland resource event when Quisling's Coup fires
+ - 'Second Vienna Award' should no longer improperly bypass 
+ - Reworked compliance branch focuses for Scandanavia and Benelux
+
+### Japan
+ - Added a date check for Steady Development
+ - National Spirit 'Desperate Measures' will now be removed if BOP reaches at least 25% American Dominance
+ - Focus 'Guide The Zaibatsus' now takes 35 days to complete, from 70
+
+### Soviets
+ - Winter War war goal now doesn't expire
+ - 'Tula Arms Plant' production bonuses 10% -> 5%
+
+### Norway
+ - Removed the fascist resistance mechanic
+ - Removed Quisling's war goal focuses 
+
+### Spain
+ - 'Restore the Monarchy' now requires not being fascist
+
+### Brazil
+ - 'Support the Marines' correctly gives amphibious chassis tech 
+ - Added the mountaineer special forces focus branch
+ - Removed ability to have Minervino de Oliveira as leader and advisor
+
+### South Africa
+ - 'Police Windhoek' nows give 5% stability
+ - 'Secure Interests in Africa' nows give 10% stability
+
+### New Zealand
+ - 'Schofield Tank' now provides a bonus for all armour
+
+### Netherlands
+ -  Removed seawolf from Conrad Helfrich
+
+### AI 
+ - AI UK removed ability to warn for fleet size via naval treaty
+ - AI Soviets no longer naval invades Finland
+ - AI Japan will now annex China rather than puppeting them
+
+### Army Command
+ - 'Ideological Loyalty' Division recovery rate 20% -> 10% 
+                         Encirclement penalty -25% -> -10%
+
+### Air Force Command
+ - 'Steel heart steel wings' Cas damage reduction 15% -> 5%
+                             Air home defence factor 20% -> 10%
+ - 'Airborn heroes' Cas damage reduction 10% -> 5%
+                    Air home defence factor 15% -> 10%
+
+ ### Support companies
+ - Pioneers: marsh attack modifier +10% -> +20%
+
+
 ### 3.11.2 'https://hoi4.paradoxwikis.com/AI_modding'
 
 ### Major Nations
