@@ -1,11 +1,12 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.11.3
+### 3.11.3 'Where were you when soviet was kill'
 
 ### General
  - Added Mongolia to the 'Select Country' screen
  - Added remaining playable nations to host tool
  - Updated admiral traits to be in line with vanilla 
+ - Added new loading screen quotes
 
 ### Germany
  - Now can select which Quisling path Norway will choose
