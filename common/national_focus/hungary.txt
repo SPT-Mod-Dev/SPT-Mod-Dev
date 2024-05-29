@@ -3782,7 +3782,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = HUN_indigenous_designs
+		id = HUN_Funding_The_Force
 		icon = GFX_goal_generic_air_production
 		prerequisite = { focus = HUN_establish_the_air_force }
 		mutually_exclusive = { focus = HUN_license_foreign_designs }
@@ -3811,18 +3811,50 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
-			add_ideas = HUN_indigenous_designs
-		}
+			
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				custom_effect_tooltip = available_mio_tt
+				show_mio_tooltip = HUN_mw_aircraft_organization
+				mio:HUN_mw_aircraft_organization = {
+					add_mio_size = 1
+					add_mio_funds = 800
+				}
+			}
+			effect_tooltip = {
+				random_owned_controlled_state = {
+					prioritize = { 43 }
+					limit = {
+						is_in_home_area = yes
+					}
+					add_building_construction = {
+						type = air_base
+						level = 2
+						instant_build = yes
+					}
+				}
+				}
+			
+			}
 	}
+
+
+
+
+
+
+
 
 	focus = {
 		id = HUN_heavy_fighter_effort
 		icon = GFX_focus_usa_escort_fighters
-		prerequisite = { focus = HUN_indigenous_designs }
+		prerequisite = { focus = HUN_Funding_The_Force }
 		mutually_exclusive = { focus = HUN_light_fighter_effort }
 		x = -3
 		y = 1
-		relative_position_id = HUN_indigenous_designs
+		relative_position_id = HUN_Funding_The_Force
 
 		cost = 10
 
@@ -3857,11 +3889,11 @@ focus_tree = {
 	focus = {
 		id = HUN_light_fighter_effort
 		icon = GFX_goal_generic_air_fighter2
-		prerequisite = { focus = HUN_indigenous_designs }
+		prerequisite = { focus = HUN_Funding_The_Force }
 		mutually_exclusive = { focus = HUN_heavy_fighter_effort }
 		x = -1
 		y = 1
-		relative_position_id = HUN_indigenous_designs
+		relative_position_id = HUN_Funding_The_Force
 
 		cost = 10
 
@@ -3896,11 +3928,11 @@ focus_tree = {
 	focus = {
 		id = HUN_cas_focus
 		icon = GFX_goal_generic_CAS
-		prerequisite = { focus = HUN_indigenous_designs }
+		prerequisite = { focus = HUN_Funding_The_Force }
 		mutually_exclusive = { focus = HUN_tac_focus }
 		x = 1
 		y = 1
-		relative_position_id = HUN_indigenous_designs
+		relative_position_id = HUN_Funding_The_Force
 
 		cost = 10
 
@@ -3935,11 +3967,11 @@ focus_tree = {
 	focus = {
 		id = HUN_tac_focus
 		icon = GFX_goal_generic_air_bomber
-		prerequisite = { focus = HUN_indigenous_designs }
+		prerequisite = { focus = HUN_Funding_The_Force }
 		mutually_exclusive = { focus = HUN_cas_focus }
 		x = 3
 		y = 1
-		relative_position_id = HUN_indigenous_designs
+		relative_position_id = HUN_Funding_The_Force
 
 		cost = 10
 
@@ -3975,7 +4007,7 @@ focus_tree = {
 		id = HUN_license_foreign_designs
 		icon = GFX_focus_generic_license_production
 		prerequisite = { focus = HUN_establish_the_air_force }
-		mutually_exclusive = { focus = HUN_indigenous_designs }
+		mutually_exclusive = { focus = HUN_Funding_The_Force }
 		mutually_exclusive = { focus = HUN_joint_air_development }
 		x = 3
 		y = 1
@@ -4199,7 +4231,7 @@ focus_tree = {
 		icon = GFX_goal_continuous_air_production
 		prerequisite = { focus = HUN_establish_the_air_force }
 		mutually_exclusive = { focus = HUN_license_foreign_designs }
-		mutually_exclusive = { focus = HUN_indigenous_designs }
+		mutually_exclusive = { focus = HUN_Funding_The_Force }
 		x = 0
 		y = 1
 		relative_position_id = HUN_establish_the_air_force
@@ -4231,64 +4263,20 @@ focus_tree = {
 				}
 				add_to_tech_sharing_group = HUN_joint_air_development_group
 			}
-			if = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}
-				add_equipment_subsidy = {
-					cic = 1000
-					equipment_type = small_plane_airframe
-					seller_trigger = is_allied_seller_trigger
-				}
-			}
 		}
-	}
-focus = {
-		id = HUN_joint_air_development
-		icon = GFX_goal_continuous_air_production
-		prerequisite = { focus = HUN_establish_the_air_force }
-		mutually_exclusive = { focus = HUN_license_foreign_designs }
-		mutually_exclusive = { focus = HUN_indigenous_designs }
-		x = 0
-		y = 1
-		relative_position_id = HUN_establish_the_air_force
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 30
-		}
-
-		available = {
-			is_in_faction = yes
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
-			add_to_tech_sharing_group = HUN_joint_air_development_group
-			every_other_country = {
-				limit = {
-					is_in_faction_with = HUN
-				}
-				add_to_tech_sharing_group = HUN_joint_air_development_group
+			add_tech_bonus = {
+				name = HUN_light_fighter_effort
+				bonus = 1.0
+				uses = 1
+				category = light_fighter
 			}
-			if = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}
-				add_equipment_subsidy = {
-					cic = 1000
-					equipment_type = small_plane_airframe
-					seller_trigger = is_allied_seller_trigger
-				}
+			add_tech_bonus = {
+				name = HUN_cas_focus
+				bonus = 1.0
+				uses = 1
+				category = cas_bomber
 			}
 		}
 	}
@@ -5444,4 +5432,4 @@ focus = {
 
 		}
 	}
-}
+	}
