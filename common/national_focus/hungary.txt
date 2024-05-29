@@ -3787,7 +3787,7 @@ focus_tree = {
 		prerequisite = { focus = HUN_establish_the_air_force }
 		mutually_exclusive = { focus = HUN_license_foreign_designs }
 		mutually_exclusive = { focus = HUN_joint_air_development }
-		x = -3
+		x = -5
 		y = 1
 		relative_position_id = HUN_establish_the_air_force
 
@@ -4243,6 +4243,88 @@ focus_tree = {
 			}
 		}
 	}
+focus = {
+		id = HUN_joint_air_development
+		icon = GFX_goal_continuous_air_production
+		prerequisite = { focus = HUN_establish_the_air_force }
+		mutually_exclusive = { focus = HUN_license_foreign_designs }
+		mutually_exclusive = { focus = HUN_indigenous_designs }
+		x = 0
+		y = 1
+		relative_position_id = HUN_establish_the_air_force
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 30
+		}
+
+		available = {
+			is_in_faction = yes
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_to_tech_sharing_group = HUN_joint_air_development_group
+			every_other_country = {
+				limit = {
+					is_in_faction_with = HUN
+				}
+				add_to_tech_sharing_group = HUN_joint_air_development_group
+			}
+			if = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				add_equipment_subsidy = {
+					cic = 1000
+					equipment_type = small_plane_airframe
+					seller_trigger = is_allied_seller_trigger
+				}
+			}
+		}
+	}
+	focus = {
+        id = HUN_Foreign_production_assistance
+        icon = GFX_focus_generic_copy_plane_designs
+        prerequisite = { focus = HUN_joint_air_development }
+        x = 0
+        y = 1
+        relative_position_id = HUN_joint_air_development
+
+        cost = 10
+
+        ai_will_do = {
+            factor = 60
+        }
+
+        available = {
+        }
+        bypass = {
+        }
+        cancel_if_invalid = yes
+        continue_if_invalid = no
+        available_if_capitulated = no
+
+        search_filters = { FOCUS_FILTER_INDUSTRY }
+        completion_reward = {
+            add_ideas = HUN_Foreign_production_assistance
+        }
+    }
+
+
+
+
+
+
 
 	############################
 	####### ARMY STUFFS ########
@@ -4798,7 +4880,8 @@ focus_tree = {
 		id = HUN_form_parachute_battalions
 		icon = GFX_focus_generic_paratrooper
 		prerequisite = { focus = HUN_light_infantry_divisions_doctrine }
-		x = 2
+		mutually_exclusive = { focus = HUN_form_Marine_Corp}
+		x = 1
 		y = 3
 		relative_position_id = HUN_home_defense
 
@@ -4824,12 +4907,66 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = HUN_form_parachute_battalions
-				bonus = 3.0
+				bonus = 2.0
 				uses = 1
 				category = para_tech
 			}
 		}
 	}
+
+	focus = {
+		id = HUN_form_Marine_Corp
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = HUN_light_infantry_divisions_doctrine }
+		mutually_exclusive = { focus = HUN_form_parachute_battalions }
+
+		x = 3
+		y = 3
+		relative_position_id = HUN_home_defense
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 50
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_tech_bonus = {
+				name = ROM_expand_the_marine_regiment
+				bonus = 2.0
+				uses = 1
+				category = marine_tech
+			}
+			add_tech_bonus = {
+				name = ROM_expand_the_marine_regiment
+				bonus = 1.0
+				uses = 1
+				category = tp_tech
+			}
+		}
+	}
+	
+
+
+
+
+
+
+
+
 
 	############################
 	##### Naval Branch    ######
