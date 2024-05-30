@@ -3771,14 +3771,14 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
-			air_experience = 25
+			air_experience = 50
 			add_doctrine_cost_reduction = {
 				name = HUN_establish_the_air_force
 				cost_reduction = 0.5
 				uses = 1
 				category = air_doctrine
 			}
-		}
+			}
 	}
 
 	focus = {
@@ -3823,20 +3823,13 @@ focus_tree = {
 					add_mio_funds = 800
 				}
 			}
-			effect_tooltip = {
-				random_owned_controlled_state = {
-					prioritize = { 43 }
-					limit = {
-						is_in_home_area = yes
-					}
-					add_building_construction = {
-						type = air_base
-						level = 2
-						instant_build = yes
-					}
-				}
-				}
 			
+				add_tech_bonus = {
+					name = FIN_national_aircraft_production
+					bonus = 0.5
+					uses = 2
+					category = air_equipment
+				}
 			}
 	}
 
@@ -3927,7 +3920,7 @@ focus_tree = {
 
 	focus = {
 		id = HUN_cas_focus
-		icon = GFX_goal_generic_CAS
+		icon = GFX_focus_generic_cas_aircraft
 		prerequisite = { focus = HUN_Funding_The_Force }
 		mutually_exclusive = { focus = HUN_tac_focus }
 		x = 1
@@ -4307,6 +4300,79 @@ focus_tree = {
             add_ideas = HUN_Foreign_production_assistance
         }
     }
+
+	focus = {
+		id = HUN_Training_With_The_Luftwaffe  
+		icon = GFX_focus_generic_aircraft_production
+		prerequisite = { focus = HUN_heavy_fighter_effort focus = HUN_light_fighter_effort }
+		mutually_exclusive = { focus = HUN_Training_With_The_Bombers }
+		x = -1
+		y = 2
+		relative_position_id = HUN_Funding_The_Force
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 40
+		}
+
+		available = {
+			is_in_faction = yes
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_ideas = HUN_Training_With_The_Luftwaffe
+		}
+	}
+	focus = {
+		id = HUN_Training_With_The_Bombers
+		icon = GFX_goal_generic_CAS
+		prerequisite = { focus = HUN_cas_focus focus = HUN_tac_focus }
+		mutually_exclusive = { focus = HUN_Training_With_The_Luftwaffe }
+		x = 1
+		y = 2
+		relative_position_id = HUN_Funding_The_Force
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 40
+		}
+
+		available = {
+			is_in_faction = yes
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_ideas = HUN_Training_With_The_Bombers
+
+		}
+	}
+
+
+
+
+
+
+
 
 
 
@@ -4967,7 +5033,9 @@ focus_tree = {
 		x = 16
 		y = 1
 		relative_position_id = HUN_secret_rearmament
-
+		allow_branch = { 
+			always = false
+		}
 		cost = 10
 
 		ai_will_do = {
@@ -5100,6 +5168,9 @@ focus_tree = {
 		id = HUN_a_new_flagship
 		icon = GFX_goal_generic_navy_battleship
 		prerequisite = { focus = HUN_capital_ships }
+		allow_branch = { 
+			always = false
+		}
 		x = 0
 		y = 1
 		relative_position_id = HUN_capital_ships

@@ -1,5 +1,19 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+
+### 3.11.4
+
+### Hungary
+ - Joint air development - Removed market subsidy and changed to sharing group and 1 x100 boost to CAS/Fighters
+ -Added a new focus Foreign production Assistance which give a -10% production reduction to fighters, CAS and Tactical bombers
+ -Added a Mutally exclusive marine branch
+ -Ingenius designs Changed to Funding the air force, Provides MIO funds and 2x 50% Air bonus
+ -Form parachute Battalions changed- 1x 300% --> 1x 200%
+ -Joint tank Procurment - removed subsidy, now joins research group, Gives German Tank License Agreement, which provides license cost -100% and Medium and heavy tank production -5%
+ -Naval Tree Hidden 
+ -Establish the airforce - Air Exp 25 --> 50
+ -Added "Train with the Luftwaffe" and "Train with the Regia Aeronautica" - Mutally exclusive which provide air buffs
+
 ### 3.11.3
 
 ### General
