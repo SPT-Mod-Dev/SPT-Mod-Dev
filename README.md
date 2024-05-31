@@ -14,6 +14,13 @@
  -Establish the airforce - Air Exp 25 --> 50
  -Added "Train with the Luftwaffe" and "Train with the Regia Aeronautica" - Mutally exclusive which provide air buffs
 
+### Finland
+ -Removed Market Subsidy from foreign amror and added -100% license cost and -5% Production to light tanks
+ -Removed Market Subsidy from Foreign Aircraft
+
+ 
+
+
 ### 3.11.3
 
 ### General
