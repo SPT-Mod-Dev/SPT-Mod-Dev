@@ -3,20 +3,19 @@
 
 ### 3.11.4
 
-### Japan
- - AI Japan will now annex China rather than puppeting them (for real)
-
 ### New Zealand
  - 'Bob Semple Tank' now provides a bonus for all armour
 
-### 3.11.3
+### AI 
+ - AI Japan will now annex China rather than puppeting them (for real)
+
+### 3.11.3 'Where were you when soviet was kill'
 
 ### General
  - Added Mongolia to the 'Select Country' screen
- - Added remaining playable nations to host tool 
-
-### Admirals
- - Updated traits to be in line with vanilla
+ - Added remaining playable nations to host tool
+ - Updated admiral traits to be in line with vanilla 
+ - Added new loading screen quotes
 
 ### Germany
  - Now can select which Quisling path Norway will choose
@@ -25,19 +24,13 @@
  - Reworked compliance branch focuses for Scandanavia and Benelux
 
 ### Japan
- - AI Japan will now annex China rather than puppeting them
  - Added a date check for Steady Development
  - National Spirit 'Desperate Measures' will now be removed if BOP reaches at least 25% American Dominance
  - Focus 'Guide The Zaibatsus' now takes 35 days to complete, from 70
 
 ### Soviets
  - Winter War war goal now doesn't expire
- - 'Ideological Loyalty' division recovery rate 20% -> 10%
  - 'Tula Arms Plant' production bonuses 10% -> 5%
- - AI no longer naval invades Finland
-
-### UK
- - Removed ability to warn for fleet size via naval treaty when AI
 
 ### Norway
  - Removed the fascist resistance mechanic
@@ -60,6 +53,25 @@
 
 ### Netherlands
  -  Removed seawolf from Conrad Helfrich
+
+### AI 
+ - AI UK removed ability to warn for fleet size via naval treaty
+ - AI Soviets no longer naval invades Finland
+ - AI Japan will now annex China rather than puppeting them
+
+### Army Command
+ - 'Ideological Loyalty' Division recovery rate 20% -> 10% 
+                         Encirclement penalty -25% -> -10%
+
+### Air Force Command
+ - 'Steel heart steel wings' Cas damage reduction 15% -> 5%
+                             Air home defence factor 20% -> 10%
+ - 'Airborn heroes' Cas damage reduction 10% -> 5%
+                    Air home defence factor 15% -> 10%
+
+ ### Support companies
+ - Pioneers: marsh attack modifier +10% -> +20%
+
 
 ### 3.11.2 'https://hoi4.paradoxwikis.com/AI_modding'
 
