@@ -1,6 +1,15 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.11.2
+
+### 3.11.4
+
+### Japan
+ - AI Japan will now annex China rather than puppeting them (for real)
+
+### New Zealand
+ - 'Bob Semple Tank' now provides a bonus for all armour
+
+### 3.11.3
 
 ### General
  - Added Mongolia to the 'Select Country' screen
@@ -51,7 +60,6 @@
 
 ### Netherlands
  -  Removed seawolf from Conrad Helfrich
-
 
 ### 3.11.2 'https://hoi4.paradoxwikis.com/AI_modding'
 

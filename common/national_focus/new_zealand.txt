@@ -1462,10 +1462,10 @@
 		}
 
 		bypass = {
-			OR = {
-				has_tech = basic_light_tank
-				has_tech = basic_light_tank_chassis
-			}
+			# OR = {
+			# 	has_tech = basic_light_tank
+			# 	has_tech = basic_light_tank_chassis
+			# }
 		}
 
 		cancel_if_invalid = yes
@@ -1475,25 +1475,32 @@
 
 		completion_reward = {
 			add_ideas = NZL_bob_semple_tank
-			if = {
-				limit = {
-					NOT = { has_dlc = "No Step Back" }
-				}
-				add_tech_bonus = {
-					name = NZL_bob_semple_tank
-					bonus = 1.0
-					uses = 1
-					technology = basic_light_tank
-				}
+
+			add_tech_bonus = { # SPTChange marccrafter
+				name = NZL_schofield_tank
+				bonus = 1.0
+				uses = 1
+				category = armor
 			}
-			else = {
-				add_tech_bonus = {
-					name = NZL_bob_semple_tank
-					bonus = 1.0
-					uses = 1
-					technology = basic_light_tank_chassis
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		NOT = { has_dlc = "No Step Back" }
+			# 	}
+			# 	add_tech_bonus = {
+			# 		name = NZL_bob_semple_tank
+			# 		bonus = 1.0
+			# 		uses = 1
+			# 		technology = basic_light_tank
+			# 	}
+			# }
+			# else = {
+			# 	add_tech_bonus = {
+			# 		name = NZL_bob_semple_tank
+			# 		bonus = 1.0
+			# 		uses = 1
+			# 		technology = basic_light_tank_chassis
+			# 	}
+			# }
 		}
 	}
 
