@@ -18,9 +18,8 @@
  -Removed Market Subsidy from foreign amror and added -100% license cost and -5% Production to light tanks
  -Removed Market Subsidy from Foreign Aircraft
 
-### General
- -Operational Reserves Damage reduction from CAS 15% --> 10%
- -Flexable Contracts MIO costs -80% --> -50%
+### Italy
+ -Treaty with Germany - Removed subsidy, Added opinion factor, 1x 100% Synthetics ---> 2x 100% Synthetics 
 
 
 ### 3.11.3

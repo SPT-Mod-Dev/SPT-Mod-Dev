@@ -15679,20 +15679,13 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_RESEARCH}
 
 		completion_reward = {
+			GER = {
+				add_opinion_modifier = { target = ITA modifier = pact_of_steel_opinion }
+			}
 			if = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}
-				add_equipment_subsidy = {
-					cic = 500
-					equipment_type = light_tank_chassis
-					seller_tags = { GER }
-				}
-				add_equipment_subsidy = {
-					cic = 500
-					equipment_type = medium_tank_chassis
-					seller_tags = { GER }
-				}
+				
+
+
 			}
 			GER = {
 				country_event = { id = italy.5 days = 1 }
@@ -15703,7 +15696,7 @@ focus_tree = {
 				add_tech_bonus = {
 					name = synth_bonus
 					bonus = 1.0
-					uses = 1
+					uses = 2
 					category = synth_resources
 				}
 				# Balance research bonus to 2 techs in armor, also in event
