@@ -674,7 +674,24 @@ GER_reichskommissariats = {
 		}
 
 		complete_effect = {
-			release_on_controlled = BLR
+			hidden_effect = {
+				11 = { add_core_of = BLR }
+				97 = { add_core_of = BLR }
+				189 = { add_core_of = BLR }
+				12 = { add_core_of = BLR }
+				190 = { add_core_of = BLR }
+				13 = { add_core_of = BLR }
+				191 = { add_core_of = BLR }
+				814 = { add_core_of = BLR }
+				815 = { add_core_of = BLR }
+				809 = { add_core_of = BLR }
+				808 = { add_core_of = BLR }
+				810 = { add_core_of = BLR }
+				813 = { add_core_of = BLR }
+				812 = { add_core_of = BLR }
+				811 = { add_core_of = BLR }
+				784 = { add_core_of = BLR }
+			}
 			BLR = {
 				set_state_controller = 11
 				set_state_controller = 784
@@ -701,6 +718,7 @@ GER_reichskommissariats = {
 				set_state_controller = 813
 				set_state_controller = 812
 				set_state_controller = 811
+				release_on_controlled = BLR
 				GER = {
 					puppet = PREV
 					if = {
@@ -713,7 +731,6 @@ GER_reichskommissariats = {
 						set_autonomy = { target = PREV autonomy_state = autonomy_reichskommissariat }
 					}
 				}
-
 				set_cosmetic_tag = BLR_reichskommissariat
 				create_country_leader = {
 					name = "Hinrich Lohse"
@@ -725,48 +742,31 @@ GER_reichskommissariats = {
 					}
 				}
 				hidden_effect = {
-					every_state = {
-						limit = {
-							OR = {
-								state = 11
-								state = 189
-								state = 12
-								state = 190
-								state = 13
-								state = 191
-								state = 784
-								state = 97
-								state = 814
-								state = 815
-								state = 809
-								state = 808
-								state = 810
-								state = 813
-								state = 812
-								state = 811
-							}
-							is_owned_by = GER
-						}
-						BLR = {
-							transfer_state = PREV
-						}
-					}
-					11 = { add_core_of = PREV }
-					97 = { add_core_of = PREV }
-					189 = { add_core_of = PREV }
-					12 = { add_core_of = PREV }
-					190 = { add_core_of = PREV }
-					13 = { add_core_of = PREV }
-					191 = { add_core_of = PREV }
-					814 = { add_core_of = PREV }
-					815 = { add_core_of = PREV }
-					809 = { add_core_of = PREV }
-					808 = { add_core_of = PREV }
-					810 = { add_core_of = PREV }
-					813 = { add_core_of = PREV }
-					812 = { add_core_of = PREV }
-					811 = { add_core_of = PREV }
-					784 = { add_core_of = PREV }
+					11 = { add_core_of = BLR }
+					97 = { add_core_of = BLR }
+					189 = { add_core_of = BLR }
+					12 = { add_core_of = BLR }
+					190 = { add_core_of = BLR }
+					13 = { add_core_of = BLR }
+					191 = { add_core_of = BLR }
+					814 = { add_core_of = BLR }
+					815 = { add_core_of = BLR }
+					809 = { add_core_of = BLR }
+					808 = { add_core_of = BLR }
+					810 = { add_core_of = BLR }
+					813 = { add_core_of = BLR }
+					812 = { add_core_of = BLR }
+					811 = { add_core_of = BLR }
+					784 = { add_core_of = BLR }
+					97 = { add_core_of = BLR }
+					94 = { add_core_of = BLR }
+					95 = { add_core_of = BLR }
+					96 = { add_core_of = BLR }
+					194 = { add_core_of = BLR }
+					204 = { add_core_of = BLR }
+					206 = { add_core_of = BLR }
+					207 = { add_core_of = BLR }
+					241 = { add_core_of = BLR }
 				}
 			}
 		}
@@ -816,7 +816,6 @@ GER_reichskommissariats = {
 		}
 
 		complete_effect = {
-			release_on_controlled = UKR
 			UKR = {
 				set_state_controller = 93
 				set_state_controller = 91
@@ -837,9 +836,18 @@ GER_reichskommissariats = {
 				set_state_controller = 221
 				set_state_controller = 228
 				set_state_controller = 227
+				release_on_controlled = UKR
 				GER = {
 					puppet = PREV
-					set_autonomy = { target = PREV autonomy_state = autonomy_integrated_puppet }
+					if = {
+						limit = {
+							NOT = { has_dlc = "Death or Dishonor" }
+						}
+						set_autonomy = { target = PREV autonomy_state = autonomy_integrated_puppet }
+					}
+					else = {
+						set_autonomy = { target = PREV autonomy_state = autonomy_reichskommissariat }
+					}
 				}
 				set_cosmetic_tag = UKR_reichskommissariat
 				create_country_leader = {
