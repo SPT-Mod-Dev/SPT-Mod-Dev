@@ -7,8 +7,9 @@
  - Political raids stability penalty -10% -> -8%
 
 ### Finland
- - 'Cooperation with Germany' adds military access to the axis
-                              removed guarantee                           
+ - 'Cooperation with Germany' adds military access with Germany
+                              removed guarantee        
+ - The Continuation War adds military access with the rest of the Axis                   
 
 ### New Zealand
  - 'Bob Semple Tank' now provides a bonus for all armour

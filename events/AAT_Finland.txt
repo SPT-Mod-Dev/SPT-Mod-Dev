@@ -3437,7 +3437,7 @@ country_event = {
 		#}
 
 		FIN_pact_for_continuation_war_start = yes
-		custom_effect_tooltip = FIN_pact_for_continuation_war_fin_tt
+		custom_effect_tooltip = SPT_FIN_pact_for_continuation_war_fin_tt
 	}
 }
 
@@ -3592,12 +3592,12 @@ country_event = {
 
 		effect_tooltip = {
 			
-			FIN_pact_for_continuation_war_start = yes #In case some treaty was missing
-			custom_effect_tooltip = spt_fin_cont_war_tt
+			FIN_continuation_war_start = yes #In case some treaty was missing
+			custom_effect_tooltip = SPT_FIN_cont_war_tt
 			
 		}
 		hidden_effect = {
-			FIN_pact_for_continuation_war_start = yes
+			FIN_continuation_war_start = yes
 			#Clear flag
 			clr_country_flag = FIN_pact_for_continuation_war_flag
 		}
@@ -3620,14 +3620,10 @@ country_event = {
 		name = AAT_finland_continuation_war.07.a
 
 		effect_tooltip = {
-			FIN = {
-				FIN_pact_for_continuation_war_start = yes #In case some treaty was missing
-				add_to_war = {
-					targeted_alliance = GER
-					enemy = ROOT
-					hostility_reason = asked_to_join
-				}
-			}
+			
+			FIN_continuation_war_start = yes #In case some treaty was missing
+			custom_effect_tooltip = SPT_FIN_cont_war_tt
+			
 		}
 	}
 }
