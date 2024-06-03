@@ -1,0 +1,502 @@
+SPT_transfer_ships_FRA_to_HTF = {
+	set_variable = {
+		var = NumShips
+		value = FRA.num_ships_with_type@destroyer
+	}
+	divide_variable = {
+		NumShips = 2
+	}
+	round_variable = NumShip
+	for_loop_effect = {
+		value = ForIntegerCounter
+		start = 0
+		end = NumShips
+		add = 1
+		FRA = {
+			transfer_ship = {
+				type = destroyer
+				target = HTF
+			}
+		}
+	}
+
+	set_variable = {
+		var = NumShips
+		value = FRA.num_ships_with_type@light_cruiser
+	}
+	divide_variable = {
+		NumShips = 2
+	}
+	round_variable = NumShip
+	for_loop_effect = {
+		value = ForIntegerCounter
+		start = 0
+		end = NumShips
+		add = 1
+		FRA = {
+			transfer_ship = {
+				type = light_cruiser
+				target = HTF
+			}
+		}
+	}
+	set_variable = {
+		var = NumShips
+		value = FRA.num_ships_with_type@heavy_cruiser
+	}
+	divide_variable = {
+		NumShips = 2
+	}
+	round_variable = NumShip
+	for_loop_effect = {
+		value = ForIntegerCounter
+		start = 0
+		end = NumShips
+		add = 1
+		FRA = {
+			transfer_ship = {
+				type = heavy_cruiser
+				target = HTF
+			}
+		}
+	}
+	set_variable = {
+		var = NumShips
+		value = FRA.num_ships_with_type@carrier
+	}
+	divide_variable = {
+		NumShips = 2
+	}
+	round_variable = NumShip
+	for_loop_effect = {
+		value = ForIntegerCounter
+		start = 0
+		end = NumShips
+		add = 1
+		FRA = {
+			transfer_ship = {
+				type = carrier
+				target = HTF
+			}
+		}
+	}
+	
+	set_variable = {
+		var = NumShips
+		value = FRA.num_ships_with_type@battleship
+	}
+	divide_variable = {
+		NumShips = 2
+	}
+	round_variable = NumShip
+	for_loop_effect = {
+		value = ForIntegerCounter
+		start = 0
+		end = NumShips
+		add = 1
+		FRA = {
+			transfer_ship = {
+				type = battleship
+				target = HTF
+			}
+		}
+	}
+	FRA = {
+		transfer_navy = {target=ATF}
+	}
+	
+}
+
+#give Finland military access
+FIN_pact_for_continuation_war_start = { #To be used on FIN's scope - Used immediately upon signing agreement
+	FIN = {
+		if = {
+			limit = {
+				NOT = { gives_military_access_to = GER }
+			}
+			give_military_access = GER
+		}
+		diplomatic_relation = { 
+			country = GER
+			relation = docking_rights 
+			active = yes
+		}
+	}
+	GER = {
+		if = {
+			limit = {
+				NOT = { gives_military_access_to = FIN }
+			}
+			give_military_access = FIN
+		}
+		diplomatic_relation = { 
+			country = FIN
+			relation = docking_rights 
+			active = yes
+		}	
+	}
+	if = {
+		limit = {
+			FIN = { NOT = { has_non_aggression_pact_with = GER } }
+		}
+		FIN ={
+			diplomatic_relation = { 
+				country = GER
+				relation = non_aggression_pact 
+				active = yes
+			}
+		}
+	}
+	if = {
+		limit = {
+			GER = { NOT = { has_guaranteed = FIN } }
+		}
+		GER = { give_guarantee = FIN }
+	}
+}
+
+# added a script to swap the armor designer with the improved one
+JAP_armor_designer_swap = { 
+	if = {
+		limit = {
+			has_idea =  osaka_army_arsenal
+		}
+		swap_ideas = {
+			remove_idea = osaka_army_arsenal
+			add_idea = osaka_improved
+		}
+	}
+}
+
+SPT_JAP_spawn_railway_guns = {
+	custom_effect_tooltip = SPT_JAP_spawn_railway_guns_tt
+	hidden_effect = {
+		create_railway_gun = {
+			equipment = railway_gun_equipment_1
+			name = "Ressha Houdai Ichi"
+		}
+		create_railway_gun = {
+			equipment = railway_gun_equipment_1
+			name = "Ressha Houdai Ni"
+		}
+		create_railway_gun = {
+			equipment = railway_gun_equipment_1
+			name = "Ressha Houdai San"
+		}
+	}
+}
+
+# check if jet engine is researched
+ITA_add_supremacy_in_the_skies_templates = {
+
+	create_equipment_variant = {
+		name = "SM.84"
+		type = medium_plane_airframe_2
+		parent_version = 0
+		modules = {
+				fixed_main_weapon_slot = medium_bomb_bay
+				fixed_auxiliary_weapon_slot_1 = torpedo_mounting
+				fixed_auxiliary_weapon_slot_2 = torpedo_mounting
+				engine_type_slot = engine_2_3x
+				special_type_slot_1 = hmg_defense_turret_2x
+				special_type_slot_2 = hmg_defense_turret_2x
+				special_type_slot_3 = armor_plate_medium
+			}
+		icon = "GFX_ITA_tactical_bomber2_medium"
+	}
+
+	if = {
+		limit = {
+			has_tech = jet_engines
+		}
+		create_equipment_variant = {
+			name = "Campini N.1"
+			type = small_plane_airframe_4
+			parent_version = 0
+			modules = {
+					fixed_main_weapon_slot = aircraft_cannon_2_2x
+					fixed_auxiliary_weapon_slot_1 = aircraft_cannon_2_2x
+					engine_type_slot = jet_engine_1x
+					special_type_slot_1 = armor_plate_small
+					special_type_slot_2 = self_sealing_fuel_tanks_small
+				}
+			icon = "GFX_ITA_jet_plane_1_medium"
+		}
+	}
+}
+
+# stop quisling resistance
+
+NOR_apply_resistance_to_fascists = {
+	
+}
+
+# dont give blueprint stealing
+gain_random_agency_upgrade = { #Gives a random agency upgrade or grants a free agency if one has not yet been established
+	custom_effect_tooltip = free_agency_upgrade_tt
+	hidden_effect = {
+		if = {
+			limit = {
+				has_intelligence_agency = no
+			}
+			create_intelligence_agency = yes
+		}
+		else = {
+			random_list = {
+				1 = {
+					upgrade_intelligence_agency = upgrade_economy_civilian
+					modifier = {
+						factor = 0
+						has_done_agency_upgrade = upgrade_economy_civilian
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = upgrade_army_department
+					modifier = {
+						factor = 0
+						has_done_agency_upgrade = upgrade_army_department
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = upgrade_naval_department
+					modifier = {
+						factor = 0
+						has_done_agency_upgrade = upgrade_naval_department
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = upgrade_airforce_department
+					modifier = {
+						factor = 0
+						has_done_agency_upgrade = upgrade_airforce_department
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = upgrade_passive_defense
+					modifier = {
+						factor = 0
+						has_done_agency_upgrade = upgrade_passive_defense
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = upgrade_anti_partisan
+					modifier = {
+						factor = 0
+						has_done_agency_upgrade = upgrade_anti_partisan
+					}
+				}
+				# 1 = {
+				# 	upgrade_intelligence_agency = upgrade_blueprint_stealing
+				# 	modifier = {
+				# 		factor = 0
+				# 		has_done_agency_upgrade = upgrade_blueprint_stealing
+				# 	}
+				# }
+				1 = {
+					upgrade_intelligence_agency = upgrade_portable_radios
+					modifier = {
+						factor = 0
+						has_done_agency_upgrade = upgrade_portable_radios
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = upgrade_invisible_ink
+					modifier = {
+						factor = 0
+						has_done_agency_upgrade = upgrade_invisible_ink
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = upgrade_plastic_explosives
+					modifier = {
+						factor = 0
+						has_done_agency_upgrade = upgrade_plastic_explosives
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = upgrade_suicide_pills
+					modifier = {
+						factor = 0
+						has_done_agency_upgrade = upgrade_suicide_pills
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = upgrade_training_centers
+					modifier = {
+						factor = 0
+						has_done_agency_upgrade = upgrade_training_centers
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = upgrade_commando_training
+					modifier = {
+						factor = 0
+						has_done_agency_upgrade = upgrade_commando_training
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = upgrade_interrogation_techniques
+					modifier = {
+						factor = 0
+						has_done_agency_upgrade = upgrade_interrogation_techniques
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = upgrade_diplo_training
+					modifier = {
+						factor = 0
+						has_done_agency_upgrade = upgrade_diplo_training
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = upgrade_psycho_warfare
+					modifier = {
+						factor = 0
+						has_done_agency_upgrade = upgrade_psycho_warfare
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = upgrade_form_department
+					modifier = {
+						factor = 0
+						has_done_agency_upgrade = upgrade_form_department
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = upgrade_decryption_boost
+					modifier = {
+						factor = 0
+						OR = {
+							has_done_agency_upgrade = upgrade_decryption_boost
+							NOT = { has_done_agency_upgrade = upgrade_form_department }
+						}
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = upgrade_decryption_boost_2
+					modifier = {
+						factor = 0
+						OR = {
+							has_done_agency_upgrade = upgrade_decryption_boost_2
+							NOT = { has_done_agency_upgrade = upgrade_form_department }
+							NOT = { has_done_agency_upgrade = upgrade_decryption_boost }
+						}
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = upgrade_crypto_strength
+					modifier = {
+						factor = 0
+						OR = {
+							has_done_agency_upgrade = upgrade_crypto_strength
+							NOT = { has_done_agency_upgrade = upgrade_form_department }
+						}
+					}
+				}
+				1 = {
+					upgrade_intelligence_agency = upgrade_crypto_strength_2
+					modifier = {
+						factor = 0
+						OR = {
+							has_done_agency_upgrade = upgrade_crypto_strength_2
+							NOT = { has_done_agency_upgrade = upgrade_form_department }
+							NOT = { has_done_agency_upgrade = upgrade_crypto_strength }
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# metropolis increased to 4
+increase_state_category = {
+	if = {
+		limit = {
+			has_state_category = tiny_island
+		}
+		set_state_category = small_island
+		effect_tooltip = {
+			add_extra_state_shared_building_slots = 1
+		}
+	}
+
+	if = {
+		limit = {
+			OR = {
+				has_state_category = wasteland
+				has_state_category = enclave
+			}
+		}
+		set_state_category = pastoral
+		effect_tooltip = {
+			add_extra_state_shared_building_slots = 1
+		}
+	}
+	else_if = {
+		limit = {
+			has_state_category = pastoral
+		}
+		set_state_category = rural
+		effect_tooltip = {
+			add_extra_state_shared_building_slots = 1
+		}
+	}
+	else_if = {
+		limit = {
+			has_state_category = rural
+		}
+		set_state_category = town
+		effect_tooltip = {
+			add_extra_state_shared_building_slots = 2
+		}
+	}
+	else_if = {
+		limit = {
+			has_state_category = town
+		}
+		set_state_category = large_town
+		effect_tooltip = {
+			add_extra_state_shared_building_slots = 1
+		}
+	}
+	else_if = {
+		limit = {
+			has_state_category = large_town
+		}
+		set_state_category = city
+		effect_tooltip = {
+			add_extra_state_shared_building_slots = 1
+		}
+	}
+	else_if = {
+		limit = {
+			has_state_category = city
+		}
+		set_state_category = large_city
+		effect_tooltip = {
+			add_extra_state_shared_building_slots = 2
+		}
+	}
+
+	else_if = {
+		limit = {
+			has_state_category = large_city
+		}
+		set_state_category = metropolis
+		effect_tooltip = {
+			add_extra_state_shared_building_slots = 4
+		}
+	}
+
+	else_if = {
+		limit = {
+			has_state_category = metropolis
+		} 
+		set_state_category = megalopolis
+		effect_tooltip = {
+			add_extra_state_shared_building_slots = 2
+		}
+	}
+
+}
