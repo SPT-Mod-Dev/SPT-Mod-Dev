@@ -3,6 +3,9 @@
 
 ### 3.11.4
 
+### General
+ - Political raids stability penalty -10% -> -8%
+
 ### New Zealand
  - 'Bob Semple Tank' now provides a bonus for all armour
 

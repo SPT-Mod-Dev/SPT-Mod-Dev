@@ -781,7 +781,6 @@ GER_reichskommissariats = {
 			has_government = fascism
 			controls_state = 93
 			controls_state = 91
-			controls_state = 89
 			controls_state = 199
 			controls_state = 201
 			controls_state = 198
@@ -798,6 +797,15 @@ GER_reichskommissariats = {
 			controls_state = 221
 			controls_state = 228
 			controls_state = 227
+			controls_state = 834
+			OR = {
+				controls_state = 89
+				HUN = { controls_state = 89 }
+			}
+			OR = {
+				controls_state = 80
+				ROM = { controls_state = 80 }
+			}
 		}
 
 		cost = 0
@@ -819,7 +827,6 @@ GER_reichskommissariats = {
 			UKR = {
 				set_state_controller = 93
 				set_state_controller = 91
-				set_state_controller = 89
 				set_state_controller = 199
 				set_state_controller = 201
 				set_state_controller = 198
@@ -836,6 +843,19 @@ GER_reichskommissariats = {
 				set_state_controller = 221
 				set_state_controller = 228
 				set_state_controller = 227
+				set_state_controller = 834
+				if = {
+					limit = {
+						GER = { controls_state = 89 }
+					}
+					set_state_controller = 89
+				}
+				if = {
+					limit = {
+						GER = { controls_state = 80 }
+					}
+					set_state_controller = 80
+				}
 				release_on_controlled = UKR
 				GER = {
 					puppet = PREV
@@ -858,6 +878,29 @@ GER_reichskommissariats = {
 					ideology = nazism
 					traits = {
 					}
+				}
+				hidden_effect = {
+					93 = { add_core_of = UKR }
+					91 = { add_core_of = UKR }
+					199 = { add_core_of = UKR }
+					201 = { add_core_of = UKR }
+					198 = { add_core_of = UKR }
+					202 = { add_core_of = UKR }
+					193 = { add_core_of = UKR }
+					192 = { add_core_of = UKR }
+					203 = { add_core_of = UKR }
+					197 = { add_core_of = UKR }
+					225 = { add_core_of = UKR }
+					259 = { add_core_of = UKR }
+					226 = { add_core_of = UKR }
+					196 = { add_core_of = UKR }
+					200 = { add_core_of = UKR }
+					221 = { add_core_of = UKR }
+					228 = { add_core_of = UKR }
+					227 = { add_core_of = UKR }
+					834 = { add_core_of = UKR }
+					89 = { add_core_of = UKR }
+					80 = { add_core_of = UKR }
 				}
 			}
 		}
