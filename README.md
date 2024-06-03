@@ -10,9 +10,9 @@
  - 'Cooperation with Germany' adds military access with Germany
                               removed guarantee        
  - The Continuation War adds military access with the rest of the Axis  
- - 'Communist Pressure' from 'Secure Leningrad' 365 days -> 210 days
- - Upon Winter War Victory add 'Anti-Communist Pressure' for 150 days                 
- - Upon Winter War Defeat add 'Communist Pressure' for 150 days    
+ - 'Communist Pressure' from 'Secure Leningrad' 365 days -> 150 days
+ - Upon Winter War Victory add 'Anti-Communist Pressure' for 90 days                 
+ - Upon Winter War Defeat add 'Communist Pressure' for 90 days    
 
 ### New Zealand
  - 'Bob Semple Tank' now provides a bonus for all armour
