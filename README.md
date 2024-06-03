@@ -9,13 +9,17 @@
 ### Finland
  - 'Cooperation with Germany' adds military access with Germany
                               removed guarantee        
- - The Continuation War adds military access with the rest of the Axis                   
+ - The Continuation War adds military access with the rest of the Axis  
+ - 'Communist Pressure' from 'Secure Leningrad' 365 days -> 210 days
+ - Upon Winter War Victory add 'Anti-Communist Pressure' for 150 days                 
+ - Upon Winter War Defeat add 'Communist Pressure' for 150 days    
 
 ### New Zealand
  - 'Bob Semple Tank' now provides a bonus for all armour
 
 ### AI 
  - AI Japan will now annex China rather than puppeting them (for real)
+ - Added AI plan for Spain's focuses during the civil war
 
 ### 3.11.3 'Where were you when soviet was kill'
 
