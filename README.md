@@ -6,6 +6,10 @@
 ### General
  - Political raids stability penalty -10% -> -8%
 
+### Finland
+ - 'Cooperation with Germany' adds military access to the axis
+                              removed guarantee                           
+
 ### New Zealand
  - 'Bob Semple Tank' now provides a bonus for all armour
 

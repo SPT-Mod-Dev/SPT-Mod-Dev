@@ -3204,26 +3204,15 @@ country_event = {
 		effect_tooltip = {
 			FROM = {
 				give_military_access = ROOT
-				diplomatic_relation = { 
-					country = ROOT
-					relation = docking_rights 
-					active = yes
-				}
 			}
 			ROOT = { 
 				give_military_access = FROM
-				diplomatic_relation = { 
-					country = FROM
-					relation = docking_rights 
-					active = yes
-				}
 				diplomatic_relation = { 
 					country = FROM
 					relation = non_aggression_pact 
 					active = yes
 				}
 			}
-			give_guarantee = FROM
 
 			# FROM = {
 			# 	if = {
@@ -3602,16 +3591,13 @@ country_event = {
 		name = AAT_finland_continuation_war.06.a
 
 		effect_tooltip = {
-			FIN = {
-				FIN_pact_for_continuation_war_start = yes #In case some treaty was missing
-				add_to_war = {
-					targeted_alliance = ROOT
-					enemy = SOV
-					hostility_reason = asked_to_join
-				}
-			}
+			
+			FIN_pact_for_continuation_war_start = yes #In case some treaty was missing
+			custom_effect_tooltip = spt_fin_cont_war_tt
+			
 		}
 		hidden_effect = {
+			FIN_pact_for_continuation_war_start = yes
 			#Clear flag
 			clr_country_flag = FIN_pact_for_continuation_war_flag
 		}
