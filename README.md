@@ -21,6 +21,9 @@
 ### Italy
  -Treaty with Germany - Removed subsidy, Added opinion factor, 1x 100% Synthetics ---> 2x 100% Synthetics 
 
+ ### Spain
+ -Removed Allied Branch from tree
+ -Removed The Latin Bloc Focus 
 
 ### 3.11.3
 
