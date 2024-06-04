@@ -1243,10 +1243,11 @@ country_event = { #Denmark wants to become a puppet
 					DEN_occupation_laws_cic_to_overlord = 0.15
 					tooltip = cic_to_overlord_factor_tt
 				}
-				add_to_variable = {
-					DEN_occupation_laws_mic_to_overlord = 0.15
-					tooltip = mic_to_overlord_factor_tt
-				}
+				# SPTchange
+				# add_to_variable = {
+				# 	DEN_occupation_laws_mic_to_overlord = 0.15
+				# 	tooltip = mic_to_overlord_factor_tt
+				# }
 			}
 
 			every_state = {
@@ -1385,10 +1386,11 @@ country_event = { #Denmark becomes a puppet
 				DEN_occupation_laws_cic_to_overlord = 0.15
 				tooltip = cic_to_overlord_factor_tt
 			}
-			add_to_variable = {
-				DEN_occupation_laws_mic_to_overlord = 0.15
-				tooltip = mic_to_overlord_factor_tt
-			}
+			# SPTchange
+			# add_to_variable = {
+			# 	DEN_occupation_laws_mic_to_overlord = 0.15
+			# 	tooltip = mic_to_overlord_factor_tt
+			# }
 
 			set_cosmetic_tag = DEN_occupied_denmark
 		}
@@ -3285,18 +3287,19 @@ country_event = { #Denmark: Telegram Crisis Begins
 				}
 			}
 		}
-		OR = {
-			power_balance_value = {
-				id = DEN_occupation_balance
-				value > 0.29
-			}
-			OVERLORD = {
-				has_opinion = {
-				    target = DEN
-				    value < 0
-				}
-			}
-		}
+		# SPTchange: Telegram Crisis happens regardless of relations or Overlord BoP.
+		# OR = {
+		# 	power_balance_value = {
+		# 		id = DEN_occupation_balance
+		# 		value > 0.29
+		# 	}
+		# 	OVERLORD = {
+		# 		has_opinion = {
+		# 		    target = DEN
+		# 		    value < 0
+		# 		}
+		# 	}
+		# }
 		OR = { #The Telegram Crisis was triggered after the Kings Birthday
 			AND = {
 				date > 1939.9.26 
@@ -3485,10 +3488,11 @@ country_event = { #Overlord: Denmark tries to placate the Overlord
 						DEN_occupation_laws_cic_to_overlord = 0.05
 						tooltip = cic_to_overlord_factor_tt
 					}
-					add_to_variable = {
-						DEN_occupation_laws_mic_to_overlord = 0.05
-						tooltip = mic_to_overlord_factor_tt
-					}
+					# SPTchange
+					# add_to_variable = {
+					# 	DEN_occupation_laws_mic_to_overlord = 0.05
+					# 	tooltip = mic_to_overlord_factor_tt
+					# }
 					add_to_variable = {
 						DEN_occupation_laws_autonomy_gain = -0.1
 						tooltip = autonomy_gain_tt
@@ -3536,10 +3540,11 @@ country_event = { #Denmark: Overlord refuses apology
 				DEN_occupation_laws_cic_to_overlord = 0.05
 				tooltip = cic_to_overlord_factor_tt
 			}
-			add_to_variable = {
-				DEN_occupation_laws_mic_to_overlord = 0.05
-				tooltip = mic_to_overlord_factor_tt
-			}
+			# SPTchange
+			# add_to_variable = {
+			# 	DEN_occupation_laws_mic_to_overlord = 0.05
+			# 	tooltip = mic_to_overlord_factor_tt
+			# }
 			add_to_variable = {
 				DEN_occupation_laws_autonomy_gain = -0.1
 				tooltip = autonomy_gain_tt
@@ -3606,10 +3611,11 @@ country_event = { #Overlord: Denmark is being a shitty subject
 						DEN_occupation_laws_cic_to_overlord = 0.05
 						tooltip = cic_to_overlord_factor_tt
 					}
-					add_to_variable = {
-						DEN_occupation_laws_mic_to_overlord = 0.05
-						tooltip = mic_to_overlord_factor_tt
-					}
+					# SPTchange
+					# add_to_variable = {
+					# 	DEN_occupation_laws_mic_to_overlord = 0.05
+					# 	tooltip = mic_to_overlord_factor_tt
+					# }
 					add_to_variable = {
 						DEN_occupation_laws_autonomy_gain = -0.1
 						tooltip = autonomy_gain_tt
@@ -3657,10 +3663,11 @@ country_event = { #Denmark: Overlord is angry
 				DEN_occupation_laws_cic_to_overlord = 0.05
 				tooltip = cic_to_overlord_factor_tt
 			}
-			add_to_variable = {
-				DEN_occupation_laws_mic_to_overlord = 0.05
-				tooltip = mic_to_overlord_factor_tt
-			}
+			# SPTchange
+			# add_to_variable = {
+			# 	DEN_occupation_laws_mic_to_overlord = 0.05
+			# 	tooltip = mic_to_overlord_factor_tt
+			# }
 			add_to_variable = {
 				DEN_occupation_laws_autonomy_gain = -0.1
 				tooltip = autonomy_gain_tt
@@ -3721,7 +3728,7 @@ country_event = { #Denmark: Overlord demands another country leader
 
 		DEN_modify_overlord_relations_small = yes
 
-		country_event = { id = denmark_overlord_events.11 days = 5 }
+		country_event = { id = denmark_overlord_events.11 days = 0 } # SPTchange 5->0
 	}
 	option = { #refuse
 		name = denmark_overlord_events.10.b
@@ -3749,7 +3756,7 @@ country_event = { #Denmark: Overlord demands another country leader
 
 		DEN_modify_overlord_relations_big = yes
 
-		FROM = { country_event = { id = denmark_overlord_events.15 days = 1 } }
+		FROM = { country_event = { id = denmark_overlord_events.15 days = 0 } } # SPTchange 1->0
 	}
 }
 country_event = { #Denmark: Choose new country leader
@@ -3778,39 +3785,40 @@ country_event = { #Denmark: Choose new country leader
 		}
 		country_event = { id = denmark_overlord_events.12 days = 1 } 
 	}
-	option = { #Neutral Leader
-		name = denmark_overlord_events.11.b
-		ai_chance = {
-			base = 1
-			modifier = {
-				factor = 10
-				DEN_royal_ai = yes
-			}
-		}
-		trigger = {
-			DEN_knud_bach = { is_country_leader = no }
-		}
-		if = {
-			limit = {
-				has_completed_focus = DEN_king_assumes_power
-			}
-			promote_character = DEN_knud_bach
-			set_party_name = {
-				ideology = neutrality
-				name = DEN_neutrality_party
-				long_name = DEN_neutrality_party_long
-			}
-		}
-		else_if = {
-			limit = {
-				NOT = { has_government = neutrality }
-			}
-			set_politics = { 
-				ruling_party = neutrality
-			}	
-		}
-		FROM = { country_event = { id = denmark_overlord_events.14 days = 1 } }
-	}
+	# SPTchange
+	# option = { #Neutral Leader
+	# 	name = denmark_overlord_events.11.b
+	# 	ai_chance = {
+	# 		base = 1
+	# 		modifier = {
+	# 			factor = 10
+	# 			DEN_royal_ai = yes
+	# 		}
+	# 	}
+	# 	trigger = {
+	# 		DEN_knud_bach = { is_country_leader = no }
+	# 	}
+	# 	if = {
+	# 		limit = {
+	# 			has_completed_focus = DEN_king_assumes_power
+	# 		}
+	# 		promote_character = DEN_knud_bach
+	# 		set_party_name = {
+	# 			ideology = neutrality
+	# 			name = DEN_neutrality_party
+	# 			long_name = DEN_neutrality_party_long
+	# 		}
+	# 	}
+	# 	else_if = {
+	# 		limit = {
+	# 			NOT = { has_government = neutrality }
+	# 		}
+	# 		set_politics = { 
+	# 			ruling_party = neutrality
+	# 		}	
+	# 	}
+	# 	FROM = { country_event = { id = denmark_overlord_events.14 days = 1 } }
+	# }
 	option = { #Communist Leader
 		name = denmark_overlord_events.11.c
 		ai_chance = {
@@ -4087,10 +4095,11 @@ country_event = { #Overlord: Denmark refuses to change leader
 						DEN_occupation_laws_cic_to_overlord = 0.05
 						tooltip = cic_to_overlord_factor_tt
 					}
-					add_to_variable = {
-						DEN_occupation_laws_mic_to_overlord = 0.05
-						tooltip = mic_to_overlord_factor_tt
-					}
+					# SPTchange
+					# add_to_variable = {
+					# 	DEN_occupation_laws_mic_to_overlord = 0.05
+					# 	tooltip = mic_to_overlord_factor_tt
+					# }
 					add_to_variable = {
 						DEN_occupation_laws_autonomy_gain = -0.1
 						tooltip = autonomy_gain_tt
@@ -4133,20 +4142,21 @@ country_event = { #Overlord: Denmark refuses to change leader
 				is_historical_focus_on = yes
 			}
 		}		
-		trigger = {
-			FROM = {
-				power_balance_value = {
-					id = DEN_occupation_balance
-					value < -0.6
-				}
-			}
-			ROOT = {
-				has_opinion = {
-				    target = DEN
-				    value < 0
-				}
-			}
-		}
+		# SPTchange
+		# trigger = {
+		# 	FROM = {
+		# 		power_balance_value = {
+		# 			id = DEN_occupation_balance
+		# 			value < -0.6
+		# 		}
+		# 	}
+		# 	ROOT = {
+		# 		has_opinion = {
+		# 		    target = DEN
+		# 		    value < 0
+		# 		}
+		# 	}
+		# }
 		set_country_flag = DEN_overlord_installed_loyal_leader
 		custom_effect_tooltip = DEN_deteriorating_subject_relations
 		FROM = { country_event = { id = denmark_overlord_events.17 days = 1 } } 
@@ -4190,10 +4200,11 @@ country_event = { #Denmark: Overlord cracks down
 				DEN_occupation_laws_cic_to_overlord = 0.05
 				tooltip = cic_to_overlord_factor_tt
 			}
-			add_to_variable = {
-				DEN_occupation_laws_mic_to_overlord = 0.05
-				tooltip = mic_to_overlord_factor_tt
-			}
+			# SPTchange
+			# add_to_variable = {
+			# 	DEN_occupation_laws_mic_to_overlord = 0.05
+			# 	tooltip = mic_to_overlord_factor_tt
+			# }
 			add_to_variable = {
 				DEN_occupation_laws_autonomy_gain = -0.1
 				tooltip = autonomy_gain_tt
@@ -4526,24 +4537,25 @@ country_event = { #Overlord: Denmark refuses to change government form
 
 	is_triggered_only = yes
 
-	option = { #let it slide
-		name = denmark_overlord_events.24.a 
-		ai_chance = {
-			base = 1
-			modifier = {
-				factor = 5
-				has_government = FROM
-			}
-			modifier = {
-				factor = 5
-				has_opinion = {
-					target = FROM
-					value > 49
-				}
-			}
-		}
-		add_political_power = -50
-	}
+	# SPTchange
+	# option = { #let it slide
+	# 	name = denmark_overlord_events.24.a 
+	# 	ai_chance = {
+	# 		base = 1
+	# 		modifier = {
+	# 			factor = 5
+	# 			has_government = FROM
+	# 		}
+	# 		modifier = {
+	# 			factor = 5
+	# 			has_opinion = {
+	# 				target = FROM
+	# 				value > 49
+	# 			}
+	# 		}
+	# 	}
+	# 	add_political_power = -50
+	# }
 	option = { #Install a new government form
 		name = denmark_overlord_events.24.a 
 		ai_chance = {
@@ -5208,15 +5220,17 @@ country_event = { #Overlord: Denmark won't send weapons
 		}
 		effect_tooltip = {
 			FROM = {
-				if = {
-					limit = {
-						has_dynamic_modifier = { modifier = DEN_occupation_laws_dynamic_modifier }
-					}
-					add_to_variable = {
-						DEN_occupation_laws_mic_to_overlord = 0.05
-						tooltip = mic_to_overlord_factor_tt
-					}
-				}
+				# SPTchange
+				# if = {
+				# 	limit = {
+				# 		has_dynamic_modifier = { modifier = DEN_occupation_laws_dynamic_modifier }
+				# 	}
+				# 	add_to_variable = {
+				# 		DEN_occupation_laws_mic_to_overlord = 0.05
+				# 		tooltip = mic_to_overlord_factor_tt
+				# 	}
+				# }
+				DEN_modify_overlord_relations_big = yes
 			}
 		}
 		custom_effect_tooltip = DEN_deteriorating_subject_relations
@@ -5235,11 +5249,12 @@ country_event = { #Denmark: Overlord is punishing us for being a bad boi
 
 	option = { #Damn them!
 		name = denmark_overlord_events.35.a 	
-		custom_effect_tooltip = DEN_modify_occupation_laws_dynamic_modifier
-		add_to_variable = {
-			DEN_occupation_laws_mic_to_overlord = 0.05
-			tooltip = mic_to_overlord_factor_tt
-		}
+		# SPTchange
+		# custom_effect_tooltip = DEN_modify_occupation_laws_dynamic_modifier
+		# add_to_variable = {
+		# 	DEN_occupation_laws_mic_to_overlord = 0.05
+		# 	tooltip = mic_to_overlord_factor_tt
+		# }
 		DEN_modify_overlord_relations_big = yes
 	}
 }
@@ -5482,28 +5497,29 @@ country_event = { #Denmark: Overlord wants to install a Plenipotentiary
 			country_event = { id = denmark_overlord_events.41 days = 1 } 
 		}
 	}
-	option = { #Refuse!
-		name = denmark_overlord_events.40.b	
-		ai_chance = {
-			base = 1
-			modifier = { 
-				factor = 5
-				OR = {
-					DEN_royal_ai = yes
-					DEN_fascist_ai = yes
-					has_government = communism
-				}
-			}
-		}
+	# SPTchange
+	# option = { #Refuse!
+	# 	name = denmark_overlord_events.40.b	
+	# 	ai_chance = {
+	# 		base = 1
+	# 		modifier = { 
+	# 			factor = 5
+	# 			OR = {
+	# 				DEN_royal_ai = yes
+	# 				DEN_fascist_ai = yes
+	# 				has_government = communism
+	# 			}
+	# 		}
+	# 	}
 
-		DEN_bop_occupation_low_increase_effect = yes
+	# 	DEN_bop_occupation_low_increase_effect = yes
 
-		DEN_modify_overlord_relations_big = yes
+	# 	DEN_modify_overlord_relations_big = yes
 
-		FROM = {
-			country_event = { id = denmark_overlord_events.42 days = 1 } 
-		}
-	}
+	# 	FROM = {
+	# 		country_event = { id = denmark_overlord_events.42 days = 1 } 
+	# 	}
+	# }
 }
 country_event = { #Overlord: Denmark accepted our country leader
 	id = denmark_overlord_events.41
@@ -5543,24 +5559,25 @@ country_event = { #Overlord: Denmark refused to appoint our country leader
 
 	is_triggered_only = yes
 
-	option = { #Let it slide
-		name = denmark_overlord_events.42.a 	
-		ai_chance = {
-			base = 1
-			modifier = {
-				factor = 10
-				has_government = FROM
-			}
-			modifier = {
-				factor = 5
-				has_opinion = {
-					target = FROM
-					value > 49
-				}
-			}
-		}	
-		add_political_power = -50
-	}
+	# SPTchange
+	# option = { #Let it slide
+	# 	name = denmark_overlord_events.42.a 	
+	# 	ai_chance = {
+	# 		base = 1
+	# 		modifier = {
+	# 			factor = 10
+	# 			has_government = FROM
+	# 		}
+	# 		modifier = {
+	# 			factor = 5
+	# 			has_opinion = {
+	# 				target = FROM
+	# 				value > 49
+	# 			}
+	# 		}
+	# 	}	
+	# 	add_political_power = -50
+	# }
 	option = { #Install our guy anyway!
 		name = denmark_overlord_events.42.b 	
 		ai_chance = {
@@ -5587,15 +5604,16 @@ country_event = { #Overlord: Denmark refused to appoint our country leader
 				is_historical_focus_on = yes
 			}
 		}
-		custom_effect_tooltip = if_they_refuse_tt
-		effect_tooltip = {
-			FROM = {
-				declare_war_on = {
-					target = ROOT
-					type = independence_wargoal 
-				}
-			}
-		}
+		# SPTchange
+		# custom_effect_tooltip = if_they_refuse_tt
+		# effect_tooltip = {
+		# 	FROM = {
+		# 		declare_war_on = {
+		# 			target = ROOT
+		# 			type = independence_wargoal 
+		# 		}
+		# 	}
+		# }
 		custom_effect_tooltip = DEN_deteriorating_subject_relations
 		FROM = {
 			country_event = { id = denmark_overlord_events.43 days = 1 } 
