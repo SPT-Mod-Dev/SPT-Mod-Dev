@@ -3247,7 +3247,7 @@ focus_tree = {
 		x = -2 # SPTChange repositioning
 		y = 1
 	
-		cost = 5
+		cost = 2 # SPTchange 5->2
 	
 		bypass = {
 		}
@@ -3369,7 +3369,7 @@ focus_tree = {
 		x = -2
 		y = 2
 	
-		cost = 5
+		cost = 2 # SPTchange 5->2
 	
 		bypass = {
 		}
@@ -3485,7 +3485,7 @@ focus_tree = {
 		x = 0
 		y = 1
 	
-		cost = 10
+		cost = 2 # SPTchange 10->2
 	
 		bypass = {
 		}
@@ -3625,7 +3625,7 @@ focus_tree = {
 		x = 2
 		y = 1
 	
-		cost = 10
+		cost = 2 # SPTchange 10->2
 	
 		bypass = {
 		}
@@ -3722,12 +3722,12 @@ focus_tree = {
 		id = DEN_increase_cooperation
 		icon = GFX_goal_generic_major_alliance
 
-		# SPTchange make an OR
-		prerequisite = { focus = DEN_seize_the_production focus = DEN_adjust_industrial_prioritize }
+		# SPTchange make an OR, add contribution to the war effort
+		prerequisite = { focus = DEN_seize_the_production focus = DEN_adjust_industrial_prioritize focus = DEN_contribute_to_the_war }
 		# prerequisite = { focus = DEN_adjust_industrial_prioritize }
 	
 		relative_position_id = DEN_seek_industrial_investments
-		x = 1 # SPTchange
+		x = 2 # SPTchange
 		y = 2
 	
 		cost = 5
@@ -3773,12 +3773,13 @@ focus_tree = {
 		id = DEN_acquire_military_equipment
 		icon = GFX_focus_generic_license_production
 
-		prerequisite = { focus = DEN_adjust_industrial_prioritize }
+		# prerequisite = { focus = DEN_adjust_industrial_prioritize } # SPTchange
 		prerequisite = { focus = DEN_contribute_to_the_war }
 	
-		relative_position_id = DEN_seek_industrial_investments
-		x = 3
-		y = 2
+		# SPTchange repositioning
+		relative_position_id = DEN_contribute_to_the_war
+		x = 0
+		y = 1
 	
 		cost = 5
 	
@@ -3852,7 +3853,7 @@ focus_tree = {
 	
 		relative_position_id = DEN_align_with_overlord
 		x = 2 # SPTChange repositioning
-		y = 1
+		y = 2
 	
 		cost = 1 # SPTchange 5 -> 1
 	
