@@ -3793,6 +3793,9 @@ DEN_overlord_category = {
 				value < -49
 			}
 			NOT = { is_in_faction_with = DEN }
+			DEN = { # SPTchange
+				is_ai = yes
+			}
 		}
 
 		visible = {	
@@ -3863,6 +3866,9 @@ DEN_overlord_category = {
 			NOT = { 99 = { is_fully_controlled_by = ROOT }}
 			NOT = { 912 = { is_fully_controlled_by = ROOT }}
 			NOT = { is_in_faction_with = DEN }
+			DEN = { # SPTchange
+				is_ai = yes
+			}
 		}
 
 		visible = {	
@@ -3911,6 +3917,9 @@ DEN_overlord_category = {
 			NOT = { is_in_faction_with = DEN }
 			99 = { is_fully_controlled_by = ROOT }
 			912 = { is_fully_controlled_by = ROOT }
+			DEN = { # SPTchange
+				is_ai = yes
+			}
 		}
 
 		visible = {	
@@ -3977,16 +3986,17 @@ DEN_overlord_category = {
 		}
 
 		available = {
-			ROOT = {
-				has_opinion = {
-				    target = DEN
-				    value < -9
-				}
-			}
+			# SPTchange
+			# ROOT = {
+			# 	has_opinion = {
+			# 	    target = DEN
+			# 	    value < -9
+			# 	}
+			# }
 			DEN = {
 				NOT = {
 					has_government = ROOT
-					is_in_faction_with = ROOT
+					# is_in_faction_with = ROOT # SPTchange
 				}
 			}
 		}
@@ -3999,7 +4009,7 @@ DEN_overlord_category = {
 
 		fire_only_once = yes
 
-		cost = 50
+		cost = 0 # SPTchange
 
 		complete_effect = { 
 			DEN = { country_event = { id = denmark_overlord_events.40 days = 2 } }
@@ -4049,16 +4059,17 @@ DEN_overlord_category = {
 		}
 
 		available = {
-			ROOT = {
-				has_opinion = {
-				    target = DEN
-				    value < 0
-				}
-			}
+			# SPTchange
+			# ROOT = {
+			# 	has_opinion = {
+			# 	    target = DEN
+			# 	    value < 0
+			# 	}
+			# }
 			DEN = {
 				NOT = {
 					has_government = ROOT
-					is_in_faction_with = ROOT
+					# is_in_faction_with = ROOT # SPTchange
 				}
 			}
 		}
@@ -4071,7 +4082,7 @@ DEN_overlord_category = {
 
 		fire_only_once = yes
 
-		cost = 25
+		cost = 0 # SPTchange
 
 		complete_effect = {
 			DEN = { country_event = { id = denmark_overlord_events.10 days = 1 } }
@@ -4079,6 +4090,7 @@ DEN_overlord_category = {
 		}
 	}
 
+	# SPT Note: seems to be irrelevant to MP.
 	DEN_demand_government_change = {
 		priority = 1
 		icon = GFX_decision_eng_trade_unions_demand
@@ -4281,7 +4293,7 @@ DEN_overlord_category = {
 
 		fire_only_once = no
 
-		cost = 25
+		cost = 0 # SPTchange
 
 		days_remove = 180
 
@@ -4337,7 +4349,7 @@ DEN_overlord_category = {
 
 		fire_only_once = no
 
-		cost = 25
+		cost = 0 # SPTchange
 
 		days_remove = 365
 
