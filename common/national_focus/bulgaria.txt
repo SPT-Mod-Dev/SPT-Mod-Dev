@@ -8854,7 +8854,7 @@ focus_tree = {
 
 		icon = GFX_focus_BUL_restore_the_bulgarian_patriarchate
 		relative_position_id = BUL_bulgarian_administration_of_the_balkans
-		x = 0
+		x = -1
 		y = 1
 		cost = 10
 
@@ -9091,7 +9091,7 @@ focus_tree = {
 	}
 
 	focus = {
-		allow_branch = {always=no}
+		#allow_branch = {always=no}
 		
 		id = BUL_the_third_bulgarian_empire
 
@@ -9108,7 +9108,7 @@ focus_tree = {
 			}
 		}
 
-		prerequisite = { focus = BUL_total_war focus = BUL_bulgarian_administration_of_the_balkans }
+		prerequisite = {focus = BUL_bulgarian_administration_of_the_balkans }
 
 		icon = GFX_focus_BUL_the_third_bulgarian_empire
 		relative_position_id = BUL_total_war
@@ -9122,9 +9122,9 @@ focus_tree = {
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 		completion_reward = {
-			set_rule = {
-				can_create_factions = yes
-			}
+			# set_rule = { #SPT change to prevent any funny business
+			# 	can_create_factions = yes
+			# }
 			random_owned_state = {
 				prioritize = { 48 212 }
 				limit = {
@@ -9265,16 +9265,16 @@ focus_tree = {
 				custom_effect_tooltip = BUL_the_third_bulgarian_empire_tt
 			}
 
-			if = {
-				limit = {
-					NOT = { has_wargoal_against = TUR }
-					NOT = { is_in_faction_with = TUR }
-				}
-				create_wargoal = {
-					type = annex_everything
-					target = TUR
-				}
-			}
+			# if = { #SPT change, no wargoals against turkey
+			# 	limit = {
+			# 		NOT = { has_wargoal_against = TUR }
+			# 		NOT = { is_in_faction_with = TUR }
+			# 	}
+			# 	create_wargoal = {
+			# 		type = annex_everything
+			# 		target = TUR
+			# 	}
+			# }
 
 			#Set ideology cosmetic tag to show the appropriate 3D models
 			set_country_flag = BUL_tbe_flag
@@ -9284,11 +9284,11 @@ focus_tree = {
 				news_event = { id = bftb_news.7 hours = 8 random_hours = 4 }
 			}
 
-			add_ai_strategy = {
-				type = declare_war
-				id = TUR
-				value = 100
-			}
+			# add_ai_strategy = { #SPT change, removed thirst for blood
+			# 	type = declare_war
+			# 	id = TUR
+			# 	value = 100
+			# }
 		}
 	}
 }
