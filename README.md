@@ -25,6 +25,18 @@
  -Removed Allied Branch from tree
  -Removed The Latin Bloc Focus 
 
+ ### Mexico
+ -Heroic Military Collage 70 days --> 56 days
+ -Army Expansion Program 70 days --> 56 days
+ -Law On Industrial Promotrion 70 days --> 56 days
+ -NAFINSA Added an extra building slot and Mil
+ 
+### Australia
+ -Department of supply and development 70 --> 56 days
+ -
+
+
+
 ### 3.11.3
 
 ### General
