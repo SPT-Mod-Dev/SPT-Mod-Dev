@@ -9968,7 +9968,7 @@ focus_tree = {
 		x = 0
 		y = 3
 		relative_position_id = SOV_dissent_in_the_party
-		cost = 2 #SPT change 10 -> 2
+		cost = 5 #SPT change 10 -> 5
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 		}
@@ -10018,7 +10018,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_the_last_purge
 		prerequisite = { focus = SOV_coup_detat }
 		mutually_exclusive = { focus = SOV_return_democracy_to_the_party }
-		x = -3
+		x = -1
 		y = 1
 		relative_position_id = SOV_coup_detat
 		cost = 10
@@ -10037,9 +10037,14 @@ focus_tree = {
 			custom_effect_tooltip = SOV_left_right_purges_factionalism_tt
 			set_variable = { SOV_factionalism_political_power_factor = 0 }
 
-			IF = { 
-				limit = { has_idea = trotskyite_plot_nsb}
-				remove_ideas = trotskyite_plot_nsb
+			# IF = { 
+			# 	limit = { has_idea = trotskyite_plot_nsb}
+			# 	remove_ideas = trotskyite_plot_nsb
+			# }
+			#SPT change, no longer fully removes Trotskyite plot
+			swap_ideas = {
+				remove_idea = trotskyite_plot_nsb
+				add_idea = trotskyite_plot_purged
 			}
 		}
 	}
@@ -10078,7 +10083,7 @@ focus_tree = {
 		id = SOV_curtailment_of_the_collective_farms
 		icon = GFX_focus_renounce_the_treaty_of_trianon
 		prerequisite = { focus = SOV_coup_detat }
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = SOV_coup_detat
 		cost = 10
@@ -10097,11 +10102,12 @@ focus_tree = {
 		id = SOV_administrative_reforms
 		icon = GFX_focus_generic_soviet_politics
 		prerequisite = { focus = SOV_curtailment_of_the_collective_farms }
+		prerequisite = { focus = SOV_right_purges } #SPT change, added prereq
 		mutually_exclusive = { focus = SOV_a_new_theory_of_revolution }
 		x = -3
 		y = 1
 		relative_position_id = SOV_curtailment_of_the_collective_farms
-		cost = 10
+		cost = 5 #SPT change, 10 -> 5
 		available = {
 			has_character = SOV_aleksey_rykov
 		}
@@ -10111,6 +10117,9 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.05
 			add_ideas = SOV_administrative_reforms_idea
+			remove_dynamic_modifier = { #SPT change
+				modifier = SOV_factionalism_modifier
+			}
 		}
 	}
 
@@ -10118,11 +10127,12 @@ focus_tree = {
 		id = SOV_a_new_theory_of_revolution
 		icon = GFX_goal_generic_war_with_comintern
 		prerequisite = { focus = SOV_curtailment_of_the_collective_farms }
+		prerequisite = { focus = SOV_right_purges } #SPT change, added prereq
 		mutually_exclusive = { focus = SOV_administrative_reforms }
 		x = -1
 		y = 1
 		relative_position_id = SOV_curtailment_of_the_collective_farms
-		cost = 10
+		cost = 5 #SPT change, 10 -> 5
 		available = {
 			SOV_nikolay_bukharin = { is_country_leader = yes }
 		}
@@ -10152,6 +10162,10 @@ focus_tree = {
 					}
 				}
 			}
+			remove_dynamic_modifier = { #SPT change
+				modifier = SOV_factionalism_modifier
+			}
+			
 		}
 	}
 
@@ -10187,7 +10201,7 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = SOV_back_to_the_nep
-		cost = 10
+		cost = 5 #SPT change, 10 -> 5
 		available = {
 		}
 		                
@@ -10239,7 +10253,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = SOV_back_to_the_nep
-		cost = 10
+		cost = 5 #SPT change, 10 -> 5
 		available = {
 		}
 		                
@@ -10288,7 +10302,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = SOV_back_to_the_nep
-		cost = 10
+		cost = 5 #SPT change, 10 -> 5
 		available = {
 			has_idea = SOV_mikhail_tomsky
 		}
@@ -10316,7 +10330,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = SOV_administrative_reforms
-		cost = 10
+		cost = 5 #SPT change, 10 -> 5 
 		available = {
 
 		}
@@ -10430,33 +10444,33 @@ focus_tree = {
 			add_war_support = -0.1
 			add_research_slot = 1
 
-			if = {
-				limit = {
-					has_idea = SOV_politicized_military
-				}
-				swap_ideas = {
-					remove_idea = SOV_politicized_military
-					add_idea = SOV_politicized_military_humanism
-				}
-			}
-			else_if = {
-				limit = {
-					has_idea = SOV_politicized_military_keep
-				}
-				swap_ideas = {
-					remove_idea = SOV_politicized_military_keep
-					add_idea = SOV_politicized_military_keep_humanism
-				}
-			}
-			else_if = {
-				limit = {
-					has_idea = SOV_politicized_military_swap
-				}
-				swap_ideas = {
-					remove_idea = SOV_politicized_military_swap
-					add_idea = SOV_politicized_military_swap_humanism
-				}
-			}
+			# if = { #SPT change, no longer swaps to a worse spirit
+			# 	limit = {
+			# 		has_idea = SOV_politicized_military
+			# 	}
+			# 	swap_ideas = {
+			# 		remove_idea = SOV_politicized_military
+			# 		add_idea = SOV_politicized_military_humanism
+			# 	}
+			# }
+			# else_if = {
+			# 	limit = {
+			# 		has_idea = SOV_politicized_military_keep
+			# 	}
+			# 	swap_ideas = {
+			# 		remove_idea = SOV_politicized_military_keep
+			# 		add_idea = SOV_politicized_military_keep_humanism
+			# 	}
+			# }
+			# else_if = {
+			# 	limit = {
+			# 		has_idea = SOV_politicized_military_swap
+			# 	}
+			# 	swap_ideas = {
+			# 		remove_idea = SOV_politicized_military_swap
+			# 		add_idea = SOV_politicized_military_swap_humanism
+			# 	}
+			# }
 		}
 	}
 
@@ -10470,11 +10484,11 @@ focus_tree = {
 		relative_position_id = SOV_a_new_theory_of_revolution
 		cost = 10
 		available = {
-			surrender_progress < 0.1
-			OR = {
-				is_faction_leader = yes
-				is_in_faction = no
-			}
+			#surrender_progress < 0.1
+			# OR = {
+			# 	is_faction_leader = yes
+			# 	is_in_faction = no
+			# }
 		}
 		                
 		search_filters = {FOCUS_FILTER_POLITICAL}
@@ -10485,99 +10499,155 @@ focus_tree = {
 				ideology = communism
 				popularity = 0.1
 			}
-			IF = {
-				limit = {
-					NOT = { has_completed_focus = SOV_the_socialist_bulwark }
-				}
-				set_rule = { can_join_factions = yes }
-			}
-
-			if = {
-				limit = {
-					is_faction_leader = yes
-				}
-				set_faction_name = SOV_international_revolutionary_marxist_centre_faction_name
-			}
-			else_if = {
-				limit = {
-					is_in_faction = no
-				}
-				create_faction = SOV_international_revolutionary_marxist_centre_faction_name
-				every_subject_country = {
-					ROOT = { add_to_faction = PREV }
-				}
-			}
-
-			every_other_country = {
-				limit = {
-					is_in_faction_with = ROOT
-					NOT = { has_country_leader_ideology = stalinism }
-				}
-				set_country_leader_ideology = marxism
-				custom_effect_tooltip = SOV_international_revolutionary_marxist_centre_marxism_tt
-			}
-			
-			if = {
-				limit = {
-					any_other_country = {
-						has_government = communism
-						NOT = { has_country_leader_ideology = stalinism }
-						is_in_faction = no
-						NOT = { has_war_with = ROOT }
+			custom_effect_tooltip = SPT_SOV_international_brigades_tt
+			hidden_effect = {
+				division_template = {
+					name = "International Volunteers"
+					#division_names_group = 
+					is_locked = no
+					force_allow_recruiting = yes
+					override_model = BRA_militia_entity
+					#division_cap = 6
+					template_counter = 03
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
 					}
 				}
-				custom_effect_tooltip = SOV_international_revolutionary_marxist_centre_allies_tt
-				every_other_country = {
+				every_controlled_state  = {
 					limit = {
-						has_government = communism
-						NOT = { has_country_leader_ideology = stalinism }
-						is_in_faction = no
-						NOT = { has_war_with = ROOT }
-					}
-					add_opinion_modifier = { modifier = SOV_international_socialist_association target = ROOT }
-					country_event = { id = generic.5 hours = 8 random_hours = 8 }
-				}
-			}
-			else = {
-				custom_effect_tooltip = SOV_international_revolutionary_marxist_centre_no_allies_tt
-				effect_tooltip = {
-					every_other_country = {
-						limit = {
-							has_government = communism
-							NOT = { has_country_leader_ideology = stalinism }
-							is_in_faction = no
-							NOT = { has_war_with = ROOT }
+						OR = {
+							state = 219
+							state = 247
+							state = 242
+							state = 217
+							state = 829
+							state = 265
+							state = 220
+							state = 221
+							state = 240
 						}
-						add_opinion_modifier = { modifier = SOV_international_socialist_association target = ROOT }
-						country_event = { id = generic.5 hours = 8 random_hours = 8 }
+					}
+					create_unit = {
+						division = "division_template = \"International Volunteers\" start_experience_factor = 0.0 start_equipment_factor = 1.0"
+						OWNER = ROOT
+					}
+					create_unit = {
+						division = "division_template = \"International Volunteers\" start_experience_factor = 0.0 start_equipment_factor = 1.0"
+						OWNER = ROOT
+					}
+					create_unit = {
+						division = "division_template = \"International Volunteers\" start_experience_factor = 0.0 start_equipment_factor = 1.0"
+						OWNER = ROOT
+					}
+					create_unit = {
+						division = "division_template = \"International Volunteers\" start_experience_factor = 0.0 start_equipment_factor = 1.0"
+						OWNER = ROOT
+					}
+					create_unit = {
+						division = "division_template = \"International Volunteers\" start_experience_factor = 0.0 start_equipment_factor = 1.0"
+						OWNER = ROOT
 					}
 				}
 			}
+
+			# IF = { #SPT change, removed useless effects
+			# 	limit = {
+			# 		NOT = { has_completed_focus = SOV_the_socialist_bulwark }
+			# 	}
+			# 	set_rule = { can_join_factions = yes }
+			# }
+
+			# if = {
+			# 	limit = {
+			# 		is_faction_leader = yes
+			# 	}
+			# 	set_faction_name = SOV_international_revolutionary_marxist_centre_faction_name
+			# }
+			# else_if = {
+			# 	limit = {
+			# 		is_in_faction = no
+			# 	}
+			# 	create_faction = SOV_international_revolutionary_marxist_centre_faction_name
+			# 	every_subject_country = {
+			# 		ROOT = { add_to_faction = PREV }
+			# 	}
+			# }
+
+			# every_other_country = {
+			# 	limit = {
+			# 		is_in_faction_with = ROOT
+			# 		NOT = { has_country_leader_ideology = stalinism }
+			# 	}
+			# 	set_country_leader_ideology = marxism
+			# 	custom_effect_tooltip = SOV_international_revolutionary_marxist_centre_marxism_tt
+			# }
+			
+			# if = {
+			# 	limit = {
+			# 		any_other_country = {
+			# 			has_government = communism
+			# 			NOT = { has_country_leader_ideology = stalinism }
+			# 			is_in_faction = no
+			# 			NOT = { has_war_with = ROOT }
+			# 		}
+			# 	}
+			# 	custom_effect_tooltip = SOV_international_revolutionary_marxist_centre_allies_tt
+			# 	every_other_country = {
+			# 		limit = {
+			# 			has_government = communism
+			# 			NOT = { has_country_leader_ideology = stalinism }
+			# 			is_in_faction = no
+			# 			NOT = { has_war_with = ROOT }
+			# 		}
+			# 		add_opinion_modifier = { modifier = SOV_international_socialist_association target = ROOT }
+			# 		country_event = { id = generic.5 hours = 8 random_hours = 8 }
+			# 	}
+			# }
+			# else = {
+			# 	custom_effect_tooltip = SOV_international_revolutionary_marxist_centre_no_allies_tt
+			# 	effect_tooltip = {
+			# 		every_other_country = {
+			# 			limit = {
+			# 				has_government = communism
+			# 				NOT = { has_country_leader_ideology = stalinism }
+			# 				is_in_faction = no
+			# 				NOT = { has_war_with = ROOT }
+			# 			}
+			# 			add_opinion_modifier = { modifier = SOV_international_socialist_association target = ROOT }
+			# 			country_event = { id = generic.5 hours = 8 random_hours = 8 }
+			# 		}
+			# 	}
+			# }
 			
 			
-			if = { #Stalinists hate us
-				limit = {
-					any_other_country = {
-						has_country_leader_ideology = stalinism
-					}
-				}
-				custom_effect_tooltip = SOV_international_revolutionary_marxist_centre_stalinists_tt
-				every_other_country = {
-					limit = {
-						has_country_leader_ideology = stalinism
-					}
-					add_opinion_modifier = { modifier = SOV_international_socialist_association_bad target = ROOT }
-				}
-			}
-			else = {
-				custom_effect_tooltip = SOV_international_revolutionary_marxist_centre_stalinists_tt
-				every_other_country = {
-					limit = {
-						has_country_leader_ideology = stalinism
-					}
-					add_opinion_modifier = { modifier = SOV_international_socialist_association_bad target = ROOT }
-				}
-			}
+			# if = { #Stalinists hate us
+			# 	limit = {
+			# 		any_other_country = {
+			# 			has_country_leader_ideology = stalinism
+			# 		}
+			# 	}
+			# 	custom_effect_tooltip = SOV_international_revolutionary_marxist_centre_stalinists_tt
+			# 	every_other_country = {
+			# 		limit = {
+			# 			has_country_leader_ideology = stalinism
+			# 		}
+			# 		add_opinion_modifier = { modifier = SOV_international_socialist_association_bad target = ROOT }
+			# 	}
+			# }
+			# else = {
+			# 	custom_effect_tooltip = SOV_international_revolutionary_marxist_centre_stalinists_tt
+			# 	every_other_country = {
+			# 		limit = {
+			# 			has_country_leader_ideology = stalinism
+			# 		}
+			# 		add_opinion_modifier = { modifier = SOV_international_socialist_association_bad target = ROOT }
+			# 	}
+			# }
 		}
 	}
 
@@ -10619,21 +10689,21 @@ focus_tree = {
 
 		completion_reward = {
 
-			every_other_country = {
-				limit = {
-					is_neighbor_of = ROOT 
-					OR = {
-						has_government = fascism
-						has_government = neutrality
-					}
-				}
-				ROOT = {
-					create_wargoal = {
-						type = puppet_wargoal_focus
-						target = PREV
-					}
-				}
-			}
+			# every_other_country = { #SPT change, no extra wargoals
+			# 	limit = {
+			# 		is_neighbor_of = ROOT 
+			# 		OR = {
+			# 			has_government = fascism
+			# 			has_government = neutrality
+			# 		}
+			# 	}
+			# 	ROOT = {
+			# 		create_wargoal = {
+			# 			type = puppet_wargoal_focus
+			# 			target = PREV
+			# 		}
+			# 	}
+			# }
 			
 			every_country = {
 				limit = { 
