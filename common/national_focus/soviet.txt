@@ -10221,7 +10221,19 @@ focus_tree = {
 							uses = 2
 							category = industry
 						}
-						add_ideas = new_economic_policy
+						#SPT change, now grants the better version of NEP if soviets have it
+						if = {
+							limit = {
+								SOV = {
+									has_completed_focus = SOV_a_sustainable_economy
+								}
+							}
+							add_ideas = new_economic_policy_2
+						}
+						else = {
+							add_ideas = new_economic_policy
+						}
+
 					}
 				}
 			}
@@ -10260,6 +10272,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 
 		completion_reward = {
+			#SPT change, doubled factory rewards
 			random_owned_controlled_state = {
 				prioritize = { 252 254 }
 				limit = {
@@ -10272,6 +10285,38 @@ focus_tree = {
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 252 254 }
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 256 239 260 }
+				limit = {
+					free_building_slots = {
+						building = industrial_complex 
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex 
 					level = 2
 					instant_build = yes
 				}
@@ -10338,7 +10383,12 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL}
 
 		completion_reward = {
-			add_ideas = SOV_local_organizations_idea
+			#SPT change, made the idea better and temporary
+			#add_ideas = SOV_local_organizations_idea
+			add_timed_idea = {
+				idea = SOV_local_organizations_idea
+				days = 180
+			}
 		}
 	}
 
@@ -10494,7 +10544,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL}
 
 		completion_reward = {
-			add_political_power = 75
+			add_political_power = 25 #SPT change, 75 -> 25
 			add_popularity = {
 				ideology = communism
 				popularity = 0.1
@@ -10990,10 +11040,11 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_SOV_POLITICAL_PARANOIA}
 
 		completion_reward = {
-			SOV_paranoia_low_decrease_effect = yes 
-			custom_effect_tooltip = SOV_infiltrate_the_nkvd_tt
-			set_country_flag = SOV_nkvd_aligned_flag
-			custom_effect_tooltip = SOV_infiltrate_the_nkvd_coup_tt
+			# SOV_paranoia_low_decrease_effect = yes 
+			# custom_effect_tooltip = SOV_infiltrate_the_nkvd_tt
+			# set_country_flag = SOV_nkvd_aligned_flag
+			# custom_effect_tooltip = SOV_infiltrate_the_nkvd_coup_tt
+			add_ideas = SPT_SOV_infiltrated_nkvd
 
 		}
 	}

@@ -13,6 +13,25 @@ ideas = {
 
 		#SPTChange added "Victory in the winter war",  "Defeat in the winter war" "No retreat allowed"
 
+		
+		SPT_SOV_infiltrated_nkvd = {
+			removal_cost = -1
+			name = SPT_SOV_infiltrated_nkvd
+			picture = generic_spy_intel
+				
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+					
+			modifier = {
+				operative_slot = 1
+				intelligence_agency_defense = 0.5
+			}
+		}
 
 		SPT_victory_in_the_winter_war = {
 			picture = generic_victors_of_ww1
@@ -2897,6 +2916,7 @@ ideas = {
 			}
 
 			modifier = {
+				political_power_gain = 0.5 #SPT change, added pp gain
 				political_advisor_cost_factor = -0.75
 			}
 		}

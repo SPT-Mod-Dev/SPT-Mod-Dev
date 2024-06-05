@@ -1,5 +1,26 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.11.whatever
+
+### Canada
+ - Brought into parity with vanilla additions from recent patches
+
+### United Kingdom
+ - Added 'Global Defense' alt-historical path
+ - Minor reorganization of Home Defense focus branch
+ - Focus 'Military Training Act' now improve national spirit 'Prepare for the Inevitable'
+ - Focus 'Secure Iraq' now puppets and brings into war Iraq
+ - Focus 'Secure Iraq' now requires the UK to lose Lower Egypt to be taken
+
+### Bulgaria
+ - Added 'Appoint Right Wing Ministers' alt-historical path
+ - Added 'The Third Bulgarian Empire' Focus
+
+### Soviet Union
+ - Added 'The Right Opposition' alt-historical path
+ - Tannu Tuva now starts as a puppet of the Soviet Union, to improve Right Opposition path experience
+
+
 ### 3.11.3 'Where were you when soviet was kill'
 
 ### General
