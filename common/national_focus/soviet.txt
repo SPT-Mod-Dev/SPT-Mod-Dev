@@ -6837,6 +6837,16 @@ focus_tree = {
 		completion_reward = {
 			hidden_effect = {
 				add_dynamic_modifier = { modifier = SOV_the_politburo_good_dynamic_modifier }
+
+				SOV_nikolay_bukharin = {
+					clr_character_flag  = SOV_safe_from_purge_flag
+				}
+				SOV_aleksey_rykov = {
+					clr_character_flag  = SOV_safe_from_purge_flag
+				}
+				SOV_mikhail_tomsky = {
+					clr_character_flag  = SOV_safe_from_purge_flag 
+				}
 			}
 			custom_effect_tooltip = SOV_the_centre_ns_tt
 
@@ -9488,7 +9498,8 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 75
 			# SOV_paranoia_medium_increase_effect = yes 
-			custom_effect_tooltip = SOV_the_right_opposition_tt
+			#custom_effect_tooltip = SOV_the_right_opposition_tt
+			custom_effect_tooltip = SPT_SOV_right_opp_assassinate_plot_tt #SPT change, added new tooltip
 			set_variable = { SOV_right_opposition_army_support = 0.1 }
 			set_variable = { SOV_right_opposition_navy_support = 0.05 }
 			set_variable = { SOV_right_opposition_air_support = 0.1 }
@@ -9638,7 +9649,7 @@ focus_tree = {
 		completion_reward = {
 			SOV_paranoia_medium_increase_effect = yes 
 			add_political_power = 100
-			SOV_opposition_support_high_increase_effect = yes 
+			#SOV_opposition_support_high_increase_effect = yes 
 		}
 	}
 
@@ -9778,7 +9789,7 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = SOV_dissent_in_the_party
-		cost = 5 #SPT change 10 -> 5
+		cost = 3 #SPT change 10 -> 3
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 		}
@@ -9804,7 +9815,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = SOV_dissent_in_the_party
-		cost = 5 #SPT change 10 -> 5
+		cost = 3 #SPT change 10 -> 3
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 		}
@@ -9814,7 +9825,8 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 50 
 			custom_effect_tooltip = SOV_clandestine_cells_tt
-			set_country_flag = SOV_organize_wreckers_flag
+			add_stability = 0.05 #SPT change, added stability
+			#set_country_flag = SOV_organize_wreckers_flag
 		}
 	}
 
@@ -9836,7 +9848,24 @@ focus_tree = {
 		search_filters = {}
 
 		completion_reward = {
-			custom_effect_tooltip = SOV_the_plan_for_the_coup_tt 
+			#custom_effect_tooltip = SOV_the_plan_for_the_coup_tt 
+
+			#SPT change, applied effects of Assassinate Stalin decision into focus
+
+			#custom_effect_tooltip = SOV_assassinate_stalin_good_tt
+			#custom_effect_tooltip = SOV_assassinate_stalin_outcome_tt
+			custom_effect_tooltip = SPT_SOV_assassinate_stalin_tt
+			hidden_effect = {
+						retire_character = SOV_iosif_stalin
+						SOV_promote_to_country_leader_beriya = yes
+						news_event = {
+							id = NSB_soviet_communist_civil_war.009
+						}
+						subtract_from_variable = { SOV_paranoia_weekly_modifiers_amount = 2 } #Stalin will always have the Authority Undermined trait (+2 weekly Paranoia)
+						SOV_paranoia_modifier_update_gui_tooltip = yes #Update Paranoia UI
+						set_country_flag = SOV_assassinated_stalin_flag
+				# TODO Create events
+			}
 		}
 	}
 
@@ -9936,7 +9965,7 @@ focus_tree = {
 		x = 0
 		y = 3
 		relative_position_id = SOV_dissent_in_the_party
-		cost = 5 #SPT change 10 -> 5
+		cost = 2 #SPT change 10 -> 2
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 		}
@@ -9951,10 +9980,6 @@ focus_tree = {
 
 		completion_reward = {
 			# Stalin dead
-			IF = {
-				limit = {
-					NOT = { has_character = SOV_iosif_stalin }
-				}
 				custom_effect_tooltip = SOV_coup_detat_success_tt
 				hidden_effect = {
 					set_global_flag = SOV_soviet_civil_war_over
@@ -9980,23 +10005,6 @@ focus_tree = {
 						}
 					}
 				}
-			}
-			
-			# NOT Ready
-			ELSE = {
-				SOV_opposition_support_medium_increase_effect = yes
-				custom_effect_tooltip = SOV_coup_detat_civil_war_tt
-				add_to_variable = { SOV.SOV_right_opposition_army_support = 0.1 }
-				add_to_variable = { SOV.SOV_right_opposition_navy_support = 0.1 }
-				add_to_variable = { SOV.SOV_right_opposition_air_support = 0.1 }
-				hidden_effect = {
-					country_event = {
-						id = NSB_soviet_communist_civil_war.003
-						hours = 1
-					}
-				}
-				SOV_get_centre_military_support = yes 
-			}
 			custom_effect_tooltip = SOV_exiled_advisors_available_tt
 
 			mark_focus_tree_layout_dirty = yes
@@ -10913,10 +10921,8 @@ focus_tree = {
 			SOV_paranoia_low_decrease_effect = yes 
 			custom_effect_tooltip = SOV_infiltrate_the_nkvd_tt
 			set_country_flag = SOV_nkvd_aligned_flag
-			IF = {
-				limit = { SOV_is_right_opposition = yes }
-				custom_effect_tooltip = SOV_infiltrate_the_nkvd_coup_tt
-			}
+			custom_effect_tooltip = SOV_infiltrate_the_nkvd_coup_tt
+
 		}
 	}
 
