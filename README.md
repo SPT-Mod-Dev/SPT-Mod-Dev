@@ -50,6 +50,9 @@
 ### Australia
  -Department of supply and development 70 --> 56 days
 
+### Netherlands
+ - Will now join Allies upon having a war declared against them
+
 
 ### 3.11.3 'Where were you when soviet was kill'
 

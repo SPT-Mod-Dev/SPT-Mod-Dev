@@ -829,6 +829,17 @@ on_actions = {
 				}
 				set_global_flag = Med_War
 			}
+			#Check if HOL is at war with GER and add HOL to allies
+			if = {
+				limit = {
+					HOL = {
+						has_war_with = GER
+					}
+				}
+				ENG = {
+					add_to_faction = HOL
+				}
+			}
 		}
 	}
 	on_peace = {
