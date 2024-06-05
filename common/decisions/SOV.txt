@@ -16998,52 +16998,54 @@ SOV_soviet_civil_war_dec_cat = {
 			set_country_flag = { flag = SOV_paranoia_random_purge_cooldown_from_focus_flag days = 15 } #Used to prevent random purges from popping up while this is active
 			set_country_flag = SOV_third_moscow_trial_flag #Used to unlock the next purge focus
 			#HISTORICAL
+
+			#SPT change, protected right opposition leaders from stalin
 			#Bukharin
-			if = {
-				limit = {
-					has_character = SOV_nikolay_bukharin
-					SOV_nikolay_bukharin = {
-						SOV_character_can_be_purged = yes
-					}
-				}
-				SOV_nikolay_bukharin = {
-					set_character_flag = SOV_targeted_for_purge_flag
-				}
-			}
-			else = {
+			# if = { 
+			# 	limit = {
+			# 		has_character = SOV_nikolay_bukharin
+			# 		SOV_nikolay_bukharin = {
+			# 			SOV_character_can_be_purged = yes
+			# 		}
+			# 	}
+			# 	SOV_nikolay_bukharin = {
+			# 		set_character_flag = SOV_targeted_for_purge_flag
+			# 	}
+			# }
+			#else = {
 				SOV_add_random_character_to_purge_targets_effect = yes
-			}
+			#}
 			#Rykov
-			if = {
-				limit = {
-					has_character = SOV_aleksey_rykov
-					SOV_aleksey_rykov = {
-						SOV_character_can_be_purged = yes
-					}
-				}
-				SOV_aleksey_rykov = {
-					set_character_flag = SOV_targeted_for_purge_flag
-				}
-			}
-			else = {
+			# if = {
+			# 	limit = {
+			# 		has_character = SOV_aleksey_rykov
+			# 		SOV_aleksey_rykov = {
+			# 			SOV_character_can_be_purged = yes
+			# 		}
+			# 	}
+			# 	SOV_aleksey_rykov = {
+			# 		set_character_flag = SOV_targeted_for_purge_flag
+			# 	}
+			# }
+			#else = {
 				SOV_add_random_character_to_purge_targets_effect = yes
-			}
+			#}
 			#NOT-SO-HISTORICAL
 			#Tomsky
-			if = {
-				limit = {
-					has_character = SOV_mikhail_tomsky
-					SOV_mikhail_tomsky = {
-						SOV_character_can_be_purged = yes
-					}
-				}
-				SOV_mikhail_tomsky = {
-					set_character_flag = SOV_targeted_for_purge_flag
-				}
-			}
-			else = {
+			# if = {
+			# 	limit = {
+			# 		has_character = SOV_mikhail_tomsky
+			# 		SOV_mikhail_tomsky = {
+			# 			SOV_character_can_be_purged = yes
+			# 		}
+			# 	}
+			# 	SOV_mikhail_tomsky = {
+			# 		set_character_flag = SOV_targeted_for_purge_flag
+			# 	}
+			# }
+			#else = {
 				SOV_add_random_character_to_purge_targets_effect = yes
-			}
+			#}
 			#Litvinov
 			if = {
 				limit = {
@@ -17081,7 +17083,7 @@ SOV_soviet_civil_war_dec_cat = {
 		priority = 11
 
 		icon = SOV_behead_the_snake
-		allowed = { tag = SOV }
+		allowed = { always = no } #SPT change, prevents civil war from kicking off
 		available = {
 			hidden_trigger = { always = no }
 		}
