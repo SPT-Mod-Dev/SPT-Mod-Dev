@@ -6736,14 +6736,17 @@ focus_tree = {
 		x = 14
 		y = 0
 		offset = {
-			x = -8
+			x = -4
 			y = 0
 			trigger = {
 				has_game_rule = {
 					rule = obsolete_focus_branches_visibility
 					option = HIDE
 				}
-				has_completed_focus = SOV_beaten_but_not_defeated
+				OR = {
+					has_completed_focus = SOV_the_centre
+					has_completed_focus = SOV_the_right_opposition
+				}
 			}
 		}
 		relative_position_id = SOV_strengthen_the_mobilization_plan
@@ -6787,15 +6790,14 @@ focus_tree = {
 		x = -6
 		y = 1
 		offset = {
-			x = 8
-			y = 1
+			x = 6
+			y = 0
 			trigger = {
 				has_game_rule = {
 					rule = obsolete_focus_branches_visibility
 					option = HIDE
 				}
-				has_completed_focus = SOV_beaten_but_not_defeated
-				NOT = { has_completed_focus = SOV_the_hands_do }
+				has_completed_focus = SOV_the_centre
 			}
 		}
 		relative_position_id = SOV_the_path_of_marxism_leninism
@@ -6804,27 +6806,8 @@ focus_tree = {
 		mutually_exclusive = { focus = SOV_the_right_opposition focus = SOV_the_left_opposition }
 
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					AND = {
-						has_completed_focus = SOV_the_left_opposition
-						has_completed_focus = SOV_left_opposition_coup
-					}
-					AND = {
-						has_completed_focus = SOV_the_right_opposition
-						has_completed_focus = SOV_coup_detat
-					}
-					AND = {
-						has_completed_focus = SOV_beaten_but_not_defeated
-						has_completed_focus = SOV_the_hands_do
-					}
-				}
+			not = {
+				has_completed_focus = SOV_the_right_opposition
 			}
 		}
 
@@ -9481,9 +9464,28 @@ focus_tree = {
 			}
 		}
 		mutually_exclusive = { focus = SOV_the_left_opposition focus = SOV_the_centre}
-		x = 15
-		y = 0
-		relative_position_id = SOV_the_left_opposition
+		x = 5
+		y = 1
+
+		offset = {
+			x = -5
+			y = 0
+			trigger = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+				has_completed_focus = SOV_the_right_opposition
+			}
+		}
+
+		allow_branch = {
+			not = {
+				has_completed_focus = SOV_the_centre
+			}
+		}
+
+		relative_position_id = SOV_the_path_of_marxism_leninism
 		cost = 5
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
@@ -9504,6 +9506,7 @@ focus_tree = {
 			set_variable = { SOV_right_opposition_navy_support = 0.05 }
 			set_variable = { SOV_right_opposition_air_support = 0.1 }
 			hidden_effect = {
+				mark_focus_tree_layout_dirty = yes
 				# Factionalism start modifier
 				add_dynamic_modifier = { modifier = SOV_factionalism_modifier }
 				country_event = {
@@ -10007,7 +10010,6 @@ focus_tree = {
 				}
 			custom_effect_tooltip = SOV_exiled_advisors_available_tt
 
-			mark_focus_tree_layout_dirty = yes
 		}
 	}
 
@@ -11285,11 +11287,21 @@ focus_tree = {
 		id = SOV_addressing_internal_affairs
 		icon = GFX_focus_generic_self_management
 		prerequisite = { focus = SOV_the_path_of_marxism_leninism }
-		x = 30
-		y = 0
+		x = 11
+		y = 1
 		
+		offset = {
+			x = -5
+			y = 0
+			trigger = {
+				OR = {
+					has_completed_focus = SOV_the_centre
+					has_completed_focus = SOV_the_right_opposition
+				}
+			}
+		}
 
-		relative_position_id = SOV_the_centre
+		relative_position_id = SOV_the_path_of_marxism_leninism
 		cost = 5
 
 		allow_branch = {
@@ -11670,9 +11682,19 @@ focus_tree = {
 		id = SOV_the_comintern
 		icon = GFX_goal_support_communism
 		prerequisite = { focus = SOV_the_path_of_marxism_leninism }
-		x = 40
-		y = 0
-		relative_position_id = SOV_addressing_internal_affairs
+		x = 20
+		y = 1
+		offset = {
+			x = -5
+			y = 0
+			trigger = {
+				OR = {
+					has_completed_focus = SOV_the_centre
+					has_completed_focus = SOV_the_right_opposition
+				}
+			}
+		}
+		relative_position_id = SOV_the_path_of_marxism_leninism
 		cost = 5
 
 		allow_branch = {
