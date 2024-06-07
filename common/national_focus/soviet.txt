@@ -6787,10 +6787,10 @@ focus_tree = {
 		id = SOV_the_centre
 		icon = GFX_focus_fra_loyalty_stalin
 		prerequisite = { focus = SOV_the_path_of_marxism_leninism }
-		x = -6
+		x = -5
 		y = 1
 		offset = {
-			x = 6
+			x = 5
 			y = 0
 			trigger = {
 				has_game_rule = {
@@ -9826,8 +9826,9 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL}
 
 		completion_reward = {
+			#SPT change, hid mentions of civil war
 			add_political_power = 50 
-			custom_effect_tooltip = SOV_clandestine_cells_tt
+			#custom_effect_tooltip = SOV_clandestine_cells_tt
 			add_stability = 0.05 #SPT change, added stability
 			#set_country_flag = SOV_organize_wreckers_flag
 		}
@@ -10093,7 +10094,9 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_MANPOWER}
 
 		completion_reward = {
-			custom_effect_tooltip = SOV_curtailment_of_the_collective_farms_tt
+			#SPT change, replaced tooltip with a more readable one
+			#custom_effect_tooltip = SOV_curtailment_of_the_collective_farms_tt
+			custom_effect_tooltip = SPT_SOV_five_year_plan_right_opp_tt
 			add_ideas = SOV_curtailment_collective_farms_idea
 		}
 	}
@@ -10117,8 +10120,11 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.05
 			add_ideas = SOV_administrative_reforms_idea
-			remove_dynamic_modifier = { #SPT change
-				modifier = SOV_factionalism_modifier
+			custom_effect_tooltip = SPT_SOV_factionalism_removed_tt
+			hidden_effect = {
+				remove_dynamic_modifier = { #SPT change
+					modifier = SOV_factionalism_modifier
+				}
 			}
 		}
 	}
@@ -10162,9 +10168,13 @@ focus_tree = {
 					}
 				}
 			}
-			remove_dynamic_modifier = { #SPT change
-				modifier = SOV_factionalism_modifier
+			custom_effect_tooltip = SPT_SOV_factionalism_removed_tt
+			hidden_effect = {
+				remove_dynamic_modifier = { #SPT change
+					modifier = SOV_factionalism_modifier
+				}
 			}
+
 			
 		}
 	}
@@ -10371,7 +10381,7 @@ focus_tree = {
 	focus = {
 		id = SOV_incorporate_local_organizations
 		icon = GFX_goal_generic_major_alliance
-		prerequisite = { focus = SOV_administrative_reforms focus = SOV_a_new_theory_of_revolution }
+		prerequisite = { focus = SOV_administrative_reforms }
 		x = 0
 		y = 2
 		relative_position_id = SOV_administrative_reforms
@@ -10527,7 +10537,7 @@ focus_tree = {
 	focus = {
 		id = SOV_international_revolutionary_marxist_centre
 		icon = GFX_focus_spr_unify_the_london_bureau
-		prerequisite = { focus = SOV_a_new_theory_of_revolution focus = SOV_administrative_reforms }
+		prerequisite = { focus = SOV_a_new_theory_of_revolution }
 		prerequisite = { focus = SOV_planned_economy }
 		x = 0
 		y = 2
@@ -10726,7 +10736,7 @@ focus_tree = {
 	focus = {
 		id = SOV_the_enemies_of_the_people
 		icon = GFX_focus_spr_the_anti_fascist_workers_revolution
-		prerequisite = { focus = SOV_international_revolutionary_marxist_centre }
+		prerequisite = { focus = SOV_international_revolutionary_marxist_centre}
 		x = 2
 		y = 1
 		relative_position_id = SOV_international_revolutionary_marxist_centre

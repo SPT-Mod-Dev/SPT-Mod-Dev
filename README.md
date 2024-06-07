@@ -8,8 +8,8 @@
 ### United Kingdom
  - Added 'Global Defense' alt-historical path
  - Minor reorganization of Home Defense focus branch
- - Focus 'Military Training Act' now improve national spirit 'Prepare for the Inevitable'
- - Focus 'Secure Iraq' now puppets and brings into war Iraq
+ - Focus 'Military Training Act' now improves national spirit 'Prepare for the Inevitable' by -25% training time
+ - Focus 'Secure Iraq' now puppets Iraq and brings it into the war, instead of generating a war goal
  - Focus 'Secure Iraq' now requires the UK to lose Lower Egypt to be taken
 
 ### Bulgaria
