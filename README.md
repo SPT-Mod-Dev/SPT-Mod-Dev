@@ -2,19 +2,24 @@
 
 ### 3.11.whatever
 
+### Commonwealth
+ - Expanded Shared Focus Tree with new 'Allied Economy' and 'Save Britain' branches
+
 ### Canada
  - Brought into parity with vanilla additions from recent patches
 
 ### United Kingdom
  - Added 'Global Defense' alt-historical path
- - Minor reorganization of Home Defense focus branch
+ - Minor reorganization of 'Home Defense' focus branch
  - Focus 'Military Training Act' now improves national spirit 'Prepare for the Inevitable' by -25% training time
  - Focus 'Secure Iraq' now puppets Iraq and brings it into the war, instead of generating a war goal
  - Focus 'Secure Iraq' now requires the UK to lose Lower Egypt to be taken
+ - Focus 'Embargo Germany' now causes all nations in faction with England to embargo germany
+ - Focus 'Prepare for the Inevitable' now takes 35 days to complete, from 70
 
 ### Bulgaria
  - Added 'Appoint Right Wing Ministers' alt-historical path
- - Added 'The Third Bulgarian Empire' Focus
+ - Readded 'The Third Bulgarian Empire' Focus
 
 ### Soviet Union
  - Added 'The Right Opposition' alt-historical path

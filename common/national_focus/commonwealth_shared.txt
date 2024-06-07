@@ -982,7 +982,7 @@ joint_focus = {
 }
 shared_focus = {
 	id = SPT_CW_economic_focus
-	icon = GFX_focus_SWE_varnplikt
+	icon = GFX_spt_CW_allied_industry
 	x = 10
 	y = 1
 	relative_position_id = SPT_CW_Together_for_victory
@@ -1002,6 +1002,7 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
+		add_political_power = 20
 		hidden_effect = {
 			add_dynamic_modifier = {
 				modifier = SPT_CW_commonwealth_industry
@@ -1010,9 +1011,10 @@ shared_focus = {
 		custom_effect_tooltip = SPT_CW_add_CW_industry_modifier_tt
 	}
 }
+
 joint_focus = {
-	id = SPT_CW_save_england
-	icon = GFX_focus_SWE_varnplikt
+	id = SPT_CW_save_britain
+	icon = GFX_spt_CW_save_britain
 	text_icon = NORDIC_focus_style
 	x = 12
 	y = 1
@@ -1108,7 +1110,7 @@ shared_focus = {
 		focus = SPT_CW_mil_industry
 		focus = SPT_CW_civ_industry
 	}
-	cost = 5
+	cost = 3
 
 	ai_will_do = {
 	}
@@ -1121,11 +1123,15 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
-		custom_effect_tooltip = SPT_CW_indsutry_funding_tt
+		custom_effect_tooltip = SPT_CW_industry_funding_tt
+		add_timed_idea = {
+			idea = SPT_CW_dev_payment
+			days = 180
+		}
 	}
 }
-shared_focus = {
-	id = SPT_CW_industry_recieved
+joint_focus = {
+	id = SPT_CW_industry_received
 	icon = GFX_focus_SWE_varnplikt
 	x = 0
 	y = 1
@@ -1133,18 +1139,40 @@ shared_focus = {
 	prerequisite = {
 		focus = SPT_CW_industry_funding
 	}
-	cost = 10
+	cost = 15
 
 	ai_will_do = {
 	}
 
 	available = {
+		not = {
+			has_idea = SPT_CW_dev_payment
+		}
+		any_allied_country = {
+			has_completed_focus = SPT_CW_industry_funding
+			not = {
+				has_idea = SPT_CW_dev_payment
+			}
+		}
 	}
 
 	cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
 
-	completion_reward = {
+	completion_reward_joint_originator = {
+		if = {
+			limit = {
+				not = {
+					OR = {
+						has_completed_focus = SPT_CW_mil_industry
+						has_completed_focus = SPT_CW_civ_industry
+					}
+				}
+			}
+			custom_effect_tooltip = SPT_CW_industry_received_tt
+		}
+	}
+	completion_reward_joint_member = {
 	}
 }
