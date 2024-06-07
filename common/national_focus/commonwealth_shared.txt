@@ -42,7 +42,7 @@ shared_focus = {
 	id = SPT_CW_Together_for_victory
 	icon = GFX_focus_CW_TfV
 	text_icon = NORDIC_focus_style
-	x = 0
+	x = 7
 	y = 0
 
 	offset = {
@@ -104,7 +104,7 @@ shared_focus = {
 shared_focus = {
 	id = SPT_CW_allied_air
 	icon = GFX_spt_CW_allied_air
-	x = -7
+	x = -12
 	y = 1
 	relative_position_id = SPT_CW_Together_for_victory
 	prerequisite = {
@@ -130,7 +130,7 @@ shared_focus = {
 shared_focus = {
 	id = SPT_CW_allied_navy
 	icon = GFX_spt_CW_allied_navy
-	x = 0
+	x = -5
 	y = 1
 	relative_position_id = SPT_CW_Together_for_victory
 	prerequisite = {
@@ -156,7 +156,7 @@ shared_focus = {
 shared_focus = {
 	id = SPT_CW_allied_army
 	icon = GFX_spt_CW_allied_army
-	x = 7
+	x = 2
 	y = 1
 	relative_position_id = SPT_CW_Together_for_victory
 	prerequisite = {
@@ -978,5 +978,173 @@ joint_focus = {
 				category = mountaineers_tech
 			}
 		}
+	}
+}
+shared_focus = {
+	id = SPT_CW_economic_focus
+	icon = GFX_focus_SWE_varnplikt
+	x = 10
+	y = 1
+	relative_position_id = SPT_CW_Together_for_victory
+	prerequisite = {
+		focus = SPT_CW_Together_for_victory
+	}
+	cost = 5
+
+	ai_will_do = {
+	}
+
+	available = {
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		hidden_effect = {
+			add_dynamic_modifier = {
+				modifier = SPT_CW_commonwealth_industry
+			}
+		}
+		custom_effect_tooltip = SPT_CW_add_CW_industry_modifier_tt
+	}
+}
+joint_focus = {
+	id = SPT_CW_save_england
+	icon = GFX_focus_SWE_varnplikt
+	text_icon = NORDIC_focus_style
+	x = 12
+	y = 1
+	relative_position_id = SPT_CW_Together_for_victory
+	prerequisite = {
+		focus = SPT_CW_Together_for_victory
+	}
+	cost = 5
+
+	ai_will_do = {
+	}
+
+	available = {
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+
+	}
+}
+shared_focus = {
+	id = SPT_CW_mil_industry
+	icon = GFX_focus_SWE_varnplikt
+	x = -1
+	y = 1
+	relative_position_id = SPT_CW_economic_focus
+	prerequisite = {
+		focus = SPT_CW_economic_focus
+	}
+	mutually_exclusive = {
+		focus = SPT_CW_civ_industry
+	}
+	cost = 5
+
+	ai_will_do = {
+	}
+
+	available = {
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		custom_effect_tooltip = SPT_CW_modify_CW_industry_ns_intro_tt
+		add_to_variable = {
+			SPT_CW_production_speed_arms_factory_factor = 0.05 tooltip = production_speed_arms_factory_factor_tt
+		}
+	}
+}
+shared_focus = {
+	id = SPT_CW_civ_industry
+	icon = GFX_focus_SWE_varnplikt
+	x = 1
+	y = 1
+	relative_position_id = SPT_CW_economic_focus
+	prerequisite = {
+		focus = SPT_CW_economic_focus
+	}
+	mutually_exclusive = {
+		focus = SPT_CW_mil_industry
+	}
+	cost = 5
+
+	ai_will_do = {
+	}
+
+	available = {
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		custom_effect_tooltip = SPT_CW_modify_CW_industry_ns_intro_tt
+		add_to_variable = {
+			SPT_CW_production_speed_industrial_complex_factor = 0.05 tooltip = production_speed_industrial_complex_factor_tt
+		}
+	}
+}
+shared_focus = {
+	id = SPT_CW_industry_funding
+	icon = GFX_focus_SWE_varnplikt
+	x = 1
+	y = 1
+	relative_position_id = SPT_CW_mil_industry
+	prerequisite = {
+		focus = SPT_CW_mil_industry
+		focus = SPT_CW_civ_industry
+	}
+	cost = 5
+
+	ai_will_do = {
+	}
+
+	available = {
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		custom_effect_tooltip = SPT_CW_indsutry_funding_tt
+	}
+}
+shared_focus = {
+	id = SPT_CW_industry_recieved
+	icon = GFX_focus_SWE_varnplikt
+	x = 0
+	y = 1
+	relative_position_id = SPT_CW_industry_funding
+	prerequisite = {
+		focus = SPT_CW_industry_funding
+	}
+	cost = 10
+
+	ai_will_do = {
+	}
+
+	available = {
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
 	}
 }
