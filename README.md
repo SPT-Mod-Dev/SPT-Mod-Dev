@@ -5,6 +5,7 @@
 
 ### General
  - Political raids stability penalty -10% -> -8%
+ - Updated generic organisations
 
 ### Finland
  - 'Cooperation with Germany' adds military access with Germany
@@ -12,7 +13,9 @@
  - The Continuation War adds military access with the rest of the Axis  
  - 'Communist Pressure' from 'Secure Leningrad' 365 days -> 150 days
  - Upon Winter War Victory add 'Anti-Communist Pressure' for 90 days                 
- - Upon Winter War Defeat add 'Communist Pressure' for 90 days    
+ - Upon Winter War Defeat add 'Communist Pressure' for 90 days
+ -Removed Market Subsidy from foreign amror and added -100% license cost and -5% Production to light tanks
+ -Removed Market Subsidy from Foreign Aircraft
 
 ### New Zealand
  - 'Bob Semple Tank' now provides a bonus for all armour
@@ -31,6 +34,38 @@
 ### AI 
  - AI Japan will now annex China rather than puppeting them (for real)
  - Added AI plan for Spain's focuses during the civil war
+
+### Hungary
+ - Joint air development - Removed market subsidy and changed to sharing group and 1 x100 boost to CAS/Fighters
+ -Added a new focus Foreign production Assistance which give a -10% production reduction to fighters, CAS and Tactical bombers
+ -Added a Mutally exclusive marine branch
+ -Ingenius designs Changed to Funding the air force, Provides MIO funds and 2x 50% Air bonus
+ -Form parachute Battalions changed- 1x 300% --> 1x 200%
+ -Joint tank Procurment - removed subsidy, now joins research group, Gives German Tank License Agreement, which provides license cost -100% and Medium and heavy tank production -5%
+ -Naval Tree Hidden 
+ -Establish the airforce - Air Exp 25 --> 50
+ -Added "Train with the Luftwaffe" and "Train with the Regia Aeronautica" - Mutally exclusive which provide air buffs
+
+### Italy
+ -Treaty with Germany - Removed subsidy, Added opinion factor, 1x 100% Synthetics ---> 2x 100% Synthetics 
+
+### Spain
+ -Removed Allied Branch from tree
+ -Removed The Latin Bloc Focus 
+
+### Mexico
+ -Heroic Military Collage 70 days --> 56 days
+ -Army Expansion Program 70 days --> 56 days
+ -Law On Industrial Promotrion 70 days --> 56 days
+ -NAFINSA Added an extra building slot and Mil
+ -Add tutorial tooltip to SPT Info
+ 
+### Australia
+ -Department of supply and development 70 --> 56 days
+
+### Netherlands
+ - Will now join Allies upon having a war declared against them
+
 
 ### 3.11.3 'Where were you when soviet was kill'
 
