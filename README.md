@@ -46,6 +46,7 @@
  -Army Expansion Program 70 days --> 56 days
  -Law On Industrial Promotrion 70 days --> 56 days
  -NAFINSA Added an extra building slot and Mil
+ -Add tutorial tooltip to SPT Info
  
 ### Australia
  -Department of supply and development 70 --> 56 days
