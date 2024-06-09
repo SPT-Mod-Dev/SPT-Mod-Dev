@@ -1,11 +1,33 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-
 ### 3.11.4 'Bigly'
 
 ### General
  - Political raids stability penalty -10% -> -8%
  - Updated generic organisations
+
+### Commonwealth
+ - Expanded Shared Focus Tree with new 'Allied Economy' branch
+
+### Canada
+ - Brought into parity with vanilla additions from recent patches
+
+### United Kingdom
+ - Added 'Global Defense' alt-historical path
+ - Minor reorganization of 'Home Defense' focus branch
+ - Focus 'Military Training Act' now improves national spirit 'Prepare for the Inevitable' by -25% training time
+ - Focus 'Secure Iraq' now puppets Iraq and brings it into the war, instead of generating a war goal
+ - Focus 'Secure Iraq' now requires the UK to lose Lower Egypt to be taken
+ - Focus 'Embargo Germany' now causes all nations in faction with England to embargo germany
+ - Focus 'Prepare for the Inevitable' now takes 35 days to complete, from 70
+
+### Bulgaria
+ - Added 'Appoint Right Wing Ministers' alt-historical path
+ - Readded 'The Third Bulgarian Empire' Focus
+
+### Soviet Union
+ - Added 'The Right Opposition' alt-historical path
+ - Tannu Tuva now starts as a puppet of the Soviet Union, to improve Right Opposition path experience
 
 ### Finland
  - 'Cooperation with Germany' adds military access with Germany

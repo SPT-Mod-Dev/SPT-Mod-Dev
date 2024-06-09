@@ -6736,14 +6736,17 @@ focus_tree = {
 		x = 14
 		y = 0
 		offset = {
-			x = -8
+			x = -4
 			y = 0
 			trigger = {
 				has_game_rule = {
 					rule = obsolete_focus_branches_visibility
 					option = HIDE
 				}
-				has_completed_focus = SOV_beaten_but_not_defeated
+				OR = {
+					has_completed_focus = SOV_the_centre
+					has_completed_focus = SOV_the_right_opposition
+				}
 			}
 		}
 		relative_position_id = SOV_strengthen_the_mobilization_plan
@@ -6784,18 +6787,17 @@ focus_tree = {
 		id = SOV_the_centre
 		icon = GFX_focus_fra_loyalty_stalin
 		prerequisite = { focus = SOV_the_path_of_marxism_leninism }
-		x = -6
+		x = -5
 		y = 1
 		offset = {
-			x = 8
-			y = 1
+			x = 5
+			y = 0
 			trigger = {
 				has_game_rule = {
 					rule = obsolete_focus_branches_visibility
 					option = HIDE
 				}
-				has_completed_focus = SOV_beaten_but_not_defeated
-				NOT = { has_completed_focus = SOV_the_hands_do }
+				has_completed_focus = SOV_the_centre
 			}
 		}
 		relative_position_id = SOV_the_path_of_marxism_leninism
@@ -6804,27 +6806,8 @@ focus_tree = {
 		mutually_exclusive = { focus = SOV_the_right_opposition focus = SOV_the_left_opposition }
 
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				NOT = {
-					AND = {
-						has_completed_focus = SOV_the_left_opposition
-						has_completed_focus = SOV_left_opposition_coup
-					}
-					AND = {
-						has_completed_focus = SOV_the_right_opposition
-						has_completed_focus = SOV_coup_detat
-					}
-					AND = {
-						has_completed_focus = SOV_beaten_but_not_defeated
-						has_completed_focus = SOV_the_hands_do
-					}
-				}
+			not = {
+				has_completed_focus = SOV_the_right_opposition
 			}
 		}
 
@@ -6837,6 +6820,16 @@ focus_tree = {
 		completion_reward = {
 			hidden_effect = {
 				add_dynamic_modifier = { modifier = SOV_the_politburo_good_dynamic_modifier }
+
+				SOV_nikolay_bukharin = {
+					clr_character_flag  = SOV_safe_from_purge_flag
+				}
+				SOV_aleksey_rykov = {
+					clr_character_flag  = SOV_safe_from_purge_flag
+				}
+				SOV_mikhail_tomsky = {
+					clr_character_flag  = SOV_safe_from_purge_flag 
+				}
 			}
 			custom_effect_tooltip = SOV_the_centre_ns_tt
 
@@ -9457,7 +9450,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_bukharinists
 		prerequisite = { focus = SOV_the_path_of_marxism_leninism }
 		allow_branch = { 
-			always = no
+			#always = no
 			has_dlc = "No Step Back"
 			if = {
 				limit = {
@@ -9471,9 +9464,28 @@ focus_tree = {
 			}
 		}
 		mutually_exclusive = { focus = SOV_the_left_opposition focus = SOV_the_centre}
-		x = 15
-		y = 0
-		relative_position_id = SOV_the_left_opposition
+		x = 5
+		y = 1
+
+		offset = {
+			x = -5
+			y = 0
+			trigger = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+				has_completed_focus = SOV_the_right_opposition
+			}
+		}
+
+		allow_branch = {
+			not = {
+				has_completed_focus = SOV_the_centre
+			}
+		}
+
+		relative_position_id = SOV_the_path_of_marxism_leninism
 		cost = 5
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
@@ -9488,11 +9500,13 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 75
 			# SOV_paranoia_medium_increase_effect = yes 
-			custom_effect_tooltip = SOV_the_right_opposition_tt
+			#custom_effect_tooltip = SOV_the_right_opposition_tt
+			custom_effect_tooltip = SPT_SOV_right_opp_assassinate_plot_tt #SPT change, added new tooltip
 			set_variable = { SOV_right_opposition_army_support = 0.1 }
 			set_variable = { SOV_right_opposition_navy_support = 0.05 }
 			set_variable = { SOV_right_opposition_air_support = 0.1 }
 			hidden_effect = {
+				mark_focus_tree_layout_dirty = yes
 				# Factionalism start modifier
 				add_dynamic_modifier = { modifier = SOV_factionalism_modifier }
 				country_event = {
@@ -9558,6 +9572,11 @@ focus_tree = {
 		y = 1
 		relative_position_id = SOV_the_right_opposition
 		cost = 10
+
+		allow_branch = { #SPT change
+			always = no
+		}
+
 		available = {
 		}
 		                
@@ -9582,8 +9601,13 @@ focus_tree = {
 		prerequisite = { focus = SOV_the_need_for_policy_changes }
 		x = -2
 		y = 1
+
+		allow_branch = { #SPT change
+			always = no 
+		}
+
 		relative_position_id = SOV_the_need_for_policy_changes
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 		}
@@ -9612,7 +9636,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = SOV_the_need_for_policy_changes
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 		}
@@ -9628,7 +9652,7 @@ focus_tree = {
 		completion_reward = {
 			SOV_paranoia_medium_increase_effect = yes 
 			add_political_power = 100
-			SOV_opposition_support_high_increase_effect = yes 
+			#SOV_opposition_support_high_increase_effect = yes 
 		}
 	}
 
@@ -9637,14 +9661,18 @@ focus_tree = {
 		icon = GFX_focus_SOV_purge_trotskyists
 		prerequisite = { focus = SOV_the_need_for_policy_changes }
 		mutually_exclusive = { focus = SOV_cooperation_against_stalin }
-		x = -4
+		x = -3
 		y = 1
 		relative_position_id = SOV_the_need_for_policy_changes
 		cost = 5
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 		}
-		                
+		
+		allow_branch = {
+			always = no
+		}
+
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA}
 
 		completion_reward = {
@@ -9759,10 +9787,11 @@ focus_tree = {
 	focus = {
 		id = SOV_undermine_stalins_authority
 		icon = GFX_focus_ger_bulwark_against_bolshevism
-		prerequisite = { focus = SOV_organize_uprisings_in_the_country }
-		x = -1
+		prerequisite = { focus = SOV_dissent_in_the_party } #SPT Change, moved requirement
+		#prerequisite = { focus = SOV_organize_uprisings_in_the_country }
+		x = -2
 		y = 1
-		relative_position_id = SOV_organize_uprisings_in_the_country
+		relative_position_id = SOV_dissent_in_the_party
 		cost = 10
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
@@ -9784,11 +9813,12 @@ focus_tree = {
 	focus = {
 		id = SOV_clandestine_cells
 		icon = GFX_goal_generic_more_territorial_claims
-		prerequisite = { focus = SOV_organize_uprisings_in_the_country }
-		x = 1
+		prerequisite = { focus = SOV_dissent_in_the_party } #SPT Change, moved requirement
+		#prerequisite = { focus = SOV_organize_uprisings_in_the_country }
+		x = 2
 		y = 1
-		relative_position_id = SOV_organize_uprisings_in_the_country
-		cost = 10
+		relative_position_id = SOV_dissent_in_the_party
+		cost = 5 #SPT change 10 -> 5
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 		}
@@ -9796,9 +9826,12 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL}
 
 		completion_reward = {
+			#SPT change, hid mentions of civil war
+			SOV_paranoia_low_increase_effect = yes  #SPT change, added paranoia increase
 			add_political_power = 50 
-			custom_effect_tooltip = SOV_clandestine_cells_tt
-			set_country_flag = SOV_organize_wreckers_flag
+			#custom_effect_tooltip = SOV_clandestine_cells_tt
+			add_stability = 0.05 #SPT change, added stability
+			#set_country_flag = SOV_organize_wreckers_flag
 		}
 	}
 
@@ -9807,7 +9840,8 @@ focus_tree = {
 		icon = GFX_goal_generic_major_war
 		prerequisite = { focus = SOV_undermine_stalins_authority }
 		prerequisite = { focus = SOV_clandestine_cells }
-		x = 1
+		prerequisite = { focus = SOV_infiltrate_the_nkvd } #SPT change, added prerequisite
+		x = 2
 		y = 1
 		relative_position_id = SOV_undermine_stalins_authority
 		cost = 10
@@ -9819,7 +9853,24 @@ focus_tree = {
 		search_filters = {}
 
 		completion_reward = {
-			custom_effect_tooltip = SOV_the_plan_for_the_coup_tt 
+			#custom_effect_tooltip = SOV_the_plan_for_the_coup_tt 
+
+			#SPT change, applied effects of Assassinate Stalin decision into focus
+
+			#custom_effect_tooltip = SOV_assassinate_stalin_good_tt
+			#custom_effect_tooltip = SOV_assassinate_stalin_outcome_tt
+			custom_effect_tooltip = SPT_SOV_assassinate_stalin_tt
+			hidden_effect = {
+						retire_character = SOV_iosif_stalin
+						SOV_promote_to_country_leader_beriya = yes
+						news_event = {
+							id = NSB_soviet_communist_civil_war.009
+						}
+						subtract_from_variable = { SOV_paranoia_weekly_modifiers_amount = 2 } #Stalin will always have the Authority Undermined trait (+2 weekly Paranoia)
+						SOV_paranoia_modifier_update_gui_tooltip = yes #Update Paranoia UI
+						set_country_flag = SOV_assassinated_stalin_flag
+				# TODO Create events
+			}
 		}
 	}
 
@@ -9915,11 +9966,11 @@ focus_tree = {
 	focus = {
 		id = SOV_coup_detat
 		icon = GFX_focus_spr_masters_of_our_own_fate
-		prerequisite = { focus = SOV_dissent_in_the_party }
+		prerequisite = { focus = SOV_the_plan_for_the_coup} #SPT change, change prerequisite
 		x = 0
 		y = 3
 		relative_position_id = SOV_dissent_in_the_party
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 		}
@@ -9934,10 +9985,6 @@ focus_tree = {
 
 		completion_reward = {
 			# Stalin dead
-			IF = {
-				limit = {
-					NOT = { has_character = SOV_iosif_stalin }
-				}
 				custom_effect_tooltip = SOV_coup_detat_success_tt
 				hidden_effect = {
 					set_global_flag = SOV_soviet_civil_war_over
@@ -9963,26 +10010,8 @@ focus_tree = {
 						}
 					}
 				}
-			}
-			
-			# NOT Ready
-			ELSE = {
-				SOV_opposition_support_medium_increase_effect = yes
-				custom_effect_tooltip = SOV_coup_detat_civil_war_tt
-				add_to_variable = { SOV.SOV_right_opposition_army_support = 0.1 }
-				add_to_variable = { SOV.SOV_right_opposition_navy_support = 0.1 }
-				add_to_variable = { SOV.SOV_right_opposition_air_support = 0.1 }
-				hidden_effect = {
-					country_event = {
-						id = NSB_soviet_communist_civil_war.003
-						hours = 1
-					}
-				}
-				SOV_get_centre_military_support = yes 
-			}
 			custom_effect_tooltip = SOV_exiled_advisors_available_tt
 
-			mark_focus_tree_layout_dirty = yes
 		}
 	}
 
@@ -9991,7 +10020,7 @@ focus_tree = {
 		icon = GFX_focus_SOV_the_last_purge
 		prerequisite = { focus = SOV_coup_detat }
 		mutually_exclusive = { focus = SOV_return_democracy_to_the_party }
-		x = -4
+		x = -1
 		y = 1
 		relative_position_id = SOV_coup_detat
 		cost = 10
@@ -10010,9 +10039,14 @@ focus_tree = {
 			custom_effect_tooltip = SOV_left_right_purges_factionalism_tt
 			set_variable = { SOV_factionalism_political_power_factor = 0 }
 
-			IF = { 
-				limit = { has_idea = trotskyite_plot_nsb}
-				remove_ideas = trotskyite_plot_nsb
+			# IF = { 
+			# 	limit = { has_idea = trotskyite_plot_nsb}
+			# 	remove_ideas = trotskyite_plot_nsb
+			# }
+			#SPT change, no longer fully removes Trotskyite plot
+			swap_ideas = {
+				remove_idea = trotskyite_plot_nsb
+				add_idea = trotskyite_plot_purged
 			}
 		}
 	}
@@ -10027,6 +10061,10 @@ focus_tree = {
 		cost = 10
 		available = {
 			NOT = { has_global_flag = SOV_soviet_civil_war_over }
+		}
+
+		allow_branch = { #SPT change
+			always = no
 		}
 		                
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_MANPOWER}
@@ -10047,7 +10085,7 @@ focus_tree = {
 		id = SOV_curtailment_of_the_collective_farms
 		icon = GFX_focus_renounce_the_treaty_of_trianon
 		prerequisite = { focus = SOV_coup_detat }
-		x = 2
+		x = 1
 		y = 1
 		relative_position_id = SOV_coup_detat
 		cost = 10
@@ -10057,7 +10095,9 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_MANPOWER}
 
 		completion_reward = {
-			custom_effect_tooltip = SOV_curtailment_of_the_collective_farms_tt
+			#SPT change, replaced tooltip with a more readable one
+			#custom_effect_tooltip = SOV_curtailment_of_the_collective_farms_tt
+			custom_effect_tooltip = SPT_SOV_five_year_plan_right_opp_tt
 			add_ideas = SOV_curtailment_collective_farms_idea
 		}
 	}
@@ -10066,11 +10106,12 @@ focus_tree = {
 		id = SOV_administrative_reforms
 		icon = GFX_focus_generic_soviet_politics
 		prerequisite = { focus = SOV_curtailment_of_the_collective_farms }
+		prerequisite = { focus = SOV_right_purges } #SPT change, added prereq
 		mutually_exclusive = { focus = SOV_a_new_theory_of_revolution }
-		x = -4
+		x = -3
 		y = 1
 		relative_position_id = SOV_curtailment_of_the_collective_farms
-		cost = 10
+		cost = 5 #SPT change, 10 -> 5
 		available = {
 			has_character = SOV_aleksey_rykov
 		}
@@ -10080,6 +10121,12 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.05
 			add_ideas = SOV_administrative_reforms_idea
+			custom_effect_tooltip = SPT_SOV_factionalism_removed_tt
+			hidden_effect = {
+				remove_dynamic_modifier = { #SPT change
+					modifier = SOV_factionalism_modifier
+				}
+			}
 		}
 	}
 
@@ -10087,11 +10134,12 @@ focus_tree = {
 		id = SOV_a_new_theory_of_revolution
 		icon = GFX_goal_generic_war_with_comintern
 		prerequisite = { focus = SOV_curtailment_of_the_collective_farms }
+		prerequisite = { focus = SOV_right_purges } #SPT change, added prereq
 		mutually_exclusive = { focus = SOV_administrative_reforms }
-		x = -2
+		x = -1
 		y = 1
 		relative_position_id = SOV_curtailment_of_the_collective_farms
-		cost = 10
+		cost = 5 #SPT change, 10 -> 5
 		available = {
 			SOV_nikolay_bukharin = { is_country_leader = yes }
 		}
@@ -10121,6 +10169,14 @@ focus_tree = {
 					}
 				}
 			}
+			custom_effect_tooltip = SPT_SOV_factionalism_removed_tt
+			hidden_effect = {
+				remove_dynamic_modifier = { #SPT change
+					modifier = SOV_factionalism_modifier
+				}
+			}
+
+			
 		}
 	}
 
@@ -10128,7 +10184,7 @@ focus_tree = {
 		id = SOV_back_to_the_nep
 		icon = GFX_focus_generic_treaty
 		prerequisite = { focus = SOV_curtailment_of_the_collective_farms }
-		x = 1
+		x = 2
 		y = 1
 		relative_position_id = SOV_curtailment_of_the_collective_farms
 		cost = 10
@@ -10156,7 +10212,7 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = SOV_back_to_the_nep
-		cost = 10
+		cost = 5 #SPT change, 10 -> 5
 		available = {
 		}
 		                
@@ -10176,7 +10232,19 @@ focus_tree = {
 							uses = 2
 							category = industry
 						}
-						add_ideas = new_economic_policy
+						#SPT change, now grants the better version of NEP if soviets have it
+						if = {
+							limit = {
+								SOV = {
+									has_completed_focus = SOV_a_sustainable_economy
+								}
+							}
+							add_ideas = new_economic_policy_2
+						}
+						else = {
+							add_ideas = new_economic_policy
+						}
+
 					}
 				}
 			}
@@ -10215,6 +10283,23 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 
 		completion_reward = {
+			#SPT change, doubled factory rewards
+			random_owned_controlled_state = {
+				prioritize = { 252 254 }
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
 			random_owned_controlled_state = {
 				prioritize = { 252 254 }
 				limit = {
@@ -10247,6 +10332,22 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			random_owned_controlled_state = {
+				prioritize = { 256 239 260 }
+				limit = {
+					free_building_slots = {
+						building = industrial_complex 
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex 
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 
@@ -10257,7 +10358,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = SOV_back_to_the_nep
-		cost = 10
+		cost = 5 #SPT change, 10 -> 5
 		available = {
 			has_idea = SOV_mikhail_tomsky
 		}
@@ -10281,11 +10382,11 @@ focus_tree = {
 	focus = {
 		id = SOV_incorporate_local_organizations
 		icon = GFX_goal_generic_major_alliance
-		prerequisite = { focus = SOV_administrative_reforms focus = SOV_a_new_theory_of_revolution }
+		prerequisite = { focus = SOV_administrative_reforms }
 		x = 0
 		y = 2
 		relative_position_id = SOV_administrative_reforms
-		cost = 10
+		cost = 5 #SPT change, 10 -> 5 
 		available = {
 
 		}
@@ -10293,16 +10394,20 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL}
 
 		completion_reward = {
-			add_ideas = SOV_local_organizations_idea
+			#SPT change, made the idea better and temporary
+			#add_ideas = SOV_local_organizations_idea
+			add_timed_idea = {
+				idea = SOV_local_organizations_idea
+				days = 180
+			}
 		}
 	}
 
 	focus = {
 		id = SOV_for_the_common_good
 		icon = GFX_focus_eng_concessions_to_the_trade_unions
-		prerequisite = { focus = SOV_incorporate_local_organizations }
-		prerequisite = { focus = SOV_international_revolutionary_marxist_centre }
-		x = 0
+		prerequisite = { focus = SOV_incorporate_local_organizations focus = SOV_international_revolutionary_marxist_centre } #SPT change, added prerequisites
+		x = 2
 		y = 1
 		relative_position_id = SOV_incorporate_local_organizations
 		cost = 10
@@ -10400,154 +10505,210 @@ focus_tree = {
 			add_war_support = -0.1
 			add_research_slot = 1
 
-			if = {
-				limit = {
-					has_idea = SOV_politicized_military
-				}
-				swap_ideas = {
-					remove_idea = SOV_politicized_military
-					add_idea = SOV_politicized_military_humanism
-				}
-			}
-			else_if = {
-				limit = {
-					has_idea = SOV_politicized_military_keep
-				}
-				swap_ideas = {
-					remove_idea = SOV_politicized_military_keep
-					add_idea = SOV_politicized_military_keep_humanism
-				}
-			}
-			else_if = {
-				limit = {
-					has_idea = SOV_politicized_military_swap
-				}
-				swap_ideas = {
-					remove_idea = SOV_politicized_military_swap
-					add_idea = SOV_politicized_military_swap_humanism
-				}
-			}
+			# if = { #SPT change, no longer swaps to a worse spirit
+			# 	limit = {
+			# 		has_idea = SOV_politicized_military
+			# 	}
+			# 	swap_ideas = {
+			# 		remove_idea = SOV_politicized_military
+			# 		add_idea = SOV_politicized_military_humanism
+			# 	}
+			# }
+			# else_if = {
+			# 	limit = {
+			# 		has_idea = SOV_politicized_military_keep
+			# 	}
+			# 	swap_ideas = {
+			# 		remove_idea = SOV_politicized_military_keep
+			# 		add_idea = SOV_politicized_military_keep_humanism
+			# 	}
+			# }
+			# else_if = {
+			# 	limit = {
+			# 		has_idea = SOV_politicized_military_swap
+			# 	}
+			# 	swap_ideas = {
+			# 		remove_idea = SOV_politicized_military_swap
+			# 		add_idea = SOV_politicized_military_swap_humanism
+			# 	}
+			# }
 		}
 	}
 
 	focus = {
 		id = SOV_international_revolutionary_marxist_centre
 		icon = GFX_focus_spr_unify_the_london_bureau
-		prerequisite = { focus = SOV_a_new_theory_of_revolution focus = SOV_administrative_reforms }
+		prerequisite = { focus = SOV_a_new_theory_of_revolution }
 		prerequisite = { focus = SOV_planned_economy }
 		x = 0
 		y = 2
 		relative_position_id = SOV_a_new_theory_of_revolution
 		cost = 10
 		available = {
-			surrender_progress < 0.1
-			OR = {
-				is_faction_leader = yes
-				is_in_faction = no
-			}
+			#surrender_progress < 0.1
+			# OR = {
+			# 	is_faction_leader = yes
+			# 	is_in_faction = no
+			# }
 		}
 		                
 		search_filters = {FOCUS_FILTER_POLITICAL}
 
 		completion_reward = {
-			add_political_power = 75
+			add_political_power = 25 #SPT change, 75 -> 25
 			add_popularity = {
 				ideology = communism
 				popularity = 0.1
 			}
-			IF = {
-				limit = {
-					NOT = { has_completed_focus = SOV_the_socialist_bulwark }
-				}
-				set_rule = { can_join_factions = yes }
-			}
-
-			if = {
-				limit = {
-					is_faction_leader = yes
-				}
-				set_faction_name = SOV_international_revolutionary_marxist_centre_faction_name
-			}
-			else_if = {
-				limit = {
-					is_in_faction = no
-				}
-				create_faction = SOV_international_revolutionary_marxist_centre_faction_name
-				every_subject_country = {
-					ROOT = { add_to_faction = PREV }
-				}
-			}
-
-			every_other_country = {
-				limit = {
-					is_in_faction_with = ROOT
-					NOT = { has_country_leader_ideology = stalinism }
-				}
-				set_country_leader_ideology = marxism
-				custom_effect_tooltip = SOV_international_revolutionary_marxist_centre_marxism_tt
-			}
-			
-			if = {
-				limit = {
-					any_other_country = {
-						has_government = communism
-						NOT = { has_country_leader_ideology = stalinism }
-						is_in_faction = no
-						NOT = { has_war_with = ROOT }
+			custom_effect_tooltip = SPT_SOV_international_brigades_tt
+			hidden_effect = {
+				division_template = {
+					name = "International Volunteers"
+					#division_names_group = 
+					is_locked = no
+					force_allow_recruiting = yes
+					override_model = BRA_militia_entity
+					#division_cap = 6
+					template_counter = 03
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
 					}
 				}
-				custom_effect_tooltip = SOV_international_revolutionary_marxist_centre_allies_tt
-				every_other_country = {
+				every_controlled_state  = {
 					limit = {
-						has_government = communism
-						NOT = { has_country_leader_ideology = stalinism }
-						is_in_faction = no
-						NOT = { has_war_with = ROOT }
-					}
-					add_opinion_modifier = { modifier = SOV_international_socialist_association target = ROOT }
-					country_event = { id = generic.5 hours = 8 random_hours = 8 }
-				}
-			}
-			else = {
-				custom_effect_tooltip = SOV_international_revolutionary_marxist_centre_no_allies_tt
-				effect_tooltip = {
-					every_other_country = {
-						limit = {
-							has_government = communism
-							NOT = { has_country_leader_ideology = stalinism }
-							is_in_faction = no
-							NOT = { has_war_with = ROOT }
+						OR = {
+							state = 219
+							state = 247
+							state = 242
+							state = 217
+							state = 829
+							state = 265
+							state = 220
+							state = 221
+							state = 240
 						}
-						add_opinion_modifier = { modifier = SOV_international_socialist_association target = ROOT }
-						country_event = { id = generic.5 hours = 8 random_hours = 8 }
+					}
+					create_unit = {
+						division = "division_template = \"International Volunteers\" start_experience_factor = 0.0 start_equipment_factor = 1.0"
+						OWNER = ROOT
+					}
+					create_unit = {
+						division = "division_template = \"International Volunteers\" start_experience_factor = 0.0 start_equipment_factor = 1.0"
+						OWNER = ROOT
+					}
+					create_unit = {
+						division = "division_template = \"International Volunteers\" start_experience_factor = 0.0 start_equipment_factor = 1.0"
+						OWNER = ROOT
+					}
+					create_unit = {
+						division = "division_template = \"International Volunteers\" start_experience_factor = 0.0 start_equipment_factor = 1.0"
+						OWNER = ROOT
+					}
+					create_unit = {
+						division = "division_template = \"International Volunteers\" start_experience_factor = 0.0 start_equipment_factor = 1.0"
+						OWNER = ROOT
 					}
 				}
 			}
+
+			# IF = { #SPT change, removed useless effects
+			# 	limit = {
+			# 		NOT = { has_completed_focus = SOV_the_socialist_bulwark }
+			# 	}
+			# 	set_rule = { can_join_factions = yes }
+			# }
+
+			# if = {
+			# 	limit = {
+			# 		is_faction_leader = yes
+			# 	}
+			# 	set_faction_name = SOV_international_revolutionary_marxist_centre_faction_name
+			# }
+			# else_if = {
+			# 	limit = {
+			# 		is_in_faction = no
+			# 	}
+			# 	create_faction = SOV_international_revolutionary_marxist_centre_faction_name
+			# 	every_subject_country = {
+			# 		ROOT = { add_to_faction = PREV }
+			# 	}
+			# }
+
+			# every_other_country = {
+			# 	limit = {
+			# 		is_in_faction_with = ROOT
+			# 		NOT = { has_country_leader_ideology = stalinism }
+			# 	}
+			# 	set_country_leader_ideology = marxism
+			# 	custom_effect_tooltip = SOV_international_revolutionary_marxist_centre_marxism_tt
+			# }
+			
+			# if = {
+			# 	limit = {
+			# 		any_other_country = {
+			# 			has_government = communism
+			# 			NOT = { has_country_leader_ideology = stalinism }
+			# 			is_in_faction = no
+			# 			NOT = { has_war_with = ROOT }
+			# 		}
+			# 	}
+			# 	custom_effect_tooltip = SOV_international_revolutionary_marxist_centre_allies_tt
+			# 	every_other_country = {
+			# 		limit = {
+			# 			has_government = communism
+			# 			NOT = { has_country_leader_ideology = stalinism }
+			# 			is_in_faction = no
+			# 			NOT = { has_war_with = ROOT }
+			# 		}
+			# 		add_opinion_modifier = { modifier = SOV_international_socialist_association target = ROOT }
+			# 		country_event = { id = generic.5 hours = 8 random_hours = 8 }
+			# 	}
+			# }
+			# else = {
+			# 	custom_effect_tooltip = SOV_international_revolutionary_marxist_centre_no_allies_tt
+			# 	effect_tooltip = {
+			# 		every_other_country = {
+			# 			limit = {
+			# 				has_government = communism
+			# 				NOT = { has_country_leader_ideology = stalinism }
+			# 				is_in_faction = no
+			# 				NOT = { has_war_with = ROOT }
+			# 			}
+			# 			add_opinion_modifier = { modifier = SOV_international_socialist_association target = ROOT }
+			# 			country_event = { id = generic.5 hours = 8 random_hours = 8 }
+			# 		}
+			# 	}
+			# }
 			
 			
-			if = { #Stalinists hate us
-				limit = {
-					any_other_country = {
-						has_country_leader_ideology = stalinism
-					}
-				}
-				custom_effect_tooltip = SOV_international_revolutionary_marxist_centre_stalinists_tt
-				every_other_country = {
-					limit = {
-						has_country_leader_ideology = stalinism
-					}
-					add_opinion_modifier = { modifier = SOV_international_socialist_association_bad target = ROOT }
-				}
-			}
-			else = {
-				custom_effect_tooltip = SOV_international_revolutionary_marxist_centre_stalinists_tt
-				every_other_country = {
-					limit = {
-						has_country_leader_ideology = stalinism
-					}
-					add_opinion_modifier = { modifier = SOV_international_socialist_association_bad target = ROOT }
-				}
-			}
+			# if = { #Stalinists hate us
+			# 	limit = {
+			# 		any_other_country = {
+			# 			has_country_leader_ideology = stalinism
+			# 		}
+			# 	}
+			# 	custom_effect_tooltip = SOV_international_revolutionary_marxist_centre_stalinists_tt
+			# 	every_other_country = {
+			# 		limit = {
+			# 			has_country_leader_ideology = stalinism
+			# 		}
+			# 		add_opinion_modifier = { modifier = SOV_international_socialist_association_bad target = ROOT }
+			# 	}
+			# }
+			# else = {
+			# 	custom_effect_tooltip = SOV_international_revolutionary_marxist_centre_stalinists_tt
+			# 	every_other_country = {
+			# 		limit = {
+			# 			has_country_leader_ideology = stalinism
+			# 		}
+			# 		add_opinion_modifier = { modifier = SOV_international_socialist_association_bad target = ROOT }
+			# 	}
+			# }
 		}
 	}
 
@@ -10576,8 +10737,8 @@ focus_tree = {
 	focus = {
 		id = SOV_the_enemies_of_the_people
 		icon = GFX_focus_spr_the_anti_fascist_workers_revolution
-		prerequisite = { focus = SOV_international_revolutionary_marxist_centre }
-		x = 0
+		prerequisite = { focus = SOV_international_revolutionary_marxist_centre}
+		x = 2
 		y = 1
 		relative_position_id = SOV_international_revolutionary_marxist_centre
 		cost = 10
@@ -10589,21 +10750,21 @@ focus_tree = {
 
 		completion_reward = {
 
-			every_other_country = {
-				limit = {
-					is_neighbor_of = ROOT 
-					OR = {
-						has_government = fascism
-						has_government = neutrality
-					}
-				}
-				ROOT = {
-					create_wargoal = {
-						type = puppet_wargoal_focus
-						target = PREV
-					}
-				}
-			}
+			# every_other_country = { #SPT change, no extra wargoals
+			# 	limit = {
+			# 		is_neighbor_of = ROOT 
+			# 		OR = {
+			# 			has_government = fascism
+			# 			has_government = neutrality
+			# 		}
+			# 	}
+			# 	ROOT = {
+			# 		create_wargoal = {
+			# 			type = puppet_wargoal_focus
+			# 			target = PREV
+			# 		}
+			# 	}
+			# }
 			
 			every_country = {
 				limit = { 
@@ -10663,13 +10824,17 @@ focus_tree = {
 		id = SOV_military_support
 		icon = GFX_goal_generic_army_doctrines
 		prerequisite = { focus = SOV_the_left_opposition focus = SOV_the_right_opposition } 
-		x = 9
+		x = -4
 		y = 1
-		relative_position_id = SOV_the_left_opposition
+		relative_position_id = SOV_the_right_opposition
 		mutually_exclusive = { focus = SOV_divert_attention_towards_military }
 		cost = 10
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
+		}
+
+		allow_branch = { #SPT change
+			always = no
 		}
 
 		                
@@ -10775,12 +10940,16 @@ focus_tree = {
 		icon = GFX_focus_SOV_military_purge
 		prerequisite = { focus = SOV_the_left_opposition focus = SOV_the_right_opposition } 
 		mutually_exclusive = { focus = SOV_military_support }
-		x = 11
+		x = -2
 		y = 1
-		relative_position_id = SOV_the_left_opposition
+		relative_position_id = SOV_the_right_opposition
 		cost = 5
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
+		}
+
+		allow_branch = { #SPT change
+			always = no 
 		}
 		                
 		search_filters = {FOCUS_FILTER_SOV_POLITICAL_PARANOIA}
@@ -10797,12 +10966,16 @@ focus_tree = {
 		id = SOV_gain_support_from_party_members
 		icon = GFX_focus_generic_soviet_politics
 		prerequisite = { focus = SOV_the_left_opposition focus = SOV_the_right_opposition } 
-		x = 7
+		x = -5
 		y = 1
-		relative_position_id = SOV_the_left_opposition
+		relative_position_id = SOV_the_right_opposition
 		cost = 10
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
+		}
+
+		allow_branch = { #SPT change
+			always = no
 		}
 		                
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_STABILITY}
@@ -10838,13 +11011,17 @@ focus_tree = {
 		id = SOV_sway_the_railway_workers
 		icon = GFX_goal_generic_construction2
 		prerequisite = { focus = SOV_the_left_opposition focus = SOV_the_right_opposition } 
-		x = 3
+		x = -10
 		y = 1
-		relative_position_id = SOV_the_left_opposition
+		relative_position_id = SOV_the_right_opposition
 		cost = 5
 		available = {
 			SOV_has_selected_hq = yes 
 			SOV_soviet_civil_war_not_started = yes 
+		}
+
+		allow_branch = { #SPT change
+			always = no
 		}
 		                
 		search_filters = {FOCUS_FILTER_SOV_POLITICAL_PARANOIA FOCUS_FILTER_INDUSTRY}
@@ -10859,11 +11036,14 @@ focus_tree = {
 	focus = {
 		id = SOV_infiltrate_the_nkvd
 		icon = GFX_goal_generic_intelligence_exchange
-		prerequisite = { focus = SOV_the_left_opposition focus = SOV_the_right_opposition } 
-		x = 5
+		prerequisite = { #SPT change, changed prerequisite
+			focus = SOV_dissent_in_the_party
+		}
+		#prerequisite = { focus = SOV_the_left_opposition focus = SOV_the_right_opposition } 
+		x = 0
 		y = 1
-		relative_position_id = SOV_the_left_opposition
-		cost = 10
+		relative_position_id = SOV_dissent_in_the_party
+		cost = 5 #SPT change 10 -> 5
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 		}
@@ -10871,13 +11051,12 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_SOV_POLITICAL_PARANOIA}
 
 		completion_reward = {
-			SOV_paranoia_low_decrease_effect = yes 
-			custom_effect_tooltip = SOV_infiltrate_the_nkvd_tt
-			set_country_flag = SOV_nkvd_aligned_flag
-			IF = {
-				limit = { SOV_is_right_opposition = yes }
-				custom_effect_tooltip = SOV_infiltrate_the_nkvd_coup_tt
-			}
+			# SOV_paranoia_low_decrease_effect = yes 
+			# custom_effect_tooltip = SOV_infiltrate_the_nkvd_tt
+			# set_country_flag = SOV_nkvd_aligned_flag
+			# custom_effect_tooltip = SOV_infiltrate_the_nkvd_coup_tt
+			add_ideas = SPT_SOV_infiltrated_nkvd
+
 		}
 	}
 
@@ -11141,9 +11320,9 @@ focus_tree = {
 	focus = {
 		id = SOV_strengthen_the_trade_unions
 		icon = GFX_focus_generic_treaty
-		prerequisite = { focus = SOV_all_power_to_the_soviets focus = SOV_incorporate_local_organizations }
-		x = 6
-		y = 1
+		prerequisite = { focus = SOV_incorporate_local_organizations focus = SOV_international_revolutionary_marxist_centre } #SPT change, added prerequisites
+		x = 0
+		y = 1 
 		offset = {
 			x = -5
 			y = 0
@@ -11151,7 +11330,7 @@ focus_tree = {
 				NOT = { has_dlc = "No Step Back" }
 			}
 		}
-		relative_position_id = SOV_all_power_to_the_soviets
+		relative_position_id = SOV_incorporate_local_organizations
 		mutually_exclusive = { focus = SOV_regional_development }
 		cost = 10
 
@@ -11240,11 +11419,21 @@ focus_tree = {
 		id = SOV_addressing_internal_affairs
 		icon = GFX_focus_generic_self_management
 		prerequisite = { focus = SOV_the_path_of_marxism_leninism }
-		x = 6
-		y = 0
+		x = 11
+		y = 1
 		
+		offset = {
+			x = -5
+			y = 0
+			trigger = {
+				OR = {
+					has_completed_focus = SOV_the_centre
+					has_completed_focus = SOV_the_right_opposition
+				}
+			}
+		}
 
-		relative_position_id = SOV_the_centre
+		relative_position_id = SOV_the_path_of_marxism_leninism
 		cost = 5
 
 		allow_branch = {
@@ -11625,9 +11814,19 @@ focus_tree = {
 		id = SOV_the_comintern
 		icon = GFX_goal_support_communism
 		prerequisite = { focus = SOV_the_path_of_marxism_leninism }
-		x = 10
-		y = 0
-		relative_position_id = SOV_addressing_internal_affairs
+		x = 20
+		y = 1
+		offset = {
+			x = -5
+			y = 0
+			trigger = {
+				OR = {
+					has_completed_focus = SOV_the_centre
+					has_completed_focus = SOV_the_right_opposition
+				}
+			}
+		}
+		relative_position_id = SOV_the_path_of_marxism_leninism
 		cost = 5
 
 		allow_branch = {
