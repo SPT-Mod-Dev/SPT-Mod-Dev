@@ -385,24 +385,25 @@ focus_tree = {
 		mutually_exclusive = { focus = SPA_a_great_spain }
 		cancel_if_invalid = yes
 		allow_branch = {
-			if = {
-				is_ai = yes
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				OR = {
-					NOT = {
-						has_global_flag = spanish_civil_war
-					}
-					AND = {
-						NOT = { has_completed_focus = SPA_a_great_spain }
-						has_global_flag = spanish_civil_war
-					}
-				}
-			}
+			is_ai = yes
+			# if = { 
+			# 	is_ai = yes
+			# 	limit = {
+			# 		has_game_rule = {
+			# 			rule = obsolete_focus_branches_visibility
+			# 			option = HIDE
+			# 		}
+			# 	}
+			# 	OR = {
+			# 		NOT = {
+			# 			has_global_flag = spanish_civil_war
+			# 		}
+			# 		AND = {
+			# 			NOT = { has_completed_focus = SPA_a_great_spain }
+			# 			has_global_flag = spanish_civil_war
+			# 		}
+			# 	}
+			# }
 		}
 		
 		icon = GFX_goal_generic_national_unity
