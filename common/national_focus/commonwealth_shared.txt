@@ -1116,6 +1116,9 @@ shared_focus = {
 	}
 
 	available = {
+		not = {
+			has_completed_focus = SPT_CW_industry_received
+		}
 	}
 
 	cancel_if_invalid = yes
@@ -1161,6 +1164,7 @@ joint_focus = {
 	available_if_capitulated = no
 
 	completion_reward_joint_originator = {
+		custom_effect_tooltip = SPT_CW_industry_received_quantity_orig_tt
 		if = {
 			limit = {
 				not = {
@@ -1172,7 +1176,451 @@ joint_focus = {
 			}
 			custom_effect_tooltip = SPT_CW_industry_received_tt
 		}
+		else = {
+			if = {
+				limit = {
+					CAN = {
+						AND = {
+							has_completed_focus = SPT_CW_industry_funding
+							not = {
+								has_idea = SPT_CW_dev_payment
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_completed_focus = SPT_CW_mil_industry
+					}
+					random_owned_controlled_state = {
+						limit = {
+							is_core_of = ROOT
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+				else = {
+					random_owned_controlled_state = {
+						limit = {
+							is_core_of = ROOT
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					SAF = {
+						AND = {
+							has_completed_focus = SPT_CW_industry_funding
+							not = {
+								has_idea = SPT_CW_dev_payment
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_completed_focus = SPT_CW_mil_industry
+					}
+					random_owned_controlled_state = {
+						limit = {
+							is_core_of = ROOT
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+				else = {
+					random_owned_controlled_state = {
+						limit = {
+							is_core_of = ROOT
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					RAJ = {
+						AND = {
+							has_completed_focus = SPT_CW_industry_funding
+							not = {
+								has_idea = SPT_CW_dev_payment
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_completed_focus = SPT_CW_mil_industry
+					}
+					random_owned_controlled_state = {
+						limit = {
+							is_core_of = ROOT
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+				else = {
+					random_owned_controlled_state = {
+						limit = {
+							is_core_of = ROOT
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+			}	
+			if = {
+				limit = {
+					AST = {
+						AND = {
+							has_completed_focus = SPT_CW_industry_funding
+							not = {
+								has_idea = SPT_CW_dev_payment
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_completed_focus = SPT_CW_mil_industry
+					}
+					random_owned_controlled_state = {
+						limit = {
+							is_core_of = ROOT
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+				else = {
+					random_owned_controlled_state = {
+						limit = {
+							is_core_of = ROOT
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					NZL = {
+						AND = {
+							has_completed_focus = SPT_CW_industry_funding
+							not = {
+								has_idea = SPT_CW_dev_payment
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_completed_focus = SPT_CW_mil_industry
+					}
+					random_owned_controlled_state = {
+						limit = {
+							is_core_of = ROOT
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+				else = {
+					random_owned_controlled_state = {
+						limit = {
+							is_core_of = ROOT
+						}
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = SPT_CW_mil_industry
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = ROOT
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			else = {
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = ROOT
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+		
 	}
 	completion_reward_joint_member = {
+		custom_effect_tooltip = SPT_CW_industry_received_quantity_member_tt
+
+		if = {
+			limit = {
+				CAN = {
+					AND = {
+						has_completed_focus = SPT_CW_industry_funding
+						not = {
+							has_idea = SPT_CW_dev_payment
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = SPT_CW_mil_industry
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = ROOT
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			else = {
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = ROOT
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				SAF = {
+					AND = {
+						has_completed_focus = SPT_CW_industry_funding
+						not = {
+							has_idea = SPT_CW_dev_payment
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = SPT_CW_mil_industry
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = ROOT
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			else = {
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = ROOT
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				RAJ = {
+					AND = {
+						has_completed_focus = SPT_CW_industry_funding
+						not = {
+							has_idea = SPT_CW_dev_payment
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = SPT_CW_mil_industry
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = ROOT
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			else = {
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = ROOT
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}	
+		if = {
+			limit = {
+				AST = {
+					AND = {
+						has_completed_focus = SPT_CW_industry_funding
+						not = {
+							has_idea = SPT_CW_dev_payment
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = SPT_CW_mil_industry
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = ROOT
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			else = {
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = ROOT
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				NZL = {
+					AND = {
+						has_completed_focus = SPT_CW_industry_funding
+						not = {
+							has_idea = SPT_CW_dev_payment
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = SPT_CW_mil_industry
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = ROOT
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			else = {
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = ROOT
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
 	}
 }
