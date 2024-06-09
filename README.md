@@ -5,6 +5,7 @@
 
 ### General
  - Political raids stability penalty -10% -> -8%
+ - Updated generic organisations
 
 ### Finland
  - 'Cooperation with Germany' adds military access with Germany
