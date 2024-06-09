@@ -20,6 +20,17 @@
 ### New Zealand
  - 'Bob Semple Tank' now provides a bonus for all armour
 
+### Denmark
+ - Add in-game tutorial tip under SPT Info decision category
+ - Streamline Danish occupation decisions for Germany, including reduced event times and removing options bad for everyone
+ - Remove all additional mil occupation penalties
+ - Further re-arrange and reduce time in Danish occupation focus tree
+ - Butter Front no longer removed from Germany upon Danish independence
+ - Add tooltip to 'Petition for Independence' focus to clarify that it unlocks the Danish political focus tree again
+ - Lower the starting autonomy in the Overlord Balance of Power
+ - Add German and Italian Tank MIOs to Denmark
+ - Reduce truce times with Allies from 6 months -> 1 day to avoid truce violations after joining the war on the Axis
+
 ### AI 
  - AI Japan will now annex China rather than puppeting them (for real)
  - Added AI plan for Spain's focuses during the civil war
