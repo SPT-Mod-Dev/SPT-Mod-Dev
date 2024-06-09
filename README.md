@@ -3,7 +3,7 @@
 ### 3.11.whatever
 
 ### Commonwealth
- - Expanded Shared Focus Tree with new 'Allied Economy' and 'Save Britain' branches
+ - Expanded Shared Focus Tree with new 'Allied Economy' branch
 
 ### Canada
  - Brought into parity with vanilla additions from recent patches
