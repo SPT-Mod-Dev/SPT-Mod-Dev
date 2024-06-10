@@ -1,12 +1,34 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-
-### 3.11.4
+### 3.11.4 'Bigly'
 
 ### General
  - Political raids stability penalty -10% -> -8%
  - Updated generic organisations
  - Paradox update implemented 
+
+### Commonwealth
+ - Expanded Shared Focus Tree with new 'Allied Economy' branch
+
+### Canada
+ - Brought into parity with vanilla additions from recent patches
+
+### United Kingdom
+ - Added 'Global Defense' alt-historical path
+ - Minor reorganization of 'Home Defense' focus branch
+ - Focus 'Military Training Act' now improves national spirit 'Prepare for the Inevitable' by -25% training time
+ - Focus 'Secure Iraq' now puppets Iraq and brings it into the war, instead of generating a war goal
+ - Focus 'Secure Iraq' now requires the UK to lose Lower Egypt to be taken
+ - Focus 'Embargo Germany' now causes all nations in faction with England to embargo germany
+ - Focus 'Prepare for the Inevitable' now takes 35 days to complete, from 70
+
+### Bulgaria
+ - Added 'Appoint Right Wing Ministers' alt-historical path
+ - Readded 'The Third Bulgarian Empire' Focus
+
+### Soviet Union
+ - Added 'The Right Opposition' alt-historical path
+ - Tannu Tuva now starts as a puppet of the Soviet Union, to improve Right Opposition path experience
 
 ### Finland
  - 'Cooperation with Germany' adds military access with Germany
@@ -15,11 +37,22 @@
  - 'Communist Pressure' from 'Secure Leningrad' 365 days -> 150 days
  - Upon Winter War Victory add 'Anti-Communist Pressure' for 90 days                 
  - Upon Winter War Defeat add 'Communist Pressure' for 90 days
- -Removed Market Subsidy from foreign amror and added -100% license cost and -5% Production to light tanks
- -Removed Market Subsidy from Foreign Aircraft
+ - Removed Market Subsidy from foreign amror and added -100% license cost and -5% Production to light tanks
+ - Removed Market Subsidy from Foreign Aircraft
 
 ### New Zealand
  - 'Bob Semple Tank' now provides a bonus for all armour
+
+### Denmark
+ - Add in-game tutorial tip under SPT Info decision category
+ - Streamline Danish occupation decisions for Germany, including reduced event times and removing options bad for everyone
+ - Remove all additional mil occupation penalties
+ - Further re-arrange and reduce time in Danish occupation focus tree
+ - Butter Front no longer removed from Germany upon Danish independence
+ - Add tooltip to 'Petition for Independence' focus to clarify that it unlocks the Danish political focus tree again
+ - Lower the starting autonomy in the Overlord Balance of Power
+ - Add German and Italian Tank MIOs to Denmark
+ - Reduce truce times with Allies from 6 months -> 1 day to avoid truce violations after joining the war on the Axis
 
 ### AI 
  - AI Japan will now annex China rather than puppeting them (for real)
@@ -27,31 +60,31 @@
 
 ### Hungary
  - Joint air development - Removed market subsidy and changed to sharing group and 1 x100 boost to CAS/Fighters
- -Added a new focus Foreign production Assistance which give a -10% production reduction to fighters, CAS and Tactical bombers
- -Added a Mutally exclusive marine branch
- -Ingenius designs Changed to Funding the air force, Provides MIO funds and 2x 50% Air bonus
- -Form parachute Battalions changed- 1x 300% --> 1x 200%
- -Joint tank Procurment - removed subsidy, now joins research group, Gives German Tank License Agreement, which provides license cost -100% and Medium and heavy tank production -5%
- -Naval Tree Hidden 
- -Establish the airforce - Air Exp 25 --> 50
- -Added "Train with the Luftwaffe" and "Train with the Regia Aeronautica" - Mutally exclusive which provide air buffs
+ - Added a new focus Foreign production Assistance which give a -10% production reduction to fighters, CAS and Tactical bombers
+ - Added a Mutally exclusive marine branch
+ - Ingenius designs Changed to Funding the air force, Provides MIO funds and 2x 50% Air bonus
+ - Form parachute Battalions changed- 1x 300% --> 1x 200%
+ - Joint tank Procurment - removed subsidy, now joins research group, Gives German Tank License Agreement, which provides license cost -100% and Medium and heavy tank production -5%
+ - Naval Tree Hidden 
+ - Establish the airforce - Air Exp 25 --> 50
+ - Added "Train with the Luftwaffe" and "Train with the Regia Aeronautica" - Mutally exclusive which provide air buffs
 
 ### Italy
- -Treaty with Germany - Removed subsidy, Added opinion factor, 1x 100% Synthetics ---> 2x 100% Synthetics 
+ - Treaty with Germany - Removed subsidy, Added opinion factor, 1x 100% Synthetics ---> 2x 100% Synthetics 
 
 ### Spain
- -Removed Allied Branch from tree
- -Removed The Latin Bloc Focus 
+ - Removed Allied Branch from tree
+ - Removed The Latin Bloc Focus 
 
 ### Mexico
- -Heroic Military Collage 70 days --> 56 days
- -Army Expansion Program 70 days --> 56 days
- -Law On Industrial Promotrion 70 days --> 56 days
- -NAFINSA Added an extra building slot and Mil
- -Add tutorial tooltip to SPT Info
+ - Heroic Military Collage 70 days --> 56 days
+ - Army Expansion Program 70 days --> 56 days
+ - Law On Industrial Promotrion 70 days --> 56 days
+ - NAFINSA Added an extra building slot and Mil
+ - Add tutorial tooltip to SPT Info
  
 ### Australia
- -Department of supply and development 70 --> 56 days
+ - Department of supply and development 70 --> 56 days
 
 ### Netherlands
  - Will now join Allies upon having a war declared against them

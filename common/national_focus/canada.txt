@@ -1,8 +1,8 @@
 ﻿focus_tree = {
 	id = canadian_focus
-
-	shared_focus = SPT_CW_Together_for_victory #SPT change, added shared focus tree
 	
+	shared_focus = SPT_CW_Together_for_victory #SPT change, added shared focus tree
+
 	country = {
 		factor = 0
 		
@@ -107,7 +107,7 @@
 		y = 0
 		relative_position_id = CAN_rowell_sirois_commission
 
-		cost = 5 #SPTChange 10 to 5
+		cost = 5
 
 		ai_will_do = {
 			factor = 25
@@ -130,8 +130,9 @@
 		available_if_capitulated = yes
 
 		completion_reward = {
-			custom_effect_tooltip = available_political_advisor
-			show_ideas_tooltip = CAN_c_d_howe
+			#custom_effect_tooltip = available_political_advisor
+			#show_ideas_tooltip = CAN_c_d_howe
+			add_ideas = CAN_c_d_howe #SPT change, adds the advisor
 		}
 	}
 
@@ -273,19 +274,18 @@
 				uses = 1
 				category = industry
 			}
-
 		}
 	}
 
 	focus = {
 		id = CAN_canada_pacific_railway
-		icon = GFX_focus_generic_railroad
+		icon = GFX_goal_generic_construct_infrastructure
 		prerequisite = { focus = CAN_rowell_sirois_commission }
 		x = 0
 		y = 2
 		relative_position_id = CAN_rowell_sirois_commission
 
-		cost = 5 #SPTChange 10 to 5
+		cost = 5  #SPTChange 10 to 5
 
 		ai_will_do = {
 			factor = 75
@@ -309,7 +309,6 @@
 
 		completion_reward = {
 			random_owned_state = {
-				prioritize = { 473 682 }
 				limit = {
 					free_building_slots = {
 						building = infrastructure
@@ -326,7 +325,6 @@
 			}
 
 			random_owned_state = {
-				prioritize = { 468 276 }
 				limit = {
 					free_building_slots = {
 						building = infrastructure
@@ -346,10 +344,9 @@
 					1408 1858 10273 4870 10548
 				}
 			}
-			
+
 			custom_effect_tooltip = available_industrial_concern
 			show_ideas_tooltip = canadian_pacific_railway
-
 		}
 	}
 
@@ -531,7 +528,7 @@
 				add_resource = {
 					type = oil
 					amount = 8
-				} 
+				}
 			}
 			472 = {
 				add_resource = {
@@ -595,7 +592,7 @@
 
 	focus = {
 		id = CAN_war_bonds
-		icon = GFX_focus_mex_privatisation
+		icon = GFX_goal_generic_consumer_goods
 		x = -2
 		y = 0
 		relative_position_id = CAN_defence_of_canada_regulations
@@ -922,7 +919,7 @@
 
 	focus = {
 		id = CAN_canada_wheat_board
-		icon = GFX_focus_generic_land_reclamation
+		icon = GFX_goal_generic_construction2
 		prerequisite = { focus = CAN_wartime_prices_and_trade_board }
 		x = 3
 		y = 2
@@ -1533,7 +1530,6 @@
 		id = CAN_send_in_the_zombies
 		icon = GFX_spt_focus_soldiers_rush
 		prerequisite = { focus = CAN_commit_to_the_war }
-		#mutually_exclusive = { focus = CAN_national_steel_car }
 		x = 3
 		y = 4
 		relative_position_id = CAN_defence_of_canada_regulations
@@ -2587,7 +2583,7 @@
 		id = CAN_montreal_laboratory_collaboration
 		icon = GFX_goal_tfv_generic_tech_sharing
 		prerequisite = { focus = CAN_strengthen_the_commonwealth_ties }
-		x = 0
+		x = 2
 		y = 1
 		relative_position_id = CAN_strengthen_the_commonwealth_ties
 
@@ -2625,7 +2621,7 @@
 		id = CAN_the_plan
 		icon = GFX_goal_generic_air_fighter
 		prerequisite = { focus = CAN_shadow_factories }
-		x = -2
+		x = -1
 		y = 2
 		relative_position_id = CAN_strengthen_the_commonwealth_ties
 
@@ -2659,11 +2655,11 @@
 	focus = {
 		id = CAN_camp_x
 		icon = GFX_goal_generic_intelligence_exchange 
-		prerequisite = { focus = CAN_montreal_laboratory_collaboration}
-		x = 0
+		prerequisite = { focus = CAN_montreal_laboratory_collaboration focus = CAN_permanent_joint_defense_board }
+		x = 2
 		y = 2
 		relative_position_id = CAN_strengthen_the_commonwealth_ties
-		
+
 		cost = 5 #SPTChange 10 to 5
 
 		ai_will_do = {
@@ -2714,7 +2710,7 @@
 		icon = GFX_goal_generic_construction2
 		prerequisite = { focus = CAN_the_plan}
 		prerequisite = { focus = CAN_camp_x }
-		x = -1
+		x = 0
 		y = 3
 		relative_position_id = CAN_strengthen_the_commonwealth_ties
 
@@ -2845,8 +2841,6 @@
 	############################
 
 	focus = {
-		allow_branch = {always = no}
-		
 		id = CAN_patriation
 		icon = GFX_goal_tfv_sever_ties_with_uk #GFX_goal_generic_demand_territory
 		mutually_exclusive = { focus = CAN_strengthen_the_commonwealth_ties }
@@ -2855,6 +2849,10 @@
 		relative_position_id = CAN_strengthen_the_commonwealth_ties
 
 		cost = 10
+		
+		allow_branch = {
+			always = no #SPT change
+		}
 
 		ai_will_do = {
 			factor = 5
@@ -3075,10 +3073,10 @@
 	focus = {
 		id = CAN_dominion_rifle_association
 		icon = GFX_focus_CAN_rifle_association
-		x = 2
+		x = -1
 		y = 1
-		prerequisite = { focus = CAN_permanent_joint_defense_board focus = CAN_shadow_factories focus = CAN_swastika_clubs }
-		relative_position_id = CAN_permanent_joint_defense_board
+		prerequisite = { focus = CAN_shadow_factories }
+		relative_position_id = CAN_shadow_factories
 
 		cost = 10
 
@@ -3111,9 +3109,9 @@
 	focus = {
 		id = CAN_canadian_citizenship_act
 		icon = GFX_focus_eng_decolonization
-		x = 3
+		x = 2
 		y = 1
-		prerequisite = { focus = CAN_supply_the_empire }
+		prerequisite = {focus = CAN_supply_the_empire }
 		relative_position_id = CAN_supply_the_empire
 
 		cost = 10
@@ -3154,6 +3152,10 @@
 		relative_position_id = CAN_canadian_citizenship_act
 
 		cost = 10
+		
+		allow_branch = { #SPT change
+			always = no
+		}
 
 		ai_will_do = {
 			factor = 10
@@ -3297,8 +3299,6 @@
 	}
 
 
-
-
 	############################
 	#### GO FASCIST SECTION ####
 	############################
@@ -3314,6 +3314,10 @@
 		relative_position_id = CAN_patriation
 
 		cost = 10
+
+		allow_branch = {
+			always = no #SPT change
+		}
 
 		ai_will_do = {
 			factor = 25
@@ -3583,8 +3587,8 @@
 	focus = {
 		id = CAN_defence_scheme_no_1
 		icon = GFX_goal_generic_occupy_start_war
-		prerequisite = { focus = CAN_skewer_the_eagle focus = CAN_pinion_the_eagle }
-		x = -1
+		prerequisite = { focus = CAN_skewer_the_eagle focus = CAN_pinion_the_eagle focus = CAN_reject_authoritarianism }
+		x = 3
 		y = 4
 		relative_position_id = CAN_swastika_clubs
 
@@ -3612,11 +3616,21 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			set_rule = { can_create_factions = yes }
-			create_wargoal = {
-				type = annex_everything
-				target = USA
-				expire = 0
+			if = {
+				limit = { has_government = fascism }
+				set_rule = { can_create_factions = yes }
+				create_wargoal = {
+					type = annex_everything
+					target = USA
+					expire = 0
+				}
+			}
+			else = {
+				create_wargoal = {
+					type = topple_government
+					target = USA
+					expire = 0
+				}
 			}
 		}
 	}
@@ -3711,7 +3725,6 @@
 		}
 	}
 
-
 	############################
 	### GO COMMUNIST SECTION ###
 	############################
@@ -3722,12 +3735,16 @@
 		prerequisite = { focus = CAN_patriation }
 		mutually_exclusive = { focus = CAN_swastika_clubs }
 		mutually_exclusive = { focus = CAN_permanent_joint_defense_board }
-		x = 8
+		x = 11
 		y = 1
 		relative_position_id = CAN_patriation
 
 		cost = 10
 
+		allow_branch = {
+			always = no #SPT change
+		}
+		
 		ai_will_do = {
 			factor = 25
 			modifier = {
@@ -3794,8 +3811,7 @@
 			}
 		}
 	}
-
-		
+	
 	focus = {
 		id = CAN_mend_relations_with_the_trotskyites
 		icon = GFX_goal_generic_major_alliance
@@ -4003,14 +4019,13 @@
 			}
 		}
 	}
-
-
+	
 	focus = {
 		id = CAN_defence_scheme_no_2
 		icon = GFX_goal_generic_fortify_city
 		prerequisite = { focus = CAN_communist_labor_total_war_committee }
 		mutually_exclusive = { focus = CAN_supply_the_red_army focus = CAN_mend_relations_with_the_trotskyites }
-		x = -1
+		x = 0
 		y = 2
 		relative_position_id = CAN_burn_the_royal_portraits
 
@@ -4081,7 +4096,7 @@
 		icon = GFX_goal_generic_dangerous_deal
 		prerequisite = { focus = CAN_communist_labor_total_war_committee }
 		mutually_exclusive = { focus = CAN_defence_scheme_no_2 focus = CAN_mend_relations_with_the_trotskyites }
-		x = 1
+		x = 2
 		y = 2
 		relative_position_id = CAN_burn_the_royal_portraits
 
@@ -4169,7 +4184,7 @@
 		id = CAN_canada_united
 		icon = GFX_goal_generic_demand_territory
 		prerequisite = { focus = CAN_defence_scheme_no_2 }
-		x = -1
+		x = 0
 		y = 3
 		relative_position_id = CAN_burn_the_royal_portraits
 
@@ -4200,7 +4215,7 @@
 		id = CAN_join_comintern
 		icon = GFX_goal_generic_major_alliance
 		prerequisite = { focus = CAN_supply_the_red_army }
-		x = 1
+		x = 2
 		y = 3
 		relative_position_id = CAN_burn_the_royal_portraits
 
@@ -4260,7 +4275,7 @@
 		id = CAN_support_the_world_revolution
 		icon = GFX_goal_generic_forceful_treaty
 		prerequisite = { focus = CAN_canada_united focus = CAN_join_comintern }
-		x = 0
+		x = 1
 		y = 4
 		relative_position_id = CAN_burn_the_royal_portraits
 
@@ -4299,9 +4314,9 @@
 	focus = {
 		id = CAN_rcaf_station_borden
 		icon = GFX_goal_generic_build_airforce
-		x = 4
+		x = 26
 		y = 0
-		relative_position_id = CAN_strengthen_the_commonwealth_ties
+
 		cost = 10
 
 		ai_will_do = {
@@ -4792,7 +4807,6 @@
 	}
 
 	focus = {
-		
 		id = CAN_the_sabre_project
 		icon = GFX_focus_rocketry
 		prerequisite = { focus = CAN_cookie_carriers }
@@ -4839,9 +4853,9 @@
 	focus = {
 		id = CAN_halifax_shipyards
 		icon = GFX_goal_generic_construct_naval_dockyard
-		x = 4
+		x = 30
 		y = 0
-		relative_position_id = CAN_rcaf_station_borden
+
 		cost = 10
 
 		ai_will_do = {
