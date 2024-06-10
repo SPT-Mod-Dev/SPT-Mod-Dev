@@ -1314,9 +1314,14 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = SOV_no_time_for_peace
-				bonus = 0.75
+				bonus = 0.5
 				uses = 2
 				category = nuclear
+			}
+			add_tech_bonus = {
+				name = SOV_no_time_for_peace
+				bonus = 0.5
+				uses = 2
 				category = rocketry
 			}
 
@@ -2092,7 +2097,7 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = SOV_found_the_jet_institute
-				bonus = 1.0
+				bonus = 0.5
 				uses = 2
 				category = jet_technology
 			}
@@ -2255,6 +2260,7 @@ focus_tree = {
 					create_equipment_variant = {
 						name = "Pe-2" #
 						type = small_plane_cas_airframe_2
+						allow_without_tech = yes
 						modules = {
 							fixed_main_weapon_slot = small_bomb_bay
 							fixed_auxiliary_weapon_slot_1 = light_mg_2x
@@ -3297,7 +3303,7 @@ focus_tree = {
 				}
 				add_tech_bonus = {
 					name = SOV_offensive_maritime_strategy
-					bonus = 3.0
+					bonus = 2.0
 					uses = 1
 					category = bc_tech	
 				}
@@ -3308,6 +3314,7 @@ focus_tree = {
 					type = ship_hull_heavy_2
 					name_group = SOV_BC_HISTORICAL
 					parent_version = 0
+					allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
 					modules = {
 						fixed_ship_battery_slot = ship_heavy_battery_1
 						fixed_ship_anti_air_slot = ship_anti_air_1
@@ -3389,7 +3396,7 @@ focus_tree = {
 				}
 				add_tech_bonus = {
 					name = SOV_an_oceangoing_navy
-					bonus = 3.0
+					bonus = 2.0
 					uses = 1
 					category = shbb_tech	
 				}
@@ -3412,6 +3419,7 @@ focus_tree = {
 					type = ship_hull_super_heavy_1
 					name_group = SOV_STATES
 					parent_version = 0
+					allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
 					modules = {
 						fixed_ship_battery_slot = ship_super_heavy_battery_1
 						fixed_ship_anti_air_slot = ship_anti_air_2
@@ -3483,13 +3491,34 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_RESEARCH}
 
 		completion_reward = {
-			add_ideas = SOV_mine_warfare_ns
+			if = {
+				limit = {
+					has_dlc = "Man the Guns"
+				}
+				add_ideas = SOV_mine_warfare_ns
 
-			add_tech_bonus = {
-				name = SOV_mine_warfare
-				bonus = 1.0
-				uses = 2
-				category = naval_mines
+				add_tech_bonus = {
+					name = SOV_mine_warfare
+					bonus = 1.0
+					uses = 2
+					category = naval_mines
+				}
+			}
+			else = {
+				add_tech_bonus = {
+					name = SOV_mine_warfare
+					bonus = 0.5
+					uses = 1
+					category = ss_tech
+					category = dd_tech
+				}
+
+				add_doctrine_cost_reduction = {
+					name = SOV_mine_warfare
+					cost_reduction = 0.75
+					uses = 1
+					category = naval_doctrine
+				}
 			}
 		}
 	}
@@ -3556,6 +3585,7 @@ focus_tree = {
 					type = ship_hull_cruiser_submarine
 					name_group = SOV_SS_HISTORICAL
 					parent_version = 0
+					allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
 					modules = {
 						fixed_ship_torpedo_slot = ship_torpedo_sub_2
 						fixed_ship_engine_slot = sub_ship_engine_2
@@ -3600,6 +3630,7 @@ focus_tree = {
 					create_equipment_variant = {
 						name = "K Class"
 						type = submarine_3
+						allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
 						upgrades = {
 							ship_reliability_upgrade = 3
 							sub_engine_upgrade = 3
@@ -3632,6 +3663,7 @@ focus_tree = {
 					create_equipment_variant = {
 						name = "K Class"
 						type = submarine_2
+						allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
 						upgrades = {
 							ship_reliability_upgrade = 2
 							sub_engine_upgrade = 2
@@ -3736,6 +3768,7 @@ focus_tree = {
 						type = ship_hull_carrier_3
 						name_group = SOV_CV_HISTORICAL
 						parent_version = 0
+						allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
 						modules = {
 							fixed_ship_deck_slot_1 = ship_deck_space
 							fixed_ship_deck_slot_2 = ship_deck_space
@@ -3769,6 +3802,7 @@ focus_tree = {
 						type = ship_hull_carrier_2
 						name_group = SOV_CV_HISTORICAL
 						parent_version = 0
+						allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
 						modules = {
 							fixed_ship_deck_slot_1 = ship_deck_space
 							fixed_ship_deck_slot_2 = ship_deck_space
@@ -3802,6 +3836,7 @@ focus_tree = {
 						type = ship_hull_carrier_1
 						name_group = SOV_CV_HISTORICAL
 						parent_version = 0
+						allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
 						modules = {
 							fixed_ship_deck_slot_1 = ship_deck_space
 							fixed_ship_deck_slot_2 = ship_deck_space
@@ -3838,6 +3873,7 @@ focus_tree = {
 						type = ship_hull_carrier_conversion_ca
 						name_group = SOV_CV_HISTORICAL
 						parent_version = 0
+						allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
 						modules = {
 							fixed_ship_deck_slot_1 = ship_deck_space
 							fixed_ship_deck_slot_2 = ship_deck_space
@@ -3873,6 +3909,7 @@ focus_tree = {
 					create_equipment_variant = {
 						name = "Project 71 Class"
 						type = carrier_4
+						allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
 						upgrades = {
 							ship_deckspace_upgrade = 4
 							carrier_armor_upgrade = 4
@@ -3898,6 +3935,7 @@ focus_tree = {
 					create_equipment_variant = {
 						name = "Project 71 Class"
 						type = carrier_3
+						allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
 						upgrades = {
 							ship_deckspace_upgrade = 3
 							carrier_armor_upgrade = 3
@@ -3923,6 +3961,7 @@ focus_tree = {
 					create_equipment_variant = {
 						name = "Project 71 Class"
 						type = carrier_2
+						allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
 						upgrades = {
 							ship_deckspace_upgrade = 2
 							carrier_armor_upgrade = 2
@@ -3951,6 +3990,7 @@ focus_tree = {
 					create_equipment_variant = {
 						name = "Project 71 Class"
 						type = carrier_1
+						allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
 						upgrades = {
 							ship_deckspace_upgrade = 2
 							carrier_armor_upgrade = 1
@@ -9942,6 +9982,24 @@ focus_tree = {
 				hidden_effect = {
 					set_global_flag = SOV_soviet_civil_war_over
 					SOV_remove_paranoia_effect = yes 
+					if = {
+						limit = {
+							has_idea = SOV_anti_soviet_military_thinking_banned_army
+						}
+						remove_ideas = SOV_anti_soviet_military_thinking_banned_army
+					}
+					if = {
+						limit = {
+							has_idea = SOV_anti_soviet_military_thinking_banned_navy
+						}
+						remove_ideas = SOV_anti_soviet_military_thinking_banned_navy
+					}
+					if = {
+						limit = {
+							has_idea = SOV_anti_soviet_military_thinking_banned_airforce
+						}
+						remove_ideas = SOV_anti_soviet_military_thinking_banned_airforce
+					}
 					country_event = {
 						id = NSB_soviet_communist_civil_war.002
 						hours = 1

@@ -1191,7 +1191,7 @@ focus_tree = {
 			BRA_remove_economy_modifier = yes	
 			add_tech_bonus = {
 				name = BRA_electronics_bonus
-				bonus = 0.4
+				bonus = 0.5
 				uses = 2
 				category = electronics
 			}			
@@ -1314,7 +1314,7 @@ focus_tree = {
 			}
 			add_tech_bonus = {
 				name = BRA_industry_bonus
-				bonus = 0.4
+				bonus = 0.5
 				uses = 2
 				category = industry
 			}			
@@ -1763,7 +1763,7 @@ focus_tree = {
 			ELSE = {
 				add_tech_bonus = {
 					name = BRA_nacional_de_motores_bonus
-					bonus = 0.75
+					bonus = 0.50
 					uses = 2
 					category = motorized_equipment
 				}
@@ -4036,7 +4036,7 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = BRA_italian_truck_exchange
-				bonus = 0.75
+				bonus = 0.5
 				uses = 2
 				category = motorized_equipment 
 				category = cat_mechanized_equipment 
@@ -5395,6 +5395,9 @@ focus_tree = {
 
 		completion_reward = {
 			add_ideas = BRA_international_crisis 
+			set_rule = {
+				can_send_volunteers = yes
+			}
 			#set_rule = {
 			#	can_join_factions = yes 
 			#}
@@ -5866,15 +5869,25 @@ focus_tree = {
 
 		completion_reward = {
 			add_political_power = 50
-			#add_country_leader_trait = JUNO_aligned_with_stalin	
-			BRA_luis_carlos_prestes = {
-				promote_leader = yes
-				#add_trait = {
-				#	trait = JUNO_aligned_with_stalin
-				#}
+			#BRA_luis_carlos_prestes = {
+			#	promote_leader = yes
+			#}
+			effect_tooltip = {
+				retire_country_leader = yes
 			}
-			retire_country_leader = yes
-			add_country_leader_trait = JUNO_aligned_with_stalin
+			add_country_leader_role = {
+				character = BRA_luis_carlos_prestes
+				promote_leader = yes
+				country_leader = {
+					ideology=marxism
+					expire="1965.1.1.1"
+					id=-1
+					traits = {
+						JUNO_aligned_with_stalin
+					}
+				}
+			}
+			#retire_country_leader = yes
 			remove_dynamic_modifier = {
 				modifier = BRA_weak_government
 			}
@@ -6484,7 +6497,7 @@ focus_tree = {
 				}
 	
 				create_operative_leader = {
-					name = "Robert Ivanov" #Ivan is dead, long live Robert, yes, I asked him beforehand
+					name = BRA_robert_ivanov 
 					traits = { operative_tough }
 					female = no
 					bypass_recruitment = yes
@@ -6492,7 +6505,7 @@ focus_tree = {
 					GFX = GFX_portrait_europe_generic_operative_male_5
 				}
 				create_operative_leader = {
-					name = "Nadiya Morozova"
+					name = BRA_nadiya_morozova 
 					traits = { operative_escape_artist }
 					female = yes
 					bypass_recruitment = yes
@@ -6508,7 +6521,7 @@ focus_tree = {
 				}
 
 				create_operative_leader = {
-					name = "Robert Ivanov" #Ivan is dead, long live Robert, yes, I asked him beforehand
+					name = BRA_robert_ivanov 
 					traits = { operative_tough }
 					female = no
 					bypass_recruitment = yes
@@ -6517,7 +6530,7 @@ focus_tree = {
 				}
 
 				create_operative_leader = {
-					name = "Nadiya Morozova"
+					name = BRA_nadiya_morozova 
 					traits = { operative_escape_artist }
 					female = yes
 					bypass_recruitment = yes
@@ -6771,7 +6784,7 @@ focus_tree = {
 				# Add character with propaganda bonus
 				add_ideas = BRA_sway_the_neighbors_lar
 				create_operative_leader = {
-					name = "Julieta Soria"
+					name = BRA_julieta_soria
 					traits = { operative_double_agent operative_natural_orator }
 					female = yes
 					bypass_recruitment = yes

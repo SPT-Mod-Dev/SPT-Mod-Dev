@@ -9,6 +9,7 @@ characters={
 		country_leader={
 			ideology=liberalism
 			expire="1965.1.1.1"
+			traits = { CAN_liberal_corporatist }
 			id=-1
 		}
 	}
@@ -23,6 +24,7 @@ characters={
 		country_leader={
 			ideology=nazism
 			expire="1965.1.1.1"
+			traits = { CAN_canadian_fuhrer }
 			id=-1
 		}
 	}
@@ -37,6 +39,7 @@ characters={
 		country_leader={
 			ideology=marxism
 			expire="1965.1.1.1"
+			traits = { veteran_communist }
 			id=-1
 		}
 	}
@@ -51,6 +54,7 @@ characters={
 		country_leader={
 			ideology=centrism
 			expire="1965.1.1.1"
+			traits = { CAN_social_gospel }
 			id=-1
 		}
 	}
@@ -503,14 +507,14 @@ characters={
 		}
 	}
 
-	CAN_raymond_collishaw={
-		name=CAN_raymond_collishaw
-		portraits={
-			army={
+	CAN_raymond_collishaw = {
+		name = CAN_raymond_collishaw
+		portraits = {
+			army = {
 				small="GFX_idea_CAN_raymond_collishaw" #small="GFX_idea_generic_air_europe_3"
 			}
 		}
-		advisor={
+		advisor = {
 			slot = air_chief
 			idea_token = CAN_raymond_collishaw
 			allowed = {
@@ -518,7 +522,7 @@ characters={
 				has_dlc = "Together for Victory"
 			}
 			traits = {
-				air_chief_safety_2
+				air_chief_ground_support_2
 			}
 			cost = 100
 			ai_will_do = {
@@ -554,8 +558,8 @@ characters={
 		}
 	}
 
-	CAN_gino_verchiella={
-		name=CAN_gino_verchiella
+	CAN_james_stanley_scott={
+		name=CAN_james_stanley_scott
 		portraits={
 			army={
 				small="GFX_idea_generic_air_europe_2"
@@ -563,13 +567,37 @@ characters={
 		}
 		advisor={
 			slot = high_command
-			idea_token = CAN_gino_verchiella
+			idea_token = CAN_james_stanley_scott
 			ledger = air
 			allowed = {
 				original_tag = CAN
 			}
 			traits = {
-				air_close_air_support_2
+				air_bomber_interception_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	CAN_lindsay_gordon = {
+		name=CAN_lindsay_gordon
+		portraits={
+			army={
+				small="GFX_idea_generic_air_europe_1"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = CAN_lindsay_gordon
+			ledger = air
+			allowed = {
+				original_tag = CAN
+			}
+			traits = {
+				air_air_combat_training_2
 			}
 			cost = 100
 			ai_will_do = {
