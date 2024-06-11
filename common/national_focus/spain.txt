@@ -99,7 +99,7 @@ focus_tree = {
 		
 		
 		icon = GFX_goal_generic_demand_territory
-		x = 31
+		x = 15
 		y = 0
 		offset = {
 			x = -14
@@ -385,24 +385,25 @@ focus_tree = {
 		mutually_exclusive = { focus = SPA_a_great_spain }
 		cancel_if_invalid = yes
 		allow_branch = {
-			if = {
-				is_ai = yes
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				OR = {
-					NOT = {
-						has_global_flag = spanish_civil_war
-					}
-					AND = {
-						NOT = { has_completed_focus = SPA_a_great_spain }
-						has_global_flag = spanish_civil_war
-					}
-				}
-			}
+			is_ai = yes
+			# if = { 
+			# 	is_ai = yes
+			# 	limit = {
+			# 		has_game_rule = {
+			# 			rule = obsolete_focus_branches_visibility
+			# 			option = HIDE
+			# 		}
+			# 	}
+			# 	OR = {
+			# 		NOT = {
+			# 			has_global_flag = spanish_civil_war
+			# 		}
+			# 		AND = {
+			# 			NOT = { has_completed_focus = SPA_a_great_spain }
+			# 			has_global_flag = spanish_civil_war
+			# 		}
+			# 	}
+			# }
 		}
 		
 		icon = GFX_goal_generic_national_unity
@@ -3790,7 +3791,7 @@ focus_tree = {
 		prerequisite = { focus = SPA_unify_the_nationalist_front }
 		
 		icon = GFX_goal_generic_more_territorial_claims
-		x = 2
+		x = 3
 		y = 1
 		relative_position_id = SPA_unify_the_nationalist_front
 		cost = 5
@@ -3923,7 +3924,35 @@ focus_tree = {
 	}
 
 	focus = {
+		id = SPT_unite_iberia
+		available = {
+			GER = { has_war_with = ENG }
+		}
+		bypass = {
+			NOT = { 112 = { is_owned_by = POR } }
+		}
+		prerequisite = { focus = SPA_portuguese_aid }
+		
+		icon = GFX_focus_generic_attack_portugal
+		x = 0
+		y = 1
+		relative_position_id = SPA_portuguese_aid
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {	
+			create_wargoal = {
+				type = annex_everything
+				target = POR
+				expire = 0	
+			}
+		}
+	}
+
+	focus = {
 		id = SPA_the_iberian_pact
+		allow_branch = { always = no }
 		available = {
 			has_global_flag = scw_over
 			has_war = no
@@ -3956,6 +3985,7 @@ focus_tree = {
 
 	focus = {
 		id = SPA_the_latin_bloc
+		allow_branch = { always = no }
 		available = {
 			has_global_flag = scw_over
 			NOT = { has_completed_focus = SPA_join_the_axis }
@@ -4009,10 +4039,10 @@ focus_tree = {
 		}
 		bypass = {
 		}
-		prerequisite = { focus = SPA_integrate_the_requetes focus = SPA_confirm_the_fueros }
+		prerequisite = { focus = SPA_integrate_the_requetes }
 		
 		icon = GFX_focus_research
-		x = 3
+		x = 1
 		y = 1
 		relative_position_id = SPA_integrate_the_requetes
 		cost = 10
@@ -4122,6 +4152,7 @@ focus_tree = {
 
 	focus = {
 		id = SPA_join_the_allies
+		allow_branch = { always = no }
 		available = {
 			has_global_flag = scw_over
 			is_in_faction = no
@@ -4734,7 +4765,7 @@ focus_tree = {
 		prerequisite = { focus = SPA_fuse_the_parties }
 		
 		icon = GFX_focus_generic_treaty
-		x = 6
+		x = 3
 		y = 1
 		relative_position_id = SPA_fuse_the_parties
 		cost = 10
@@ -5177,7 +5208,7 @@ focus_tree = {
 		}
 		bypass = {
 		}
-		prerequisite = { focus = SPA_adopt_the_26_points focus = SPA_settle_the_succession_question }
+		prerequisite = { focus = SPA_adopt_the_26_points }
 		mutually_exclusive = { focus = SPA_dictator_for_life }
 		
 		icon = GFX_goal_tfv_strengthen_commonwealth_ties

@@ -5,7 +5,7 @@ peace_ai_desires = {
 
     # don't create warlord or PRC puppets
     JAP_avoid_puppeting_warlords_prc = {
-        peace_action_type = { puppet force_government }
+        peace_action_type = take_states
         enable = {
             FROM = {
                 OR = {
@@ -28,24 +28,38 @@ peace_ai_desires = {
             }
             ROOT = { original_tag = JAP }
         }
-        ai_desire = 150
+        ai_desire = 69420
     }
 
 
-    # If Mengkukuo exists, increase the Inner Mongolian state
+    # If Mengkukuo exists, increase the Inner Mongolian state #SPTChange to MAN
     JAP_inner_mongolia = {
         peace_action_type = take_states
         enable = {
             FROM = {
-                original_tag = MEN
+                original_tag = MAN
                 is_subject_of = ROOT
             }
             FROM.FROM.FROM = {
                     state = 621 # Suiyuan
+                    state = 615 # Shanxi 
             }
             ROOT = { original_tag = JAP }
         }
-        ai_desire = 100
+        ai_desire = 9999
+    }
+
+    #SPTChange dont take MAN land
+    JAP_inner_mongolia = {
+        peace_action_type = take_states
+        enable = {
+            FROM.FROM.FROM = {
+                    state = 621 # Suiyuan
+                    state = 615 # Shanxi 
+            }
+            ROOT = { original_tag = JAP }
+        }
+        ai_desire = -9999
     }
 
 
@@ -70,7 +84,7 @@ peace_ai_desires = {
             }
             ROOT = { original_tag = JAP }
         }
-        ai_desire = 150
+        ai_desire = 69420
     }
 	
 	 JAP_dont_eat_chinese_puppet = {
@@ -86,7 +100,7 @@ peace_ai_desires = {
             }
             ROOT = { original_tag = JAP }
         }
-        ai_desire = -100
+        ai_desire = 69420
     }
 
 

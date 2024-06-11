@@ -1,0 +1,286 @@
+SPT_transfer_ships_FRA_to_HTF = {
+	set_variable = {
+		var = NumShips
+		value = FRA.num_ships_with_type@destroyer
+	}
+	divide_variable = {
+		NumShips = 2
+	}
+	round_variable = NumShip
+	for_loop_effect = {
+		value = ForIntegerCounter
+		start = 0
+		end = NumShips
+		add = 1
+		FRA = {
+			transfer_ship = {
+				type = destroyer
+				target = HTF
+			}
+		}
+	}
+
+	set_variable = {
+		var = NumShips
+		value = FRA.num_ships_with_type@light_cruiser
+	}
+	divide_variable = {
+		NumShips = 2
+	}
+	round_variable = NumShip
+	for_loop_effect = {
+		value = ForIntegerCounter
+		start = 0
+		end = NumShips
+		add = 1
+		FRA = {
+			transfer_ship = {
+				type = light_cruiser
+				target = HTF
+			}
+		}
+	}
+	set_variable = {
+		var = NumShips
+		value = FRA.num_ships_with_type@heavy_cruiser
+	}
+	divide_variable = {
+		NumShips = 2
+	}
+	round_variable = NumShip
+	for_loop_effect = {
+		value = ForIntegerCounter
+		start = 0
+		end = NumShips
+		add = 1
+		FRA = {
+			transfer_ship = {
+				type = heavy_cruiser
+				target = HTF
+			}
+		}
+	}
+	set_variable = {
+		var = NumShips
+		value = FRA.num_ships_with_type@carrier
+	}
+	divide_variable = {
+		NumShips = 2
+	}
+	round_variable = NumShip
+	for_loop_effect = {
+		value = ForIntegerCounter
+		start = 0
+		end = NumShips
+		add = 1
+		FRA = {
+			transfer_ship = {
+				type = carrier
+				target = HTF
+			}
+		}
+	}
+	
+	set_variable = {
+		var = NumShips
+		value = FRA.num_ships_with_type@battleship
+	}
+	divide_variable = {
+		NumShips = 2
+	}
+	round_variable = NumShip
+	for_loop_effect = {
+		value = ForIntegerCounter
+		start = 0
+		end = NumShips
+		add = 1
+		FRA = {
+			transfer_ship = {
+				type = battleship
+				target = HTF
+			}
+		}
+	}
+	FRA = {
+		transfer_navy = {target=ATF}
+	}
+	
+}
+
+#give Finland military access
+FIN_pact_for_continuation_war_start = {
+	every_country = {
+		limit = {
+			original_tag = FIN
+		}
+		if = {
+			limit = {
+				NOT = { has_military_access_to = GER }
+				NOT = { gives_military_access_to = GER }
+			}
+			give_military_access = GER
+		}
+	}
+	every_country = {
+		limit = {
+			is_in_faction_with = GER
+			NOT = { gives_military_access_to = FIN }
+			NOT = { has_military_access_to = FIN }
+		}
+		give_military_access = FIN
+	}
+	if = {
+		limit = {
+			FIN = { NOT = { has_non_aggression_pact_with = GER } }
+		}
+		FIN ={
+			diplomatic_relation = { 
+				country = GER
+				relation = non_aggression_pact 
+				active = yes
+			}
+		}
+	}
+}
+
+FIN_continuation_war_start = { #To be used on FIN's scope - Used immediately upon signing agreement
+	every_country = {
+		limit = {
+			original_tag = FIN
+		}
+		if = {
+			limit = {
+				NOT = { has_military_access_to = ITA }
+				NOT = { gives_military_access_to = ITA }
+			}
+			give_military_access = ITA
+		}
+		if = {
+			limit = {
+				NOT = { has_military_access_to = HUN }
+				NOT = { gives_military_access_to = HUN }
+			}
+			give_military_access = HUN
+		}
+		if = {
+			limit = {
+				NOT = { has_military_access_to = ROM }
+				NOT = { gives_military_access_to = ROM }
+			}
+			give_military_access = ROM
+		}
+		if = {
+			limit = {
+				NOT = { has_military_access_to = BUL }
+				NOT = { gives_military_access_to = BUL }
+			}
+			give_military_access = BUL
+		}
+		if = {
+			limit = {
+				NOT = { has_military_access_to = DEN }
+				NOT = { gives_military_access_to = DEN }
+			}
+			give_military_access = DEN
+		}
+		if = {
+			limit = {
+				NOT = { has_military_access_to = DEN }
+				NOT = { gives_military_access_to = DEN }
+			}
+			give_military_access = SPR
+		}
+	}
+	every_country = {
+		limit = {
+			OR = {
+				tag = ITA
+				tag = HUN
+				tag = ROM
+				tag = BUL
+				tag = DEN
+				tag = SPR
+			}
+			NOT = { gives_military_access_to = FIN }
+			NOT = { has_military_access_to = FIN }
+		}
+		give_military_access = FIN
+	}
+}
+
+# added a script to swap the armor designer with the improved one
+JAP_armor_designer_swap = { 
+	if = {
+		limit = {
+			has_idea =  osaka_army_arsenal
+		}
+		swap_ideas = {
+			remove_idea = osaka_army_arsenal
+			add_idea = osaka_improved
+		}
+	}
+}
+
+SPT_JAP_spawn_railway_guns = {
+	custom_effect_tooltip = SPT_JAP_spawn_railway_guns_tt
+	hidden_effect = {
+		create_railway_gun = {
+			equipment = railway_gun_equipment_1
+			name = "Ressha Houdai Ichi"
+		}
+		create_railway_gun = {
+			equipment = railway_gun_equipment_1
+			name = "Ressha Houdai Ni"
+		}
+		create_railway_gun = {
+			equipment = railway_gun_equipment_1
+			name = "Ressha Houdai San"
+		}
+	}
+}
+
+# check if jet engine is researched
+ITA_add_supremacy_in_the_skies_templates = {
+
+	create_equipment_variant = {
+		name = "SM.84"
+		type = medium_plane_airframe_2
+		parent_version = 0
+		modules = {
+				fixed_main_weapon_slot = medium_bomb_bay
+				fixed_auxiliary_weapon_slot_1 = torpedo_mounting
+				fixed_auxiliary_weapon_slot_2 = torpedo_mounting
+				engine_type_slot = engine_2_3x
+				special_type_slot_1 = hmg_defense_turret_2x
+				special_type_slot_2 = hmg_defense_turret_2x
+				special_type_slot_3 = armor_plate_medium
+			}
+		icon = "GFX_ITA_tactical_bomber2_medium"
+	}
+
+	if = {
+		limit = {
+			has_tech = jet_engines
+		}
+		create_equipment_variant = {
+			name = "Campini N.1"
+			type = small_plane_airframe_4
+			parent_version = 0
+			modules = {
+					fixed_main_weapon_slot = aircraft_cannon_2_2x
+					fixed_auxiliary_weapon_slot_1 = aircraft_cannon_2_2x
+					engine_type_slot = jet_engine_1x
+					special_type_slot_1 = armor_plate_small
+					special_type_slot_2 = self_sealing_fuel_tanks_small
+				}
+			icon = "GFX_ITA_jet_plane_1_medium"
+		}
+	}
+}
+
+# stop quisling resistance
+
+NOR_apply_resistance_to_fascists = {
+	
+}
+

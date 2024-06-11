@@ -3598,7 +3598,13 @@ generic_general_aircraft_organization = {
 		}
 		NOT = {
 			AND = {
-				OR = { tag = PRC tag = SHX tag = XSM tag = GXC tag = YUN tag = SIK tag = MEN }
+				OR = { tag = AST tag = RAJ }
+				has_dlc = "Together for Victory"
+			}
+		}
+		NOT = {
+			AND = {
+				OR = { tag = PRC tag = SHX tag = XSM tag = GXC tag = YUN tag = SIK }
 				has_dlc = "Waking the Tiger"
 			}
 		}
@@ -3632,7 +3638,7 @@ generic_general_aircraft_organization = {
 					original_tag = BRA 
 					original_tag = CHL
 					original_tag = ARG
-				}
+				} 
 				has_dlc = "Trial of Allegiance"
 			}
 		}
@@ -3911,9 +3917,14 @@ generic_light_aircraft_organization = {
 
 	equipment_type = {
 		mio_cat_eq_only_light_fighter
+		small_plane_cas_airframe
+		cv_small_plane_cas_airframe
 	}
 
-	research_categories = {	mio_cat_all_light_fighter_and_modules }
+	research_categories = {	
+		mio_cat_all_light_fighter_and_modules 
+		mio_cat_all_cas_and_modules 
+	}
 	
 	tree_header_text = {
 		text = mio_header_production
@@ -6366,7 +6377,7 @@ generic_artillery_organization = {
 		}
 		NOT = {
 			AND = {
-				OR = { tag = AST tag = SAF tag = NZL tag = CAN tag = RAJ }
+				tag = RAJ
 				has_dlc = "Together for Victory"
 			}
 		}
@@ -6747,7 +6758,7 @@ generic_infantry_equipment_organization = {
 		}
 		NOT = {
 			AND = {
-				OR = { tag = AST tag = SAF tag = NZL tag = CAN tag = RAJ }
+				OR = { tag = AST tag = CAN tag = RAJ }
 				has_dlc = "Together for Victory"
 			}
 		}
@@ -7372,6 +7383,12 @@ generic_motorized_mechanized_organization = {
 		}
 		NOT = {
 			AND = {
+				tag = NZL
+				has_dlc = "Together for Victory"
+			}
+		}
+		NOT = {
+			AND = {
 				OR = { tag = CHI tag = PRC tag = MAN tag = SHX tag = XSM tag = GXC tag = YUN tag = SIK tag = MEN }
 				has_dlc = "Waking the Tiger"
 			}
@@ -7818,7 +7835,7 @@ generic_armored_car_organization = {
 	trait = {
 		token = generic_mio_trait_standardized_components
 		name = generic_mio_trait_standardized_components
-		icon = GFX_generic_mio_department_icon_armored_car_line_efficiency§
+		icon = GFX_generic_mio_department_icon_armored_car_line_efficiency
 		all_parents = { generic_mio_trait_simplified_suspension generic_mio_trait_crew_ergonomics }
 
 
