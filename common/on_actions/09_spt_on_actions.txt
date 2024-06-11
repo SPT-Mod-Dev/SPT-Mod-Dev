@@ -1,7 +1,7 @@
 on_actions = {
 	on_startup = {
 		effect = {
-			#Suck it sticky
+			#Suck it sticky #it didnt work too well ginger, theyve joined factions
 			#Prevent countries joining faction
 			YUG = {
 				set_rule = { can_join_factions = no }
@@ -15,7 +15,11 @@ on_actions = {
 			TUR = {
 				set_rule = { can_join_factions = no }
 			}
-			
+
+			#Tannu Tuva starts as a puppet to better work with Right Opp Planned Eco focus
+			SOV = {
+				puppet = TAN
+			}
 			
 			#Gives all players training division
 			every_country = {
@@ -701,6 +705,10 @@ on_actions = {
 						}
 					}
 				}
+				#Remove paradox silly flags
+				every_state = {
+					clr_state_flag = prevent_auto_flip_after_capitulation
+				}
 			}
 			#Get compliance when ger takes poland
 			if = {
@@ -829,6 +837,17 @@ on_actions = {
 				}
 				set_global_flag = Med_War
 			}
+			#Check if HOL is at war with GER and add HOL to allies
+			if = {
+				limit = {
+					HOL = {
+						has_war_with = GER
+					}
+				}
+				ENG = {
+					add_to_faction = HOL
+				}
+			}
 		}
 	}
 	on_peace = {
@@ -905,793 +924,73 @@ on_actions = {
 		}
 	}
 
-
-	# prevent capitulation bugs for HOL BEL FRA
-	# ROOT is previously capitulated country
-	on_uncapitulation = {
-		effect = {
-			if = {
-				limit = {
-					original_tag = FRA
-					has_government = democratic
-					is_puppet = no
-				}
-				drop_cosmetic_tag = yes
-			}
-		}
-	}
-	#ROOT is capitulated country, FROM is winner.
-	on_capitulation_immediate = {
-		effect = {
-			if = { #SPTChange add suriname for netherlands
-				limit = {
-					ROOT = {
-						original_tag = HOL
-						is_in_faction = yes
-						#is_government_in_exile = yes
-					}
-				}
-				if = {
-					limit = {
-						309 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					309 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-			}
-			if = {
-				limit = {
-					ROOT = {
-						original_tag = BEL
-						is_in_faction = yes
-						#is_government_in_exile = yes
-					}
-				}
-				if = {
-					limit = {
-						295 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					295 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-
-				if = {
-					limit = {
-						538 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-
-					538 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-
-				if = {
-					limit = {
-						888 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-
-					888 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-
-				if = {
-					limit = {
-						889 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					889 = { set_state_flag = prevent_auto_flip_after_capitulation }
-
-				}
-
-				if = {
-					limit = {
-						890 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-
-					890 = { set_state_flag = prevent_auto_flip_after_capitulation }
-
-				}
-
-				if = {
-					limit = {
-						769 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-
-					769  = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-
-				if = {
-					limit = {
-						768 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					768 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-
-				if = {
-					limit = {
-						718 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					718 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-			}
-			
-			if = {
-				limit = {
-					ROOT = {
-						original_tag = FRA
-						is_in_faction = yes
-					}
-					#635 = { is_fully_controlled_by = ROOT } # SPTChange add free france states
-				}
-				#635 = { set_state_flag = prevent_auto_flip_after_capitulation }
-
-				if = {
-					limit = {
-						635 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					635 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						641 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					641 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						320 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					320 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						728 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					728 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						734 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					734 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						268 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					268 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						310 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					310 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						694 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					694 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						1 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					1 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						458 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					458 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						459 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					459 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						460 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					460 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						461 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					461 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						462 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					462 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						665 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					665 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						513 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					513 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						543 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					543 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						706 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					706 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						708 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					708 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						713 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					713 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						799 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					799 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						677 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					677 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						680 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					680 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						553 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					553 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						554 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					554 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						557 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					557 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						272 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					272 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						780 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					780 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						899 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					899 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						779 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					779 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						898 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					898 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						778 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					778 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						777 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					777 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						776 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					776 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						781 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					781 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						774 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					774 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						660 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					660 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						773 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					773 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						772 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					772 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				if = {
-					limit = {
-						539 = {
-							is_fully_controlled_by = ROOT
-						}
-					}
-					539 = { set_state_flag = prevent_auto_flip_after_capitulation }
-				}
-			}
-		}
-	}
-
-	# remove protection after captured or capitulation
+	# capitulation bug for FRA
 	on_state_control_changed = {
+		# after paris go to brest
 		effect = {
 			if = {
 				limit = {
 					FROM = {
-						is_in_faction = yes
+						tag = FRA
 					}
-
-					FROM.FROM = {
-						has_state_flag = prevent_auto_flip_after_capitulation
-					}
+					FROM.FROM = { state = 16 }
+					FRA = { 16 = { is_capital = yes } } 
+					14 = { is_controlled_by = FRA } 
 				}
-
-				FROM.FROM = { clr_state_flag = prevent_auto_flip_after_capitulation }
-				# SPTChange not sure why paradox would do this?
-				# FROM = {
-				# 	set_state_controller = FROM.FROM
-				# }
-				
+				FRA = { 
+					set_capital = {
+						state = 14
+					}	
+				}
+			}
+			# or bayonne
+			else_if = {
+				limit = { 
+					FROM = {
+						tag = FRA
+					}
+					FROM.FROM = { state = 16 }
+					FRA = { 16 = { is_capital = yes } } 
+					NOT = { 14 = { is_controlled_by = FRA } }
+				}
+				FRA = { 
+					set_capital = {
+						state = 806
+					}	
+				}
 			}
 		}
-	}
-
-	on_peaceconference_started = {
+		# after brest go to bayonne
 		effect = {
-			# SPTChange add suriname
-			#Netherlands
 			if = {
 				limit = {
-					309 = { has_state_flag = prevent_auto_flip_after_capitulation }
+					FROM = {
+						tag = FRA
+					}
+					FROM.FROM = { state = 14 }
+					FRA = { 14 = { is_capital = yes } } 
 				}
-				309 = { clr_state_flag = prevent_auto_flip_after_capitulation }
+				FRA = { 
+					set_capital = {
+						state = 806
+					}	
+				}
 			}
-			#Belgium
+		}
+		# return to paris 
+		effect = {
 			if = {
 				limit = {
-					295 = { has_state_flag = prevent_auto_flip_after_capitulation }
+					ROOT = {
+						tag = FRA
+					}
+					FROM.FROM = { state = 16 }
 				}
-				295 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-
-			if = {
-				limit = {
-					538 = { has_state_flag = prevent_auto_flip_after_capitulation }
+				FRA = { 
+					set_capital = {
+						state = 16
+					}	
 				}
-				538 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-
-			if = {
-				limit = {
-					888 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				888 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-
-			if = {
-				limit = {
-					889 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				889 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-
-			if = {
-				limit = {
-					890 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				890 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-
-			if = {
-				limit = {
-					769 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				769 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-
-			if = {
-				limit = {
-					768 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				768 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-
-			if = {
-				limit = {
-					718 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				718 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			#France
-			if = {
-				limit = {
-					635 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				635 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			# SPTChange add all free france states
-			if = { 
-				limit = {
-					641 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				641 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					320 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				320 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					728 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				728 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					734 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				734 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					268 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				268 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					310 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				310 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					694 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				694 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					1 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				1 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					458 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				458 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					459 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				459 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					460 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				460 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					461 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				461 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					462 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				462 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					665 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				665 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					513 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				513 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					543 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				543 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					706 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				706 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					708 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				708 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					713 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				713 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					799 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				799 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					677 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				677 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					680 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				680 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					553 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				553 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					554 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				554 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					557 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				557 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					272 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				272 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					780 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				780 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					899 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				899 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					779 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				779 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					898 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				898 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					778 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				778 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					777 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				777 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					776 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				776 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					781 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				781 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					774 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				774 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					660 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				660 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					773 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				773 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					772 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				772 = { clr_state_flag = prevent_auto_flip_after_capitulation }
-			}
-			if = {
-				limit = {
-					539 = { has_state_flag = prevent_auto_flip_after_capitulation }
-				}
-				539 = { clr_state_flag = prevent_auto_flip_after_capitulation }
 			}
 		}
 	}

@@ -37,8 +37,9 @@ SPT_ITA_historical = {
 		ITA_albanian_occupation 
 		ITA_pact_of_steel 
 		ITA_stockpile_fuel 
-		ITA_german_military_cooperation 
 		ITA_italian_irredentism
+		ITA_war_with_greece 
+		ITA_german_military_cooperation 
 		ITA_support_albanian_irredentism 
 		ITA_army_primacy_bba
 		ITA_preserve_army_traditions
@@ -47,7 +48,6 @@ SPT_ITA_historical = {
 		ITA_pact_of_steel
 		ITA_pacify_yugo
 		ITA_treaty_with_germany 
-		ITA_war_with_greece 
 		ITA_culto_del_duce 
 		ITA_the_man_of_providence
 		ITA_security_militias 
@@ -110,7 +110,16 @@ SPT_ITA_historical = {
 		type = agency_ai_per_upgrade_factories_factor
 		value = -100
 	}
-	
+	ai_strategy = {
+		type = declare_war
+		id = YUG
+		value = 1000
+	}
+	ai_strategy = {
+		type = declare_war
+		id = GRE
+		value = 1000
+	}
 
 	# Keep small, as it is used as a factor for some things (such as research needs)
 	# Recommended around 1.0. Useful for relation between plans

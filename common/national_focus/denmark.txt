@@ -3247,7 +3247,7 @@ focus_tree = {
 		x = -2 # SPTChange repositioning
 		y = 1
 	
-		cost = 5
+		cost = 2 # SPTchange 5->2
 	
 		bypass = {
 		}
@@ -3369,7 +3369,7 @@ focus_tree = {
 		x = -2
 		y = 2
 	
-		cost = 5
+		cost = 2 # SPTchange 5->2
 	
 		bypass = {
 		}
@@ -3467,6 +3467,7 @@ focus_tree = {
 			OVERLORD = { country_event = { id = denmark_occupation_event.6 hours = 1 } }	
 
 			custom_effect_tooltip = if_they_accept_tt
+			custom_effect_tooltip = SPT_DEN_unlock_political_branch_tt
 			event_option_tooltip = denmark_occupation_event.8.a
 
 			# SPTchange: for human denmarks, this will never happen.
@@ -3485,7 +3486,7 @@ focus_tree = {
 		x = 0
 		y = 1
 	
-		cost = 10
+		cost = 2 # SPTchange 10->2
 	
 		bypass = {
 		}
@@ -3625,7 +3626,7 @@ focus_tree = {
 		x = 2
 		y = 1
 	
-		cost = 10
+		cost = 2 # SPTchange 10->2
 	
 		bypass = {
 		}
@@ -3722,12 +3723,12 @@ focus_tree = {
 		id = DEN_increase_cooperation
 		icon = GFX_goal_generic_major_alliance
 
-		# SPTchange make an OR
-		prerequisite = { focus = DEN_seize_the_production focus = DEN_adjust_industrial_prioritize }
+		# SPTchange make an OR, add contribution to the war effort
+		prerequisite = { focus = DEN_seize_the_production focus = DEN_adjust_industrial_prioritize focus = DEN_contribute_to_the_war }
 		# prerequisite = { focus = DEN_adjust_industrial_prioritize }
 	
 		relative_position_id = DEN_seek_industrial_investments
-		x = 1 # SPTchange
+		x = 2 # SPTchange
 		y = 2
 	
 		cost = 5
@@ -3770,81 +3771,6 @@ focus_tree = {
 	}
 
 	focus = {
-		id = DEN_acquire_military_equipment
-		icon = GFX_focus_generic_license_production
-
-		prerequisite = { focus = DEN_adjust_industrial_prioritize }
-		prerequisite = { focus = DEN_contribute_to_the_war }
-	
-		relative_position_id = DEN_seek_industrial_investments
-		x = 3
-		y = 2
-	
-		cost = 5
-	
-		bypass = {
-		}
-	
-		available = {
-		
-		}
-	
-		ai_will_do = {
-		}
-	
-		search_filters = { FOCUS_FILTER_BALANCE_OF_POWER FOCUS_FILTER_INTERNATIONAL_TRADE }
-	
-		completion_reward = {
-			add_ideas = DEN_overlord_licensing_ns
-
-			DEN_bop_occupation_very_low_decrease_effect = yes
-
-			# SPTchange The Arms Trade Treaty (ATT) is a multilateral treaty that regulates the international trade in conventional weapons. It entered into force on 24 December 2014.[1] 113 states have ratified the treaty, and a further 28 states have signed but not ratified it. The ATT is an attempt to regulate the international trade of conventional weapons for the purpose of contributing to international and regional peace; reducing human suffering; and promoting co-operation, transparency, and responsible action by and among states.
-			# add_equipment_subsidy = {
-			# 	cic = 500
-			# 	equipment_type = small_plane_airframe
-			# 	seller_trigger = DEN_allied_weapons_seller_trigger
-			# }
-			# add_equipment_subsidy = {
-			# 	cic = 500
-			# 	equipment_type = small_plane_cas_airframe
-			# 	seller_trigger = DEN_allied_weapons_seller_trigger
-			# }
-			# add_equipment_subsidy = {
-			# 	cic = 500
-			# 	equipment_type = light_tank_chassis
-			# 	seller_trigger = DEN_allied_weapons_seller_trigger
-			# }
-			# add_equipment_subsidy = {
-			# 	cic = 500
-			# 	equipment_type = medium_tank_chassis
-			# 	seller_trigger = DEN_allied_weapons_seller_trigger
-			# }
-			# add_equipment_subsidy = {
-			# 	cic = 500
-			# 	equipment_type = infantry_equipment
-			# 	seller_trigger = DEN_allied_weapons_seller_trigger
-			# }
-			# add_equipment_subsidy = {
-			# 	cic = 500
-			# 	equipment_type = motorized_equipment
-			# 	seller_trigger = DEN_allied_weapons_seller_trigger
-			# }
-			# add_equipment_subsidy = {
-			# 	cic = 500
-			# 	equipment_type = artillery_equipment
-			# 	seller_trigger = DEN_allied_weapons_seller_trigger
-			# }
-			# add_equipment_subsidy = {
-			# 	cic = 500
-			# 	equipment_type = anti_air_equipment
-			# 	seller_trigger = DEN_allied_weapons_seller_trigger
-			# }
-		}
-	}
-
-
-	focus = {
 		id = DEN_contribute_to_the_war
 		icon = GFX_focus_generic_full_social_mobilization
 
@@ -3852,7 +3778,7 @@ focus_tree = {
 	
 		relative_position_id = DEN_align_with_overlord
 		x = 2 # SPTChange repositioning
-		y = 1
+		y = 2
 	
 		cost = 1 # SPTchange 5 -> 1
 	
@@ -3930,6 +3856,81 @@ focus_tree = {
 					}
 				}
 			}
+		}
+	}
+
+	focus = {
+		id = DEN_acquire_military_equipment
+		icon = GFX_focus_generic_license_production
+
+		# prerequisite = { focus = DEN_adjust_industrial_prioritize } # SPTchange
+		prerequisite = { focus = DEN_contribute_to_the_war }
+	
+		# SPTchange repositioning
+		relative_position_id = DEN_contribute_to_the_war
+		x = 0
+		y = 1
+	
+		cost = 5
+	
+		bypass = {
+		}
+	
+		available = {
+		
+		}
+	
+		ai_will_do = {
+		}
+	
+		search_filters = { FOCUS_FILTER_BALANCE_OF_POWER FOCUS_FILTER_INTERNATIONAL_TRADE }
+	
+		completion_reward = {
+			add_ideas = DEN_overlord_licensing_ns
+
+			DEN_bop_occupation_very_low_decrease_effect = yes
+
+			# SPTchange The Arms Trade Treaty (ATT) is a multilateral treaty that regulates the international trade in conventional weapons. It entered into force on 24 December 2014.[1] 113 states have ratified the treaty, and a further 28 states have signed but not ratified it. The ATT is an attempt to regulate the international trade of conventional weapons for the purpose of contributing to international and regional peace; reducing human suffering; and promoting co-operation, transparency, and responsible action by and among states.
+			# add_equipment_subsidy = {
+			# 	cic = 500
+			# 	equipment_type = small_plane_airframe
+			# 	seller_trigger = DEN_allied_weapons_seller_trigger
+			# }
+			# add_equipment_subsidy = {
+			# 	cic = 500
+			# 	equipment_type = small_plane_cas_airframe
+			# 	seller_trigger = DEN_allied_weapons_seller_trigger
+			# }
+			# add_equipment_subsidy = {
+			# 	cic = 500
+			# 	equipment_type = light_tank_chassis
+			# 	seller_trigger = DEN_allied_weapons_seller_trigger
+			# }
+			# add_equipment_subsidy = {
+			# 	cic = 500
+			# 	equipment_type = medium_tank_chassis
+			# 	seller_trigger = DEN_allied_weapons_seller_trigger
+			# }
+			# add_equipment_subsidy = {
+			# 	cic = 500
+			# 	equipment_type = infantry_equipment
+			# 	seller_trigger = DEN_allied_weapons_seller_trigger
+			# }
+			# add_equipment_subsidy = {
+			# 	cic = 500
+			# 	equipment_type = motorized_equipment
+			# 	seller_trigger = DEN_allied_weapons_seller_trigger
+			# }
+			# add_equipment_subsidy = {
+			# 	cic = 500
+			# 	equipment_type = artillery_equipment
+			# 	seller_trigger = DEN_allied_weapons_seller_trigger
+			# }
+			# add_equipment_subsidy = {
+			# 	cic = 500
+			# 	equipment_type = anti_air_equipment
+			# 	seller_trigger = DEN_allied_weapons_seller_trigger
+			# }
 		}
 	}
 
@@ -10160,7 +10161,25 @@ focus_tree = {
 				add_mio_funds_gain_factor = 0.35
 				add_mio_research_bonus = 0.05
 			}
-
+			
+			# SPTchange
+			mio:GER_porsche_organization = {
+				add_mio_funds_gain_factor = 0.35
+				add_mio_research_bonus = 0.05
+			}
+			mio:GER_henschel_organization = {
+				add_mio_funds_gain_factor = 0.35
+				add_mio_research_bonus = 0.05
+			}
+			mio:GER_man_organization = {
+				add_mio_funds_gain_factor = 0.35
+				add_mio_research_bonus = 0.05
+			}
+			mio:ITA_fiat_organization = {
+				add_mio_size = 1
+				add_mio_funds_gain_factor = 0.35
+				add_mio_research_bonus = 0.05
+			}
 
 			DEN_improve_haeren_NS = yes
 			#add_to_variable = { 

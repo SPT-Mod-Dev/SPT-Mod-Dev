@@ -653,7 +653,7 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = BUL_uranium_prospecting
-			    bonus = 2.0
+			    bonus = 1.0
 			    uses = 2
 			    category = nuclear
 			}
@@ -734,7 +734,7 @@ focus_tree = {
 			air_experience = 15
 			add_doctrine_cost_reduction = {
 				name = BUL_pilot_training_program
-			    cost_reduction = 0.65
+			    cost_reduction = 0.50
 			    uses = 2
 			    category = air_doctrine
 			}
@@ -877,7 +877,7 @@ focus_tree = {
 			}
 			add_tech_bonus = {
 				name = BUL_darzhavna_aeroplanna_rabotilnitsa
-			    bonus = 1.0
+			    bonus = 0.50
 			    uses = 2
 				category = light_air
 			}
@@ -927,7 +927,7 @@ focus_tree = {
 			}
 			add_tech_bonus = {
 				name = BUL_darzhavna_samoletna_fabrika
-			    bonus = 1.0
+			    bonus = 0.5
 			    uses = 2
 				category = cas_bomber
 				category = naval_bomber
@@ -1013,7 +1013,7 @@ focus_tree = {
 			}
 			add_tech_bonus = {
 				name = BUL_kaproni_bulgarski
-			    bonus = 1.0
+			    bonus = 0.5
 			    uses = 2
 				category = cat_strategic_bomber
 				category = tactical_bomber
@@ -1064,7 +1064,7 @@ focus_tree = {
 			}
 			add_tech_bonus = {
 				name = BUL_darzhavna_voenna_fabrika
-			    bonus = 1.0
+			    bonus = 0.5
 			    uses = 2
 				category = infantry_weapons
 				category = support_tech
@@ -1115,7 +1115,7 @@ focus_tree = {
 			}
 			add_tech_bonus = {
 				name = BUL_found_dvf_sopot
-			    bonus = 1.0
+			    bonus = 1.0 # SPTChange keep old bonus
 			    uses = 2
 				category = artillery
 			}
@@ -1532,7 +1532,7 @@ focus_tree = {
 			}
 			add_tech_bonus = {
 				name = BUL_a_black_sea_fleet
-			    bonus = 1.0
+			    bonus = 0.5
 			    uses = 2
 				category = dd_tech
 			}
@@ -2346,7 +2346,7 @@ focus_tree = {
 			navy_experience = 15
 			add_tech_bonus = {
 				name = BUL_strike_from_the_seas
-			    bonus = 1.0
+			    bonus = 0.5
 			    uses = 2
 			    category = marine_tech
 			    category = tp_tech
@@ -2460,7 +2460,7 @@ focus_tree = {
 			navy_experience = 25
 			add_tech_bonus = {
 				name = BUL_an_aegean_sea_fleet
-			    bonus = 1.0
+			    bonus = 0.5
 			    uses = 2
 			    category = cl_tech
 			    category = ca_tech
@@ -2529,7 +2529,7 @@ focus_tree = {
 			}
 			add_tech_bonus = {
 				name = BUL_a_powerful_bulgarian_navy
-				bonus = 0.75
+				bonus = 1
 				uses = 1
 				category = bb_tech
 			}
@@ -2561,7 +2561,7 @@ focus_tree = {
 			}
 			add_tech_bonus = {
 				name = BUL_modern_tactics
-			    bonus = 0.75
+			    bonus = 1
 			    uses = 1
 			    category = naval_air
 			}
@@ -3791,7 +3791,7 @@ focus_tree = {
 				BUL = {
 					add_tech_bonus = {
 						name = armor
-						bonus = 1.0
+						bonus = 0.5
 						uses = 2
 						category = armor
 					}
@@ -5719,7 +5719,7 @@ focus_tree = {
 					}
 					ROOT = {
 						give_guarantee = PREV
-						add_to_variable = { BUL_our_duty_in_the_balkans_consumer_goods_modifier = -0.01 }
+						add_to_variable = { BUL_our_duty_in_the_balkans_consumer_goods_modifier = -0.03 }
 						add_to_variable = { BUL_our_duty_in_the_balkans_stability_modifier = 0.05 }
 					}
 				}
@@ -6129,12 +6129,12 @@ focus_tree = {
 				}
 				if = {
 					limit = {
-						check_variable = { BUL_foreign_industry_consumer_goods_modifier = 0.05 compare = less_than_or_equals }
+						check_variable = { BUL_foreign_industry_consumer_goods_modifier = 0.10 compare = less_than_or_equals }
 					}
 					set_variable = { BUL_foreign_industry_consumer_goods_modifier = 0 }
 				}
 				else = {
-					subtract_from_variable = { BUL_foreign_industry_consumer_goods_modifier = -0.05 }
+					subtract_from_variable = { BUL_foreign_industry_consumer_goods_modifier = -0.10 }
 					
 				}
 			}
@@ -6308,7 +6308,7 @@ focus_tree = {
 
 		icon = GFX_focus_BUL_power_to_the_tsar
 		relative_position_id = BUL_acquire_modern_tools
-		x = 20
+		x = 24
 		y = 0
 		cost = 10
 		mutually_exclusive = { focus = BUL_oppose_the_royal_dictatorship }
@@ -6534,8 +6534,8 @@ focus_tree = {
 		prerequisite = { focus = BUL_power_to_the_tsar }
 		icon = GFX_focus_generic_monarchy_1
 		relative_position_id = BUL_power_to_the_tsar
-		x = 0
-		y = 2
+		x = -5
+		y = 3
 		cost = 10
 
 		mutually_exclusive = { focus = BUL_appoint_right_wing_ministers }
@@ -6717,10 +6717,10 @@ focus_tree = {
 	focus = {
 		id = BUL_crush_the_communists
 
-		prerequisite = { focus = BUL_the_tsars_regime}
+		prerequisite = { focus = BUL_the_tsars_regime focus = BUL_appoint_right_wing_ministers }
 		icon = GFX_focus_spr_crush_the_revolution
 		relative_position_id = BUL_the_tsars_regime
-		x = 4
+		x = 5
 		y = 1
 		cost = 5
 
@@ -6846,7 +6846,7 @@ focus_tree = {
 		y = 2
 		cost = 10
 
-		mutually_exclusive = { focus = BUL_depose_the_tsar }
+		#mutually_exclusive = { focus = BUL_depose_the_tsar }
 
 		available = {
 
@@ -6861,11 +6861,11 @@ focus_tree = {
 	focus = {
 		id = BUL_bulgarian_irredentism
 
-		prerequisite = { focus = BUL_promote_bulgarian_nationalism }
+		prerequisite = { focus = BUL_promote_bulgarian_nationalism focus = BUL_the_path_towards_a_greater_bulgaria}
 
 		icon = GFX_goal_generic_territory_or_war
 		relative_position_id = BUL_promote_bulgarian_nationalism
-		x = 1
+		x = 2
 		y = 1
 		cost = 10
 
@@ -7288,11 +7288,11 @@ focus_tree = {
 	focus = {
 		id = BUL_form_a_regency_council
 
-		prerequisite = { focus = BUL_the_tsars_regime }
+		prerequisite = { focus = BUL_power_to_the_tsar }
 
 		icon = GFX_focus_BUL_form_a_regency_council
-		relative_position_id = BUL_the_tsars_regime
-		x = 5
+		relative_position_id = BUL_power_to_the_tsar
+		x = 0
 		y = 2
 		cost = 10
 		
@@ -7753,15 +7753,15 @@ focus_tree = {
 
 
 	focus = {
-		allow_branch = {always = no}
+		#allow_branch = {always = no}
 		
 		id = BUL_appoint_right_wing_ministers
 
 		prerequisite = { focus = BUL_power_to_the_tsar }
 		icon = GFX_focus_generic_diplomatic_treaty
 		relative_position_id = BUL_power_to_the_tsar
-		x = 4
-		y = 2
+		x = 5
+		y = 3
 		cost = 10
 
 		mutually_exclusive = { focus = BUL_the_tsars_regime }
@@ -7793,7 +7793,7 @@ focus_tree = {
 		prerequisite = { focus = BUL_appoint_right_wing_ministers }
 		icon = GFX_focus_generic_strike_at_democracy1
 		relative_position_id = BUL_appoint_right_wing_ministers
-		x = -2
+		x = -3
 		y = 2
 		cost = 10
 
@@ -7841,7 +7841,7 @@ focus_tree = {
 	}
 
 	focus = {
-		allow_branch = {always = no}
+		#allow_branch = {always = no}
 		
 		id = BUL_depose_the_tsar
 
@@ -7849,11 +7849,11 @@ focus_tree = {
 		prerequisite = { focus = BUL_bulgarian_irredentism }
 		icon = GFX_focus_rom_abdicate
 		relative_position_id = BUL_the_path_towards_a_greater_bulgaria
-		x = 0
+		x = 1
 		y = 2
 		cost = 10
 
-		mutually_exclusive = { focus = BUL_found_the_brannik }
+		#mutually_exclusive = { focus = BUL_found_the_brannik }
 
 		available = {
 			fascism > 0.4
@@ -7874,82 +7874,84 @@ focus_tree = {
 				remove_ideas = BUL_georgi_ivanov_kyoseivanov
 			}
 
-			if = { #Low Stability triggers a Civil War
-				limit = {
-					has_stability < 0.3
-				}
-				set_temp_variable = { BUL_fascist_cw_opposition = party_popularity@neutrality }
-				multiply_temp_variable = { BUL_fascist_cw_opposition = 0.25 }
-				add_to_temp_variable = { BUL_fascist_cw_opposition = party_popularity@democratic }
-				add_to_temp_variable = { BUL_fascist_cw_opposition = party_popularity@communism }
-				set_politics = {
-					ruling_party = fascism
-				}
-				hidden_effect = { #Generates undesired "Politics will change" tooltip
-					every_unit_leader = {
-						limit = {
-							OR = {
-								has_id = 1207 #Asen Nikolov
-								has_id = 1208 #Konstantin Lukash
-							}
-							NOT = { has_trait = trait_BUL_zveno_member }
-						}
-						add_unit_leader_trait = trait_BUL_tsar_loyalist
-					}
+			#SPT change, removed low stab civil war
+			#
+			# if = { #Low Stability triggers a Civil War
+			# 	limit = {
+			# 		has_stability < 0.3
+			# 	}
+			# 	set_temp_variable = { BUL_fascist_cw_opposition = party_popularity@neutrality }
+			# 	multiply_temp_variable = { BUL_fascist_cw_opposition = 0.25 }
+			# 	add_to_temp_variable = { BUL_fascist_cw_opposition = party_popularity@democratic }
+			# 	add_to_temp_variable = { BUL_fascist_cw_opposition = party_popularity@communism }
+			# 	set_politics = {
+			# 		ruling_party = fascism
+			# 	}
+			# 	hidden_effect = { #Generates undesired "Politics will change" tooltip
+			# 		every_unit_leader = {
+			# 			limit = {
+			# 				OR = {
+			# 					has_id = 1207 #Asen Nikolov
+			# 					has_id = 1208 #Konstantin Lukash
+			# 				}
+			# 				NOT = { has_trait = trait_BUL_zveno_member }
+			# 			}
+			# 			add_unit_leader_trait = trait_BUL_tsar_loyalist
+			# 		}
 
-					start_civil_war = {	
-						ideology = neutrality
-						size = BUL_fascist_cw_opposition
-						capital = 48
-						states = { 212 }
-						keep_unit_leaders_trigger = {
-							NOT = {	has_trait = trait_BUL_tsar_loyalist }
-						}
-					}
+			# 		start_civil_war = {	
+			# 			ideology = neutrality
+			# 			size = BUL_fascist_cw_opposition
+			# 			capital = 48
+			# 			states = { 212 }
+			# 			keep_unit_leaders_trigger = {
+			# 				NOT = {	has_trait = trait_BUL_tsar_loyalist }
+			# 			}
+			# 		}
 
-					every_unit_leader = {
-						limit = {
-							has_trait = trait_BUL_tsar_loyalist
-						}
-						random_other_country = {
-							limit = {
-								original_tag = BUL
-								has_government = neutrality
-							}
-							PREV = { set_nationality = PREV }
-						}
-					}
-					random_other_country = {
-						limit = { 
-							original_tag = BUL 
-							has_government = neutrality }
-							promote_character = {
-								character = BUL_georgi_ivanov_kyoseivanov
-								ideology = moderatism 
-							}
-					}
+			# 		every_unit_leader = {
+			# 			limit = {
+			# 				has_trait = trait_BUL_tsar_loyalist
+			# 			}
+			# 			random_other_country = {
+			# 				limit = {
+			# 					original_tag = BUL
+			# 					has_government = neutrality
+			# 				}
+			# 				PREV = { set_nationality = PREV }
+			# 			}
+			# 		}
+			# 		random_other_country = {
+			# 			limit = { 
+			# 				original_tag = BUL 
+			# 				has_government = neutrality }
+			# 				promote_character = {
+			# 					character = BUL_georgi_ivanov_kyoseivanov
+			# 					ideology = moderatism 
+			# 				}
+			# 		}
 
-					#Operatives
-					if = {
-						limit = {
-							has_dlc = "La Resistance"
-						}
-						every_operative = {
-							limit = {
-								has_trait = trait_BUL_tsar_loyalist
-							}
-							retire = yes
-						}
-					}
-				}
-				custom_effect_tooltip = BUL_depose_the_tsar_cw_tt
-				clr_country_flag = BUL_factions_unlocked_flag
-				promote_character = { 
-					character = BUL_georgi_ivanov_kyoseivanov
-					ideology = moderatism
-				}		
-			}
-			else = {
+			# 		#Operatives
+			# 		if = {
+			# 			limit = {
+			# 				has_dlc = "La Resistance"
+			# 			}
+			# 			every_operative = {
+			# 				limit = {
+			# 					has_trait = trait_BUL_tsar_loyalist
+			# 				}
+			# 				retire = yes
+			# 			}
+			# 		}
+			# 	}
+			# 	custom_effect_tooltip = BUL_depose_the_tsar_cw_tt
+			# 	clr_country_flag = BUL_factions_unlocked_flag
+			# 	promote_character = { 
+			# 		character = BUL_georgi_ivanov_kyoseivanov
+			# 		ideology = moderatism
+			# 	}		
+			# }
+			#else = {
 				random_unit_leader = {
 					limit = {
 						has_id = 1204 #Boydev
@@ -7977,14 +7979,14 @@ focus_tree = {
 					ideology = moderatism
 				}
 				add_stability = -0.1
-			}
+			#}
 
 			BUL_zveno_low_loyalty_increase_effect = yes
 			BUL_bs_low_loyalty_increase_effect = yes
 			BUL_bzns_low_loyalty_increase_effect = yes
 			BUL_nsm_low_loyalty_decrease_effect = yes
 
-			custom_effect_tooltip = BUL_potential_civil_war_low_requirement_tt
+			#custom_effect_tooltip = BUL_potential_civil_war_low_requirement_tt
 		}
 	}
 
@@ -7995,7 +7997,7 @@ focus_tree = {
 		icon = GFX_goal_generic_political_pressure
 		relative_position_id = BUL_depose_the_tsar
 		x = 0
-		y = 3
+		y = 1
 		cost = 10
 
 		available = {
@@ -8031,6 +8033,10 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 5
+		
+		allow_branch = { #SPT change
+			always = no
+		}
 
 		available = {
 			has_civil_war = no
@@ -8129,8 +8135,8 @@ focus_tree = {
 		prerequisite = { focus = BUL_appoint_right_wing_ministers }
 		icon = GFX_goal_generic_dangerous_deal
 		relative_position_id = BUL_appoint_right_wing_ministers
-		x = 0
-		y = 2
+		x = -1
+		y = 1
 		cost = 10
 
 		available = {
@@ -8212,7 +8218,7 @@ focus_tree = {
 		prerequisite = { focus = BUL_economic_protectionism }
 		icon = GFX_goal_reichsautobahn
 		relative_position_id = BUL_economic_protectionism
-		x = 1
+		x = 0
 		y = 1
 		cost = 10
 
@@ -8304,7 +8310,7 @@ focus_tree = {
 
 		icon = GFX_focus_chi_mission_to_germany
 		relative_position_id = BUL_bulgarian_irredentism
-		x = 2
+		x = 0
 		y = 2
 		cost = 10
 
@@ -8472,7 +8478,7 @@ focus_tree = {
 
 		icon = GFX_focus_befriend_italy
 		relative_position_id = BUL_approach_germany
-		x = -2
+		x = 2
 		y = 1
 		cost = 10
 
@@ -8848,7 +8854,7 @@ focus_tree = {
 
 		icon = GFX_focus_BUL_restore_the_bulgarian_patriarchate
 		relative_position_id = BUL_bulgarian_administration_of_the_balkans
-		x = 0
+		x = -1
 		y = 1
 		cost = 10
 
@@ -9085,7 +9091,7 @@ focus_tree = {
 	}
 
 	focus = {
-		allow_branch = {always=no}
+		#allow_branch = {always=no}
 		
 		id = BUL_the_third_bulgarian_empire
 
@@ -9102,7 +9108,7 @@ focus_tree = {
 			}
 		}
 
-		prerequisite = { focus = BUL_total_war focus = BUL_bulgarian_administration_of_the_balkans }
+		prerequisite = {focus = BUL_bulgarian_administration_of_the_balkans }
 
 		icon = GFX_focus_BUL_the_third_bulgarian_empire
 		relative_position_id = BUL_total_war
@@ -9116,9 +9122,9 @@ focus_tree = {
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 		completion_reward = {
-			set_rule = {
-				can_create_factions = yes
-			}
+			# set_rule = { #SPT change to prevent any funny business
+			# 	can_create_factions = yes
+			# }
 			random_owned_state = {
 				prioritize = { 48 212 }
 				limit = {
@@ -9259,16 +9265,16 @@ focus_tree = {
 				custom_effect_tooltip = BUL_the_third_bulgarian_empire_tt
 			}
 
-			if = {
-				limit = {
-					NOT = { has_wargoal_against = TUR }
-					NOT = { is_in_faction_with = TUR }
-				}
-				create_wargoal = {
-					type = annex_everything
-					target = TUR
-				}
-			}
+			# if = { #SPT change, no wargoals against turkey
+			# 	limit = {
+			# 		NOT = { has_wargoal_against = TUR }
+			# 		NOT = { is_in_faction_with = TUR }
+			# 	}
+			# 	create_wargoal = {
+			# 		type = annex_everything
+			# 		target = TUR
+			# 	}
+			# }
 
 			#Set ideology cosmetic tag to show the appropriate 3D models
 			set_country_flag = BUL_tbe_flag
@@ -9278,11 +9284,11 @@ focus_tree = {
 				news_event = { id = bftb_news.7 hours = 8 random_hours = 4 }
 			}
 
-			add_ai_strategy = {
-				type = declare_war
-				id = TUR
-				value = 100
-			}
+			# add_ai_strategy = { #SPT change, removed thirst for blood
+			# 	type = declare_war
+			# 	id = TUR
+			# 	value = 100
+			# }
 		}
 	}
 }
