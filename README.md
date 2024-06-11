@@ -23,6 +23,9 @@
  - Focus 'Embargo Germany' now causes all nations in faction with England to embargo germany
  - Focus 'Prepare for the Inevitable' now takes 35 days to complete, from 70
 
+### Free France
+ - Reworked intervention focuses
+
 ### Bulgaria
  - Added 'Appoint Right Wing Ministers' alt-historical path
  - Readded 'The Third Bulgarian Empire' Focus
