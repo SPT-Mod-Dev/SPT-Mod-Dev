@@ -3,9 +3,10 @@
 ### 3.11.4 'Bigly'
 
 ### General
+ - Paradox update implemented 
  - Political raids stability penalty -10% -> -8%
  - Updated generic organisations
- - Paradox update implemented 
+ - Acctually fix German North Africa bug (most of the time)
 
 ### Commonwealth
  - Expanded Shared Focus Tree with new 'Allied Economy' branch
