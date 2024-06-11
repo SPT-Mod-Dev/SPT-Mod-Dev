@@ -22,6 +22,7 @@
  - Focus 'Secure Iraq' now requires the UK to lose Lower Egypt to be taken
  - Focus 'Embargo Germany' now causes all nations in faction with England to embargo germany
  - Focus 'Prepare for the Inevitable' now takes 35 days to complete, from 70
+ - Focus 'Commonwealth Ties' now takes 70 days to complete, from 35
 
 ### Free France
  - Reworked intervention focuses
