@@ -3924,7 +3924,35 @@ focus_tree = {
 	}
 
 	focus = {
+		id = SPT_unite_iberia
+		available = {
+			GER = { has_war_with = ENG }
+		}
+		bypass = {
+			NOT = { 112 = { is_owned_by = POR } }
+		}
+		prerequisite = { focus = SPA_portuguese_aid }
+		
+		icon = GFX_focus_generic_attack_portugal
+		x = 0
+		y = 1
+		relative_position_id = SPA_portuguese_aid
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {	
+			create_wargoal = {
+				type = annex_everything
+				target = POR
+				expire = 0	
+			}
+		}
+	}
+
+	focus = {
 		id = SPA_the_iberian_pact
+		allow_branch = { always = no	}
 		available = {
 			has_global_flag = scw_over
 			has_war = no

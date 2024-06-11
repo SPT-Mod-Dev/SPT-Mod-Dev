@@ -71,10 +71,13 @@
 
 ### Italy
  - Treaty with Germany - Removed subsidy, Added opinion factor, 1x 100% Synthetics ---> 2x 100% Synthetics 
+ - 'Ultimatum to Yugoslavia' Active time 14 -> 60 days 
+                             Yugoslavia will now always refuse
 
 ### Spain
- - Removed Allied Branch from tree
- - Removed The Latin Bloc Focus 
+ - Added 'Unite Iberia' focus
+ - 'Join the Allies' removed branch
+ - 'The Latin Bloc' removed branch
 
 ### Mexico
  - Heroic Military Collage 70 days --> 56 days

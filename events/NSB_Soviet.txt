@@ -3013,7 +3013,9 @@ country_event = {
 
 	option = { #Respect
 		name = NSB_soviet_foreign_politics_events.152.b
-		
+		trigger = {
+			NOT = { ROOT = { tag = ITA } }
+		}
 		ai_chance = {
 			base = 0
 			modifier = {
@@ -3364,146 +3366,148 @@ country_event = {
 
 	is_triggered_only = yes
 		
-	option = { # Become a puppet
-		name = NSB_soviet_foreign_politics_events.200.a
+	# SPTChange no accepting
+	
+	# option = { # Become a puppet
+	# 	name = NSB_soviet_foreign_politics_events.200.a
+	#
+	# 	ai_chance = {
+	# 		base = 0
+	# 		modifier = {
+	# 			factor = 1.5
+	# 			has_opinion = {
+	# 				target = FROM
+	# 				value > 75
+	# 			}
+	# 		}
+	# 		modifier = {
+	# 			factor = 1.5
+	# 			OR = {
+	# 				AND = {
+	# 					FROM = {
+	# 						has_government = communism
+	# 					}
+	# 					communism > 0.5
+	# 				}
+	# 				AND = {
+	# 					FROM = {
+	# 						has_government = democratic
+	# 					}
+	# 					democratic > 0.5
+	# 				}
+	# 				AND = {
+	# 					FROM = {
+	# 						has_government = fascism
+	# 					}
+	# 					fascism > 0.5
+	# 				}
+	# 				AND = {
+	# 					FROM = {
+	# 						has_government = neutrality
+	# 					}
+	# 					neutrality > 0.5
+	# 				}
+	# 			}
+	# 		}
+	# 		modifier = {
+	# 			factor = 2
+	# 			strength_ratio = {
+	# 				tag = FROM
+	# 				ratio < 0.8
+	# 			}
+	# 		}
+	# 		modifier = {
+	# 			factor = 4
+	# 			strength_ratio = {
+	# 				tag = FROM
+	# 				ratio < 0.5
+	# 			}
+	# 		}
+	# 		modifier = {
+	# 			factor = 6
+	# 			strength_ratio = {
+	# 				tag = FROM
+	# 				ratio < 0.2
+	# 			}
+	# 		}
+	# 		modifier = {
+	# 			factor = 100
+	# 			is_in_faction_with = FROM
+	# 		}
+	# 		modifier = { #Appropriate PC for Foreign Affairs
+	# 			factor = 1.5
+	# 			OR = {
+	# 				FROM = {
+	# 					original_tag = SOV
+	# 					has_idea = SOV_vyacheslav_molotov
+	# 				}
+	# 				FROM = { ITA_has_foreign_affairs_or_nice_guy_hired = yes }
+	# 			}
+	# 		}
+	# 		modifier = {
+	# 			factor = 0
+	# 			OR = {
+	# 				AND = {
+	# 					is_in_faction = yes
+	# 					NOT = { is_in_faction_with = FROM }
+	# 				}
+	# 				AND = {
+	# 					is_subject = yes
+	# 					NOT = { is_subject_of = FROM }
+	# 				}
+	# 			}
+	# 		}
+	# 	}
 
-		ai_chance = {
-			base = 2
-			modifier = {
-				factor = 1.5
-				has_opinion = {
-					target = FROM
-					value > 75
-				}
-			}
-			modifier = {
-				factor = 1.5
-				OR = {
-					AND = {
-						FROM = {
-							has_government = communism
-						}
-						communism > 0.5
-					}
-					AND = {
-						FROM = {
-							has_government = democratic
-						}
-						democratic > 0.5
-					}
-					AND = {
-						FROM = {
-							has_government = fascism
-						}
-						fascism > 0.5
-					}
-					AND = {
-						FROM = {
-							has_government = neutrality
-						}
-						neutrality > 0.5
-					}
-				}
-			}
-			modifier = {
-				factor = 2
-				strength_ratio = {
-					tag = FROM
-					ratio < 0.8
-				}
-			}
-			modifier = {
-				factor = 4
-				strength_ratio = {
-					tag = FROM
-					ratio < 0.5
-				}
-			}
-			modifier = {
-				factor = 6
-				strength_ratio = {
-					tag = FROM
-					ratio < 0.2
-				}
-			}
-			modifier = {
-				factor = 100
-				is_in_faction_with = FROM
-			}
-			modifier = { #Appropriate PC for Foreign Affairs
-				factor = 1.5
-				OR = {
-					FROM = {
-						original_tag = SOV
-						has_idea = SOV_vyacheslav_molotov
-					}
-					FROM = { ITA_has_foreign_affairs_or_nice_guy_hired = yes }
-				}
-			}
-			modifier = {
-				factor = 0
-				OR = {
-					AND = {
-						is_in_faction = yes
-						NOT = { is_in_faction_with = FROM }
-					}
-					AND = {
-						is_subject = yes
-						NOT = { is_subject_of = FROM }
-					}
-				}
-			}
-		}
+	# 	trigger = {
+	# 		OR = {
+	# 			has_government = FROM
+	# 			FROM = {	
+	# 				original_tag = ITA
+	# 			}
+	# 		}
+	# 	}
 
-		trigger = {
-			OR = {
-				has_government = FROM
-				FROM = {	
-					original_tag = ITA
-				}
-			}
-		}
+	# 	set_politics = { ruling_party = FROM }
+	# 	FROM = {
+	# 		puppet = ROOT
+	# 		add_to_faction = ROOT
+	# 		hidden_effect = {
+	# 			country_event = { id = NSB_soviet_foreign_politics_events.150 hours = 1 }
+	# 		}
+	# 	}
+	# }
 
-		set_politics = { ruling_party = FROM }
-		FROM = {
-			puppet = ROOT
-			add_to_faction = ROOT
-			hidden_effect = {
-				country_event = { id = NSB_soviet_foreign_politics_events.150 hours = 1 }
-			}
-		}
-	}
+	# option = { #Join Faction - Keep government 
+	# 	name = NSB_soviet_foreign_politics_events.200.b
 
-	option = { #Join Faction - Keep government
-		name = NSB_soviet_foreign_politics_events.200.b
+	# 	ai_chance = {
+	# 		base = 0
+	# 	}
 
-		ai_chance = {
-			base = 0
-		}
+	# 	trigger = {
+	# 		FROM = { is_in_faction = yes }
 
-		trigger = {
-			FROM = { is_in_faction = yes }
-
-			IF = {
-				limit = { FROM = { original_tag = ITA } }
+	# 		IF = {
+	# 			limit = { FROM = { original_tag = ITA } }
 				
-				FROM = { is_faction_leader = yes }
-			}
-		}
+	# 			FROM = { is_faction_leader = yes }
+	# 		}
+	# 	}
 
-		FROM = {
-			add_to_faction = ROOT
-			hidden_effect = {
-				country_event = { id = NSB_soviet_foreign_politics_events.151 hours = 1 }
-			}
-		}
-		hidden_effect = {
-			add_opinion_modifier = {
-				target = FROM
-				modifier = SOV_pressured_our_government
-			}
-		}
-	}
+	# 	FROM = {
+	# 		add_to_faction = ROOT
+	# 		hidden_effect = {
+	# 			country_event = { id = NSB_soviet_foreign_politics_events.151 hours = 1 }
+	# 		}
+	# 	}
+	# 	hidden_effect = {
+	# 		add_opinion_modifier = {
+	# 			target = FROM
+	# 			modifier = SOV_pressured_our_government
+	# 		}
+	# 	}
+	# }
 
 	option = { #REFUSE
 		name = NSB_soviet_foreign_politics_events.200.c
