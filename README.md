@@ -1,6 +1,28 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.11.4 'Bigly'
+### 3.12.1
+
+### Artillery
+ - Rocket artillery 1: Brkth 9 -> 18
+                       Soft attack 30 -> 33
+ - Rocket artillery 2: Brkth 12 -> 22
+                       Soft attack 38 -> 42
+ - Motorised rocket artillery 2: Brkth 12 -> 22
+                                 Soft attack 36 -> 42           
+
+### Soviet union
+
+
+### Air High Command
+ - Continuous strike: Cas mission efficiency +25% -> +15%
+                      Organisation damage +25% -> +15%
+                      Ground support +25% -> +15%
+
+### Air Designer 
+ - Rocket rail: Weight 1 -> 2
+                Tungsten cost 0 -> 1
+
+### 3.12.0 'Bigly'
 
 ### General
  - Paradox update implemented 
