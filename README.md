@@ -1,5 +1,10 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.12.2
+
+### SAF
+ - 'Suppress the Stormjaers' now gives -5% Fascism 
+
 ### 3.12.1
 
 ### Artillery
