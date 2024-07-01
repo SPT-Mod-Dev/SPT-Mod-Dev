@@ -2,6 +2,9 @@
 
 ### 3.12.2
 
+### Denmark
+ - Scattered more steel throughout the focus tree for MP tradeback QoL
+
 ### SAF
  - 'Suppress the Stormjaers' now gives -5% Fascism 
 
