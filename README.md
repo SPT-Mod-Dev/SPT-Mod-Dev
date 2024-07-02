@@ -1,5 +1,41 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.12.2
+
+### Denmark
+ - Scattered more steel throughout the focus tree for MP tradeback QoL
+
+### SAF
+ - 'Suppress the Stormjaers' now gives -5% Fascism 
+
+### Soviet Union
+ - Focus 'Paced Industrialization' time to complete increased to 70 days, from 35
+ - Focus 'The Need for Policy Changes' political power reward decreased to 50, from 75
+ - Focus 'Dissent In the Party' political power reward decreased to 50, from 100
+ - Focus 'The Right Opposition' political power reward decreased to 25, from 75
+ - National Spirit 'Desperate Measures' now lasts for 365 days, from 180
+ - Focus 'Merge Tank and Material Plants' time to complete increased to 70 days, from 35
+
+### France
+ - Metropolitan and Colonial civilian factories now come with building slots
+
+### Romania
+ - Can no longer refuse Second Vienna Award
+
+### Commonwealth Shared Tree
+ - Focus 'Allied Economic Cooperation' MIO funds reward decreased to 500, from 750
+ - Focus 'Expand the Mining Towns' building slot reward decreased to 2, from 3
+ - Focuses 'Paratrooper Specialization' and 'Airplane Manufacturing' are no longer mutually exclusive
+
+### Officer Corp
+- Flexible Contracts, Global Presence, Surprise Attacks, Decisice Battle reworked
+
+### Submarines
+ - Removed Sub Engine 3, Sub 4, Snorkel 2
+ - Torpedo 3 cost 120 -> 250
+ - Reduced Snorkel 1 visibility -10% -> -5%
+ - Cruiser subs limited to one range module 
+
 ### 3.12.1
 
 ### Artillery

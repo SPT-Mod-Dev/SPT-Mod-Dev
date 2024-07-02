@@ -450,7 +450,13 @@ ideas = {
 
 		operational_reserve_spirit = {
 			ledger = army
-			visible = { has_tech = mass_assault }
+			visible = { 
+				has_tech = mass_assault 
+				if = {
+					limit = { is_ai = yes }
+					has_tech = human_wave_offensive
+				}
+			}
 			modifier = {
 				tactic_relentless_assault_preferred_weight_factor = 2
 				army_strength_factor = 0.15
