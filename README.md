@@ -10,7 +10,6 @@
 
 ### Soviet Union
  - Focus 'Paced Industrialization' time to complete increased to 70 days, from 35
- - Focus 'Coup dEtat' time to complete increased to 70 days, from 35
  - Focus 'The Need for Policy Changes' political power reward decreased to 50, from 75
  - Focus 'Dissent In the Party' political power reward decreased to 50, from 100
  - Focus 'The Right Opposition' political power reward decreased to 25, from 75
