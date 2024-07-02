@@ -356,6 +356,48 @@ focus = {
 		remove_ideas = mon_isolation
 	}
 }
+# part of "tricky tannu tuva trials" update
+###### reclaiming the past glories
+# someone will be angry about the political power requirement
+# and the fact it cancels when you go under 150
+# please dont change it
+# reason: i think it's funny
+# ~~ Lodomir
+focus = {
+	id = MON_annex_tannu_tuva
+	icon = GFX_focus_generic_annex_country_2
+	x = 0
+	y = 1
+	relative_position_id = MON_merge_the_parties
+	prerequisite = {
+		focus = MON_merge_the_parties
+	}
+	cost = 5
+	available = {
+		has_political_power > 150
+		country_exists = TAN
+		TAN = { is_subject = no }
+	}
+	bypass = {
+	}
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = yes
+	search_filters = {
+	}
+	completion_reward = {
+		add_political_power = -150
+		annex_country = {
+			target = TAN
+		}
+		hidden_effect = {
+			country_event = {
+				id = spt_mongolia.19
+				days = 3
+			}
+		}
+	}
+}
 ###### purge fails
 focus = {
 	id = MON_party_survives
