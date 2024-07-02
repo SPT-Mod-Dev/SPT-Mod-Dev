@@ -27,6 +27,10 @@
  - Focus 'Expand the Mining Towns' building slot reward decreased to 2, from 3
  - Focuses 'Paratrooper Specialization' and 'Airplane Manufacturing' are no longer mutually exclusive
 
+### Submarines
+ - Removed Sub Engine 3, Sub 4, Snorkel 2
+ - Reduced Snorkel 1 visibility -10% -> -5%
+
 ### 3.12.1
 
 ### Artillery
