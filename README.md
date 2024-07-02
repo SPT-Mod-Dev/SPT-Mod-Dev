@@ -14,6 +14,12 @@
  - National Spirit 'Desperate Measures' now lasts for 365 days, from 180
  - Focus 'Merge Tank and Material Plants' time to complete increased to 70 days, from 35
 
+### France
+ - Metropolitan and Colonial civilian factories now come with building slots
+
+### Romania
+ - Can no longer refuse Second Vienna Award
+
 ### Commonwealth Shared Tree
  - Focus 'Allied Economic Cooperation' MIO funds reward decreased to 500, from 750
  - Focus 'Expand the Mining Towns' building slot reward decreased to 2, from 3
