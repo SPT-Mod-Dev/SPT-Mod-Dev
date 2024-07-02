@@ -32,9 +32,9 @@
 
 ### Submarines
  - Removed Sub Engine 3, Sub 4, Snorkel 2
- - Torpedo 3 cost 120 -> 200
+ - Torpedo 3 cost 120 -> 250
  - Reduced Snorkel 1 visibility -10% -> -5%
-
+ - Cruiser subs limited to one range module 
 
 ### 3.12.1
 
