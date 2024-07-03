@@ -27,9 +27,14 @@
  - Focus 'Expand the Mining Towns' building slot reward decreased to 2, from 3
  - Focuses 'Paratrooper Specialization' and 'Airplane Manufacturing' are no longer mutually exclusive
 
+### Officer Corp
+- Flexible Contracts, Global Presence, Surprise Attacks, Decisice Battle reworked
+
 ### Submarines
  - Removed Sub Engine 3, Sub 4, Snorkel 2
+ - Torpedo 3 cost 120 -> 250
  - Reduced Snorkel 1 visibility -10% -> -5%
+ - Cruiser subs limited to one range module 
 
 ### 3.12.1
 
