@@ -1,5 +1,10 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.12.3
+
+### Hungary
+ - Now gains Banat when handed all of Transylvania
+
 ### 3.12.2
 
 ### Denmark
