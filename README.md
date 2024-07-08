@@ -2,6 +2,10 @@
 
 ### 3.12.3
 
+### UK
+  - Hid imperial federation discussion decision
+  - Hid Narvik Crisis category
+
 ### Hungary
  - Now gains Banat when handed all of Transylvania
 
@@ -2475,6 +2479,3 @@ Collectivized Economy: Tanks cost modifiers -10% -> 0
 - Additional machine guns
     - Decreased defense `+2 → +1`
     - Increased IC cost `+0.5 → +0.75`
- ##### UK
-  - Hid imperial federation discussion decision
-  - Hid Narvik Crisis category
