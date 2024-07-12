@@ -14,6 +14,7 @@
 
 ### USA
  - Unique Naval MIO traits granting dockyard output reduced to 2.5%, from 5%
+ - National Spirit 'Subsidized Naval Industry' dockyard output reduced to 5%, from 10%
 
 ### Hungary
  - Now gains Banat when handed all of Transylvania
