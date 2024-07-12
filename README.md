@@ -9,6 +9,12 @@
 ### Hungary
  - Now gains Banat when handed all of Transylvania
 
+### Mongolia
+ - National Spirit 'Focusing on CAS production' CAS IC increased to -10%, from -30%
+ - National Spirit 'Focusing on fighter production' CAS IC increased to -10%, from -30%
+ - Focus 'Modern Day Heavy Cavalry' now grants 1 '1 year ahead of time' bonus, from 2 '2 year' bonuses
+
+
 ### 3.12.2
 
 ### Denmark
