@@ -2,9 +2,15 @@
 
 ### 3.12.3
 
+### Military Industrial Orgs
+ - Policy 'Cutting Corners' effects halved
+
 ### UK
-  - Hid imperial federation discussion decision
-  - Hid Narvik Crisis category
+ - Hid imperial federation discussion decision
+ - Hid Narvik Crisis category
+
+### USSR
+ - Tank Refurbshment Plant MIO armor cost reduction bonuses reduced by -1%
 
 ### Hungary
  - Now gains Banat when handed all of Transylvania
