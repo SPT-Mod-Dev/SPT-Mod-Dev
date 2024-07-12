@@ -12,6 +12,9 @@
 ### USSR
  - Tank Refurbshment Plant MIO armor cost reduction bonuses reduced by -1%
 
+### USA
+ - Unique Naval MIO traits granting dockyard output reduced to 2.5%, from 5%
+
 ### Hungary
  - Now gains Banat when handed all of Transylvania
 
