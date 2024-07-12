@@ -16,6 +16,10 @@
  - Unique Naval MIO traits granting dockyard output reduced to 2.5%, from 5%
  - National Spirit 'Subsidized Naval Industry' dockyard output reduced to 5%, from 10%
 
+### Brazil
+ - Focus 'Experimental Weapons Development' research bonus no longer applies to nuclear technology
+ - Focus 'Programa Paralelo' Nuclear Technology research bonus reduced to 1 year ahead of time, from 2
+
 ### Hungary
  - Now gains Banat when handed all of Transylvania
 
