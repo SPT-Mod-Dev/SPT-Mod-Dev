@@ -2,12 +2,32 @@
 
 ### 3.12.3
 
+### Military Industrial Orgs
+ - Policy 'Cutting Corners' effects halved
+
 ### UK
-  - Hid imperial federation discussion decision
-  - Hid Narvik Crisis category
+ - Hid imperial federation discussion decision
+ - Hid Narvik Crisis category
+
+### USSR
+ - Tank Refurbshment Plant MIO armor cost reduction bonuses reduced by -1%
+
+### USA
+ - Unique Naval MIO traits granting dockyard output reduced to 2.5%, from 5%
+ - National Spirit 'Subsidized Naval Industry' dockyard output reduced to 5%, from 10%
+
+### Brazil
+ - Focus 'Experimental Weapons Development' research bonus no longer applies to nuclear technology
+ - Focus 'Programa Paralelo' Nuclear Technology research bonus reduced to 1 year ahead of time, from 2
 
 ### Hungary
  - Now gains Banat when handed all of Transylvania
+
+### Mongolia
+ - National Spirit 'Focusing on CAS production' CAS IC increased to -10%, from -30%
+ - National Spirit 'Focusing on fighter production' CAS IC increased to -10%, from -30%
+ - Focus 'Modern Day Heavy Cavalry' now grants 1 '1 year ahead of time' bonus, from 2 '2 year' bonuses
+
 
 ### 3.12.2
 
