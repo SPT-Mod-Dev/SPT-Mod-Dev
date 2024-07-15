@@ -5,12 +5,14 @@
 ### Military Industrial Orgs
  - Policy 'Cutting Corners' effects halved
 
+### Soviet Union
+- Focus 'PC of mortar armament' now gives event to germany. Germany may accept or deny giving both or neither a research bonus
+- Tank Refurbshment Plant MIO armor cost reduction bonuses reduced by -1%
+
 ### UK
  - Hid imperial federation discussion decision
  - Hid Narvik Crisis category
 
-### USSR
- - Tank Refurbshment Plant MIO armor cost reduction bonuses reduced by -1%
 
 ### USA
  - Unique Naval MIO traits granting dockyard output reduced to 2.5%, from 5%
