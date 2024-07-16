@@ -57,7 +57,7 @@
 		x = 0
 		y = 0
 
-		cost = 10
+		cost = 7
 
 		ai_will_do = {
 			factor = 1
@@ -78,6 +78,7 @@
 		
 
 		completion_reward = {
+			add_political_power = 100
 			unlock_decision_category_tooltip = MAN_banditry_category
 			set_variable = { MAN_maintain_control_timer = 180 }
 			custom_effect_tooltip = MAN_pacify_the_countryside_effect_tooltip
@@ -198,7 +199,7 @@
 		y = 1
 		relative_position_id = SPT_MAN_crack_down_on_the_opium_trade
 
-		cost = 10
+		cost = 1
 
 		ai_will_do = {
 			factor = 6
@@ -307,7 +308,7 @@
 		y = 1
 		relative_position_id = SPT_MAN_the_japanese_colony
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -328,6 +329,7 @@
 		
 
 		completion_reward = {
+			add_war_support = 0.1
 			add_tech_bonus = {
 				bonus = 0.5
 				uses = 4
@@ -345,7 +347,7 @@
 		y = 1
 		relative_position_id = SPT_MAN_army_modernization
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -382,7 +384,7 @@
 		y = 1
 		relative_position_id = SPT_MAN_modern_rifles
 
-		cost = 10
+		cost = 5
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -409,7 +411,7 @@
 		y = 1
 		relative_position_id = SPT_MAN_modern_rifles
 
-		cost = 10
+		cost = 5
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -440,7 +442,7 @@
 		y = 1
 		relative_position_id = SPT_MAN_army_modernization
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -473,7 +475,7 @@
 		y = 1
 		relative_position_id = SPT_MAN_the_japanese_colony
 
-		cost = 10
+		cost = 2
 
 		ai_will_do = {
 			factor = 2
@@ -495,7 +497,7 @@
 		
 
 		completion_reward = {
-			add_stability = 0.1
+			add_stability = 0.2
 			
 			if = {
 				limit = {
@@ -1296,7 +1298,7 @@
 		y = 1
 		relative_position_id = SPT_MAN_zaibatsu_loans
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -1373,7 +1375,7 @@
 		y = 1
 		relative_position_id = SPT_MAN_zaibatsu_loans
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -1411,7 +1413,7 @@
 		y = 1
 		relative_position_id = SPT_MAN_mukden_military_academy
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -1471,6 +1473,40 @@
 			add_research_slot = 1
 		}
 	}
+
+	focus = {
+		id = SPT_MAN_new_military_academy
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = SPT_MAN_law_university }
+		x = 0
+		y = 1
+		relative_position_id = SPT_MAN_law_university
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}	
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		
+		
+		completion_reward = {
+			add_ideas = MAN_new_military_academy_idea
+		}
+	}
+
 
 	focus = {
 		id = SPT_MAN_research_and_education_department
@@ -1551,7 +1587,7 @@
 		y = 1
 		relative_position_id = SPT_MAN_first_five_year_plan
 
-		cost = 10
+		cost = 8
 
 		ai_will_do = {
 			factor = 1
@@ -1581,7 +1617,7 @@
 			}
 			add_equipment_to_stockpile = {
 				type = train_equipment
-				amount = 2
+				amount = 10
 			}
 		}
 	}
@@ -1594,7 +1630,7 @@
 		y = 1
 		relative_position_id = SPT_MAN_trade_delegation
 
-		cost = 10
+		cost = 8
 
 		ai_will_do = {
 			factor = 4
@@ -1664,7 +1700,7 @@
 		y = 1
 		relative_position_id = SPT_MAN_first_five_year_plan
 
-		cost = 10
+		cost = 8
 
 		ai_will_do = {
 			factor = 4
@@ -1729,7 +1765,7 @@
 		y = 1
 		relative_position_id = SPT_MAN_invite_japanese_investors
 
-		cost = 10
+		cost = 8
 
 		ai_will_do = {
 			factor = 4
@@ -1848,11 +1884,11 @@
 		id = SPT_MAN_develop_aluminum_sources
 		icon = GFX_focus_generic_aluminum
 		prerequisite = { focus = SPT_MAN_expand_the_railways }
-		x = -1
+		x = 0
 		y = 1
 		relative_position_id = SPT_MAN_expand_the_railways
 
-		cost = 10
+		cost = 8
 
 		ai_will_do = {
 			factor = 5
@@ -1893,7 +1929,7 @@
 		y = 1
 		relative_position_id = SPT_MAN_develop_aluminum_sources
 
-		cost = 10
+		cost = 8
 
 		ai_will_do = {
 			factor = 5
@@ -1924,12 +1960,12 @@
 	focus = {
 		id = SPT_MAN_expand_showa_steel_works
 		icon = GFX_focus_SOV_south_manchuria_railway
-		prerequisite = { focus = SPT_MAN_expand_the_railways }
-		x = 1
-		y = 1
-		relative_position_id = SPT_MAN_expand_the_railways
+		prerequisite = { focus = SPT_MAN_mukden_arsenal }
+		x = 0
+		y = 1.5
+		relative_position_id = SPT_MAN_mukden_arsenal
 
-		cost = 10
+		cost = 8
 
 		ai_will_do = {
 			factor = 4
@@ -1969,7 +2005,6 @@
 		id = SPT_MAN_second_five_year_plan
 		icon = GFX_focus_generic_tank_production
 		prerequisite = { focus = SPT_MAN_expand_showa_steel_works }
-		prerequisite = { focus = SPT_MAN_mamc }
 		prerequisite = { focus = SPT_MAN_develop_aluminum_sources }
 		x = 1
 		y = 4
@@ -2028,7 +2063,7 @@
 		y = 1
 		relative_position_id = SPT_MAN_second_five_year_plan
 
-		cost = 10
+		cost = 2
 
 		ai_will_do = {
 			factor = 5
@@ -2063,7 +2098,7 @@
 		y = 1
 		relative_position_id = SPT_MAN_first_five_year_plan
 
-		cost = 10
+		cost = 8
 
 		ai_will_do = {
 			factor = 1
@@ -3222,6 +3257,10 @@
                     instant_build = yes
                 }
             }
+				set_technology = { coastal_defense_ships = 1 } 
+				set_technology = { early_ship_hull_light = 1}
+				set_technology = { basic_battery = 1}
+				set_technology = { basic_torpedo = 1}
 		}
 	}
 
@@ -3234,37 +3273,24 @@
 		relative_position_id = SPT_MAN_develop_manchukan_shipyards
 		x = 0
 		y = 1
-		cost = 10
-
+		cost = 5
 		available = {
 		}
-			
-		
-		
 		search_filters = {FOCUS_FILTER_RESEARCH}
 		completion_reward = {
-			navy_experience = 15
+			navy_experience = 50
 			add_doctrine_cost_reduction = {
 				name = SPT_MAN_a_coastal_fleet
-			    cost_reduction = 0.5
+			    cost_reduction = 0.75
 			    uses = 2
 				category = naval_doctrine
 			}
 			add_tech_bonus = {
 				name = SPT_MAN_a_coastal_fleet
 			    bonus = 1.0
-			    uses = 1
+			    uses = 2
 				category = dd_tech
-			}
-			if = { 
-				limit = { has_dlc = "Man the Guns" }
-				set_technology = { coastal_defense_ships = 1 } 
-				set_technology = { early_ship_hull_light = 1}
-				set_technology = { basic_battery = 1}
-				set_technology = { basic_torpedo = 1}
-			}
-
-			
+			}	
 		}
 	}
 
@@ -3287,6 +3313,12 @@
 			add_equipment_to_stockpile = {
 				type = convoy
 				amount = 200
+			}
+			mio:CHI_dagu_shipyard_organization = {
+				add_mio_size = 4
+			}
+			mio:CHI_jiangnan_shipyard_group_organization = {
+				add_mio_size = 4
 			}
 		}
 	}
@@ -3346,7 +3378,7 @@
 		icon = GFX_focus_generic_air_bases
 		relative_position_id = SPT_MAN_develop_manchukan_shipyards
 
-		x = 6
+		x = 7
 		y = 0
 		cost = 10
 
@@ -3366,14 +3398,54 @@
                     level = 2
                     instant_build = yes
                 }
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+				}
             }
 			add_tech_bonus = {
 				name = MAN_development_of_planes
-				bonus = 0.75
+				bonus = 2
 				uses = 2
 				category = air_equipment
 			}
 			country_event = spt_man.1
+		}
+	}
+
+	focus = {
+		id = SPT_MAN_mamc
+		icon = GFX_goal_generic_air_fighter
+		prerequisite = { focus = SPT_MAN_kickstart_plane_production }
+		x = 0
+		y = 1
+		relative_position_id = SPT_MAN_kickstart_plane_production
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		
+
+		completion_reward = {
+			custom_effect_tooltip = available_designer
+			show_ideas_tooltip = MAN_mamc_light
+			show_ideas_tooltip = MAN_mamc_medium
+			show_ideas_tooltip = MAN_mamc_heavy
 		}
 	}
 
@@ -3384,7 +3456,7 @@
 		prerequisite = {
 			focus = SPT_MAN_kickstart_plane_production
 		}
-		x = -1.5
+		x = -2.5
 		y = 1
 		cost = 10
 
@@ -3411,7 +3483,7 @@
 		prerequisite = {
 			focus = SPT_MAN_kickstart_plane_production
 		}
-		x = 1.5
+		x = 2.5
 		y = 1
 		cost = 10
 
