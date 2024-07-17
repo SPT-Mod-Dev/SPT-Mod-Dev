@@ -2470,3 +2470,6 @@ Collectivized Economy: Tanks cost modifiers -10% -> 0
 - Additional machine guns
     - Decreased defense `+2 → +1`
     - Increased IC cost `+0.5 → +0.75`
+
+#### Hungary
+-Added 2 new focus's to the right side eco path to make it more competative
