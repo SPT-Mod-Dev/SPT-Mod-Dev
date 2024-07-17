@@ -4350,20 +4350,18 @@ focus_tree = {
 				limit = {
 					has_government = communism
 				}
-				add_tech_bonus = {
+				add_tech_bonus = { #SPTchange no longer 2 year ahead of time bonus now. 
 					name = SOV_soviet_artillery_tech_bonus_name_default
-					bonus = 0.75
-					uses = 1 #SPTChange 2 -> 1
-					ahead_reduction = 2
+					bonus = 0.5
+					uses = 2
 					category = artillery
 				}
 			}
 			else  ={
 				add_tech_bonus = {
 					name = SOV_soviet_artillery_tech_bonus_name_alt
-					bonus = 0.75
-					uses = 1 #SPTChange 2 -> 1
-					ahead_reduction = 2
+					bonus = 0.5
+					uses = 2
 					category = artillery
 				}
 			}
@@ -4596,26 +4594,7 @@ focus_tree = {
 			add_to_variable = { SOV_defense_industry_breakthrough_factor = 0.05 }
 			add_to_variable = { SOV_defense_industry_army_artillery_defence_factor = 0.05 }
 			custom_effect_tooltip = SOV_pc_of_mortar_armament_ns_tt
-
-			if = { #DEFAULT COMMIE
-				limit = {
-					has_government = communism
-				}
-				add_tech_bonus = {
-					name = SOV_pc_of_mortar_armament_name_default
-					bonus = 0.75
-					uses = 2
-					category = artillery
-				}
-			}
-			else = { #ALT IDEOLOGY
-				add_tech_bonus = {
-					name = SOV_pc_of_mortar_armament_name_alt
-					bonus = 0.75
-					uses = 2
-					category = artillery
-				}
-			}
+			country_event = { id = spt_sov_AT_treaty.1 days = 1 } #SPTchange triggers event to cooperate with germany insead of directly giving bonus
 
 			219 = {
 				if = {

@@ -3237,13 +3237,7 @@ focus_tree = {
 		id = HOL_the_battlecruiser_plan
 		prerequisite = { focus = HOL_rely_on_submarines focus = HOL_modernize_the_cruiser_fleet focus = HOL_join_germany }
 		available = {
-			GER = {
-				is_subject = no
-				AND = {
-						country_exists = GER
-						has_opinion = { target = HOL value > 74 } 
-				}
-			}
+
 		}
 		bypass = {
 			has_war_with = GER
@@ -3257,7 +3251,6 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			effect_tooltip = {
 				set_technology = {
 					basic_ship_hull_heavy = 1
 					antiair2 = 1
@@ -3283,9 +3276,6 @@ focus_tree = {
 						rear_1_custom_slot = ship_heavy_battery_1
 					}
 				}
-			}
-			custom_effect_tooltip = HOL_the_battlecruiser_plan_tt
-			GER = { country_event = { id = mtg_netherlands.7 hours = 6 } }
 		}
 	}
 

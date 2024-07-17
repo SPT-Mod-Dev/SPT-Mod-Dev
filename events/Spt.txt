@@ -1,5 +1,5 @@
 add_namespace = spt
-add_namespace = spt_finland
+
 #Ger gain control of Oslo
 country_event = {
 	id = spt.1
@@ -769,7 +769,7 @@ country_event = {
 	}
 }
 
-
+add_namespace = spt_finland
 #Finland Victory in the winter war
 country_event = {
 	id = spt_finland.1
@@ -852,4 +852,85 @@ country_event = {
 		
 	}
 }
+add_namespace = spt_sov_AT_treaty
+add_namespace = spt_ger_AT_treaty
+#Soviet German anti tanks treaty
+country_event = {
+	id = spt_sov_AT_treaty.1
+	title = spt_sov_AT_treaty.1.t
+	desc = spt_sov_AT_treaty.1.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_physics_lab_01
+	option = {
+		name = spt_sov_AT_treaty.1.a
+		GER = {
+			country_event = { id = spt_ger_AT_treaty.1 days = 1 }
+		}
+	}
+}
 
+#AT research bonuses?
+country_event = {
+	id = spt_ger_AT_treaty.1
+	title = spt_ger_AT_treaty.1.t
+	desc = spt_ger_AT_treaty.1.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_physics_lab_01
+	option = { #yes
+		name = spt_ger_AT_treaty.1.a
+		add_tech_bonus = {
+			bonus = 0.75
+			uses = 1
+			ahead_reduction = 2
+			category = artillery
+		}
+		SOV = {
+			country_event = { id = spt_sov_AT_treaty.2 days = 1 }
+		}
+
+	}
+
+	option = { #no
+		trigger = {
+			GER = {
+				is_ai = no
+			}
+		}
+		name = spt_ger_AT_treaty.1.b
+		SOV = {
+			country_event = { id = spt_sov_AT_treaty.3 days = 1 }
+		}
+	}
+}
+
+#Germany says yes
+country_event = {
+	id = spt_sov_AT_treaty.2
+	title = spt_sov_AT_treaty.2.t
+	desc = spt_sov_AT_treaty.2.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_physics_lab_02
+
+	option = {
+		name = spt_sov_AT_treaty.2.a
+		add_tech_bonus = {
+			name = SOV_soviet_artillery_tech_bonus_name_alt
+			bonus = 0.75
+			uses = 1
+			ahead_reduction = 2
+			category = artillery
+		}
+	}
+}
+
+#Germany says no
+country_event = {
+	id = spt_sov_AT_treaty.3
+	title = spt_sov_AT_treaty.3.t
+	desc = spt_sov_AT_treaty.3.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_physics_lab_02
+	option = {
+		name = spt_sov_AT_treaty.3.a
+	}
+}
