@@ -4272,35 +4272,7 @@ focus_tree = {
 			}
 		}
 		available = {
-			NOT = { 
-				has_global_flag = NOR_quislings_coup_happened 
-				has_completed_focus = NOR_arrest_quisling
-			}
-			OR = {
-				if = {
-					limit = {
-						any_other_country = {
-							tag = GER 
-							has_government = fascism 
-							exists = yes 
-							has_capitulated = no 
-						}
-					}
-					GER = {
-						has_offensive_war_with = ROOT 
-					}
-				}
-				else = {
-					any_other_country = {
-						has_government = fascism 
-						capital_scope = {
-							is_on_continent = europe
-						}
-						has_offensive_war_with = ROOT
-					}
-				}	
-				has_country_flag = NOR_rejected_by_fascist_bully
-			}
+			# SPTChange 
 		}
 
 		bypass = {
