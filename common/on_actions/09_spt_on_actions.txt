@@ -849,21 +849,25 @@ on_actions = {
 				}
 			}
 		}
+		 
 		effect = { # Fascist Attacks Norway, prep for Civil War
-			if = {  
+			if = {
 				limit = {
 					NOT = { has_global_flag = NOR_norwegian_fascist_cw_started }
+					GER = { has_war_with = NOR }
 				}
-				set_global_flag = NOR_norwegian_fascist_cw_started	
-				complete_national_focus = NOR_fascist_invasion_of_norway
-				var:NOR.NOR_cw_fascist_attacker = {
+				NOR = {
+					set_global_flag = NOR_norwegian_fascist_cw_started
+					complete_national_focus = NOR_fascist_invasion_of_norway
+				}
+				GER = {
 					country_event = {
 						id = AAT_norway.14
 						hours = 1 
 					}
 				}
 			}
-		}
+		}	
 	}
 	on_peace = {
 		effect = {
