@@ -1745,7 +1745,10 @@ characters={
 			available = {
 				is_country_leader = no
 				NOT = { has_character_flag = DEN_political_agitator_flag }
-				NOT = { has_completed_focus = DEN_policy_of_disarmament }
+				OR = { # SPTchange to make available after capitulation
+					NOT = { has_completed_focus = DEN_policy_of_disarmament }
+					has_completed_focus = DEN_collaboration_government
+				}
 				NOT = { DEN_peter_rochegune_munch = { is_hired_as_advisor = yes }}
 			}
 			traits = {
@@ -2082,7 +2085,10 @@ characters={
 			available = {
 				# SPTchange since fortify is not available
 				# has_completed_focus = DEN_fortify_our_borders
-				has_completed_focus = DEN_start_the_rearmament
+				OR = {
+					has_completed_focus = DEN_start_the_rearmament
+					has_completed_focus = DEN_strengthen_the_officer_corp
+				}
 			}
 			traits  = {
 				forsvarsminister 

@@ -500,7 +500,7 @@ focus_tree = {
 	
 		bypass = {
 		}
-		#SPT change to block non-historical
+		# SPTchange to block non-historical
 		allow_branch = {
 			always = no
 		}
@@ -1163,7 +1163,7 @@ focus_tree = {
 	
 		cost = 10
 
-		#SPT change to block non-historical
+		# SPTchange to block non-historical
 		allow_branch = {
 			always = no
 		}
@@ -1267,7 +1267,7 @@ focus_tree = {
 	
 		cost = 5
 
-		#SPT change to block non-historical
+		# SPTchange to block non-historical
 		allow_branch = {
 			always = no
 		}
@@ -1696,7 +1696,7 @@ focus_tree = {
 	
 		cost = 10
 
-		#SPT change to block non-historical
+		# SPTchange to block non-historical
 		allow_branch = {
 			always = no
 		}
@@ -3362,8 +3362,9 @@ focus_tree = {
 			OVERLORD = { country_event = { id = denmark_occupation_event.110 days = 1 } }
 			custom_effect_tooltip = if_they_accept_tt
 			event_option_tooltip = denmark_occupation_event.111.a
-			custom_effect_tooltip = if_they_refuse_tt
-			event_option_tooltip = denmark_occupation_event.112.a
+			# SPTchange
+			# custom_effect_tooltip = if_they_refuse_tt
+			# event_option_tooltip = denmark_occupation_event.112.a
 		}
 	}
 
@@ -3954,7 +3955,7 @@ focus_tree = {
 	
 		cost = 10
 
-		#SPT change to block non-historical
+		# SPTchange to block non-historical
 		allow_branch = {
 			always = no
 		}
@@ -4157,7 +4158,7 @@ focus_tree = {
 	
 		cost = 10
 
-		#SPT change to block non-historical
+		# SPTchange to block non-historical
 		allow_branch = {
 			always = no
 		}
@@ -4326,7 +4327,7 @@ focus_tree = {
 		id = DEN_declare_neutrality
 		icon = GFX_goal_generic_alliance
 	
-		x = 19 # SPTchange repositioning
+		x = 26 # SPTchange repositioning
 		y = 0
 		
 		allow_branch = {
@@ -4354,7 +4355,7 @@ focus_tree = {
 		}
 
 		offset = {
-			x = 0 # SPTchange repositioning
+			x = -8 # SPTchange repositioning
 			y = 0
 			trigger = {
 				has_game_rule = {
@@ -4366,7 +4367,7 @@ focus_tree = {
 		}
 
 		offset = {
-			x = -8
+			x = -14 # SPTchange repositioning
 			y = 0
 			trigger = {
 				has_game_rule = {
@@ -4444,7 +4445,7 @@ focus_tree = {
 		mutually_exclusive = { focus = DEN_unify_the_right }
 
 		relative_position_id = DEN_declare_neutrality	
-		x = 0 # SPTChange repositioning
+		x = -7 # SPTChange repositioning
 		y = 1
 	
 		cost = 5
@@ -4463,7 +4464,7 @@ focus_tree = {
 		}
 
 		offset = {
-			x = 0 # SPTChange repositioning
+			x = 7 # SPTChange repositioning
 			y = 0
 			trigger = {
 				has_game_rule = {
@@ -5745,7 +5746,7 @@ focus_tree = {
 	
 		cost = 10
 
-		#SPT change to block non-historical
+		# SPTchange to block non-historical
 		allow_branch = {
 			always = no
 		}
@@ -6288,7 +6289,7 @@ focus_tree = {
 		cost = 5
 
 		allow_branch = {
-			#SPT change to block non-historical
+			# SPTchange to block non-historical
 			always = no
 			if = {
 				limit = {
@@ -6892,14 +6893,12 @@ focus_tree = {
 		mutually_exclusive = { focus = DEN_political_unity }
 
 		relative_position_id = DEN_declare_neutrality
-		x = 10
+		x = 5 # SPTChange repositioning
 		y = 1
 		
 		cost = 5
 
 		allow_branch = {
-					#SPT change to block non-historical
-					always = no
 			if = {
 				limit = {
 					has_game_rule = {
@@ -6913,7 +6912,7 @@ focus_tree = {
 		}
 
 		offset = {
-			x = -10
+			x = -5 # SPTchange
 			y = 0
 			trigger = {
 				has_game_rule = {
@@ -7074,7 +7073,7 @@ focus_tree = {
 
 			unlock_decision_tooltip = DEN_bop_landstorm
 
-			DEN_bop_very_low_increase_effect = yes
+			# DEN_bop_very_low_increase_effect = yes # SPTchange
 		}
 	}
 
@@ -7116,19 +7115,19 @@ focus_tree = {
 			add_political_power = 50
 			add_stability = -0.2
 
-			set_politics = {
-				ruling_party = neutrality
-			}
+			# SPTchange
+			# set_politics = {
+			# 	ruling_party = neutrality
+			# }
+			# custom_effect_tooltip = DEN_increase_welfare_bop_cost_tt
+			# add_to_variable = {	DEN_bop_decrease_low_cost = 25 }
+			# add_to_variable = {	DEN_bop_decrease_medium_cost = 25 }
+			# add_to_variable = {	DEN_bop_decrease_high_cost = 25 }
+			# add_to_variable = {	DEN_bop_decrease_very_high_cost = 25 }
 
-			custom_effect_tooltip = DEN_increase_welfare_bop_cost_tt
-			add_to_variable = {	DEN_bop_decrease_low_cost = 25 }
-			add_to_variable = {	DEN_bop_decrease_medium_cost = 25 }
-			add_to_variable = {	DEN_bop_decrease_high_cost = 25 }
-			add_to_variable = {	DEN_bop_decrease_very_high_cost = 25 }
-
-			hidden_effect = {
-				set_country_flag = DEN_banned_elections
-			}
+			# hidden_effect = {
+			set_country_flag = DEN_banned_elections
+			# }
 		}
 	}
 	
@@ -7158,7 +7157,7 @@ focus_tree = {
 			navy_experience = 15
 			air_experience = 15
 
-			DEN_bop_very_low_increase_effect = yes
+			# DEN_bop_very_low_increase_effect = yes # SPTchange
 
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = DEN_cay_lembcke
@@ -7174,6 +7173,10 @@ focus_tree = {
 				}
 				gain_xp = 100
 			}
+
+			# SPTchange
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = DEN_alsing_andersen
 		}
 	}
 
@@ -7189,6 +7192,11 @@ focus_tree = {
 		y = 3
 		
 		cost = 5
+
+		# SPTchange to block non-historical
+		allow_branch = {
+			always = no
+		}
 
 		available = {
 			neutrality > 0.3
@@ -7523,6 +7531,11 @@ focus_tree = {
 		
 		cost = 5
 
+		# SPTchange to block non-historical
+		allow_branch = {
+			always = no
+		}
+
 		available = {
 		}
 
@@ -7637,6 +7650,11 @@ focus_tree = {
 		
 		cost = 5
 
+		# SPTchange to block non-historical
+		allow_branch = {
+			always = no
+		}
+
 		available = {
 			OR = {
 				SWE = {
@@ -7727,6 +7745,12 @@ focus_tree = {
 
 		cost = 10
 		will_lead_to_war_with = SWE
+
+		# SPTchange to block non-historical
+		allow_branch = {
+			always = no
+		}
+
 
 		available = {
 			OR = {	
@@ -7961,6 +7985,11 @@ focus_tree = {
 		cost = 10
 		will_lead_to_war_with = NOR
 
+		# SPTchange for balancing
+		allow_branch = {
+			always = no
+		}
+
 		available = {
 			OR = {
 				has_subject = NOR
@@ -8169,9 +8198,9 @@ focus_tree = {
 		icon = GFX_focus_generic_manpower
 		prerequisite = { focus = DEN_reclaim_norway }
 
+		# SPTchange
 		relative_position_id = DEN_reclaim_norway
-
-		x = -2
+		x = -1
 		y = 1
 
 		cost = 5
@@ -8206,13 +8235,19 @@ focus_tree = {
 		icon = GFX_focus_generic_pan_scandinavism
 		prerequisite = { focus = DEN_secure_swedish_steel focus = DEN_reclaim_norway }
 
-		relative_position_id = DEN_king_assumes_power
-		x = -1
-		y = 5
+		# SPTchange repositioning
+		relative_position_id = DEN_train_mountain_infantry
+		x = -2
+		y = 0
 
 		cost = 5
 
 		available = {
+			NOR = {
+				all_core_state = {
+					is_fully_controlled_by = ROOT
+				}
+			}
 		}
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_MANPOWER }
@@ -8227,9 +8262,10 @@ focus_tree = {
 				tooltip = army_defence_factor_tt
 			}
 
-			unlock_decision_tooltip = DEN_rally_the_icelanders
-			unlock_decision_tooltip = DEN_rally_the_swedes
-			unlock_decision_tooltip = DEN_rally_the_finnish
+			# SPTchange
+			# unlock_decision_tooltip = DEN_rally_the_icelanders
+			# unlock_decision_tooltip = DEN_rally_the_swedes
+			# unlock_decision_tooltip = DEN_rally_the_finnish
 			unlock_decision_tooltip = DEN_rally_the_norwegians
 		}
 	}
@@ -8239,11 +8275,13 @@ focus_tree = {
 		id = DEN_march_on_the_capital
 		icon = GFX_goal_support_fascism
 		prerequisite = { focus = DEN_overthrow_the_government }
+		prerequisite = { focus = DEN_encourage_paramilitary } # SPTchange
+		prerequisite = { focus = DEN_strengthen_the_officer_corp } # SPTchange
 		mutually_exclusive = { focus = DEN_king_assumes_power }
 
 		relative_position_id = DEN_unify_the_right
 
-		x = 6
+		x = 0 # SPTchange repositioning
 		y = 3
 
 		cost = 5
@@ -8309,41 +8347,42 @@ focus_tree = {
 					ruling_party = fascism
 				}
 				
-				if = {
-					limit = {
-						fascism < 0.5
-					}
-					if = {
-						limit = {
-							neutrality > party_popularity@democratic
-							neutrality > party_popularity@communism
-						}
-						start_civil_war = {
-							ideology = neutrality #SPLITTING TAG
-							size = party_popularity@neutrality
-						}
-					}
-					else_if = {
-						limit = {
-							democratic > party_popularity@neutrality
-							democratic > party_popularity@communism
-						}
-						start_civil_war = {
-							ideology = democratic #SPLITTING TAG
-							size = party_popularity@democratic
-						}
-					}
-					else_if = {
-						limit = {
-							communism > party_popularity@neutrality
-							communism > party_popularity@democratic
-						}
-						start_civil_war = {
-							ideology = communism #SPLITTING TAG
-							size = party_popularity@communism
-						}
-					}
-				}
+				# SPTchange
+				# if = {
+				# 	limit = {
+				# 		fascism < 0.5
+				# 	}
+				# 	if = {
+				# 		limit = {
+				# 			neutrality > party_popularity@democratic
+				# 			neutrality > party_popularity@communism
+				# 		}
+				# 		start_civil_war = {
+				# 			ideology = neutrality #SPLITTING TAG
+				# 			size = party_popularity@neutrality
+				# 		}
+				# 	}
+				# 	else_if = {
+				# 		limit = {
+				# 			democratic > party_popularity@neutrality
+				# 			democratic > party_popularity@communism
+				# 		}
+				# 		start_civil_war = {
+				# 			ideology = democratic #SPLITTING TAG
+				# 			size = party_popularity@democratic
+				# 		}
+				# 	}
+				# 	else_if = {
+				# 		limit = {
+				# 			communism > party_popularity@neutrality
+				# 			communism > party_popularity@democratic
+				# 		}
+				# 		start_civil_war = {
+				# 			ideology = communism #SPLITTING TAG
+				# 			size = party_popularity@communism
+				# 		}
+				# 	}
+				# }
 			}
 		}
 	}
@@ -8372,28 +8411,30 @@ focus_tree = {
 
 			DEN_bop_low_increase_effect = yes
 
-			if = {
-				limit = {
-					NOT = { has_rule = can_create_factions }
-				}
-				set_rule = { can_create_factions = yes }
-			}
-			create_faction = DEN_northern_national_front
+			# SPTchange
+			# if = {
+			# 	limit = {
+			# 		NOT = { has_rule = can_create_factions }
+			# 	}
+			# 	set_rule = { can_create_factions = yes }
+			# }
+			# create_faction = DEN_northern_national_front
 
 			custom_effect_tooltip = DEN_remove_declaration_of_neutrality_tt
 
-			unlock_decision_tooltip = DEN_northern_national_front_invitation
-			if = {
-				limit = {
-					has_tech_sharing_feature = yes
-				}
-				custom_effect_tooltip = DEN_invite_allies_to_tech_sharing_decision_tt
-			}
+			# SPTchange
+			# unlock_decision_tooltip = DEN_northern_national_front_invitation
+			# if = {
+			# 	limit = {
+			# 		has_tech_sharing_feature = yes
+			# 	}
+			# 	custom_effect_tooltip = DEN_invite_allies_to_tech_sharing_decision_tt
+			# }
 
 			DEN_improve_haeren_NS = yes
 			
 			add_to_variable = { 
-				DEN_haeren_army_attack_against_major = 0.1
+				DEN_haeren_army_attack_against_major = 0.05 # SPTchange 0.1->0.05
 				tooltip = army_attack_against_major_factor_tt
 			}
 			add_to_variable = { 
@@ -8456,17 +8497,18 @@ focus_tree = {
 				}
 			}
 
-			custom_effect_tooltip = if_they_refuse_tt
-			effect_tooltip = {
-				set_politics = {
-					ruling_party = fascism
-				}
+			# SPTchange
+			# custom_effect_tooltip = if_they_refuse_tt
+			# effect_tooltip = {
+			# 	set_politics = {
+			# 		ruling_party = fascism
+			# 	}
 
-				start_civil_war = {
-					ideology = neutrality #SPLITTING TAG
-					size = party_popularity@neutrality
-				}
-			}
+			# 	start_civil_war = {
+			# 		ideology = neutrality #SPLITTING TAG
+			# 		size = party_popularity@neutrality
+			# 	}
+			# }
 		}
 	}
 
@@ -8488,33 +8530,34 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_BALANCE_OF_POWER FOCUS_FILTER_INTERNATIONAL_TRADE FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			DEN_bop_low_increase_effect = yes
+			# DEN_bop_low_increase_effect = yes # SPTchange
 
-			add_equipment_subsidy = {
-				cic = 500
-				equipment_type = small_plane_cas_airframe
-				seller_tags = { GER } 
-			}
-			add_equipment_subsidy = {
-				cic = 500
-				equipment_type = small_plane_airframe
-				seller_tags = { GER } 
-			}
-			add_equipment_subsidy = {
-				cic = 500
-				equipment_type = light_tank_chassis
-				seller_tags = { GER } 
-			}
-			add_equipment_subsidy = {
-				cic = 250
-				equipment_type = artillery_equipment
-				seller_tags = { GER } 
-			}
-			add_equipment_subsidy = {
-				cic = 250
-				equipment_type = infantry_equipment
-				seller_tags = { GER } 
-			}
+			# SPTchange
+			# add_equipment_subsidy = {
+			# 	cic = 500
+			# 	equipment_type = small_plane_cas_airframe
+			# 	seller_tags = { GER } 
+			# }
+			# add_equipment_subsidy = {
+			# 	cic = 500
+			# 	equipment_type = small_plane_airframe
+			# 	seller_tags = { GER } 
+			# }
+			# add_equipment_subsidy = {
+			# 	cic = 500
+			# 	equipment_type = light_tank_chassis
+			# 	seller_tags = { GER } 
+			# }
+			# add_equipment_subsidy = {
+			# 	cic = 250
+			# 	equipment_type = artillery_equipment
+			# 	seller_tags = { GER } 
+			# }
+			# add_equipment_subsidy = {
+			# 	cic = 250
+			# 	equipment_type = infantry_equipment
+			# 	seller_tags = { GER } 
+			# }
 
 			GER = {
 				country_event = { id =  denmark_fascist_event.20 days = 7 } 
@@ -8551,7 +8594,7 @@ focus_tree = {
 
 		available = {
 			has_civil_war = no
-			has_army_manpower = { size > 99999 }
+			# has_army_manpower = { size > 99999 } # SPTchange
 			power_balance_value = {
 				id = DEN_balance_of_power
 				value > 0.3
@@ -8565,7 +8608,7 @@ focus_tree = {
 			add_stability = 0.05
 			add_war_support = 0.1
 
-			DEN_bop_low_increase_effect = yes
+			# DEN_bop_low_increase_effect = yes # SPTchange
 
 			if = { #In case you have elected a fascist government and bypassed several focuses
 				limit = {
@@ -8717,7 +8760,7 @@ focus_tree = {
 		cost = 10
 
 		available = {
-			num_of_civilian_factories > 24
+			# num_of_civilian_factories > 24 # SPTchange
 			is_subject = no
 		}
 
@@ -8747,8 +8790,6 @@ focus_tree = {
 		cost = 10
 
 		allow_branch = {
-			#SPT change to block non-historical
-			always = no
 			if = {
 				limit = {
 					has_game_rule = {
@@ -8888,6 +8929,7 @@ focus_tree = {
 		available = {
 			threat > 0.9
 			has_war_support > 0.79
+			has_war_with = SOV # SPTchange
 			OR = {
 				casualties_k > 500
 				any_allied_country = {
@@ -8980,11 +9022,12 @@ focus_tree = {
 		id = DEN_military_might
 		icon = GFX_focus_generic_tank_air_support
 		prerequisite = { focus = DEN_prioritize_navy focus = DEN_prioritize_army }
-		prerequisite = { focus = DEN_reclaim_norway }
+		# prerequisite = { focus = DEN_reclaim_norway }  # SPTchange
 
-		relative_position_id = DEN_march_on_the_capital
-		x = -3
-		y = 5
+		# SPTchange repositioning
+		relative_position_id = DEN_prioritize_army
+		x = 1
+		y = 1
 
 		cost = 5
 
@@ -9128,6 +9171,11 @@ focus_tree = {
 		will_lead_to_war_with = LIT
 		will_lead_to_war_with = POL
 
+		# SPTchange to block non-historical
+		allow_branch = {
+			always = no
+		}
+
 		available = {
 			is_subject = no
 		}
@@ -9187,6 +9235,11 @@ focus_tree = {
 
 		available = {
 			is_subject = no
+		}
+
+		# SPTchange to block non-historical
+		allow_branch = {
+			always = no
 		}
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
@@ -9260,7 +9313,7 @@ focus_tree = {
 		icon = GFX_focus_generic_treaty
 
 		relative_position_id = DEN_declare_neutrality
-		x = 16 # SPTchange repositioning
+		x = 19 # SPTChange repositioning
 		y = 0
 
 		allow_branch = {
@@ -9291,7 +9344,7 @@ focus_tree = {
 		}
 
 		offset = {
-			x = 0 # SPTchange repositioning
+			x = -3  # SPTchange repositioning
 			y = 0
 			trigger = {
 				has_game_rule = {
@@ -9303,7 +9356,7 @@ focus_tree = {
 		}
 
 		offset = {
-			x = -10
+			x = -5 # SPTchange repositioning
 			y = 0
 			trigger = {
 				has_game_rule = {
@@ -11715,7 +11768,7 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = DEN_domestic_designs
-				bonus = 0.65
+				bonus = 0.69 # SPTchange .65->.69
 				uses = 2
 				category = air_equipment
 			}	
@@ -12355,18 +12408,19 @@ focus_tree = {
 				tooltip = air_weather_penalty_tt
 			}
 
-			add_tech_bonus = {
-				name = DEN_advanced_flight
-				bonus = 1
-				uses = 1
-				category = rocketry
-			}
-			add_tech_bonus = {
-				name = DEN_advanced_flight
-				bonus = 1
-				uses = 1
-				category = jet_technology
-			}
+			# SPTchange
+			# add_tech_bonus = {
+			# 	name = DEN_advanced_flight
+			# 	bonus = 1
+			# 	uses = 1
+			# 	category = rocketry
+			# }
+			# add_tech_bonus = {
+			# 	name = DEN_advanced_flight
+			# 	bonus = 1
+			# 	uses = 1
+			# 	category = jet_technology
+			# }
 		}
 	}
 
