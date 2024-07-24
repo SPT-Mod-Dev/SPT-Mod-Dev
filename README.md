@@ -1,5 +1,17 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+
+### 3.12.3
+
+### Bulgaria
+ - Lancia now checks for Italy's focuses
+
+### Denmark
+ - Added new alt-history fascist branch
+
+### AI
+ - Spain no longer will join factions
+
 ### 3.12.3
 
 ### Military Industrial Orgs
@@ -12,7 +24,6 @@
 ### UK
  - Hid imperial federation discussion decision
  - Hid Narvik Crisis category
-
 
 ### USA
  - Unique Naval MIO traits granting dockyard output reduced to 2.5%, from 5%
