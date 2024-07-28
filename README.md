@@ -6,6 +6,12 @@
 ### Bulgaria
  - Lancia now checks for Italy's focuses
 
+### Germany
+ - Removed Reichskommissariat Netherlands for larger Belgium 
+
+### Brazil
+ - Removed communist advisors 
+
 ### Denmark
  - Added new alt-history fascist branch
 
