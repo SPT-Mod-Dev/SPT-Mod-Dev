@@ -12,6 +12,8 @@
  - Focus 'Academia Militar' organization buff reduced to 1%, from 3%
  - Focus 'Establish CIGS' organization buff reduced to 1%, from 3%
  - Focus 'The Strength of The Common Soldier' organization buff reduced to 1%, from 2%
+ - Advisors 'Gustavo Barroso', 'Miguel Reale', 'Oliveira Viana', 'Leoncio Basbaum', 'Apolonio de Carvalho' are no longer available
+ - Removed mentions of International Market mechanics from the tree
 
 ### 3.12.3
 

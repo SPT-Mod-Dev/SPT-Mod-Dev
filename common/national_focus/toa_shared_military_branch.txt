@@ -39,7 +39,7 @@ shared_focus = {
 	x = 0
 	y = 0
 	offset = {
-		x = 26
+		x = 20
 		y = 0
 		trigger = {
 			tag = BRA
@@ -152,7 +152,7 @@ shared_focus = {
 	}
 
 	offset = {
-		x = -15
+		x = -8
 		y = 0
 		trigger = {
 			has_game_rule = {
@@ -1172,26 +1172,27 @@ shared_focus = {
 			limit = {
 				has_dlc = "Arms Against Tyranny"
 			}
-			add_equipment_subsidy = {
-				cic = 1000
-				equipment_type = infantry_equipment
-				seller_tags = { USA JAP ENG FRA ITA GER MEX SOV } 
-			}
-			add_equipment_subsidy = {
-				cic = 1000
-				equipment_type = motorized_equipment
-				seller_tags = { USA JAP ENG FRA ITA GER MEX SOV } 
-			}
-			add_equipment_subsidy = {
-				cic = 1000
-				equipment_type = artillery_equipment
-				seller_tags = { USA JAP ENG FRA ITA GER MEX SOV } 
-			}
-			add_equipment_subsidy = {
-				cic = 1000
-				equipment_type = anti_air_equipment
-				seller_tags = { USA JAP ENG FRA ITA GER MEX SOV } 
-			}
+			#SPT change, removed market mechanics
+			# add_equipment_subsidy = {
+			# 	cic = 1000
+			# 	equipment_type = infantry_equipment
+			# 	seller_tags = { USA JAP ENG FRA ITA GER MEX SOV } 
+			# }
+			# add_equipment_subsidy = {
+			# 	cic = 1000
+			# 	equipment_type = motorized_equipment
+			# 	seller_tags = { USA JAP ENG FRA ITA GER MEX SOV } 
+			# }
+			# add_equipment_subsidy = {
+			# 	cic = 1000
+			# 	equipment_type = artillery_equipment
+			# 	seller_tags = { USA JAP ENG FRA ITA GER MEX SOV } 
+			# }
+			# add_equipment_subsidy = {
+			# 	cic = 1000
+			# 	equipment_type = anti_air_equipment
+			# 	seller_tags = { USA JAP ENG FRA ITA GER MEX SOV } 
+			# }
 			if = {
 				limit = {
 					original_tag = BRA
@@ -2403,7 +2404,7 @@ shared_focus = {
 	relative_position_id = SMB_air_academy
 	mutually_exclusive = { focus = SMB_license_designs focus = SMB_purchase_aircraft }
 	prerequisite = { focus = SMB_air_academy focus = SMB_construct_air_bases }
-	x = 0
+	x = 1
 	y = 1
 
 	cost = 5
@@ -2457,7 +2458,7 @@ shared_focus = {
 	relative_position_id = SMB_air_force
 	prerequisite = { focus = SMB_air_academy focus = SMB_construct_air_bases }
 	mutually_exclusive = { focus = SMB_domestic_designs focus = SMB_purchase_aircraft }
-	x = 0
+	x = 1
 	y = 2
 
 	cost = 5
@@ -2482,21 +2483,22 @@ shared_focus = {
 			limit = {
 				has_dlc = "Arms Against Tyranny"
 			}
-			add_equipment_subsidy = {
-				cic = 500
-				equipment_type = small_plane_airframe
-				seller_tags = { USA JAP ENG FRA ITA GER MEX SOV } 
-			}
-			add_equipment_subsidy = {
-				cic = 500
-				equipment_type = large_plane_airframe
-				seller_tags = { USA JAP ENG FRA ITA GER MEX SOV } 
-			}
-			add_equipment_subsidy = {
-				cic = 500
-				equipment_type = medium_plane_airframe
-				seller_tags = { USA JAP ENG FRA ITA GER MEX SOV } 
-			}
+			# SPT change, hid market mechanics
+			# add_equipment_subsidy = {
+			# 	cic = 500
+			# 	equipment_type = small_plane_airframe
+			# 	seller_tags = { USA JAP ENG FRA ITA GER MEX SOV } 
+			# }
+			# add_equipment_subsidy = {
+			# 	cic = 500
+			# 	equipment_type = large_plane_airframe
+			# 	seller_tags = { USA JAP ENG FRA ITA GER MEX SOV } 
+			# }
+			# add_equipment_subsidy = {
+			# 	cic = 500
+			# 	equipment_type = medium_plane_airframe
+			# 	seller_tags = { USA JAP ENG FRA ITA GER MEX SOV } 
+			# }
 		}
 
 		IF = {
@@ -2524,6 +2526,11 @@ shared_focus = {
 	ai_will_do = {
 			factor = 20
 		}
+	
+	# SPT change, hid useless focus due to market mechanics
+	allow_branch = {
+		always = no
+	}
 
 	available = {
 
@@ -2572,7 +2579,7 @@ shared_focus = {
 	icon = GFX_focus_generic_aircraft_production
 	relative_position_id = SMB_license_designs
 	prerequisite = { focus = SMB_license_designs focus = SMB_domestic_designs focus = SMB_purchase_aircraft }
-	x = 0
+	x = -1
 	y = 1
 
 	cost = 10
