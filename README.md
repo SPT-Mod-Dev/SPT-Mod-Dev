@@ -1,5 +1,6 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+
 ### 3.12.4
 
 ### General
@@ -7,15 +8,6 @@
  - 'Mobile Warfare' Doctrine perk 'Indiscriminate Conscription' recruitable population reduced to 1.5%, from 3%
  - 'Guerrila Tactics' tactic combat attacker penalty reduced to -40%, from -50%
  - 'Guerrila Tactics' tactic combat defender penalty reduced to -30%, from -40%
-
-### Brazil
- - Focus 'Academia Militar' organization buff reduced to 1%, from 3%
- - Focus 'Establish CIGS' organization buff reduced to 1%, from 3%
- - Focus 'The Strength of The Common Soldier' organization buff reduced to 1%, from 2%
- - Advisors 'Gustavo Barroso', 'Miguel Reale', 'Oliveira Viana', 'Leoncio Basbaum', 'Apolonio de Carvalho' are no longer available
- - Removed mentions of International Market mechanics from the tree
-
-### 3.12.3
 
 ### Bulgaria
  - Lancia now checks for Italy's focuses
@@ -25,6 +17,11 @@
 
 ### Brazil
  - Removed communist advisors 
+ - Focus 'Academia Militar' organization buff reduced to 1%, from 3%
+ - Focus 'Establish CIGS' organization buff reduced to 1%, from 3%
+ - Focus 'The Strength of The Common Soldier' organization buff reduced to 1%, from 2%
+ - Advisors 'Gustavo Barroso', 'Miguel Reale', 'Oliveira Viana', 'Leoncio Basbaum', 'Apolonio de Carvalho' are no longer available
+ - Removed mentions of International Market mechanics from the tree
 
 ### Denmark
  - Added new alt-history fascist branch
