@@ -1,5 +1,12 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.12.4
+
+### General
+ - 'Mobile Warfare' Doctrine perk 'Volkstrum' recruitable population reduced to 1%, from 2%
+ - 'Mobile Warfare' Doctrine perk 'Indiscriminate Conscription' recruitable population reduced to 1.5%, from 3%
+ - 'Guerrila Tactics' tactic combat attacker penalty reduced from -50% to -40%
+ - 'Guerrila Tactics' tactic combat defender penalty reduced from -40% to -30%
 
 ### 3.12.3
 
