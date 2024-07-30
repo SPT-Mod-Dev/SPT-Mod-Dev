@@ -5,8 +5,13 @@
 ### General
  - 'Mobile Warfare' Doctrine perk 'Volkstrum' recruitable population reduced to 1%, from 2%
  - 'Mobile Warfare' Doctrine perk 'Indiscriminate Conscription' recruitable population reduced to 1.5%, from 3%
- - 'Guerrila Tactics' tactic combat attacker penalty reduced from -50% to -40%
- - 'Guerrila Tactics' tactic combat defender penalty reduced from -40% to -30%
+ - 'Guerrila Tactics' tactic combat attacker penalty reduced to -40%, from -50%
+ - 'Guerrila Tactics' tactic combat defender penalty reduced to -30%, from -40%
+
+### Brazil
+ - Focus 'Academia Militar' organization buff reduced to 1%, from 3%
+ - Focus 'Establish CIGS' organization buff reduced to 1%, from 3%
+ - Focus 'The Strength of The Common Soldier' organization buff reduced to 1%, from 2%
 
 ### 3.12.3
 
