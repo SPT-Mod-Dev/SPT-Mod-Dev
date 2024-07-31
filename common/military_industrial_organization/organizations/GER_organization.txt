@@ -21,17 +21,19 @@ GER_porsche_organization = {
 				has_dlc = "Man the Guns"
 			}
 			NOR_AAT = yes
+			tag = DEN # SPTchange
 		}
 	}
 
 	available = {
 		# When in a Foreign MIO, countries need to be at peace with original country
-		IF = {
-			limit = {
-				FROM = { NOT = { original_tag = GER } }
-			}
-			FROM = { NOT = { has_war_with = GER } }
-		}
+		# SPTchange
+		# IF = {
+		# 	limit = {
+		# 		FROM = { NOT = { original_tag = GER } }
+		# 	}
+		# 	FROM = { NOT = { has_war_with = GER } }
+		# }
 
 		IF = {
 			limit = {
@@ -44,6 +46,12 @@ GER_porsche_organization = {
 				FROM = { tag = NOR }
 			}
 			FROM = { has_completed_focus = NOR_invite_german_engineers }
+		}
+		ELSE_IF = { # SPTchange
+			limit = {
+				FROM = { tag = DEN }
+			}
+			FROM = { has_completed_focus = DEN_establish_domestic_tank_manufacturing }
 		}
 	}
 }
@@ -63,6 +71,7 @@ GER_henschel_organization = {
 				tag = ETH
 				has_dlc = "By Blood Alone"
 			}
+			tag = DEN # SPTchange
 		}
 	}
 	
@@ -75,12 +84,13 @@ GER_henschel_organization = {
 
 	available = {
 		# When in a Foreign MIO, countries need to be at peace with original country
-		IF = {
-			limit = {
-				FROM = { NOT = { original_tag = GER } }
-			}
-			FROM = { NOT = { has_war_with = GER } }
-		}
+		# SPTchange
+		# IF = {
+		# 	limit = {
+		# 		FROM = { NOT = { original_tag = GER } }
+		# 	}
+		# 	FROM = { NOT = { has_war_with = GER } }
+		# }
 
 		IF = {
 			limit = { 
@@ -108,6 +118,12 @@ GER_henschel_organization = {
 				NOT = { has_completed_focus = BUL_nationalization }
 			}
 		}
+		ELSE_IF = { # SPTchange
+			limit = {
+				FROM = { tag = DEN }
+			}
+			FROM = { has_completed_focus = DEN_establish_domestic_tank_manufacturing }
+		}
 	}
 }
 
@@ -122,16 +138,24 @@ GER_man_organization = {
 				tag = GRE
 				has_dlc = "Battle for the Bosporus"
 			}
+			tag = DEN # SPTchange
 		}
 	}
 	
 	available = {
 		# When in a Foreign MIO, countries need to be at peace with original country
+		# SPTchange
+		# IF = {
+		# 	limit = {
+		# 		FROM = { NOT = { original_tag = GER } }
+		# 	}
+		# 	FROM = { NOT = { has_war_with = GER } }
+		# }
 		IF = {
 			limit = {
-				FROM = { NOT = { original_tag = GER } }
+				FROM = { tag = DEN }
 			}
-			FROM = { NOT = { has_war_with = GER } }
+			FROM = { has_completed_focus = DEN_establish_domestic_tank_manufacturing }
 		}
 	}
 }

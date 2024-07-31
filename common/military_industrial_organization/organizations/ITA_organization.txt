@@ -28,6 +28,7 @@ ITA_fiat_organization = {
 				tag = ETH 
 				has_dlc = "By Blood Alone"
 			}
+			tag = DEN # SPTchange
 		}
 	}
 
@@ -40,13 +41,17 @@ ITA_fiat_organization = {
 	
 	available = {
 		# When in a Foreign MIO, countries need to be at peace with original country
-		IF = {
+		# SPTchange
+		# IF = {
+		# 	limit = {
+		# 		FROM = { NOT = { original_tag = ITA } }
+		# 	}
+		# 	FROM = { NOT = { has_war_with = ITA } }
+		# }
+		IF = { #original_tag = ITA
 			limit = {
-				FROM = { NOT = { original_tag = ITA } }
-			}
-			FROM = { NOT = { has_war_with = ITA } }
-		}
-		ELSE = { #original_tag = ITA
+				FROM = { original_tag = ITA }
+			}				
 			FROM = {
 				controls_state = 158 #PIEMONT (Torino)
 			}
@@ -76,6 +81,12 @@ ITA_fiat_organization = {
 				NOT = { has_completed_focus = BUL_nationalization }
 			}
 		}
+		ELSE_IF = { # SPTchange
+			limit = {
+				FROM = { tag = DEN }
+			}
+			FROM = { has_completed_focus = DEN_establish_domestic_tank_manufacturing }
+		}
 	}
 	
 	add_trait = { 
@@ -87,7 +98,7 @@ ITA_fiat_organization = {
 		position = { x=9 y=0 }
 		
 		available = {
-			FROM = {
+			ITA = { # SPTchange
 				has_completed_focus = ITA_new_industrialization_program
 				has_completed_focus = ITA_strengthen_northern_industry
 			}

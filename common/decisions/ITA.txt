@@ -1243,6 +1243,17 @@ ITA_missiolinis = {
 		}
 
 		available = { #GOAL
+			934 = { #Shkoder
+				OR = {
+					is_fully_controlled_by = ROOT
+					controller = {
+						is_subject_of = ROOT
+						hidden_trigger = { #To prevent unnecessary overcrowding
+							has_full_control_of_state = PREV
+						}
+					}
+				}
+			}
 			44 = { #ALBANIA
 				OR = {
 					is_fully_controlled_by = ROOT
@@ -5798,10 +5809,10 @@ ITA_diplomacy_balkan_decision_category = {
 		icon = eng_trade_unions_demand
 
 		ai_will_do = {
-			base = 20
+			base = 50
 			modifier = {
 				factor = 10
-				has_political_power > 160
+				has_political_power > 75
 			}
 			modifier = {
 				factor = 10
@@ -5866,8 +5877,8 @@ ITA_diplomacy_balkan_decision_category = {
 				set_country_flag = ITA_ultimatum_sent_flag
 				country_event = { id = NSB_soviet_foreign_politics_events.200 hours = 16 random_hours = 8 }
 			}
-			custom_effect_tooltip = SOV_ultimatum_generic_effects_tt
-			custom_effect_tooltip = SOV_decision_will_be_locked_tt
+			custom_effect_tooltip = ITA_ultimatum_generic_effects_tt
+			#custom_effect_tooltip = SOV_decision_will_be_locked_tt #
 		}
 	}
 
@@ -6178,6 +6189,9 @@ ITA_diplomacy_balkan_decision_category = {
 			ALB = {
 				exists = no
 			}
+			934 = {
+				is_controlled_by = ITA
+			}
 			44 = {
 				is_controlled_by = ITA
 			}
@@ -6205,6 +6219,7 @@ ITA_diplomacy_balkan_decision_category = {
 
 		complete_effect = {
 			ALB = {
+				transfer_state = 934
 				transfer_state = 44
 				transfer_state = 805
 				IF = {

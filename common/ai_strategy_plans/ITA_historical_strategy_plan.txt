@@ -1,0 +1,153 @@
+SPT_ITA_historical = {
+	name = "SPT ITA historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = ITA
+	}
+	enable = {
+		always = yes
+	}
+	abort = {
+		
+	}
+
+	ai_national_focuses = {
+		ITA_ethiopian_war_logistics_bba 
+		ITA_servizio_informazione_militare 
+		ITA_triumph_in_africa_bba 
+		ITA_ministry_of_italian_africa 
+		ITA_the_new_emperor_of_ethiopia
+		ITA_devaluate_the_lire 
+		ITA_topple_amhara_rulers 	
+		ITA_naval_power_projection
+		ITA_expand_naval_facilities
+		ITA_italian_highways_bba
+		ITA_steel_industry_in_terni
+		ITA_railway_innovations
+		ITA_investments_in_edison
+		ITA_expand_national_universities
+		ITA_fiocchi_munizioni
+		ITA_industria_della_gomma_sintetica 
+		ITA_strengthen_northern_industry
+		ITA_new_industrialization_program
+		ITA_expand_foggia_farm_fields
+		ITA_foreign_affairs
+		ITA_balkan_ambition
+		ITA_albanian_occupation 
+		ITA_pact_of_steel 
+		ITA_stockpile_fuel 
+		ITA_italian_irredentism
+		ITA_war_with_greece 
+		ITA_german_military_cooperation 
+		ITA_support_albanian_irredentism 
+		ITA_army_primacy_bba
+		ITA_preserve_army_traditions
+		ITA_superesercito
+		ITA_army_leaders 
+		ITA_pact_of_steel
+		ITA_pacify_yugo
+		ITA_treaty_with_germany 
+		ITA_culto_del_duce 
+		ITA_the_man_of_providence
+		ITA_security_militias 
+		ITA_supermarina 
+		ITA_brescia_small_arms_industry
+		ITA_redirect_alfa_romeo_production
+		ITA_increase_production 
+		ITA_bersaglieri
+		ITA_divisioni_alpine
+		ITA_ministero_della_cultura_popolare 
+		ITA_believe_obey_fight 
+		ITA_banda_carita
+		ITA_banda_koch
+		ITA_milan_comms_industry 
+		ITA_polizia_dell_africa_italiana 
+
+	}
+
+	research = {
+		industry = 25.0
+	}
+
+	ideas = {
+		
+	}
+
+	traits = {
+		silent_workhorse = 10
+		captain_of_industry = 5
+	}
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = SPA
+		value = 10000
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = JAP
+		value = -10000
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = ETH
+		country_trigger = { 
+			NOT = { ITA = { has_war_with = ENG } }
+			ITA = { has_war_with = ETH }
+		}
+		value = 10000
+	}
+	ai_strategy = {
+		type = intelligence_agency_usable_factories
+		value = 30
+	}
+	ai_strategy = {
+		type = agency_ai_base_num_factories_factor
+		value = -100
+	}
+	ai_strategy = {
+		type = agency_ai_per_upgrade_factories_factor
+		value = -100
+	}
+	ai_strategy = {
+		type = declare_war
+		id = YUG
+		value = 1000
+	}
+	ai_strategy = {
+		type = declare_war
+		id = GRE
+		value = 1000
+	}
+	ai_strategy = {
+		type = invade
+		id = SWI
+		value = -10000
+	}
+	ai_strategy = {
+		type = declare_war
+		id = SWI
+		value = -10000
+	}
+	ai_strategy = {
+		type = ignore_claim
+		id = SWI
+		value = 1
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+	focus_factors = {
+		
+	}
+
+}
+

@@ -1,8 +1,8 @@
 ﻿focus_tree = {
 	id = canadian_focus
-
-	shared_focus = SPT_CW_Together_for_victory #SPT change, added shared focus tree
 	
+	shared_focus = SPT_CW_Together_for_victory #SPT change, added shared focus tree
+
 	country = {
 		factor = 0
 		
@@ -107,7 +107,7 @@
 		y = 0
 		relative_position_id = CAN_rowell_sirois_commission
 
-		cost = 5 #SPTChange 10 to 5
+		cost = 5
 
 		ai_will_do = {
 			factor = 25
@@ -130,8 +130,9 @@
 		available_if_capitulated = yes
 
 		completion_reward = {
-			custom_effect_tooltip = available_political_advisor
-			add_ideas = CAN_c_d_howe
+			#custom_effect_tooltip = available_political_advisor
+			#show_ideas_tooltip = CAN_c_d_howe
+			add_ideas = CAN_c_d_howe #SPT change, adds the advisor
 		}
 	}
 
@@ -184,6 +185,21 @@
 					instant_build = yes
 				}
 			}
+
+			IF = {
+				limit = {
+					has_country_leader = {
+						ruling_only = yes
+						character = CAN_mackenzie_king
+					}
+				}
+
+				add_trait = {
+					character = CAN_mackenzie_king
+					trait = CAN_father_of_the_canadian_welfare_state
+					ideology = liberalism 
+				}
+			}
 		}
 
 		completion_reward = {
@@ -202,6 +218,22 @@
 					instant_build = yes
 				}
 				set_state_flag = CAN_national_housing_act_IC
+			}
+
+			IF = {
+				limit = {
+					has_country_leader = {
+						ruling_only = yes
+						character = CAN_mackenzie_king
+					}
+				}
+				
+				add_trait = {
+					character = CAN_mackenzie_king
+					trait = CAN_father_of_the_canadian_welfare_state
+					ideology = liberalism 
+				}
+				
 			}
 		}
 	}
@@ -242,19 +274,18 @@
 				uses = 1
 				category = industry
 			}
-
 		}
 	}
 
 	focus = {
 		id = CAN_canada_pacific_railway
-		icon = GFX_focus_generic_railroad
+		icon = GFX_goal_generic_construct_infrastructure
 		prerequisite = { focus = CAN_rowell_sirois_commission }
 		x = 0
 		y = 2
 		relative_position_id = CAN_rowell_sirois_commission
 
-		cost = 5 #SPTChange 10 to 5
+		cost = 5  #SPTChange 10 to 5
 
 		ai_will_do = {
 			factor = 75
@@ -313,6 +344,9 @@
 					1408 1858 10273 4870 10548
 				}
 			}
+
+			custom_effect_tooltip = available_industrial_concern
+			show_ideas_tooltip = canadian_pacific_railway
 		}
 	}
 
@@ -368,6 +402,8 @@
 						include_locked = yes
 					}
 				}
+
+				add_extra_state_shared_building_slots = 2
 
 				add_building_construction = {
 					type = industrial_complex
@@ -492,7 +528,7 @@
 				add_resource = {
 					type = oil
 					amount = 8
-				} 
+				}
 			}
 			472 = {
 				add_resource = {
@@ -556,7 +592,7 @@
 
 	focus = {
 		id = CAN_war_bonds
-		icon = GFX_focus_mex_privatisation
+		icon = GFX_goal_generic_consumer_goods
 		x = -2
 		y = 0
 		relative_position_id = CAN_defence_of_canada_regulations
@@ -883,7 +919,7 @@
 
 	focus = {
 		id = CAN_canada_wheat_board
-		icon = GFX_focus_generic_land_reclamation
+		icon = GFX_goal_generic_construction2
 		prerequisite = { focus = CAN_wartime_prices_and_trade_board }
 		x = 3
 		y = 2
@@ -913,9 +949,16 @@
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = CAN_great_depression_1
-				add_idea = CAN_great_depression_2		
+			if = {
+				limit = { has_idea = CAN_great_depression_1 }
+				swap_ideas = {
+					remove_idea = CAN_great_depression_1
+					add_idea = CAN_great_depression_2		
+				}
+			}
+			else_if = {
+				limit = { has_idea = CAN_great_depression_2 }
+				remove_ideas = CAN_great_depression_2
 			}
 		}
 	}
@@ -1386,7 +1429,6 @@
 		id = CAN_national_steel_car
 		icon = GFX_goal_generic_construct_infrastructure
 		prerequisite = { focus = CAN_alberta_coal_towns }
-		#mutually_exclusive = { focus = CAN_send_in_the_zombies }
 		x = 1
 		y = 4
 		relative_position_id = CAN_defence_of_canada_regulations
@@ -1488,7 +1530,6 @@
 		id = CAN_send_in_the_zombies
 		icon = GFX_spt_focus_soldiers_rush
 		prerequisite = { focus = CAN_commit_to_the_war }
-		#mutually_exclusive = { focus = CAN_national_steel_car }
 		x = 3
 		y = 4
 		relative_position_id = CAN_defence_of_canada_regulations
@@ -1621,7 +1662,7 @@
 		completion_reward = {
 			add_tech_bonus = {
 				name = CAN_uranium_mining
-				bonus = 1.0
+				bonus = 0.5
 				uses = 2
 				category = nuclear
 			}	
@@ -1695,7 +1736,7 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			army_experience = 20
+			army_experience = 50
 			add_doctrine_cost_reduction = {
 				name = CAN_independent_command
 				cost_reduction = 0.5
@@ -1806,7 +1847,6 @@
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		complete_tooltip = {
-			remove_ideas = CAN_great_depression_2
 			random_state = {
 				limit = {
 					has_state_flag = CAN_war_fueled_economy_AF1
@@ -1843,7 +1883,22 @@
 		}
 
 		completion_reward = {
-			remove_ideas = CAN_great_depression_2
+			if = {
+				limit = { 
+					OR = {
+						has_idea = CAN_great_depression_1
+						has_idea = CAN_great_depression_2
+					}
+				}
+				remove_ideas = CAN_great_depression_2
+				custom_effect_tooltip = if_no_depression_get_stuff_TT
+			}
+			else = {
+				add_timed_idea = {
+					idea = CAN_booming_economy
+					days = 1095
+				}
+			}
 			random_owned_controlled_state = {
 				limit = {
 					is_in_home_area = yes
@@ -1929,7 +1984,7 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			army_experience = 10 
+			army_experience = 50 
 			add_doctrine_cost_reduction = {
 				name = CAN_army_modernization
 				cost_reduction = 0.5
@@ -2008,7 +2063,7 @@
 			add_tech_bonus = {
 				name = CAN_cmp_truck
 				ahead_reduction = 2
-				bonus = 3.0
+				bonus = 2.0
 				uses = 1
 				category = motorized_equipment
 			}
@@ -2175,7 +2230,7 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			army_experience = 15
+			army_experience = 30
 			add_doctrine_cost_reduction = {
 				name = CAN_red_deer_training_camp
 				cost_reduction = 0.5
@@ -2215,10 +2270,19 @@
 		completion_reward = {
 			add_tech_bonus = {
 				name = CAN_1st_canadian_parachute_battalion
-				bonus = 3.0
+				bonus = 1.0
 				uses = 1
 				category = para_tech
 			}
+			if = {
+				limit = { has_dlc = "Arms Against Tyranny" }
+				add_doctrine_cost_reduction = {
+					cost_reduction = 0.5
+					uses = 2
+					category = special_forces_doctrine
+				}
+			}
+
 		}
 	}
 
@@ -2252,7 +2316,7 @@
 		completion_reward = {
 			add_tech_bonus = {
 				name = CAN_the_black_devils
-				bonus = 1.00
+				bonus = 1.0
 				uses = 1
 				category = marine_tech
 				category = para_tech
@@ -2519,7 +2583,7 @@
 		id = CAN_montreal_laboratory_collaboration
 		icon = GFX_goal_tfv_generic_tech_sharing
 		prerequisite = { focus = CAN_strengthen_the_commonwealth_ties }
-		x = 0
+		x = 2
 		y = 1
 		relative_position_id = CAN_strengthen_the_commonwealth_ties
 
@@ -2557,7 +2621,7 @@
 		id = CAN_the_plan
 		icon = GFX_goal_generic_air_fighter
 		prerequisite = { focus = CAN_shadow_factories }
-		x = -2
+		x = -1
 		y = 2
 		relative_position_id = CAN_strengthen_the_commonwealth_ties
 
@@ -2591,11 +2655,11 @@
 	focus = {
 		id = CAN_camp_x
 		icon = GFX_goal_generic_intelligence_exchange 
-		prerequisite = { focus = CAN_montreal_laboratory_collaboration}
-		x = 0
+		prerequisite = { focus = CAN_montreal_laboratory_collaboration focus = CAN_permanent_joint_defense_board }
+		x = 2
 		y = 2
 		relative_position_id = CAN_strengthen_the_commonwealth_ties
-		
+
 		cost = 5 #SPTChange 10 to 5
 
 		ai_will_do = {
@@ -2646,7 +2710,7 @@
 		icon = GFX_goal_generic_construction2
 		prerequisite = { focus = CAN_the_plan}
 		prerequisite = { focus = CAN_camp_x }
-		x = -1
+		x = 0
 		y = 3
 		relative_position_id = CAN_strengthen_the_commonwealth_ties
 
@@ -2777,8 +2841,6 @@
 	############################
 
 	focus = {
-		allow_branch = {always = no}
-		
 		id = CAN_patriation
 		icon = GFX_goal_tfv_sever_ties_with_uk #GFX_goal_generic_demand_territory
 		mutually_exclusive = { focus = CAN_strengthen_the_commonwealth_ties }
@@ -2787,6 +2849,10 @@
 		relative_position_id = CAN_strengthen_the_commonwealth_ties
 
 		cost = 10
+		
+		allow_branch = {
+			always = no #SPT change
+		}
 
 		ai_will_do = {
 			factor = 5
@@ -3004,6 +3070,234 @@
 		}
 	}
 
+	focus = {
+		id = CAN_dominion_rifle_association
+		icon = GFX_focus_CAN_rifle_association
+		x = -1
+		y = 1
+		prerequisite = { focus = CAN_shadow_factories }
+		relative_position_id = CAN_shadow_factories
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		available = {
+			OR = {
+				threat > 0.15
+				is_subject = no
+			}
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			
+			add_ideas = CAN_dominion_rifle_association_idea
+
+		}
+	}
+
+	focus = {
+		id = CAN_canadian_citizenship_act
+		icon = GFX_focus_eng_decolonization
+		x = 2
+		y = 1
+		prerequisite = {focus = CAN_supply_the_empire }
+		relative_position_id = CAN_supply_the_empire
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 5
+				is_subject = no 
+			}
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			
+			add_ideas = CAN_canadian_citizenship
+
+		}
+	}
+
+	focus = {
+		id = CAN_newfoundland_act
+		icon = GFX_focus_chi_british_cooperation
+		x = 0
+		y = 1
+		prerequisite = { focus = CAN_canadian_citizenship_act }
+		relative_position_id = CAN_canadian_citizenship_act
+
+		cost = 10
+		
+		allow_branch = { #SPT change
+			always = no
+		}
+
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 5
+				is_subject = no 
+			}
+		}
+
+		available = {
+			#OR = {
+			#	any_country = {
+			#		OR = {
+			#			has_subject = ROOT
+			#			original_tag = ENG
+			#		}
+			#		has_opinion = {
+			#			target = ROOT
+			#			value > 50
+			#		}	
+			#		owns_state = 332
+			#		owns_state = 331
+			#	}
+			#	AND = {
+			#		any_country = {
+			#			OR = {
+			#				has_subject = ROOT
+			#				original_tag = ENG
+			#			}
+			#			has_opinion = {
+			#				target = ROOT
+			#				value > 50
+			#			}	
+			#			OR = {
+			#				owns_state = 332
+			#				owns_state = 331
+			#			}
+			#		}
+			#		any_country = {
+			#			NOT = {
+			#				original_tag = ENG
+			#			}
+			#			AND = {
+			#				is_in_faction_with = ROOT
+			#				original_tag = USA
+			#			}
+			#			has_opinion = {
+			#				target = ROOT
+			#				value > 50
+			#			}	
+			#			OR = {
+			#				owns_state = 332
+			#				owns_state = 331
+			#			}
+			#		}
+			#	}
+			#}
+			331 = {
+				owner = {
+					has_opinion = { target = ROOT value > 50 }
+					OR = {
+						has_subject = ROOT
+						original_tag = ENG
+						AND = {
+							original_tag = USA
+							is_in_faction_with = ROOT
+						}
+					}
+				}
+			}
+			332 = {
+				owner = {
+					has_opinion = { target = ROOT value > 50 }
+					OR = {
+						has_subject = ROOT
+						original_tag = ENG
+						AND = {
+							original_tag = USA
+							is_in_faction_with = ROOT
+						}
+					}
+				}
+			}
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			
+			IF = {
+				limit = {
+					any_country = {
+						AND = {
+							owns_state = 332
+							owns_state = 331
+						}
+					}
+				}
+				random_country = {
+					limit = {
+						AND = {
+							owns_state = 332
+							owns_state = 331
+						}
+						OR = {
+							has_subject = ROOT
+							original_tag = ENG
+						}
+					}
+					country_event = {
+						id = tfv_canada.70
+						days = 2
+						random_days = 3 
+					}	
+				}
+			}
+			ELSE = {
+				set_global_flag = not_all_newf_owned
+				random_country = {
+					limit = {
+						OR = {
+							has_subject = ROOT
+							original_tag = ENG
+						}
+					}
+					country_event = {
+						id = tfv_canada.70
+						days = 2
+						random_days = 3 
+					}
+				}
+			}
+
+		}
+	}
+
 
 	############################
 	#### GO FASCIST SECTION ####
@@ -3020,6 +3314,10 @@
 		relative_position_id = CAN_patriation
 
 		cost = 10
+
+		allow_branch = {
+			always = no #SPT change
+		}
 
 		ai_will_do = {
 			factor = 25
@@ -3289,8 +3587,8 @@
 	focus = {
 		id = CAN_defence_scheme_no_1
 		icon = GFX_goal_generic_occupy_start_war
-		prerequisite = { focus = CAN_skewer_the_eagle focus = CAN_pinion_the_eagle }
-		x = -1
+		prerequisite = { focus = CAN_skewer_the_eagle focus = CAN_pinion_the_eagle focus = CAN_reject_authoritarianism }
+		x = 3
 		y = 4
 		relative_position_id = CAN_swastika_clubs
 
@@ -3318,11 +3616,21 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			set_rule = { can_create_factions = yes }
-			create_wargoal = {
-				type = annex_everything
-				target = USA
-				expire = 0
+			if = {
+				limit = { has_government = fascism }
+				set_rule = { can_create_factions = yes }
+				create_wargoal = {
+					type = annex_everything
+					target = USA
+					expire = 0
+				}
+			}
+			else = {
+				create_wargoal = {
+					type = topple_government
+					target = USA
+					expire = 0
+				}
 			}
 		}
 	}
@@ -3330,11 +3638,12 @@
 	focus = {
 		id = CAN_demand_labrador_and_newfoundland
 		icon = GFX_goal_generic_territory_or_war
-		prerequisite = { focus = CAN_skewer_the_eagle focus = CAN_pinion_the_eagle }
-		x = 1
+		prerequisite = { focus = CAN_skewer_the_eagle focus = CAN_pinion_the_eagle focus = CAN_reject_authoritarianism }
+		x = 0
 		y = 4
 		relative_position_id = CAN_swastika_clubs
-
+		mutually_exclusive = { focus = CAN_offer_concessions_for_labrador_and_newfoundland }
+		
 		cost = 10
 
 		ai_will_do = {
@@ -3343,6 +3652,10 @@
 
 		available = {
 			NOT = { has_country_flag = britain_enforced_our_loyalty }
+			ENG = {
+				owns_state = 331
+				owns_state = 332
+			}
 		}
 		
 		bypass = {
@@ -3355,12 +3668,62 @@
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 
 		completion_reward = {
+			custom_effect_tooltip = CAN_demand_labrador_tooltip
 			ENG = {
 				country_event = { id = tfv_canada.60 }
 			}
 		}
 	}
 
+	focus = {
+		id = CAN_offer_concessions_for_labrador_and_newfoundland
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		prerequisite = { focus = CAN_skewer_the_eagle focus = CAN_pinion_the_eagle focus = CAN_reject_authoritarianism }
+		x = -2
+		y = 4
+		relative_position_id = CAN_swastika_clubs
+		mutually_exclusive = { focus = CAN_demand_labrador_and_newfoundland }
+		
+		cost = 10
+
+		ai_will_do = {
+			factor = 25
+		}
+
+		available = {
+			NOT = { has_country_flag = britain_enforced_our_loyalty }
+			NOT = { has_war_with = ENG }
+			473 = {
+				is_owned_by = CAN
+				is_controlled_by = CAN
+			}
+			ENG = {
+				owns_state = 331
+				owns_state = 332
+			}
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+
+		completion_reward = {
+			custom_effect_tooltip = CAN_offer_concessions_for_labrador_tooltip
+			effect_tooltip = {
+				CAN = {
+					give_resource_rights = { receiver = ENG state = 473 }
+				}
+			}
+			ENG = {
+				country_event = { id = tfv_canada.63 }
+			}
+		}
+	}
 
 	############################
 	### GO COMMUNIST SECTION ###
@@ -3372,12 +3735,16 @@
 		prerequisite = { focus = CAN_patriation }
 		mutually_exclusive = { focus = CAN_swastika_clubs }
 		mutually_exclusive = { focus = CAN_permanent_joint_defense_board }
-		x = 8
+		x = 11
 		y = 1
 		relative_position_id = CAN_patriation
 
 		cost = 10
 
+		allow_branch = {
+			always = no #SPT change
+		}
+		
 		ai_will_do = {
 			factor = 25
 			modifier = {
@@ -3444,13 +3811,221 @@
 			}
 		}
 	}
+	
+	focus = {
+		id = CAN_mend_relations_with_the_trotskyites
+		icon = GFX_goal_generic_major_alliance
+		prerequisite = { focus = CAN_communist_labor_total_war_committee }
+		mutually_exclusive = { focus = CAN_supply_the_red_army focus = CAN_defence_scheme_no_2 }
+		x = -2
+		y = 2
+		relative_position_id = CAN_burn_the_royal_portraits
 
+		cost = 10
+
+		ai_will_do = {
+			factor = 25
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = CAN_unified_communist_party
+			
+			if = {
+				limit = { 
+					SOV = {
+						has_government = communism
+					} 
+				}
+				SOV = {
+					if = {
+						limit = { has_country_leader = { character = SOV_lev_trotsky } }
+						add_opinion_modifier = {
+							target = ROOT 
+							modifier = CAN_trotsky_loves_us
+						}
+					}
+					else = {
+						add_opinion_modifier = {
+							target = ROOT 
+							modifier = CAN_stalin_and_friends_hate_us_now
+						}
+					}
+				}
+			}
+			
+		}
+	}
+	
+	focus = {
+		id = CAN_reject_authoritarianism
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = CAN_mend_relations_with_the_trotskyites }
+		x = 0
+		y = 1
+		relative_position_id = CAN_mend_relations_with_the_trotskyites
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 25
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			if = {
+				limit = { 
+					has_war = no
+					is_in_faction = yes
+				}
+				leave_faction = yes
+			}
+			set_rule = {
+				can_join_factions = no
+			}
+			swap_ideas = {
+				remove_idea = CAN_communist_ideals_2
+				add_idea = CAN_communist_ideals_4
+			}
+		}
+	}
+	
+	focus = {
+		id = CAN_liberate_the_workers_of_the_world
+		icon = GFX_goal_generic_demand_territory
+		prerequisite = { focus = CAN_reject_authoritarianism }
+		x = 0
+		y = 1
+		relative_position_id = CAN_reject_authoritarianism
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 25
+		}
+
+		available = {
+
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = CAN_true_revolution
+		}
+	}
+	
+	focus = {
+		id = CAN_reactivate_farmers_unity_league
+		icon = GFX_goal_generic_soviet_construction
+		prerequisite = { focus = CAN_mend_relations_with_the_trotskyites }
+		x = -2
+		y = 1
+		relative_position_id = CAN_mend_relations_with_the_trotskyites
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 25
+		}
+
+		available = {
+			has_war = yes
+			has_civil_war = no
+			469 = { is_fully_controlled_by = ROOT }
+			470 = { is_fully_controlled_by = ROOT }
+			467 = { is_fully_controlled_by = ROOT }
+		}
+		
+		bypass = {
+			
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			469 = {
+				if = {
+					limit = {
+						is_fully_controlled_by = ROOT 
+					}
+					add_extra_state_shared_building_slots = 2
+				}
+			}
+			470 = {
+				if = {
+					limit = {
+						is_fully_controlled_by = ROOT 
+					}
+					add_extra_state_shared_building_slots = 2
+				}
+			}
+			467 = {
+				if = {
+					limit = {
+						is_fully_controlled_by = ROOT 
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+			if = {
+				limit = { has_idea = CAN_great_depression_1 }
+				swap_ideas = {
+					remove_idea = CAN_great_depression_1
+					add_idea = CAN_great_depression_2		
+				}
+				custom_effect_tooltip = if_no_depression_get_stuff_TT
+			}
+			else_if = {
+				limit = { has_idea = CAN_great_depression_2 }
+				remove_ideas = CAN_great_depression_2
+				custom_effect_tooltip = if_no_depression_get_stuff_TT
+			}
+			else = {
+				add_timed_idea = {
+					idea = CAN_booming_economy
+					days = 1095
+				}
+			}
+		}
+	}
+	
 	focus = {
 		id = CAN_defence_scheme_no_2
 		icon = GFX_goal_generic_fortify_city
 		prerequisite = { focus = CAN_communist_labor_total_war_committee }
-		mutually_exclusive = { focus = CAN_supply_the_red_army }
-		x = -1
+		mutually_exclusive = { focus = CAN_supply_the_red_army focus = CAN_mend_relations_with_the_trotskyites }
+		x = 0
 		y = 2
 		relative_position_id = CAN_burn_the_royal_portraits
 
@@ -3520,8 +4095,8 @@
 		id = CAN_supply_the_red_army
 		icon = GFX_goal_generic_dangerous_deal
 		prerequisite = { focus = CAN_communist_labor_total_war_committee }
-		mutually_exclusive = { focus = CAN_defence_scheme_no_2 }
-		x = 1
+		mutually_exclusive = { focus = CAN_defence_scheme_no_2 focus = CAN_mend_relations_with_the_trotskyites }
+		x = 2
 		y = 2
 		relative_position_id = CAN_burn_the_royal_portraits
 
@@ -3609,7 +4184,7 @@
 		id = CAN_canada_united
 		icon = GFX_goal_generic_demand_territory
 		prerequisite = { focus = CAN_defence_scheme_no_2 }
-		x = -1
+		x = 0
 		y = 3
 		relative_position_id = CAN_burn_the_royal_portraits
 
@@ -3640,7 +4215,7 @@
 		id = CAN_join_comintern
 		icon = GFX_goal_generic_major_alliance
 		prerequisite = { focus = CAN_supply_the_red_army }
-		x = 1
+		x = 2
 		y = 3
 		relative_position_id = CAN_burn_the_royal_portraits
 
@@ -3700,7 +4275,7 @@
 		id = CAN_support_the_world_revolution
 		icon = GFX_goal_generic_forceful_treaty
 		prerequisite = { focus = CAN_canada_united focus = CAN_join_comintern }
-		x = 0
+		x = 1
 		y = 4
 		relative_position_id = CAN_burn_the_royal_portraits
 
@@ -3739,9 +4314,9 @@
 	focus = {
 		id = CAN_rcaf_station_borden
 		icon = GFX_goal_generic_build_airforce
-		x = 4
+		x = 26
 		y = 0
-		relative_position_id = CAN_strengthen_the_commonwealth_ties
+
 		cost = 10
 
 		ai_will_do = {
@@ -4232,7 +4807,6 @@
 	}
 
 	focus = {
-		
 		id = CAN_the_sabre_project
 		icon = GFX_focus_rocketry
 		prerequisite = { focus = CAN_cookie_carriers }
@@ -4279,9 +4853,9 @@
 	focus = {
 		id = CAN_halifax_shipyards
 		icon = GFX_goal_generic_construct_naval_dockyard
-		x = 4
+		x = 30
 		y = 0
-		relative_position_id = CAN_rcaf_station_borden
+
 		cost = 10
 
 		ai_will_do = {
@@ -4367,6 +4941,9 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+
+			navy_experience = 25
+
 			add_tech_bonus = {
 				name = CAN_destroyer_effort
 				bonus = 1.0
@@ -4374,6 +4951,7 @@
 				uses = 1
 				category = dd_tech
 			}
+
 		}
 	}
 
@@ -4384,6 +4962,8 @@
 		x = -1
 		y = 2
 		relative_position_id = CAN_halifax_shipyards
+
+		mutually_exclusive = { focus = CAN_heavy_cruiser_effort }
 
 		cost = 10
 
@@ -4407,10 +4987,21 @@
 		completion_reward = {
 			add_tech_bonus = {
 				name = CAN_light_cruiser_effort
-				bonus = 1.0
+				bonus = 0.5
 				ahead_reduction = 2
 				uses = 1
 				category = cl_tech
+			}
+			IF = {
+				limit = {
+					has_dlc = "Man the Guns"
+				}
+				add_tech_bonus = {
+					name = CAN_light_cruiser_effort
+					bonus = 0.5
+					uses = 1
+					category = cat_ship_light_battery
+				}
 			}
 		}
 	}
@@ -4422,6 +5013,8 @@
 		x = 1
 		y = 2
 		relative_position_id = CAN_halifax_shipyards
+
+		mutually_exclusive = { focus = CAN_light_cruiser_effort }
 
 		cost = 10
 
@@ -4446,9 +5039,20 @@
 			add_tech_bonus = {
 				name = CAN_heavy_cruiser_effort
 				bonus = 1.0
-				ahead_reduction = 2
+				ahead_reduction = 1
 				uses = 1
 				category = ca_tech
+			}
+			IF = {
+				limit = {
+					has_dlc = "Man the Guns"
+				}
+				add_tech_bonus = {
+					name = CAN_heavy_cruiser_effort
+					bonus = 0.5
+					uses = 1
+					category = cat_ship_medium_battery
+				}
 			}
 		}
 	}
@@ -4456,7 +5060,7 @@
 	focus = {	
 		id = CAN_escort_fleet
 		icon = GFX_goal_generic_navy_doctrines_tactics
-		prerequisite = { focus = CAN_light_cruiser_effort }
+		prerequisite = { focus = CAN_light_cruiser_effort focus = CAN_heavy_cruiser_effort }
 		mutually_exclusive = { focus = CAN_fleet_in_being }
 		x = -1
 		y = 3
@@ -4499,7 +5103,7 @@
 	focus = {
 		id = CAN_fleet_in_being
 		icon = GFX_goal_generic_navy_battleship
-		prerequisite = { focus = CAN_light_cruiser_effort }
+		prerequisite = { focus = CAN_light_cruiser_effort focus = CAN_heavy_cruiser_effort }
 		mutually_exclusive = { focus = CAN_escort_fleet }
 		x = 1
 		y = 3

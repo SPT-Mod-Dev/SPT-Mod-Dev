@@ -2028,13 +2028,13 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = USA_manhattan_project
-				bonus = 1
+				bonus = 1.0
 				uses = 1
 				category = nuclear
 			}
 			add_tech_bonus = {
 				name = USA_manhattan_project
-				bonus = 1
+				bonus = 1.0
 				uses = 1
 				category = nuclear
 			}
@@ -3022,6 +3022,12 @@ focus_tree = {
 		available_if_capitulated = yes
 		available = {
 			democratic > 0.95
+		}
+		bypass = {
+			SAF = {
+				exists = no
+			}
+			has_completed_focus = SPT_USA_american_aid # So it doesn't bypass too early
 		}
 		completion_reward = {
 			add_timed_idea = { 
@@ -4516,12 +4522,9 @@ focus_tree = {
 		id = SPT_USA_monetary_aid_only
 		icon = GFX_goal_generic_consumer_goods
 		x = 4
-		y = 2
+		y = 4
 		prerequisite = {
-			focus = USA_neutrality_act
-		}
-		prerequisite = {
-			focus = SPT_USA_towards_landon
+			focus = SPT_USA_war_against_pacifism
 		}
 		relative_position_id = USA_neutrality_act
 		cost = 5
@@ -4572,7 +4575,7 @@ focus_tree = {
 		id = SPT_USA_enemy_within
 		icon = GFX_focus_SWI_embrace_rote_drei
 		x = 0
-		y = 4
+		y = 2
 		prerequisite = {
 			focus = SPT_USA_monetary_aid_only
 		}
@@ -4627,16 +4630,28 @@ focus_tree = {
 		id = SPT_USA_war_against_pacifism
 		icon = GFX_focus_hol_war_on_pacifism
 		x = 0
-		y = 1
+		y = -2
 		prerequisite = {
-			focus = SPT_USA_enemy_within
+			focus = USA_neutrality_act
 		}
-		relative_position_id = SPT_USA_enemy_within
+		prerequisite = {
+			focus = SPT_USA_towards_landon
+		}
+		relative_position_id = SPT_USA_monetary_aid_only
 		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
 		available = {
+			NOT = {
+				has_country_leader = {
+					ruling_only = yes
+					character = USA_franklin_delano_roosevelt
+				}	
+			}
+			GER = {
+				has_completed_focus = GER_end_of_czechoslovakia
+			}
 		}
 		bypass = {
 		}
@@ -4658,9 +4673,9 @@ focus_tree = {
 		x = -1
 		y = 1
 		prerequisite = {
-			focus = SPT_USA_war_against_pacifism
+			focus = SPT_USA_enemy_within
 		}
-		relative_position_id = SPT_USA_war_against_pacifism
+		relative_position_id = SPT_USA_enemy_within
 		cost = 5
 		ai_will_do = {
 			factor = 1
@@ -4739,9 +4754,9 @@ focus_tree = {
 		x = 1
 		y = 1
 		prerequisite = {
-			focus = SPT_USA_war_against_pacifism
+			focus = SPT_USA_enemy_within
 		}
-		relative_position_id = SPT_USA_war_against_pacifism
+		relative_position_id = SPT_USA_enemy_within
 		cost = 5
 		ai_will_do = {
 			factor = 1

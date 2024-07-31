@@ -102,7 +102,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = BRA_tribunal_de_seguranca_nacional
-		cost = 5
+		cost = 10
 		ai_will_do = {
 			factor = 15
 		}
@@ -119,7 +119,7 @@ focus_tree = {
 
 		completion_reward = {
 			#custom_effect_tooltip = "TODO_JUNO: Add decision system"
-			add_war_support = 0.1
+			add_war_support = 0.05
 			custom_effect_tooltip = BRA_modify_aotci_ns_intro
 			add_to_variable = {
 				BRA_coup_neutrality_factor = 0.2
@@ -304,7 +304,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = BRA_tribunal_de_seguranca_nacional
-		cost = 10
+		cost = 5
 		available = {
 			OR = {
 				fascism > 0.50
@@ -1191,7 +1191,7 @@ focus_tree = {
 			BRA_remove_economy_modifier = yes	
 			add_tech_bonus = {
 				name = BRA_electronics_bonus
-				bonus = 0.4
+				bonus = 0.5
 				uses = 2
 				category = electronics
 			}			
@@ -1314,7 +1314,7 @@ focus_tree = {
 			}
 			add_tech_bonus = {
 				name = BRA_industry_bonus
-				bonus = 0.4
+				bonus = 0.5
 				uses = 2
 				category = industry
 			}			
@@ -1763,7 +1763,7 @@ focus_tree = {
 			ELSE = {
 				add_tech_bonus = {
 					name = BRA_nacional_de_motores_bonus
-					bonus = 0.75
+					bonus = 0.50
 					uses = 2
 					category = motorized_equipment
 				}
@@ -1899,7 +1899,7 @@ focus_tree = {
 		id = BRA_federal_development
 		icon = GFX_focus_generic_agricultural_subsidies
 		prerequisite = { focus = BRA_banco_do_brasil  }
-		x = -1
+		x = 0 
 		y = 1
 		relative_position_id = BRA_banco_do_brasil
 		#mutually_exclusive = { focus = BRA_centralize_development }
@@ -1943,65 +1943,65 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = BRA_centralize_development
-		icon = GFX_focus_BRA_new_capital
-		prerequisite = { focus = BRA_banco_do_brasil  }
-		x = 1
-		y = 1
-		relative_position_id = BRA_banco_do_brasil
-		#mutually_exclusive = { focus = BRA_federal_development }
-		cost = 5
-		ai_will_do = {
-			factor = 4
-		}
-		available = {
-		}
+	# focus = { #SPTChange remove weird capital focus
+	# 	id = BRA_centralize_development
+	# 	icon = GFX_focus_BRA_new_capital
+	# 	prerequisite = { focus = BRA_banco_do_brasil  }
+	# 	x = 1
+	# 	y = 1
+	# 	relative_position_id = BRA_banco_do_brasil
+	# 	#mutually_exclusive = { focus = BRA_federal_development }
+	# 	cost = 5
+	# 	ai_will_do = {
+	# 		factor = 4
+	# 	}
+	# 	available = {
+	# 	}
 
-		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+	# 	search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
 
-		completion_reward = {
-			custom_effect_tooltip = BRA_centralize_development_tt
-			set_capital = {
-				state = 505
-				remember_old_capital = no
-			}
-			505 = {
-				add_victory_points = {
-					province = 8140
-					value = 10
-				}
-				add_dynamic_modifier = { modifier = BRA_new_capital_modifier }
-				add_building_construction = {
-					type = supply_node
-					province = 8140
-					level = 1
-					instant_build = yes
-				}	
-				build_railway = {
-					level = 1
-					build_only_on_allied = yes
-					fallback = yes
-					start_province = 12977
-					target_province = 8140
-				}			
-			}
-			hidden_effect = {
-				set_province_name = { id = 8140 name = BRA_new_capital }
-			}
-			#500 = {
-			#	add_victory_points = {
-			#		province = 10980
-			#		value = -5
-			#	}
-			#}
-		}
-	}
+	# 	completion_reward = {
+	# 		custom_effect_tooltip = BRA_centralize_development_tt
+	# 		set_capital = {
+	# 			state = 505
+	# 			remember_old_capital = no
+	# 		}
+	# 		505 = {
+	# 			add_victory_points = {
+	# 				province = 8140
+	# 				value = 10
+	# 			}
+	# 			add_dynamic_modifier = { modifier = BRA_new_capital_modifier }
+	# 			add_building_construction = {
+	# 				type = supply_node
+	# 				province = 8140
+	# 				level = 1
+	# 				instant_build = yes
+	# 			}	
+	# 			build_railway = {
+	# 				level = 1
+	# 				build_only_on_allied = yes
+	# 				fallback = yes
+	# 				start_province = 12977
+	# 				target_province = 8140
+	# 			}			
+	# 		}
+	# 		hidden_effect = {
+	# 			set_province_name = { id = 8140 name = BRA_new_capital }
+	# 		}
+	# 		#500 = {
+	# 		#	add_victory_points = {
+	# 		#		province = 10980
+	# 		#		value = -5
+	# 		#	}
+	# 		#}
+	# 	}
+	# }
 
 	focus = {
 		id = BRA_financial_stimulation
 		icon = GFX_focus_BRA_growth
-		prerequisite = { focus = BRA_centralize_development focus = BRA_federal_development  }
+		prerequisite = { focus = BRA_federal_development  } #focus = BRA_centralize_development
 		x = 0
 		y = 2
 		relative_position_id = BRA_banco_do_brasil
@@ -4036,7 +4036,7 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = BRA_italian_truck_exchange
-				bonus = 0.75
+				bonus = 0.5
 				uses = 2
 				category = motorized_equipment 
 				category = cat_mechanized_equipment 
@@ -5155,6 +5155,7 @@ focus_tree = {
 			show_ideas_tooltip = BRA_jose_americo_de_almeida
 			show_ideas_tooltip = BRA_armando_de_sales_oliveira
 			show_ideas_tooltip = BRA_anisio_teixeira
+			show_ideas_tooltip = BRA_minervino_de_oliveira
 		}
 	}
 
@@ -5394,6 +5395,9 @@ focus_tree = {
 
 		completion_reward = {
 			add_ideas = BRA_international_crisis 
+			set_rule = {
+				can_send_volunteers = yes
+			}
 			#set_rule = {
 			#	can_join_factions = yes 
 			#}
@@ -5865,15 +5869,25 @@ focus_tree = {
 
 		completion_reward = {
 			add_political_power = 50
-			#add_country_leader_trait = JUNO_aligned_with_stalin	
-			BRA_luis_carlos_prestes = {
-				promote_leader = yes
-				#add_trait = {
-				#	trait = JUNO_aligned_with_stalin
-				#}
+			#BRA_luis_carlos_prestes = {
+			#	promote_leader = yes
+			#}
+			effect_tooltip = {
+				retire_country_leader = yes
 			}
-			retire_country_leader = yes
-			add_country_leader_trait = JUNO_aligned_with_stalin
+			add_country_leader_role = {
+				character = BRA_luis_carlos_prestes
+				promote_leader = yes
+				country_leader = {
+					ideology=marxism
+					expire="1965.1.1.1"
+					id=-1
+					traits = {
+						JUNO_aligned_with_stalin
+					}
+				}
+			}
+			#retire_country_leader = yes
 			remove_dynamic_modifier = {
 				modifier = BRA_weak_government
 			}
@@ -6483,7 +6497,7 @@ focus_tree = {
 				}
 	
 				create_operative_leader = {
-					name = "Robert Ivanov" #Ivan is dead, long live Robert, yes, I asked him beforehand
+					name = BRA_robert_ivanov 
 					traits = { operative_tough }
 					female = no
 					bypass_recruitment = yes
@@ -6491,7 +6505,7 @@ focus_tree = {
 					GFX = GFX_portrait_europe_generic_operative_male_5
 				}
 				create_operative_leader = {
-					name = "Nadiya Morozova"
+					name = BRA_nadiya_morozova 
 					traits = { operative_escape_artist }
 					female = yes
 					bypass_recruitment = yes
@@ -6507,7 +6521,7 @@ focus_tree = {
 				}
 
 				create_operative_leader = {
-					name = "Robert Ivanov" #Ivan is dead, long live Robert, yes, I asked him beforehand
+					name = BRA_robert_ivanov 
 					traits = { operative_tough }
 					female = no
 					bypass_recruitment = yes
@@ -6516,7 +6530,7 @@ focus_tree = {
 				}
 
 				create_operative_leader = {
-					name = "Nadiya Morozova"
+					name = BRA_nadiya_morozova 
 					traits = { operative_escape_artist }
 					female = yes
 					bypass_recruitment = yes
@@ -6770,7 +6784,7 @@ focus_tree = {
 				# Add character with propaganda bonus
 				add_ideas = BRA_sway_the_neighbors_lar
 				create_operative_leader = {
-					name = "Julieta Soria"
+					name = BRA_julieta_soria
 					traits = { operative_double_agent operative_natural_orator }
 					female = yes
 					bypass_recruitment = yes

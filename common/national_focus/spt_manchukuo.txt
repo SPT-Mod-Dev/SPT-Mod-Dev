@@ -929,10 +929,10 @@
 			JAP = {
 				country_event = spt.22
 				set_autonomy = {
-				target = MAN
-				autonomy_state = autonomy_spt_man_autonomous_china
-				end_wars = no
-				end_civil_wars = no
+					target = MAN
+					autonomy_state = autonomy_spt_man_autonomous_china
+					end_wars = no
+					end_civil_wars = no
 				}
 			}	
 		}
@@ -1152,9 +1152,23 @@
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			add_ideas = MAN_zaibatsu_loans
+				custom_effect_tooltip = SPT_MAN_pan_asia_tt
+				every_owned_state = {
+					limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					}
+					add_dynamic_modifier = {
+					modifier = SPT_MAN_pan_asian_integration
+					scope = MAN
+					}
+				}
+			}
 		}
 			
-	}
+	
+
+		
 
 	focus = {
 		id = SPT_MAN_improve_local_infrastructure
@@ -1421,13 +1435,6 @@
 		completion_reward = {
 			add_to_tech_sharing_group = co_prosperity_research
 			add_ideas = MAN_japanese_advisors
-			JAP = {
-				add_to_tech_sharing_group = co_prosperity_research
-			}
-			SIA = {
-				add_to_tech_sharing_group = co_prosperity_research
-			}
-			
 		}
 	}
 

@@ -133,6 +133,14 @@
 				uses = 1
 				category = artillery
 			}
+			if = {
+				limit = { has_dlc = "Arms Against Tyranny" }
+				add_doctrine_cost_reduction = {
+					cost_reduction = 0.5
+					uses = 1
+					category = special_forces_doctrine
+				}
+			}
 		}
 	}
 
@@ -367,8 +375,8 @@
 		completion_reward = {
 			add_tech_bonus = {
 				name = AST_fund_owen_gun_research
-				bonus = 3.0
-				uses = 1
+				bonus = 1.0
+				uses = 3
 				technology = tech_logistics_company
 				technology = tech_logistics_company2
 				technology = tech_logistics_company3
@@ -484,9 +492,17 @@
 		completion_reward = {
 			add_tech_bonus = {
 				name = AST_airborne_defence
-				bonus = 3.0
+				bonus = 1.0
 				uses = 1
 				category = para_tech
+			}
+			if = {
+				limit = { has_dlc = "Arms Against Tyranny" }
+				add_doctrine_cost_reduction = {
+					cost_reduction = 0.5
+					uses = 1
+					category = special_forces_doctrine
+				}
 			}
 		}
 	}
@@ -519,12 +535,33 @@
 		search_filters = { FOCUS_FILTER_RESEARCH  }
 
 		completion_reward = {
-			army_experience = 50	
-			add_doctrine_cost_reduction = {
-				name = AST_introduce_unconventional_warfare
-				cost_reduction = 0.5
-				uses = 1
-				category = land_doctrine
+			army_experience = 35
+			navy_experience = 35
+			if = {
+				limit = { has_dlc = "Arms Against Tyranny" }
+				custom_effect_tooltip = CHL_skip_one_line_tt
+				add_potential_special_forces_tree = yes
+				custom_effect_tooltip = CHL_skip_one_line_tt
+				add_doctrine_cost_reduction = {
+					name = AST_introduce_unconventional_warfare
+					cost_reduction = 0.5
+					uses = 1
+					category = special_forces_doctrine
+				}
+			}
+			else = {
+				add_doctrine_cost_reduction = {
+					name = AST_introduce_unconventional_warfare
+					cost_reduction = 0.5
+					uses = 1
+					category = land_doctrine
+				}
+				add_doctrine_cost_reduction = {
+					name = AST_introduce_unconventional_warfare
+					cost_reduction = 0.5
+					uses = 1
+					category = naval_doctrine
+				}
 			}
 		}
 	}
@@ -559,10 +596,18 @@
 		completion_reward = {
 			add_tech_bonus = {
 				name = AST_z_special_unit
-				bonus = 3.0
+				bonus = 1.0
 				uses = 1
 				category = marine_tech
 				category = para_tech
+			}
+			if = {
+				limit = { has_dlc = "Arms Against Tyranny" }
+				add_doctrine_cost_reduction = {
+					cost_reduction = 0.5
+					uses = 1
+					category = special_forces_doctrine
+				}
 			}
 		}
 	}
@@ -604,6 +649,14 @@
 				technology = tech_recon2
 				technology = tech_recon3
 				technology = tech_recon4
+			}
+			if = {
+				limit = { has_dlc = "Arms Against Tyranny" }
+				add_doctrine_cost_reduction = {
+					cost_reduction = 0.5
+					uses = 1
+					category = special_forces_doctrine
+				}
 			}
 		}
 	}
@@ -653,7 +706,7 @@
 		}
 	}
 
-	############################
+############################
 	####### AIR SECTION ########
 	############################
 
@@ -710,6 +763,7 @@
 						building = air_base
 						size > 1
 					}
+					NOT = { state = 674 }
 				}
 				add_building_construction = {
 					type = air_base
@@ -770,7 +824,7 @@
 			else = {
 				add_tech_bonus = {
 					name = AST_cac_boomerang
-					bonus = 0.75
+					bonus = 1.0
 					uses = 1
 					category = light_fighter
 				}
@@ -844,6 +898,7 @@
 						building = air_base
 						size > 1
 					}
+					NOT = { state = 674 }
 				}
 				add_building_construction = {
 					type = air_base
@@ -897,8 +952,8 @@
 				}
 				add_tech_bonus = {
 					name = AST_cac_woomera
-					bonus = 3.0
-					uses = 1
+					bonus = 1.0
+					uses = 3
 					category = cat_strategic_bomber
 					category = tactical_bomber
 					category = naval_air
@@ -913,8 +968,8 @@
 			else = {
 				add_tech_bonus = {
 					name = AST_cac_woomera
-					bonus = 2
-					uses = 1
+					bonus = 1
+					uses = 3
 					category = tactical_bomber
 					category = naval_air
 				}
@@ -1017,6 +1072,9 @@
 							building = radar_station
 							size > 0
 						}
+						NOT = {
+							state = 674
+						}
 					}
 					add_building_construction = {
 						type = radar_station
@@ -1034,6 +1092,9 @@
 						free_building_slots = {
 							building = radar_station
 							size > 0
+						}
+						NOT = {
+							state = 674
 						}
 					}
 					add_building_construction = {
@@ -1054,6 +1115,9 @@
 							building = radar_station
 							size > 0
 						}
+						NOT = {
+							state = 674
+						}
 					}
 					add_building_construction = {
 						type = radar_station
@@ -1071,6 +1135,9 @@
 							prioritize = { 521 872 }
 							limit = {
 								is_in_home_area = yes
+								NOT = {
+									state = 674
+								}
 							}
 							add_building_construction = {
 								type = radar_station
@@ -1084,6 +1151,9 @@
 							limit = {
 								NOT = { has_state_flag = AST_volunteer_air_observers_corps_radar1 }
 								is_in_home_area = yes
+								NOT = {
+									state = 674
+								}
 							}
 							add_building_construction = {
 								type = radar_station
@@ -1099,6 +1169,9 @@
 							free_building_slots = {
 								building = radar_station
 								size > 0
+							}
+							NOT = {
+								state = 674
 							}
 						}
 						add_building_construction = {
@@ -1117,6 +1190,9 @@
 							free_building_slots = {
 								building = radar_station
 								size > 0
+							}
+							NOT = {
+								state = 674
 							}
 						}
 						add_building_construction = {
@@ -1391,14 +1467,14 @@
 				}
 				add_building_construction = {
 					type = air_base
-					level = 2
+					level = 4
 					instant_build = yes
 				}
 			}
 			add_doctrine_cost_reduction = {
 				name = AST_dominate_the_skies
 				cost_reduction = 0.5
-				uses = 1
+				uses = 2
 				category = air_doctrine
 			}
 		}
@@ -1433,13 +1509,14 @@
 	###### NAVY SECTION ########
 	############################
 
+
 	focus = {
 		id = AST_cockatoo_island_shipyards
 		icon = GFX_goal_generic_construct_naval_dockyard
 		x = 11
 		y = 0
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -1467,15 +1544,18 @@
 				limit = {
 					has_state_flag = AST_cockatoo_island_shipyards_DY
 				}
-				add_extra_state_shared_building_slots = 3
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = dockyard
-					level = 3
+					level = 2
 					instant_build = yes
 				}
 			}
+			custom_effect_tooltip = available_designer
+			show_ideas_tooltip = Cockatoo_doe
 		}
 
+			
 		completion_reward = {
 			navy_experience = 25
 			random_owned_controlled_state = {
@@ -1484,19 +1564,21 @@
 					is_coastal = yes
 					free_building_slots = {
 						building = dockyard
-						size > 2
+						size > 1
 						include_locked = yes
 					}
 					NOT = { state = 674 }
 				}
-				add_extra_state_shared_building_slots = 3
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = dockyard
-					level = 3
+					level = 2
 					instant_build = yes
 				}
 				set_state_flag = AST_cockatoo_island_shipyards_DY
 			}
+			custom_effect_tooltip = available_designer
+			show_ideas_tooltip = Cockatoo_doe
 		}
 	}
 	
@@ -1570,9 +1652,7 @@
 			show_ideas_tooltip = evans_deakin_co
 		}
 	}
-
 	
-
 	focus = {
 		id = AST_protect_overseas_commerce
 		icon = GFX_goal_generic_navy_doctrines_tactics
@@ -1762,7 +1842,7 @@
 		id = AST_cruisers
 		icon = GFX_goal_generic_navy_battleship
 		prerequisite = { focus = AST_naval_auxiliary_patrol }
-		x = -1
+		x = 0
 		y = 4
 		relative_position_id = AST_cockatoo_island_shipyards
 
@@ -1801,7 +1881,7 @@
 		id = AST_pacific_area_navy
 		icon = GFX_goal_generic_navy_doctrines_tactics
 		prerequisite = { focus = AST_naval_auxiliary_patrol }
-		x = 1
+		x = 2
 		y = 4
 		relative_position_id = AST_cockatoo_island_shipyards
 
@@ -1944,6 +2024,7 @@
 			}
 
 			random_owned_state = {
+				prioritize = { 285 517 521 }
 				limit = {
 					free_building_slots = {
 						building = infrastructure
@@ -1961,6 +2042,7 @@
 			}
 
 			random_owned_state = {
+				prioritize = { 517 285 521 }
 				limit = {
 					free_building_slots = {
 						building = infrastructure
@@ -2050,7 +2132,7 @@
 		y = 2
 		relative_position_id = AST_standard_gauge_railway
 
-		cost = 10
+		cost = 8
 
 		ai_will_do = {
 			factor = 5
@@ -2361,9 +2443,16 @@
 		completion_reward = {
 			add_tech_bonus = {
 				name = AST_uranium_mining
-				bonus = 1.0
+				bonus = 0.5
 				uses = 2
 				category = nuclear
+			}
+			custom_effect_tooltip = CHL_skip_one_line_tt
+			add_tech_bonus = {
+				name = AST_uranium_mining
+				bonus = 1.0
+				uses = 2
+				category = excavation_tech
 			}
 		}
 	}

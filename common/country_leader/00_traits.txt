@@ -3340,7 +3340,7 @@ leader_traits = {
 	landbrugsminister = { #Agricultural Minister
 		random = no
 		sprite = 13
-		neutrality_drift = 0.1
+		# neutrality_drift = 0.1 # SPTchange
 		monthly_population = 0.05
 		consumer_goods_factor = -0.10
 		economy_cost_factor = -0.1
@@ -5482,10 +5482,11 @@ leader_traits = {
 	right_trade_unionist = {
 		random = no
 		sprite = 13
-		industrial_capacity_factory = 0.1
-		production_factory_max_efficiency_factor = 0.1
-		line_change_production_efficiency_factor = 0.1
-		production_factory_efficiency_gain_factor = -0.05
+		#SPT change, halved bonuses
+		industrial_capacity_factory = 0.05
+		production_factory_max_efficiency_factor = 0.05
+		line_change_production_efficiency_factor = 0.05
+		production_factory_efficiency_gain_factor = -0.15 #SPT change, -0.05 -> -0.15
 	}
 
 	#Tomsky Improved
@@ -5493,7 +5494,7 @@ leader_traits = {
 		random = no
 		sprite = 13
 		industrial_capacity_factory = 0.1
-		production_factory_max_efficiency_factor = 0.15
+		production_factory_max_efficiency_factor = 0.05 #SPT change 0.15 -> 0.05
 		line_change_production_efficiency_factor = 0.1
 	}
 
@@ -5501,8 +5502,8 @@ leader_traits = {
 	peoples_commissar_for_posts_and_telegraphs = {
 		random = no
 		sprite = 13
-		political_power_factor = 0.05
-		land_reinforce_rate = 0.02
+		political_power_factor = 0.15 #SPT change, 0.05 -> 0.15
+		land_reinforce_rate = 0.05 #SPT change 0.02 -> 0.05
 	}
 
 	#Zinovyev
@@ -10687,6 +10688,42 @@ leader_traits = {
 		ai_will_do = {
 			factor = 1
 		}
+	}
+
+	CAN_liberal_corporatist = {
+		random = no
+		sprite = 13
+
+		production_speed_infrastructure_factor = 0.1
+		drift_defence_factor = 0.15
+		research_speed_factor = 0.02
+	}
+
+	CAN_father_of_the_canadian_welfare_state = {
+		random = no
+		sprite = 13
+
+		production_speed_industrial_complex_factor = 0.05
+		stability_factor = 0.1
+	}
+
+	CAN_canadian_fuhrer = {
+		random = no
+		sprite = 13
+
+		political_power_factor = 0.15
+		war_support_factor = 0.05
+		fascism_drift = 0.02
+	}
+
+	CAN_social_gospel = {
+		random = no
+		sprite = 13
+
+		mobilization_speed = 0.15
+		stability_factor = 0.05
+		communism_drift = 0.02
+		neutrality_drift = 0.02
 	}
 
 }

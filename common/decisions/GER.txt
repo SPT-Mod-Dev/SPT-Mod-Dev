@@ -445,94 +445,6 @@ GER_case_anton_category = {
 
 #Category only allowed for GER
 GER_reichskommissariats = {
-	GER_reichskommissariat_norwegen = {
-
-		icon = ger_reichskommissariats
-
-		available = {
-			has_completed_focus = GER_form_the_reichskommissariats
-			has_government = fascism
-			controls_state = 110
-			controls_state = 142
-			controls_state = 143
-			controls_state = 144
-		}
-
-		cost = 0
-		ai_will_do = {
-			factor = 0
-			modifier = {
-				add = 1
-				ENG = { has_capitulated = yes }
-			}
-		}
-
-		visible = {
-			has_completed_focus = GER_form_the_reichskommissariats
-			has_government = fascism
-		}
-
-		complete_effect = {
-			if = {
-				limit = {
-					country_exists = NOR
-					NOT = { NOR = { has_government = fascism } }
-				}
-				hidden_effect = {
-					NOR = {
-						set_state_controller = 110
-						set_state_controller = 142
-						set_state_controller = 143
-						set_state_controller = 144
-					}
-				}
-				NOR = {
-					start_civil_war = {
-						ideology = fascism
-						size = 1
-
-						transfer_state = 110
-						transfer_state = 142
-						transfer_state = 143
-						transfer_state = 144
-						GER = {
-							puppet = PREV
-							set_autonomy = { target = PREV autonomy_state = autonomy_integrated_puppet }
-						}
-						set_cosmetic_tag = NOR_reichskommissariat
-						create_country_leader = {
-							name = "Josef Terboven"
-							desc = "POLITICS_JOSEF_TERBOVEN_DESC"
-							picture = GFX_portrait_Josef_Terboven
-							expire = "1965.1.1"
-							ideology = nazism
-							traits = {
-							}
-						}
-					}
-				}
-			}
-			else = {
-				NOR = {
-					transfer_state = 110
-					transfer_state = 142
-					transfer_state = 143
-					transfer_state = 144
-					set_cosmetic_tag = NOR_reichskommissariat
-					create_country_leader = {
-						name = "Josef Terboven"
-						desc = "POLITICS_JOSEF_TERBOVEN_DESC"
-						picture = GFX_portrait_Josef_Terboven
-						expire = "1965.1.1"
-						ideology = nazism
-						traits = {
-						}
-					}
-				}
-				set_autonomy = { target = NOR autonomy_state = autonomy_integrated_puppet }
-			}
-		}
-	}
 
 	GER_reichskommissariat_niederlande = {
 
@@ -575,7 +487,7 @@ GER_reichskommissariats = {
 					}
 				}
 				HOL = {
-					start_civil_war = { ideology = fascism size = 1 }
+					start_civil_war = { ideology = fascism size = 0 }
 				}
 				random_country = {
 					limit= {
@@ -663,7 +575,7 @@ GER_reichskommissariats = {
 					}
 				}
 				BEL = {
-					start_civil_war = { ideology = fascism size = 1 }
+					start_civil_war = { ideology = fascism size = 0 }
 				}
 				random_country = {
 					limit= {
@@ -762,7 +674,24 @@ GER_reichskommissariats = {
 		}
 
 		complete_effect = {
-			release_on_controlled = BLR
+			hidden_effect = {
+				11 = { add_core_of = BLR }
+				97 = { add_core_of = BLR }
+				189 = { add_core_of = BLR }
+				12 = { add_core_of = BLR }
+				190 = { add_core_of = BLR }
+				13 = { add_core_of = BLR }
+				191 = { add_core_of = BLR }
+				814 = { add_core_of = BLR }
+				815 = { add_core_of = BLR }
+				809 = { add_core_of = BLR }
+				808 = { add_core_of = BLR }
+				810 = { add_core_of = BLR }
+				813 = { add_core_of = BLR }
+				812 = { add_core_of = BLR }
+				811 = { add_core_of = BLR }
+				784 = { add_core_of = BLR }
+			}
 			BLR = {
 				set_state_controller = 11
 				set_state_controller = 784
@@ -789,6 +718,7 @@ GER_reichskommissariats = {
 				set_state_controller = 813
 				set_state_controller = 812
 				set_state_controller = 811
+				release_on_controlled = BLR
 				GER = {
 					puppet = PREV
 					if = {
@@ -801,7 +731,6 @@ GER_reichskommissariats = {
 						set_autonomy = { target = PREV autonomy_state = autonomy_reichskommissariat }
 					}
 				}
-
 				set_cosmetic_tag = BLR_reichskommissariat
 				create_country_leader = {
 					name = "Hinrich Lohse"
@@ -813,48 +742,31 @@ GER_reichskommissariats = {
 					}
 				}
 				hidden_effect = {
-					every_state = {
-						limit = {
-							OR = {
-								state = 11
-								state = 189
-								state = 12
-								state = 190
-								state = 13
-								state = 191
-								state = 784
-								state = 97
-								state = 814
-								state = 815
-								state = 809
-								state = 808
-								state = 810
-								state = 813
-								state = 812
-								state = 811
-							}
-							is_owned_by = GER
-						}
-						BLR = {
-							transfer_state = PREV
-						}
-					}
-					11 = { add_core_of = PREV }
-					97 = { add_core_of = PREV }
-					189 = { add_core_of = PREV }
-					12 = { add_core_of = PREV }
-					190 = { add_core_of = PREV }
-					13 = { add_core_of = PREV }
-					191 = { add_core_of = PREV }
-					814 = { add_core_of = PREV }
-					815 = { add_core_of = PREV }
-					809 = { add_core_of = PREV }
-					808 = { add_core_of = PREV }
-					810 = { add_core_of = PREV }
-					813 = { add_core_of = PREV }
-					812 = { add_core_of = PREV }
-					811 = { add_core_of = PREV }
-					784 = { add_core_of = PREV }
+					11 = { add_core_of = BLR }
+					97 = { add_core_of = BLR }
+					189 = { add_core_of = BLR }
+					12 = { add_core_of = BLR }
+					190 = { add_core_of = BLR }
+					13 = { add_core_of = BLR }
+					191 = { add_core_of = BLR }
+					814 = { add_core_of = BLR }
+					815 = { add_core_of = BLR }
+					809 = { add_core_of = BLR }
+					808 = { add_core_of = BLR }
+					810 = { add_core_of = BLR }
+					813 = { add_core_of = BLR }
+					812 = { add_core_of = BLR }
+					811 = { add_core_of = BLR }
+					784 = { add_core_of = BLR }
+					97 = { add_core_of = BLR }
+					94 = { add_core_of = BLR }
+					95 = { add_core_of = BLR }
+					96 = { add_core_of = BLR }
+					194 = { add_core_of = BLR }
+					204 = { add_core_of = BLR }
+					206 = { add_core_of = BLR }
+					207 = { add_core_of = BLR }
+					241 = { add_core_of = BLR }
 				}
 			}
 		}
@@ -869,7 +781,6 @@ GER_reichskommissariats = {
 			has_government = fascism
 			controls_state = 93
 			controls_state = 91
-			controls_state = 89
 			controls_state = 199
 			controls_state = 201
 			controls_state = 198
@@ -886,6 +797,15 @@ GER_reichskommissariats = {
 			controls_state = 221
 			controls_state = 228
 			controls_state = 227
+			controls_state = 834
+			OR = {
+				controls_state = 89
+				HUN = { controls_state = 89 }
+			}
+			OR = {
+				controls_state = 80
+				ROM = { controls_state = 80 }
+			}
 		}
 
 		cost = 0
@@ -904,11 +824,9 @@ GER_reichskommissariats = {
 		}
 
 		complete_effect = {
-			release_on_controlled = UKR
 			UKR = {
 				set_state_controller = 93
 				set_state_controller = 91
-				set_state_controller = 89
 				set_state_controller = 199
 				set_state_controller = 201
 				set_state_controller = 198
@@ -925,9 +843,31 @@ GER_reichskommissariats = {
 				set_state_controller = 221
 				set_state_controller = 228
 				set_state_controller = 227
+				set_state_controller = 834
+				if = {
+					limit = {
+						GER = { controls_state = 89 }
+					}
+					set_state_controller = 89
+				}
+				if = {
+					limit = {
+						GER = { controls_state = 80 }
+					}
+					set_state_controller = 80
+				}
+				release_on_controlled = UKR
 				GER = {
 					puppet = PREV
-					set_autonomy = { target = PREV autonomy_state = autonomy_integrated_puppet }
+					if = {
+						limit = {
+							NOT = { has_dlc = "Death or Dishonor" }
+						}
+						set_autonomy = { target = PREV autonomy_state = autonomy_integrated_puppet }
+					}
+					else = {
+						set_autonomy = { target = PREV autonomy_state = autonomy_reichskommissariat }
+					}
 				}
 				set_cosmetic_tag = UKR_reichskommissariat
 				create_country_leader = {
@@ -938,6 +878,29 @@ GER_reichskommissariats = {
 					ideology = nazism
 					traits = {
 					}
+				}
+				hidden_effect = {
+					93 = { add_core_of = UKR }
+					91 = { add_core_of = UKR }
+					199 = { add_core_of = UKR }
+					201 = { add_core_of = UKR }
+					198 = { add_core_of = UKR }
+					202 = { add_core_of = UKR }
+					193 = { add_core_of = UKR }
+					192 = { add_core_of = UKR }
+					203 = { add_core_of = UKR }
+					197 = { add_core_of = UKR }
+					225 = { add_core_of = UKR }
+					259 = { add_core_of = UKR }
+					226 = { add_core_of = UKR }
+					196 = { add_core_of = UKR }
+					200 = { add_core_of = UKR }
+					221 = { add_core_of = UKR }
+					228 = { add_core_of = UKR }
+					227 = { add_core_of = UKR }
+					834 = { add_core_of = UKR }
+					89 = { add_core_of = UKR }
+					80 = { add_core_of = UKR }
 				}
 			}
 		}

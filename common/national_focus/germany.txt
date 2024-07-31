@@ -316,14 +316,14 @@ focus_tree = {
 					is_core_of = ROOT
 					free_building_slots = {
 						building = industrial_complex
-						size > 1
+						size > 2
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 				
@@ -333,14 +333,14 @@ focus_tree = {
 					is_core_of = ROOT
 					free_building_slots = {
 						building = industrial_complex
-						size > 1
+						size > 2
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 				
@@ -1840,27 +1840,14 @@ focus_tree = {
 		available_if_capitulated = no
 		available = {
 			has_war_support > 0.49
+			has_war_with = ENG
 		}
-		complete_tooltip = {
-			every_state = {
-				limit = { has_state_flag = GER_german_war_economy }
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
+
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			if = {
-				limit = {
-					NOT = { has_idea = war_economy }
-					NOT = { has_idea = tot_economic_mobilisation }
-				}
-				add_ideas = war_economy
-			}
+			add_ideas = tot_economic_mobilisation
+			add_war_support = -0.05
+
 			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
@@ -1893,22 +1880,7 @@ focus_tree = {
 				}
 				set_state_flag = GER_german_war_economy
 			}
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = arms_factory
-						size > 1
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-				set_state_flag = GER_german_war_economy
-			}
+			
 		}
 	}
 
@@ -2647,7 +2619,7 @@ focus_tree = {
 		}
 
 		x = 0
-		y = 2
+		y = 3
 		relative_position_id = GER_army_innovation
 		cost = 10
 		ai_will_do = {
@@ -2757,12 +2729,6 @@ focus_tree = {
 						}	
 					}
 				}
-				add_tech_bonus = {
-					name = armor_bonus
-					bonus = 1.0
-					uses = 2
-					category = armor
-				}
 			}
 			else = {
 				effect_tooltip = {
@@ -2824,7 +2790,7 @@ focus_tree = {
 		icon = GFX_goal_generic_army_tanks
 		prerequisite = { focus = GER_soviet_treaty }
 		x = -1
-		y = 1
+		y = 2
 		relative_position_id = GER_soviet_treaty
 		cost = 10
 		ai_will_do = {
@@ -2957,7 +2923,7 @@ focus_tree = {
 	}
 	cancel_if_invalid = no
 	x = 1
-	y = 1
+	y = 2
 	relative_position_id = GER_soviet_treaty
 	cost = 10
 	ai_will_do = {
@@ -3070,7 +3036,7 @@ focus = {
 	id = GER_rhineland
 	icon = GFX_spt_focus_rhineland
 	mutually_exclusive = { focus = GER_oppose_hitler }
-	x = 29
+	x = 28
 	y = 0
 	cost = 10
 	available = {
@@ -3134,8 +3100,31 @@ focus = {
 		SWE = {
 			country_event = { id = AAT_germany.1 hours = 5 random_hours = 5 }
 		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = GER_norr_rights }
+				110 = { 
+					controller = { 
+						OR = {
+							AND = {
+								original_tag = NOR
+								has_government = fascism
+								NOT = { is_ally_with = GER }
+							}	
+							is_ally_with =  GER
+						}
+					}
+				}
+			}
+			GER = {
+				set_global_flag = GER_norr_rights
+				country_event = {
+					days = 3
+					id = spt.1
+				}
+			}
+		}
 
-		custom_effect_tooltip = if_they_accept_tt
 		#SPTChange hid tooltip
 		#effect_tooltip = {
 		#	SWE = {
@@ -3396,8 +3385,18 @@ focus = {
 	}
 	
 	available = {
-		is_subject = no
-		date > 1941.6.1
+		OR = {
+			AND = {
+			has_completed_focus = SPT_GER_three_year_plan
+			date > 1941.1.1
+			}
+			AND = {
+			has_completed_focus = GER_four_year_plan
+			date > 1941.3.1
+			}
+	   } 
+	}
+	allow_branch = {
 	}
 	x = 0
 	y = 1
@@ -3785,9 +3784,8 @@ focus = {
 	icon = GFX_spt_focus_eastern_claims
 	prerequisite = { focus = GER_anschluss }
 	available = { is_subject = no }
-	x = -4
-
-	y = 1
+	x = -3
+	y = 3
 	relative_position_id = GER_anschluss
 	cost = 8 #SPTChange 10 -> 8
 	bypass = {
@@ -3829,6 +3827,7 @@ focus = {
 	icon = GFX_spt_focus_danzig
 	prerequisite = { focus = GER_demand_memel }
 	prerequisite = { focus = GER_mol_rib_pact }
+	prerequisite = { focus = GER_end_of_czechoslovakia} #SPT change to make danzig or war require fate of czhecs
 	mutually_exclusive = { focus = GER_danzig_vs_slovakia }
 	will_lead_to_war_with = POL
 	available = {
@@ -3885,7 +3884,7 @@ focus = {
 		}
 	}
 	cancel_if_invalid = no
-	x = -1
+	x = 0
 	y = 1
 	relative_position_id = GER_demand_memel
 	cost = 1
@@ -4346,7 +4345,7 @@ focus = {
 		is_puppet = yes
 	}
 	cancel_if_invalid = yes
-	x = 4
+	x = 0
 	y = 1
 	relative_position_id = GER_anschluss
 	cost = 8 #SPTChange 10 -> 8
@@ -4669,10 +4668,10 @@ focus = {
 								NOT = { controls_state = 84 }
 							}
 							has_war_with = HUN
-							AND = {
-								is_in_faction_with = GER
-								HUN = { NOT = { is_in_faction_with = GER } }#GER should not want to give territory to Hungary if Romania joined the axis early.
-							}
+							# AND = { # SPTChange avoid bypassing
+							# 	is_in_faction_with = GER
+							# 	HUN = { NOT = { is_in_faction_with = GER } }#GER should not want to give territory to Hungary if Romania joined the axis early.
+							# }
 						}
 					}
 				}
@@ -4680,7 +4679,7 @@ focus = {
 					BUL = { is_friend_or_potential_friend_of_GER = no }
 					ROM = {
 						OR = {
-							NOT = { controls_state = 77 }
+							# NOT = { controls_state = 77 }
 							has_war_with = BUL					
 						}
 					}					
@@ -5006,6 +5005,9 @@ focus = {
 }	
 
 focus = {
+	allow_branch = {
+		always = no
+	}
 	id = GER_operation_tannenbaum
 	icon = GFX_focus_attack_switzerland
 	prerequisite = { focus = GER_war_with_france }
@@ -5072,7 +5074,7 @@ focus = {
 	bypass = {
 	}
 	cancel_if_invalid = yes
-	x = -2
+	x = -1
 	y = 1
 	relative_position_id = GER_war_with_france
 	cost = 10
@@ -5129,7 +5131,7 @@ focus = {
 focus = {
 	id = GER_naval_rearmament
 	icon = GFX_goal_generic_build_navy
-	x = 37
+	x = 36
 	y = 0
 	cost = 5
 	ai_will_do = {
@@ -9579,17 +9581,16 @@ focus = {
 	available = {
 		has_government = fascism
 	}
-	x = 0
+	x = 3
 	y = 1
 
-	cost = 10
+	cost = 5
 	ai_will_do = {
 		factor = 1
 	}
 	
 	completion_reward = {
 		custom_effect_tooltip = GER_reichskommissariats_tt
-		unlock_decision_tooltip = GER_reichskommissariat_norwegen
 		unlock_decision_tooltip = GER_reichskommissariat_niederlande
 		unlock_decision_tooltip = GER_reichskommissariat_belgien_nordfrankreich
 		unlock_decision_tooltip = GER_reichskommissariat_ostland
@@ -9604,11 +9605,11 @@ focus = {
 	icon = GFX_focus_POL_common_organization_of_society
 	prerequisite = { focus = GER_form_the_reichskommissariats }
 	available = {
-		has_war = no
-		POL = {exists = yes}
+		NOT = { GER = { has_war_with = POL } }
 	}
+	
 	cancel_if_invalid = yes
-	x = 0
+	x = -1
 	y = 1
 	relative_position_id = GER_form_the_reichskommissariats
 	cost = 10
@@ -9622,42 +9623,17 @@ focus = {
 }
 
 focus = {
-	id = GER_ben_compliance
-	icon = GFX_focus_hol_gateway_to_europe
-	prerequisite = { focus = GER_pol_compliance }
-	available = {
-		has_war = no
-		OR = {
-			BEL = {exists = yes}
-			HOL = {exists = yes}
-		}
-	}
-	cancel_if_invalid = yes
-	x = -1
-	y = 1
-	relative_position_id = GER_pol_compliance
-	cost = 10
-	ai_will_do = {
-		factor = 3
-	}
-	search_filters = { FOCUS_FILTER_ANNEXATION }
-	completion_reward = {
-		custom_effect_tooltip = GER_ben_compliance_tt
-	}
-}
-
-focus = {
 	id = GER_fra_compliance
 	icon = GFX_focus_focus_fra_border
-	prerequisite = { focus = GER_ben_compliance }
+	prerequisite = { focus = GER_pol_compliance }
 	available = {
-		has_war = no
-		FRA = {exists = yes}
+		NOT = { GER = { has_war_with = FRA } }
 	}
+	
 	cancel_if_invalid = yes
 	x = 0
 	y = 1
-	relative_position_id = GER_ben_compliance
+	relative_position_id = GER_pol_compliance
 	cost = 10
 	ai_will_do = {
 		factor = 3
@@ -9668,30 +9644,307 @@ focus = {
 	}
 }
 
-
-
 focus = {
-	id = GER_sca_compliance
-	icon = GFX_focus_SWI_embrace_panoramaheim
-	prerequisite = { focus = GER_pol_compliance }
+	id = GER_ben_compliance
+	icon = GFX_focus_hol_gateway_to_europe
+	prerequisite = { focus = GER_form_the_reichskommissariats }
 	available = {
-		has_war = no
 		OR = {
-			NOR = {exists = yes}
-			DEN = {exists = yes}
+			AND = {
+				any_other_country = {
+					original_tag = HOL
+					has_government = fascism
+					OR = {
+						is_in_faction_with = GER
+						is_subject_of = GER
+					}
+				}
+			}	
+			AND = {
+				any_other_country = {
+					original_tag = BEL
+					has_government = fascism
+					OR = {
+						is_in_faction_with = GER
+						is_subject_of = GER
+					}
+				}
+			}		
 		}
 	}
 	cancel_if_invalid = yes
 	x = 1
 	y = 1
-	relative_position_id = GER_pol_compliance
+	relative_position_id = GER_form_the_reichskommissariats
 	cost = 10
 	ai_will_do = {
 		factor = 3
 	}
-	search_filters = { FOCUS_FILTER_ANNEXATION }
+	search_filters = { FOCUS_FILTER_INDUSTRY }
 	completion_reward = {
-		custom_effect_tooltip = GER_sca_compliance_tt
+		if = {
+			limit = {
+				NOT = { 
+					AND = {
+						any_other_country = {
+							original_tag = HOL
+							has_government = fascism
+							OR = {
+								is_in_faction_with = GER
+								is_subject_of = GER
+							}
+						}
+					}				
+				}
+			}
+			custom_effect_tooltip = GER_integrate_FHO_tt
+		}
+		if = {
+			limit = {
+				NOT = { 
+					AND = {
+						any_other_country = {
+							original_tag = BEL
+							has_government = fascism
+							OR = {
+								is_in_faction_with = GER
+								is_subject_of = GER
+							}
+						}
+					}					
+				}
+			}
+			custom_effect_tooltip = GER_integrate_FBE_tt
+		}
+		if = {
+			limit = {	
+				any_other_country = {
+					original_tag = HOL
+					has_government = fascism
+					OR = {
+						is_in_faction_with = GER
+						is_subject_of = GER
+					}
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			FHO = {
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+		if = {
+			limit = {	
+				any_other_country = {
+					original_tag = BEL
+					has_government = fascism
+					OR = {
+						is_in_faction_with = GER
+						is_subject_of = GER
+					}
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			FBE = {
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+focus = {
+	id = GER_sca_compliance
+	icon = GFX_focus_SWI_embrace_panoramaheim
+	prerequisite = { focus = GER_ben_compliance }
+	available = {
+		OR = {
+			NOR = {
+				OR = {
+					is_in_faction_with = GER
+					is_subject_of = GER
+				}
+			}	
+			DEN = {
+				OR = {
+					is_in_faction_with = GER
+					is_subject_of = GER
+				}
+			}	
+		}
+	}
+	cancel_if_invalid = yes
+	x = 0
+	y = 1
+	relative_position_id = GER_ben_compliance
+	cost = 10
+	ai_will_do = {
+		factor = 3
+	}
+	
+	search_filters = { FOCUS_FILTER_INDUSTRY }
+	completion_reward = {
+		if = {
+			limit = {
+				NOT = { 
+					NOR = {
+						OR = {
+							is_in_faction_with = GER
+							is_subject_of = GER
+						}
+					}				
+				}
+			}
+			custom_effect_tooltip = GER_integrate_NOR_tt
+		}
+		if = {
+			limit = {
+				NOT = { 
+					DEN = {
+						OR = {
+							is_in_faction_with = GER
+							is_subject_of = GER
+						}
+					}				
+				}
+			}
+			custom_effect_tooltip = GER_integrate_DEN_tt
+		}
+		if = {
+			limit = {
+				NOR = {
+					is_in_faction_with = GER
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			NOR = {
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				DEN = {
+					OR = {
+					is_in_faction_with = GER
+					is_subject_of = GER
+					}
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			DEN = {
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -9737,7 +9990,7 @@ focus = {
 		}
 	}
 	cancel_if_invalid = no
-	x = 0
+	x = 1
 	y = 1
 	relative_position_id = GER_war_with_france
 	cost = 10
@@ -9749,6 +10002,5 @@ focus = {
 		add_ideas = triumphant_will
 	}
 }
-
-
 }
+

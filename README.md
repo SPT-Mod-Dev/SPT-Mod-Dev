@@ -1,5 +1,388 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.12.3
+
+### Military Industrial Orgs
+ - Policy 'Cutting Corners' effects halved
+
+### Soviet Union
+- Focus 'PC of mortar armament' now gives event to germany. Germany may accept or deny giving both or neither a research bonus
+- Tank Refurbshment Plant MIO armor cost reduction bonuses reduced by -1%
+
+### UK
+ - Hid imperial federation discussion decision
+ - Hid Narvik Crisis category
+
+
+### USA
+ - Unique Naval MIO traits granting dockyard output reduced to 2.5%, from 5%
+ - National Spirit 'Subsidized Naval Industry' dockyard output reduced to 5%, from 10%
+
+### Brazil
+ - Focus 'Experimental Weapons Development' research bonus no longer applies to nuclear technology
+ - Focus 'Programa Paralelo' Nuclear Technology research bonus reduced to 1 year ahead of time, from 2
+
+### Hungary
+ - Now gains Banat when handed all of Transylvania
+
+### Mongolia
+ - National Spirit 'Focusing on CAS production' CAS IC increased to -10%, from -30%
+ - National Spirit 'Focusing on fighter production' CAS IC increased to -10%, from -30%
+ - Focus 'Modern Day Heavy Cavalry' now grants 1 '1 year ahead of time' bonus, from 2 '2 year' bonuses
+
+
+### 3.12.2
+
+### Denmark
+ - Scattered more steel throughout the focus tree for MP tradeback QoL
+
+### SAF
+ - 'Suppress the Stormjaers' now gives -5% Fascism 
+
+### Soviet Union
+ - Focus 'Paced Industrialization' time to complete increased to 70 days, from 35
+ - Focus 'The Need for Policy Changes' political power reward decreased to 50, from 75
+ - Focus 'Dissent In the Party' political power reward decreased to 50, from 100
+ - Focus 'The Right Opposition' political power reward decreased to 25, from 75
+ - National Spirit 'Desperate Measures' now lasts for 365 days, from 180
+ - Focus 'Merge Tank and Material Plants' time to complete increased to 70 days, from 35
+
+### France
+ - Metropolitan and Colonial civilian factories now come with building slots
+
+### Romania
+ - Can no longer refuse Second Vienna Award
+
+### Commonwealth Shared Tree
+ - Focus 'Allied Economic Cooperation' MIO funds reward decreased to 500, from 750
+ - Focus 'Expand the Mining Towns' building slot reward decreased to 2, from 3
+ - Focuses 'Paratrooper Specialization' and 'Airplane Manufacturing' are no longer mutually exclusive
+
+### Officer Corp
+- Flexible Contracts, Global Presence, Surprise Attacks, Decisice Battle reworked
+
+### Submarines
+ - Removed Sub Engine 3, Sub 4, Snorkel 2
+ - Torpedo 3 cost 120 -> 250
+ - Reduced Snorkel 1 visibility -10% -> -5%
+ - Cruiser subs limited to one range module 
+
+### 3.12.1
+
+### Artillery
+ - Rocket artillery 1: Brkth 9 -> 18
+                       Soft attack 30 -> 33
+ - Rocket artillery 2: Brkth 12 -> 22
+                       Soft attack 38 -> 42
+ - Motorised rocket artillery 2: Brkth 12 -> 22
+                                 Soft attack 36 -> 42           
+
+### Soviet union
+
+
+### Air High Command
+ - Continuous strike: Cas mission efficiency +25% -> +15%
+                      Organisation damage +25% -> +15%
+                      Ground support +25% -> +15%
+
+### Air Designer 
+ - Rocket rail: Weight 1 -> 2
+                Tungsten cost 0 -> 1
+
+### 3.12.0 'Bigly'
+
+### General
+ - Paradox update implemented 
+ - Political raids stability penalty -10% -> -8%
+ - Updated generic organisations
+ - Acctually fix German North Africa bug (most of the time)
+
+### Commonwealth
+ - Expanded Shared Focus Tree with new 'Allied Economy' branch
+
+### Canada
+ - Brought into parity with vanilla additions from recent patches
+
+### United Kingdom
+ - Added 'Global Defense' alt-historical path
+ - Minor reorganization of 'Home Defense' focus branch
+ - Focus 'Military Training Act' now improves national spirit 'Prepare for the Inevitable' by -25% training time
+ - Focus 'Secure Iraq' now puppets Iraq and brings it into the war, instead of generating a war goal
+ - Focus 'Secure Iraq' now requires the UK to lose Lower Egypt to be taken
+ - Focus 'Embargo Germany' now causes all nations in faction with England to embargo germany
+ - Focus 'Prepare for the Inevitable' now takes 35 days to complete, from 70
+ - Focus 'Commonwealth Ties' now takes 70 days to complete, from 35
+
+### Free France
+ - Reworked intervention focuses
+
+### Bulgaria
+ - Added 'Appoint Right Wing Ministers' alt-historical path
+ - Readded 'The Third Bulgarian Empire' Focus
+
+### Soviet Union
+ - Added 'The Right Opposition' alt-historical path
+ - Tannu Tuva now starts as a puppet of the Soviet Union, to improve Right Opposition path experience
+
+### Finland
+ - 'Cooperation with Germany' adds military access with Germany
+                              removed guarantee        
+ - The Continuation War adds military access with the rest of the Axis  
+ - 'Communist Pressure' from 'Secure Leningrad' 365 days -> 150 days
+ - Upon Winter War Victory add 'Anti-Communist Pressure' for 90 days                 
+ - Upon Winter War Defeat add 'Communist Pressure' for 90 days
+ - Removed Market Subsidy from foreign amror and added -100% license cost and -5% Production to light tanks
+ - Removed Market Subsidy from Foreign Aircraft
+
+### New Zealand
+ - 'Bob Semple Tank' now provides a bonus for all armour
+
+### Denmark
+ - Add in-game tutorial tip under SPT Info decision category
+ - Streamline Danish occupation decisions for Germany, including reduced event times and removing options bad for everyone
+ - Remove all additional mil occupation penalties
+ - Further re-arrange and reduce time in Danish occupation focus tree
+ - Butter Front no longer removed from Germany upon Danish independence
+ - Add tooltip to 'Petition for Independence' focus to clarify that it unlocks the Danish political focus tree again
+ - Lower the starting autonomy in the Overlord Balance of Power
+ - Add German and Italian Tank MIOs to Denmark
+ - Reduce truce times with Allies from 6 months -> 1 day to avoid truce violations after joining the war on the Axis
+
+### AI 
+ - AI Japan will now annex China rather than puppeting them (for real)
+ - Added AI plan for Spain's focuses during the civil war
+
+### Hungary
+ - Joint air development - Removed market subsidy and changed to sharing group and 1 x100 boost to CAS/Fighters
+ - Added a new focus Foreign production Assistance which give a -10% production reduction to fighters, CAS and Tactical bombers
+ - Added a Mutally exclusive marine branch
+ - Ingenius designs Changed to Funding the air force, Provides MIO funds and 2x 50% Air bonus
+ - Form parachute Battalions changed- 1x 300% --> 1x 200%
+ - Joint tank Procurment - removed subsidy, now joins research group, Gives German Tank License Agreement, which provides license cost -100% and Medium and heavy tank production -5%
+ - Naval Tree Hidden 
+ - Establish the airforce - Air Exp 25 --> 50
+ - Added "Train with the Luftwaffe" and "Train with the Regia Aeronautica" - Mutally exclusive which provide air buffs
+
+### Italy
+ - Treaty with Germany - Removed subsidy, Added opinion factor, 1x 100% Synthetics ---> 2x 100% Synthetics 
+ - 'Ultimatum to Yugoslavia' Active time 14 -> 60 days 
+                             Yugoslavia will now always refuse
+
+### Spain
+ - Added 'Unite Iberia' focus
+ - 'Join the Allies' removed branch
+ - 'The Latin Bloc' removed branch
+
+### Mexico
+ - Heroic Military Collage 70 days --> 56 days
+ - Army Expansion Program 70 days --> 56 days
+ - Law On Industrial Promotrion 70 days --> 56 days
+ - NAFINSA Added an extra building slot and Mil
+ - Add tutorial tooltip to SPT Info
+ 
+### Australia
+ - Department of supply and development 70 --> 56 days
+
+### Netherlands
+ - Will now join Allies upon having a war declared against them
+
+
+### 3.11.3 'Where were you when soviet was kill'
+
+### General
+ - Added Mongolia to the 'Select Country' screen
+ - Added remaining playable nations to host tool
+ - Updated admiral traits to be in line with vanilla 
+ - Added new loading screen quotes
+
+### Germany
+ - Now can select which Quisling path Norway will choose
+ - Fix the Norrland resource event when Quisling's Coup fires
+ - 'Second Vienna Award' should no longer improperly bypass 
+ - Reworked compliance branch focuses for Scandanavia and Benelux
+
+### Japan
+ - Added a date check for Steady Development
+ - National Spirit 'Desperate Measures' will now be removed if BOP reaches at least 25% American Dominance
+ - Focus 'Guide The Zaibatsus' now takes 35 days to complete, from 70
+
+### Soviets
+ - Winter War war goal now doesn't expire
+ - 'Tula Arms Plant' production bonuses 10% -> 5%
+
+### Norway
+ - Removed the fascist resistance mechanic
+ - Removed Quisling's war goal focuses 
+
+### Spain
+ - 'Restore the Monarchy' now requires not being fascist
+
+### Brazil
+ - 'Support the Marines' correctly gives amphibious chassis tech 
+ - Added the mountaineer special forces focus branch
+ - Removed ability to have Minervino de Oliveira as leader and advisor
+
+### South Africa
+ - 'Police Windhoek' nows give 5% stability
+ - 'Secure Interests in Africa' nows give 10% stability
+
+### New Zealand
+ - 'Schofield Tank' now provides a bonus for all armour
+
+### Netherlands
+ -  Removed seawolf from Conrad Helfrich
+
+### AI 
+ - AI UK removed ability to warn for fleet size via naval treaty
+ - AI Soviets no longer naval invades Finland
+ - AI Japan will now annex China rather than puppeting them
+
+### Army Command
+ - 'Ideological Loyalty' Division recovery rate 20% -> 10% 
+                         Encirclement penalty -25% -> -10%
+
+### Air Force Command
+ - 'Steel heart steel wings' Cas damage reduction 15% -> 5%
+                             Air home defence factor 20% -> 10%
+ - 'Airborn heroes' Cas damage reduction 10% -> 5%
+                    Air home defence factor 15% -> 10%
+
+ ### Support companies
+ - Pioneers: marsh attack modifier +10% -> +20%
+
+
+### 3.11.2 'https://hoi4.paradoxwikis.com/AI_modding'
+
+### Major Nations
+ - Greatly improved AI behaviour 
+
+### Germany
+ - Can now declare war on the Soviet Union 3 months earlier (1.1.1941 or 1.3.1941 depending on which industry branch they have chosen)
+
+### France
+ - Potentially fixed an issue where French North Africa flips to Germany upon capitlation
+
+### Hungary
+ - 'Trade Deal with Germany' now properly applies Interventionism 
+
+### Siam 2.0
+ - Fixed Cultural Mandate decisions
+ - 'Elephants' and 'African Elephants': Added Elephant Recon Companies
+ - Added Bangkok Flooding event and related Pad Thai branch
+
+### 3.11.1 'wtf chafford went sicko mode'
+
+### General
+ - Removed Stickmiin's funny haha logo
+ - Fixed back button on new game screen
+ - Added all playable nations to 'interesting'
+ - Southern El Alamein tile changed to hills
+ - CAG Night Fighting fixed, and no longer limited to UK
+ - Some other balance and fixes
+
+### Army Spirits
+- Clarified percentage chances of new officer traits from army spirits
+- Moved Engineering Schools back to Superior Firepower
+
+### Pacific Front
+ - Added decisions to view targets before the bop is activated
+
+### Mediterranean Front
+ - Added decisions to view targets before the bop is activated
+
+### Winter War
+ - Added decisions to view objectives before the war begins
+
+### Tank Designer
+ - Heavy two man turret: soft and hard attack +5% -> +2.5%
+                          IC cost 4.5 -> 4
+ - Heavy three man turret: soft and hard attack +10% -> +5%
+                          IC cost 6.5 -> 6
+ - Heavy cannon I: Soft attack 29 -> 28.5
+                   Hard attack 23 -> 22.5
+ - Heavy cannon II: Soft attack 35 -> 34
+                    Hard attack 26 -> 25
+ - Heavy cannon III: Soft attack 40 -> 39
+                     Hard attack 34 -> 33
+
+### Submarine Designer
+ - Submarine 3/4 cost increased 1000x to prevent their construction
+
+### USA
+ - Moved 'Pacifism no More' to be available before 'Money Only', requiring Germany to complete 'Fate of Czechoslovakia'
+
+### France
+ - Removed ability to deny Hatay
+ - Make rearmament election event less punishing. Limited to France for now.
+
+### Siam
+ - Cultural Mandate focus overhaul
+ - 'Educate the Population': Completion time 70 -> 35 days
+ - 'Utilise Land': Building slots 2 -> 1
+ - 'Learn from Japan': Now adds Co-Prosperity tech sharing group
+ - 'Cooperate with Japan': Now adds more cooperation with Japan 
+                          Fascism 10% -> 0%
+ - 'Phibun, Prime Minister': Completion time 70 -> 7 days
+ - 'Actions are Stronger than Words': Completion time 35 -> 14 days
+ - RADAR focus builds RADAR
+ - Propaganda Techniques focus rework
+ - 'Thai Wartime Success' -> 'African Elephants'
+ - New political advisors available
+ - New MIOs available
+ - Now starts with two generals
+ - Better focus GFX for Zbra
+ - Added AI strategy
+ - Spelling and grammar fixes
+
+### Brazil 
+ - Base starting war support 50% -> 15%
+ - 'Ensure Montinued Military Support' Base war support 10% -> 5%
+                                       Focus time 35 days -> 70 days
+ - 'The Cohen Plan' Focus time 70 days -> 35 days
+
+### Japan
+ - Now starts in Co-Prosperity tech sharing group
+
+### Manchukuo
+ - Fixed Baba's autonomy states
+ - 'Invite Japanese Advisors': Now adds Co-Prosperity tech sharing group
+
+### Finland
+ - When joining the Continuation War, automatically declare on Monglia as well (if they are still in faction)
+
+### Commonwealth Minors
+ - Infrastructure focuses changed to prioritise useful states
+
+### Denmark
+ - Removed protectorate's resistance branch
+
+### 3.11.0 '2 weeks in Helsinki'
+
+#### General
+ - New Siam Focus Tree
+ - Readded Finland as a playable nation
+ - Increased MIO cost to 1 due to bugs
+ - SPT_no_resource_penalty now grants 50k base fuel gain
+
+#### Germany
+ - Prevented unintended focus tree paths (no more bokoen1 strategies sadge)
+ - German War Economy now sets your economy law to Total Mobilisation
+ - German War Economy now grants 4 military focuses, from 6
+ - Nationalize Steel Production now grants 6 military factories, from 4
+ - 'War with the USSR' mow available after 1st of march if germany does '3 year plan' path
+
+#### France
+ - Free France Focus Tree: added offmap civilian and military factories and dockyards to several focuses
+
+#### Canada
+ - Added decision to annex and core South Africa if it is controlled by AI
+
+### 3.10.2
+
+#### Soviet Union
+- Significantly nerfed the tank refurbishment mio
+- Increased consumer goods from "Third Five Year Plan" +10% -> +20%
+
 ### 3.10.1
 
 #### General
@@ -27,7 +410,7 @@
 ### Mongolia
  - Independent economy: Political power gain -0.1 -> -0.25
  - Collectivized Economy: Tanks cost modifiers -10% -> 0
-                       Production efficiency cap 0% -> 10%
+                          Production efficiency cap 0% -> 10%
 
 ### Italy
  - Focuses that require Politcal BOP now available after Mediterranean BOP activates
@@ -37,7 +420,6 @@
  - Relief of Command Army Experience 25% -> 15%
              Army Advisor Cost -50% -> 25%
 
-=======
 ### 3.8.7
 
 ### Mongolia

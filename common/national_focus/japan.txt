@@ -1917,7 +1917,11 @@
 			}
 			custom_effect_tooltip = SPT_JAP_strike_south_completed_tt
 			
-		unlock_decision_tooltip = JAP_declare_war_on_allies
+			unlock_decision_tooltip = JAP_declare_war_on_allies
+
+			hidden_effect = {
+				SIA = { country_event = { id = spt_sia.1 } }
+			}
 		}
 	}
 
@@ -2184,6 +2188,7 @@
 
 		available = {
 			CHI = {exists = no}
+			date < 1940.1.1
 		}
 
 		bypass = {
@@ -2901,9 +2906,8 @@
 		completion_reward = {
 			if = {
 				limit = { 
-					SIA = { 
-						is_ai = yes 
-					} 
+					SIA = { is_ai = yes } 
+					JAP = { is_ai = no }
 				}
 				annex_country = {
 					target = SIA
@@ -3101,7 +3105,7 @@
 		y = 1
 		relative_position_id = JAP_purge_the_kodoha_faction
 
-		cost = 10
+		cost = 5 #SPT change 10 -> 5
 
 		ai_will_do = {
 			factor = 3

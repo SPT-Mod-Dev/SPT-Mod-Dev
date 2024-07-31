@@ -4019,7 +4019,7 @@ focus_tree = {
 			add_political_power = 100 	
 			add_popularity = {
 				ideology = fascism 
-				popularity = -0.1
+				popularity = 0.2
 			}
 		}
 	}
@@ -4272,35 +4272,7 @@ focus_tree = {
 			}
 		}
 		available = {
-			NOT = { 
-				has_global_flag = NOR_quislings_coup_happened 
-				has_completed_focus = NOR_arrest_quisling
-			}
-			OR = {
-				if = {
-					limit = {
-						any_other_country = {
-							tag = GER 
-							has_government = fascism 
-							exists = yes 
-							has_capitulated = no 
-						}
-					}
-					GER = {
-						has_offensive_war_with = ROOT 
-					}
-				}
-				else = {
-					any_other_country = {
-						has_government = fascism 
-						capital_scope = {
-							is_on_continent = europe
-						}
-						has_offensive_war_with = ROOT
-					}
-				}	
-				has_country_flag = NOR_rejected_by_fascist_bully
-			}
+			# SPTChange 
 		}
 
 		bypass = {
@@ -4312,7 +4284,7 @@ focus_tree = {
 		completion_reward = {
 			add_popularity = {
 				ideology = fascism
-				popularity = 0.3
+				popularity = 0.4
 			}
 			if = {
 				limit = {
@@ -4327,7 +4299,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = NOR_quislings_regime
+		id = NOR_quislings_regime # SPTChange let Germany pick 
 		icon = GFX_focus_NOR_quislings_regime
 		prerequisite = { focus = NOR_quislings_coup }
 		mutually_exclusive = { focus = NOR_get_rid_of_quisling }
@@ -4337,13 +4309,23 @@ focus_tree = {
 		cost = 5
 		
 		available = {
+			hidden_trigger = {
+				has_country_flag = NOR_do_quisling
+			}
 			if = {
 				limit = {
-					has_variable = NOR_cw_democratic_norway
+					any_other_country = {
+						original_tag = NOR
+						NOT = { has_government = fascism }
+					}
+					has_variable = NOR_cw_democratic_norway	
 				}
 				var:NOR_cw_democratic_norway = {
 					has_capitulated = yes 
 				}
+			}
+			else = {
+				has_civil_war = no 
 			}
 			has_government = fascism
 			fascism > 0.5 
@@ -4370,8 +4352,8 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = NOR_get_rid_of_quisling
+	focus = { 
+		id = NOR_get_rid_of_quisling # SPTChange let Germany pick 
 		icon = GFX_focus_NOR_get_rid_of_quisling
 		prerequisite = { focus = NOR_quislings_coup }
 		mutually_exclusive = { focus = NOR_quislings_regime }
@@ -4380,14 +4362,20 @@ focus_tree = {
 		relative_position_id = NOR_quislings_coup
 		cost = 5
 		available = {
+			hidden_trigger = {
+				has_country_flag = NOR_dont_quisling
+			}
 			if = {
 				limit = {
 					has_variable = NOR_cw_democratic_norway
 				}
 				var:NOR_cw_democratic_norway = {
-					has_capitulated = yes 
+					OR = {
+						has_capitulated = yes 
+						exists = no 
+					}
 				}
-			}			
+			}				
 			has_government = fascism 
 			fascism > 0.5 
 		}
@@ -4405,7 +4393,7 @@ focus_tree = {
 			promote_character = {
 				character = NOR_josef_terboven
 				ideology = nazism
-			}			
+			}	
 		}
 	}
 
@@ -5038,9 +5026,9 @@ focus_tree = {
 			is_faction_leader = no 
 			if = {
 				limit = {
-					has_variable = NOR.NOR_cw_democratic_norway
+					has_variable = NOR.NOR_cw_democratic_norway 
 				}
-				var:NOR.NOR_cw_democratic_norway = {
+				var:NOR.NOR_cw_democratic_norway = { 
 					has_capitulated = yes 
 				}
 			}
@@ -5123,7 +5111,7 @@ focus_tree = {
 		}
 	}
 
-	focus = {
+	focus = { 
 		id = NOR_bring_back_quisling
 		icon = GFX_focus_NOR_bring_back_quisling
 		prerequisite = { focus = NOR_norwegian_reichsprotectorate }
@@ -5133,6 +5121,9 @@ focus_tree = {
 		relative_position_id = NOR_norwegian_reichsprotectorate
 		cost = 10
 		available = {
+		}
+		allow_branch = { # SPTChange all the homies hate Quisling
+			always = no
 		}
 
 		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
@@ -6003,17 +5994,18 @@ focus_tree = {
 		}
 	}
 	
-	focus = {
+	focus = { # SPTChange move to fit removed Bring back Quisling
 		id = NOR_reviving_the_norgesveldet
 		icon = GFX_focus_ICE_the_viking_spirit
-		prerequisite = { focus = NOR_ulfhedhnar_wolf_coats focus = NOR_bring_back_quisling }
+		prerequisite = { focus = NOR_ulfhedhnar_wolf_coats }
 
-		x = -2
+		x = 0
 		y = 1
 		relative_position_id = NOR_ulfhedhnar_wolf_coats
 		cost = 5
 		available = {
 		}
+		
 
 		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL }
 
@@ -6069,114 +6061,114 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = NOR_swedish_claims
-		icon = GFX_focus_generic_invade_sweden
-		prerequisite = { focus = NOR_our_royal_claims focus = NOR_reviving_the_norgesveldet }
+	# focus = { # SPTChange remove wargoals
+	# 	id = NOR_swedish_claims
+	# 	icon = GFX_focus_generic_invade_sweden
+	# 	prerequisite = { focus = NOR_our_royal_claims focus = NOR_reviving_the_norgesveldet }
 
-		x = 6
-		y = 1
+	# 	x = 6
+	# 	y = 1
 
-		relative_position_id = NOR_reviving_the_norgesveldet
+	# 	relative_position_id = NOR_reviving_the_norgesveldet
 
-		offset = {
-			x = -5
-			y = 0
-			trigger = {
-				has_hide_rule = yes
-				has_completed_focus = NOR_the_chamberlains_overture
-			}	
-		}
+	# 	offset = {
+	# 		x = -5
+	# 		y = 0
+	# 		trigger = {
+	# 			has_hide_rule = yes
+	# 			has_completed_focus = NOR_the_chamberlains_overture
+	# 		}	
+	# 	}
 
-		cost = 10
+	# 	cost = 10
 
-		available = {
-			NOT = {
-				owns_state = 915
-				owns_state = 916
-				owns_state = 917
-				has_war_with = 915.OWNER 
-				is_in_faction_with = 915.OWNER
-			}
-		}
+	# 	available = {
+	# 		NOT = {
+	# 			owns_state = 915
+	# 			owns_state = 916
+	# 			owns_state = 917
+	# 			has_war_with = 915.OWNER 
+	# 			is_in_faction_with = 915.OWNER
+	# 		}
+	# 	}
 
-		bypass = {
-			915 = {
-				is_owned_by = ROOT
-			}
-			916 = {
-				is_owned_by = ROOT
-			}
-			917 = {
-				is_owned_by = ROOT
-			}
+	# 	bypass = {
+	# 		915 = {
+	# 			is_owned_by = ROOT
+	# 		}
+	# 		916 = {
+	# 			is_owned_by = ROOT
+	# 		}
+	# 		917 = {
+	# 			is_owned_by = ROOT
+	# 		}
 			
-		}
+	# 	}
 
-		search_filters = { FOCUS_FILTER_ANNEXATION }
+	# 	search_filters = { FOCUS_FILTER_ANNEXATION }
 
-		completion_reward = {
-			915 = { # Yes, I know that there's a chance three different countries own these states but it's not worth the hassle trying to untangle that, so at least you'll get Bohuslän
-				OWNER = {
-					country_event = {
-						id = AAT_norway.17
-						hours = 3 
-					}
-					effect_tooltip = {
-						custom_effect_tooltip = if_they_accept
-						915 = { # Bohuslän 
-							transfer_state_to = NOR
-						}
-						if = {  # Dalarna  
-							limit = {
-								owns_state = 916
-							}
-							916 = { transfer_State_to = NOR }
-						}
-						if = { # Jämtland  
-							limit = {
-								owns_state = 917 
-							}
-							917 = { transfer_state_to = NOR }
-						}
-						custom_effect_tooltip = if_they_reject
-						915 = {  # Bohuslan
-							OWNER = {
-								ROOT = {
-									create_wargoal = {
-										type = take_state_focus
-										target = PREV 
-										generator = { 915 } 
-									}
-								}
-								if = {  # Dalarna  
-									limit = {
-										owns_state = 916
-									}
-									create_wargoal = {
-										type = take_state_focus
-										target = PREV
-										generator = { 916 } 
-									}
-								}
-								if = { # Jämtland  
-									limit = {
-										owns_state = 917 
-									}
-									create_wargoal = {
-										type = take_state_focus
-										target = PREV
-										generator = { 917 } 
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-			set_country_flag = NOR_claiming_sweden
-		}
-	}
+	# 	completion_reward = {
+	# 		915 = { # Yes, I know that there's a chance three different countries own these states but it's not worth the hassle trying to untangle that, so at least you'll get Bohuslän
+	# 			OWNER = {
+	# 				country_event = {
+	# 					id = AAT_norway.17
+	# 					hours = 3 
+	# 				}
+	# 				effect_tooltip = {
+	# 					custom_effect_tooltip = if_they_accept
+	# 					915 = { # Bohuslän 
+	# 						transfer_state_to = NOR
+	# 					}
+	# 					if = {  # Dalarna  
+	# 						limit = {
+	# 							owns_state = 916
+	# 						}
+	# 						916 = { transfer_State_to = NOR }
+	# 					}
+	# 					if = { # Jämtland  
+	# 						limit = {
+	# 							owns_state = 917 
+	# 						}
+	# 						917 = { transfer_state_to = NOR }
+	# 					}
+	# 					custom_effect_tooltip = if_they_reject
+	# 					915 = {  # Bohuslan
+	# 						OWNER = {
+	# 							ROOT = {
+	# 								create_wargoal = {
+	# 									type = take_state_focus
+	# 									target = PREV 
+	# 									generator = { 915 } 
+	# 								}
+	# 							}
+	# 							if = {  # Dalarna  
+	# 								limit = {
+	# 									owns_state = 916
+	# 								}
+	# 								create_wargoal = {
+	# 									type = take_state_focus
+	# 									target = PREV
+	# 									generator = { 916 } 
+	# 								}
+	# 							}
+	# 							if = { # Jämtland  
+	# 								limit = {
+	# 									owns_state = 917 
+	# 								}
+	# 								create_wargoal = {
+	# 									type = take_state_focus
+	# 									target = PREV
+	# 									generator = { 917 } 
+	# 								}
+	# 							}
+	# 						}
+	# 					}
+	# 				}
+	# 			}
+	# 		}
+	# 		set_country_flag = NOR_claiming_sweden
+	# 	}
+	# }
 
 	focus = {
 		id = NOR_claims_on_faroe_islands
@@ -6374,728 +6366,728 @@ focus_tree = {
 			}
 		}
 	}
-	focus = {
-		id = NOR_claims_on_denmark
-		icon = GFX_focus_generic_invade_denmark
-		prerequisite = { focus = NOR_reviving_the_norgesveldet focus = NOR_our_royal_claims }
+# 	focus = { # SPTChange remove wargoals
+# 		id = NOR_claims_on_denmark
+# 		icon = GFX_focus_generic_invade_denmark
+# 		prerequisite = { focus = NOR_reviving_the_norgesveldet focus = NOR_our_royal_claims }
 
-		x = 4
-		y = 1
-		relative_position_id = NOR_reviving_the_norgesveldet
+# 		x = 4
+# 		y = 1
+# 		relative_position_id = NOR_reviving_the_norgesveldet
 		
-		offset = {
-			x = -5
-			y = 0 
-			trigger = {
-				has_hide_rule = yes
-				has_completed_focus = NOR_the_chamberlains_overture
-			}
-		}
+# 		offset = {
+# 			x = -5
+# 			y = 0 
+# 			trigger = {
+# 				has_hide_rule = yes
+# 				has_completed_focus = NOR_the_chamberlains_overture
+# 			}
+# 		}
 
-		cost = 10
-		available = {
-			NOT = { owns_state = 37 }	
-			if = {
-				limit = {
-					has_government = neutrality 
-				}
-				DEN = {
-					exists = yes 
-					has_capitulated = no 
-					NOT = { 
-						is_in_faction_with = ROOT 
-						has_war_with = ROOT 
-					}
-					controls_state = 37  
-				}
-			}
-			else = {
-				NOT = {
-					is_in_faction_with = 37.OWNER
-					has_war_with = 37.OWNER
-				}
-			}
-			if = {
-				limit = {
-					DEN = { is_subject = yes }
-					ROOT = { is_subject = yes }
-				}
-				NOT = {
-					OVERLORD = { tag = DEN.overlord	}
-				}
-			}
-		}
+# 		cost = 10
+# 		available = {
+# 			NOT = { owns_state = 37 }	
+# 			if = {
+# 				limit = {
+# 					has_government = neutrality 
+# 				}
+# 				DEN = {
+# 					exists = yes 
+# 					has_capitulated = no 
+# 					NOT = { 
+# 						is_in_faction_with = ROOT 
+# 						has_war_with = ROOT 
+# 					}
+# 					controls_state = 37  
+# 				}
+# 			}
+# 			else = {
+# 				NOT = {
+# 					is_in_faction_with = 37.OWNER
+# 					has_war_with = 37.OWNER
+# 				}
+# 			}
+# 			if = {
+# 				limit = {
+# 					DEN = { is_subject = yes }
+# 					ROOT = { is_subject = yes }
+# 				}
+# 				NOT = {
+# 					OVERLORD = { tag = DEN.overlord	}
+# 				}
+# 			}
+# 		}
 
-		bypass = {
-			37 = {
-				is_owned_by = ROOT
-			}
-		}
+# 		bypass = {
+# 			37 = {
+# 				is_owned_by = ROOT
+# 			}
+# 		}
 
-		search_filters = { FOCUS_FILTER_ANNEXATION }
+# 		search_filters = { FOCUS_FILTER_ANNEXATION }
 
-		completion_reward = {
-			if = {
-				limit = {
-					DEN = {
-						exists = yes 
-						NOR_is_only_core_denmark = yes 
-					}
-				}
-				DEN = {
-					country_event = {
-						id = AAT_norway.17
-						hours = 3 
-					}
-				}
-				effect_tooltip = {
-					custom_effect_tooltip = if_they_accept
-					annex_country = {
-						target = DEN
-						transfer_troops = yes
-					}						
-				}		
-				custom_effect_tooltip = if_they_reject
-				create_wargoal = {
-					type = annex_everything
-					target = DEN
-				}
-			}
-			else = {
-				37 = {
-					OWNER = {
-						country_event = {
-							id = AAT_norway.17
-							hours = 3 
-						}
-					}
-				}	
-				effect_tooltip = {
-					custom_effect_tooltip = if_they_accept
-					37 = {
-						transfer_state_to = NOR
-						OWNER = {
-							912 = {
-								if = {
-									limit = {
-										is_owned_and_controlled_by = PREV 
-									}
-									transfer_state_to = NOR 
-								}
-							}
-							99 = {
-								if = {
-									limit = {
-										is_owned_and_controlled_by = PREV 
-									}
-									transfer_state_to = NOR 
-								}
-							}
-							911 = {
-								if = {
-									limit = {
-										is_owned_and_controlled_by = PREV 
-									}
-									transfer_state_to = NOR 
-								}
-							}
-							910 = {
-								if = {
-									limit = {
-										is_owned_and_controlled_by = PREV 
-									}
-									transfer_state_to = NOR 
-								}
-							}
-						}
-						custom_effect_tooltip = if_they_reject	
-						OWNER = {
-							ROOT = {
-								create_wargoal = {
-									type = take_state_focus
-									target = PREV
-									generator = { 37 } 
-								}
-							}
-						}
-					}
-				}
-			}
-			set_country_flag = NOR_claiming_denmark
-		}
-	}
+# 		completion_reward = {
+# 			if = {
+# 				limit = {
+# 					DEN = {
+# 						exists = yes 
+# 						NOR_is_only_core_denmark = yes 
+# 					}
+# 				}
+# 				DEN = {
+# 					country_event = {
+# 						id = AAT_norway.17
+# 						hours = 3 
+# 					}
+# 				}
+# 				effect_tooltip = {
+# 					custom_effect_tooltip = if_they_accept
+# 					annex_country = {
+# 						target = DEN
+# 						transfer_troops = yes
+# 					}						
+# 				}		
+# 				custom_effect_tooltip = if_they_reject
+# 				create_wargoal = {
+# 					type = annex_everything
+# 					target = DEN
+# 				}
+# 			}
+# 			else = {
+# 				37 = {
+# 					OWNER = {
+# 						country_event = {
+# 							id = AAT_norway.17
+# 							hours = 3 
+# 						}
+# 					}
+# 				}	
+# 				effect_tooltip = {
+# 					custom_effect_tooltip = if_they_accept
+# 					37 = {
+# 						transfer_state_to = NOR
+# 						OWNER = {
+# 							912 = {
+# 								if = {
+# 									limit = {
+# 										is_owned_and_controlled_by = PREV 
+# 									}
+# 									transfer_state_to = NOR 
+# 								}
+# 							}
+# 							99 = {
+# 								if = {
+# 									limit = {
+# 										is_owned_and_controlled_by = PREV 
+# 									}
+# 									transfer_state_to = NOR 
+# 								}
+# 							}
+# 							911 = {
+# 								if = {
+# 									limit = {
+# 										is_owned_and_controlled_by = PREV 
+# 									}
+# 									transfer_state_to = NOR 
+# 								}
+# 							}
+# 							910 = {
+# 								if = {
+# 									limit = {
+# 										is_owned_and_controlled_by = PREV 
+# 									}
+# 									transfer_state_to = NOR 
+# 								}
+# 							}
+# 						}
+# 						custom_effect_tooltip = if_they_reject	
+# 						OWNER = {
+# 							ROOT = {
+# 								create_wargoal = {
+# 									type = take_state_focus
+# 									target = PREV
+# 									generator = { 37 } 
+# 								}
+# 							}
+# 						}
+# 					}
+# 				}
+# 			}
+# 			set_country_flag = NOR_claiming_denmark
+# 		}
+# 	}
 
-	focus = {
-		id = NOR_bjarmeland
-		icon = GFX_goal_generic_more_territorial_claims
-		prerequisite = { focus = NOR_claims_on_denmark focus = NOR_swedish_claims }
+# 	focus = {
+# 		id = NOR_bjarmeland
+# 		icon = GFX_goal_generic_more_territorial_claims
+# 		prerequisite = { focus = NOR_claims_on_denmark focus = NOR_swedish_claims }
 
-		x = 1
-		y = 1
-		relative_position_id = NOR_claims_on_denmark
-		cost = 10
-		available = {
-			NOT = {
-				owns_state = 213
-				owns_state = 214
-				owns_state = 215
-				has_war_with = 213.OWNER
-				is_in_faction_with = 213.OWNER
-			}
-			OR = {
-				213 = {	is_controlled_by = 213.OWNER }
-				213 = { is_controlled_by = ROOT }
-			}
-		}
+# 		x = 1
+# 		y = 1
+# 		relative_position_id = NOR_claims_on_denmark
+# 		cost = 10
+# 		available = {
+# 			NOT = {
+# 				owns_state = 213
+# 				owns_state = 214
+# 				owns_state = 215
+# 				has_war_with = 213.OWNER
+# 				is_in_faction_with = 213.OWNER
+# 			}
+# 			OR = {
+# 				213 = {	is_controlled_by = 213.OWNER }
+# 				213 = { is_controlled_by = ROOT }
+# 			}
+# 		}
 
-		bypass = {
-			213 = {
-				is_owned_by = ROOT
-			}
-			214 = {
-				is_owned_by = ROOT
-			}
-			215 = {
-				is_owned_by = ROOT
-			}
-		}
+# 		bypass = {
+# 			213 = {
+# 				is_owned_by = ROOT
+# 			}
+# 			214 = {
+# 				is_owned_by = ROOT
+# 			}
+# 			215 = {
+# 				is_owned_by = ROOT
+# 			}
+# 		}
 
-		search_filters = { FOCUS_FILTER_ANNEXATION }
+# 		search_filters = { FOCUS_FILTER_ANNEXATION }
 
-		completion_reward = {
-			set_country_flag = NOR_claiming_bjarmeland
-			213 = { # Using Murmansk because it's the closest one to Norway  
-				OWNER = {
-					country_event = {
-						id = AAT_norway.17
-						hours = 3 
-					}
-					effect_tooltip = {
-						custom_effect_tooltip = if_they_accept
+# 		completion_reward = {
+# 			set_country_flag = NOR_claiming_bjarmeland
+# 			213 = { # Using Murmansk because it's the closest one to Norway  
+# 				OWNER = {
+# 					country_event = {
+# 						id = AAT_norway.17
+# 						hours = 3 
+# 					}
+# 					effect_tooltip = {
+# 						custom_effect_tooltip = if_they_accept
 		
-						213 = { # Murmansk 
-							transfer_state_to = NOR
-						}
-						if = {  # Arkhangelsk  
-							limit = {
-								owns_state = 214
-							}
-							214 = { transfer_State_to = NOR }
-						}
-						if = { # Onega  
-							limit = {
-								owns_state = 215 
-							}
-							215 = { transfer_state_to = NOR }
-						}
-						custom_effect_tooltip = if_they_reject
-						ROOT = {
-							create_wargoal = {
-								type = take_state_focus
-								target = PREV
-								generator = { 213 } 
-							}
-						}
-						if = {  #  Arkhangelsk 
-							limit = {
-								owns_state = 214
-							}
-							ROOT = {
-								create_wargoal = {
-									type = take_state_focus
-									target = PREV
-									generator = { 214 } 
-								}
-							}
-						}
-						if = { # Onega  
-							limit = {
-								owns_state = 215 
-							}
-							ROOT = {
-								create_wargoal = {
-									type = take_state_focus
-									target = PREV
-									generator = { 215 } 
-								}
-							}
-						}
+# 						213 = { # Murmansk 
+# 							transfer_state_to = NOR
+# 						}
+# 						if = {  # Arkhangelsk  
+# 							limit = {
+# 								owns_state = 214
+# 							}
+# 							214 = { transfer_State_to = NOR }
+# 						}
+# 						if = { # Onega  
+# 							limit = {
+# 								owns_state = 215 
+# 							}
+# 							215 = { transfer_state_to = NOR }
+# 						}
+# 						custom_effect_tooltip = if_they_reject
+# 						ROOT = {
+# 							create_wargoal = {
+# 								type = take_state_focus
+# 								target = PREV
+# 								generator = { 213 } 
+# 							}
+# 						}
+# 						if = {  #  Arkhangelsk 
+# 							limit = {
+# 								owns_state = 214
+# 							}
+# 							ROOT = {
+# 								create_wargoal = {
+# 									type = take_state_focus
+# 									target = PREV
+# 									generator = { 214 } 
+# 								}
+# 							}
+# 						}
+# 						if = { # Onega  
+# 							limit = {
+# 								owns_state = 215 
+# 							}
+# 							ROOT = {
+# 								create_wargoal = {
+# 									type = take_state_focus
+# 									target = PREV
+# 									generator = { 215 } 
+# 								}
+# 							}
+# 						}
 						
-					}
-				}
-			}
-		}
-	}
+# 					}
+# 				}
+# 			}
+# 		}
+# 	}
 
-	focus = {
-		id = NOR_claims_on_ireland
-		icon = GFX_goal_generic_territory_or_war
-		prerequisite = { focus = NOR_reviving_the_norgesveldet }
+# 	focus = { 
+# 		id = NOR_claims_on_ireland
+# 		icon = GFX_goal_generic_territory_or_war
+# 		prerequisite = { focus = NOR_reviving_the_norgesveldet }
 
-		x = 0
-		y = 1
-		relative_position_id = NOR_reviving_the_norgesveldet
-		cost = 10
-		available = {
-			NOT = {
-				owns_state = 113
-				has_war_with = 113.OWNER
-			}
-			113 = { 
-				OR = {
-					is_controlled_by = 113.OWNER 
-					is_controlled_by = ROOT 
-				}
-			}
-		}
+# 		x = 0
+# 		y = 1
+# 		relative_position_id = NOR_reviving_the_norgesveldet
+# 		cost = 10
+# 		available = {
+# 			NOT = {
+# 				owns_state = 113
+# 				has_war_with = 113.OWNER
+# 			}
+# 			113 = { 
+# 				OR = {
+# 					is_controlled_by = 113.OWNER 
+# 					is_controlled_by = ROOT 
+# 				}
+# 			}
+# 		}
 
-		search_filters = { FOCUS_FILTER_ANNEXATION }
+# 		search_filters = { FOCUS_FILTER_ANNEXATION }
 
-		completion_reward = {
-			set_country_flag = NOR_claiming_ireland
-			113 = {
-				OWNER = {
-					country_event = {
-						id = AAT_norway.17
-						hours = 3 
-					}
-				}
-			}
-			effect_tooltip = {
-				custom_effect_tooltip = if_they_accept
-				113 = {
-					transfer_state_to = ROOT
-				}
-				custom_effect_tooltip = if_they_reject
-				113 = {
-					OWNER = {
-						ROOT = {
-							create_wargoal = {
-								type = take_state_focus
-								target = PREV
-								generator = { 113 } 
-							}
-						}
-					}
-				}
-			}		
-		}
-	}
+# 		completion_reward = {
+# 			set_country_flag = NOR_claiming_ireland
+# 			113 = {
+# 				OWNER = {
+# 					country_event = {
+# 						id = AAT_norway.17
+# 						hours = 3 
+# 					}
+# 				}
+# 			}
+# 			effect_tooltip = {
+# 				custom_effect_tooltip = if_they_accept
+# 				113 = {
+# 					transfer_state_to = ROOT
+# 				}
+# 				custom_effect_tooltip = if_they_reject
+# 				113 = {
+# 					OWNER = {
+# 						ROOT = {
+# 							create_wargoal = {
+# 								type = take_state_focus
+# 								target = PREV
+# 								generator = { 113 } 
+# 							}
+# 						}
+# 					}
+# 				}
+# 			}		
+# 		}
+# 	}
 
-	focus = {
-		id = NOR_claims_on_scotland
-		icon = GFX_focus_generic_annex_country_2
-		prerequisite = { focus = NOR_reviving_the_norgesveldet }
+# 	focus = {
+# 		id = NOR_claims_on_scotland
+# 		icon = GFX_focus_generic_annex_country_2
+# 		prerequisite = { focus = NOR_reviving_the_norgesveldet }
 
-		x = 2
-		y = 0
-		relative_position_id = NOR_claims_on_ireland
-		cost = 10
-		available = {
-			NOT = {
-				AND = {
-					owns_state = 120
-					owns_state = 933 
-				}
-			}
-			if = {
-				limit = {
-					120 = {
-						OWNER = {
-							tag = 933.OWNER 
-						}
-					}
-				}
-				NOT = {	has_war_with = 933.OWNER }
-			}
-			else = {
-				OR = {
-					NOT = {	has_war_with = 120.OWNER }
-					NOT = {	has_war_with = 933.OWNER }
-				}
-			}
-			OR = {
-				120 = { is_controlled_by = 120.OWNER }
-				120 = { is_controlled_by = ROOT }
-				933 = { is_controlled_by = 933.OWNER }
-				933 = { is_controlled_by = ROOT }
-			}
-		}
+# 		x = 2
+# 		y = 0
+# 		relative_position_id = NOR_claims_on_ireland
+# 		cost = 10
+# 		available = {
+# 			NOT = {
+# 				AND = {
+# 					owns_state = 120
+# 					owns_state = 933 
+# 				}
+# 			}
+# 			if = {
+# 				limit = {
+# 					120 = {
+# 						OWNER = {
+# 							tag = 933.OWNER 
+# 						}
+# 					}
+# 				}
+# 				NOT = {	has_war_with = 933.OWNER }
+# 			}
+# 			else = {
+# 				OR = {
+# 					NOT = {	has_war_with = 120.OWNER }
+# 					NOT = {	has_war_with = 933.OWNER }
+# 				}
+# 			}
+# 			OR = {
+# 				120 = { is_controlled_by = 120.OWNER }
+# 				120 = { is_controlled_by = ROOT }
+# 				933 = { is_controlled_by = 933.OWNER }
+# 				933 = { is_controlled_by = ROOT }
+# 			}
+# 		}
 
-		search_filters = { FOCUS_FILTER_ANNEXATION }
+# 		search_filters = { FOCUS_FILTER_ANNEXATION }
 
-		completion_reward = {
-			set_country_flag = NOR_claiming_scotland
-			if = {
-				limit = {
-					any_other_country = { # Checking if the UK still owns both 
-						owns_state = 120 
-						owns_state = 933
-						controls_state = 120  
-						controls_state = 933
-					}
-				}
-				120 = { 
-					OWNER = {
-						country_event = {
-							id = AAT_norway.17
-							hours = 3 
-						}
-					}
-				}
-				effect_tooltip = {
-					custom_effect_tooltip = if_they_accept
-					120 = {
-						transfer_state_to = NOR
-					}
-					933 = {
-						transfer_state_to = NOR
-					}
-					custom_effect_tooltip = if_they_reject
-					120 = {
-						OWNER = {
-							ROOT = {
-								create_wargoal = {
-									type = take_state_focus
-									target = PREV
-									generator = { 120 } 
-								}
-							}
-						}
-					}
-				}
-			}
-			else = {
-				120 = {
-					OWNER = {
-						country_event = {
-							id = AAT_norway.17
-							hours = 3 
-						}
-						effect_tooltip = {
-							custom_effect_tooltip = if_they_accept
-							120 = {
-								transfer_state_to = NOR
-							}
-							custom_effect_tooltip = if_they_reject
-							ROOT = {
-								create_wargoal = {
-									type = take_state_focus
-									target = PREV
-									generator = { 120 } 
-								}
-							}
-						}		
-					}
-				}
-				933 = {
-					OWNER = {
-						country_event = {
-							id = AAT_norway.17
-							hours = 3 
-						}
-						effect_tooltip = {
-							custom_effect_tooltip = if_they_accept
-							933 = {
-								transfer_state_to = NOR
-							}
-							custom_effect_tooltip = if_they_reject
-							ROOT = {
-								create_wargoal = {
-									type = take_state_focus
-									target = PREV
-									generator = { 933 } 
-								}
-							}
-						}
-					}
-				}
-			}					
-		}
-	}
+# 		completion_reward = {
+# 			set_country_flag = NOR_claiming_scotland
+# 			if = {
+# 				limit = {
+# 					any_other_country = { # Checking if the UK still owns both 
+# 						owns_state = 120 
+# 						owns_state = 933
+# 						controls_state = 120  
+# 						controls_state = 933
+# 					}
+# 				}
+# 				120 = { 
+# 					OWNER = {
+# 						country_event = {
+# 							id = AAT_norway.17
+# 							hours = 3 
+# 						}
+# 					}
+# 				}
+# 				effect_tooltip = {
+# 					custom_effect_tooltip = if_they_accept
+# 					120 = {
+# 						transfer_state_to = NOR
+# 					}
+# 					933 = {
+# 						transfer_state_to = NOR
+# 					}
+# 					custom_effect_tooltip = if_they_reject
+# 					120 = {
+# 						OWNER = {
+# 							ROOT = {
+# 								create_wargoal = {
+# 									type = take_state_focus
+# 									target = PREV
+# 									generator = { 120 } 
+# 								}
+# 							}
+# 						}
+# 					}
+# 				}
+# 			}
+# 			else = {
+# 				120 = {
+# 					OWNER = {
+# 						country_event = {
+# 							id = AAT_norway.17
+# 							hours = 3 
+# 						}
+# 						effect_tooltip = {
+# 							custom_effect_tooltip = if_they_accept
+# 							120 = {
+# 								transfer_state_to = NOR
+# 							}
+# 							custom_effect_tooltip = if_they_reject
+# 							ROOT = {
+# 								create_wargoal = {
+# 									type = take_state_focus
+# 									target = PREV
+# 									generator = { 120 } 
+# 								}
+# 							}
+# 						}		
+# 					}
+# 				}
+# 				933 = {
+# 					OWNER = {
+# 						country_event = {
+# 							id = AAT_norway.17
+# 							hours = 3 
+# 						}
+# 						effect_tooltip = {
+# 							custom_effect_tooltip = if_they_accept
+# 							933 = {
+# 								transfer_state_to = NOR
+# 							}
+# 							custom_effect_tooltip = if_they_reject
+# 							ROOT = {
+# 								create_wargoal = {
+# 									type = take_state_focus
+# 									target = PREV
+# 									generator = { 933 } 
+# 								}
+# 							}
+# 						}
+# 					}
+# 				}
+# 			}					
+# 		}
+# 	}
 
-	focus = {
-		id = NOR_old_vinland
-		icon = GFX_goal_generic_major_war
-		prerequisite = { focus = NOR_reviving_the_norgesveldet }
+# 	focus = { 
+# 		id = NOR_old_vinland
+# 		icon = GFX_goal_generic_major_war
+# 		prerequisite = { focus = NOR_reviving_the_norgesveldet }
 
-		x = -4
-		y = 0
-		relative_position_id = NOR_claims_on_scotland
-		cost = 10
-		available = {
-			NOT = {
-				AND = {
-					owns_state = 331
-					owns_state = 332 
-				}
-			}
-			OR = {
-				NOT = {	has_war_with = 331.OWNER }
-				NOT = {	has_war_with = 332.OWNER }
-			}
-			OR = {
-				331 = { is_controlled_by = 331.OWNER }
-				331 = { is_controlled_by = ROOT }
-				332 = { is_controlled_by = 332.OWNER 
-}				332 = { is_controlled_by = ROOT }
-			}
-		}
+# 		x = -4
+# 		y = 0
+# 		relative_position_id = NOR_claims_on_scotland
+# 		cost = 10
+# 		available = {
+# 			NOT = {
+# 				AND = {
+# 					owns_state = 331
+# 					owns_state = 332 
+# 				}
+# 			}
+# 			OR = {
+# 				NOT = {	has_war_with = 331.OWNER }
+# 				NOT = {	has_war_with = 332.OWNER }
+# 			}
+# 			OR = {
+# 				331 = { is_controlled_by = 331.OWNER }
+# 				331 = { is_controlled_by = ROOT }
+# 				332 = { is_controlled_by = 332.OWNER 
+# }				332 = { is_controlled_by = ROOT }
+# 			}
+# 		}
 
-		search_filters = { FOCUS_FILTER_ANNEXATION }
+# 		search_filters = { FOCUS_FILTER_ANNEXATION }
 
-		completion_reward = {
-			set_country_flag = NOR_claiming_vinland
-			if = {
-				limit = {
-					any_other_country = { # Checking if the UK still owns both 
-						owns_state = 331 
-						owns_state = 332
-						controls_state = 331 
-						controls_state = 332
-						NOT = { has_war_with = ROOT }  
-					}
-				}
-				331 = { 
-					OWNER = {
-						country_event = {
-							id = AAT_norway.17
-							hours = 3 
-						}
-					}
-				}
-				effect_tooltip = {
-					custom_effect_tooltip = if_they_accept
-					331 = {
-						transfer_state_to = NOR
-					}
-					332 = {
-						transfer_state_to = NOR
-					}
-					custom_effect_tooltip = if_they_reject
-					331 = {
-						OWNER = {
-							ROOT = {
-								create_wargoal = {
-									type = take_state_focus
-									target = PREV
-									generator = { 331 } 
-								}
-							}
-						}
-					}
-				}
-			}
-			else = {
-				if = {
-					limit = {
-						331 = { # Newfoundland
-							OR = {
-								is_controlled_by = ROOT 
-								is_controlled_by = 331.OWNER
-							}
-							OWNER = {
-								NOT = {
-									original_tag = NOR
-									has_war_with = ROOT
-								}
-							}
-						}
-					}
-					331 = {
-						OWNER = {
-							country_event = {
-								id = AAT_norway.17
-								hours = 3 
-							}
-							effect_tooltip = {
-								custom_effect_tooltip = if_they_accept
-								331 = {
-									transfer_state_to = NOR
-								}
-								custom_effect_tooltip = if_they_reject
-								331 = {
-									ROOT = {
-										create_wargoal = {
-											type = take_state_focus
-											target = PREV
-											generator = { 331 } 
-										}
-									}
-								}
-							}						
-						}
-					}
-				}
-				if = {
-					limit = {
-						332 = { # Labrador
-							OR = {
-								is_controlled_by = 332.OWNER
-								is_controlled_by = ROOT 
-							}
-							OWNER = {
-								controls_state = 332
-								NOT = {
-									original_tag = NOR
-									has_war_with = ROOT
-								}
-							}
-						}
-					}
-					332 = {
-						OWNER = {
-							country_event = {
-								id = AAT_norway.17
-								hours = 3 
-							}
-							effect_tooltip = {
-								custom_effect_tooltip = if_they_accept
-								332 = {
-									transfer_state_to = NOR
-								}
-								custom_effect_tooltip = if_they_reject
-								332 = {
-									ROOT = {
-										create_wargoal = {
-											type = take_state_focus
-											target = PREV
-											generator = { 332 } 
-										}
-									}
-								}
-							}						
-						}
-					}
-				}
-			}
-		}
-	}
+# 		completion_reward = {
+# 			set_country_flag = NOR_claiming_vinland
+# 			if = {
+# 				limit = {
+# 					any_other_country = { # Checking if the UK still owns both 
+# 						owns_state = 331 
+# 						owns_state = 332
+# 						controls_state = 331 
+# 						controls_state = 332
+# 						NOT = { has_war_with = ROOT }  
+# 					}
+# 				}
+# 				331 = { 
+# 					OWNER = {
+# 						country_event = {
+# 							id = AAT_norway.17
+# 							hours = 3 
+# 						}
+# 					}
+# 				}
+# 				effect_tooltip = {
+# 					custom_effect_tooltip = if_they_accept
+# 					331 = {
+# 						transfer_state_to = NOR
+# 					}
+# 					332 = {
+# 						transfer_state_to = NOR
+# 					}
+# 					custom_effect_tooltip = if_they_reject
+# 					331 = {
+# 						OWNER = {
+# 							ROOT = {
+# 								create_wargoal = {
+# 									type = take_state_focus
+# 									target = PREV
+# 									generator = { 331 } 
+# 								}
+# 							}
+# 						}
+# 					}
+# 				}
+# 			}
+# 			else = {
+# 				if = {
+# 					limit = {
+# 						331 = { # Newfoundland
+# 							OR = {
+# 								is_controlled_by = ROOT 
+# 								is_controlled_by = 331.OWNER
+# 							}
+# 							OWNER = {
+# 								NOT = {
+# 									original_tag = NOR
+# 									has_war_with = ROOT
+# 								}
+# 							}
+# 						}
+# 					}
+# 					331 = {
+# 						OWNER = {
+# 							country_event = {
+# 								id = AAT_norway.17
+# 								hours = 3 
+# 							}
+# 							effect_tooltip = {
+# 								custom_effect_tooltip = if_they_accept
+# 								331 = {
+# 									transfer_state_to = NOR
+# 								}
+# 								custom_effect_tooltip = if_they_reject
+# 								331 = {
+# 									ROOT = {
+# 										create_wargoal = {
+# 											type = take_state_focus
+# 											target = PREV
+# 											generator = { 331 } 
+# 										}
+# 									}
+# 								}
+# 							}						
+# 						}
+# 					}
+# 				}
+# 				if = {
+# 					limit = {
+# 						332 = { # Labrador
+# 							OR = {
+# 								is_controlled_by = 332.OWNER
+# 								is_controlled_by = ROOT 
+# 							}
+# 							OWNER = {
+# 								controls_state = 332
+# 								NOT = {
+# 									original_tag = NOR
+# 									has_war_with = ROOT
+# 								}
+# 							}
+# 						}
+# 					}
+# 					332 = {
+# 						OWNER = {
+# 							country_event = {
+# 								id = AAT_norway.17
+# 								hours = 3 
+# 							}
+# 							effect_tooltip = {
+# 								custom_effect_tooltip = if_they_accept
+# 								332 = {
+# 									transfer_state_to = NOR
+# 								}
+# 								custom_effect_tooltip = if_they_reject
+# 								332 = {
+# 									ROOT = {
+# 										create_wargoal = {
+# 											type = take_state_focus
+# 											target = PREV
+# 											generator = { 332 } 
+# 										}
+# 									}
+# 								}
+# 							}						
+# 						}
+# 					}
+# 				}
+# 			}
+# 		}
+# 	}
 	
-	focus = {
-		id = NOR_consolidate_kingdom
-		icon = GFX_focus_rom_royal_dictatorship
-		prerequisite = { focus = NOR_bjarmeland }
-		prerequisite = { focus = NOR_claims_on_faroe_islands focus = NOR_eirik_raudes_land focus = NOR_iceland } 
+# 	focus = {
+# 		id = NOR_consolidate_kingdom
+# 		icon = GFX_focus_rom_royal_dictatorship
+# 		prerequisite = { focus = NOR_bjarmeland }
+# 		prerequisite = { focus = NOR_claims_on_faroe_islands focus = NOR_eirik_raudes_land focus = NOR_iceland } 
 
-		x = -4
-		y = 3
-		relative_position_id = NOR_our_royal_claims
-		cost = 10
+# 		x = -4
+# 		y = 3
+# 		relative_position_id = NOR_our_royal_claims
+# 		cost = 10
 
 
-		offset = {
-			x = 4 
-			y = 0
-			trigger = {
-				has_hide_rule = yes
-				has_completed_focus = NOR_the_chamberlains_overture
-			}
-		}
+# 		offset = {
+# 			x = 4 
+# 			y = 0
+# 			trigger = {
+# 				has_hide_rule = yes
+# 				has_completed_focus = NOR_the_chamberlains_overture
+# 			}
+# 		}
 
-		available = {
-		}
+# 		available = {
+# 		}
 
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_MANPOWER }
+# 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_MANPOWER }
 
-		completion_reward = {
+# 		completion_reward = {
 
-			add_political_power = 100
+# 			add_political_power = 100
 
-			add_manpower = 20000
+# 			add_manpower = 20000
 
-			# Faroe Islands 
-			337 = {
-				if = {
-					limit = {
-						is_owned_and_controlled_by = ROOT
-					}
-					add_core_of = ROOT
-				}
-			}
-			# Greenland
-			101 = {
-				if = {
-					limit = {
-						is_owned_and_controlled_by = ROOT
-					}
-					add_core_of = ROOT
-				}
-			}
-			# Iceland 
-			100 = {
-				if = {
-					limit = {
-						is_owned_and_controlled_by = ROOT
-					}
-					add_core_of = ROOT
-				}
-			}
-			# Murmansk
-			213 = { 
-				if = {
-					limit = {
-						is_owned_and_controlled_by = ROOT
-					}
-					add_core_of = ROOT
-				}
-			}
-			# Arkhangelsk
-			214 = { 
-				if = {
-					limit = {
-						is_owned_and_controlled_by = ROOT
-					}
-					add_core_of = ROOT
-				}
-			}
-			# Onega
-			215 = { 
-				if = {
-					limit = {
-						is_owned_and_controlled_by = ROOT
-					}
-					add_core_of = ROOT
-				}
-			}
-			# Bohuslän
-			915 = { 
-				if = {
-					limit = {
-						is_owned_and_controlled_by = ROOT
-					}
-					add_core_of = ROOT
-				}
-			}
-			# Dalarna 
-			916 = { 
-				if = {
-					limit = {
-						is_owned_and_controlled_by = ROOT
-					}
-					add_core_of = ROOT
-				}
-			}
-			# Jämtland  
-			917 = {   
-				if = {
-					limit = {
-						is_owned_and_controlled_by = ROOT
-					}
-					add_core_of = ROOT
-				}
-			}
-			every_owned_state = {
-				limit = {
-					is_controlled_by = ROOT 
-					is_core_of = DEN 
-					NOT = { is_core_of = ROOT }
-					is_on_continent = europe
-				}
-				add_core_of = ROOT
-			}
-		}
-	}
+# 			# Faroe Islands 
+# 			337 = {
+# 				if = {
+# 					limit = {
+# 						is_owned_and_controlled_by = ROOT
+# 					}
+# 					add_core_of = ROOT
+# 				}
+# 			}
+# 			# Greenland
+# 			101 = {
+# 				if = {
+# 					limit = {
+# 						is_owned_and_controlled_by = ROOT
+# 					}
+# 					add_core_of = ROOT
+# 				}
+# 			}
+# 			# Iceland 
+# 			100 = {
+# 				if = {
+# 					limit = {
+# 						is_owned_and_controlled_by = ROOT
+# 					}
+# 					add_core_of = ROOT
+# 				}
+# 			}
+# 			# Murmansk
+# 			213 = { 
+# 				if = {
+# 					limit = {
+# 						is_owned_and_controlled_by = ROOT
+# 					}
+# 					add_core_of = ROOT
+# 				}
+# 			}
+# 			# Arkhangelsk
+# 			214 = { 
+# 				if = {
+# 					limit = {
+# 						is_owned_and_controlled_by = ROOT
+# 					}
+# 					add_core_of = ROOT
+# 				}
+# 			}
+# 			# Onega
+# 			215 = { 
+# 				if = {
+# 					limit = {
+# 						is_owned_and_controlled_by = ROOT
+# 					}
+# 					add_core_of = ROOT
+# 				}
+# 			}
+# 			# Bohuslän
+# 			915 = { 
+# 				if = {
+# 					limit = {
+# 						is_owned_and_controlled_by = ROOT
+# 					}
+# 					add_core_of = ROOT
+# 				}
+# 			}
+# 			# Dalarna 
+# 			916 = { 
+# 				if = {
+# 					limit = {
+# 						is_owned_and_controlled_by = ROOT
+# 					}
+# 					add_core_of = ROOT
+# 				}
+# 			}
+# 			# Jämtland  
+# 			917 = {   
+# 				if = {
+# 					limit = {
+# 						is_owned_and_controlled_by = ROOT
+# 					}
+# 					add_core_of = ROOT
+# 				}
+# 			}
+# 			every_owned_state = {
+# 				limit = {
+# 					is_controlled_by = ROOT 
+# 					is_core_of = DEN 
+# 					NOT = { is_core_of = ROOT }
+# 					is_on_continent = europe
+# 				}
+# 				add_core_of = ROOT
+# 			}
+# 		}
+# 	}
 
 
 ###########################################################################################
@@ -7880,7 +7872,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			every_owned_state = {
+			every_core_state = { # SPTChange core not owned state
 				limit = {
 					is_controlled_by = ROOT 
 					NOT = { 

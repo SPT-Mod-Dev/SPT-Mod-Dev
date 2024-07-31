@@ -1491,6 +1491,7 @@ country_event = {
 		trigger = {
 			ROM = {
 				controls_state = 77
+				controls_state = 82 # SPTChange Banat
 				controls_state = 83
 				controls_state = 84
 			}
@@ -3081,7 +3082,7 @@ country_event = {
 
 	option = {
 		name = germany.55.a
-		ai_chance = { factor = 80 }
+		ai_chance = { factor = 1000 }
 		if = {
 			limit = {
 				70 = {
@@ -7287,40 +7288,40 @@ country_event = { #Germany wants resource rights for Sweden
 	desc = AAT_germany.1.desc
 	picture = GFX_report_event_german_speech
 	is_triggered_only = yes
-	option = { #No
-		name = AAT_germany.1.a
-		ai_chance = {
-			base = 1
-			modifier = {
-				date > 1942.12.1
-				OR = {
-					is_historical_focus_on = yes
-					has_government = democratic
-				}
-				factor = 3
-			} 
+	# option = { #No SPTChange remove
+	# 	name = AAT_germany.1.a
+	# 	ai_chance = {
+	# 		base = 1
+	# 		modifier = {
+	# 			date > 1942.12.1
+	# 			OR = {
+	# 				is_historical_focus_on = yes
+	# 				has_government = democratic
+	# 			}
+	# 			factor = 3
+	# 		} 
 
-			modifier = {
-				FROM = {
-					surrender_progress > 0.2
-				}
-				factor = 10
-			}
+	# 		modifier = {
+	# 			FROM = {
+	# 				surrender_progress > 0.2
+	# 			}
+	# 			factor = 10
+	# 		}
 
-			modifier = {
-				FROM = {
-					is_ai = no
-					surrender_progress < 0.03
-				}
-				factor = 0
-			}
-		}
+	# 		modifier = {
+	# 			FROM = {
+	# 				is_ai = no
+	# 				surrender_progress < 0.03
+	# 			}
+	# 			factor = 0
+	# 		}
+	# 	}
 
-		add_political_power = -25
-		FROM = {
-			country_event = { id = AAT_germany.2 hours = 2 }
-		}
-	}
+	# 	add_political_power = -25
+	# 	FROM = {
+	# 		country_event = { id = AAT_germany.2 hours = 2 }
+	# 	}
+	# }
 
 	option = { #Yes
 		ai_chance = {
@@ -7347,6 +7348,11 @@ country_event = { #Germany wants resource rights for Sweden
 			receiver = FROM 
 			state = 918 #Västerbotten 
 		}
+
+		# give_resource_rights = {
+		#	receiver = FROM 
+		#	state = 666 #Norrbotten
+		# }
 
 		add_opinion_modifier = {
 			target = FROM # target of the relation

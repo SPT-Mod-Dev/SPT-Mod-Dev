@@ -2813,7 +2813,7 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = ITA_industria_della_gomma_sintetica
-				bonus = 0.75
+				bonus = 0.5
 				uses = 2
 				category = cat_synth_oil
 			}
@@ -4114,6 +4114,8 @@ focus_tree = {
 		icon = GFX_focus_ITA_moschettieri_del_duce
 		prerequisite = { focus = ITA_preserve_army_traditions }
 
+		dynamic = yes
+
 		x = 0
 		y = 2
 		relative_position_id = ITA_preserve_army_traditions
@@ -4154,7 +4156,7 @@ focus_tree = {
 
 			add_doctrine_cost_reduction = {
 				name = ITA_a_bandits_war
-				cost_reduction = 0.75
+				cost_reduction = 0.5
 				uses = 2
 				category = cat_mobile_warfare
 			}
@@ -4162,7 +4164,7 @@ focus_tree = {
 			add_tech_bonus = {
 				name = ITA_a_bandits_war
 				uses = 2
-				bonus = 0.75
+				bonus = 0.5
 				category = motorized_equipment
 				category = recon_tech
 			}
@@ -4173,7 +4175,7 @@ focus_tree = {
 				}
 				add_tech_bonus = {
 					name = ITA_a_bandits_war
-					bonus = 1.5
+					bonus = 1
 					uses = 1
 					category = cat_armored_cars
 				}
@@ -4335,7 +4337,7 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = ITA_italian_tankettes
-				bonus = 1.5
+				bonus = 1
 				uses = 1
 				category = cat_light_armor
 			}
@@ -4474,7 +4476,7 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = ITA_divisioni_alpine
-				bonus = 1.5
+				bonus = 1
 				uses = 1
 				category = mountaineers_tech
 			}
@@ -4588,7 +4590,7 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = ITA_fanti_dell_aria
-				bonus = 1.5
+				bonus = 1
 				uses = 1
 				category = para_tech
 			}
@@ -4624,7 +4626,7 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = ITA_self_propelled_guns
-				bonus = 1
+				bonus = 0.5
 				uses = 3
 				category = artillery
 			}
@@ -5710,11 +5712,24 @@ focus_tree = {
 			add_to_variable = { ITA_rm_navy_submarine_attack_factor = 0.05 }
 			custom_effect_tooltip = ITA_intensify_torpedo_manufacturing_rm_tt
 
-			add_tech_bonus = {
-				name = ITA_intensify_torpedo_manufacturing
-				bonus = 1.0
-				uses = 2
-				category = cat_torpedoes
+			if = {
+				limit = {
+					has_dlc = "Man the Guns"
+				}
+				add_tech_bonus = {
+					name = ITA_intensify_torpedo_manufacturing
+					bonus = 1.0
+					uses = 1
+					category = cat_torpedoes
+				}
+			}
+			else = {
+				add_doctrine_cost_reduction = {
+					name = ITA_intensify_torpedo_manufacturing
+					cost_reduction = 0.5
+					uses = 2
+					category = cat_trade_interdiction
+				}
 			}
 		}
 	}
@@ -5923,13 +5938,18 @@ focus_tree = {
 					}
 				}
 			}
-
-			add_tech_bonus = {
-				name = ITA_oto_naval_guns
-				bonus = 1.0
-				uses = 2
-				category = cat_ship_medium_battery
-				category = cat_ship_heavy_battery
+			if = {
+				limit = { has_dlc = "Man the Guns" }
+				add_tech_bonus = {
+					name = ITA_oto_naval_guns
+					bonus = 1.0
+					uses = 2
+					category = cat_ship_medium_battery
+					category = cat_ship_heavy_battery
+				}
+			}
+			else = {
+				navy_experience = 15
 			}
 		}
 	}
@@ -6524,7 +6544,7 @@ focus_tree = {
 			add_tech_bonus = {
 				name = ITA_forza_navale_especiale
 				bonus = 1.0
-				uses = 2
+				uses = 1
 				category = marine_tech
 				category = tp_tech
 			}
@@ -6658,7 +6678,7 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = ITA_incrociatori_leggeri
-				bonus = 1.5
+				bonus = 1
 				uses = 1
 				category = cl_tech
 			}
@@ -6703,7 +6723,7 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = ITA_incrociatori_pesanti
-				bonus = 1.5
+				bonus = 1
 				uses = 1
 				category = ca_tech
 			}
@@ -6812,8 +6832,10 @@ focus_tree = {
 				create_equipment_variant = {
 					name = "Cagni Class"
 					type = ship_hull_cruiser_submarine
+					allow_without_tech = yes # Display tooltip as if we have the tech.
 					name_group = ITA_SS_HISTORICAL #TODO_Manu: Namelist
 					parent_version = 0
+					allow_without_tech = yes # Display tooltip as if we have the tech.
 					modules = {
 						fixed_ship_torpedo_slot = ship_torpedo_sub_1
 						fixed_ship_engine_slot = sub_ship_engine_2
@@ -6845,6 +6867,10 @@ focus_tree = {
 					progress = 0.35
 					amount = 2
 				}
+			}
+			else = {
+				custom_effect_tooltip = ITA_modify_regia_marina_dynamic_modifier_ns_intro
+				add_to_variable = { ITA_rm_navy_submarine_attack_factor = 0.05 tooltip = navy_submarine_attack_factor_tt }
 			}
 			
 			random_owned_controlled_state = {
@@ -6905,8 +6931,10 @@ focus_tree = {
 				create_equipment_variant = {
 					name = "CB Class"
 					type = ship_hull_midget_submarine
+					allow_without_tech = yes # Display tooltip as if we have the tech.
 					name_group = ITA_SS_HISTORICAL #TODO_Manu: Namelist
 					parent_version = 0
+					allow_without_tech = yes # Display tooltip as if we have the tech.
 					modules = {
 						fixed_ship_torpedo_slot = ship_torpedo_sub_2
 						fixed_ship_engine_slot = sub_ship_engine_2
@@ -6924,6 +6952,10 @@ focus_tree = {
 					progress = 0.35
 					amount = 2
 				}
+			}
+			else = {
+				custom_effect_tooltip = ITA_modify_regia_marina_dynamic_modifier_ns_intro
+				add_to_variable = { ITA_rm_sub_retreat_speed = 0.05 tooltip = sub_retreat_speed_tt }
 			}
 
 			random_owned_controlled_state = {
@@ -6965,7 +6997,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = ITA_incrociatori_leggeri
-		cost = 5 #SPTChange 10 to 5
+		cost = 5
 		available = {
 			if = {
 				limit = {
@@ -6988,7 +7020,7 @@ focus_tree = {
 			navy_experience = 15
 			add_doctrine_cost_reduction = {
 				name = ITA_cacciatorpediniere_di_scorta
-				cost_reduction = 0.5
+				cost_reduction = 0.50
 				uses = 2
 				category = convoy_defense_tree
 			}
@@ -7017,6 +7049,7 @@ focus_tree = {
 						type = ship_hull_light_3
 						name_group = ITA_DD_HISTORICAL
 						parent_version = 0
+						allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
 						modules = {
 							fixed_ship_battery_slot = dp_light_battery_2
 							fixed_ship_anti_air_slot = ship_anti_air_2
@@ -7036,6 +7069,7 @@ focus_tree = {
 						type = ship_hull_light_3
 						name_group = ITA_DD_HISTORICAL #TODO_Manu: Name List
 						parent_version = 0
+						allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
 						modules = {
 							fixed_ship_battery_slot = ship_light_battery_2
 							fixed_ship_anti_air_slot = ship_anti_air_2
@@ -7067,15 +7101,10 @@ focus_tree = {
 			### NO MTG ###
 			##############
 			else = {
-				if = {
-					limit = {
-						NOT = { has_tech = improved_destroyer }
-					}
-					set_technology = { improved_destroyer = 1 }
-				}
 				create_equipment_variant = {
 					name = "Comandanti Medaglie d'Oro Class"
 					type = destroyer_3
+					allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
 					upgrades = {
 						ship_torpedo_upgrade = 2
 						destroyer_engine_upgrade = 2
@@ -7157,6 +7186,7 @@ focus_tree = {
 						type = ship_hull_light_1
 						name_group = ITA_DD_HISTORICAL
 						parent_version = 0
+						allow_without_tech = yes #Makes no difference since ITA already has tech, but in order to keep it consistent
 						modules = {
 							fixed_ship_battery_slot = ship_light_battery_1
 							fixed_ship_anti_air_slot = ship_anti_air_2
@@ -7176,6 +7206,7 @@ focus_tree = {
 						type = ship_hull_light_1
 						name_group = ITA_DD_HISTORICAL #TODO_Manu: Name List
 						parent_version = 0
+						allow_without_tech = yes #Makes no difference since ITA already has tech, but in order to keep it consistent
 						modules = {
 							fixed_ship_battery_slot = ship_light_battery_1
 							fixed_ship_anti_air_slot = ship_anti_air_2
@@ -7226,8 +7257,8 @@ focus_tree = {
 					set_technology = { improved_destroyer = 1 }
 				}
 				create_equipment_variant = {
-					name = "Comandanti Medaglie d'Oro Class"
-					type = destroyer_3
+					name = "Gabbiano Class"
+					type = destroyer_1
 					upgrades = {
 						ship_torpedo_upgrade = 1
 						destroyer_engine_upgrade = 1
@@ -7281,14 +7312,14 @@ focus_tree = {
 			navy_experience = 15
 			add_doctrine_cost_reduction = {
 				name = ITA_navi_da_battaglia
-				cost_reduction = 0.5
+				cost_reduction = 0.50
 				uses = 2
 				category = fleet_in_being_tree
 			}
 
 			add_tech_bonus = {
 				name = ITA_navi_da_battaglia
-				bonus = 1.5
+				bonus = 1
 				uses = 1
 				category = bb_tech
 			}
@@ -7421,6 +7452,7 @@ focus_tree = {
 					type = ship_hull_carrier_1
 					name_group = ITA_CV_HISTORICAL
 					parent_version = 0
+					allow_without_tech = yes #Makes no difference since focus grants appropriate tech (above), but it improves tooltip
 					modules = {
 						fixed_ship_deck_slot_1 = ship_deck_space
 						fixed_ship_deck_slot_2 = ship_deck_space
@@ -7458,6 +7490,7 @@ focus_tree = {
 				create_equipment_variant = {
 					name = "Aquila Class"
 					type = carrier_2
+					allow_without_tech = yes #Makes no difference since focus grants appropriate tech (above), but it improves tooltip
 					upgrades = {
 						ship_deckspace_upgrade = 3
 						carrier_armor_upgrade = 2
@@ -7467,7 +7500,7 @@ focus_tree = {
 				}
 				add_equipment_production = {
 					equipment = {
-						type = carrier_2
+						type = carrier_2		
 						creator = "ITA"
 						version_name = "Aquila Class"
 					}
@@ -7534,6 +7567,7 @@ focus_tree = {
 					type = ship_hull_carrier_conversion_ca
 					name_group = ITA_CV_HISTORICAL #TODO_Manu: Namelist (Conte di Savoia, Rex, Neptunia, Oceania, Conte Rosso, Conte Grande, Saturnia, Vulcania, Conte Biancamo, Duilio, Conte verde, Giulio Cesare, Colombo, Tel Aviv) Excluded Roma (Aquila) and Augustus (Sparviero)
 					parent_version = 0
+					allow_without_tech = yes #Makes no difference since focus grants appropriate tech (above), but it improves tooltip
 					modules = {
 						fixed_ship_deck_slot_1 = ship_deck_space
 						fixed_ship_deck_slot_2 = ship_deck_space
@@ -7552,6 +7586,7 @@ focus_tree = {
 						version_name = "Conte di Savoia Class - Converted Liner"
 					}
 					name = "Conte di Savoia"
+					
 					requested_factories = 1
 					progress = 0.65
 					amount = 1
@@ -7582,6 +7617,7 @@ focus_tree = {
 				create_equipment_variant = {
 					name = "Conte di Savoia Class - Converted Liner"
 					type = carrier_1
+					allow_without_tech = yes #Makes no difference since focus grants appropriate tech (above), but it improves tooltip
 					upgrades = {
 						ship_deckspace_upgrade = 2
 						carrier_armor_upgrade = 1
@@ -7637,6 +7673,15 @@ focus_tree = {
 		relative_position_id = ITA_ispettorato_dei_mezzi_antisommergibili
 		cost = 5 #SPTChange 10 to 5
 		available = {
+			if = {
+				limit = {
+					has_dlc = "Man the Guns"
+				}
+				has_tech = basic_ship_hull_cruiser
+			}
+			else = {
+				has_tech = basic_light_cruiser
+			}
 		}
 
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_NAVY_XP}
@@ -7745,6 +7790,7 @@ focus_tree = {
 							type = ship_hull_cruiser_3
 							name_group = ITA_CL_HISTORICAL
 							parent_version = 0
+							allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
 							modules = {
 								front_1_custom_slot = ship_light_medium_battery_3
 								mid_1_custom_slot = ship_torpedo_2
@@ -7768,6 +7814,7 @@ focus_tree = {
 							type = ship_hull_cruiser_3
 							name_group = ITA_CL_HISTORICAL
 							parent_version = 0
+							allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
 							modules = {
 								front_1_custom_slot = ship_light_medium_battery_3
 								mid_1_custom_slot = ship_torpedo_2
@@ -7821,6 +7868,7 @@ focus_tree = {
 							type = ship_hull_cruiser_2
 							name_group = ITA_CL_HISTORICAL #TODO_Manu: Namelist (Conte di Savoia, Rex, Neptunia, Oceania, Conte Rosso, Conte Grande, Saturnia, Vulcania, Conte Biancamo, Duilio, Conte verde, Giulio Cesare, Colombo, Tel Aviv) Excluded Roma (Aquila) and Augustus (Sparviero)
 							parent_version = 0
+							allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
 							modules = {
 								front_1_custom_slot = ship_anti_air_2
 								mid_1_custom_slot = ship_torpedo_1
@@ -7843,6 +7891,7 @@ focus_tree = {
 							type = ship_hull_cruiser_2
 							name_group = ITA_CL_HISTORICAL #TODO_Manu: Namelist (Conte di Savoia, Rex, Neptunia, Oceania, Conte Rosso, Conte Grande, Saturnia, Vulcania, Conte Biancamo, Duilio, Conte verde, Giulio Cesare, Colombo, Tel Aviv) Excluded Roma (Aquila) and Augustus (Sparviero)
 							parent_version = 0
+							allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
 							modules = {
 								front_1_custom_slot = ship_anti_air_2
 								mid_1_custom_slot = ship_torpedo_1
@@ -7891,15 +7940,16 @@ focus_tree = {
 			else = {
 				if = {
 					limit = {
-						NOT = { has_tech = improved_light_cruiser }
+						has_tech = improved_light_cruiser
 					}
 					create_equipment_variant = {
 						name = "Costanzo Ciano Class"
 						type = light_cruiser_3
+						allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
 						upgrades = {
 							ship_reliability_upgrade = 2
 							ship_engine_upgrade = 3
-							ship_armor_upgrade = 3
+							ship_anti_air_upgrade = 3
 							ship_gun_upgrade = 3
 						}
 					}
@@ -7928,10 +7978,11 @@ focus_tree = {
 					create_equipment_variant = {
 						name = "Costanzo Ciano Class"
 						type = light_cruiser_2
+						allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
 						upgrades = {
 							ship_reliability_upgrade = 2
 							ship_engine_upgrade = 2
-							ship_armor_upgrade = 2
+							ship_anti_air_upgrade = 2
 							ship_gun_upgrade = 2
 						}
 					}
@@ -9750,6 +9801,7 @@ focus_tree = {
 			105 = { is_claimed_by = ROOT }
 			44 = { is_claimed_by = ROOT }
 			805 = { is_claimed_by = ROOT }
+			934 = { is_claimed_by = ROOT }
 		}
 
 		available = {
@@ -9962,6 +10014,33 @@ focus_tree = {
 					}
 				}
 			}
+			
+			if = {
+				limit = {
+					934 = { NOT = { is_claimed_by = ROOT } }
+				}
+				add_state_claim = 934 #SHKÖDER
+				if = {
+					limit = {
+						934 = {
+							controller = {
+								NOT = { controls_state = 44 } #Otherwise already received the wargoal above
+								NOT = { controls_state = 805 } #Otherwise already received the wargoal above
+								NOT = { has_war_with = ROOT }
+								NOT = { is_in_faction_with = ROOT }
+								NOT = { has_non_aggression_pact_with = ROOT }
+								NOT = { is_guaranteed_by = ROOT }
+							}
+						}
+					}
+					create_wargoal = {
+						type = take_state_focus
+						target = 934.controller
+						generator = { 934 }
+					}
+				}
+			}
+
 		}
 	}
 
@@ -12195,6 +12274,10 @@ focus_tree = {
 
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = ITA_vittorio_emanuele_orlando
+			
+			custom_effect_tooltip = available_chief_of_army
+			show_ideas_tooltip = ITA_giovanni_duca
+
 
 			show_unit_leaders_tooltip = ITA_giovanni_duca
 			
@@ -12547,7 +12630,7 @@ focus_tree = {
 			add_to_variable = { ITA_iri_conversion_cost_civ_to_mil_factor = 0.15 }
 			custom_effect_tooltip = ITA_new_corporations_iri_tt
 
-			random_core_state = {
+			every_core_state = {
 				limit = {
 					is_fully_controlled_by = ROOT
 					free_building_slots = {
@@ -12556,59 +12639,13 @@ focus_tree = {
 						include_locked = yes
 					}
 				}
-				set_state_flag = ITA_new_corporations_state_flag
+				random_select_amount = 3
+
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
 					level = 2
 					instant_build = yes
-				}
-			}
-
-			random_core_state = {
-				limit = {
-					is_fully_controlled_by = ROOT
-					NOT = { has_state_flag = ITA_new_corporations_state_flag }
-					free_building_slots = {
-						building = industrial_complex
-						size > 1
-						include_locked = yes
-					}
-				}
-				set_state_flag = ITA_new_corporations_state_flag
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
-
-			random_core_state = {
-				limit = {
-					is_fully_controlled_by = ROOT
-					NOT = { has_state_flag = ITA_new_corporations_state_flag }
-					free_building_slots = {
-						building = industrial_complex
-						size > 1
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
-
-			#Clear stuff thanks
-			hidden_effect = {
-				every_core_state = {
-					limit = {
-						has_state_flag = ITA_new_corporations_state_flag
-					}
-					clr_state_flag = ITA_new_corporations_state_flag
 				}
 			}
 		}
@@ -12787,6 +12824,7 @@ focus_tree = {
 					type = ship_hull_pre_dreadnought
 					name_group = ITA_BC_HISTORICAL
 					parent_version = 0
+					allow_without_tech = yes #Makes no difference since focus grants appropriate tech (above), but it improves tooltip
 					modules = {
 						front_1_custom_slot = ship_anti_air_1
 						mid_1_custom_slot = ship_secondaries_1
@@ -12830,8 +12868,9 @@ focus_tree = {
 					type = ship_hull_light_1
 					name_group = ITA_DD_HISTORICAL
 					parent_version = 0
+					allow_without_tech = yes #Makes no difference since appropriate tech is already researched, but it improves tooltip
 					modules = {
-						front_1_custom_slot = ship_anti_air_1
+						mid_1_custom_slot = ship_anti_air_1
 						rear_1_custom_slot = ship_mine_layer_1
 						fixed_ship_battery_slot = ship_light_battery_1
 						fixed_ship_anti_air_slot = ship_anti_air_1
@@ -12870,6 +12909,7 @@ focus_tree = {
 					type = ship_hull_cruiser_coastal_defense_ship
 					name_group = ITA_BC_HISTORICAL
 					parent_version = 0
+					allow_without_tech = yes #Makes no difference since focus grants appropriate tech (above), but it improves tooltip
 					modules = {
 						front_1_custom_slot = ship_anti_air_1
 						mid_1_custom_slot = ship_secondaries_1
@@ -12878,7 +12918,7 @@ focus_tree = {
 						fixed_ship_anti_air_slot = ship_anti_air_1
 						fixed_ship_fire_control_system_slot = ship_fire_control_system_0
 						fixed_ship_radar_slot = empty
-						fixed_ship_engine_slot = heavy_ship_engine_2
+						fixed_ship_engine_slot = cruiser_ship_engine_2
 						fixed_ship_secondaries_slot = ship_secondaries_1
 						fixed_ship_armor_slot = ship_armor_cruiser_1
 					}
@@ -12900,6 +12940,7 @@ focus_tree = {
 				create_equipment_variant = {
 					name = "Vecchio Esploratore Class"
 					type = heavy_cruiser_1
+					allow_without_tech = yes #Makes no difference since focus appropriate tech is already researched but it improves tooltip
 					upgrades = {
 						ship_reliability_upgrade = 2
 						ship_engine_upgrade = 1
@@ -12934,6 +12975,7 @@ focus_tree = {
 				create_equipment_variant = {
 					name = "Alessandro Poerio Class"
 					type = destroyer_1
+					allow_without_tech = yes #Makes no difference since focus appropriate tech is already researched but it improves tooltip
 					upgrades = {
 						ship_torpedo_upgrade = 1
 						destroyer_engine_upgrade = 1
@@ -12968,6 +13010,7 @@ focus_tree = {
 				create_equipment_variant = {
 					name = "Eritrea Class"
 					type = destroyer_1
+					allow_without_tech = yes #Makes no difference since focus appropriate tech is already researched but it improves tooltip
 					upgrades = {
 						ship_torpedo_upgrade = 1
 						destroyer_engine_upgrade = 2
@@ -13021,7 +13064,7 @@ focus_tree = {
 			}
 			add_tech_bonus = {
 				name = ITA_new_forms_of_weaponry
-				bonus = 1.5
+				bonus = 1
 				uses = 1
 				category = nuclear
 			}
@@ -14003,20 +14046,40 @@ focus_tree = {
 			custom_effect_tooltip = ITA_all_roads_lead_to_rome_re_tt
 			add_to_variable = { ITA_re_supply_node_range = 0.1 }
 
-			every_neighbor_country = { #TODO_Manu: Better solution cause this does not match the countries which states are above (due to islands)
+			custom_effect_tooltip = ITA_all_roads_lead_to_rome_wargoals_tt
+			if = {
 				limit = {
-					capital_scope = { is_on_continent = europe }
-					NOT = {
-						is_in_faction_with = ROOT
-						has_guaranteed = ROOT
-						is_guaranteed_by = ROOT
-						has_non_aggression_pact_with = ROOT
+					any_other_country = {
+						capital_scope = { is_on_continent = europe }
+						NOT = {
+							is_in_faction_with = ROOT
+							has_guaranteed = ROOT
+							is_guaranteed_by = ROOT
+							has_non_aggression_pact_with = ROOT
+							has_war_with = ROOT
+						}
 					}
 				}
-				ROOT = {
-					create_wargoal = {
-						type = annex_everything
-						target = PREV
+				custom_effect_tooltip = generic_current_effects
+				custom_effect_tooltip = generic_ROOT_gains_wargoal_tt
+				every_neighbor_country = {
+					limit = {
+						capital_scope = { is_on_continent = europe }
+						NOT = {
+							is_in_faction_with = ROOT
+							has_guaranteed = ROOT
+							is_guaranteed_by = ROOT
+							has_non_aggression_pact_with = ROOT
+							has_war_with = ROOT
+						}
+					}
+					hidden_effect = {
+						ROOT = {
+							create_wargoal = {
+								type = annex_everything
+								target = PREV
+							}
+						}
 					}
 				}
 			}
@@ -14215,6 +14278,7 @@ focus_tree = {
 					type = ship_hull_super_heavy_1
 					name_group = ITA_BB_HISTORICAL #TODO_Manu: Namelist?
 					parent_version = 0
+					allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
 					modules = {
 						front_1_custom_slot = ship_anti_air_2
 						front_2_custom_slot = ship_super_heavy_battery_1
@@ -14263,6 +14327,7 @@ focus_tree = {
 				create_equipment_variant = {
 					name = "Neptunus Class"
 					type = SH_battleship_1
+					allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
 					upgrades = {
 						ship_reliability_upgrade = 2
 						ship_engine_upgrade = 2
@@ -15159,7 +15224,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_state_claim = 802 #KOSOVO
-			add_state_claim = 106 #MACEDONIA
+			# add_state_claim = 106 #MACEDONIA # SPTChange 
 			add_state_claim = 185 #EPIRUS
 			add_state_claim = 105 #MONTENEGRO
 
@@ -15333,10 +15398,9 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_ANNEXATION}
 
 		completion_reward = {
-			if = {
+			if = { #Send this event if ETH is hosted by ENG and ITA is at war with ETH
 				limit = { #UK or an ally is hosting exiled Ethiopia
 					ITA_hosting_exiled_ethiopia = yes
-					has_global_flag = second_italo_ethiopian_war_flag
 					ROOT = {
 						has_war_with = ETH
 					}
@@ -15345,9 +15409,81 @@ focus_tree = {
 					country_event = { id = BBA_italy_interaction_events.50 hours = 1 }
 				}
 			}
-			else = {
+			else_if = { #Send this event if ITA isn't at war with ETH or ETH isn't hosted by ENG
+				limit = {
+					ENG = {
+						controls_state = 269
+						controls_state = 903	
+					}
+				}
 				ENG = {
 					country_event = { id = BBA_italy_interaction_events.31 hours = 1 }
+				}
+			}
+			else_if = { #If Britain didn't have the necessary state(s), send this event
+				limit = {
+					FRA = {
+						controls_state = 268
+					}
+				}
+				FRA = {
+					country_event = {
+					    id = BBA_italy_interaction_events.32
+					    days = 3
+					    random = 6
+					}
+				}
+			}
+			else_if = { #If France didn't have the necessary state(s), send this event
+				limit = {
+					ENG = {
+						controls_state = 906
+					}
+				}
+				ENG = {
+					country_event = {
+					    id = BBA_italy_interaction_events.33
+					    days = 3
+					    random = 6
+					}
+				}
+			}
+			else_if = { #If Britain didn't have the necessary state(s), send this event
+				limit = {
+					FRA = {
+						controls_state = 458
+						controls_state = 665
+					}
+				}
+				FRA = {
+					country_event = {
+					    id = BBA_italy_interaction_events.34
+					    days = 3
+					    random = 6
+					}
+				}
+			}
+			else_if = { #If France didn't have the necessary state(s), send this event
+				limit = {
+					ENG = {
+						controls_state = 116
+					}
+				}
+				ENG = {
+					country_event = {
+					    id = BBA_italy_interaction_events.35
+					    days = 3
+					    random = 6
+					}
+				}
+			}
+			else = { #If Britain didn't have the necessary state(s), send this event
+				FRA = {
+					country_event = { #Balkan claims event
+					    id = BBA_italy_interaction_events.36
+					    days = 3
+					    random = 6
+					}
 				}
 			}
 		}
@@ -15363,6 +15499,27 @@ focus_tree = {
 		relative_position_id = ITA_negotiate_italian_claims
 		cost = 10
 		available = {
+			OR = {
+				AND = {
+					NOT = {
+						has_war_with = ENG
+						has_war_with = FRA
+					}
+					FRA = {
+						is_in_faction_with = ENG
+					} 
+				}
+				AND = {
+					NOT = {
+						has_war_with = FRA
+					}
+					FRA = {
+						NOT = {
+							is_in_faction_with = ENG
+						}
+					}
+				}
+			}
 		}
 
 		bypass = {
@@ -15380,6 +15537,26 @@ focus_tree = {
 					id = BBA_italy_interaction_events.40
 				    days = 3
 				    random = 6
+				}
+			}
+			effect_tooltip = {
+				every_country = { #If Italy has any wargoal on other countries, remove them so they can join the faction
+					limit = {
+						OR = {
+							is_in_faction_with = FRA
+							tag = FRA
+						} 
+						ROOT = {
+							has_wargoal_against = PREV
+						}
+					}
+					custom_effect_tooltip = if_they_accept_tt
+					ROOT = {
+						remove_wargoal = {
+							type = all
+							target = PREV 
+						}
+					}
 				}
 			}
 		}
@@ -15654,7 +15831,7 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = ITA_secret_weapons
-				bonus = 1.0
+				bonus = 0.5
 				uses = 2
 				category = electronics
 				category = rocketry
@@ -15679,20 +15856,13 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_RESEARCH}
 
 		completion_reward = {
+			GER = {
+				add_opinion_modifier = { target = ITA modifier = pact_of_steel_opinion }
+			}
 			if = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}
-				add_equipment_subsidy = {
-					cic = 500
-					equipment_type = light_tank_chassis
-					seller_tags = { GER }
-				}
-				add_equipment_subsidy = {
-					cic = 500
-					equipment_type = medium_tank_chassis
-					seller_tags = { GER }
-				}
+				
+
+
 			}
 			GER = {
 				country_event = { id = italy.5 days = 1 }
@@ -15703,7 +15873,7 @@ focus_tree = {
 				add_tech_bonus = {
 					name = synth_bonus
 					bonus = 1.0
-					uses = 1
+					uses = 2
 					category = synth_resources
 				}
 				# Balance research bonus to 2 techs in armor, also in event
@@ -15730,17 +15900,29 @@ focus_tree = {
 		relative_position_id = ITA_pact_of_steel
 		cost = 2 #SPT change 5 -> 2
 
+		#SPTchange save a bit of trouble
+		bypass = {
+			ITA = {
+				controls_state = 735
+				controls_state = 1
+			}
+		}
+
 		available = {
 			is_puppet = no
-			is_in_faction_with = GER
-			GER = { 
-				controls_state = 16
-				controls_state = 735
-				controls_state = 851	
-				controls_state = 21	
-				controls_state = 32		
-				GER = { is_faction_leader = yes }
+			# SPTchange just make sure France is out
+			FRA = {
+				has_capitulated = yes
+				NOT = {
+					controls_state = 735
+					controls_state = 1
+				}
 			}
+			# is_in_faction_with = GER
+			# GER = {
+			# 	controls_state = 16
+			# 	GER = { is_faction_leader = yes }
+			# }
 			#custom_trigger_tooltip = {
 			 #tooltip = ITA_claims_on_france_tt
 			#	any_other_country = {
@@ -15757,28 +15939,31 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_ANNEXATION}
 
 		completion_reward = {
-			if = {
-				limit = { 
-					any_other_country = {
-						original_tag = FRA
-						has_government = fascism
-						owns_state = 735
-					}
-				}
-				set_global_flag = ITA_claims_on_france_735
-			}
-			if = {
-				limit = { 
-					any_other_country = {
-						original_tag = FRA
-						has_government = fascism
-						owns_state = 1
-					}
-				}
-				set_global_flag = ITA_claims_on_france_1
-			}
+			# SPTchange we removed Vichy France anyway, fuck this
+			transfer_state = 735
+			transfer_state = 1
+			# if = {
+			# 	limit = {
+			# 		any_other_country = {
+			# 			original_tag = FRA
+			# 			has_government = fascism
+			# 			owns_state = 735
+			# 		}
+			# 	}
+			# 	set_global_flag = ITA_claims_on_france_735
+			# }
+			# if = {
+			# 	limit = {
+			# 		any_other_country = {
+			# 			original_tag = FRA
+			# 			has_government = fascism
+			# 			owns_state = 1
+			# 		}
+			# 	}
+			# 	set_global_flag = ITA_claims_on_france_1
+			# }
 
-			GER = { country_event = germany.104 }
+			# GER = { country_event = germany.104 }
 		}
 	}
 
@@ -16079,13 +16264,21 @@ focus_tree = {
 
 		completion_reward = { 
 
-			SWI = {
-				country_event = {
-				    id = BBA_italy_interaction_events.1
-				    days = 2
-				    random = 6
-				}
+			# SPTchange make things easier for dummies
+			ITA = {
+				transfer_state = 846
 			}
+			846 = {
+				add_core_of = ITA
+				remove_core_of = SWI
+			}
+			# SWI = {
+			# 	country_event = {
+			# 	    id = BBA_italy_interaction_events.1
+			# 	    days = 2
+			# 	    random = 6
+			# 	}
+			# }
 
 		}
 	}
@@ -20699,7 +20892,8 @@ focus_tree = {
 			custom_effect_tooltip = ITA_aid_for_the_spanish_republic_tt
 			if = {
 				limit = {
-					NOT = { has_rule = can_only_justify_war_on_threat_country }
+					NOT = { has_rule = can_send_volunteers } 
+
 				}
 				set_rule = { can_send_volunteers = yes }
 			}
@@ -20858,7 +21052,7 @@ focus_tree = {
 		completion_reward = {
 			hidden_effect = { #GUARANTEES
 				set_variable = { ITA_num_of_countries_guaranteed = 0 }
-				set_variable = { ITA_peace_keepers_consumer_goods_factor = 0.01 }
+				set_variable = { ITA_peace_keepers_consumer_goods_factor = 0.02 }
 				set_variable = { ITA_peace_keepers_war_support_factor = 0.01 }
 				set_variable = { ITA_peace_keepers_weekly_manpower = 100 }
 				every_other_country = {
@@ -21511,7 +21705,58 @@ focus_tree = {
 							is_on_continent = africa
 						}
 					}
-					ROOT = { release_puppet_on_controlled = PREV }
+					if = { #Give a potential player the option to get puppeted
+						limit = { 
+							is_ai = no
+							is_government_in_exile = yes
+							exists = yes 
+						}
+						country_event = { id = BBA_italy_interaction_events.71 hours = 1 }
+						if = {
+							limit = {
+								is_ai = no
+							}
+							ROOT = { 
+								country_event = { id = BBA_italy_interaction_events.70 hours = 1 }
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							exists = yes
+						}
+						create_dynamic_country = {
+							original_tag = THIS
+							set_variable = { ITA.create_puppet = THIS }
+							ROOT = {
+								every_controlled_state = {
+									limit = {
+										is_core_of = PREV.PREV
+										is_fully_controlled_by = ROOT
+									}
+									var:ITA.create_puppet = {
+										transfer_state = PREV
+									}
+								}
+							}
+							set_popularities = {
+								democratic = ITA.party_popularity_100@democratic
+								neutrality = ITA.party_popularity_100@neutrality
+								fascism = ITA.party_popularity_100@fascism
+								communism = ITA.party_popularity_100@communism
+							}
+							set_politics = {
+								ruling_party = ROOT
+							}
+						}
+						ROOT = {
+							puppet = ITA.create_puppet
+						}
+						clear_variable = ITA.create_puppet
+					}
+					else = {
+						ROOT = { release_puppet_on_controlled = PREV }
+					}
 					hidden_effect = {
 						add_to_temp_variable = { ROOT.ITA_pp_from_releasing_colonies = 15 }
 					}

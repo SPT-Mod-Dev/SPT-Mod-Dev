@@ -1,0 +1,204 @@
+SPT_GER_historical = {
+	name = "SPT GER historical plan"
+	desc = ""
+
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		always = yes
+	}
+	abort = {
+		
+	}
+	
+	#MOD CHANGED the order of the ai_national_focuses
+	ai_national_focuses = {
+		GER_rhineland
+		#Dont screw the Japanase player
+		GER_japan_friend
+		GER_autarky
+		GER_four_year_plan
+		GER_grosraumwirtschaft
+		GER_hermann_goring_werke
+		GER_kdf_wagen
+		GER_extra_tech_slot
+		SPT_GER_Wiesprecheichaus
+		GER_autobahn
+		GER_air_innovation
+		GER_anschluss
+		GER_demand_sudetenland
+		GER_first_vienna_award
+		GER_end_of_czechoslovakia
+		GER_army_innovation
+		GER_soviet_treaty
+		GER_anti_comitern_pact
+		GER_swedish_trade_agreement
+		GER_coal_liquidization
+		GER_synthetic_rubber
+		GER_demand_memel
+		GER_mol_rib_pact
+		GER_danzig_or_war
+		GER_around_maginot
+		GER_war_with_france
+		GER_weserubung
+		GER_reintegrate_luxemburg_and_alsace_lorraine
+		GER_improve_national_spirit
+		GER_second_vienna_award
+		GER_nationalist_spain_ally
+		GER_align_hungary
+		GER_align_romania
+		GER_integrate_war_economies
+		GER_naval_rearmament	
+		GER_ussr_war_goal
+		GER_naval_effort
+		GER_form_the_reichskommissariats
+		GER_pol_compliance
+		GER_ben_compliance
+		GER_fra_compliance
+		GER_sca_compliance
+		GER_u_boat_effort
+		GER_naval_effort2
+	}
+
+	research = {
+		industry = 25
+	}
+
+	ideas = {
+		war_economy = 15
+		hjalmar_schacht = 5
+	}
+
+	traits = {
+		silent_workhorse = 10
+		captain_of_industry = 5
+		war_industrialist = 1
+	}
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = SPA
+		value = 10000
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = JAP
+		value = -10000
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = CHI
+		value = -10000
+	}
+	ai_strategy = {
+		type = invade
+		id = ENG
+		value = -10000
+	}
+	ai_strategy = {
+		type = template_prio
+		id = medium_armor
+		value = 111
+	}
+	ai_strategy = {
+		type = intelligence_agency_usable_factories
+		value = 30
+	}
+	ai_strategy = {
+		type = agency_ai_base_num_factories_factor
+		value = -100
+	}
+	ai_strategy = {
+		type = agency_ai_per_upgrade_factories_factor
+		value = -100
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+
+}
+GER_minor_allies = { #used to make minor European nations like Axis more
+	name = "Minor German Allies"
+
+	allowed = {
+		OR = {
+			original_tag = ROM
+			original_tag = HUN
+			original_tag = BUL
+			original_tag = YUG
+			original_tag = ITA
+			original_tag = CZE
+			original_tag = DEN
+			original_tag = NOR
+			original_tag = SWE
+			original_tag = FIN
+			original_tag = SPR
+			original_tag = POR
+			original_tag = HOL
+			original_tag = BEL
+			original_tag = LUX
+			original_tag = POL
+			original_tag = LAT
+			original_tag = LIT
+			original_tag = EST
+			original_tag = CRO
+			original_tag = SLO
+			original_tag = VIC
+		}
+	}
+	enable = {
+		OR = {
+			has_government = fascism
+			fascism > 0.5
+		}
+		is_in_faction = no
+		GER = {
+			has_government = fascism
+		}
+		OR = {
+			original_tag = ROM
+			original_tag = HUN
+			original_tag = BUL
+			original_tag = YUG
+			original_tag = ITA
+			original_tag = CZE
+			original_tag = DEN
+			original_tag = NOR
+			original_tag = SWE
+			original_tag = FIN
+			original_tag = SPR
+			original_tag = POR
+			original_tag = HOL
+			original_tag = BEL
+			original_tag = LUX
+			original_tag = POL
+			original_tag = LAT
+			original_tag = LIT
+			original_tag = EST
+			original_tag = CRO
+			original_tag = SLO
+			original_tag = VIC
+		}
+	}
+	abort = {
+		GER = {
+			NOT = {
+				has_government = fascism
+			}
+		}
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "JAP"
+		value = -500
+	}
+}

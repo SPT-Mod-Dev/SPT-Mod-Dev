@@ -1,6 +1,6 @@
 ideas = {
 
-	country = {
+	country = {  
 
 		HUN_treaty_of_triannon = {
 			allowed = {
@@ -355,6 +355,7 @@ ideas = {
 			
 			research_bonus = {
 				air_equipment = 0.15
+				
 			}
 		}
 
@@ -413,8 +414,120 @@ ideas = {
 				}
 			}
 		}
-	}
 	
+		
+		spt_hun_license = {
+			allowed = {
+			}
+			allowed_civil_war = {
+			}
+			picture = generic_license_production
+			
+			modifier = {
+				license_armor_purchase_cost = -1
+				
+			}
+			equipment_bonus = {
+				medium_tank_chassis = {
+					build_cost_ic = -0.05 instant = yes
+				}
+				heavy_tank_chassis = {
+					build_cost_ic = -0.05 instant = yes
+				}
+			}
+		}
+
+		HUN_Foreign_production_assistance = {
+			allowed = {
+			}
+			allowed_civil_war = {
+			}
+			picture = generic_license_production
+			
+			modifier = {
+			}
+				equipment_bonus = {
+					
+					small_plane_airframe = {
+						build_cost_ic = -0.1 instant = yes
+					}
+					small_plane_cas_airframe = {
+						instant = yes
+						build_cost_ic = -0.1
+					}
+					medium_plane_airframe = {
+						build_cost_ic = -0.1 instant = yes
+					}
+				}
+		}
+		
+		HUN_Training_With_The_Luftwaffe_idea = {
+
+			allowed = {
+			
+			}
+
+			allowed_civil_war = {
+				is_in_faction_with = GER
+			}
+
+			picture = generic_air_bonus
+
+			equipment_bonus = {
+				small_plane_airframe = {
+					air_range = 0.1
+					air_attack = 0.05
+					air_agility = 0.05
+					instant = yes
+				}
+				medium_plane_fighter_airframe = {
+					air_range = 0.1
+					air_attack = 0.05
+					air_agility = 0.05
+					instant = yes
+				}
+				
+			}
+
+			modifier = {
+				air_ace_generation_chance_factor = 0.10
+			}
+		}
+
+		HUN_Training_With_The_Bombers_idea = {
+
+			allowed = {
+			
+			}
+
+			allowed_civil_war = {
+				is_in_faction_with = GER
+			}
+
+			picture = generic_air_bonus
+
+			equipment_bonus = {
+				
+				small_plane_cas_airframe = {
+					air_range = 0.1
+					air_ground_attack = 0.1
+					instant = yes
+				}
+				
+				medium_plane_airframe = {
+					air_range = 0.1
+					air_ground_attack = 0.1
+					instant = yes
+				}
+				
+			}
+
+			modifier = {
+				air_ace_generation_chance_factor = 0.10
+			}
+		}
+	}
+
 	aircraft_manufacturer = {
 			
 		designer = yes
@@ -515,4 +628,5 @@ ideas = {
 			traits = { infantry_equipment_manufacturer }
 		}
 	}
+
 }

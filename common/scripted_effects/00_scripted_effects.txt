@@ -17,7 +17,7 @@
 #
 
 #####################################
-### emergency_factory_conversion 
+### emergency_factory_conversion ####
 #####################################
 
 #This is going to give misleading and ugly tooltips. Making it nice will take effort. TODO_WTT_CD make nice or ignore and remove comment. Easiest solution is just making a custom tooltip that says "5 civilian factories will be converted to military factories" and ignore telling the player the states where it will happen.
@@ -1040,8 +1040,7 @@ gain_random_agency_upgrade = { #Gives a random agency upgrade or grants a free a
 						has_done_agency_upgrade = upgrade_anti_partisan
 					}
 				}
-				# SPTChange - removed upgrade_intelligence_agency = upgrade_blueprint_stealing
-				# 1 = {
+				# 1 = { # SPTChange
 				# 	upgrade_intelligence_agency = upgrade_blueprint_stealing
 				# 	modifier = {
 				# 		factor = 0
@@ -1207,8 +1206,8 @@ remove_fascist_spirits_effect = {
 #Should remove any and all communist foreign influence
 remove_communist_spirits_effect = {
 	if = {
-		limit = { has_idea = communist_pressure }
-		remove_ideas = communist_pressure
+		limit = { has_idea = SPT_communist_pressure }
+		remove_ideas = SPT_communist_pressure
 	}
 	if = {
 		limit = { has_idea = american_influence_drift_communism }
@@ -4224,9 +4223,19 @@ increase_state_category = {
 		limit = {
 			has_state_category = city
 		}
+		set_state_category = large_city
+		effect_tooltip = {
+			add_extra_state_shared_building_slots = 2
+		}
+	}
+
+	else_if = {
+		limit = {
+			has_state_category = large_city
+		}
 		set_state_category = metropolis
 		effect_tooltip = {
-			add_extra_state_shared_building_slots = 4
+			add_extra_state_shared_building_slots = 4 # SPTChange 
 		}
 	}
 
@@ -4239,6 +4248,7 @@ increase_state_category = {
 			add_extra_state_shared_building_slots = 2
 		}
 	}
+
 }
 
 add_potential_special_forces_tree = {
