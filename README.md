@@ -4,6 +4,7 @@
 ### 3.12.4
 
 ### General
+ - Cutting Corners MIO policy Reliability, Soft Attack, Hard Attack, and Armor debuff reduced to -8%, from -2.5%
  - 'Mobile Warfare' Doctrine perk 'Volkstrum' recruitable population reduced to 1%, from 2%
  - 'Mobile Warfare' Doctrine perk 'Indiscriminate Conscription' recruitable population reduced to 1.5%, from 3%
  - 'Guerrila Tactics' tactic combat attacker penalty reduced to -40%, from -50%
