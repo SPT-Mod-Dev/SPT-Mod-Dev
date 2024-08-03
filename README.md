@@ -34,56 +34,56 @@
 
 ### Tank Rebalance
 
-## Tank Destroyer Brigades
+#### Tank Destroyer Brigades
  - Breakthrought malus increased to -65% for all weight classes
 
 
-## gasoline engine
+#### gasoline engine
  - Flat IC cost replaced with +20% IC multiplier
 
 
-## diesel engine
+#### diesel engine
  - Flat IC cost reduced to 0.5 ic, from 1.5
  - Added +20% IC multiplier
 
 
-## petrol electric engine
+#### petrol electric engine
  - Flat IC cost reduced to 1.5, from 2.0
  - IC cost multiplier increased to +20%, from +10%
  - Reliability malus reduced to -15%, from -25%, and made it multiplicative instead of additive
  - Reduced Breakthrough and Defense bonuses to +20%, from 25%
  - Removed Flat Breakthrough and Defense bonuses
 
-## Gas turbine engine
+#### Gas turbine engine
  - Flat IC cost reduced to 1.0, from 2.0
  - Added IC multiplier of +20%
  - Reliability malus is now multiplicative, instead of additive
  
-## Small Cannon
+#### Small Cannon
  - Soft Attack incresed to 19, from 17
  - Hard Attack increased to 13.5, from 11.5
  - IC cost reduced to 0.5, from 0.75
  - Moved to Interwar Artillery (1934) Technology, from Artillery (1936) Technology
 
-## Improved Small Cannon
+#### Improved Small Cannon
  - Soft Attack increased to 25.5, from 24
  - Hard Attack increased to 16, from 14
  - IC cost reduced to 1.7, from 2
 
-## Advanced Small Cannon
+#### Advanced Small Cannon
  - Added new cannon
  
-## Close Support Gun
+#### Close Support Gun
  - IC cost reduced to 3.5, from 4
  
-## Medium Cannon
+#### Medium Cannon
  - Soft Attack reduced to 24, from 24.5
  - Hard Attack reduced to 16.5, from 17
  - Reduced Tungsten cost to 1, from 2
  - Steel cost of 1 added
  - Moved to Towed Anti-Tank (1936) Technology, from Anti-Tank Upgrade (1939) Technology
 
-## Improved Medium Cannon
+#### Improved Medium Cannon
  - Soft Attack reduced to 28.5, from 30
  - Hard Attack reduced to 19, from 20.5
  - Piercing reduced to 60, from 67
@@ -91,74 +91,74 @@
  - Moved to Improved Anti-Tank (1940) Technology, from Improved Anti-Tank Upgrade (1941) Technology in the Anti-Tank Technology Path
  - Moved to Improved Artillery Upgrade 2 (1941) Technology, from Advanced Artillery (1942) Technology in the Artillery Technology Path
 
-## Advanced Medium Cannon
+#### Advanced Medium Cannon
  - Added new cannon
 
-## Medium Howitzer 1
+#### Medium Howitzer 1
  - IC cost reduced to 3, from 4
 
-## Medium Howitzer 2
+#### Medium Howitzer 2
  - IC cost reduced to 5, from 5.5
 
-## Basic High Velocity Gun
+#### Basic High Velocity Gun
  - IC cost reduced to 2.75, from 3
 
-## Improved High Velocity
+#### Improved High Velocity
  - IC cost reduced to 4.5, from 5
 
-## Advanced High Velocity
+#### Advanced High Velocity
  - IC cost reduced to 6.5, from 7
 
-## Heavy Cannon 1
+#### Heavy Cannon 1
  - IC cost reduced to 5, from 6
 
-## Heavy Cannon 2
+#### Heavy Cannon 2
  - IC cost reduced to 6, from 7
 
-## Heavy Cannon 3
+#### Heavy Cannon 3
  - IC cost reduced to 7, from 8
 
-## Super Heavy Cannon 1
+#### Super Heavy Cannon 1
  - IC cost reduced to 11, from 12.5
  
-## Amphibious Drive
+#### Amphibious Drive
  - Removed IC multiplier
  
-## Heavy Machine Gun Module
+#### Heavy Machine Gun Module
  - IC cost reduced to 1.75, from 2
  
-## Small Cannon Module
+#### Small Cannon Module
  - IC cost reduced to 1.75, from 2
  
-## Stabilizer
+#### Stabilizer
  - IC cost reduced to 1.5, from 2.5
  - Breakthrough reduced to 6, from 7.5
 
-## Smoke Launcher
+#### Smoke Launcher
  - Removed Defense stat
  - Increased Breakthrough to 8, from 2
 
-## Armor Skirts
+#### Armor Skirts
  - Removed Hardness
 
-## Dozer Blade
+#### Dozer Blade
  - Removed Hardness
  - Entrenchment increased to 1.5, from 1
  - IC cost reduced to 1, from 1.5
 
-## Auto Loader
+#### Auto Loader
  - IC cost reduced to 2.5, from 3
 
-## Easy Maintenance
+#### Easy Maintenance
  - Removed IC cost
 
-## Additional Machine Guns
+#### Additional Machine Guns
  - Soft Attack increased to 3, from 2
 
-## Extra Fuel Tank
+#### Extra Fuel Tank
  - IC cost reduced to 1, from 2
 
-## Wet Ammo Storage
+#### Wet Ammo Storage
  - IC cost reduced to 1, from 1.5
  - Removed Attack Penalties
  - Added Breakthrough multiplier of -10%
