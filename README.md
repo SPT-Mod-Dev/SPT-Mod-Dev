@@ -1,6 +1,5 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-
 ### 3.12.4
 
 ### General
@@ -35,17 +34,14 @@
 ### Tank Rebalance
 
 #### Tank Destroyer Brigades
- - Breakthrought malus increased to -65% for all weight classes
-
+ - Breakthrough malus increased to -65% for all weight classes
 
 #### gasoline engine
  - Flat IC cost replaced with +20% IC multiplier
 
-
 #### diesel engine
  - Flat IC cost reduced to 0.5 ic, from 1.5
  - Added +20% IC multiplier
-
 
 #### petrol electric engine
  - Flat IC cost reduced to 1.5, from 2.0
