@@ -413,13 +413,6 @@ country_event = { # Japanese yes or no response
 	desc = spt.19.desc
 	picture = GFX_report_event_chinese_japanese_handshake
 	is_triggered_only = yes
-	option = { # YAS
-		name = spt.19.a
-		MAN = {
-			country_event = spt.20
-		}
-		
-	}
 	option = { # PISS OFF MAN(chukuo)
 		name = spt.19.b
 		MAN = {
@@ -481,8 +474,38 @@ country_event = { # Puyi demands East Hebei and Dalian
 	}
 
 	option = {
-		name = spt.22.b # NO
-		custom_effect_tooltip = MAN_unification_denied_tt
+		name = spt.22.b
+		JAP = {
+			country_event = spt.23
+		}
+	}
+
+	
+
+}
+
+country_event = { #lmao
+	id = spt.23
+	title = spt.23.t
+	desc = spt.23.desc
+	picture = GFX_report_event_japanese_chinese_surrender
+	is_triggered_only = yes
+	option = {
+		name = spt.23.a # YES
+		add_country_leader_trait = popular_figurehead
+		MAN = {
+			transfer_state = 609
+			add_state_core = 609
+			transfer_state = 621
+			add_state_core = 621
+			transfer_state = 615
+			add_state_core = 615
+			transfer_state = 745
+			add_state_core = 745
+			MAN_low_legitimacy_level_down = yes
+			add_country_leader_trait = popular_figurehead
+			add_country_leader_trait = nationalist_symbol
+		}
 	}
 
 }
