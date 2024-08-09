@@ -7984,30 +7984,33 @@ focus_tree = {
 	focus = {
 		id = DEN_reclaim_norway
 		icon = GFX_focus_generic_attack_norway
-		prerequisite = { focus = DEN_scandinavian_security focus = DEN_rally_the_nation }
+		# prerequisite = { focus = DEN_scandinavian_security focus = DEN_rally_the_nation }
+		prerequisite = { focus = DEN_rally_the_nation }
 
-		relative_position_id = DEN_king_assumes_power
-		x = 3
-		y = 4
+		relative_position_id = DEN_rally_the_nation
+		x = 4
+		y = 1
 
 		cost = 10
 		will_lead_to_war_with = NOR
 
-		# SPTchange for balancing
-		allow_branch = {
-			always = no
-		}
-
 		available = {
 			OR = {
 				has_subject = NOR
-				AND = {
-					has_government = neutrality
-					threat > 0.20
-				}
-				AND = {
-					has_government = fascism
-					threat > 0.15
+				# SPTchange
+				# AND = {
+				# 	has_government = neutrality
+				# 	threat > 0.20
+				# }
+				# AND = {
+				# 	has_government = fascism
+				# 	threat > 0.15
+				# }				
+				NOR = {
+					is_subject = yes
+					OVERLORD = {
+						has_government = fascism
+					}
 				}
 			}
 		}
@@ -8046,6 +8049,12 @@ focus_tree = {
 			add_to_variable = { 
 				DEN_flyvevabnet_air_weather_penalty = -0.05 
 				tooltip = air_weather_penalty_tt
+			}
+
+			# SPTchange
+			add_collaboration = {
+				target = NOR
+				value = 0.6
 			}
 
 			if = {
@@ -8130,8 +8139,8 @@ focus_tree = {
 					NOR = { country_event = { id = denmark_expansion_event.20 days = 1 }}
 					custom_effect_tooltip = if_they_accept_tt
 					event_option_tooltip = denmark_expansion_event.21.a
-					custom_effect_tooltip = if_they_refuse_tt
-					event_option_tooltip = denmark_expansion_event.22.a
+					# custom_effect_tooltip = if_they_refuse_tt
+					# event_option_tooltip = denmark_expansion_event.22.a
 				}
 				else_if = {
 					limit = {
@@ -8147,8 +8156,8 @@ focus_tree = {
 					}
 					custom_effect_tooltip = if_they_accept_tt
 					event_option_tooltip = denmark_expansion_event.24.a
-					custom_effect_tooltip = if_they_refuse_tt
-					event_option_tooltip = denmark_expansion_event.25.a
+					# custom_effect_tooltip = if_they_refuse_tt
+					# event_option_tooltip = denmark_expansion_event.25.a
 				}
 				else_if = {
 					limit = {
@@ -8208,7 +8217,7 @@ focus_tree = {
 
 		# SPTchange
 		relative_position_id = DEN_reclaim_norway
-		x = -1
+		x = 1
 		y = 1
 
 		cost = 5
@@ -8244,9 +8253,9 @@ focus_tree = {
 		prerequisite = { focus = DEN_secure_swedish_steel focus = DEN_reclaim_norway }
 
 		# SPTchange repositioning
-		relative_position_id = DEN_train_mountain_infantry
-		x = -2
-		y = 0
+		relative_position_id = DEN_reclaim_norway
+		x = -1
+		y = 1
 
 		cost = 5
 
