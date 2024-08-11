@@ -303,9 +303,9 @@
 		id = SPT_MAN_army_modernization
 		icon = GFX_focus_chi_army_reform
 		
-		x = 9
-		y = 1
-		relative_position_id = SPT_MAN_the_japanese_colony
+		x = 7
+		y = 0
+		relative_position_id = SPT_MAN_pacify_the_countryside
 
 		cost = 5
 
@@ -628,89 +628,6 @@
 	}
 
 	focus = {
-		id = SPT_MAN_open_old_weapon_caches
-		icon = GFX_focus_ETH_freedom_at_gunpoint
-		prerequisite = { focus = SPT_MAN_hoankyoku}
-		
-		x = 0
-		y = 1
-		relative_position_id = SPT_MAN_hoankyoku
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-		}
-
-		bypass = {
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-		completion_reward = {
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = 10000
-				producer = FROM
-			}
-			add_equipment_to_stockpile = {
-				type = support_equipment
-				amount = 500
-				producer = FROM
-			}
-			add_equipment_to_stockpile = {
-				type = artillery_equipment
-				amount = 250
-				producer = FROM
-			}
-		}
-	}
-
-	
-	focus = {
-		id = SPT_MAN_reopen_university_of_beijing
-		icon = GFX_focus_research
-		prerequisite = { focus = SPT_MAN_new_military_academy }
-		
-		x = 0
-		y = 1
-		relative_position_id = SPT_MAN_new_military_academy
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-			num_of_factories > 50
-		}
-
-		bypass = {
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		search_filters = { FOCUS_FILTER_RESEARCH }
-		completion_reward = {
-			add_research_slot = 1
-		}
-
-		
-	}
-
-
-	focus = {
 		id = SPT_MAN_return_of_the_qing
 		icon = GFX_spt_focus_return_qing
 		prerequisite = { focus = SPT_MAN_recruit_qing_loyalists }
@@ -746,38 +663,6 @@
 			}	
 		}
 	}	
-
-	focus = {
-		id = SPT_MAN_new_chinese_economic_policy
-		icon = GFX_focus_usa_reestablish_the_gold_standard
-		prerequisite = { focus = SPT_MAN_national_defense_state }
-		x = 0
-		y = 1
-		relative_position_id = SPT_MAN_national_defense_state
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-		completion_reward = {
-		
-			add_ideas = MAN_new_chinese_economic_policy
-			
-		}
-			
-	}
-
 
 	#Japanese settlers branch
 	focus = {
@@ -1235,6 +1120,53 @@
 	}
 
 	focus = {
+		id = SPT_MAN_open_old_weapon_caches
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		prerequisite = { focus = SPT_MAN_hoankyoku}
+		
+		x = 0
+		y = 1
+		relative_position_id = SPT_MAN_hoankyoku
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 10000
+				producer = FROM
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 500
+				producer = FROM
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 250
+				producer = FROM
+			}
+		}
+	}
+	
+	focus = {
 		id = SPT_MAN_new_military_academy
 		icon = GFX_goal_generic_position_armies
 		prerequisite = { focus = SPT_MAN_law_university }
@@ -1266,6 +1198,39 @@
 		}
 	}
 
+	focus = {
+		id = SPT_MAN_reopen_university_of_beijing
+		icon = GFX_focus_research
+		prerequisite = { focus = SPT_MAN_new_military_academy }
+		
+		x = 0
+		y = 1
+		relative_position_id = SPT_MAN_new_military_academy
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			num_of_factories > 50
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_research_slot = 1
+		}
+
+		
+	}
 
 	focus = {
 		id = SPT_MAN_research_and_education_department
@@ -1336,119 +1301,6 @@
 			country_event = wtt_manchukou.11
 		}
 	}
-
-
-	focus = {
-		id = SPT_MAN_trade_delegation
-		icon = GFX_goal_generic_trade
-		prerequisite = { focus = SPT_MAN_first_five_year_plan }
-		x = 3
-		y = 1.1
-		relative_position_id = SPT_MAN_first_five_year_plan
-
-		cost = 8
-
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = yes
-
-		
-
-		search_filters = { FOCUS_FILTER_RESEARCH }
-		completion_reward = {
-			add_tech_bonus = {
-				name = MAN_trade_delegation
-				bonus = 1.0
-				uses = 2
-				category = industry
-			}
-			add_equipment_to_stockpile = {
-				type = train_equipment
-				amount = 10
-			}
-		}
-	}
-
-	focus = {
-		id = SPT_MAN_expand_the_textile_industry
-		icon = GFX_focus_generic_industry_1
-		prerequisite = { focus = SPT_MAN_expand_showa_steel_works }
-		x = 0
-		y = 1
-		relative_position_id = SPT_MAN_expand_showa_steel_works
-		cost = 8
-
-		ai_will_do = {
-			factor = 4
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-		complete_tooltip = {
-			random_state = {
-				limit = {
-					has_state_flag = MAN_expand_the_textile_industry_IC
-				}
-				add_extra_state_shared_building_slots = 4
-				add_building_construction = {
-					type = industrial_complex
-					level = 4
-					instant_build = yes
-				}
-			}
-		}
-
-		completion_reward = {
-			random_owned_controlled_state = {
-				limit = {
-					is_fully_controlled_by = ROOT
-					free_building_slots = {
-						building = industrial_complex
-						size > 1
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-				set_state_flag = MAN_expand_the_textile_industry_IC
-			}
-		}
-	}
-
-	
-	
-	
-
-	
-
-	
 
 	focus = {
 		id = SPT_MAN_invite_japanese_investors
@@ -1716,6 +1568,90 @@
 	}
 
 	focus = {
+		id = SPT_MAN_mukden_arsenal
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = SPT_MAN_first_five_year_plan }
+		x = 1
+		y = 1
+		relative_position_id = SPT_MAN_first_five_year_plan
+
+		cost = 8
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			716 = { is_fully_controlled_by = ROOT }
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		completion_reward = {
+			716 = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = arms_factory
+					level = 4 
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_MAN_trade_delegation
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = SPT_MAN_first_five_year_plan }
+		x = 3
+		y = 1.1
+		relative_position_id = SPT_MAN_first_five_year_plan
+
+		cost = 8
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_tech_bonus = {
+				name = MAN_trade_delegation
+				bonus = 1.0
+				uses = 2
+				category = industry
+			}
+			add_equipment_to_stockpile = {
+				type = train_equipment
+				amount = 10
+			}
+		}
+	}
+
+	focus = {
 		id = SPT_MAN_expand_showa_steel_works
 		icon = GFX_focus_SOV_south_manchuria_railway
 		prerequisite = { focus = SPT_MAN_mukden_arsenal}
@@ -1757,6 +1693,66 @@
 		}
 	}
 
+	focus = {
+		id = SPT_MAN_expand_the_textile_industry
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = SPT_MAN_expand_showa_steel_works }
+		x = 0
+		y = 1
+		relative_position_id = SPT_MAN_expand_showa_steel_works
+		cost = 8
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		complete_tooltip = {
+			random_state = {
+				limit = {
+					has_state_flag = MAN_expand_the_textile_industry_IC
+				}
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = industrial_complex
+					level = 4
+					instant_build = yes
+				}
+			}
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = MAN_expand_the_textile_industry_IC
+			}
+		}
+	}
 	
 
 	focus = {
@@ -1849,21 +1845,17 @@
 	}
 
 	focus = {
-		id = SPT_MAN_mukden_arsenal
-		icon = GFX_goal_generic_construct_mil_factory
-		prerequisite = { focus = SPT_MAN_first_five_year_plan }
-		x = 1
+		id = SPT_MAN_new_chinese_economic_policy
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		prerequisite = { focus = SPT_MAN_national_defense_state }
+		x = 0
 		y = 1
-		relative_position_id = SPT_MAN_first_five_year_plan
+		relative_position_id = SPT_MAN_national_defense_state
 
-		cost = 8
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
-		}
-
-		available = {
-			716 = { is_fully_controlled_by = ROOT }
 		}
 
 		bypass = {
@@ -1874,21 +1866,14 @@
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		
-
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			716 = {
-				add_extra_state_shared_building_slots = 4
-				add_building_construction = {
-					type = arms_factory
-					level = 4 
-					instant_build = yes
-				}
-			}
+		
+			add_ideas = MAN_new_chinese_economic_policy
+			
 		}
+			
 	}
-
 
 	focus = {
 		allow_branch = {always = no}
