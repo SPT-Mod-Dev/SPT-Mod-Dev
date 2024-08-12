@@ -79,74 +79,78 @@ SPT_JAP_historical = {
 	}
 
 	ideas = {
-		hideki_tojo = -200
-		JAP_mitsumasa_yonai = 150
-		takuo_godo = 125
-		JAP_hiroshi_oshima = 50
-		kanin_kotohito = 100
-		yasuji_okamura = 75
+		hideki_tojo = -20
+		JAP_mitsumasa_yonai = 15
+		takuo_godo = 12
+		JAP_hiroshi_oshima = 5
+		kanin_kotohito = 10
+		yasuji_okamura = 7
 	}
 
 	traits = {
-		silent_workhorse = 100
-		war_industrialist = 25
-		prince_of_terror = 10
+		silent_workhorse = 10
+		war_industrialist = 2
+		prince_of_terror = 1
 	}
 
 
 	ai_strategy = {
 		type = added_military_to_civilian_factory_ratio
-		value = 1000
+		value = 100
 	}
 	ai_strategy = {
 		type = building_target
 		id = industrial_complex
-		value = -10000
+		value = -100
 	}
 	ai_strategy = {
 		type = prepare_for_war
 		id = CHI
-		value = 10000
+		value = 100
 	}
 	ai_strategy = {
 		type = invade
 		id = CHI
-		value = 50000
+		value = 5000
+	}
+	ai_strategy = {
+		type = naval_invasion_focus
+		value = 500
 	}
 	ai_strategy = {
 		type = invasion_unit_request
 		state = 597
-		value = 300000
+		value = 5000
 	}
 	ai_strategy = {
 		type = invasion_unit_request
 		state = 743
-		value = 300000
+		value = 5000
 	}
 	ai_strategy = {
 		type = invasion_unit_request
 		state = 613
-		value = 50000
+		value = 1000
 	}
 	ai_strategy = {
 		type = invasion_unit_request
 		state = 596
-		value = 50000
+		value = 1000
 	}
 	ai_strategy = {
 		type = invasion_unit_request
 		state = 595
-		value = 30000
+		value = 500
 	}
 	ai_strategy = {
 		type = invasion_unit_request
 		state = 593
-		value = 30000
+		value = 500
 	}
 	ai_strategy = {
 		type = send_volunteers_desire
 		id = GER
-		value = -10000
+		value = -1000
 	}
 	ai_strategy = {
 		type = front_unit_request
@@ -155,29 +159,7 @@ SPT_JAP_historical = {
 			NOT = { JAP = { has_war_with = USA } }
 			JAP = { has_war_with = CHI }
 		}
-		value = 10000
-	}
-	ai_strategy = {
-		type = invasion_unit_request
-		country_trigger = {
-			has_country_flag = SPT_JAP_invade_pacific
-		}
-		area = pacific
-		value = 100000
-	}
-	ai_strategy = {
-		type = send_volunteers_desire
-		id = GER
-		value = -500
-	}
-	ai_strategy = {
-		type = front_unit_request
-		tag = CHI
-		country_trigger = {
-			NOT = { JAP = { has_war_with = USA } }
-			JAP = { has_war_with = CHI }
-		}
-		value = 10000
+		value = 100
 	}
 	ai_strategy = {
 		type = operative_operation
@@ -201,7 +183,7 @@ SPT_JAP_historical = {
 	# Keep small, as it is used as a factor for some things (such as research needs)
 	# Recommended around 1.0. Useful for relation between plans
 	weight = {
-		factor = 3.0
+		factor = 1.0
 		modifier = {
 			factor = 1.0
 		}
