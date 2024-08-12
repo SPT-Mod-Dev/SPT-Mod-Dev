@@ -79,63 +79,82 @@ SPT_JAP_historical = {
 	}
 
 	ideas = {
-
+		hideki_tojo = -200
+		JAP_mitsumasa_yonai = 150
+		takuo_godo = 125
+		JAP_hiroshi_oshima = 50
+		kanin_kotohito = 100
+		yasuji_okamura = 75
 	}
 
 	traits = {
-		silent_workhorse = 10
-		war_industrialist = 5
-		prince_of_terror = 1
+		silent_workhorse = 100
+		war_industrialist = 25
+		prince_of_terror = 10
 	}
 
+
+	ai_strategy = {
+		type = added_military_to_civilian_factory_ratio
+		value = 1000
+	}
+	ai_strategy = {
+		type = building_target
+		id = industrial_complex
+		value = -10000
+	}
 	ai_strategy = {
 		type = prepare_for_war
 		id = CHI
-		value = 1000
+		value = 10000
 	}
 	ai_strategy = {
 		type = invade
 		id = CHI
-		value = 10000
-	}
-	ai_strategy = {
-		type = invasion_unit_request
-		state = 608
-		value = 80000
+		value = 50000
 	}
 	ai_strategy = {
 		type = invasion_unit_request
 		state = 597
-		value = 80000
+		value = 300000
 	}
 	ai_strategy = {
 		type = invasion_unit_request
 		state = 743
-		value = 40000
+		value = 300000
 	}
 	ai_strategy = {
 		type = invasion_unit_request
 		state = 613
-		value = 30000
+		value = 50000
 	}
 	ai_strategy = {
 		type = invasion_unit_request
 		state = 596
-		value = 30000
+		value = 50000
 	}
 	ai_strategy = {
 		type = invasion_unit_request
 		state = 595
-		value = 20000
+		value = 30000
 	}
 	ai_strategy = {
 		type = invasion_unit_request
 		state = 593
-		value = 10000
+		value = 30000
 	}
 	ai_strategy = {
-		type = invasion_unit_request
-		state = 592
+		type = send_volunteers_desire
+		id = GER
+		value = -10000
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = CHI
+		country_trigger = {
+			NOT = { JAP = { has_war_with = USA } }
+			JAP = { has_war_with = CHI }
+		}
 		value = 10000
 	}
 	ai_strategy = {
@@ -144,7 +163,7 @@ SPT_JAP_historical = {
 			has_country_flag = SPT_JAP_invade_pacific
 		}
 		area = pacific
-		value = 30000
+		value = 100000
 	}
 	ai_strategy = {
 		type = send_volunteers_desire
@@ -182,7 +201,7 @@ SPT_JAP_historical = {
 	# Keep small, as it is used as a factor for some things (such as research needs)
 	# Recommended around 1.0. Useful for relation between plans
 	weight = {
-		factor = 1.0
+		factor = 3.0
 		modifier = {
 			factor = 1.0
 		}
