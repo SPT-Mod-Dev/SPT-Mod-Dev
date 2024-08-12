@@ -96,55 +96,20 @@ SPT_JAP_historical = {
 
 	ai_strategy = {
 		type = added_military_to_civilian_factory_ratio
-		value = 100
+		value = 1000
 	}
 	ai_strategy = {
 		type = building_target
 		id = industrial_complex
-		value = -100
+		value = -1000
 	}
 	ai_strategy = {
 		type = prepare_for_war
-		id = CHI
-		value = 100
-	}
-	ai_strategy = {
-		type = invade
 		id = CHI
 		value = 5000
 	}
 	ai_strategy = {
 		type = naval_invasion_focus
-		value = 500
-	}
-	ai_strategy = {
-		type = invasion_unit_request
-		state = 597
-		value = 5000
-	}
-	ai_strategy = {
-		type = invasion_unit_request
-		state = 743
-		value = 5000
-	}
-	ai_strategy = {
-		type = invasion_unit_request
-		state = 613
-		value = 1000
-	}
-	ai_strategy = {
-		type = invasion_unit_request
-		state = 596
-		value = 1000
-	}
-	ai_strategy = {
-		type = invasion_unit_request
-		state = 595
-		value = 500
-	}
-	ai_strategy = {
-		type = invasion_unit_request
-		state = 593
 		value = 500
 	}
 	ai_strategy = {
@@ -159,11 +124,11 @@ SPT_JAP_historical = {
 			NOT = { JAP = { has_war_with = USA } }
 			JAP = { has_war_with = CHI }
 		}
-		value = 100
+		value = 10000
 	}
 	ai_strategy = {
 		type = operative_operation
-		value = 1000
+		value = 10000
 		operation = operation_collaboration_government
 		operation_target = CHI
 	}
@@ -189,4 +154,136 @@ SPT_JAP_historical = {
 		}
 	}
 
+}
+
+SPT_JAP_invade_zero = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		
+	}
+	abort = {
+		614 = { is_controlled_by = JAP }
+	}
+
+	ai_strategy = {
+		type = front_control
+		tag = CHI
+		priority = 1
+		ratio = 0
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+	}
+}
+
+SPT_JAP_invade_one = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		614 = { is_controlled_by = JAP }
+	}
+	abort = {
+		597 = { is_controlled_by = JAP }
+	}
+	ai_strategy = {
+		type = naval_invasion_focus
+		value = 5000
+	}
+	ai_strategy = {
+		type = front_control
+		priority = 2
+		ratio = 0
+		ordertype = invasion
+		state = 743
+	}
+	ai_strategy = {
+		type = front_control
+		tag = CHI
+		priority = 1
+		ratio = 0
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+	}
+}
+
+SPT_JAP_invade_two = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		597 = { is_controlled_by = JAP }
+	}
+	abort = {
+		613 = { is_controlled_by = JAP }
+	}
+	ai_strategy = {
+		type = naval_invasion_focus
+		value = 5000
+	}
+	ai_strategy = {
+		type = front_control
+		priority = 2
+		ratio = 0
+		ordertype = invasion
+		state = 596
+	}
+	ai_strategy = {
+		type = front_control
+		priority = 2
+		ratio = 0
+		ordertype = invasion
+		state = 613
+	}
+	ai_strategy = {
+		type = front_control
+		tag = CHI
+		priority = 1
+		ratio = 0
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+	}
+}
+
+SPT_JAP_invade_three = {
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {
+		613 = { is_controlled_by = JAP }
+	}
+	abort = {
+		CHI = { has_capitulated = yes }
+	}
+	ai_strategy = {
+		type = naval_invasion_focus
+		value = 5000
+	}
+	ai_strategy = {
+		type = front_control
+		priority = 2
+		ratio = 0
+		ordertype = invasion
+		state = 595
+	}
+	ai_strategy = {
+		type = front_control
+		priority = 2
+		ratio = 0
+		ordertype = invasion
+		state = 593
+	}
+	ai_strategy = {
+		type = front_control
+		tag = CHI
+		priority = 1
+		ratio = 0
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+	}
 }

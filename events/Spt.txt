@@ -459,17 +459,36 @@ country_event = { # Puyi demands East Hebei and Dalian
 		name = spt.22.a # YES
 		add_country_leader_trait = popular_figurehead
 		MAN = {
-			transfer_state = 609
 			add_state_core = 609
-			transfer_state = 621
 			add_state_core = 621
-			transfer_state = 615
 			add_state_core = 615
-			transfer_state = 745
-			add_state_core = 745
 			MAN_low_legitimacy_level_down = yes
 			add_country_leader_trait = popular_figurehead
 			add_country_leader_trait = nationalist_symbol
+			if = {
+				limit = {
+					615 = { is_controlled_by = JAP }
+				}
+				transfer_state = 615
+			}
+			if = {
+				limit = {
+					621 = { is_controlled_by = JAP }
+				}
+				transfer_state = 621
+			}
+			if = {
+				limit = {
+					745 = { is_controlled_by = JAP }
+				}
+				transfer_state = 745
+			}
+			if = {
+				limit = {
+					609 = { is_controlled_by = JAP }
+				}
+				transfer_state = 609
+			}
 		}
 	}
 
