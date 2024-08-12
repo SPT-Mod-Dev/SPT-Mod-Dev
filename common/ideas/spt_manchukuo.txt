@@ -19,7 +19,7 @@ ideas = {
 			
 			modifier = {
 				army_advisor_cost_factor = -0.25
-				land_doctrine_cost_factor = -0.05
+				land_doctrine_cost_factor = -0.1
 				army_morale_factor = 0.1
 				cas_damage_reduction = 0.2
 				dig_in_speed_factor = 0.25
@@ -89,7 +89,48 @@ ideas = {
 			
 			modifier = {
 				production_speed_buildings_factor = 0.2
-				political_power_gain = -0.25
+				political_power_gain = -0.15
+			}
+		}
+
+		MAN_our_own_navy = {
+
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+
+			picture = GFX_goal_generic_navy_battleship
+			modifier = {
+				license_naval_purchase_cost = -0.15
+				license_production_speed = 0.2
+				experience_gain_navy = 0.3
+			}
+		}
+
+			
+		MAN_new_military_academy_idea = {
+
+			allowed = {
+				original_tag = MAN
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = generic_army_war_college
+
+			modifier = {
+				military_leader_cost_factor = -0.75
+				army_leader_start_level = 1
+				army_leader_start_planning_level= 1
+				army_leader_start_logistics_level = 1
+				army_leader_start_attack_level = 1
+				army_leader_start_defense_level = 1
 			}
 		}
 	}

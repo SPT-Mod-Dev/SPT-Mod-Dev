@@ -1,5 +1,15 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.12.5
+
+### Manchukuo
+ - Reworked focus tree
+
+### AI
+ - Made UK more reliable at guarding Mediterranean targets
+ - Siam now sends volunteers to Japan
+ - Made Japan worse?
+
 ### 3.12.4
 
 ### General
