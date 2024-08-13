@@ -1,5 +1,27 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.12.5
+
+### Manchukuo
+ - Reworked focus tree
+
+### Germany 
+- U-boat effort focus time increased to 70 days forom 35
+- Naval effort focus time increased to 70 days forom 35
+
+### Submarines
+- Torpedo 3 hit chance bonus removed
+- Cruiser submarine hull range reduced from 5000 to 4500
+
+### Naval high command
+ - Close combat torpeedo hit change modifier reduced to 10% from 20%
+
+### AI
+ - Made UK more reliable at guarding Mediterranean targets
+ - Siam now sends volunteers to Japan
+ - Made Japan worse?
+
+
 ### 3.12.4
 
 ### General

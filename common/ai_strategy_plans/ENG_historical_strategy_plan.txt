@@ -72,19 +72,23 @@ SPT_ENG_historical = {
 		value = 30
 	}
 	ai_strategy = {
-		type = front_unit_request
-		value = 10
-		state = 118
-	}
-	ai_strategy = {
-		type = front_unit_request
-		value = 10
-		state = 116
-	}
-	ai_strategy = {
-		type = front_unit_request
-		value = 10
-		state = 183
+		type = put_unit_buffers
+		ratio = 0.3
+		states = {
+			118
+			116
+			183
+			447
+			123
+			125
+			126
+			127
+			130
+			131
+			446
+		}
+		subtract_invasions_from_need = yes
+		subtract_fronts_from_need = yes
 	}
 	ai_strategy = {
 		type = intelligence_agency_usable_factories
@@ -112,6 +116,11 @@ SPT_ENG_historical = {
 		type = protect
 		id = POR
 		value = -1
+	}
+	ai_strategy = {
+		type = antagonize
+		id = BUL
+		value = 100
 	}
 
 	# Keep small, as it is used as a factor for some things (such as research needs)
