@@ -18,6 +18,7 @@
 
 ### AI
  - Made UK more reliable at guarding Mediterranean targets
+ - Bulgaria now should be rejected from Allies
  - Siam now sends volunteers to Japan
  - Made Japan worse?
 
