@@ -3486,6 +3486,36 @@ focus_tree = {
 	}
 
 	focus = {
+		id = SPT_DEN_liberation_of_norway
+		icon = GFX_focus_NOR_the_kingdom_of_norway
+
+		prerequisite = { focus = DEN_petition_for_independence }
+
+		relative_position_id = DEN_petition_for_independence
+		x = 0
+		y = 1
+
+		cost = 5
+
+		available = {
+			is_subject = no
+			NOR = {
+				is_subject = yes
+				OVERLORD = {
+					has_government = fascism
+				}
+			}
+		}
+		
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+
+		completion_reward = {
+			# Should be an SPT event instead.
+			annex_country = { target = DEN transfer_troops = yes }			
+		}
+	}
+
+	focus = {
 		id = DEN_seize_the_production
 		icon = GFX_focus_generic_modernize_industry
 
