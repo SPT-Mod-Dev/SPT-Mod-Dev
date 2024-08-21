@@ -3119,41 +3119,41 @@ focus = {
 			GER = {
 				set_global_flag = GER_norr_rights
 				country_event = {
-					days = 7
+					days = 3
 					id = spt.1
 				}
 			}
 		}
 
 		#SPTChange hid tooltip
-		#effect_tooltip = {
-		#	SWE = {
-		#		add_offsite_building = {
-		#			type = industrial_complex
-		#			level = 2
-		#		}
-		#
-		#		add_offsite_building = {
-		#			type = arms_factory
-		#			level = 1
-		#		}
-		#
-		#		add_timed_idea = {
-		#			idea = GER_german_swedish_trade_agreement
-		#			days = 480
-		#		}
-		#
-		#		give_resource_rights = {
-		#			receiver = ROOT 
-		#			state = 918 #Västerbotten 
-		#		}
-		#	}
-		#
-		#	add_opinion_modifier = {
-		#		target = SWE # target of the relation
-		#		modifier = GER_SWE_historic_trade_Partners
-		#	}
-		#}
+		effect_tooltip = {
+			SWE = {
+				# add_offsite_building = {
+				# 	type = industrial_complex
+				# 	level = 2
+				# }
+		
+				# add_offsite_building = {
+				# 	type = arms_factory
+				# 	level = 1
+				# }
+		
+				# add_timed_idea = {
+				# 	idea = GER_german_swedish_trade_agreement
+				# 	days = 480
+				# }
+		
+				give_resource_rights = {
+					receiver = ROOT 
+					state = 918 #Västerbotten 
+				}
+			}
+		
+			add_opinion_modifier = {
+				target = SWE # target of the relation
+				modifier = GER_SWE_historic_trade_Partners
+			}
+		}
 	}
 }
 
@@ -5297,7 +5297,7 @@ focus = {
 	x = 1
 	y = 1
 	relative_position_id = GER_naval_effort
-	cost = 5 #SPTChange 10 -> 5
+	cost = 10
 	ai_will_do = {
 		factor = 1
 	}
@@ -5454,7 +5454,7 @@ focus = {
 	x = -1
 	y = 1
 	relative_position_id = GER_naval_effort
-	cost = 5 #SPTChange 10 -> 5
+	cost = 10 
 	ai_will_do = {
 		factor = 1
 	}
@@ -9591,8 +9591,7 @@ focus = {
 	
 	completion_reward = {
 		custom_effect_tooltip = GER_reichskommissariats_tt
-		unlock_decision_tooltip = GER_reichskommissariat_niederlande
-		unlock_decision_tooltip = GER_reichskommissariat_belgien_nordfrankreich
+		unlock_decision_tooltip = GER_reichskommissariat_belgien_niederlande
 		unlock_decision_tooltip = GER_reichskommissariat_ostland
 		unlock_decision_tooltip = GER_reichskommissariat_ukraine
 	}
@@ -9650,16 +9649,16 @@ focus = {
 	prerequisite = { focus = GER_form_the_reichskommissariats }
 	available = {
 		OR = {
-			AND = {
-				any_other_country = {
-					original_tag = HOL
-					has_government = fascism
-					OR = {
-						is_in_faction_with = GER
-						is_subject_of = GER
-					}
-				}
-			}	
+			# AND = {
+			# 	any_other_country = {
+			# 		original_tag = HOL
+			# 		has_government = fascism
+			# 		OR = {
+			# 			is_in_faction_with = GER
+			# 			is_subject_of = GER
+			# 		}
+			# 	}
+			# }	
 			AND = {
 				any_other_country = {
 					original_tag = BEL
@@ -9682,23 +9681,23 @@ focus = {
 	}
 	search_filters = { FOCUS_FILTER_INDUSTRY }
 	completion_reward = {
-		if = {
-			limit = {
-				NOT = { 
-					AND = {
-						any_other_country = {
-							original_tag = HOL
-							has_government = fascism
-							OR = {
-								is_in_faction_with = GER
-								is_subject_of = GER
-							}
-						}
-					}				
-				}
-			}
-			custom_effect_tooltip = GER_integrate_FHO_tt
-		}
+		# if = {
+		# 	limit = {
+		# 		NOT = { 
+		# 			AND = {
+		# 				any_other_country = {
+		# 					original_tag = HOL
+		# 					has_government = fascism
+		# 					OR = {
+		# 						is_in_faction_with = GER
+		# 						is_subject_of = GER
+		# 					}
+		# 				}
+		# 			}				
+		# 		}
+		# 	}
+		# 	custom_effect_tooltip = GER_integrate_FHO_tt
+		# }
 		if = {
 			limit = {
 				NOT = { 
@@ -9714,52 +9713,52 @@ focus = {
 					}					
 				}
 			}
-			custom_effect_tooltip = GER_integrate_FBE_tt
+			custom_effect_tooltip = GER_integrate_FBN_tt
 		}
-		if = {
-			limit = {	
-				any_other_country = {
-					original_tag = HOL
-					has_government = fascism
-					OR = {
-						is_in_faction_with = GER
-						is_subject_of = GER
-					}
-				}
-			}
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = arms_factory
-						size > 1
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-			}
-			FHO = {
-				random_owned_controlled_state = {
-					limit = {
-						free_building_slots = {
-							building = arms_factory
-							size > 1
-							include_locked = yes
-						}
-					}
-					add_extra_state_shared_building_slots = 2
-					add_building_construction = {
-						type = arms_factory
-						level = 2
-						instant_build = yes
-					}
-				}
-			}
-		}
+		# if = {
+		# 	limit = {	
+		# 		any_other_country = {
+		# 			original_tag = HOL
+		# 			has_government = fascism
+		# 			OR = {
+		# 				is_in_faction_with = GER
+		# 				is_subject_of = GER
+		# 			}
+		# 		}
+		# 	}
+		# 	random_owned_controlled_state = {
+		# 		limit = {
+		# 			free_building_slots = {
+		# 				building = arms_factory
+		# 				size > 1
+		# 				include_locked = yes
+		# 			}
+		# 		}
+		# 		add_extra_state_shared_building_slots = 2
+		# 		add_building_construction = {
+		# 			type = arms_factory
+		# 			level = 2
+		# 			instant_build = yes
+		# 		}
+		# 	}
+		# 	FHO = {
+		# 		random_owned_controlled_state = {
+		# 			limit = {
+		# 				free_building_slots = {
+		# 					building = arms_factory
+		# 					size > 1
+		# 					include_locked = yes
+		# 				}
+		# 			}
+		# 			add_extra_state_shared_building_slots = 2
+		# 			add_building_construction = {
+		# 				type = arms_factory
+		# 				level = 2
+		# 				instant_build = yes
+		# 			}
+		# 		}
+		# 	}
+		# }
 		if = {
 			limit = {	
 				any_other_country = {
@@ -9779,10 +9778,10 @@ focus = {
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 4
 				add_building_construction = {
 					type = arms_factory
-					level = 2
+					level = 4
 					instant_build = yes
 				}
 			}
@@ -9795,10 +9794,10 @@ focus = {
 							include_locked = yes
 						}
 					}
-					add_extra_state_shared_building_slots = 2
+					add_extra_state_shared_building_slots = 4
 					add_building_construction = {
 						type = arms_factory
-						level = 2
+						level = 4
 						instant_build = yes
 					}
 				}

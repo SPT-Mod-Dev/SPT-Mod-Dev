@@ -446,96 +446,96 @@ GER_case_anton_category = {
 #Category only allowed for GER
 GER_reichskommissariats = {
 
-	GER_reichskommissariat_niederlande = {
+	# GER_reichskommissariat_niederlande = { # SPTChange remove this
 
-		icon = ger_reichskommissariats
+	# 	icon = ger_reichskommissariats
 
-		available = {
-			has_completed_focus = GER_form_the_reichskommissariats
-			has_government = fascism
-			controls_state = 7
-			controls_state = 35
-			controls_state = 36
-		}
+	# 	available = {
+	# 		has_completed_focus = GER_form_the_reichskommissariats
+	# 		has_government = fascism
+	# 		controls_state = 7
+	# 		controls_state = 35
+	# 		controls_state = 36
+	# 	}
 
-		cost = 0
+	# 	cost = 0
 
-		ai_will_do = {
-			factor = 0
-			modifier = {
-				add = 1
-				ENG = { has_capitulated = yes }
-			}
-		}
+	# 	ai_will_do = {
+	# 		factor = 0
+	# 		modifier = {
+	# 			add = 1
+	# 			ENG = { has_capitulated = yes }
+	# 		}
+	# 	}
 
-		visible = {
-			has_completed_focus = GER_form_the_reichskommissariats
-			has_government = fascism
-		}
+	# 	visible = {
+	# 		has_completed_focus = GER_form_the_reichskommissariats
+	# 		has_government = fascism
+	# 	}
 
-		complete_effect = {
-			if = {
-				limit = {
-					country_exists = HOL
-					NOT = { HOL = { has_government = fascism } }
-				}
-				hidden_effect = {
-					HOL = {
-						set_state_controller = 7
-						set_state_controller = 35
-						set_state_controller = 36
-					}
-				}
-				HOL = {
-					start_civil_war = { ideology = fascism size = 1 }
-				}
-				random_country = {
-					limit= {
-						original_tag = HOL
-						has_government = fascism
-					}
-					transfer_state = 7
-					transfer_state = 35
-					transfer_state = 36
-					GER = {
-						puppet = PREV
-						set_autonomy = { target = PREV autonomy_state = autonomy_integrated_puppet }
-					}
+	# 	complete_effect = {
+	# 		if = {
+	# 			limit = {
+	# 				country_exists = HOL
+	# 				NOT = { HOL = { has_government = fascism } }
+	# 			}
+	# 			hidden_effect = {
+	# 				HOL = {
+	# 					set_state_controller = 7
+	# 					set_state_controller = 35
+	# 					set_state_controller = 36
+	# 				}
+	# 			}
+	# 			HOL = {
+	# 				start_civil_war = { ideology = fascism size = 0 }
+	# 			}
+	# 			random_country = {
+	# 				limit= {
+	# 					original_tag = HOL
+	# 					has_government = fascism
+	# 				}
+	# 				transfer_state = 7
+	# 				transfer_state = 35
+	# 				transfer_state = 36
+	# 				GER = {
+	# 					puppet = PREV
+	# 					set_autonomy = { target = PREV autonomy_state = autonomy_integrated_puppet }
+	# 				}
 
-					set_cosmetic_tag = HOL_reichskommissariat
-					create_country_leader = {
-						name = "Arthur Seyss-Inquart"
-						desc = "POLITICS_ARTHUR_SEYSS_INQUART_DESC"
-						picture = GFX_portrait_Arthur_Seyss_Inquart
-						expire = "1965.1.1"
-						ideology = nazism
-						traits = {
-						}
-					}
-				}
-			}
-			else = {
-				HOL = {
-					transfer_state = 7
-					transfer_state = 35
-					transfer_state = 36
-					set_cosmetic_tag = HOL_reichskommissariat
-					create_country_leader = {
-						name = "Arthur Seyss-Inquart"
-						desc = "POLITICS_ARTHUR_SEYSS_INQUART_DESC"
-						picture = GFX_portrait_Arthur_Seyss_Inquart
-						expire = "1965.1.1"
-						ideology = nazism
-						traits = {
-						}
-					}
-				}
-				set_autonomy = { target = HOL autonomy_state = autonomy_integrated_puppet }
-			}
-		}
-	}
+	# 				set_cosmetic_tag = HOL_reichskommissariat
+	# 				create_country_leader = {
+	# 					name = "Arthur Seyss-Inquart"
+	# 					desc = "POLITICS_ARTHUR_SEYSS_INQUART_DESC"
+	# 					picture = GFX_portrait_Arthur_Seyss_Inquart
+	# 					expire = "1965.1.1"
+	# 					ideology = nazism
+	# 					traits = {
+	# 					}
+	# 				}
+	# 			}
+	# 		}
+	# 		else = {
+	# 			HOL = {
+	# 				transfer_state = 7
+	# 				transfer_state = 35
+	# 				transfer_state = 36
+	# 				set_cosmetic_tag = HOL_reichskommissariat
+	# 				create_country_leader = {
+	# 					name = "Arthur Seyss-Inquart"
+	# 					desc = "POLITICS_ARTHUR_SEYSS_INQUART_DESC"
+	# 					picture = GFX_portrait_Arthur_Seyss_Inquart
+	# 					expire = "1965.1.1"
+	# 					ideology = nazism
+	# 					traits = {
+	# 					}
+	# 				}
+	# 			}
+	# 			set_autonomy = { target = HOL autonomy_state = autonomy_integrated_puppet }
+	# 		}
+	# 	}
+	# }
 
-	GER_reichskommissariat_belgien_nordfrankreich = {
+	GER_reichskommissariat_belgien_niederlande = { # SPTChange merge Netherlands here 
 
 		icon = ger_reichskommissariats
 
@@ -545,6 +545,9 @@ GER_reichskommissariats = {
 			controls_state = 6
 			controls_state = 29
 			controls_state = 34
+			controls_state = 7
+			controls_state = 35
+			controls_state = 36
 		}
 
 		cost = 0
@@ -575,7 +578,7 @@ GER_reichskommissariats = {
 					}
 				}
 				BEL = {
-					start_civil_war = { ideology = fascism size = 1 }
+					start_civil_war = { ideology = fascism size = 0 }
 				}
 				random_country = {
 					limit= {
@@ -585,6 +588,9 @@ GER_reichskommissariats = {
 					transfer_state = 6
 					transfer_state = 29
 					transfer_state = 34
+					transfer_state = 7
+					transfer_state = 35
+					transfer_state = 36
 					GER = {
 						puppet = PREV
 						set_autonomy = { target = PREV autonomy_state = autonomy_integrated_puppet }
@@ -600,7 +606,12 @@ GER_reichskommissariats = {
 						}
 					}
 					hidden_effect = {
-						29 = { add_core_of = PREV }
+						6 = { add_core_of = FBE }
+						29 = { add_core_of = FBE }
+						34 = { add_core_of = FBE }
+						7 = { add_core_of = FBE }
+						35 = { add_core_of = FBE }
+						36 = { add_core_of = FBE }
 					}
 				}
 			}
@@ -609,6 +620,9 @@ GER_reichskommissariats = {
 					transfer_state = 6
 					transfer_state = 29
 					transfer_state = 34
+					transfer_state = 7
+					transfer_state = 35
+					transfer_state = 36
 					set_cosmetic_tag = BEL_reichskommissariat
 					create_country_leader = {
 						name = "Josef Grohe"

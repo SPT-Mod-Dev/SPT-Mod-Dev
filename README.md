@@ -1,5 +1,217 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.12.5
+
+### Manchukuo
+ - Reworked focus tree
+
+### Germany 
+- U-boat effort focus time increased to 70 days forom 35
+- Naval effort focus time increased to 70 days forom 35
+
+### Submarines
+- Torpedo 3 hit chance bonus removed
+- Cruiser submarine hull range reduced from 5000 to 4500
+
+### Naval high command
+ - Close combat torpeedo hit change modifier reduced to 10% from 20%
+
+### AI
+ - Made UK more reliable at guarding Mediterranean targets
+ - Bulgaria now should be rejected from Allies
+ - Siam now sends volunteers to Japan
+ - Made Japan worse?
+
+
+### 3.12.4
+
+### General
+ - Total Armor of a division now takes into account 25% of highest batallion, from 40%
+ - Total Piercieng of a division now takes into account 30% of highest batallion, from 40%
+ - Cutting Corners MIO policy Reliability, Soft Attack, Hard Attack, and Armor debuff reduced to -8%, from -2.5%
+ - 'Mobile Warfare' Doctrine perk 'Volkstrum' recruitable population reduced to 1%, from 2%
+ - 'Mobile Warfare' Doctrine perk 'Indiscriminate Conscription' recruitable population reduced to 1.5%, from 3%
+ - 'Guerrila Tactics' tactic combat attacker penalty reduced to -40%, from -50%
+ - 'Guerrila Tactics' tactic combat defender penalty reduced to -30%, from -40%
+
+### Bulgaria
+ - Lancia now checks for Italy's focuses
+
+### Germany
+ - Removed Reichskommissariat Netherlands for larger Belgium 
+
+### Brazil
+ - Removed communist advisors 
+ - Focus 'Academia Militar' organization buff reduced to 1%, from 3%
+ - Focus 'Establish CIGS' organization buff reduced to 1%, from 3%
+ - Focus 'The Strength of The Common Soldier' organization buff reduced to 1%, from 2%
+ - Advisors 'Gustavo Barroso', 'Miguel Reale', 'Oliveira Viana', 'Leoncio Basbaum', 'Apolonio de Carvalho' are no longer available
+ - Removed mentions of International Market mechanics from the tree
+
+### Denmark
+ - Added new alt-history fascist branch
+
+### AI
+ - Spain no longer will join factions
+
+### Tank Rebalance
+
+#### Tank Destroyer Brigades
+ - Breakthrough malus increased to -65% for all weight classes
+
+#### gasoline engine
+ - Flat IC cost replaced with +20% IC multiplier
+
+#### diesel engine
+ - Flat IC cost reduced to 0.5 ic, from 1.5
+ - Added +20% IC multiplier
+
+#### petrol electric engine
+ - Flat IC cost reduced to 1.5, from 2.0
+ - IC cost multiplier increased to +20%, from +10%
+ - Reliability malus reduced to -15%, from -25%, and made it multiplicative instead of additive
+ - Reduced Breakthrough and Defense bonuses to +20%, from 25%
+ - Removed Flat Breakthrough and Defense bonuses
+
+#### Gas turbine engine
+ - Flat IC cost reduced to 1.0, from 2.0
+ - Added IC multiplier of +20%
+ - Reliability malus is now multiplicative, instead of additive
+ 
+#### Small Cannon
+ - Soft Attack incresed to 19, from 17
+ - Hard Attack increased to 13.5, from 11.5
+ - IC cost reduced to 0.5, from 0.75
+ - Moved to Interwar Artillery (1934) Technology, from Artillery (1936) Technology
+
+#### Improved Small Cannon
+ - Soft Attack increased to 25.5, from 24
+ - Hard Attack increased to 16, from 14
+ - IC cost reduced to 1.7, from 2
+
+#### Advanced Small Cannon
+ - Added new cannon
+ 
+#### Close Support Gun
+ - IC cost reduced to 3.5, from 4
+ 
+#### Medium Cannon
+ - Soft Attack reduced to 24, from 24.5
+ - Hard Attack reduced to 16.5, from 17
+ - Reduced Tungsten cost to 1, from 2
+ - Steel cost of 1 added
+ - Moved to Towed Anti-Tank (1936) Technology, from Anti-Tank Upgrade (1939) Technology
+
+#### Improved Medium Cannon
+ - Soft Attack reduced to 28.5, from 30
+ - Hard Attack reduced to 19, from 20.5
+ - Piercing reduced to 60, from 67
+ - Removed Chromium cost
+ - Moved to Improved Anti-Tank (1940) Technology, from Improved Anti-Tank Upgrade (1941) Technology in the Anti-Tank Technology Path
+ - Moved to Improved Artillery Upgrade 2 (1941) Technology, from Advanced Artillery (1942) Technology in the Artillery Technology Path
+
+#### Advanced Medium Cannon
+ - Added new cannon
+
+#### Medium Howitzer 1
+ - IC cost reduced to 3, from 4
+
+#### Medium Howitzer 2
+ - IC cost reduced to 5, from 5.5
+
+#### Basic High Velocity Gun
+ - IC cost reduced to 2.75, from 3
+
+#### Improved High Velocity
+ - IC cost reduced to 4.5, from 5
+
+#### Advanced High Velocity
+ - IC cost reduced to 6.5, from 7
+
+#### Heavy Cannon 1
+ - IC cost reduced to 5, from 6
+
+#### Heavy Cannon 2
+ - IC cost reduced to 6, from 7
+
+#### Heavy Cannon 3
+ - IC cost reduced to 7, from 8
+
+#### Super Heavy Cannon 1
+ - IC cost reduced to 11, from 12.5
+ 
+#### Amphibious Drive
+ - Removed IC multiplier
+ 
+#### Heavy Machine Gun Module
+ - IC cost reduced to 1.75, from 2
+ 
+#### Small Cannon Module
+ - IC cost reduced to 1.75, from 2
+ 
+#### Stabilizer
+ - IC cost reduced to 1.5, from 2.5
+ - Breakthrough reduced to 6, from 7.5
+
+#### Smoke Launcher
+ - Removed Defense stat
+ - Increased Breakthrough to 8, from 2
+
+#### Armor Skirts
+ - Removed Hardness
+
+#### Dozer Blade
+ - Removed Hardness
+ - Entrenchment increased to 1.5, from 1
+ - IC cost reduced to 1, from 1.5
+
+#### Auto Loader
+ - IC cost reduced to 2.5, from 3
+
+#### Easy Maintenance
+ - Removed IC cost
+
+#### Additional Machine Guns
+ - Soft Attack increased to 3, from 2
+
+#### Extra Fuel Tank
+ - IC cost reduced to 1, from 2
+
+#### Wet Ammo Storage
+ - IC cost reduced to 1, from 1.5
+ - Removed Attack Penalties
+ - Added Breakthrough multiplier of -10%
+
+### 3.12.3
+
+### Military Industrial Orgs
+ - Policy 'Cutting Corners' effects halved
+
+### Soviet Union
+- Focus 'PC of mortar armament' now gives event to germany. Germany may accept or deny giving both or neither a research bonus
+- Tank Refurbshment Plant MIO armor cost reduction bonuses reduced by -1%
+
+### UK
+ - Hid imperial federation discussion decision
+ - Hid Narvik Crisis category
+
+### USA
+ - Unique Naval MIO traits granting dockyard output reduced to 2.5%, from 5%
+ - National Spirit 'Subsidized Naval Industry' dockyard output reduced to 5%, from 10%
+
+### Brazil
+ - Focus 'Experimental Weapons Development' research bonus no longer applies to nuclear technology
+ - Focus 'Programa Paralelo' Nuclear Technology research bonus reduced to 1 year ahead of time, from 2
+
+### Hungary
+ - Now gains Banat when handed all of Transylvania
+
+### Mongolia
+ - National Spirit 'Focusing on CAS production' CAS IC increased to -10%, from -30%
+ - National Spirit 'Focusing on fighter production' CAS IC increased to -10%, from -30%
+ - Focus 'Modern Day Heavy Cavalry' now grants 1 '1 year ahead of time' bonus, from 2 '2 year' bonuses
+
+
 ### 3.12.2
 
 ### Denmark

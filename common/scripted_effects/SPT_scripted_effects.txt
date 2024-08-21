@@ -150,6 +150,13 @@ FIN_continuation_war_start = { #To be used on FIN's scope - Used immediately upo
 		}
 		if = {
 			limit = {
+				NOT = { has_military_access_to = GER }
+				NOT = { gives_military_access_to = GER }
+			}
+			give_military_access = GER
+		}
+		if = {
+			limit = {
 				NOT = { has_military_access_to = ITA }
 				NOT = { gives_military_access_to = ITA }
 			}
@@ -194,6 +201,7 @@ FIN_continuation_war_start = { #To be used on FIN's scope - Used immediately upo
 	every_country = {
 		limit = {
 			OR = {
+				tag = GER
 				tag = ITA
 				tag = HUN
 				tag = ROM
