@@ -38,7 +38,7 @@ NDefines.NNavy.SUBMARINE_REVEAL_BASE_CHANCE 									= 11        --Base factor f
 NDefines.NNavy.SUBMARINE_REVEAL_POW 											= 3.0		--A scaling factor that is applied to the reveal chance in order to make large differences in detection vs visibility more pronounced
 NDefines.NNavy.GUN_HIT_PROFILES = { -- hit profiles for guns, if target ih profile is lower the gun will have lower accuracy
     90.0,	-- big guns
-    120.0,	-- torpedoes
+    100.0,	-- torpedoes
     45.0,	-- small guns
 }
 NDefines.NNavy.CONVOY_HIT_PROFILE                                               = 105
