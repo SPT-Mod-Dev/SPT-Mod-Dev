@@ -1,5 +1,13 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.12.6
+
+#### Soviet Union
+ - Fixed hardlock caused by Beryia being an active advisor
+
+#### Manchukuo
+ - Fixed hardlock caused by not completing The Kwantung Veto focus before China has capitulated
+
 ### 3.12.5
 
 ### Manchukuo
