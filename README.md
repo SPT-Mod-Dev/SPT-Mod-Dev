@@ -2,8 +2,16 @@
 
 ### 3.12.6
 
+#### Tank balance
+ - All medium tanks technologies moved to 1 year earlier [38->37  40->39  43->42]
+ - 1937 medium tank reseach cost increased to 175 days from 100
+ - 1939 medium tank reseach cost reduced to 175 days from 200
+ 
 #### Soviet Union
  - Fixed hardlock caused by Beryia being an active advisor
+
+#### Mongolia
+- Focus 'The Tannu Tuvan Question' now adds Tanu Tuva as core
 
 #### Manchukuo
  - Fixed hardlock caused by not completing The Kwantung Veto focus before China has capitulated
