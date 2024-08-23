@@ -6,15 +6,28 @@
  - All medium tanks technologies moved to 1 year earlier [38->37  40->39  43->42]
  - 1937 medium tank reseach cost increased to 175 days from 100
  - 1939 medium tank reseach cost reduced to 175 days from 200
- 
+
+#### UK
+ - Trade with swizerland (military) Production efficiency cap reduced to 5% from 10%
+                                    Production efficiency growth reduced to 3% from 5%
+ - Trade with swizerland (civillian) Consumer goods factor reduced to -10% from -15%
+                                     Construction speed bonus reduced to 7.5% from 10%
+
+#### British Raj
+ - Focus 'East India Railways' replaced railways with infrastructure 
+ - Focus 'Integrate Princely Railways' replaced railways with infrastructure
+
 #### Soviet Union
  - Fixed hardlock caused by Beryia being an active advisor
+ - Focus 'PC of Mortar Armament' time to complete reduced to 35 from 70
+                                 No longer gives event 'Soviet-German Artillery Development' if at war with germany
 
 #### Mongolia
 - Focus 'The Tannu Tuvan Question' now adds Tanu Tuva as core
 
 #### Manchukuo
  - Fixed hardlock caused by not completing The Kwantung Veto focus before China has capitulated
+
 
 ### 3.12.5
 
