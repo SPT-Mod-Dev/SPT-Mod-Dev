@@ -17,6 +17,21 @@
  - Focus 'East India Railways' replaced railways with infrastructure 
  - Focus 'Integrate Princely Railways' replaced railways with infrastructure
 
+#### Finland
+ - Focus 'Increase Military Budget' research bonus no longer applies to motorisation 
+ - Focus 'Suomen Maavoimat' removed land doctrine reduction cost
+ - Higher levels of Sisu reduced: Tier 3 Sisu Recovery rate reduced to 10% from 15%
+                                              Core Defence reduced to 10% from 15%
+
+                                  Tier 4 Sisu Recovery rate reduced to 25% from 20%
+                                              Core Attack reduced to 10% from 15%
+                                              Core Defence reduced to 15% from 20%
+
+                                  Tier 5 Sisu Recovery rate reduced to 30% from 20%
+                                              Core Attack reduced to 15% from 25%
+                                              Core Defence reduced to 20% from 25%
+ - Finnish army: organisation bonus removed 
+
 #### Soviet Union
  - Fixed hardlock caused by Beryia being an active advisor
  - Focus 'PC of Mortar Armament' time to complete reduced to 35 from 70
