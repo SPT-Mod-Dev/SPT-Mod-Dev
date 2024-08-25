@@ -36,3 +36,8 @@ NDefines.NNavy.DEPTH_CHARGES_HIT_PROFILE 										= 90.0      #hit profile for 
 NDefines.NNavy.SUBMARINE_BASE_TORPEDO_REVEAL_CHANCE 							= 0.75       #Chance of a submarine being revealed when it fires. 1.0 is 100%. this chance is then multiplied with modifier ~~created by comparing firer's visibiility and target's detection~~ depending on the subs sub visibility
 NDefines.NNavy.SUBMARINE_REVEAL_BASE_CHANCE 									= 88        #Base factor for submarine detection in Battles. It's modified by the difference of a spotter's submarines detection vs submarine visibility. Use this variable for game balancing. setting this too low will cause bad spotting issues.
 NDefines.NNavy.SUBMARINE_REVEAL_POW 											= 3.0		#A scaling factor that is applied to the reveal chance in order to make large differences in detection vs visibility more pronounced
+NDefines.NNavy.GUN_HIT_PROFILES = { -- hit profiles for guns, if target ih profile is lower the gun will have lower accuracy
+    90.0,	-- big guns
+    120.0,	-- torpedoes
+    45.0,	-- small guns
+},
