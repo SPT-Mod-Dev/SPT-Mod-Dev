@@ -24,6 +24,12 @@
  - Focus 'East India Railways' replaced railways with infrastructure 
  - Focus 'Integrate Princely Railways' replaced railways with infrastructure
 
+#### Germany
+ - First tier of spirit 'Caniicallized Civillian Economy' now gives -3% construction speed
+ - Second and Third tier of spirit 'Caniicallized Civillian Economy' now gives -5% construction speed
+ - Third tier of spirit 'Caniicallized Civillian Economy' now gives -5% stability 
+ - Spirit 'Arms Subsidies Sprogram' now gives 7.5% military factory construction speed
+
 #### Finland
  - Focus 'Increase Military Budget' research bonus no longer applies to motorisation 
  - Focus 'Suomen Maavoimat' removed land doctrine reduction cost
