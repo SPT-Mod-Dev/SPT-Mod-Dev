@@ -292,3 +292,117 @@ NOR_apply_resistance_to_fascists = {
 	
 }
 
+SPT_ITA_bop_spirits = {
+
+	ITA = {
+		if = {
+			limit = {
+				AND = {
+					power_balance_value = {
+						id = ITA_power_balance
+						value > 0.099
+					}
+					power_balance_value = {
+						id = ITA_power_balance
+						value < 0.3
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = ITA_italo_balbo_focus
+				}
+				add_ideas = SPT_italy_bop_low_balbo
+			}
+			else_if = {
+				limit = { 
+					has_completed_focus = ITA_dino_grandi_focus
+				}
+				add_ideas = SPT_italy_bop_low_grandi
+			}
+			else = {
+				add_ideas = SPT_italy_bop_low_mussolini
+			}
+		}
+		else_if = {
+			limit = {
+				AND = {
+					power_balance_value = {
+						id = ITA_power_balance
+						value > 0.299
+					}
+					power_balance_value = {
+						id = ITA_power_balance
+						value < 0.6
+					}
+				}
+			}
+
+			if = {
+				limit = {
+					has_completed_focus = ITA_italo_balbo_focus
+				}
+				add_ideas = SPT_italy_bop_medium_balbo
+			}
+			else_if = {
+				limit = { 
+					has_completed_focus = ITA_dino_grandi_focus
+				}
+				add_ideas = SPT_italy_bop_medium_grandi
+			}
+			else = {
+				add_ideas = SPT_italy_bop_medium_mussolini
+			}
+
+		}
+		else_if = {
+			limit = {
+				AND = {
+					power_balance_value = {
+						id = ITA_power_balance
+						value > 0.599
+					}
+					power_balance_value = {
+						id = ITA_power_balance
+						value < 0.9
+					}
+				}
+			}
+
+			if = {
+				limit = {
+					has_completed_focus = ITA_italo_balbo_focus
+				}
+				add_ideas = SPT_italy_bop_high_balbo
+			}
+			else_if = {
+				limit = { 
+					has_completed_focus = ITA_dino_grandi_focus
+				}
+				add_ideas = SPT_italy_bop_high_grandi
+			}
+			else = {
+				add_ideas = SPT_italy_bop_high_mussolini
+			}
+
+		}
+		else = {
+			if = {
+				limit = {
+					has_completed_focus = ITA_italo_balbo_focus
+				}
+				add_ideas = SPT_italy_bop_total_balbo
+			}
+			else_if = {
+				limit = { 
+					has_completed_focus = ITA_dino_grandi_focus
+				}
+				add_ideas = SPT_italy_bop_total_grandi
+			}
+			else = {
+				add_ideas = SPT_italy_bop_total_mussolini
+			}
+		}
+	}
+
+}
