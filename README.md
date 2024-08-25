@@ -43,10 +43,22 @@
  - Fixed hardlock caused by Beryia being an active advisor
  - Focus 'PC of Mortar Armament' time to complete reduced to 35 from 70
                                  No longer gives event 'Soviet-German Artillery Development' if at war with germany
+ - Focus 'Industrial Modernisation' and 'Optimize Production Lines' now only available if Stalin is leader
+ - Focus 'Industrial Modernisation' reduced tech bonus to 50% bonus + 1y ahead of time from 100% bonus + 2y ahead of time
+ - Focus 'International Revolutionary Marxism' focus time reduced to 35 days from 70
+ - Focus 'International Revolutionary Marxism' increased spawn-ins after 40% and 60% cap progress
  - Purge Debuffs are now all timed so will eventually be removed even if access to 'loosen army restrictions' decision disapears
 
+
 #### Mongolia
-- Focus 'The Tannu Tuvan Question' now adds Tanu Tuva as core
+ - Focus 'The Tannu Tuvan Question' now adds Tanu Tuva as core
+ - Focus 'Nationalist Coup D'ètat' now disables joining factios
+ - Decision 'Mechanised Help' reduced reseach penalty to 3% from 10%
+ - Decision 'Civilian Factories' now removes 3 civs instead of 6 from soviets
+ - Decision 'Military Factories' now removes 3 mills instead of 4 from soviets
+                                 Spirit 'Helping with building of military factory' time reduced (on soviets) to 45 days from 90
+                                 Spirit 'Soviet engineering help' time increased to 210 days from 180
+ - Decision 'International help' now removes 2 civs or 2 mills instead of 4 from asked country
 
 #### Manchukuo
  - Fixed hardlock caused by not completing The Kwantung Veto focus before China has capitulated
