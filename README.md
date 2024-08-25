@@ -12,6 +12,9 @@
                                     Production efficiency growth reduced to 3% from 5%
  - Trade with swizerland (civillian) Consumer goods factor reduced to -10% from -15%
                                      Construction speed bonus reduced to 7.5% from 10%
+### Italy
+ - Prevented Political BoPs from being able to remove the Mediterranean Front BoP
+ - Upon the start of the Mediterranean Front BoP Italy will now receive a National Spirit equal to the effects of the previously active Political BoP
 
 #### British Raj
  - Focus 'East India Railways' replaced railways with infrastructure 
