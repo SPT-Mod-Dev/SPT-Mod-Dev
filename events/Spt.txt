@@ -355,6 +355,18 @@ country_event = {
 			limit = {
 				tag = ITA
 			}
+			if = {
+				limit = {
+					has_any_power_balance = yes
+				}
+				hidden_effect = {
+					SPT_ITA_bop_spirits = yes
+
+					remove_power_balance = {
+						id = ITA_power_balance
+					}
+				}
+			}
 			set_power_balance = {
 				id = ITA_MED_med_front
 			}
