@@ -7,6 +7,10 @@
  - 1937 medium tank reseach cost increased to 175 days from 100
  - 1939 medium tank reseach cost reduced to 175 days from 200
 
+#### Air Planes
+ - Increased supply from air supply mission to 0.03 supply per plane from 0.01
+ - Increased Transport Plane production cost from 38 to 50
+
 #### UK
  - Trade with swizerland (military) Production efficiency cap reduced to 5% from 10%
                                     Production efficiency growth reduced to 3% from 5%
@@ -27,7 +31,7 @@
                                               Core Attack reduced to 10% from 15%
                                               Core Defence reduced to 15% from 20%
 
-                                  Tier 5 Sisu Recovery rate reduced to 30% from 20%
+                                  Tier 5 Sisu Recovery rate reduced to 20% from 30%
                                               Core Attack reduced to 15% from 25%
                                               Core Defence reduced to 20% from 25%
  - Finnish army: organisation bonus removed 
@@ -36,6 +40,7 @@
  - Fixed hardlock caused by Beryia being an active advisor
  - Focus 'PC of Mortar Armament' time to complete reduced to 35 from 70
                                  No longer gives event 'Soviet-German Artillery Development' if at war with germany
+ - Purge Debuffs are now all timed so will eventually be removed even if access to 'loosen army restrictions' decision disapears
 
 #### Mongolia
 - Focus 'The Tannu Tuvan Question' now adds Tanu Tuva as core

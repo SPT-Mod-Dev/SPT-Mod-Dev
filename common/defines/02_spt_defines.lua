@@ -18,6 +18,7 @@ NDefines.NMilitary.NAVAL_EQUIPMENT_BASE_COST = 0
 NDefines.NMilitary.NAVAL_EQUIPMENT_RAMP_COST = 0
 
 NDefines.NCountry.SPECIAL_FORCES_CAP_MIN = 64
+NDefines.NCountry.AIR_SUPPLY_CONVERSION_SCALE = 0.03
 
 NDefines.NSupply.RAILWAY_CONVERSION_COOLDOWN = 5
 
@@ -27,3 +28,4 @@ NDefines.NIndustrialOrganisation.DESIGN_TEAM_CHANGE_XP_COST = 1
 
 NDefines.NMilitary.ARMOR_VS_AVERAGE = 0.25
 NDefines.NMilitary.PEN_VS_AVERAGE = 0.3
+
