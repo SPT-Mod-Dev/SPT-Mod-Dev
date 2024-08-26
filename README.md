@@ -4,17 +4,17 @@
 
 #### Tank balance
  - All medium tanks technologies moved to 1 year earlier [38->37  40->39  43->42]
- - 1937 medium tank reseach cost increased to 175 days from 100
- - 1939 medium tank reseach cost reduced to 175 days from 200
+ - 1937 medium tank research cost increased to 175 days from 100
+ - 1939 medium tank research cost reduced to 175 days from 200
 
-#### Air Planes
+#### Airplanes
  - Increased supply from air supply mission to 0.03 supply per plane from 0.01
  - Increased Transport Plane production cost from 38 to 50
 
 #### UK
- - Trade with swizerland (military) Production efficiency cap reduced to 5% from 10%
-                                    Production efficiency growth reduced to 3% from 5%
- - Trade with swizerland (civillian) Consumer goods factor reduced to -10% from -15%
+ - Trade with switzerland (military) Production efficiency cap reduced to 5% from 10%
+                                     Production efficiency growth reduced to 3% from 5%
+ - Trade with switzerland (civilian) Consumer goods factor reduced to -10% from -15%
                                      Construction speed bonus reduced to 7.5% from 10%
 ### Italy
  - Prevented Political BoPs from being able to remove the Mediterranean Front BoP
@@ -25,10 +25,10 @@
  - Focus 'Integrate Princely Railways' replaced railways with infrastructure
 
 #### Germany
- - First tier of spirit 'Caniicallized Civillian Economy' now gives -3% construction speed
- - Second and Third tier of spirit 'Caniicallized Civillian Economy' now gives -5% construction speed
- - Third tier of spirit 'Caniicallized Civillian Economy' now gives -5% stability 
- - Spirit 'Arms Subsidies Sprogram' now gives 7.5% military factory construction speed
+ - First tier of spirit 'Cannibalized Civilian Economy' now gives -3% construction speed
+ - Second and Third tier of spirit 'Cannibalized Civillian Economy' now gives -5% construction speed
+ - Third tier of spirit 'Cannibalized Civillian Economy' now gives -5% stability 
+ - Spirit 'Arms Subsidies Program' now gives 7.5% military factory construction speed
 
 #### Finland
  - Focus 'Increase Military Budget' research bonus no longer applies to motorisation 
@@ -50,7 +50,7 @@
  - Fixed hardlock caused by Beryia being an active advisor
  - Focus 'PC of Mortar Armament' time to complete reduced to 35 from 70
                                  No longer gives event 'Soviet-German Artillery Development' if at war with germany
- - Focus 'Industrial Modernisation' and 'Optimize Production Lines' now only available if Stalin is leader
+ - Focus 'Industrial Modernisation' and 'Optimize Production Lines' now only available if Stalin is the current country leader
  - Focus 'Industrial Modernisation' reduced tech bonus to 50% bonus + 1y ahead of time from 100% bonus + 2y ahead of time
  - Focus 'International Revolutionary Marxism' focus time reduced to 35 days from 70
  - Focus 'International Revolutionary Marxism' added increased spawn-ins after 40% and 60% cap progress
@@ -58,14 +58,14 @@
 
 
 #### Mongolia
- - Focus 'The Tannu Tuvan Question' now adds Tanu Tuva as core
- - Focus 'Nationalist Coup D'ètat' now disables joining factios
- - Decision 'Mechanised Help' reduced reseach penalty to 3% from 10%
+ - Focus 'The Tannu Tuvan Question' now adds Tannu Tuva as core
+ - Focus 'Nationalist Coup D'ètat' now disables joining factions
+ - Decision 'Mechanised Help' reduced research penalty to 3% from 10%
  - Decision 'Civilian Factories' now removes 3 civs instead of 6 from soviets
- - Decision 'Military Factories' now removes 3 mills instead of 4 from soviets
+ - Decision 'Military Factories' now removes 3 mils instead of 4 from soviets
                                  Spirit 'Helping with building of military factory' time reduced (on soviets) to 45 days from 90
                                  Spirit 'Soviet engineering help' time increased to 210 days from 180
- - Decision 'International help' now removes 2 civs or 2 mills instead of 4 from asked country
+ - Decision 'International help' now removes 2 civs or 2 mils instead of 4 from asked country
 
 #### Manchukuo
  - Fixed hardlock caused by not completing The Kwantung Veto focus before China has capitulated
