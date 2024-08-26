@@ -8299,10 +8299,23 @@ country_event = { #Denmark Puppets Norway
 	option = { #Great
 		name = denmark_expansion_event.21.a
 		ROOT = { 
-			# SPTchange
-			annex_country = {
-				target = NOR
-				transfer_troops = yes
+			# SPTchange to annex instead
+			every_country_with_original_tag = {
+				original_tag_to_check = NOR
+				DEN = {
+					annex_country = {
+						target = prev
+						transfer_troops = yes
+					}
+				}
+			}
+			hidden_effect = {				
+				every_state = {
+					limit = {
+						is_core_of = NOR
+					}
+					add_resistance = 30
+				}
 			}
 		}
 	}
@@ -8329,7 +8342,7 @@ country_event = { #Denmark is refused Norwegian puppet
 		}
 	}
 }
-country_event = { #Denmark Demands Norway from Sweden
+country_event = { #Denmark Demands Norway from Germany
 	id = denmark_expansion_event.23
 	title = denmark_expansion_event.23.t
 	desc = denmark_expansion_event.23.desc
@@ -8372,16 +8385,7 @@ country_event = { #Denmark Demands Norway from Sweden
 		# SPTchange
 		# add_stability = -0.05
 		# add_war_support = -0.05
-
-		effect_tooltip = {
-			FROM = { 
-				# SPTchange
-				annex_country = {
-					target = NOR
-					transfer_troops = yes
-				}
-			}
-		}
+		event_option_tooltip = denmark_expansion_event.24.a
 
 		hidden_effect = {
 			FROM = { 
@@ -8427,12 +8431,25 @@ country_event = { #Denmark Puppets Norway
 
 	option = { #Great
 		name = denmark_expansion_event.24.a
-		add_political_power = 50
+		# add_political_power = 50 # SPTchange
 		ROOT = {
-			# SPTchange puppet -> annex
-			annex_country = {
-				target = NOR
-				transfer_troops = yes
+			# SPTchange to annex instead
+			every_country_with_original_tag = {
+				original_tag_to_check = NOR
+				DEN = {
+					annex_country = {
+						target = prev
+						transfer_troops = yes
+					}
+				}
+			}
+			hidden_effect = {				
+				every_state = {
+					limit = {
+						is_core_of = NOR
+					}
+					add_resistance = 30
+				}
 			}
 		}
 	}
