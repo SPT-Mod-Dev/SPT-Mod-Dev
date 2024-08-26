@@ -355,6 +355,23 @@ country_event = {
 			limit = {
 				tag = ITA
 			}
+			if = {
+				limit = {
+					has_any_power_balance = yes
+				}
+				hidden_effect = {
+					SPT_ITA_bop_spirits = yes
+
+					set_power_balance = {
+						id = ITA_power_balance
+						set_value = 0.0
+					}
+
+					remove_power_balance = {
+						id = ITA_power_balance
+					}
+				}
+			}
 			set_power_balance = {
 				id = ITA_MED_med_front
 			}
@@ -980,5 +997,44 @@ country_event = {
 	picture = GFX_report_event_physics_lab_02
 	option = {
 		name = spt_sov_AT_treaty.3.a
+	}
+}
+
+add_namespace = spt_den
+# Denmark requests Norway
+country_event = {
+	id = spt_den.1
+	title = spt_den.1.t
+	desc = spt_den.1.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_DEN_christian_x
+
+	option = { # Yes (Annex)
+		name = spt_den.1.a
+		every_country_with_original_tag = {
+			original_tag_to_check = NOR
+			DEN = {
+				annex_country = {
+					target = prev
+					transfer_troops = yes
+				}
+			}
+		}
+		every_state = {
+			limit = {
+				is_core_of = NOR
+			}
+			add_core_of = DEN
+		}
+		hidden_effect = {			
+			DEN = {
+				drop_cosmetic_tag = yes
+				set_cosmetic_tag = DEN_cope
+			}
+		}
+	}
+
+	option = { # No
+		name = spt_den.1.b
 	}
 }

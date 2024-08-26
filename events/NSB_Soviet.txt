@@ -572,9 +572,10 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-
-		add_ideas = SOV_anti_soviet_military_thinking_banned_army
-
+		add_timed_idea = {
+			idea = SOV_anti_soviet_military_thinking_banned_army
+			days = 720
+		}
 		#Update purged portraits in UI
 		hidden_effect = {
 			SOV_paranoia_update_portraits_ui = yes
@@ -908,22 +909,27 @@ country_event = {
 			limit = {
 				has_idea = SOV_purged_junior_army_officers_2
 			}
-			swap_ideas = {
-				remove_idea = SOV_purged_junior_army_officers_2
-				add_idea = SOV_purged_junior_army_officers_3
-			}
+			remove_ideas = SOV_purged_junior_army_officers_2
+			add_timed_idea = {
+				idea = SOV_purged_junior_army_officers_3
+				days = 720
+			} 
 		}
 		else_if = {
 			limit = {
 				has_idea = SOV_purged_junior_army_officers_1
 			}
-			swap_ideas = {
-				remove_idea = SOV_purged_junior_army_officers_1
-				add_idea = SOV_purged_junior_army_officers_2
-			}
+			remove_ideas = SOV_purged_junior_army_officers_1
+			add_timed_idea = {
+				idea = SOV_purged_junior_army_officers_2
+				days = 720
+			} 
 		}
 		else = {
-			add_ideas = SOV_purged_junior_army_officers_1
+			add_timed_idea = {
+				idea = SOV_purged_junior_army_officers_1
+				days = 720
+			} 
 		}
 
 		#Update purged portraits in UI
@@ -1211,8 +1217,10 @@ country_event = {
 		ai_chance = {
 			base = 10
 		}
-
-		add_ideas = SOV_anti_soviet_military_thinking_banned_navy
+		add_timed_idea = {
+			idea = SOV_anti_soviet_military_thinking_banned_navy
+			days = 720
+		}
 
 		#Update purged portraits in UI
 		hidden_effect = {
@@ -1365,22 +1373,27 @@ country_event = {
 			limit = {
 				has_idea = SOV_purged_junior_navy_officers_2
 			}
-			swap_ideas = {
-				remove_idea = SOV_purged_junior_navy_officers_2
-				add_idea = SOV_purged_junior_navy_officers_3
-			}
+			remove_ideas = SOV_purged_junior_navy_officers_2
+			add_timed_idea = {
+				idea = SOV_purged_junior_navy_officers_3
+				days = 720
+			} 
 		}
 		else_if = {
 			limit = {
 				has_idea = SOV_purged_junior_navy_officers_1
 			}
-			swap_ideas = {
-				remove_idea = SOV_purged_junior_navy_officers_1
-				add_idea = SOV_purged_junior_navy_officers_2
-			}
+			remove_ideas = SOV_purged_junior_navy_officers_1
+			add_timed_idea = {
+				idea = SOV_purged_junior_navy_officers_2
+				days = 720
+			} 
 		}
 		else = {
-			add_ideas = SOV_purged_junior_navy_officers_1
+			add_timed_idea = {
+				idea = SOV_purged_junior_navy_officers_2
+				days = 720
+			}
 		}
 
 		#Update purged portraits in UI
@@ -1570,7 +1583,10 @@ country_event = {
 			base = 10
 		}
 
-		add_ideas = SOV_anti_soviet_military_thinking_banned_airforce
+		add_timed_idea = {
+			idea = SOV_anti_soviet_military_thinking_banned_airforce
+			days = 720
+		}
 
 		#Update purged portraits in UI
 		hidden_effect = {

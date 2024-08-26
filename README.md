@@ -1,5 +1,86 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.12.6 'Delayed by Deadlock'
+
+### Rules
+ - Added new General rule: 12. Licensed equipment can not be altered by the purchaser. Temporary IC modifiers may not apply when purchased.
+
+### General
+ - Added 1 funny thing (don't worry about it)
+
+#### Tank balance
+ - All medium tanks technologies moved to 1 year earlier [38->37  40->39  43->42]
+ - 1937 medium tank research cost increased to 175 days from 100
+ - 1939 medium tank research cost reduced to 175 days from 200
+
+#### Airplanes
+ - Increased supply from air supply mission to 0.03 supply per plane from 0.01
+ - Increased Transport Plane production cost from 38 to 50
+
+#### UK
+ - Trade with switzerland (military) Production efficiency cap reduced to 5% from 10%
+                                     Production efficiency growth reduced to 3% from 5%
+ - Trade with switzerland (civilian) Consumer goods factor reduced to -10% from -15%
+                                     Construction speed bonus reduced to 7.5% from 10%
+### Italy
+ - Prevented Political BoPs from being able to remove the Mediterranean Front BoP
+ - Upon the start of the Mediterranean Front BoP Italy will now receive a National Spirit equal to the effects of the previously active Political BoP
+
+#### British Raj
+ - Focus 'East India Railways' replaced railways with infrastructure 
+ - Focus 'Integrate Princely Railways' replaced railways with infrastructure
+
+#### Germany
+ - First tier of spirit 'Cannibalized Civilian Economy' now gives -3% construction speed
+ - Second and Third tier of spirit 'Cannibalized Civillian Economy' now gives -5% construction speed
+ - Third tier of spirit 'Cannibalized Civillian Economy' now gives -5% stability 
+ - Spirit 'Arms Subsidies Program' now gives 7.5% military factory construction speed
+
+#### Finland
+ - Focus 'Increase Military Budget' research bonus no longer applies to motorisation 
+ - Focus 'Suomen Maavoimat' removed land doctrine reduction cost
+ - Higher levels of Sisu reduced: Tier 3 Sisu Recovery rate reduced to 10% from 15%
+                                              Core Defence reduced to 10% from 15%
+
+                                  Tier 4 Sisu Recovery rate reduced to 25% from 20%
+                                              Core Attack reduced to 10% from 15%
+                                              Core Defence reduced to 15% from 20%
+
+                                  Tier 5 Sisu Recovery rate reduced to 20% from 30%
+                                              Core Attack reduced to 15% from 25%
+                                              Core Defence reduced to 20% from 25%
+ - Finnish army: organisation bonus removed 
+
+#### Soviet Union
+ - Reduced VPs in the western part of the Soviet Union. Increased VPs in the eastern part of the Soviet Union
+ - Fixed hardlock caused by Beryia being an active advisor
+ - Focus 'PC of Mortar Armament' time to complete reduced to 35 from 70
+                                 No longer gives event 'Soviet-German Artillery Development' if at war with germany
+ - Focus 'Industrial Modernisation' and 'Optimize Production Lines' now only available if Stalin is the current country leader
+ - Focus 'Industrial Modernisation' reduced tech bonus to 50% bonus + 1y ahead of time from 100% bonus + 2y ahead of time
+ - Focus 'International Revolutionary Marxism' focus time reduced to 35 days from 70
+ - Focus 'International Revolutionary Marxism' added increased spawn-ins after 40% and 60% cap progress
+ - Purge Debuffs are now all timed so will eventually be removed even if access to 'loosen army restrictions' decision disapears
+
+
+#### Mongolia
+ - Focus 'The Tannu Tuvan Question' now adds Tannu Tuva as core
+ - Focus 'Nationalist Coup D'ètat' now disables joining factions
+ - Decision 'Mechanised Help' reduced research penalty to 3% from 10%
+ - Decision 'Civilian Factories' now removes 3 civs instead of 6 from soviets
+ - Decision 'Military Factories' now removes 3 mils instead of 4 from soviets
+                                 Spirit 'Helping with building of military factory' time reduced (on soviets) to 45 days from 90
+                                 Spirit 'Soviet engineering help' time increased to 210 days from 180
+ - Decision 'International help' now removes 2 civs or 2 mils instead of 4 from asked country
+
+#### Manchukuo
+ - Fixed hardlock caused by not completing The Kwantung Veto focus before China has capitulated
+
+#### Denmark
+ - Added focus "Administer Norway" to occupation focus tree, allowing annexation of Norway with full cores (with German consent)
+ - Added focus "Reclaim Norway" to alt-history fascist focus tree, allowing annexation of Norway with 60% collaboration (with German consent)
+
+
 ### 3.12.5
 
 ### Manchukuo
@@ -18,6 +99,7 @@
 
 ### AI
  - Made UK more reliable at guarding Mediterranean targets
+ - Bulgaria now should be rejected from Allies
  - Siam now sends volunteers to Japan
  - Made Japan worse?
 

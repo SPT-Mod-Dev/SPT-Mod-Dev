@@ -90,7 +90,8 @@ focus_tree = {
 		}
 
 		completion_reward = { #TODO_Manu: This is just copy-pasted from the old focus -> Is this what we want?
-			if = {
+			#SPTchange Made infra rolls prioritize
+		if = {
 				limit = {
 					all_owned_state = {
 						infrastructure > 2
@@ -129,6 +130,7 @@ focus_tree = {
 				limit = {
 					infrastructure < 3
 				}
+				prioritize = { 229 405 586 40 651 652 } 
 				add_building_construction = {
 					type = infrastructure
 					level = 2
@@ -140,6 +142,7 @@ focus_tree = {
 				limit = {
 					infrastructure < 3
 				}
+				prioritize = { 229 405 586 40 651 652 } 
 				add_building_construction = {
 					type = infrastructure
 					level = 2
@@ -151,6 +154,7 @@ focus_tree = {
 				limit = {
 					infrastructure < 3
 				}
+				prioritize = { 229 405 586 40 651 652 } 
 				add_building_construction = {
 					type = infrastructure
 					level = 2
@@ -162,6 +166,7 @@ focus_tree = {
 				limit = {
 					infrastructure < 3
 				}
+				prioritize = { 229 405 586 40 651 652 } 
 				add_building_construction = {
 					type = infrastructure
 					level = 2
@@ -598,6 +603,10 @@ focus_tree = {
 				NOT = { num_of_controlled_factories < SOV_fyp_factory_requirement_tier_4 }
 			}
 			NOT = { has_completed_focus = SOV_curtailment_of_the_collective_farms }
+			has_country_leader = { #SPTchange
+				character = SOV_iosif_stalin
+				ruling_only = yes
+			}
 		}
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
@@ -609,8 +618,8 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = SOV_industrial_modernization
-				ahead_reduction = 2
-				bonus = 1.0
+				ahead_reduction = 1 #SPTchange 2 -> 1
+				bonus = 0.5 #SPTchange 1 -> 0.5
 				uses = 1
 				category = industry
 			}
@@ -734,6 +743,7 @@ focus_tree = {
 				NOT = { num_of_controlled_factories < SOV_fyp_factory_requirement_tier_3 }
 			}
 			NOT = { has_completed_focus = SOV_curtailment_of_the_collective_farms }
+			
 		}
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
@@ -787,6 +797,10 @@ focus_tree = {
 				NOT = { num_of_controlled_factories < SOV_fyp_factory_requirement_tier_4 }
 			}
 			NOT = { has_completed_focus = SOV_curtailment_of_the_collective_farms }
+			has_country_leader = { #SPTchange
+				character = SOV_iosif_stalin
+				ruling_only = yes
+			}
 		}
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
@@ -4582,7 +4596,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = SOV_pc_of_mechanical_engineering
-		cost = 10
+		cost = 5 #SPTchange 10 -> 5
 
 		available = {
 			has_full_control_of_state = 219 #MOSCOW
@@ -4594,8 +4608,12 @@ focus_tree = {
 			add_to_variable = { SOV_defense_industry_breakthrough_factor = 0.05 }
 			add_to_variable = { SOV_defense_industry_army_artillery_defence_factor = 0.05 }
 			custom_effect_tooltip = SOV_pc_of_mortar_armament_ns_tt
-			country_event = { id = spt_sov_AT_treaty.1 days = 1 } #SPTchange triggers event to cooperate with germany insead of directly giving bonus
-
+			if = {
+				limit = {
+					NOT = { has_war_with = GER }
+				}
+				country_event = { id = spt_sov_AT_treaty.1 days = 1 } #SPTchange triggers event to cooperate with germany insead of directly giving bonus
+			}
 			219 = {
 				if = {
 					limit = {
@@ -9866,7 +9884,7 @@ focus_tree = {
 		cost = 10
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
-			NOT = { has_idea = SOV_lavrenty_beriya }
+			#NOT = { has_idea = SOV_lavrenty_beriya } #SPT change, made beryia irrelevant
 		}
 		                
 		search_filters = {}
@@ -10581,7 +10599,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = SOV_a_new_theory_of_revolution
-		cost = 10
+		cost = 5 #SPTchange 10 -> 5
 		available = {
 			#surrender_progress < 0.1
 			# OR = {
@@ -10607,7 +10625,7 @@ focus_tree = {
 					force_allow_recruiting = yes
 					override_model = BRA_militia_entity
 					#division_cap = 6
-					template_counter = 03
+					template_counter = 14
 					regiments = {
 						infantry = { x = 0 y = 0 }
 						infantry = { x = 0 y = 1 }
@@ -10615,41 +10633,114 @@ focus_tree = {
 						infantry = { x = 1 y = 0 }
 						infantry = { x = 1 y = 1 }
 						infantry = { x = 1 y = 2 }
+						
 					}
 				}
 				every_controlled_state  = {
 					limit = {
 						OR = {
-							state = 219
-							state = 247
-							state = 242
+							state = 248
+							state = 252
 							state = 217
 							state = 829
 							state = 265
-							state = 220
-							state = 221
-							state = 240
+							state = 249
+							state = 257
 						}
 					}
 					create_unit = {
-						division = "division_template = \"International Volunteers\" start_experience_factor = 0.0 start_equipment_factor = 1.0"
+						division = "division_template = \"International Volunteers\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
 						OWNER = ROOT
 					}
 					create_unit = {
-						division = "division_template = \"International Volunteers\" start_experience_factor = 0.0 start_equipment_factor = 1.0"
+						division = "division_template = \"International Volunteers\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
 						OWNER = ROOT
 					}
 					create_unit = {
-						division = "division_template = \"International Volunteers\" start_experience_factor = 0.0 start_equipment_factor = 1.0"
+						division = "division_template = \"International Volunteers\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
 						OWNER = ROOT
 					}
 					create_unit = {
-						division = "division_template = \"International Volunteers\" start_experience_factor = 0.0 start_equipment_factor = 1.0"
+						division = "division_template = \"International Volunteers\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
 						OWNER = ROOT
 					}
 					create_unit = {
-						division = "division_template = \"International Volunteers\" start_experience_factor = 0.0 start_equipment_factor = 1.0"
+						division = "division_template = \"International Volunteers\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
 						OWNER = ROOT
+					}
+				}
+				if = {
+					limit = {
+						surrender_progress > 0.4
+					}
+					every_controlled_state  = {
+						limit = {
+							OR = {
+								state = 398
+								state = 651
+								state = 652
+								state = 407
+								state = 406
+							}
+						}
+						create_unit = {
+							division = "division_template = \"International Volunteers\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
+							OWNER = ROOT
+						}
+						create_unit = {
+							division = "division_template = \"International Volunteers\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
+							OWNER = ROOT
+						}
+						create_unit = {
+							division = "division_template = \"International Volunteers\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
+							OWNER = ROOT
+						}
+						create_unit = {
+							division = "division_template = \"International Volunteers\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
+							OWNER = ROOT
+						}
+						create_unit = {
+							division = "division_template = \"International Volunteers\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
+							OWNER = ROOT
+						}
+					}
+				}
+				if = {
+					limit = {
+						surrender_progress > 0.6
+					}
+					every_controlled_state  = {
+						limit = {
+							OR = {
+								state = 653
+								state = 572
+								state = 583
+								state = 580
+								state = 403
+								state = 402
+								state = 405
+							}
+						}
+						create_unit = {
+							division = "division_template = \"International Volunteers\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
+							OWNER = ROOT
+						}
+						create_unit = {
+							division = "division_template = \"International Volunteers\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
+							OWNER = ROOT
+						}
+						create_unit = {
+							division = "division_template = \"International Volunteers\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
+							OWNER = ROOT
+						}
+						create_unit = {
+							division = "division_template = \"International Volunteers\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
+							OWNER = ROOT
+						}
+						create_unit = {
+							division = "division_template = \"International Volunteers\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
+							OWNER = ROOT
+						}
 					}
 				}
 			}
@@ -10780,9 +10871,9 @@ focus_tree = {
 		y = 1
 		relative_position_id = SOV_international_revolutionary_marxist_centre
 		cost = 10
-		available = {
-			surrender_progress < 0.05
-		}
+		# available = { #SPTchange
+		# 	surrender_progress < 0.05
+		# }
 		                
 		search_filters = {}
 
@@ -10828,9 +10919,9 @@ focus_tree = {
 		y = 1
 		relative_position_id = SOV_the_enemies_of_the_people
 		cost = 10
-		available = {
-			surrender_progress < 0.01
-		}
+		# available = { #SPTchange
+		# 	surrender_progress < 0.01
+		# }
 		                
 		search_filters = {FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL}
 
@@ -12008,12 +12099,18 @@ focus_tree = {
 			}	
 		}
 		
-		available = { is_subject = no }
+		available = { 
+			is_subject = no 
+			country_exists = TAN
+		}
 		
 		search_filters = {FOCUS_FILTER_ANNEXATION}
 
 		completion_reward = {
 			TAN = {	country_event = { id = soviet.14 } }
+			329 = {
+				add_core_of = SOV
+			}
 		}
 	}
 

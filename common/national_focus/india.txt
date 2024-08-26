@@ -2682,10 +2682,10 @@ focus_tree = {
 				limit = {
 					has_state_flag = RAJ_industrial_expansion_IC
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -3338,7 +3338,7 @@ focus_tree = {
 				AND = {
 					controls_state = 640
 					controls_state = 288
-					controls_state = 430
+					# controls_state = 430
 				}
 			}
 		}
@@ -3351,27 +3351,27 @@ focus_tree = {
 		
 
 		completion_reward = {
-			if = {
-				limit = {
-					controls_state = 640
-					controls_state = 288
-				}
-				build_railway = {
-					path = { #Rangoon - Mandalay - Myitkyina
-						1330 12127 1417 12256 4626 4585 1492 7469 12464 1082 4425
-					}
+			648 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
 				}
 			}
-			if = {
-				limit = {
-					controls_state = 430
-				}
-				build_railway = { #connects railway around Dacca to the rest of the network
-					path = {
-						11968 9993 4616
-					}
+			288 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
 				}
 			}
+			# 430 = {
+			# 	add_building_construction = {
+			# 		type = infrastructure
+			# 		level = 2
+			# 		instant_build = yes
+			# 	}
+			# }
 		}
 	}
 
@@ -3405,29 +3405,41 @@ focus_tree = {
 
 
 		completion_reward = {
-			if = {
-				limit = {
-					controls_state = 429
-					controls_state = 427
-				}
-				build_railway = { #Bombay - Hyderabad - East Coast
-					path = {
-						1349 10270 4353 12142 1359 10324 8087 4472 12114 4280 7340
-					}
+			429 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
 				}
 			}
-			if = {
-				limit = {
-					controls_state = 438
-					controls_state = 436
-					controls_state = 429
-				}
-				build_railway = { #Lucknow - Bombay
-					path = {
-						1349 7013 4072 7060 7430 10030 4950 11995 4953 5096 5040 4045 2036 12137
-					}
+			427 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
 				}
 			}
+			# 438 = {
+			# 	add_building_construction = {
+			# 		type = infrastructure
+			# 		level = 2
+			# 		instant_build = yes
+			# 	}
+			# }
+			# 436 = {
+			# 	add_building_construction = {
+			# 		type = infrastructure
+			# 		level = 2
+			# 		instant_build = yes
+			# 	}
+			# }
+			# 429 = {
+			# 	add_building_construction = {
+			# 		type = infrastructure
+			# 		level = 2
+			# 		instant_build = yes
+			# 	}
+			# }
 		}
 	}
 
@@ -3463,10 +3475,10 @@ focus_tree = {
 				limit = {
 					has_state_flag = RAJ_ishapore_arsenal_AF
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}

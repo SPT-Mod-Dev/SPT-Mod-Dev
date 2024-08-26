@@ -10789,9 +10789,14 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH FOCUS_FILTER_STABILITY FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_BALANCE_OF_POWER}
 
 		completion_reward = {
-			set_power_balance = {
-				id = ITA_power_balance
-				right_side = ITA_balbo_side 
+			if = {
+				limit = {
+					has_any_power_balance = no
+				}
+				set_power_balance = {
+					id = ITA_power_balance
+					right_side = ITA_balbo_side 
+				}
 			}
 			hidden_effect = {
 				if = {
@@ -10849,9 +10854,14 @@ focus_tree = {
 					clr_country_flag = ITA_deposed_leader_flag
 				}
 			}
-			set_power_balance = {
-				id = ITA_power_balance
-				right_side = ITA_grandi_side
+			if = {
+				limit = {
+					has_any_power_balance = no
+				}
+				set_power_balance = {
+					id = ITA_power_balance
+					right_side = ITA_grandi_side
+				}
 			}
 			custom_effect_tooltip = ITA_remove_grandi_as_advisor_tt
 			if = {
