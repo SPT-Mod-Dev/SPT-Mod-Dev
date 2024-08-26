@@ -3497,21 +3497,71 @@ focus_tree = {
 
 		cost = 5
 
+		allow_branch = {
+			is_ai = no
+		}
+
 		available = {
 			is_subject = no
 			NOR = {
-				is_subject = yes
-				OVERLORD = {
-					has_government = fascism
-				}
+				has_government = fascism
+			}
+			110 = {
+				is_controlled_by = NOR
+			}
+			142 = {
+				is_controlled_by = NOR
+			}
+			143 = {
+				is_controlled_by = NOR
+			}
+			144 = {
+				is_controlled_by = NOR
+			}			
+			920 = {
+				is_controlled_by = NOR
+			}
+			921 = {
+				is_controlled_by = NOR
+			}
+			922 = {
+				is_controlled_by = NOR
+			}
+			923 = {
+				is_controlled_by = NOR
+			}
+			924 = {
+				is_controlled_by = NOR
+			}
+			925 = {
+				is_controlled_by = NOR
 			}
 		}
+		
+		available_if_capitulated = yes # ONLY FOR TESTING
 		
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 
 		completion_reward = {
-			# Should be an SPT event instead.
-			annex_country = { target = DEN transfer_troops = yes }			
+			GER = { country_event = { id = spt_den.1 hours = 1 } }
+			custom_effect_tooltip = if_they_accept_tt
+			effect_tooltip = {
+				every_country_with_original_tag = {
+					original_tag_to_check = NOR
+					DEN = {
+						annex_country = {
+							target = prev
+							transfer_troops = yes
+						}
+					}
+				}
+				every_state = {
+					limit = {
+						is_core_of = NOR
+					}
+					add_core_of = DEN
+				}
+			}
 		}
 	}
 
@@ -3910,7 +3960,7 @@ focus_tree = {
 		x = 0
 		y = 1
 	
-		cost = 5
+		cost = 3 # SPTchange 5->3
 	
 		bypass = {
 		}
@@ -8011,312 +8061,6 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = DEN_reclaim_norway
-		icon = GFX_focus_generic_attack_norway
-		# prerequisite = { focus = DEN_scandinavian_security focus = DEN_rally_the_nation }
-		prerequisite = { focus = DEN_rally_the_nation }
-
-		relative_position_id = DEN_rally_the_nation
-		x = 4
-		y = 1
-
-		cost = 10
-		will_lead_to_war_with = NOR
-
-		available = {
-			OR = {
-				has_subject = NOR
-				# SPTchange
-				# AND = {
-				# 	has_government = neutrality
-				# 	threat > 0.20
-				# }
-				# AND = {
-				# 	has_government = fascism
-				# 	threat > 0.15
-				# }				
-				NOR = {
-					is_subject = yes
-					OVERLORD = {
-						has_government = fascism
-					}
-				}
-			}
-		}
-
-		cancel = {
-			is_subject = yes
-		}
-		continue_if_invalid = yes #Don't cancel if World Tension goes below a certain % or if you lose puppet
-
-		bypass = {
-			NOR = {
-				OR = {
-					all_core_state = {
-						is_controlled_by = DEN
-					}
-					AND = {
-						is_subject = yes
-						NOT = { is_subject_of = ROOT }
-						is_in_faction_with = ROOT
-					}
-				}
-			}
-		}
-
-		search_filters = { FOCUS_FILTER_ANNEXATION }
-
-		completion_reward = {
-
-			DEN_improve_sovaernet_NS = yes
-			add_to_variable = { 
-				DEN_sovaernet_naval_detection = 0.05
-				tooltip = naval_detection_tt
-			}
-
-			DEN_improve_flyvevabnet_NS = yes
-			add_to_variable = { 
-				DEN_flyvevabnet_air_weather_penalty = -0.05 
-				tooltip = air_weather_penalty_tt
-			}
-
-			# SPTchange
-			add_collaboration = {
-				target = NOR
-				value = 0.6
-			}
-
-			if = {
-				limit = {
-					NOR = {
-						is_subject_of = ROOT
-					}
-				}
-				unlock_decision_tooltip = DEN_integrate_norway
-			}
-			else_if = {
-				limit = {
-					has_government = neutrality
-				}
-				if = {
-					limit = {
-						NOR = {
-							is_subject = no
-							has_country_leader = {
-								ruling_only = yes
-								character = NOR_king_haakon_vii
-							}
-						}
-					}
-					#Give Norway a chance to become a puppet due to the kings being brothers
-					NOR = { country_event = { id = denmark_expansion_event.20 days = 1 }}
-					custom_effect_tooltip = if_they_accept_tt
-					effect_tooltip = {
-						ROOT = { puppet = NOR }
-					}
-					custom_effect_tooltip = if_they_refuse_tt
-					event_option_tooltip = denmark_expansion_event.22.a
-				}
-				else_if = {
-					limit = {
-						NOR = {
-							is_subject_of = SWE
-						}
-						SWE = {
-							has_country_leader = {
-								ruling_only = yes
-								character = SWE_king_gustaf_v
-							}
-						}
-					}
-					#Give Sweden a chance to hand off Norway due to close monarchical ties
-					SWE = { country_event = { id = denmark_expansion_event.23 days = 1 }}
-					custom_effect_tooltip = if_they_accept_tt
-					effect_tooltip = {	
-						ROOT = { puppet = NOR }
-					}
-					custom_effect_tooltip = if_they_refuse_tt
-					event_option_tooltip = denmark_expansion_event.25.a
-				}
-				else_if = {
-					limit = {
-						NOR = {
-							exists = yes
-						}
-					}
-					create_wargoal = {
-					    type = annex_everything
-					    target = NOR
-					}
-					add_timed_idea = {
-					    idea = DEN_securing_norway_ns
-					    days = 365
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					has_government = fascism
-				}
-				if = {
-					limit = {
-						NOR = {
-							is_subject = no
-							has_government = fascism
-						}
-					}
-					NOR = { country_event = { id = denmark_expansion_event.20 days = 1 }}
-					custom_effect_tooltip = if_they_accept_tt
-					event_option_tooltip = denmark_expansion_event.21.a
-					# custom_effect_tooltip = if_they_refuse_tt
-					# event_option_tooltip = denmark_expansion_event.22.a
-				}
-				else_if = {
-					limit = {
-						NOR = {
-							is_subject = yes
-							OVERLORD = {
-								has_government = fascism
-							}
-						}
-					}
-					NOR = { 
-						OVERLORD = { country_event = { id = denmark_expansion_event.23 days = 1 }}
-					}
-					custom_effect_tooltip = if_they_accept_tt
-					event_option_tooltip = denmark_expansion_event.24.a
-					# custom_effect_tooltip = if_they_refuse_tt
-					# event_option_tooltip = denmark_expansion_event.25.a
-				}
-				else_if = {
-					limit = {
-						NOR = {
-							exists = yes
-						}
-					}
-					create_wargoal = {
-					    type = annex_everything
-					    target = NOR
-					}
-					add_timed_idea = {
-					    idea = DEN_securing_norway_ns
-					    days = 365
-					}
-				}
-			}
-			else_if = { #This is just a backup if all other things fails
-				limit = {
-					NOR = {
-						exists = yes
-					}
-				}
-				create_wargoal = {
-				    type = annex_everything
-				    target = NOR
-				}
-				add_timed_idea = {
-				    idea = DEN_securing_norway_ns
-				    days = 365
-				}
-			}
-			if = {
-				limit = {
-					NOR = {
-						OR = {
-							exists = no
-							any_core_state = {
-								NOT = {
-									is_owned_and_controlled_by = NOR
-									is_owned_and_controlled_by = PREV #DEN
-								}
-							}
-						}
-					}
-				}
-				custom_effect_tooltip = DEN_demand_norwegian_territory
-				#set_country_flag = DEN_can_demand_norweigian_territory_flag
-			}
-		}
-	}
-
-	focus = {
-		id = DEN_train_mountain_infantry
-		icon = GFX_focus_generic_manpower
-		prerequisite = { focus = DEN_reclaim_norway }
-
-		# SPTchange
-		relative_position_id = DEN_reclaim_norway
-		x = 1
-		y = 1
-
-		cost = 5
-
-		available = {
-			any_controlled_state = {
-				is_core_of = NOR
-			}
-		}
-
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
-		completion_reward = {
-			add_tech_bonus = {
-				name = DEN_train_mountain_infantry
-				bonus = 1
-				uses = 1
-				category = mountaineers_tech
-			}
-
-			add_doctrine_cost_reduction = {
-				name = DEN_train_mountain_infantry
-				cost_reduction = 0.5
-				uses = 2
-				category = cat_mountaineers_doctrine
-			}
-		}
-	}
-
-	focus = {
-		id = DEN_pan_scandinavianism
-		icon = GFX_focus_generic_pan_scandinavism
-		prerequisite = { focus = DEN_secure_swedish_steel focus = DEN_reclaim_norway }
-
-		# SPTchange repositioning
-		relative_position_id = DEN_reclaim_norway
-		x = -1
-		y = 1
-
-		cost = 5
-
-		available = {
-			NOR = {
-				all_core_state = {
-					is_fully_controlled_by = ROOT
-				}
-			}
-		}
-
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_MANPOWER }
-
-		completion_reward = {
-			add_political_power = 50
-
-			DEN_improve_haeren_NS = yes
-			
-			add_to_variable = { 
-				DEN_haeren_army_defence = 0.05 
-				tooltip = army_defence_factor_tt
-			}
-
-			# SPTchange
-			# unlock_decision_tooltip = DEN_rally_the_icelanders
-			# unlock_decision_tooltip = DEN_rally_the_swedes
-			# unlock_decision_tooltip = DEN_rally_the_finnish
-			unlock_decision_tooltip = DEN_rally_the_norwegians
-		}
-	}
-
 	#### FASCISM ####
 	focus = {
 		id = DEN_march_on_the_capital
@@ -8468,6 +8212,9 @@ focus_tree = {
 			# create_faction = DEN_northern_national_front
 
 			custom_effect_tooltip = DEN_remove_declaration_of_neutrality_tt
+			hidden_effect = {
+				remove_ideas = DEN_declaration_of_neutrality
+			}
 
 			# SPTchange
 			# unlock_decision_tooltip = DEN_northern_national_front_invitation
@@ -8873,6 +8620,344 @@ focus_tree = {
 				uses = 2
 				category = special_forces_doctrine
 			}
+		}
+	}
+	
+	focus = {
+		id = DEN_reclaim_norway
+		icon = GFX_focus_generic_attack_norway
+		# prerequisite = { focus = DEN_scandinavian_security focus = DEN_rally_the_nation }
+		prerequisite = { focus = DEN_rally_the_nation }
+
+		relative_position_id = DEN_rally_the_nation
+		x = 4
+		y = 1
+
+		cost = 10
+		will_lead_to_war_with = NOR
+
+		available = {
+			# SPTChange
+			# OR = {
+			# 	has_subject = NOR
+			# 	AND = {
+			# 		has_government = neutrality
+			# 		threat > 0.20
+			# 	}
+			# 	AND = {
+			# 		has_government = fascism
+			# 		threat > 0.15
+			# 	}	
+			# }	
+			NOR = {
+				has_government = fascism
+			}
+			110 = {
+				is_controlled_by = NOR
+			}
+			142 = {
+				is_controlled_by = NOR
+			}
+			143 = {
+				is_controlled_by = NOR
+			}
+			144 = {
+				is_controlled_by = NOR
+			}			
+			920 = {
+				is_controlled_by = NOR
+			}
+			921 = {
+				is_controlled_by = NOR
+			}
+			922 = {
+				is_controlled_by = NOR
+			}
+			923 = {
+				is_controlled_by = NOR
+			}
+			924 = {
+				is_controlled_by = NOR
+			}
+			925 = {
+				is_controlled_by = NOR
+			}
+		}
+
+		cancel = {
+			is_subject = yes
+		}
+		# continue_if_invalid = yes #Don't cancel if World Tension goes below a certain % or if you lose puppet
+
+		bypass = {
+			NOR = {
+				OR = {
+					all_core_state = {
+						is_controlled_by = DEN
+					}
+					# SPTchange
+					# AND = {
+					# 	is_subject = yes
+					# 	NOT = { is_subject_of = ROOT }
+					# 	is_in_faction_with = ROOT
+					# }
+				}
+			}
+		}
+
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+
+		completion_reward = {
+
+			DEN_improve_sovaernet_NS = yes
+			add_to_variable = { 
+				DEN_sovaernet_naval_detection = 0.05
+				tooltip = naval_detection_tt
+			}
+
+			DEN_improve_flyvevabnet_NS = yes
+			add_to_variable = { 
+				DEN_flyvevabnet_air_weather_penalty = -0.05 
+				tooltip = air_weather_penalty_tt
+			}
+
+			# SPTchange
+			add_collaboration = {
+				target = NOR
+				value = 0.6
+			}
+
+			if = {
+				limit = {
+					NOR = {
+						is_subject_of = ROOT
+					}
+				}
+				unlock_decision_tooltip = DEN_integrate_norway
+			}
+			else_if = {
+				limit = {
+					has_government = neutrality
+				}
+				if = {
+					limit = {
+						NOR = {
+							is_subject = no
+							has_country_leader = {
+								ruling_only = yes
+								character = NOR_king_haakon_vii
+							}
+						}
+					}
+					#Give Norway a chance to become a puppet due to the kings being brothers
+					NOR = { country_event = { id = denmark_expansion_event.20 days = 1 }}
+					custom_effect_tooltip = if_they_accept_tt
+					effect_tooltip = {
+						ROOT = { puppet = NOR }
+					}
+					custom_effect_tooltip = if_they_refuse_tt
+					event_option_tooltip = denmark_expansion_event.22.a
+				}
+				else_if = {
+					limit = {
+						NOR = {
+							is_subject_of = SWE
+						}
+						SWE = {
+							has_country_leader = {
+								ruling_only = yes
+								character = SWE_king_gustaf_v
+							}
+						}
+					}
+					#Give Sweden a chance to hand off Norway due to close monarchical ties
+					SWE = { country_event = { id = denmark_expansion_event.23 days = 1 }}
+					custom_effect_tooltip = if_they_accept_tt
+					effect_tooltip = {	
+						ROOT = { puppet = NOR }
+					}
+					custom_effect_tooltip = if_they_refuse_tt
+					event_option_tooltip = denmark_expansion_event.25.a
+				}
+				else_if = {
+					limit = {
+						NOR = {
+							exists = yes
+						}
+					}
+					create_wargoal = {
+					    type = annex_everything
+					    target = NOR
+					}
+					add_timed_idea = {
+					    idea = DEN_securing_norway_ns
+					    days = 365
+					}
+				}
+			} 
+			else_if = {
+				limit = {
+					has_government = fascism
+				}
+				if = {
+					limit = {
+						NOR = {
+							is_subject = no
+							has_government = fascism
+						}
+					}
+					# SPTchange
+					# NOR = { country_event = { id = denmark_expansion_event.20 days = 1 }}
+					GER = { country_event = { id = denmark_expansion_event.23 days = 1 }}
+					custom_effect_tooltip = if_they_accept_tt
+					event_option_tooltip = denmark_expansion_event.24.a
+					# custom_effect_tooltip = if_they_refuse_tt
+					# event_option_tooltip = denmark_expansion_event.22.a
+				}
+				else_if = {
+					limit = {
+						NOR = {
+							is_subject = yes
+							OVERLORD = {
+								has_government = fascism
+							}
+						}
+					}
+					NOR = { 
+						OVERLORD = { country_event = { id = denmark_expansion_event.23 days = 1 }}
+					}
+					custom_effect_tooltip = if_they_accept_tt
+					event_option_tooltip = denmark_expansion_event.24.a
+					# SPTchange
+					# custom_effect_tooltip = if_they_refuse_tt
+					# event_option_tooltip = denmark_expansion_event.25.a
+				}
+				else_if = {
+					limit = {
+						NOR = {
+							exists = yes
+						}
+					}
+					create_wargoal = {
+					    type = annex_everything
+					    target = NOR
+					}
+					add_timed_idea = {
+					    idea = DEN_securing_norway_ns
+					    days = 365
+					}
+				}
+			}
+			else_if = { #This is just a backup if all other things fails
+				limit = {
+					NOR = {
+						exists = yes
+					}
+				}
+				create_wargoal = {
+				    type = annex_everything
+				    target = NOR
+				}
+				add_timed_idea = {
+				    idea = DEN_securing_norway_ns
+				    days = 365
+				}
+			}
+			if = {
+				limit = {
+					NOR = {
+						OR = {
+							exists = no
+							any_core_state = {
+								NOT = {
+									is_owned_and_controlled_by = NOR
+									is_owned_and_controlled_by = PREV #DEN
+								}
+							}
+						}
+					}
+				}
+				# SPTchange meh
+				# custom_effect_tooltip = DEN_demand_norwegian_territory
+				# set_country_flag = DEN_can_demand_norweigian_territory_flag
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_train_mountain_infantry
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = DEN_reclaim_norway }
+
+		# SPTchange
+		relative_position_id = DEN_reclaim_norway
+		x = 1
+		y = 1
+
+		cost = 5
+
+		available = {
+			any_controlled_state = {
+				is_core_of = NOR
+			}
+		}
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = DEN_train_mountain_infantry
+				bonus = 1
+				uses = 1
+				category = mountaineers_tech
+			}
+
+			add_doctrine_cost_reduction = {
+				name = DEN_train_mountain_infantry
+				cost_reduction = 0.5
+				uses = 2
+				category = cat_mountaineers_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = DEN_pan_scandinavianism
+		icon = GFX_focus_generic_pan_scandinavism
+		prerequisite = { focus = DEN_secure_swedish_steel focus = DEN_reclaim_norway }
+
+		# SPTchange repositioning
+		relative_position_id = DEN_reclaim_norway
+		x = -1
+		y = 1
+
+		cost = 5
+
+		available = {
+			NOR = {
+				all_core_state = {
+					is_fully_controlled_by = ROOT
+				}
+			}
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_MANPOWER }
+
+		completion_reward = {
+			add_political_power = 50
+
+			DEN_improve_haeren_NS = yes
+			
+			add_to_variable = { 
+				DEN_haeren_army_defence = 0.05 
+				tooltip = army_defence_factor_tt
+			}
+
+			# SPTchange
+			# unlock_decision_tooltip = DEN_rally_the_icelanders
+			# unlock_decision_tooltip = DEN_rally_the_swedes
+			# unlock_decision_tooltip = DEN_rally_the_finnish
+			unlock_decision_tooltip = DEN_rally_the_norwegians
 		}
 	}
 

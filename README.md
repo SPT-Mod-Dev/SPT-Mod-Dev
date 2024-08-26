@@ -70,6 +70,10 @@
 #### Manchukuo
  - Fixed hardlock caused by not completing The Kwantung Veto focus before China has capitulated
 
+#### Denmark
+ - Added focus "Administer Norway" to occupation focus tree, allowing annexation of Norway with full cores (with German consent)
+ - Added focus "Reclaim Norway" to alt-history fascist focus tree, allowing annexation of Norway with 60% collaboration (with German consent)
+
 
 ### 3.12.5
 
