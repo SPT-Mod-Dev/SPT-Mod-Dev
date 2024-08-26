@@ -1,6 +1,12 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.12.6
+### 3.12.6 'Delayed by Deadlock'
+
+### Rules
+ - Added new General rule: 12. Licensed equipment can not be altered by the purchaser. Temporary IC modifiers may not apply when purchased.
+
+### General
+ - Added 1 funny thing (don't worry about it)
 
 #### Tank balance
  - All medium tanks technologies moved to 1 year earlier [38->37  40->39  43->42]
