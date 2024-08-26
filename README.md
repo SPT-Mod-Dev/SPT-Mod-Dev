@@ -46,6 +46,7 @@
  - Finnish army: organisation bonus removed 
 
 #### Soviet Union
+ - Reduced VPs in the western part of the Soviet Union. Increased VPs in the eastern part of the Soviet Union
  - Fixed hardlock caused by Beryia being an active advisor
  - Focus 'PC of Mortar Armament' time to complete reduced to 35 from 70
                                  No longer gives event 'Soviet-German Artillery Development' if at war with germany
