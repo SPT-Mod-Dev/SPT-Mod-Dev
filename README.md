@@ -53,7 +53,7 @@
  - Focus 'Industrial Modernisation' and 'Optimize Production Lines' now only available if Stalin is leader
  - Focus 'Industrial Modernisation' reduced tech bonus to 50% bonus + 1y ahead of time from 100% bonus + 2y ahead of time
  - Focus 'International Revolutionary Marxism' focus time reduced to 35 days from 70
- - Focus 'International Revolutionary Marxism' increased spawn-ins after 40% and 60% cap progress
+ - Focus 'International Revolutionary Marxism' added increased spawn-ins after 40% and 60% cap progress
  - Purge Debuffs are now all timed so will eventually be removed even if access to 'loosen army restrictions' decision disapears
 
 
