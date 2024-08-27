@@ -40,3 +40,4 @@ NDefines.NNavy.GUN_HIT_PROFILES = { -- hit profiles for guns, if target ih profi
     120.0,	-- torpedoes
     45.0,	-- small guns
 }
+NDefines.NNavy.CONVOY_HIT_PROFILE                                               = 105
