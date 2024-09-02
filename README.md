@@ -1,5 +1,19 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.12.7 'The return of Python'
+
+### India
+ - Ishapore arsenal focus reduced to 56 days from 70
+
+### New Zealand
+ - Expand the NZPAF - Removed subsidy, added air Experience +50 and 1x 50% reduction to air doc
+
+### Australia
+ - Useless railway focus now gives 1 infra in 2 states
+
+### Soviet Union
+ - Removed random -25% Aircraft designer cost from "Expand the Aircraft Industry"
+
 ### 3.12.6 'Delayed by Deadlock'
 
 ### Rules

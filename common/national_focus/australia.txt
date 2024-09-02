@@ -2344,7 +2344,7 @@
 	}
 
 	focus = {
-		id = AST_expand_the_northern_railway
+		id = SPT_expand_the_northern_rail
 		icon = GFX_goal_generic_construct_infrastructure
 		prerequisite = { focus = AST_expand_lithgow_small_arms_factory }
 		x = 0
@@ -2371,11 +2371,40 @@
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			build_railway = {
-				level = 2
-				path = { 7669 1431 12104 1454 }
-			}
+			random_owned_state = {
+				prioritize = { 285 517 521 }
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+						include_locked = yes
+					}
+					NOT = {state = 674}
+				}
 
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				prioritize = { 521 }
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+						include_locked = yes
+					}
+					NOT = {state = 674}
+				}
+
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
 
 		}
 	}
@@ -2904,7 +2933,7 @@
 	focus = {
 		id = AST_research_collaboration
 		icon = GFX_goal_generic_scientific_exchange
-		prerequisite = { focus = AST_expand_the_northern_railway }
+		prerequisite = { focus = SPT_expand_the_northern_rail }
 
 		x = -7
 		y = 5
