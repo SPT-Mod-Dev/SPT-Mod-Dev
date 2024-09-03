@@ -14,6 +14,16 @@
 ### Soviet Union
  - Removed random -25% Aircraft designer cost from "Expand the Aircraft Industry"
 
+### Italy
+ - Specialization focus Removed
+ - Standarization focus path changed - Made long range and multi role aircraft mutually exclusive, Added 5% reduction to aircraft
+ - Multi role aircraft focus removed air template cost and added 1 x 75% research boost for air 
+
+### Spirits 
+ - Air spirit material destruction removed designer cost and added light aircraft research speed 10% and reduced Tactical bomber research from 25% to 20%
+ - industrial destruction had large plane airframe design removed
+
+
 ### 3.12.6 'Delayed by Deadlock'
 
 ### Rules
