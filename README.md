@@ -1,5 +1,15 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.12.7 
+
+#### General 
+ - Reworked air zones Tobruk, Egypt and Upper Nile
+
+#### USA
+ - Focuses requiering senate support no longer cancel when due to dropped senate support
+ - Fix issue where 'Defend the Seas' would spawn dockyards inland
+
+
 ### 3.12.6 'Delayed by Deadlock'
 
 ### Rules
