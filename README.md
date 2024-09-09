@@ -23,6 +23,12 @@
  - Air spirit material destruction removed designer cost and added light aircraft research speed 10% and reduced Tactical bomber research from 25% to 20%
  - industrial destruction had large plane airframe design removed
 
+### Romania
+ -Expand the University of bucharest focus now continues when requirements are not met
+ -
+
+
+### Le funny
 
 ### 3.12.6 'Delayed by Deadlock'
 
