@@ -11,6 +11,12 @@
 #### New Zealand
  - Expand the NZPAF - Removed subsidy, added air Experience +50 and 1x 50% reduction to air doc
 
+#### Germany
+ - Heavy water production decision: Number of research bonuses reduced from 2 to 1
+                                    Research bonus reduced from 200% to 100%
+                                    Time to complete decreased forom 365  to 160 days
+                                    Added cost of 4 civs whilst active.
+
 #### Australia
  - Useless railway focus now gives 1 infra in 2 states
 
@@ -44,7 +50,7 @@
 #### USA
  - Alf Landons focuses requiering senate support no longer cancel when due to dropped senate support (now same as Roosevelt)
  - Fix issue where 'Defend the Seas' would spawn dockyards inland
->>>>>>> 2c41e1218fabf51869dd821e91c74c043930aec1
+ - National Spirit 'Temporary Relief' now removes if National Spirit 'The 1937 Recession' is removed
 
 #### Navy
 - Improved destroyer guns (pen, DMG)
