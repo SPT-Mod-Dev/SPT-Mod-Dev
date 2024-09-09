@@ -5238,11 +5238,67 @@ focus_tree = {
 	}
 
 	focus = {
+		id = ITA_specialization
+		icon = GFX_goal_generic_air_production
+		prerequisite = { focus = ITA_superaereo }
+		allow_branch = { always = no }
+		x = 1
+		y = 1
+		relative_position_id = ITA_superaereo
+		cost = 5
+		available = {
+		}
+
+		search_filters = {FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY FOCUS_FILTER_AIR_XP}
+
+		completion_reward = {
+			#More expensive to edit templates, more cheap to produce aircraft
+			add_to_variable = { ITA_military_industry_air_equipment_upgrade_xp_cost = -0.5 }
+			custom_effect_tooltip = ITA_specialization_ra_tt
+
+			hidden_effect = {
+				add_ideas = ITA_hidden_specialization_ns
+			}
+
+			add_to_variable = { ITA_iri_consumer_goods_factor = 0.02 }
+			custom_effect_tooltip = ITA_ricostruzione_industriale_cg_penalty_tt
+
+			air_experience = 25
+	
+			add_tech_bonus = {
+				name = ITA_specialization
+				bonus = 0.5
+				uses = 2
+				category = air_equipment
+			}
+
+			random_core_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+
+			#Update NS icon
+			ITA_improve_regia_aeronautica_dm_effect = yes
+		}
+	}
+
+	focus = {
 		id = ITA_standardization
 		icon = GFX_goal_generic_production2
 		prerequisite = { focus = ITA_superaereo }
-		mutually_exclusive = { focus = ITA_specialization }
-		x = -1
+		x = 0
 		y = 1
 		relative_position_id = ITA_superaereo
 		cost = 5
@@ -5252,14 +5308,8 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY}
 
 		completion_reward = {
-			#More expensive to edit templates, more cheap to produce aircraft
-			add_to_variable = { ITA_military_industry_air_equipment_upgrade_xp_cost = 0.25 }
-			custom_effect_tooltip = ITA_standardization_ra_tt
-
-			hidden_effect = {
-				add_ideas = ITA_hidden_standardization_ns
-			}
-
+			
+            add_ideas = ITA_Standard_Aircraft
 			add_to_variable = { ITA_iri_consumer_goods_factor = 0.02 }
 			custom_effect_tooltip = ITA_ricostruzione_industriale_cg_penalty_tt
 		
@@ -5295,69 +5345,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ITA_specialization
-		icon = GFX_goal_generic_air_production
-		prerequisite = { focus = ITA_superaereo }
-		mutually_exclusive = { focus = ITA_standardization }
-		x = 1
-		y = 1
-		relative_position_id = ITA_superaereo
-		cost = 5
-		available = {
-		}
-
-		search_filters = {FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY FOCUS_FILTER_AIR_XP}
-
-		completion_reward = {
-			#More expensive to edit templates, more cheap to produce aircraft
-			add_to_variable = { ITA_military_industry_air_equipment_upgrade_xp_cost = -0.5 }
-			custom_effect_tooltip = ITA_specialization_ra_tt
-
-			hidden_effect = {
-				add_ideas = ITA_hidden_specialization_ns
-			}
-
-			add_to_variable = { ITA_iri_consumer_goods_factor = 0.02 }
-			custom_effect_tooltip = ITA_ricostruzione_industriale_cg_penalty_tt
-
-			air_experience = 15
-	
-			add_tech_bonus = {
-				name = ITA_specialization
-				bonus = 0.5
-				uses = 2
-				category = air_equipment
-			}
-
-			random_core_state = {
-				limit = {
-					is_fully_controlled_by = ROOT
-					free_building_slots = {
-						building = arms_factory
-						size > 0
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-
-			#Update NS icon
-			ITA_improve_regia_aeronautica_dm_effect = yes
-		}
-	}
-
-
-	focus = {
 		id = ITA_long_range_aircraft
 		icon = GFX_focus_generic_long_range_aircraft
 		prerequisite = { focus = ITA_standardization }
+		mutually_exclusive = { focus = ITA_multirole_aircraft }
 
-		x = -2
+		x = -3
 		y = 1
 		relative_position_id = ITA_standardization
 		cost = 10
@@ -5401,9 +5394,9 @@ focus_tree = {
 	focus = {
 		id = ITA_bomber_designs
 		icon = GFX_goal_generic_air_bomber
-		prerequisite = { focus = ITA_standardization focus = ITA_specialization }
+		prerequisite = { focus = ITA_standardization }
 
-		x = 2
+		x = 4
 		y = 0
 		relative_position_id = ITA_long_range_aircraft
 		cost = 10
@@ -5444,9 +5437,9 @@ focus_tree = {
 	focus = {
 		id = ITA_fighter_designs
 		icon = GFX_goal_generic_air_fighter
-		prerequisite = { focus = ITA_standardization focus = ITA_specialization }
+		prerequisite = { focus = ITA_standardization }
 
-		x = 4
+		x = 6
 		y = 0
 		relative_position_id = ITA_long_range_aircraft
 		cost = 10
@@ -5487,9 +5480,9 @@ focus_tree = {
 	focus = {
 		id = ITA_multirole_aircraft
 		icon = GFX_focus_generic_multi_role_aircraft
-		prerequisite = { focus = ITA_specialization }
-
-		x = 6
+		prerequisite = { focus = ITA_standardization }
+        mutually_exclusive = { focus = ITA_long_range_aircraft }
+		x = 2
 		y = 0
 		relative_position_id = ITA_long_range_aircraft
 		cost = 10
@@ -5499,12 +5492,6 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_AIR_XP}
 
 		completion_reward = {
-			add_to_variable = { ITA_military_industry_air_equipment_upgrade_xp_cost = -0.25 }
-			custom_effect_tooltip = ITA_multirole_aircraft_military_industry_tt
-
-			add_to_variable = { ITA_ra_air_mission_xp_gain_factor = 0.1 }
-			custom_effect_tooltip = ITA_multirole_aircraft_ra_tt
-
 			random_core_state = {
 				limit = {
 					is_fully_controlled_by = ROOT
@@ -5521,6 +5508,14 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			add_tech_bonus = {
+				name = ITA_standardization
+				bonus = 0.75
+				uses = 1
+				category = tactical_bomber
+				category = light_fighter
+				category = heavy_air
+			}
 
 			if = {
 				limit = {
@@ -5536,7 +5531,7 @@ focus_tree = {
 		icon = GFX_goal_generic_CAS
 		prerequisite = { focus = ITA_multirole_aircraft focus = ITA_long_range_aircraft focus = ITA_fighter_designs focus = ITA_bomber_designs }
 
-		x = 1
+		x = -1
 		y = 1
 		relative_position_id = ITA_bomber_designs
 		cost = 10
