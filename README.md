@@ -39,6 +39,7 @@
 #### USA
  - Alf Landons focuses requiering senate support no longer cancel when due to dropped senate support (now same as Roosevelt)
  - Fix issue where 'Defend the Seas' would spawn dockyards inland
+ - National Spirit 'Temporary Relief' now removes if National Spirit 'The 1937 Recession' is removed
 
 #### Navy
 - Improved destroyer guns (pen, DMG)
