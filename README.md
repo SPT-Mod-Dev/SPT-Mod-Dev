@@ -1,6 +1,11 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.12.7 'The return of Python'
+### Le funny
+=======
+### 3.12.7  'The return of Python'
+
+#### General 
+ - Reworked air zones Tobruk, Egypt and Upper Nile
 
 ### India
  - Ishapore arsenal focus reduced to 56 days from 70
@@ -24,13 +29,56 @@
  - industrial destruction had large plane airframe design removed
 
 ### Romania
+<<<<<<< HEAD
  - Expand the University of bucharest focus now continues when requirements are not met
  
 ### Germany 
- - Begin heavy water production now only requires Oslofjord and Telemark to be controlled by the axis  - reduced time taken to 160 days, Reduced boost to 1x 100% boost and costs 4 civs during the time.  
+ - Begin heavy water production now requires Telemark to be controlled by the axis while the decision is active - reduced time taken to 160 days, Reduced boost to 1x 100% boost and costs 4 civs during the time.  
  
+=======
+ -Expand the University of bucharest focus now continues when requirements are not met
 
-### Le funny
+#### USA
+ - Focuses requiering senate support no longer cancel when due to dropped senate support
+ - Fix issue where 'Defend the Seas' would spawn dockyards inland
+>>>>>>> 2c41e1218fabf51869dd821e91c74c043930aec1
+
+#### Navy
+- Improved destroyer guns (pen, DMG)
+- Improved CA guns (pen)
+- Improved BB/C guns (pen, DMG)
+- Unified secondary speed modifier (all mow at -2% except for 4th tier)
+- basic Dp now availeable with 36 light guns
+- SHBB guns now type Heavy Gun Slot Module, and SHBBs now fit all heavy guns
+- SHBB Hull Ic Cost 5500->6000
+- added secondary 3
+- added plane catapult 3
+- plane catapults now provide small amount of aa
+- 1936/40 plane catapults now require the light airframe of the same year to research
+- all DD engine speed mod modifier increased by 5%
+- DD base speeds now 32;33;34;35 (was 32 flat)
+- Sonars now reduces torpeedo damage
+- BC Armor: Armor reduced, speed bonus increased
+- Cruiser Armor 3/4: Armor increased, now makes ship capital ship
+- Torpedo Cruiser Tech: Increases Cruiser Torpedo damage to bring torp attack per ic for cruisers closer to destroyer levels
+- Panzerschiff: Build Cost 3500 -> 2700, Speed 2 -> 27, Visibility 22 -> 20, availeable as 36 cruiser subtech for all nations
+- Changed damage and piercing modifiers on shell tech.
+- Adjusted Convoy hitprofile to be in line with new torpeedo hit profile
+- Carrier armour now add small AA modifier
+
+Visbility Rework:
+- DD: Remain at 10
+
+- Cl(Armor <lvl3): remain at 15 
+- Cl(Armor >lvl3): 15-> 20
+- CAs: 15 -> 20
+
+- BCs: 20 -> 25 Vis
+- BBs: 20 -> 30 Vis
+- SHBC: 20 -> 30 Vis
+- SHBB: 20 -> 35 Vis
+
+- Gun Hit profiles: Heavy guns 85 -> 90, Torps 100 -> 120
 
 ### 3.12.6 'Delayed by Deadlock'
 

@@ -570,7 +570,9 @@ technologies = {
 		enable_equipment_modules = {
 			cruiser_ship_engine_2
 		}
-
+		sub_technologies = {
+			panzerschiffe
+		}
 		path = {
 			leads_to_tech = improved_ship_hull_cruiser
 			research_cost_coeff = 1
@@ -703,6 +705,13 @@ technologies = {
 			custom_effect_tooltip = airplane_launcher_advice_tt
 		}
 
+		dependencies = {
+			basic_small_airframe = 1
+		}
+		path = {
+			leads_to_tech = advanced_airplane_launcher
+			research_cost_coeff = 1
+		}
 
 		research_cost = 0.75
 
@@ -711,6 +720,52 @@ technologies = {
 		folder = {
 			name = mtgnavalfolder
 			position = {  x = 0 y = 2 }
+		}
+
+		ai_will_do = {
+			factor = 2
+
+			modifier = {
+				factor = 3.5
+				OR = {
+					tag = GER
+					tag = JAP
+					tag = USA
+				}
+			}
+		}
+
+		categories = {
+			naval_equipment
+			cl_tech
+			ca_tech
+			ship_modules_tech
+			mio_cat_tech_all_capital_ship_and_modules
+			mio_cat_tech_all_screen_ship_and_modules
+			mio_cat_tech_all_cruiser_and_modules
+		}
+	}
+	advanced_airplane_launcher = {
+
+
+		enable_equipment_modules = {
+			ship_airplane_launcher_3
+		}
+		on_research_complete = {
+			custom_effect_tooltip = airplane_launcher_advice_tt
+		}
+		dependencies = {
+			improved_small_airframe = 1
+		}
+
+
+		research_cost = 0.75
+
+		start_year = 1940
+
+		folder = {
+			name = mtgnavalfolder
+			position = {  x = 0 y = 14 }
 		}
 
 		ai_will_do = {
@@ -1588,17 +1643,28 @@ early_ship_hull_carrier = {
 		research_cost = 1
 		start_year = 1936
 
-		#set at gamestart
-		allow = {
-			always = no
+		categories = {
+			naval_equipment
+			cl_tech
+			ca_tech
+			mio_cat_tech_all_capital_ship_and_modules
+			mio_cat_tech_all_screen_ship_and_modules
+			mio_cat_tech_all_cruiser_and_modules
 		}
+
 	}
 	torpedo_cruiser_mtg = {
 
 		enable_equipments = {
 			ship_hull_torpedo_cruiser
 		}
-
+		light_cruiser = {
+			torpedo_attack = 1
+		}
+		heavy_cruiser = {
+			torpedo_attack = 1
+		}
+		#make torp cruisers not suck
 		research_cost = 1
 		start_year = 1936
 
