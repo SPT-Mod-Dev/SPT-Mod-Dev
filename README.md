@@ -1,38 +1,37 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### Le funny
-=======
 ### 3.12.7  'The return of Python'
 
 #### General 
  - Reworked air zones Tobruk, Egypt and Upper Nile
 
-### India
+#### India
  - Ishapore arsenal focus reduced to 56 days from 70
 
-### New Zealand
+#### New Zealand
  - Expand the NZPAF - Removed subsidy, added air Experience +50 and 1x 50% reduction to air doc
 
-### Australia
+#### Australia
  - Useless railway focus now gives 1 infra in 2 states
 
-### Soviet Union
+#### Soviet Union
  - Removed random -25% Aircraft designer cost from "Expand the Aircraft Industry"
 
-### Italy
+#### Italy
  - Specialization focus Removed
- - Standarization focus path changed - Made long range and multi role aircraft mutually exclusive, Added 5% reduction to aircraft
+ - Standarization focus path changed 
+ - Made long range and multi role aircraft mutually exclusive, Added 5% reduction to aircraft
  - Multi role aircraft focus removed air template cost and added 1 x 75% research boost for air 
 
-### Spirits 
+#### Spirits 
  - Air spirit material destruction removed designer cost and added light aircraft research speed 10% and reduced Tactical bomber research from 25% to 20%
  - industrial destruction had large plane airframe design removed
 
-### Romania
+#### Romania
  -Expand the University of bucharest focus now continues when requirements are not met
 
 #### USA
- - Focuses requiering senate support no longer cancel when due to dropped senate support
+ - Alf Landons focuses requiering senate support no longer cancel when due to dropped senate support (now same as Roosevelt)
  - Fix issue where 'Defend the Seas' would spawn dockyards inland
 
 #### Navy
