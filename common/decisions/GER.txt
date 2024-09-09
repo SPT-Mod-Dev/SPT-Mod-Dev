@@ -1248,8 +1248,16 @@ special_projects = {
 			110 = {
 				CONTROLLER = {
 					OR = {
-						tag = ROOT
-						is_subject_of = ROOT
+
+						is_in_faction_with = ger
+					}
+				}
+	921 = {
+					CONTROLLER = {
+						OR = {
+	
+							is_in_faction_with = ger
+						}
 					}
 				}
 			}
@@ -1259,14 +1267,16 @@ special_projects = {
 		ai_will_do = {
 			factor = 5
 		}
+		modifier = {
+			civilian_factory_use = 4 }
 		cancel_trigger = { NOT = { has_global_flag = GER_heavy_water_production_underway } } #can be removed via intelligence ops
-		days_remove = 365
+		days_remove = 160
 		remove_effect = {
 			add_tech_bonus = {
 				name = GER_heavy_water
 				category = nuclear
-				uses = 2
-				bonus = 2
+				uses = 1
+				bonus = 1
 			}
 		}
 		complete_effect = { set_global_flag = GER_heavy_water_production_underway }

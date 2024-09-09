@@ -24,9 +24,11 @@
  - industrial destruction had large plane airframe design removed
 
 ### Romania
- -Expand the University of bucharest focus now continues when requirements are not met
- -
-
+ - Expand the University of bucharest focus now continues when requirements are not met
+ 
+### Germany 
+ - Begin heavy water production now only requires Oslofjord and Telemark to be controlled by the axis  - reduced time taken to 160 days, Reduced boost to 1x 100% boost and costs 4 civs during the time.  
+ 
 
 ### Le funny
 
