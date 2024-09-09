@@ -472,6 +472,13 @@
 		available_if_capitulated = yes
 
 		completion_reward = {
+			air_experience = 50
+			add_doctrine_cost_reduction = {
+				name = NZL_form_the_rnzaf
+				cost_reduction = 0.5
+				uses = 1
+				category = air_doctrine
+			}
 			if = {
 				limit = { has_dlc = "By Blood Alone" }
 				create_equipment_variant = {
@@ -490,14 +497,14 @@
 				add_equipment_to_stockpile = {
 					type = medium_plane_airframe_1
 					producer = ENG
-					amount = 116
+					amount = 120
 					variant_name = "Bristol Blenheim"
 				}
 			}
 			else = {
 				add_equipment_to_stockpile = {
 					type = nav_bomber_equipment_1
-					amount = 56
+					amount = 60
 					producer = ENG
 				}
 				
@@ -519,16 +526,7 @@
 					}
 				}
 			}
-			if = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}
-				add_equipment_subsidy = {
-					cic = 1000
-					equipment_type = medium_plane_airframe
-					seller_tags = { ENG }
-				}
-			}
+			
 		}
 	}
 
