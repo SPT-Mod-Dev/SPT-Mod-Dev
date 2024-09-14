@@ -1,5 +1,19 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.12.8
+
+#### General 
+ - Brazil now has a decision to annex AI controlled Mexico
+ - USA now has a decision to annex AI controlled Philippines
+
+#### Soviets
+ - Found the PCDI 35 -> 70 days
+ - PC of mechanical Engineering 70 -> 35 days
+ - Superior war machines 70 -> 35 days
+
+#### Mexico
+ - Gulf Coast Naval Yards and Pacific coast yards now give 1 more slot and dockyard
+
 ### 3.12.7  'The return of Python'
 
 #### General 
