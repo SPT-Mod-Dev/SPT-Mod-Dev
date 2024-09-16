@@ -3,7 +3,9 @@
 ### 3.12.8 
 
 #### General
- - Mad 4 speed, 2 speed and 1 speed slightly faster
+ - Made 4 speed, 2 speed and 1 speed slightly faster
+ - Updated rules on paratroopers
+ - Fixed error causing some straits to not activate
 
 #### Soviet union 
  - Focus 'Superior War Machines' time to complete reduced to 56 from 70
