@@ -4,12 +4,11 @@
 
 #### General 
  - Brazil now has a decision to annex AI controlled Mexico
- - USA now has a decision to annex AI controlled Philippines
 
 #### Soviets
- - Found the PCDI 35 -> 70 days
- - PC of mechanical Engineering 70 -> 35 days
- - Superior war machines 70 -> 35 days
+ - Found the PCDI 35 -> 56 days
+ - PC of mechanical Engineering 70 -> 56 days
+ - Superior war machines 70 -> 56 days
 
 #### Mexico
  - Gulf Coast Naval Yards and Pacific coast yards now give 1 more slot and dockyard
