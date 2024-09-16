@@ -1,5 +1,14 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.12.8 
+
+#### General
+ - Mad 4 speed, 2 speed and 1 speed slightly faster
+
+#### Soviet union 
+ - Focus 'Superior War Machines' time to complete reduced to 56 from 70
+ - Focus 'The Means To Wage War' time to complete reduced to 56 from 70
+
 ### 3.12.7  'The return of Python'
 
 #### General 
