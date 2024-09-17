@@ -11,6 +11,15 @@
  - Focus 'Superior War Machines' time to complete reduced to 56 from 70
  - Focus 'The Means To Wage War' time to complete reduced to 56 from 70
 
+#### Germany
+ - Focus 'Integrate War Economies' Grants 2 fewer mills per accepted country for Germany
+                                   Grants spirit 'Integrated War Economies'
+                                   Now applies to Bulgaria
+ - Added focus 'Standardization Program' which upgrades spirit 'Integrated War Economies' for the minor powers
+                                         Grants smaller version of 'Integrated War Economies' for the Germany and Italy
+ - Focus 'Align Romania' time to complete reduced to 14 days from 35
+ - Focus 'Align Hungary' time to complete reduced to 14 days from 35
+
 ### 3.12.7  'The return of Python'
 
 #### General 
