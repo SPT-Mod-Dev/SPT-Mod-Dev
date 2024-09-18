@@ -22,7 +22,10 @@
  - Focus 'Align Romania' time to complete reduced to 14 days from 35
  - Focus 'Align Hungary' time to complete reduced to 14 days from 35
 
- #### Japan 
+##### USA & UK
+ - If country has specific radar tech unlocked, it will now also unlock for malaya and philippines (on autosave)
+
+#### Japan 
  - Spirit 'Tora Tora Tora' increased CV Plane DMG/Tageting/Agility Buff to 25% from 12%
                            Removed 50% overstacking penalty reduction. 
 
