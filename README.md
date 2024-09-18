@@ -21,26 +21,51 @@
                                          Grants smaller version of 'Integrated War Economies' for the Germany and Italy
  - Focus 'Align Romania' time to complete reduced to 14 days from 35
  - Focus 'Align Hungary' time to complete reduced to 14 days from 35
+
+ #### Japan 
+ - Spirit 'Tora Tora Tora' increased CV Plane DMG/Tageting/Agility Buff to 25% from 12%
+                           Removed 50% overstacking penalty reduction. 
+
 #### Navy
-- Regular heavy cruiser guns buffed to offer more dmg at their lower pierce point than heavy gun equivalents at higher pierce (was 6,8,10,12 for mk 1,2,3,4, now 9,12,15,18)
-- Panzerschiff Range cut to 5000(was 7500)
-- Panzeschiff Speed 26 kn (was 27kn)
-- Panzerschiff Module Slot 1 may now fit Fuel tank or AA (was just AA)
-- Module:Fuel tanks now give 50% Range at 10% IC (was 1000 range at 25% IC)
-- Submarine 3 speed to 16 (was 18)
-- Submarine 3s center slot can now also fit AA (was just snorkel/radar)
-- Submarine 3 Hull Cost 420 (was 42000)
-- Torpedo weapon hit profile reduced to 110 (was 120, vanilla 100)
-- reenabled Submarine engine 3
+- Regular heavy cruiser battery damage increased: Tier I   to 9 from 6
+                                                  Tier II  to 12 from 8
+                                                  Tier III to 15 from 10
+                                                  Tier IV  to 18 from 12
+(buffed to offer more dmg at their lower pierce point than heavy gun equivalents at higher pierce)
+
+- Panzerschiff: Range reduced to 5000 from was 7500
+                Speed increased to 26 kn from 27kn
+                Module Slot 1 may now fit Fuel tank (was just AA)
+- Submarine 3 Speed reduced to 16 from 18
+              Center slot can now also fit AA (was just snorkel/radar)
+              Hull Cost Reduced to 420 from 42000
+- Reenabled Submarine engine 3
 - Submarine Torpedo tubes are now researched with torpedo launcher technology tree (was submarine hull technology tree)
-- Cruiser Sub Range reduced to 4000(was 4750), Fuel tank availeability moved from slot 1 to dedicated slot option shared with AA
+- Cruiser Sub : Range reduced to 4000 from 4750, 
+                Fuel tank availeability moved from slot 1 to dedicated slot option shared with AA
+
+- Fuel tanks: now increasae range by 50% from 1000km
+              Percentage cost modifier decreased to 10% form 25%
+- Torpedo: Weapon hit profile reduced to 110 from 120 (vanilla 100)
+
+#### Navy Spirits
 - Wings launched Penalty % per Carrier over 4 reduced to 15% (was 20%)
-- Tora Tora Tora: Removed 50% overstacking penalty reduction. CV Plane DMG/Tageting/Agility Buff increased from 12% to 25%
 - Spirit of Naval Command: Decisive Battle: Now availeable regardless of Doctrine
-- Added Spirit of Naval Command: Swift Response. +25% Escort/Screening,+5% Damage,+10%spotting/sub detection,+20%convoi retreat speed,+15% naval speed,-25% Strike force Org loss. Availeable with Fleet in Being doctrine.
-- Floating Fortress Doctrine Point(all doctrines): added +10 Org to Battlecruisers
-- Massed Strikes Doctrine Point(Base strike): removed -20% overcrowding penalty. Added +20 CA org.
-- Carrier Battlegroups Doctrine Point(Base strike capstone): added +10 Org to Battleships. Added 10% CV Plane Damage. Added -25% Strike force Org loss.
+- Added 'Swift Response' new Spirit of Naval Command which grants: +25% Escort and Screening efficiancy
+                                                                   +5% Damage
+                                                                   +10% Spotting Speed and Sub Detection
+                                                                   +20% convoy retreat speed
+                                                                   +15% naval speed
+                                                                   -25% Strike force Org loss
+                                                                   Only available with 'Fleet in Being'
+
+#### Navy Doctrine
+- Floating Fortress Doctrine Point (all doctrines): Now grants 10 org to Battlecruiser 
+- Massed Strikes Doctrine Point (Base strike): Replaced -20% overcrowding penalty with +20 Carrier org
+- Carrier Battlegroups Doctrine Point (Base strike capstone): Now grants +10 org to Battleships  
+                                                              Now grants 10% CV Plane Damage 
+                                                              Now grants -25% Strike force org loss 
+
 ### 3.12.7  'The return of Python'
 
 #### General 
