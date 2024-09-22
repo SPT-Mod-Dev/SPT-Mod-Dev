@@ -4,14 +4,17 @@
 
 #### General
  - Made 4 speed, 2 speed and 1 speed slightly faster
- - Updated rules on paratroopers
  - Fixed error causing some straits to not activate
  - Embargos now require targeted country to generate 50 tension
  - Democracies no longer have embargo tension requirement lowered by 50%
 
+#### Army Spirits
+ - Added Accomplished Heritage which grants 
+
 #### Soviet union 
  - Focus 'Superior War Machines' time to complete reduced to 56 from 70
  - Focus 'The Means To Wage War' time to complete reduced to 56 from 70
+ - Fix issue where 'New Economic Plan' would lock lower export laws
 
 #### Germany
  - Focus 'Integrate War Economies' Grants 2 fewer mills per accepted country for Germany
@@ -23,11 +26,12 @@
  - Focus 'Align Hungary' time to complete reduced to 14 days from 35
 
 ##### USA & UK
- - If country has specific radar tech unlocked, it will now also unlock for malaya and philippines (on autosave)
+ - If country has specific radar tech unlocked, it will now also unlock for malaya and philippines (updates monthly)
 
 #### Japan 
  - Spirit 'Tora Tora Tora' increased CV Plane DMG/Tageting/Agility Buff to 25% from 12%
                            Removed 50% overstacking penalty reduction. 
+ - Added cores to Siam and Indochina when annexed as AI
 
 #### Navy
 - Regular heavy cruiser battery damage increased: Tier I   to 9 from 6
@@ -50,9 +54,9 @@
 - Fuel tanks: now increasae range by 50% from 1000km
               Percentage cost modifier decreased to 10% form 25%
 - Torpedo: Weapon hit profile reduced to 110 from 120 (vanilla 100)
+- Wings launched Penalty % per Carrier over 4 reduced to 15% (was 20%)
 
 #### Navy Spirits
-- Wings launched Penalty % per Carrier over 4 reduced to 15% (was 20%)
 - Spirit of Naval Command: Decisive Battle: Now availeable regardless of Doctrine
 - Added 'Swift Response' new Spirit of Naval Command which grants: +25% Escort and Screening efficiancy
                                                                    +5% Damage
@@ -63,7 +67,7 @@
                                                                    Only available with 'Fleet in Being'
 
 #### Navy Doctrine
-- Floating Fortress Doctrine Point (all doctrines): Now grants 10 org to Battlecruiser 
+- Floating Fortress Doctrine Point (all doctrines): Now grants +10 org to Battlecruiser 
 - Massed Strikes Doctrine Point (Base strike): Replaced -20% overcrowding penalty with +20 Carrier org
 - Carrier Battlegroups Doctrine Point (Base strike capstone): Now grants +10 org to Battleships  
                                                               Now grants 10% CV Plane Damage 
