@@ -74,6 +74,7 @@
  - Reduced "Administer Norway" from full cores to 80% collaboration & 30% resistance
  - Events annexing Norway no longer transfer democratic Norway's troops
  - Clarified effect of Pan-Scandinavian decisions in focus tooltip
+ - Reduced bonus steel relative to vanilla by -36 to limit civ boosting potential
 
 ### 3.12.7  'The return of Python'
 
