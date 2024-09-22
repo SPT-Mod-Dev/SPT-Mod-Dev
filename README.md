@@ -37,7 +37,7 @@
                                                   Tier IV  to 18 from 12
 (buffed to offer more dmg at their lower pierce point than heavy gun equivalents at higher pierce)
 
-- Panzerschiff: Range reduced to 5000 from was 7500
+- Panzerschiff: Range reduced to 5000 from 7500
                 Speed increased to 26 kn from 27kn
                 Module Slot 1 may now fit Fuel tank (was just AA)
 - Submarine 3 Speed reduced to 16 from 18
@@ -46,10 +46,10 @@
 - Reenabled Submarine engine 3
 - Submarine Torpedo tubes are now researched with torpedo launcher technology tree (was submarine hull technology tree)
 - Cruiser Sub : Range reduced to 4000 from 4750, 
-                Fuel tank availeability moved from slot 1 to dedicated slot option shared with AA
+                Fuel tank availability moved from slot 1 to dedicated slot option shared with AA
 
-- Fuel tanks: now increasae range by 50% from 1000km
-              Percentage cost modifier decreased to 10% form 25%
+- Fuel tanks: now increases range by 50% from 1000km
+              Percentage cost modifier decreased to 10% from 25%
 - Torpedo: Weapon hit profile reduced to 110 from 120 (vanilla 100)
 
 #### Navy Spirits
@@ -69,6 +69,11 @@
 - Carrier Battlegroups Doctrine Point (Base strike capstone): Now grants +10 org to Battleships  
                                                               Now grants 10% CV Plane Damage 
                                                               Now grants -25% Strike force org loss 
+
+#### Denmark
+ - Reduced "Administer Norway" from full cores to 80% collaboration & 30% resistance
+ - Events annexing Norway no longer transfer democratic Norway's troops
+ - Clarified effect of Pan-Scandinavian decisions in focus tooltip
 
 ### 3.12.7  'The return of Python'
 

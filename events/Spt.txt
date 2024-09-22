@@ -1011,21 +1011,36 @@ country_event = {
 
 	option = { # Yes (Annex)
 		name = spt_den.1.a
+		DEN = {
+			annex_country = {
+				target = NOR
+				transfer_troops = yes
+			}
+		}
 		every_country_with_original_tag = {
 			original_tag_to_check = NOR
 			DEN = {
 				annex_country = {
 					target = prev
-					transfer_troops = yes
 				}
 			}
 		}
+		add_collaboration = {
+			target = NOR
+			value = 0.8
+		}		
 		every_state = {
 			limit = {
 				is_core_of = NOR
 			}
-			add_core_of = DEN
+			add_resistance = 30
 		}
+		# every_state = {
+		# 	limit = {
+		# 		is_core_of = NOR
+		# 	}
+		# 	add_core_of = DEN
+		# }
 		hidden_effect = {			
 			DEN = {
 				drop_cosmetic_tag = yes

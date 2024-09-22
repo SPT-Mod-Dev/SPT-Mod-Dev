@@ -3543,21 +3543,36 @@ focus_tree = {
 			GER = { country_event = { id = spt_den.1 hours = 1 } }
 			custom_effect_tooltip = if_they_accept_tt
 			effect_tooltip = {
+				DEN = {
+					annex_country = {
+						target = prev
+						transfer_troops = yes
+					}
+				}
 				every_country_with_original_tag = {
 					original_tag_to_check = NOR
 					DEN = {
 						annex_country = {
 							target = prev
-							transfer_troops = yes
 						}
 					}
+				}
+				add_collaboration = {
+					target = NOR
+					value = 0.8
 				}
 				every_state = {
 					limit = {
 						is_core_of = NOR
 					}
-					add_core_of = DEN
+					add_resistance = 30
 				}
+				# every_state = {
+				# 	limit = {
+				# 		is_core_of = NOR
+				# 	}
+				# 	add_core_of = DEN
+				# }
 			}
 		}
 	}
@@ -8646,6 +8661,9 @@ focus_tree = {
 			# 		threat > 0.15
 			# 	}	
 			# }	
+			NOT = {
+				has_completed_focus = SPT_DEN_liberation_of_norway
+			}
 			NOR = {
 				has_government = fascism
 			}
@@ -8687,6 +8705,9 @@ focus_tree = {
 		# continue_if_invalid = yes #Don't cancel if World Tension goes below a certain % or if you lose puppet
 
 		bypass = {
+			NOT = {
+				has_completed_focus = SPT_DEN_liberation_of_norway
+			}
 			NOR = {
 				OR = {
 					all_core_state = {
@@ -8955,6 +8976,22 @@ focus_tree = {
 			# unlock_decision_tooltip = DEN_rally_the_swedes
 			# unlock_decision_tooltip = DEN_rally_the_finnish
 			unlock_decision_tooltip = DEN_rally_the_norwegians
+			# tooltip from the decision DEN_rally_the_norwegians
+
+			custom_effect_tooltip =  EFFECT_UNLOCK_DECISION_REMOVE_HEADER
+			effect_tooltip = {
+				every_state = {
+					limit = {
+						is_core_of = NOR
+						# is_fully_controlled_by = DEN # to make the tooltip always work
+						NOT = {	has_dynamic_modifier = { modifier = DEN_pan_scandinavianism_modifier }}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_dynamic_modifier = {
+						modifier = DEN_pan_scandinavianism_modifier
+					}
+				}				
+			}
 		}
 	}
 
