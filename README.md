@@ -21,6 +21,7 @@
                                          Grants smaller version of 'Integrated War Economies' for the Germany and Italy
  - Focus 'Align Romania' time to complete reduced to 14 days from 35
  - Focus 'Align Hungary' time to complete reduced to 14 days from 35
+ - Focus 'Install Collaborationists in Poland' can no longer be taken after Poland is annexed, in the event a major Allied skill issue allows Poland to go to peace conference
 
 ##### USA & UK
  - If country has specific radar tech unlocked, it will now also unlock for malaya and philippines (on autosave)
