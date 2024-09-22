@@ -5,6 +5,7 @@
 #### General
  - Made 4 speed, 2 speed and 1 speed slightly faster
  - Fixed error causing some straits to not activate
+ - Brazil now has a decision to annex AI controlled Mexico
  - Embargos now require targeted country to generate 50 tension
  - Democracies no longer have embargo tension requirement lowered by 50%
 
@@ -15,9 +16,13 @@
                            reduced org loss when moving bonus to 10% from 20%
                            reduced planning speed bonus to 10% from 20% 
 
+#### Mexico
+ - Gulf Coast Naval Yards and Pacific coast yards now give 1 more slot and dockyard
+
 #### Soviet union 
  - Focus 'Superior War Machines' time to complete reduced to 56 from 70
  - Focus 'The Means To Wage War' time to complete reduced to 56 from 70
+ - Focus 'PC Of Mechanical Engineering' time to complete reduced to 56 from 70
  - Fix issue where 'New Economic Plan' would lock lower export laws
 
 #### Germany
@@ -84,6 +89,7 @@
                                                               Now grants 10% CV Plane Damage 
                                                               Now grants -20% Strike force org loss 
 
+
 ### 3.12.7  'The return of Python'
 
 #### General 
@@ -117,9 +123,12 @@
  - Air spirit material destruction removed designer cost and added light aircraft research speed 10% and reduced Tactical bomber research from 25% to 20%
  - industrial destruction had large plane airframe design removed
 
-#### Romania
- -Expand the University of bucharest focus now continues when requirements are not met
-
+### Romania
+ - Expand the University of bucharest focus now continues when requirements are not met
+ 
+### Germany 
+ - Begin heavy water production now requires Telemark to be controlled by the axis while the decision is active - reduced time taken to 160 days, Reduced boost to 1x 100% boost and costs 4 civs during the time.  
+ 
 #### USA
  - Alf Landons focuses requiering senate support no longer cancel when due to dropped senate support (now same as Roosevelt)
  - Fix issue where 'Defend the Seas' would spawn dockyards inland
