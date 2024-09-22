@@ -9,7 +9,11 @@
  - Democracies no longer have embargo tension requirement lowered by 50%
 
 #### Army Spirits
- - Added Accomplished Heritage which grants 
+ - Added 'Accomplished Heritage' which grants medal cost -90%
+                                 field officer promotion cost -90%
+ - 'Flexible Organisation' reduced max planning malus to 5% from 10%
+                           reduced org loss when moving bonus to 10% from 20%
+                           reduced planning speed bonus to 10% from 20% 
 
 #### Soviet union 
  - Focus 'Superior War Machines' time to complete reduced to 56 from 70
@@ -25,6 +29,12 @@
  - Focus 'Align Romania' time to complete reduced to 14 days from 35
  - Focus 'Align Hungary' time to complete reduced to 14 days from 35
  - Focus 'Install Collaborationists in Poland' can no longer be taken after Poland is annexed, in the event a major Allied skill issue allows Poland to go to peace conference
+
+ #### Denmark
+ - Reduced "Administer Norway" from full cores to 80% collaboration & 30% resistance
+ - Events annexing Norway no longer transfer democratic Norway's troops
+ - Clarified effect of Pan-Scandinavian decisions in focus tooltip
+ - Reduced bonus steel relative to vanilla by -36 to limit civ boosting potential
 
 ##### USA & UK
  - If country has specific radar tech unlocked, it will now also unlock for malaya and philippines (updates monthly)
@@ -73,12 +83,6 @@
 - Carrier Battlegroups Doctrine Point (Base strike capstone): Now grants +10 org to Battleships  
                                                               Now grants 10% CV Plane Damage 
                                                               Now grants -25% Strike force org loss 
-
-#### Denmark
- - Reduced "Administer Norway" from full cores to 80% collaboration & 30% resistance
- - Events annexing Norway no longer transfer democratic Norway's troops
- - Clarified effect of Pan-Scandinavian decisions in focus tooltip
- - Reduced bonus steel relative to vanilla by -36 to limit civ boosting potential
 
 ### 3.12.7  'The return of Python'
 
