@@ -1,6 +1,6 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.12.8 
+### 3.12.8 "Missing Bracket"
 
 #### General
  - Made 4 speed, 2 speed and 1 speed slightly faster
