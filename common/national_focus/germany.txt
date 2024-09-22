@@ -1918,7 +1918,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = GER_autobahn
-		cost = 5		#SPTChange 10 -> 5
+		cost = 2		#SPTChange 10 -> 2
 		ai_will_do = {
 			factor = 1
 		}
@@ -1990,7 +1990,7 @@ focus_tree = {
 		x = -2
 		y = 1
 		relative_position_id = GER_autobahn
-		cost = 5		#SPTChange 10 ->5
+		cost = 2		#SPTChange 10 -> 2
 		ai_will_do = {
 			factor = 1
 		}
@@ -2362,7 +2362,7 @@ focus_tree = {
 		x = -2
 		y = 2
 		relative_position_id = SPT_GER_Wiesprecheichaus
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -2371,15 +2371,19 @@ focus_tree = {
 			has_war = yes
 			HUN = {
 				is_in_faction_with = ROOT
+				has_war = yes
 			}
 			ROM = {
 				is_in_faction_with = ROOT
+				has_war = yes
 			}
 			BUL = {
 				is_in_faction_with = ROOT
+				has_war = yes
 			}
 			ITA = {
 				is_in_faction_with = ROOT
+				has_war = yes
 			}
 		}
 		completion_reward = {
@@ -11446,7 +11450,7 @@ focus_tree = {
 			unlock_decision_tooltip = GER_reichskommissariat_ukraine
 		}
 	}
-	#SPT compiance branch
+	#SPT compliance branch
 	focus = {
 		id = GER_pol_compliance
 		icon = GFX_focus_POL_common_organization_of_society
@@ -11458,6 +11462,9 @@ focus_tree = {
 				GER = {
 					has_war_with = POL
 				}
+			}
+			POL = {
+				exists = yes
 			}
 		}
 		cancel_if_invalid = yes

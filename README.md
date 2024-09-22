@@ -4,12 +4,85 @@
 
 #### General
  - Made 4 speed, 2 speed and 1 speed slightly faster
- - Updated rules on paratroopers
  - Fixed error causing some straits to not activate
+ - Embargos now require targeted country to generate 50 tension
+ - Democracies no longer have embargo tension requirement lowered by 50%
+
+#### Army Spirits
+ - Added 'Accomplished Heritage' which grants medal cost -90%
+                                 field officer promotion cost -90%
+ - 'Flexible Organisation' reduced max planning malus to 5% from 10%
+                           reduced org loss when moving bonus to 10% from 20%
+                           reduced planning speed bonus to 10% from 20% 
 
 #### Soviet union 
  - Focus 'Superior War Machines' time to complete reduced to 56 from 70
  - Focus 'The Means To Wage War' time to complete reduced to 56 from 70
+ - Fix issue where 'New Economic Plan' would lock lower export laws
+
+#### Germany
+ - Focus 'Integrate War Economies' Grants 2 fewer mills per accepted country for Germany
+                                   Grants spirit 'Integrated War Economies'
+                                   Now applies to Bulgaria
+ - Added focus 'Standardization Program' which upgrades spirit 'Integrated War Economies' for the minor powers
+                                         Grants smaller version of 'Integrated War Economies' for the Germany and Italy
+ - Focus 'Align Romania' time to complete reduced to 14 days from 35
+ - Focus 'Align Hungary' time to complete reduced to 14 days from 35
+ - Focus 'Install Collaborationists in Poland' can no longer be taken after Poland is annexed, in the event a major Allied skill issue allows Poland to go to peace conference
+
+ #### Denmark
+ - Reduced "Administer Norway" from full cores to 80% collaboration & 30% resistance
+ - Events annexing Norway no longer transfer democratic Norway's troops
+ - Clarified effect of Pan-Scandinavian decisions in focus tooltip
+ - Reduced bonus steel relative to vanilla by -36 to limit civ boosting potential
+
+##### USA & UK
+ - If country has specific radar tech unlocked, it will now also unlock for malaya and philippines (updates monthly)
+
+#### Japan 
+ - Spirit 'Tora Tora Tora' increased CV Plane DMG/Tageting/Agility Buff to 25% from 12%
+                           Removed 50% overstacking penalty reduction. 
+ - Added cores to Siam and Indochina when annexed as AI
+
+#### Navy
+- Regular heavy cruiser battery damage increased: Tier I   to 9 from 6
+                                                  Tier II  to 12 from 8
+                                                  Tier III to 15 from 10
+                                                  Tier IV  to 18 from 12
+(buffed to offer more dmg at their lower pierce point than heavy gun equivalents at higher pierce)
+
+- Panzerschiff: Range reduced to 5000 from 7500
+                Speed increased to 26 kn from 27kn
+                Module Slot 1 may now fit Fuel tank (was just AA)
+- Submarine 3 Speed reduced to 16 from 18
+              Center slot can now also fit AA (was just snorkel/radar)
+              Hull Cost Reduced to 420 from 42000
+- Reenabled Submarine engine 3
+- Submarine Torpedo tubes are now researched with torpedo launcher technology tree (was submarine hull technology tree)
+- Cruiser Sub : Range reduced to 4000 from 4750, 
+                Fuel tank availability moved from slot 1 to dedicated slot option shared with AA
+
+- Fuel tanks: now increases range by 50% from 1000km
+              Percentage cost modifier decreased to 10% from 25%
+- Torpedo: Weapon hit profile reduced to 110 from 120 (vanilla 100)
+- Wings launched Penalty % per Carrier over 4 reduced to 15% (was 20%)
+
+#### Navy Spirits
+- Spirit of Naval Command: Decisive Battle: Now availeable regardless of Doctrine
+- Added 'Swift Response' new Spirit of Naval Command which grants: +25% Escort and Screening efficiancy
+                                                                   +5% Damage
+                                                                   +10% Spotting Speed and Sub Detection
+                                                                   +20% convoy retreat speed
+                                                                   +15% naval speed
+                                                                   -25% Strike force Org loss
+                                                                   Only available with 'Fleet in Being'
+
+#### Navy Doctrine
+- Floating Fortress Doctrine Point (all doctrines): Now grants +10 org to Battlecruiser 
+- Massed Strikes Doctrine Point (Base strike): Replaced -20% overcrowding penalty with +20 Carrier org
+- Carrier Battlegroups Doctrine Point (Base strike capstone): Now grants +10 org to Battleships  
+                                                              Now grants 10% CV Plane Damage 
+                                                              Now grants -25% Strike force org loss 
 
 ### 3.12.7  'The return of Python'
 
