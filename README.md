@@ -79,10 +79,10 @@
 
 #### Navy Doctrine
 - Floating Fortress Doctrine Point (all doctrines): Now grants +10 org to Battlecruiser 
-- Massed Strikes Doctrine Point (Base strike): Replaced -20% overcrowding penalty with +20 Carrier org
+- Massed Strikes Doctrine Point (Base strike): Replaced -20% overcrowding penalty with +20 Heavy Cruiser org
 - Carrier Battlegroups Doctrine Point (Base strike capstone): Now grants +10 org to Battleships  
                                                               Now grants 10% CV Plane Damage 
-                                                              Now grants -25% Strike force org loss 
+                                                              Now grants -20% Strike force org loss 
 
 ### 3.12.7  'The return of Python'
 
