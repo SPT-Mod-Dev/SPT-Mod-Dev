@@ -1,5 +1,10 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.12.9
+
+### General
+ - Increased score in peace conferences
+
 ### 3.12.8 "Missing Bracket"
 
 #### General
