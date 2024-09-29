@@ -4,6 +4,14 @@
 
 ### General
  - Increased score in peace conferences
+ - Added Mexico to host tool 
+
+### Raj
+ - 'Great Indian Peninsula Railway' 70 days -> 35 days
+ - 'East India Railways' now prioritises Bengal
+
+### Mongolia
+ - 'Motorise the Army' now adds early truck tech and always adds 1000 trucks to stockpile
 
 ### 3.12.8 "Missing Bracket"
 
