@@ -2,16 +2,22 @@
 
 ### 3.12.9
 
-### General
+#### General
  - Increased score in peace conferences
  - Added Mexico to host tool 
 
-### Raj
+#### USA
+ - SPT version of operation "The Greenland Patrol" added to account for fascist Denmark route. Available from when Denmark joins the Axis until the USA is at war with Germany
+
+#### Raj
  - 'Great Indian Peninsula Railway' 70 days -> 35 days
  - 'East India Railways' now prioritises Bengal
 
-### Mongolia
+#### Mongolia
  - 'Motorise the Army' now adds early truck tech and always adds 1000 trucks to stockpile
+
+#### Denmark
+ - Foci 'Seize Power' and 'Ask for Support' are no longer bypassed by being fascist, ensuring the leader change takes effect
 
 ### 3.12.8 "Missing Bracket"
 
