@@ -1,0 +1,642 @@
+ideas = {
+	hidden_ideas = {
+		mon_genden_purge_dead = {
+			name = mon_genden_purge_dead
+			picture = generic_air_bonus
+		}
+		mon_genden_purge_alive = {
+			name = mon_genden_purge_alive
+			picture = generic_air_bonus
+		}
+	}
+	country = {
+		mon_isolation = {
+			name = mon_isolation
+			picture = isolation
+			
+			modifier = {
+				political_power_gain = -0.15
+				improve_relations_maintain_cost_factor = 0.25
+			}
+		}
+		mon_memories_of_32 = {
+			name = mon_memories_of_32
+			picture = EST_democratic_opposition
+
+			modifier = {
+				stability_factor = -0.15
+				war_support_factor = -0.1
+				party_popularity_stability_factor = -0.15
+			}
+		}
+		mon_crackdown_on_religion = {
+			name = mon_crackdown_on_religion
+			picture = generic_agrarian_society
+
+			modifier = {
+				political_power_gain = 0.2
+				stability_factor = -0.05
+				party_popularity_stability_factor = -0.15
+			}
+		}
+		mon_decentralized_society = { ##### SWITCHED TO DYNAMIC NOT USED IN THE MOD
+			name = mon_decentralized_society
+			picture = generic_air_bonus
+
+			modifier = {
+				conscription = -0.2
+				stability_factor = 0.1
+				research_speed_factor = -0.15
+			}
+		}
+		mon_military_purge = {
+			name = mon_military_purge
+			picture = SOV_purged_junior_army_officers
+			modifier = {
+				army_attack_factor = -0.15
+				army_defence_factor = -0.15
+				army_morale_factor = -0.1
+				army_org_factor = -0.1
+				political_power_gain = 0.15
+				stability_weekly = 0.0015
+			}
+		}
+
+
+		############### economic ones
+
+		mon_exploit_gold_reserves_north = {
+			name = mon_exploit_gold_reserves_north
+			picture = SPR_seize_the_gold_reserves
+			modifier = {
+				consumer_goods_factor = -0.15
+				production_speed_industrial_complex_factor = 0.1
+			}
+		}
+		mon_two_people_two_gov = { #together for victory
+			name = mon_two_people_two_gov
+			picture = generic_victors_of_ww1
+			modifier = {
+				conscription = 0.15
+				mobilization_speed = 0.25
+			}
+		}
+		mon_develop_mobil = {
+			name = mon_develop_mobil
+			picture = FRA_national_mobilization_focus
+			modifier = {
+				mobilization_speed = 0.15
+			}
+		}
+		mon_developing_bureaucracy = {
+			name = mon_developing_bureaucracy
+			picture = generic_constitutional_guarantees
+			modifier = {
+				political_power_gain = 0.15
+			}
+		}
+		mon_developing_country = {
+			name = mon_developing_country
+			picture = gre_schachtplan
+		}
+
+################### MONCENTER
+
+		mon_center_wins = {
+			name = mon_center_wins
+			picture = trotskyite_plot_purged
+			modifier = {
+				stability_weekly = 0.0015
+				party_popularity_stability_factor = 0.1
+				weekly_manpower = -250
+			}
+		}
+		mon_restuff_the_governement = {
+			name = mon_restuff_the_governement
+			picture = generic_oppression
+			modifier = {
+				political_power_gain = -0.25
+			}
+			on_remove = {
+				add_political_power = 150
+				add_stability = 10
+			}
+		}
+		mon_purged_clergy = {
+			name = mon_purged_clergy
+			picture = generic_purge
+			modifier = {
+				stability_factor = 0.1
+				war_support_factor = 0.1
+				party_popularity_stability_factor = -0.1
+				consumer_goods_factor = -0.15
+			}
+		}
+		mon_collectivized_farming = {  #not used in the mod
+			name = mon_collectivized_farming
+			picture = generic_agrarian_reform
+			modifier = {
+				party_popularity_stability_factor = 0.25
+				consumer_goods_factor = -0.15
+			}
+		}
+		mon_collectvization_of_farming = {
+			name = mon_collectivization_of_farming
+			picture = generic_agrarian_reform
+			modifier = {
+				production_speed_infrastructure_factor = 0.10
+				production_speed_industrial_complex_factor = 0.05
+				consumer_goods_factor = 0.15
+			}
+			#on_remove = {
+			#	add_ideas = mon_collectivized_farming
+			#}
+		}
+		mon_economic_growth = {
+			name = mon_economic_growth
+			picture = chi_hyper_inflation2
+			modifier = {
+				stability_factor = 0.1
+				production_factory_efficiency_gain_factor = 0.1
+				production_speed_buildings_factor = 0.1
+			}
+		}
+
+		##### soviet economic aid bs
+
+		mon_mech = {
+			name = mon_mech
+			picture = FRA_motorized_focus
+			equipment_bonus = {
+				mechanized_equipment = {
+					build_cost_ic = -0.10 instant = yes
+				}
+			}
+		}
+		sov_mon_mech = {
+			name = sov_mon_mech
+			picture = jap_duplicate_research
+			modifier = {
+				research_speed_factor = -0.10
+			}
+		}
+		mon_arms_factory = {
+			name = mon_arms_factory
+			picture = SOV_third_five_year_plan_military
+			modifier = {
+					production_speed_arms_factory_factor = 0.10
+					production_factory_efficiency_gain_factor = 0.10
+					production_factory_start_efficiency_factor = 0.1
+			}
+		}
+		sov_mon_arms_factory = {
+			name = sov_mon_arms_factory
+			picture = SOV_third_five_year_plan_military
+			modifier = {
+					production_speed_arms_factory_factor = -0.10
+					production_factory_efficiency_gain_factor = -0.10
+			}
+		}
+
+
+		###### commie shared
+
+		mon_commie_mp = {
+			name = mon_commie_mp
+			picture = generic_air_bonus
+			modifier = {
+				weekly_manpower = 500
+			}
+		}
+		mon_jump_border = {
+			name = mon_jump_border
+			picture = tfv_can_conscription_crisis
+			modifier = {
+					send_volunteer_divisions_required = -0.75
+					send_volunteers_tension = -0.25
+			}
+			cancel = {
+				JAP = {
+					NOT = {
+						has_war_with = CHI
+					}
+				}
+			}
+		}
+
+
+		################## MON LEFT
+
+		mon_independent_economy = {
+			name = mon_independent_economy
+			picture = LIT_invested_in_farms
+			modifier = {
+				production_speed_buildings_factor = 0.1
+				political_power_gain = -0.25
+			}
+			equipment_bonus = {
+				#heavy_armor = {
+				#	build_cost_ic = -0.25 instant = yes
+				#}
+				#medium_armor = {
+				#	build_cost_ic = -0.2 instant = yes
+				#}
+				#light_armor = {
+				#	build_cost_ic = -0.15 instant = yes
+				#}
+				light_tank_chassis = {
+					build_cost_ic = -0.15 instant = yes
+				}
+				medium_tank_chassis = {
+					build_cost_ic = -0.15 instant = yes
+				}
+				heavy_tank_chassis = {
+					build_cost_ic = -0.15 instant = yes
+				}
+			}
+		}
+
+		mon_compromise_lamas = {
+			name = mon_compromise_lamas
+			picture = generic_deal_with_the_devil2
+			modifier = {
+				stability_factor = 0.1
+				war_support_factor = 0.05
+				party_popularity_stability_factor = 0.1	
+			}
+		}
+		mon_force_herders = {
+			name = mon_force_herders
+			picture = new_economic_policy
+			modifier = {
+				consumer_goods_factor = 0.1
+				production_speed_arms_factory_factor = 0.10
+				production_factory_efficiency_gain_factor = 0.1
+				production_factory_start_efficiency_factor = 0.1
+				weekly_manpower = -150
+			}
+		}
+		mon_collectivized_economy = {
+			name = mon_collectivized_economy
+			picture = SPR_collectivized_society
+			modifier = {
+				consumer_goods_factor = -0.15
+				production_factory_max_efficiency_factor = 0.10
+			}
+
+		}
+
+
+		################################# MON NATIONALISTS ECONOMY
+
+		mon_reprivatize_economy = {
+			name = mon_reprivatize_economy
+			picture = socialist_science_focus
+			modifier = {
+				political_power_gain = 0.15
+				stability_factor = -0.1
+				consumer_goods_factor = -0.2
+			}
+		}
+		mon_laissez_faire = {
+			name = mon_laissez_faire
+			picture = generic_economic_increase
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.15
+				production_speed_buildings_factor = 0.10
+				consumer_goods_factor = -0.2
+			}
+			on_remove = {
+				add_timed_idea = {
+					idea = mon_ted_kaczynski
+					days = 180
+				}
+			}
+		}
+
+		mon_ted_kaczynski = {
+			name = mon_ted_kaczynski
+			picture = usa_great_depression_3
+			modifier = {
+				production_factory_efficiency_gain_factor = -0.05
+				production_speed_buildings_factor = -0.10
+				consumer_goods_factor = 0.2
+				stability_factor = -0.1
+			}
+		}
+		
+		############################### MON NATIONALISTS
+
+		mon_better_volunteers_china = {
+			name = mon_better_volunteers_china
+			picture = por_volunteers_in_the_war2
+			modifier = {
+				send_volunteers_tension = -0.25
+				mobilization_speed = 0.25
+				conscription = 0.2
+		}
+		cancel = {
+			JAP = {
+				NOT = {
+					has_war_with = CHI
+				}
+			}
+		}
+		}
+		
+		mon_interim_government = {
+			name = mon_interim_government
+			picture = generic_pp_unity_bonus
+			modifier = {
+				stability_weekly = 0.001
+				communism_drift = -0.1
+			}
+		}
+		mon_constitutional_monarchy = {
+			name = mon_constitutional_monarchy
+			picture = generic_monarchist_uprising
+			modifier = {
+				war_support_weekly = 0.001
+			}
+		}
+		mon_little_democracy = {
+			name = mon_little_democracy
+			picture = generic_democratic_drift_bonus
+			modifier = {
+				democratic_drift = 0.25
+				stability_weekly = 0.002
+			}
+		}
+
+		mon_golden_corp = {
+			name = mon_golden_corp
+			picture = MEX_revolutionary_army
+			modifier = {
+				send_volunteer_divisions_required = -0.75
+				send_volunteers_tension = -0.50
+				send_volunteer_size = 3
+				conscription = 0.1
+				mobilization_speed = 0.25
+			}
+		}
+		############## MON ARMY/AIR/NAVYXD
+		mon_army_academy = {
+			name = mon_army_academy
+			picture = generic_army_war_college
+			modifier = {
+				experience_gain_army = 0.15
+			}
+		}
+		mon_tank_development = {
+			name = mon_tank_development
+			picture = generic_acquire_tanks
+			research_bonus = {
+				armor = 0.15
+			}
+		}
+		mon_tank_building = {
+			name = mon_tank_building
+			picture = man_five_year_plan_tank
+			equipment_bonus = {
+				light_tank_chassis = {
+					build_cost_ic = -0.1 instant = yes
+				}
+				medium_tank_chassis = {
+					build_cost_ic = -0.1 instant = yes
+				}
+				heavy_tank_chassis = {
+					build_cost_ic = -0.1 instant = yes
+				}
+			}
+		}
+		mon_weapon_development = {
+			name = mon_weapon_development
+			picture = ast_volunteer_defence_corps
+			research_bonus = {
+				infantry_weapons = 0.2
+			}
+		}
+		mon_leg_inf_buff = {
+			name = mon_leg_inf_buff
+			picture = generic_infantry_bonus
+			modifier = {
+				army_infantry_attack_factor = 0.15
+				army_infantry_defence_factor = 0.15
+				experience_gain_infantry_combat_factor = 0.2
+				army_speed_factor = 0.15
+				
+			}
+			
+		}
+		mon_arty_mod = {
+			name = mon_arty_mod
+			picture = generic_artillery_regiments
+			equipment_bonus = {
+				artillery = {
+					build_cost_ic = -0.2 instant = yes
+				}
+
+				
+				railway_gun_equipment = {
+					build_cost_ic = -0.25 instant = yes
+				}
+				
+			}
+		}
+		mon_weapon_mod = {
+			name = mon_weapon_mod
+			picture = partial_economic_mobilisation
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.1 instant = yes
+				}
+				support_equipment = {
+					build_cost_ic = -0.2 instant = yes
+				}
+			}
+		}
+		mon_marines_buff = {
+			name = mon_marines_buff
+			picture = generic_sea_focused_navy
+			modifier = {
+				special_forces_attack_factor = 0.15
+				special_forces_defence_factor = 0.15
+				army_org = 10
+				no_supply_grace = 168
+				out_of_supply_factor = -0.25
+				naval_invasion_prep_speed = 0.25
+				naval_invasion_penalty = -0.25
+			}
+		}
+		mon_mech_res = {
+			name = mon_mech_res
+			picture = FRA_motorized_focus
+				research_bonus = {
+					motorized_equipment = 0.15 
+				}
+		}
+		mon_mech_prod_buff = {
+			name = mon_mech_prod_buff
+			picture = generic_production_bonus
+			equipment_bonus = {
+				mechanized_equipment = {
+					build_cost_ic = -0.10 instant = yes
+				}
+			}
+		}
+		mon_mech_cav_buff = { #desc: fuck you tank meta mf kys
+			name = mon_mech_cav_buff
+			picture = generic_reserve_divisions
+			modifier = {
+				
+				org_loss_when_moving = -0.25
+				breakthrough_factor = 0.15
+
+			}
+		}
+		mon_air_academy = {
+			name = mon_air_academy
+			picture = air_support_focus
+			modifier = {
+				experience_gain_air = 0.2
+			}
+		}
+		mon_plane_research = {
+			name = mon_plane_research
+			picture = generic_air_bonus
+			research_bonus = {
+				light_air = 0.20
+				medium_air = 0.20
+				heavy_air = 0.20
+			}
+		}
+		mon_cas_buff = {
+			name = mon_cas_buff
+			picture = generic_air_bonus
+			equipment_bonus = {
+				#cas = {
+				#	build_cost_ic = -0.20
+				#} doesn't give the bonus has to be fixed
+				small_plane_cas_airframe = {
+					build_cost_ic = -0.30 instant = yes
+				}
+			}
+		}
+		mon_fighter_buff = {
+			name = mon_fighter_buff
+			picture = generic_air_bonus
+			equipment_bonus = {
+				#fighter = {
+				#	build_cost_ic = -0.15
+				#} doesn't give the bonus has to be fixed
+				small_plane_airframe = {
+					build_cost_ic = -0.30 instant = yes
+				}
+			}
+		}
+		mon_air_streamline_production = {
+			name = mon_air_streamline_production
+			picture = man_five_year_plan_air
+			equipment_bonus = {
+				#light_air = {
+				#	build_cost_ic = -0.10
+				#}
+				#medium_air = {
+				#	build_cost_ic = -0.20
+				#}
+				#heavy_air = {
+				#	build_cost_ic = -0.20
+				#} doesn't give the bonus has to be fixed
+				small_plane_cas_airframe = {
+					build_cost_ic = -0.1 instant = yes
+				}
+				medium_plane_airframe = {
+					build_cost_ic = -0.2 instant = yes
+				}
+				large_plane_airframe = {
+					build_cost_ic = -0.2 instant = yes
+				}
+			}
+		}
+		mon_increased_training_hours = {
+			name = mon_increased_training_hours
+			picture = generic_air_bonus
+			modifier = {
+				experience_gain_air = 0.1
+			}
+		}
+		mon_circus_airborne = { #starshiptroopers cytat jak warquote z coda
+			name = mon_circus_airborne
+			picture = usa_airborne_divisions
+			modifier = {
+				extra_paratrooper_supply_grace = 72
+				paradrop_organization_factor = 0.15
+				pocket_penalty = -0.15
+				special_forces_out_of_supply_factor = -0.25
+				special_forces_attack_factor = 0.10
+				special_forces_defence_factor = 0.10
+				special_forces_cap = 0.05
+			}
+		}
+		mon_project_wingman = {
+			name = mon_project_wingman
+			picture = mon_project_wingman
+			equipment_bonus = {
+				small_plane_airframe = {
+					air_range = 0.1
+					air_attack = 0.05
+					instant = yes
+				}
+				small_plane_cas_airframe = {
+					air_range = 0.1
+					air_ground_attack = 0.05
+					instant = yes
+				}
+				medium_plane_airframe = {
+					air_range = 0.1
+					air_ground_attack = 0.05
+					instant = yes
+				}
+				medium_plane_fighter_airframe = {
+					air_range = 0.1
+					air_attack = 0.05
+					instant = yes
+				}
+				large_plane_airframe = {
+					air_range = 0.1
+					air_bombing = 0.05
+					instant = yes
+				}
+				transport_plane_equipment = {
+					air_range = 0.25
+					instant = yes
+				}
+			}
+		}
+		
+		#### MON GREAT PURGE
+
+		mon_low_gov_cont = {
+			name = mon_low_gov_cont
+			picture = prc_low_popular_support
+		}
+		mon_medium_gov_cont = {
+			name = mon_medium_gov_cont
+			picture = prc_low_popular_support2
+		}
+		mon_high_gov_cont = {
+			name = mon_high_gov_cont
+			picture = prc_low_popular_support3
+		}
+
+		#########################
+
+		mon_amogus = {
+			name = mon_amogus
+			picture = mon_missing_texture
+			modifier = {
+				
+			}
+		}
+	}
+}
