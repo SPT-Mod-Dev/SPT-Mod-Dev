@@ -8227,13 +8227,13 @@ focus_tree = {
 		id = ITA_the_abyssinian_fiasco
 		icon = GFX_focus_generic_anti_fascist_diplomacy
 		
-		x = 29
+		x = 11
 		y = 0
 		relative_position_id = ITA_naval_power_projection
 		cost = 5
 
 		allow_branch = {
-			always = no
+			#always = no
 			has_dlc = "By Blood Alone"
 			if = {
 				limit = {
@@ -8245,6 +8245,12 @@ focus_tree = {
 				NOT = { has_completed_focus = ITA_culto_del_duce }
 				NOT = { has_completed_focus = ITA_convene_the_grand_council }
 			}
+		}
+		mutually_exclusive = {
+			focus = ITA_solid_progress
+		}
+		mutually_exclusive = {
+			focus = ITA_struggle_in_ethiopia
 		}
 
 		offset = {
@@ -8281,7 +8287,10 @@ focus_tree = {
 		id = ITA_solid_progress
 		icon = GFX_focus_generic_attack_ethiopia
 		mutually_exclusive = {focus = ITA_struggle_in_ethiopia }
-		x = 12
+		mutually_exclusive = {
+			focus = ITA_the_abyssinian_fiasco
+		}
+		x = 13
 		y = 0
 		offset = {
 			x = 0
@@ -8334,6 +8343,9 @@ focus_tree = {
 		id = ITA_struggle_in_ethiopia
 		icon = GFX_goal_generic_major_war
 		mutually_exclusive = {focus = ITA_solid_progress }
+		mutually_exclusive = {
+			focus = ITA_the_abyssinian_fiasco
+		}
 		x = 2
 		y = 0
 		relative_position_id = ITA_solid_progress
@@ -8429,9 +8441,9 @@ focus_tree = {
 	focus = {
 		id = ITA_servizio_informazione_militare
 		icon = GFX_focus_generic_secret_service_agency
-		prerequisite = { focus = ITA_solid_progress focus = ITA_struggle_in_ethiopia }
+		prerequisite = { focus = ITA_solid_progress focus = ITA_struggle_in_ethiopia focus = ITA_the_abyssinian_fiasco }
 
-		x = 1
+		x = 0
 		y = 1
 		offset = {
 			x = 0
@@ -10786,14 +10798,12 @@ focus_tree = {
 		completion_reward = {
 			if = {
 				limit = {
-					has_any_power_balance = no
+					NOT = {
+						has_power_balance = {
+							id = ITA_MED_med_front
+						}
+					}
 				}
-				set_power_balance = {
-					id = ITA_power_balance
-					right_side = ITA_balbo_side 
-				}
-			}
-			else = {
 				set_power_balance = {
 					id = ITA_power_balance
 					right_side = ITA_balbo_side
@@ -10857,14 +10867,12 @@ focus_tree = {
 			}
 			if = {
 				limit = {
-					has_any_power_balance = no
+					NOT = {
+						has_power_balance = {
+							id = ITA_MED_med_front
+						}
+					}
 				}
-				set_power_balance = {
-					id = ITA_power_balance
-					right_side = ITA_grandi_side
-				}
-			}
-			else = {
 				set_power_balance = {
 					id = ITA_power_balance
 					right_side = ITA_grandi_side
