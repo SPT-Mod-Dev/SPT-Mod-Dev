@@ -922,8 +922,41 @@ country_event = {
 
 		ITA_missiolini_progress_in_ethiopia_failure_effect = yes
 	}
-	#SPTChange removed Abyssinian Fiasco option
-	
+
+	# Oops (Complete The Abyssinian Fiasco)
+	option = { 
+		name = BBA_italy_missiolinis.02_north.b
+
+		trigger = {
+			has_dlc = "By Blood Alone" #Abyssinian Fiasco focus not available without BBA
+			NOT = {
+				has_completed_focus = ITA_the_abyssinian_fiasco
+				has_completed_focus = ITA_struggle_in_ethiopia
+				has_country_flag = ITA_missiolini_conquer_the_south_failed_flag
+			}
+		}
+
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 1000
+				OR = {
+					ITA_is_socialist_ai = yes
+					ITA_is_communist_ai = yes
+				}
+			}
+		}
+
+		ITA_missiolini_progress_in_ethiopia_failure_effect = yes
+
+		if = {
+			limit = {
+				NOT = { has_completed_focus = ITA_struggle_in_ethiopia }
+				NOT = { has_completed_focus = ITA_solid_progress }
+			}
+			complete_national_focus = ITA_the_abyssinian_fiasco
+		}
+	}
 
 	# Oops (Complete Struggle in Ethiopia)
 	option = { 
@@ -950,7 +983,13 @@ country_event = {
 
 		ITA_missiolini_progress_in_ethiopia_failure_effect = yes
 		
-		complete_national_focus = ITA_struggle_in_ethiopia
+		if = {
+			limit = {
+				NOT = { has_completed_focus = ITA_the_abyssinian_fiasco }
+				NOT = { has_completed_focus = ITA_solid_progress }
+			}
+			complete_national_focus = ITA_struggle_in_ethiopia
+		}
 	}
 }
 
@@ -995,7 +1034,40 @@ country_event = {
 		ITA_missiolini_progress_in_ethiopia_failure_effect = yes
 	}
 
-	#SPTChange removed Abyssinian Fiasco option
+	# Oops (Complete The Abyssinian Fiasco)
+	option = { 
+		name = BBA_italy_missiolinis.04_south.b
+
+		trigger = {
+			has_dlc = "By Blood Alone"  #Abyssinian Fiasco focus not available without BBA
+			NOT = {
+				has_completed_focus = ITA_the_abyssinian_fiasco
+				has_completed_focus = ITA_struggle_in_ethiopia
+				has_country_flag = ITA_missiolini_conquer_the_north_failed_flag
+			}
+		}
+
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 1000
+				OR = {
+					ITA_is_socialist_ai = yes
+					ITA_is_communist_ai = yes
+				}
+			}
+		}
+
+		ITA_missiolini_progress_in_ethiopia_failure_effect = yes
+		
+		if = {
+			limit = {
+				NOT = { has_completed_focus = ITA_struggle_in_ethiopia }
+				NOT = { has_completed_focus = ITA_solid_progress }
+			}
+			complete_national_focus = ITA_the_abyssinian_fiasco
+		}
+	}
 
 	# Oops (Complete Struggle in Ethiopia)
 	option = { 
@@ -1022,7 +1094,13 @@ country_event = {
 
 		ITA_missiolini_progress_in_ethiopia_failure_effect = yes
 		
-		complete_national_focus = ITA_struggle_in_ethiopia
+		if = {
+			limit = {
+				NOT = { has_completed_focus = ITA_the_abyssinian_fiasco }
+				NOT = { has_completed_focus = ITA_solid_progress }
+			}
+			complete_national_focus = ITA_struggle_in_ethiopia
+		}
 	}
 }
 
