@@ -19,6 +19,9 @@
 #### Denmark
  - Foci 'Seize Power' and 'Ask for Support' are no longer bypassed by being fascist, ensuring the leader change takes effect
 
+#### Italy
+ - Leader BoPs should now correctly activate only when the Mediterranean BoP is not active 
+
 ### 3.12.8 "Missing Bracket"
 
 #### General
