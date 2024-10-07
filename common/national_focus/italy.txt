@@ -8578,7 +8578,12 @@ focus_tree = {
 
 			if = {
 				limit = {
-					has_any_power_balance = no
+					#has_any_power_balance = no
+					NOT = { #SPT change to make it specifically look for the Med BOP
+						has_power_balance = {
+							id = ITA_MED_med_front
+						}
+					}
 				}
 				if = {
 					limit = {
