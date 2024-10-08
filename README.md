@@ -22,6 +22,9 @@
 #### Italy
  - Leader BoPs should now correctly activate only when the Mediterranean BoP is not active 
 
+#### Brazil
+ - Ported vanilla change to Potenji Conference to ensure Brazil joins the existing war rather than declaring
+
 ### 3.12.8 "Missing Bracket"
 
 #### General
