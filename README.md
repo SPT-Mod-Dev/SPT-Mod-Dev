@@ -5,6 +5,7 @@
 #### General
  - Increased score in peace conferences
  - Added Mexico to host tool 
+ - Super Heavy Tanks now can only use Super Heavy Turrets
 
 #### USA
  - SPT version of operation "The Greenland Patrol" added to account for fascist Denmark route. Available from when Denmark joins the Axis until the USA is at war with Germany
