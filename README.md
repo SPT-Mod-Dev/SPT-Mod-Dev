@@ -1,5 +1,31 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.12.9
+
+#### General
+ - Increased score in peace conferences
+ - Added Mexico to host tool 
+ - Super Heavy Tanks now can only use Super Heavy Turrets
+
+#### USA
+ - SPT version of operation "The Greenland Patrol" added to account for fascist Denmark route. Available from when Denmark joins the Axis until the USA is at war with Germany
+
+#### Raj
+ - 'Great Indian Peninsula Railway' 70 days -> 35 days
+ - 'East India Railways' now prioritises Bengal
+
+#### Mongolia
+ - 'Motorise the Army' now adds early truck tech and always adds 1000 trucks to stockpile
+
+#### Denmark
+ - Foci 'Seize Power' and 'Ask for Support' are no longer bypassed by being fascist, ensuring the leader change takes effect
+
+#### Italy
+ - Leader BoPs should now correctly activate only when the Mediterranean BoP is not active 
+
+#### Brazil
+ - Ported vanilla change to Potenji Conference to ensure Brazil joins the existing war rather than declaring
+
 ### 3.12.8 "Missing Bracket"
 
 #### General
