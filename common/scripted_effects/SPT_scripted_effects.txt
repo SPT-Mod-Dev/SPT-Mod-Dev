@@ -363,6 +363,86 @@ SPT_ITA_bop_spirits = {
 
 }
 
+SPT_JAP_marco_polo_counter_setup = { #Scripted effect to start the countdown to the Marco Polo Bridge Incident
+	
+	#yes, it looks fucking nasty
+	#no, i left it like this because variables suck
+	#please direct all hate mail to pdx
+	JAP = {
+		set_variable = {
+			var = JAP.daysUntilMarcoPolo #base number of days for the mission
+			value = 620
+		}
+
+		set_variable = {
+			var = JAP.daysTotal #number of days the mission will run in total, used for tracking player changes via decisions
+			value = JAP.daysUntilMarcoPolo
+		}
+
+		set_variable = {
+			var = JAP.deltaDaysPositive #how much each decision will change the number of days for the mission when adding days
+			value = 30
+		}
+
+		set_variable = {
+			var = JAP.deltaDaysNegative #how much each decision will change the number of days for the mission when removing days
+			value = JAP.deltaDaysPositive
+		}
+		multiply_variable = {
+			var = JAP.deltaDaysNegative #luce, i dont care that this is horrid, please go away
+			value = -1
+		}
+
+		set_variable = {
+			var = JAP.limitOfDays #the maximum number of days the player can delay the mission
+			value = 695
+		}
+
+		add_ideas = SPT_JAP_marco_polo_timer_active #adds an idea used as a flag
+	}
+	#i need a shower after this
+}
+
+SPT_JAP_marco_polo_counter_setup = { #Scripted effect to start the countdown to the Marco Polo Bridge Incident
+	
+	#yes, it looks fucking nasty
+	#no, i left it like this because variables suck
+	#please direct all hate mail to pdx
+	JAP = {
+		set_variable = {
+			var = JAP.daysUntilMarcoPolo #base number of days for the mission
+			value = 620
+		}
+
+		set_variable = {
+			var = JAP.daysTotal #number of days the mission will run in total, used for tracking player changes via decisions
+			value = JAP.daysUntilMarcoPolo
+		}
+
+		set_variable = {
+			var = JAP.deltaDaysPositive #how much each decision will change the number of days for the mission when adding days
+			value = 30
+		}
+
+		set_variable = {
+			var = JAP.deltaDaysNegative #how much each decision will change the number of days for the mission when removing days
+			value = JAP.deltaDaysPositive
+		}
+		multiply_variable = {
+			var = JAP.deltaDaysNegative #luce, i dont care that this is horrid, please go away
+			value = -1
+		}
+
+		set_variable = {
+			var = JAP.limitOfDays #the maximum number of days the player can delay the mission
+			value = 695
+		}
+
+		add_ideas = SPT_JAP_marco_polo_timer_active #adds an idea used as a flag
+	}
+	#i need a shower after this
+}
+
 SPT_USA_spin_the_wheel = {
 	USA = {
 		random_list = {
