@@ -1,0 +1,335 @@
+focus_tree = {
+	id = japan_wtt_focus
+	
+	country = {
+		factor = 0
+		modifier = {
+			add = 20 
+			tag = JAP
+		}
+	}
+	
+
+	default = no
+
+	continuous_focus_position = { x = 20 y = 2000 }
+
+	# focus = {
+	# 	id = SPT_JAP_
+	# 	icon = GFX_focus_jap_showa_restoration
+	##  prerequisite = { focus = SPT_JAP_ }
+	# 	#mutually_exclusive = {  }
+	# 	x = 0
+	# 	y = 0
+	# 	relative_position_id = SPT_JAP_
+	# 	# offset = {
+	# 	# 	x = 0
+	# 	# 	y = 0
+	# 	# 	trigger = {
+	# 	# 	#	NOT = { has_dlc = "Waking the Tiger" }
+	# 	# 	}
+	# 	# }
+
+	# 	cost = 10
+
+	# 	ai_will_do = {
+	# 		factor = 4
+	# 	}
+
+	# 	available = {
+
+	# 	}
+
+	# 	bypass = {
+
+	# 	}
+
+	# 	cancel_if_invalid = yes
+	# 	continue_if_invalid = no
+	# 	available_if_capitulated = no
+
+	# 	search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+	# 	completion_reward = {
+	# 		#add_stability = 0.1
+	# 	}
+	# }
+
+	focus = {
+		id = SPT_JAP_purge_kodoha
+		icon = GFX_focus_jap_showa_restoration
+		mutually_exclusive = { focus = SPT_JAP_support_kodoha }
+		x = 5
+		y = 0
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			#add_stability = 0.1
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_support_kodoha
+		icon = GFX_focus_jap_showa_restoration
+		mutually_exclusive = { focus = SPT_JAP_purge_kodoha }
+		x = 6
+		y = 0
+		relative_position_id = SPT_JAP_purge_kodoha
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			#add_stability = 0.1
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_initial_support_navy
+		icon = GFX_focus_jap_showa_restoration
+		mutually_exclusive = { focus = SPT_JAP_initial_support_neutral }
+
+		prerequisite = { focus = SPT_JAP_purge_kodoha }
+		x = -3
+		y = 1
+		relative_position_id = SPT_JAP_purge_kodoha
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			#add_stability = 0.1
+		}
+	}
+	focus = {
+		id = SPT_JAP_initial_support_neutral
+		icon = GFX_focus_jap_showa_restoration
+		mutually_exclusive = { focus = SPT_JAP_initial_support_army } 
+		mutually_exclusive = { focus = SPT_JAP_initial_support_navy }
+
+		prerequisite = { focus = SPT_JAP_purge_kodoha focus = SPT_JAP_support_kodoha }
+		x = 3
+		y = 1
+		relative_position_id = SPT_JAP_purge_kodoha
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			#add_stability = 0.1
+		}
+	}
+	focus = {
+		id = SPT_JAP_initial_support_army
+		icon = GFX_focus_jap_showa_restoration
+		mutually_exclusive = { focus = SPT_JAP_initial_support_neutral }
+
+		prerequisite = { focus = SPT_JAP_support_kodoha }
+
+		x = 3
+		y = 1
+		relative_position_id = SPT_JAP_support_kodoha
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			#add_stability = 0.1
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_guide_zaibatsus
+		icon = GFX_focus_jap_showa_restoration
+		prerequisite = { focus = SPT_JAP_purge_kodoha }
+		#mutually_exclusive = {  }
+		x = 0
+		y = 2
+		relative_position_id = SPT_JAP_purge_kodoha
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			#add_stability = 0.1
+		}
+	}
+	focus = {
+		id = SPT_JAP_challenge_zaibatsus
+		icon = GFX_focus_jap_showa_restoration
+		prerequisite = { focus = SPT_JAP_support_kodoha }
+		#mutually_exclusive = {  }
+		x = 0
+		y = 2
+		relative_position_id = SPT_JAP_support_kodoha
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			#add_stability = 0.1
+		}
+	}
+}
