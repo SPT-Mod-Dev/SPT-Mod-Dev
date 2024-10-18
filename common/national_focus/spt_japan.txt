@@ -193,6 +193,8 @@ focus_tree = {
 				remove_idea = JAP_interservice_rivalry_balanced
 				add_idea = JAP_interservice_rivalry_navy_strengthened
 			}
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = SPT_JAP_osami_nagano_advisor
 		}
 	}
 	focus = {
@@ -211,7 +213,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -276,7 +278,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -321,7 +323,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -630,11 +632,14 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			#add_stability = 0.1			
+			#add_stability = 0.1	
+
 			swap_ideas = {
 				remove_idea = JAP_interservice_rivalry_balanced
 				add_idea = JAP_interservice_rivalry_army_strengthened
 			}
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = SPT_JAP_sadao_araki	
 		}
 	}
 	focus = {
@@ -1003,7 +1008,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -1213,7 +1218,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -1327,8 +1332,7 @@ focus_tree = {
 	focus = {
 		id = SPT_JAP_national_defense_state
 		icon = GFX_spt_focus_national_defense_state
-		prerequisite = {focus = SPT_JAP_nationalize_war_industry }
-		prerequisite = { focus = SPT_JAP_national_research_policy }
+		prerequisite = {focus = SPT_JAP_nationalize_war_industry  focus = SPT_JAP_national_research_policy }
 		#mutually_exclusive = {  }
 		x = 1
 		y = 1
@@ -1381,8 +1385,8 @@ focus_tree = {
 	focus = {
 		id = SPT_JAP_imperial_war_machine
 		icon = GFX_focus_generic_fascist_troops
-		prerequisite = { focus = SPT_JAP_imperial_arsenals }
-		prerequisite = { focus = SPT_JAP_imperial_academy }
+		prerequisite = { focus = SPT_JAP_imperial_arsenals focus = SPT_JAP_imperial_academy}
+
 		#mutually_exclusive = {  }
 		x = 1
 		y = 1

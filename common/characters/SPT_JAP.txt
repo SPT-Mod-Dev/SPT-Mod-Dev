@@ -109,4 +109,75 @@ characters = {
 			}
 		}
 	}
+	SPT_JAP_sadao_araki ={
+
+		advisor={
+			
+			# slot = high_command
+			# slot = theorist
+			# slot = navy_chief
+			# slot = army_chief
+			# slot = air_chief
+			slot = political_advisor
+			idea_token = SPT_JAP_sadao_araki
+
+			
+
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				has_completed_focus = SPT_JAP_initial_support_army
+				NOT = {
+					has_idea = takuo_godo
+				}
+			}
+			traits = {
+				army_philosopher
+			}
+			cost = 100
+			# ai_will_do = {
+			# 	factor = 1.000
+			# }
+		}
+		name = "Sadao Araki"
+		portraits = {
+			civilian = {
+				small = GFX_idea_JAP_sadao_araki
+			}
+		}
+	}
+	SPT_JAP_osami_nagano_advisor={
+
+		name = "Osami Nagano"
+		portraits={
+			civilian={
+				small="GFX_idea_osami_nagano"
+			}
+		}
+
+		advisor={
+			slot = political_advisor
+			idea_token = SPT_JAP_osami_nagano_advisor
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				has_completed_focus = SPT_JAP_initial_support_navy
+				NOT = {
+					has_idea = takuo_godo
+				}
+				NOT = {
+					has_idea = osami_nagano
+				}
+			}
+			traits = {
+				navy_philosopher
+			}
+			cost =  100
+			ai_will_do = {
+				factor = 0.200
+			}
+		}
+	}
 }
