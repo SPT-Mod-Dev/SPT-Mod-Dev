@@ -168,6 +168,114 @@ focus_tree = {
 		# 	}
 		# }
 
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = JAP_interservice_rivalry_balanced
+				add_idea = JAP_interservice_rivalry_navy_strengthened
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_tip_the_scales
+		icon = GFX_focus_jap_showa_restoration
+
+		prerequisite = { focus = SPT_JAP_initial_support_navy }
+		x = 0
+		y = 2
+		relative_position_id = SPT_JAP_initial_support_navy
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		complete_tooltip = {
+			hidden_effect = {
+				add_ideas = MTG_naval_treaty_adherent
+			}
+			swap_ideas = {
+				remove_idea = MTG_naval_treaty_adherent
+				add_idea = MTG_naval_treaty_cheating
+			}
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = MTG_naval_treaty_adherent
+				}
+				swap_ideas = {
+					remove_idea = MTG_naval_treaty_adherent
+					add_idea = MTG_naval_treaty_cheating
+				}
+			}
+			if = {
+				limit = {
+					has_idea = MTG_naval_treaty_adherent_reduced
+				}
+				swap_ideas = {
+					remove_idea = MTG_naval_treaty_adherent_reduced
+					add_idea = MTG_naval_treaty_cheating_reduced
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_maritime_tradition
+		icon = GFX_focus_jap_showa_restoration
+
+		prerequisite = { focus = SPT_JAP_tip_the_scales }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_tip_the_scales
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
 		cost = 10
 
 		ai_will_do = {
@@ -188,10 +296,92 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			#add_stability = 0.1
-			JAP_interservice_rivalry_towards_navy = yes
+			custom_effect_tooltip = SPT_JAP_pol_showa_state_header_tt
+			add_to_variable = {
+				SPT_JAP_pol_conscription = 0.01 tooltip = conscription_tt
+			}
+			add_to_variable = {
+				SPT_JAP_pol_industrial_capacity_dockyard = 0.05 tooltip = industrial_capacity_dockyard_tt
+			}
 		}
 	}
+	focus = {
+		id = SPT_JAP_negotiate_zaibatsu_dockyards
+		icon = GFX_focus_jap_showa_restoration
+
+		prerequisite = { focus = SPT_JAP_maritime_tradition }
+		x = 0
+		y = 2
+		relative_position_id = SPT_JAP_maritime_tradition
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					is_coastal = yes
+					NOT = { 
+						OR = {
+							state = 526
+							state = 555
+							state = 537
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					is_coastal = yes
+					NOT = { 
+						OR = {
+							state = 526
+							state = 555
+							state = 537
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
 	focus = {
 		id = SPT_JAP_initial_support_neutral
 		icon = GFX_focus_jap_showa_restoration
@@ -210,7 +400,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -239,15 +429,13 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = SPT_JAP_initial_support_army
+		id = SPT_JAP_duty_to_serve
 		icon = GFX_focus_jap_showa_restoration
-		mutually_exclusive = { focus = SPT_JAP_initial_support_neutral }
 
-		prerequisite = { focus = SPT_JAP_support_kodoha }
-
-		x = 3
+		prerequisite = { focus = SPT_JAP_initial_support_neutral }
+		x = 0
 		y = 1
-		relative_position_id = SPT_JAP_support_kodoha
+		relative_position_id = SPT_JAP_initial_support_neutral
 		# offset = {
 		# 	x = 0
 		# 	y = 0
@@ -256,7 +444,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -276,11 +464,367 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			#add_stability = 0.1
-			JAP_interservice_rivalry_towards_army = yes
+			custom_effect_tooltip = SPT_JAP_pol_showa_state_header_tt
+			add_to_variable = {
+				SPT_JAP_pol_conscription = 0.015 tooltip = conscription_tt
+			}
 		}
 	}
+	focus = {
+		id = SPT_JAP_control_economy
+		icon = GFX_focus_jap_showa_restoration
 
+		prerequisite = { focus = SPT_JAP_duty_to_serve }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_duty_to_serve
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					NOT = { 
+						OR = {
+							state = 526
+							state = 555
+							state = 537
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					NOT = { 
+						OR = {
+							state = 526
+							state = 555
+							state = 537
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_loans_for_civs
+		icon = GFX_focus_jap_showa_restoration
+
+		prerequisite = { focus = SPT_JAP_control_economy }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_control_economy
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_timed_idea = {
+				idea = SPT_JAP_civ_build_boost
+				days = 200
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_pol_showa_state_header_tt
+			add_to_variable = {
+				SPT_JAP_pol_production_speed_industrial_complex_factor = -0.2 tooltip = production_speed_industrial_complex_factor_tt
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_initial_support_army
+		icon = GFX_focus_jap_showa_restoration
+		mutually_exclusive = { focus = SPT_JAP_initial_support_neutral }
+
+		prerequisite = { focus = SPT_JAP_support_kodoha }
+
+		x = 3
+		y = 1
+		relative_position_id = SPT_JAP_support_kodoha
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			#add_stability = 0.1			
+			swap_ideas = {
+				remove_idea = JAP_interservice_rivalry_balanced
+				add_idea = JAP_interservice_rivalry_army_strengthened
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_steel_for_guns
+		icon = GFX_focus_jap_showa_restoration
+
+		prerequisite = { focus = SPT_JAP_initial_support_army }
+
+		x = 0
+		y = 2
+		relative_position_id = SPT_JAP_initial_support_army
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					NOT = { 
+						OR = {
+							state = 526
+							state = 555
+							state = 537
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					NOT = { 
+						OR = {
+							state = 526
+							state = 555
+							state = 537
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_every_man_a_soldier
+		icon = GFX_focus_jap_showa_restoration
+
+		prerequisite = { focus = SPT_JAP_steel_for_guns }
+
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_steel_for_guns
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_pol_showa_state_header_tt
+			add_to_variable = {
+				SPT_JAP_pol_conscription = 0.02 tooltip = conscription_tt
+			}
+			add_to_variable = {
+				SPT_JAP_pol_production_factory_start_efficiency_factor = 0.1 tooltip = production_factory_start_efficiency_factor_tt
+			}
+
+		}
+	}
+	focus = {
+		id = SPT_JAP_build_up_the_countryside
+		icon = GFX_focus_jap_showa_restoration
+
+		prerequisite = { focus = SPT_JAP_every_man_a_soldier }
+
+		x = 0
+		y = 2
+		relative_position_id = SPT_JAP_every_man_a_soldier
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = SPT_JAP_infra_build_boost
+				days = 180
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					infrastructure < 3
+					NOT = { 
+						OR = {
+							state = 526
+							state = 555
+							state = 537
+						}
+					}
+					
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
 	focus = {
 		id = SPT_JAP_guide_zaibatsus
 		icon = GFX_focus_jap_showa_restoration
@@ -409,7 +953,7 @@ focus_tree = {
 		icon = GFX_focus_jap_showa_restoration
 		prerequisite = { focus = SPT_JAP_national_mobilization_law }
 		#mutually_exclusive = {  }
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = SPT_JAP_national_mobilization_law
 		# offset = {
@@ -446,11 +990,11 @@ focus_tree = {
 	focus = {
 		id = SPT_JAP_nationalize_war_industry
 		icon = GFX_focus_jap_showa_restoration
-		prerequisite = { focus = SPT_JAP_national_research_policy }
+		prerequisite = { focus = SPT_JAP_national_mobilization_law }
 		#mutually_exclusive = {  }
-		x = 0
+		x = -1
 		y = 1
-		relative_position_id = SPT_JAP_national_research_policy
+		relative_position_id = SPT_JAP_national_mobilization_law
 		# offset = {
 		# 	x = 0
 		# 	y = 0
@@ -658,7 +1202,7 @@ focus_tree = {
 		icon = GFX_focus_jap_showa_restoration
 		prerequisite = { focus = SPT_JAP_war_focused_eco }
 		#mutually_exclusive = {  }
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = SPT_JAP_war_focused_eco
 		# offset = {
@@ -744,11 +1288,11 @@ focus_tree = {
 	focus = {
 		id = SPT_JAP_imperial_academy
 		icon = GFX_focus_jap_showa_restoration
-		prerequisite = { focus = SPT_JAP_imperial_arsenals }
+		prerequisite = { focus = SPT_JAP_war_focused_eco }
 		#mutually_exclusive = {  }
-		x = 0
+		x = -1
 		y = 1
-		relative_position_id = SPT_JAP_imperial_arsenals
+		relative_position_id = SPT_JAP_war_focused_eco
 		# offset = {
 		# 	x = 0
 		# 	y = 0
@@ -783,9 +1327,10 @@ focus_tree = {
 	focus = {
 		id = SPT_JAP_national_defense_state
 		icon = GFX_focus_jap_showa_restoration
-		prerequisite = { focus = SPT_JAP_imperial_academy focus = SPT_JAP_nationalize_war_industry }
+		prerequisite = {focus = SPT_JAP_nationalize_war_industry }
+		prerequisite = { focus = SPT_JAP_national_research_policy }
 		#mutually_exclusive = {  }
-		x = 3
+		x = 1
 		y = 1
 		relative_position_id = SPT_JAP_nationalize_war_industry
 		# offset = {
@@ -834,12 +1379,77 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = SPT_JAP_imperial_war_machine
+		icon = GFX_focus_jap_showa_restoration
+		prerequisite = {focus = SPT_JAP_imperial_arsenals }
+		prerequisite = { focus = SPT_JAP_imperial_academy }
+		#mutually_exclusive = {  }
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_imperial_academy
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			if = {
+				limit = {
+					has_war_support < 0.8
+				}
+				add_war_support = 0.1
+			}
+			else_if = {
+				limit = {
+					has_idea = tot_economic_mobilisation
+				}
+				add_political_power = 150
+			}
+			else = {
+				add_ideas = tot_economic_mobilisation
+			}
+		}
+	}
+	focus = {
 		id = SPT_JAP_liaison_conference
 		icon = GFX_focus_jap_showa_restoration
-		prerequisite = { focus = SPT_JAP_national_defense_state }
+		prerequisite = { 
+			focus = SPT_JAP_national_defense_state 
+			focus = SPT_JAP_imperial_war_machine
+		}
+		prerequisite = {
+			focus = SPT_JAP_negotiate_zaibatsu_dockyards
+			focus = SPT_JAP_loans_for_civs
+			focus = SPT_JAP_build_up_the_countryside
+		}
+		# prerequisite = {
+		# 	focus = SPT_JAP_maritime_tradition
+		# }
 		#mutually_exclusive = {  }
-		x = 0
-		y = 1
+		x = 3
+		y = 2
 		relative_position_id = SPT_JAP_national_defense_state
 		# offset = {
 		# 	x = 0
