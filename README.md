@@ -1,5 +1,12 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.13.0
+
+#### General
+ - Amphibious Tank Chassis IC cost increased to 6, from 4.5
+ - Amphibious Tank Chassis can no longer use Light Tank Turrets
+ - Amphibious Drive added IC cost multiplier of +10%
+
 ### 3.12.9
 
 #### General
