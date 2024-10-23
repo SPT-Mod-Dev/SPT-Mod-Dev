@@ -8244,7 +8244,6 @@ country_event = { #Denmark Demands Norway's Subjugation
 				# SPTchange
 				annex_country = {
 					target = NOR
-					transfer_troops = yes
 				}
 			}
 		}
@@ -8301,23 +8300,20 @@ country_event = { #Denmark Puppets Norway
 		name = denmark_expansion_event.21.a
 		ROOT = { 
 			# SPTchange to annex instead
+			DEN = {
+				annex_country = {
+					target = NOR
+					transfer_troops = yes
+				}
+			}
 			every_country_with_original_tag = {
 				original_tag_to_check = NOR
 				DEN = {
 					annex_country = {
 						target = prev
-						transfer_troops = yes
 					}
 				}
-			}
-			hidden_effect = {				
-				every_state = {
-					limit = {
-						is_core_of = NOR
-					}
-					add_resistance = 30
-				}
-			}
+			}		
 		}
 	}
 }
@@ -8435,21 +8431,18 @@ country_event = { #Denmark Puppets Norway
 		# add_political_power = 50 # SPTchange
 		ROOT = {
 			# SPTchange to annex instead
+			DEN = {
+				annex_country = {
+					target = NOR
+					transfer_troops = yes
+				}
+			}
 			every_country_with_original_tag = {
 				original_tag_to_check = NOR
 				DEN = {
 					annex_country = {
 						target = prev
-						transfer_troops = yes
 					}
-				}
-			}
-			hidden_effect = {				
-				every_state = {
-					limit = {
-						is_core_of = NOR
-					}
-					add_resistance = 30
 				}
 			}
 		}
