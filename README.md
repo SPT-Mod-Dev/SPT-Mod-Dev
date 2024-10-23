@@ -8,6 +8,7 @@
  - Amphibious Drive added IC cost multiplier of +10%
  - Dozer Blades entrenchment reduced to 1, from 1.5
  - Dozer Blades defense reduced to 8, from 10
+ - Made Medium Navs classified as naval patrol bombers, possible
 
 ### 3.12.9
 
@@ -39,6 +40,9 @@
 
 #### General
  - Made 4 speed, 2 speed and 1 speed slightly faster
+
+ - Updated rules on paratroopers
+ - Fixed error causing some straits to not activate
  - Fixed error causing some straits to not activate
  - Brazil now has a decision to annex AI controlled Mexico
  - Embargos now require targeted country to generate 50 tension
