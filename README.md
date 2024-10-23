@@ -2,10 +2,12 @@
 
 ### 3.13.0
 
-#### General
+#### Tanks
  - Amphibious Tank Chassis IC cost increased to 6, from 4.5
  - Amphibious Tank Chassis can no longer use Light Tank Turrets
  - Amphibious Drive added IC cost multiplier of +10%
+ - Dozer Blades entrenchment reduced to 1, from 1.5
+ - Dozer Blades defense reduced to 8, from 10
 
 ### 3.12.9
 
