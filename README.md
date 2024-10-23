@@ -12,6 +12,7 @@
  - Guided ASM +5 Naval Targeting
  - Pioneers now get affected by engineers research
  - Pioneers: Jungle specialists defense boost brought inline with regular engineers
+ - Support Rocket artillery now counts as support artillery for purposes of special forces doctrine modifiers
    
 ### 3.12.9
 
