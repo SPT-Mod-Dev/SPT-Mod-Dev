@@ -1,6 +1,6 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.13.0
+### 3.12.10
 
 #### Tanks
  - Amphibious Tank Chassis IC cost increased to 6, from 4.5
