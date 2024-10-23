@@ -8,8 +8,11 @@
  - Amphibious Drive added IC cost multiplier of +10%
  - Dozer Blades entrenchment reduced to 1, from 1.5
  - Dozer Blades defense reduced to 8, from 10
- - Made Medium Navs classified as naval patrol bombers, possible
-
+ - Made Medium Navs, classified as naval patrol bombers, possible
+ - Guided ASM +5 Naval Targeting
+ - Pioneers now get affected by engineers research
+ - Pioneers: Jungle specialists defense boost brought inline with regular engineers
+   
 ### 3.12.9
 
 #### General
