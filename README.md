@@ -18,6 +18,9 @@
  - Pioneers now get affected by engineers research
  - Pioneers: Jungle specialists defense boost brought inline with regular engineers
  - Support Rocket artillery now counts as support artillery for purposes of special forces doctrine modifiers
+
+ #### Japan
+ - "Alliance with Siam" grants 100% compliance when annexing AI Siam, instead of cores
    
 ### 3.12.9
 
