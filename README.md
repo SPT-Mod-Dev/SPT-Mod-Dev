@@ -1,6 +1,11 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.12.10
+### 3.12.10 "Twilight of the Mod Devs"
+
+#### General
+ - Added additional automation to Japanese decision "Hakkō Ichiu"
+   - USA joins the Allies immediately upon Japanese DoW
+   - USA joins all British wars, namely the war against the European Axis
 
 #### Tanks
  - Amphibious Tank Chassis IC cost increased to 6, from 4.5
