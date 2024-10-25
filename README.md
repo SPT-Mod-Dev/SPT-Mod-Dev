@@ -21,6 +21,9 @@
 
  #### Japan
  - "Alliance with Siam" grants 100% compliance when annexing AI Siam, instead of cores
+
+ #### Bulgaria
+ - Focus "The Path Towards a Greater Bulgaria" no longer increases your economy law past Partial Mobilization, rewarding 150 political power instead if you already have reached it
    
 ### 3.12.9
 
