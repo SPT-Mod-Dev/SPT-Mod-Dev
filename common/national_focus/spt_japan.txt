@@ -1345,7 +1345,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_national_defense_state
-		icon = GFX_spt_focus_national_defense_state
+		icon = GFX_focus_ICE_state_corporatism
 		prerequisite = {focus = SPT_JAP_nationalize_war_industry  focus = SPT_JAP_national_research_policy }
 		#mutually_exclusive = {  }
 		x = 1
@@ -1485,6 +1485,639 @@ focus_tree = {
 
 		available = {
 
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_ideas = JAP_liaison_conference
+			every_army_leader = {
+				add_planning = 1
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_neutral_second
+		icon = GFX_focus_NORDIC_dem_institution_2
+		prerequisite = { 
+			focus = SPT_JAP_liaison_conference
+		}
+
+		mutually_exclusive = { focus = SPT_JAP_army_second }
+		mutually_exclusive = { focus = SPT_JAP_navy_second }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_liaison_conference
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		complete_tooltip = {
+			if = {
+				limit = {
+					has_completed_focus = SPT_JAP_initial_support_army
+				}
+				hidden_effect = {
+					add_ideas = JAP_interservice_rivalry_army_strengthened
+				}
+				swap_ideas = {
+					remove_idea = JAP_interservice_rivalry_army_strengthened
+					add_idea = JAP_interservice_rivalry_balanced
+				}
+				hidden_effect = {
+					remove_ideas = JAP_interservice_rivalry_balanced
+				}
+			}
+			else = {
+				hidden_effect = {
+					add_ideas = JAP_interservice_rivalry_navy_strengthened
+				}
+				swap_ideas = {
+					remove_idea = JAP_interservice_rivalry_navy_strengthened
+					add_idea = JAP_interservice_rivalry_balanced
+				}
+				hidden_effect = {
+					remove_ideas = JAP_interservice_rivalry_balanced
+				}
+			}
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_completed_focus = SPT_JAP_initial_support_army
+				}
+				swap_ideas = {
+					remove_idea = JAP_interservice_rivalry_army_strengthened
+					add_idea = JAP_interservice_rivalry_balanced
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = JAP_interservice_rivalry_navy_strengthened
+					add_idea = JAP_interservice_rivalry_balanced
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_reconciliation
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		prerequisite = { 
+			focus = SPT_JAP_neutral_second
+		}
+		mutually_exclusive = { focus = SPT_JAP_imperial_rule_association }
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_neutral_second
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SPT_JAP_imperial_rule_association
+		icon = GFX_spt_taisei_yokusan
+		prerequisite = { 
+			focus = SPT_JAP_neutral_second
+		}
+		mutually_exclusive = { focus = SPT_JAP_reconciliation }
+		x = -2
+		y = 0
+		relative_position_id = SPT_JAP_reconciliation
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_completed_focus = SPT_JAP_initial_support_neutral
+			has_completed_focus = SPT_JAP_purge_kodoha
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			promote_character = {
+				character = SPT_JAP_hideki_tojo_leader
+				ideology = fascism_ideology
+			}
+			add_ideas = JAP_hirohito
+		}
+	}
+	focus = {
+		id = SPT_JAP_spiritual_mobilization
+		icon =  GFX_focus_jap_spiritual_mobilization
+		prerequisite = { 
+			focus = SPT_JAP_imperial_rule_association
+			focus = SPT_JAP_reconciliation
+		}
+		#mutually_exclusive = { focus = SPT_JAP_reconciliation }
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_imperial_rule_association
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_ideas = spiritual_mobilization_idea
+		}
+	}
+	focus = {
+		id = SPT_JAP_consolidate_rule
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		prerequisite = { 
+			focus = SPT_JAP_spiritual_mobilization
+		}
+		#mutually_exclusive = { focus = SPT_JAP_reconciliation }
+		x = 0
+		y = 2
+		relative_position_id = SPT_JAP_spiritual_mobilization
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+
+		}
+	}
+	focus = {
+		id = SPT_JAP_shintaisei
+		icon = GFX_focus_generic_workers
+		prerequisite = { 
+			focus = SPT_JAP_imperial_rule_association
+		}
+		#mutually_exclusive = { focus = SPT_JAP_reconciliation }
+		x = -1
+		y = 1
+		relative_position_id = SPT_JAP_imperial_rule_association
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_timed_idea = {
+				idea = SPT_JAP_education_campaign
+				days = 180
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_form_tonarigumi
+		icon = GFX_focus_SOV_womens_fascist_movement
+		prerequisite = { 
+			focus = SPT_JAP_shintaisei
+		}
+		#mutually_exclusive = { focus = SPT_JAP_reconciliation }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_shintaisei
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_ideas = JAP_tonarigumi_expanded
+		}
+	}
+	focus = {
+		id = SPT_JAP_volunteer_fighting_corps
+		icon = GFX_focus_ITA_corpo_volontari_della_liberta
+		prerequisite = { 
+			focus = SPT_JAP_form_tonarigumi
+		}
+		#mutually_exclusive = { focus = SPT_JAP_reconciliation }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_form_tonarigumi
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_ideas = JAP_volunteer_corps
+		}
+	}
+	focus = {
+		id = SPT_JAP_unity_of_purpose
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		prerequisite = { 
+			focus = SPT_JAP_reconciliation
+		}
+		#mutually_exclusive = { focus = SPT_JAP_reconciliation }
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_reconciliation
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SPT_JAP_shared_resources
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		prerequisite = { 
+			focus = SPT_JAP_unity_of_purpose
+		}
+		#mutually_exclusive = { focus = SPT_JAP_reconciliation }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_unity_of_purpose
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SPT_JAP_combined_offensives
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		prerequisite = { 
+			focus = SPT_JAP_shared_resources
+		}
+		#mutually_exclusive = { focus = SPT_JAP_reconciliation }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_shared_resources
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SPT_JAP_
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		prerequisite = { 
+			focus = SPT_JAP_combined_offensives
+			focus = SPT_JAP_volunteer_fighting_corps
+		}
+		prerequisite = {
+			focus = SPT_JAP_consolidate_rule
+		}
+		#mutually_exclusive = { focus = SPT_JAP_reconciliation }
+		x = 0
+		y = 5
+		relative_position_id = SPT_JAP_neutral_second
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SPT_JAP_army_second
+		icon = GFX_focus_NORDIC_dem_army
+		prerequisite = { 
+			focus = SPT_JAP_liaison_conference
+		}
+
+		# prerequisite = {
+		# 	focus = SPT_JAP_maritime_tradition
+		# }
+		mutually_exclusive = { focus = SPT_JAP_neutral_second }
+		x = 6
+		y = 1
+		relative_position_id = SPT_JAP_liaison_conference
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			OR = {
+				has_completed_focus = SPT_JAP_initial_support_army
+				has_completed_focus = SPT_JAP_initial_support_neutral
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SPT_JAP_navy_second
+		icon = GFX_focus_NORDIC_dem_navy
+		prerequisite = { 
+			focus = SPT_JAP_liaison_conference
+		}
+
+		# prerequisite = {
+		# 	focus = SPT_JAP_maritime_tradition
+		# }
+		mutually_exclusive = { focus = SPT_JAP_neutral_second }
+		x = -6
+		y = 1
+		relative_position_id = SPT_JAP_liaison_conference
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			OR = {
+				has_completed_focus = SPT_JAP_initial_support_neutral
+				has_completed_focus = SPT_JAP_initial_support_navy
+			}
 		}
 
 		bypass = {
