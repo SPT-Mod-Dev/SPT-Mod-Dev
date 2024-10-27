@@ -1581,7 +1581,22 @@ focus_tree = {
 					add_idea = JAP_interservice_rivalry_balanced
 				}
 			}
+			else_if = {
+				limit = {
+					has_completed_focus = SPT_JAP_initial_support_navy
+				}
+				swap_ideas = {
+					remove_idea = JAP_interservice_rivalry_navy_strengthened
+					add_idea = JAP_interservice_rivalry_balanced
+				}
+			}
 			else = {
+				custom_effect_tooltip = SPT_JAP_reconciliation_army_tt
+				swap_ideas = {
+					remove_idea = JAP_interservice_rivalry_army_strengthened
+					add_idea = JAP_interservice_rivalry_balanced
+				}
+				custom_effect_tooltip = SPT_JAP_reconciliation_navy_tt
 				swap_ideas = {
 					remove_idea = JAP_interservice_rivalry_navy_strengthened
 					add_idea = JAP_interservice_rivalry_balanced
@@ -1591,7 +1606,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_reconciliation
-		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		icon = GFX_goal_generic_major_alliance
 		prerequisite = { 
 			focus = SPT_JAP_neutral_second
 		}
@@ -1614,6 +1629,9 @@ focus_tree = {
 		}
 
 		available = {
+			NOT = {
+				has_completed_focus = SPT_JAP_initial_support_neutral
+			}
 		}
 
 		bypass = {
@@ -1626,6 +1644,49 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			if = {
+				limit = {
+					AND = {
+						NOT = {
+							has_completed_focus = SPT_JAP_initial_support_army
+						}
+						NOT = {
+							has_completed_focus = SPT_JAP_initial_support_navy
+						}
+					}
+				}
+				custom_effect_tooltip = SPT_JAP_reconciliation_army_tt
+				add_timed_idea = {
+					idea = SPT_JAP_rerouting_funds_army
+					days = 180
+				}
+				custom_effect_tooltip = SPT_JAP_reconciliation_navy_tt
+				add_timed_idea = {
+					idea = SPT_JAP_rerouting_funds_navy
+					days = 180
+				}
+			}
+			else_if = {
+				limit = {
+					has_completed_focus = SPT_JAP_initial_support_army
+				}
+				add_timed_idea = {
+					idea = SPT_JAP_rerouting_funds_army
+					days = 180
+				}
+			}
+			else_if = {
+				limit = { 
+					has_completed_focus = SPT_JAP_initial_support_navy
+				 }
+				 add_timed_idea = {
+					idea = SPT_JAP_rerouting_funds_navy
+					days = 180
+				 }
+			}
+			else = {
+				add_political_power = 150
+			}
 		}
 	}
 	focus = {
@@ -1654,7 +1715,6 @@ focus_tree = {
 
 		available = {
 			has_completed_focus = SPT_JAP_initial_support_neutral
-			has_completed_focus = SPT_JAP_purge_kodoha
 		}
 
 		bypass = {
@@ -1683,7 +1743,7 @@ focus_tree = {
 		}
 		#mutually_exclusive = { focus = SPT_JAP_reconciliation }
 		x = 1
-		y = 1
+		y = 2
 		relative_position_id = SPT_JAP_imperial_rule_association
 		# offset = {
 		# 	x = 0
@@ -1716,46 +1776,6 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = SPT_JAP_consolidate_rule
-		icon = GFX_focus_eng_concessions_to_the_trade_unions
-		prerequisite = { 
-			focus = SPT_JAP_spiritual_mobilization
-		}
-		#mutually_exclusive = { focus = SPT_JAP_reconciliation }
-		x = 0
-		y = 2
-		relative_position_id = SPT_JAP_spiritual_mobilization
-		# offset = {
-		# 	x = 0
-		# 	y = 0
-		# 	trigger = {
-		# 	#	NOT = { has_dlc = "Waking the Tiger" }
-		# 	}
-		# }
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 4
-		}
-
-		available = {
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
-		completion_reward = {
-
-		}
-	}
-	focus = {
 		id = SPT_JAP_shintaisei
 		icon = GFX_focus_generic_workers
 		prerequisite = { 
@@ -1773,7 +1793,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -1816,7 +1836,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -1856,7 +1876,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -1880,7 +1900,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_unity_of_purpose
-		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		icon = GFX_goal_generic_national_unity
 		prerequisite = { 
 			focus = SPT_JAP_reconciliation
 		}
@@ -1896,7 +1916,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -1915,11 +1935,18 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_pol_showa_state_header_tt
+			add_to_variable = {
+				SPT_JAP_pol_industrial_capacity_dockyard = 0.05 tooltip = industrial_capacity_dockyard_tt
+			}
+			add_to_variable = {
+				SPT_JAP_pol_industrial_capacity_factory = 0.05 tooltip = industrial_capacity_factory_tt
+			}
 		}
 	}
 	focus = {
 		id = SPT_JAP_shared_resources
-		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		icon = GFX_focus_generic_stockpile_fuel
 		prerequisite = { 
 			focus = SPT_JAP_unity_of_purpose
 		}
@@ -1935,7 +1962,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -1954,11 +1981,15 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_pol_showa_state_header_tt
+			add_to_variable = { SPT_JAP_pol_local_resources_factor = 0.05 tooltip = local_resources_factor_tt }
+			#add_to_variable = { SPT_JAP_pol_min_export = -0.05 tooltip = min_export_factor_tt }
+			add_to_variable = { SPT_JAP_pol_fuel_gain_factor = 0.1 tooltip = fuel_gain_add_factor_tt }
 		}
 	}
 	focus = {
 		id = SPT_JAP_combined_offensives
-		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		icon = GFX_goal_generic_amphibious_assault
 		prerequisite = { 
 			focus = SPT_JAP_shared_resources
 		}
@@ -1974,7 +2005,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -1993,17 +2024,25 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_pol_showa_state_header_tt
+			add_to_variable = {
+				SPT_JAP_pol_planning_speed = 0.15 tooltip = planning_speed_factor_tt
+			}
+			every_navy_leader = {
+				add_maneuver = 1
+				add_coordination = 1	
+			}
 		}
 	}
 	focus = {
-		id = SPT_JAP_
-		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		id = SPT_JAP_autarky
+		icon = GFX_focus_generic_industry_3
 		prerequisite = { 
 			focus = SPT_JAP_combined_offensives
 			focus = SPT_JAP_volunteer_fighting_corps
 		}
 		prerequisite = {
-			focus = SPT_JAP_consolidate_rule
+			focus = SPT_JAP_spiritual_mobilization
 		}
 		#mutually_exclusive = { focus = SPT_JAP_reconciliation }
 		x = 0
@@ -2036,6 +2075,21 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			every_owned_state = {
+				limit = {
+					NOT = {	is_core_of = ROOT }
+					is_fully_controlled_by = ROOT
+				}
+				add_compliance = 5
+				add_resistance = -5
+			}
+			custom_effect_tooltip = SPT_JAP_pol_showa_state_header_tt
+			add_to_variable = {
+				SPT_JAP_pol_global_building_slots_factor = 0.1 tooltip = global_building_slots_factor_tt
+			}
+			add_to_variable = {
+				SPT_JAP_pol_production_lack_of_resource_penalty_factor = -0.1 tooltip = production_lack_of_resource_penalty_factor_tt
+			}
 		}
 	}
 	focus = {
