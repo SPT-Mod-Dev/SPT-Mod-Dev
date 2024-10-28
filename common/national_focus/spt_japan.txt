@@ -12,7 +12,7 @@ focus_tree = {
 
 	default = no
 
-	continuous_focus_position = { x = 20 y = 2000 }
+	continuous_focus_position = { x = 20 y = 2200 }
 
 	# focus = {
 	# 	id = SPT_JAP_
@@ -137,12 +137,13 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			#add_stability = 0.1
-			add_political_power = 75
+			
 			set_party_name = {
 				ideology = fascism
 				long_name = "Kōdōha Faction"
 				name = "Kōdōha Faction"
 			}
+			add_political_power = 50
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = SPT_JAP_kita_ikki	
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
@@ -158,7 +159,7 @@ focus_tree = {
 
 	focus = {
 		id = SPT_JAP_initial_support_navy
-		icon = GFX_focus_NORDIC_com_navy
+		icon = GFX_focus_NORDIC_dem_navy
 		mutually_exclusive = { focus = SPT_JAP_initial_support_neutral }
 
 		prerequisite = { focus = SPT_JAP_purge_kodoha }
@@ -395,7 +396,7 @@ focus_tree = {
 
 	focus = {
 		id = SPT_JAP_initial_support_neutral
-		icon = GFX_focus_NORDIC_com_institution_1
+		icon = GFX_focus_NORDIC_dem_institution_2
 		mutually_exclusive = { focus = SPT_JAP_initial_support_army } 
 		mutually_exclusive = { focus = SPT_JAP_initial_support_navy }
 
@@ -608,7 +609,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_initial_support_army
-		icon = GFX_focus_NORDIC_com_army
+		icon = GFX_focus_NORDIC_dem_army
 		mutually_exclusive = { focus = SPT_JAP_initial_support_neutral }
 
 		prerequisite = { focus = SPT_JAP_support_kodoha }
@@ -1510,7 +1511,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_neutral_second
-		icon = GFX_focus_NORDIC_dem_institution_2
+		icon = GFX_focus_NORDIC_com_institution_1
 		prerequisite = { 
 			focus = SPT_JAP_liaison_conference
 		}
@@ -1596,12 +1597,12 @@ focus_tree = {
 				}
 			}
 			else = {
-				custom_effect_tooltip = SPT_JAP_reconciliation_army_tt
+				custom_effect_tooltip = SPT_JAP_initial_army_supp_tt
 				swap_ideas = {
 					remove_idea = JAP_interservice_rivalry_army_strengthened
 					add_idea = JAP_interservice_rivalry_balanced
 				}
-				custom_effect_tooltip = SPT_JAP_reconciliation_navy_tt
+				custom_effect_tooltip = SPT_JAP_initial_navy_supp_tt
 				swap_ideas = {
 					remove_idea = JAP_interservice_rivalry_navy_strengthened
 					add_idea = JAP_interservice_rivalry_balanced
@@ -1660,12 +1661,12 @@ focus_tree = {
 						}
 					}
 				}
-				custom_effect_tooltip = SPT_JAP_reconciliation_army_tt
+				custom_effect_tooltip = SPT_JAP_initial_army_supp_tt
 				add_timed_idea = {
 					idea = SPT_JAP_rerouting_funds_army
 					days = 180
 				}
-				custom_effect_tooltip = SPT_JAP_reconciliation_navy_tt
+				custom_effect_tooltip = SPT_JAP_initial_navy_supp_tt
 				add_timed_idea = {
 					idea = SPT_JAP_rerouting_funds_navy
 					days = 180
@@ -1732,16 +1733,17 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			promote_character = {
-				character = SPT_JAP_hideki_tojo_leader
-				ideology = fascism_ideology
-			}
-			add_ideas = JAP_hirohito
 			set_party_name = {
 				ideology = fascism
 				long_name = "Taisei Yokusankai"
 				name = "Taisei Yokusankai"
 			}
+			promote_character = {
+				character = SPT_JAP_hideki_tojo_leader
+				ideology = fascism_ideology
+			}
+			add_ideas = JAP_hirohito
+
 		}
 	}
 	focus = {
@@ -2104,7 +2106,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_army_second
-		icon = GFX_focus_NORDIC_dem_army
+		icon = GFX_focus_NORDIC_com_army
 		prerequisite = { 
 			focus = SPT_JAP_liaison_conference
 		}
@@ -2151,7 +2153,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_navy_second
-		icon = GFX_focus_NORDIC_dem_navy
+		icon = GFX_focus_NORDIC_com_navy
 		prerequisite = { 
 			focus = SPT_JAP_liaison_conference
 		}
@@ -2182,6 +2184,121 @@ focus_tree = {
 				has_completed_focus = SPT_JAP_initial_support_neutral
 				has_completed_focus = SPT_JAP_initial_support_navy
 			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		complete_tooltip = {
+			if = {
+				limit = {
+					has_completed_focus = SPT_JAP_initial_support_neutral
+				}
+				swap_ideas = {
+					remove_idea = JAP_interservice_rivalry_balanced
+					add_idea = JAP_interservice_rivalry_navy_strengthened
+				}
+			}
+			else = {
+				swap_ideas = {
+					remove_idea = JAP_interservice_rivalry_navy_strengthened
+					add_idea = JAP_interservice_rivalry_navy_dominant
+				}
+			}
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_completed_focus = SPT_JAP_initial_support_neutral
+				}
+				swap_ideas = {
+					remove_idea = JAP_interservice_rivalry_balanced
+					add_idea = JAP_interservice_rivalry_navy_strengthened
+				}
+			}
+			else_if = {
+				limit = {
+					has_completed_focus = SPT_JAP_initial_support_navy
+				}
+				swap_ideas = {
+					remove_idea = JAP_interservice_rivalry_navy_strengthened
+					add_idea = JAP_interservice_rivalry_navy_dominant
+				}
+			}
+			else = {
+				custom_effect_tooltip = SPT_JAP_initial_neutral_supp_tt
+				swap_ideas = {
+					remove_idea = JAP_interservice_rivalry_balanced
+					add_idea = JAP_interservice_rivalry_navy_strengthened
+				}
+				custom_effect_tooltip = SPT_JAP_initial_navy_supp_tt
+				swap_ideas = {
+					remove_idea = JAP_interservice_rivalry_navy_strengthened
+					add_idea = JAP_interservice_rivalry_navy_dominant
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_empower_admirals
+		icon = GFX_focus_NORDIC_dem_navy
+		prerequisite = { 
+			focus = SPT_JAP_navy_second
+		}
+
+		mutually_exclusive = { focus = SPT_JAP_empower_zaibatsu }
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_navy_second
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SPT_JAP_empower_zaibatsu
+		icon = GFX_focus_NORDIC_dem_navy
+		prerequisite = { 
+			focus = SPT_JAP_navy_second
+		}
+
+		mutually_exclusive = { focus = SPT_JAP_empower_admirals }
+		x = -1
+		y = 1
+		relative_position_id = SPT_JAP_navy_second
+
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_completed_focus = SPT_JAP_initial_support_navy
 		}
 
 		bypass = {
