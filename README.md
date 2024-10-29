@@ -19,11 +19,14 @@
  - Pioneers: Jungle specialists defense boost brought inline with regular engineers
  - Support Rocket artillery now counts as support artillery for purposes of special forces doctrine modifiers
 
- #### Japan
+#### Japan
  - "Alliance with Siam" grants 100% compliance when annexing AI Siam, instead of cores
 
- #### Bulgaria
+#### Bulgaria
  - Focus "The Path Towards a Greater Bulgaria" no longer increases your economy law past Partial Mobilization, rewarding 150 political power instead if you already have reached it
+
+#### UK
+ - Removed decisions "Invade Ireland", "The MacDonald Proposal", and "Invoke the Alliance of 1373"
    
 ### 3.12.9
 
