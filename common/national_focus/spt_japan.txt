@@ -89,14 +89,14 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			#add_stability = 0.1
-			custom_effect_tooltip = SPT_JAP_pol_showa_state_add_purge_tt
+			custom_effect_tooltip = SPT_JAP_pol_showa_state_add_tt
 			hidden_effect = {
 				add_dynamic_modifier ={
 					modifier = SPT_JAP_pol_showa_state
 				} 
-				add_to_variable = {
-					SPT_JAP_pol_stability_factor = 0.05 tooltip = stability_factor_tt
-				}
+			}
+			add_to_variable = {
+				SPT_JAP_pol_stability_factor = 0.1 tooltip = stability_factor_tt
 			}
 		}
 	}
@@ -147,13 +147,14 @@ focus_tree = {
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = SPT_JAP_kita_ikki	
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
-			custom_effect_tooltip = SPT_JAP_pol_showa_state_add_kodoha_tt
+			custom_effect_tooltip = SPT_JAP_pol_showa_state_add_tt
 			hidden_effect = {
 				add_dynamic_modifier ={
 					modifier = SPT_JAP_pol_showa_state
 				}
-				add_to_variable = { SPT_JAP_pol_fascism_drift = 0.1 tooltip = fascism_drift_tt }
 			}
+			add_to_variable = { SPT_JAP_pol_fascism_drift = 0.1 tooltip = fascism_drift_tt }
+			
 		}
 	}
 
@@ -2281,7 +2282,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_empower_zaibatsu
-		icon = GFX_focus_NORDIC_dem_navy
+		icon = GFX_spt_zaibatsu_empowered
 		prerequisite = { 
 			focus = SPT_JAP_navy_second
 		}
@@ -2300,6 +2301,447 @@ focus_tree = {
 
 		available = {
 			has_completed_focus = SPT_JAP_initial_support_navy
+			has_idea = SPT_JAP_koyata_iwasaki
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = JAP_guide_the_zaibatsus
+				add_idea = JAP_zaibatsus_empowered
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_vampire_economy
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { 
+			focus = SPT_JAP_empower_zaibatsu
+		}
+
+		#mutually_exclusive = { focus = SPT_JAP_empower_admirals }
+		x = -3
+		y = 1
+		relative_position_id = SPT_JAP_empower_zaibatsu
+
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SPT_JAP_corporatocracy
+		icon = GFX_focus_ARG_keep_it_in_the_party
+		prerequisite = { 
+			focus = SPT_JAP_empower_zaibatsu
+		}
+
+		#mutually_exclusive = { focus = SPT_JAP_empower_admirals }
+		x = -1
+		y = 1
+		relative_position_id = SPT_JAP_empower_zaibatsu
+
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_country_leader_trait = zaibatsu_leader_trait
+			# add_trait = {
+			# 	character = JAP_emperor_hirohito
+			# 	trait = zaibatsu_leader_trait
+			# 	ideology = fascism
+			# }
+			add_tech_bonus = {
+				name = "Industrial R&D"
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_employment_for_all
+		icon = GFX_focus_generic_modernize_industry
+		prerequisite = { 
+			focus = SPT_JAP_corporatocracy
+			focus = SPT_JAP_vampire_economy
+		}
+
+		#mutually_exclusive = { focus = SPT_JAP_empower_admirals }
+		x = -1
+		y = 1
+		relative_position_id = SPT_JAP_corporatocracy
+
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_pol_showa_state_header_tt
+			add_to_variable = {
+				SPT_JAP_pol_non_core_manpower = -0.05 tooltip = SPT_JAP_non_core_manpower_tt
+			}
+			add_to_variable = {
+				SPT_JAP_pol_production_speed_buidlings_factor = 0.05 tooltip = production_speed_buildings_factor_tt
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_expand_the_colonial_mines
+		icon = GFX_focus_generic_mining_industry
+		prerequisite = { 
+			focus = SPT_JAP_employment_for_all
+		}
+
+		#mutually_exclusive = { focus = SPT_JAP_empower_admirals }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_employment_for_all
+
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_colonial_mines_tt
+			every_controlled_state = {
+				limit = {
+					has_resources_amount = {
+						resource = aluminium
+						amount > 0
+					}
+					NOT = {
+						is_core_of = JAP
+					}
+				}
+				add_resource = {
+					type = aluminium
+					amount = 3
+				}
+				add_compliance = -5
+				add_resistance = 10
+			}
+			every_controlled_state = {
+				limit = {
+					has_resources_amount = {
+						resource = chromium
+						amount > 0
+					}
+					NOT = {
+						is_core_of = JAP
+					}
+				}
+				add_resource = {
+					type = chromium
+					amount = 3
+				}
+				add_compliance = -5
+				add_resistance = 10
+			}
+			every_controlled_state = {
+				limit = {
+					has_resources_amount = {
+						resource = tungsten
+						amount > 0
+					}
+					NOT = {
+						is_core_of = JAP
+					}
+				}
+				add_resource = {
+					type = tungsten
+					amount = 3
+				}
+				add_compliance = -5
+				add_resistance = 10
+			}
+			every_owned_state = {
+				limit = {
+					has_resources_amount = {
+						resource = steel
+						amount > 0
+					}
+					NOT = {
+						is_core_of = JAP
+					}
+				}
+				add_resource = {
+					type = steel
+					amount = 3
+				}
+				add_compliance = -5
+				add_resistance = 10
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_prioritize_naval_needs
+		icon = GFX_focus_NORDIC_dem_navy
+		prerequisite = { 
+			focus = SPT_JAP_empower_admirals
+		}
+
+		#mutually_exclusive = { focus = SPT_JAP_empower_admirals }
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_empower_admirals
+
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SPT_JAP_prepare_the_southern_expansion
+		icon = GFX_focus_NORDIC_dem_navy
+		prerequisite = { 
+			focus = SPT_JAP_prioritize_naval_needs
+		}
+
+		#mutually_exclusive = { focus = SPT_JAP_empower_admirals }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_prioritize_naval_needs
+
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SPT_JAP_seize_zaibatsu_vessels
+		icon = GFX_focus_NORDIC_dem_navy
+		prerequisite = { 
+			focus = SPT_JAP_prepare_the_southern_expansion
+		}
+
+		#mutually_exclusive = { focus = SPT_JAP_empower_admirals }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_prepare_the_southern_expansion
+
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SPT_JAP_dockyard_expansion
+		icon = GFX_focus_NORDIC_dem_navy
+		prerequisite = { 
+			focus = SPT_JAP_empower_zaibatsu
+			focus = SPT_JAP_empower_admirals
+		}
+
+		#mutually_exclusive = { focus = SPT_JAP_empower_admirals }
+		x = -1
+		y = 1
+		relative_position_id = SPT_JAP_empower_admirals
+
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SPT_JAP_naval_research_think_tanks
+		icon = GFX_focus_NORDIC_dem_navy
+		prerequisite = { 
+			focus = SPT_JAP_dockyard_expansion
+		}
+
+		#mutually_exclusive = { focus = SPT_JAP_empower_admirals }
+		x = 0
+		y = 2
+		relative_position_id = SPT_JAP_dockyard_expansion
+
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+		}
+	}
+	focus = {
+		id = SPT_JAP_terror_of_the_seas
+		icon = GFX_focus_NORDIC_dem_navy
+		prerequisite = { 
+			focus = SPT_JAP_seize_zaibatsu_vessels
+			focus = SPT_JAP_expand_the_colonial_mines
+		}
+		prerequisite = {
+			focus = SPT_JAP_naval_research_think_tanks
+		}
+
+		#mutually_exclusive = { focus = SPT_JAP_empower_admirals }
+		x = -2
+		y = 1
+		relative_position_id = SPT_JAP_seize_zaibatsu_vessels
+
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
 		}
 
 		bypass = {
