@@ -2257,7 +2257,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_empower_admirals
-		icon = GFX_focus_NORDIC_dem_navy
+		icon = GFX_goal_generic_navy_doctrines_tactics
 		prerequisite = { 
 			focus = SPT_JAP_navy_second
 		}
@@ -2286,6 +2286,13 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			navy_experience = 100
+			add_political_power = 50
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_pol_showa_state_header_tt
+			add_to_variable = {
+				SPT_JAP_pol_production_speed_fuel_silo_factor = 0.10 tooltip = production_speed_fuel_silo_factor_tt
+			}
 		}
 	}
 	focus = {
@@ -2570,7 +2577,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_prioritize_naval_needs
-		icon = GFX_focus_NORDIC_dem_navy
+		icon = GFX_goal_generic_trade
 		prerequisite = { 
 			focus = SPT_JAP_empower_admirals
 		}
@@ -2600,11 +2607,18 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_pol_showa_state_header_tt
+			add_to_variable = {
+				SPT_JAP_pol_army_fuel_consumption_factor = 0.1 tooltip = SPT_JAP_army_fuel_consumption_tt
+			}
+			add_to_variable = {
+				SPT_JAP_pol_navy_fuel_consumption_factor = -0.1 tooltip = SPT_JAP_navy_fuel_consumption_tt
+			}
 		}
 	}
 	focus = {
 		id = SPT_JAP_prepare_the_southern_expansion
-		icon = GFX_focus_NORDIC_dem_navy
+		icon = GFX_focus_generic_coastal_fort
 		prerequisite = { 
 			focus = SPT_JAP_prioritize_naval_needs
 		}
@@ -2634,11 +2648,31 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			every_controlled_state = {
+				limit = {
+					OR = {
+						state = 646
+						state = 647
+						state = 684
+						state = 633
+						state = 648
+						state = 645
+						state = 524
+						state = 526
+						state = 591
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_state_supply_build_up_navy
+					scope = JAP
+					days = 180
+				}
+			}
 		}
 	}
 	focus = {
 		id = SPT_JAP_seize_zaibatsu_vessels
-		icon = GFX_focus_NORDIC_dem_navy
+		icon = GFX_focus_POL_develop_polish_shipbuilding
 		prerequisite = { 
 			focus = SPT_JAP_prepare_the_southern_expansion
 		}
@@ -2668,6 +2702,30 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			add_war_support = -0.05
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+
+			add_equipment_to_stockpile = {
+				type = convoy
+				amount = 300
+			}
 		}
 	}
 	focus = {
@@ -2795,7 +2853,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_rule_the_sea
-		icon = GFX_focus_NORDIC_dem_navy
+		icon =  GFX_focus_ETH_an_ethiopian_navy_in_exile
 		prerequisite = { 
 			focus = SPT_JAP_seize_zaibatsu_vessels
 			focus = SPT_JAP_expand_the_colonial_mines
@@ -2829,6 +2887,15 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			navy_experience = 50
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_pol_showa_state_header_tt
+			add_to_variable = {
+				SPT_JAP_pol_navy_org_factor = 0.1 tooltip = navy_org_factor_tt
+			}
+			add_to_variable = {
+				SPT_JAP_pol_naval_speed_factor = 0.1 tooltip = SPT_JAP_naval_speed_factor_tt
+			}
 		}
 	}
 }
