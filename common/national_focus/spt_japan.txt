@@ -4437,7 +4437,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 2
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -4481,7 +4481,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 2
 
 		ai_will_do = {
 			factor = 4
@@ -4603,7 +4603,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 2
 
 		ai_will_do = {
 			factor = 4
@@ -4657,7 +4657,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 2
 
 		ai_will_do = {
 			factor = 4
@@ -4712,7 +4712,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 3
 
 		ai_will_do = {
 			factor = 4
@@ -4806,7 +4806,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 3
 
 		ai_will_do = {
 			factor = 4
@@ -4855,7 +4855,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 3
 
 		ai_will_do = {
 			factor = 4
@@ -5047,7 +5047,7 @@ focus_tree = {
 
 	focus = {
 		id = SPT_JAP_defensive_war
-		icon = GFX_focus_jap_showa_restoration
+		icon = GFX_goal_generic_military_sphere
 		prerequisite = { focus = SPT_JAP_non_aggression_sov }
 		mutually_exclusive = {
 			focus = SPT_JAP_offensive_war
@@ -5063,7 +5063,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 2
 
 		ai_will_do = {
 			factor = 4
@@ -5083,12 +5083,20 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			#add_stability = 0.1
+			custom_effect_tooltip = SPT_JAP_nanshin_ron_header_tt
+			add_to_variable = {
+				SPT_JAP_army_org_factor = 0.05
+				tooltip = army_org_factor_tt
+			}
+			add_to_variable = {
+				SPT_JAP_no_supply_grace = 48
+				tooltip = SPT_JAP_supply_grace_tt
+			}
 		}
 	}
 	focus = {
 		id = SPT_JAP_fort_construction
-		icon = GFX_focus_jap_showa_restoration
+		icon = GFX_focus_generic_coastal_fort
 		prerequisite = { focus = SPT_JAP_defensive_war }
 		# mutually_exclusive = {
 		# 	focus = SPT_JAP_offensive_war
@@ -5104,7 +5112,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 2
 
 		ai_will_do = {
 			factor = 4
@@ -5124,12 +5132,20 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			#add_stability = 0.1
+			custom_effect_tooltip = SPT_JAP_nanshin_ron_header_tt
+			add_to_variable = {
+				SPT_JAP_production_speed_coastal_bunker_factor = 0.25
+				tooltip = production_speed_coastal_bunker_factor_tt
+			}
+			add_to_variable = {
+				SPT_JAP_production_speed_bunker_factor = 0.25
+				tooltip = SPT_JAP_production_speed_bunker_factor_tt
+			}
 		}
 	}
 	focus = {
 		id = SPT_JAP_information_suppression
-		icon = GFX_focus_jap_showa_restoration
+		icon = GFX_focus_generic_secret_service_agency
 		prerequisite = { focus = SPT_JAP_fort_construction }
 		# mutually_exclusive = {
 		# 	focus = SPT_JAP_offensive_war
@@ -5145,7 +5161,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 2
 
 		ai_will_do = {
 			factor = 4
@@ -5165,12 +5181,20 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			#add_stability = 0.1
+			custom_effect_tooltip = SPT_JAP_nanshin_ron_header_tt
+			add_to_variable = {
+				SPT_JAP_enemy_operative_detection_chance_factor = 0.1
+				tooltip = SPT_JAP_enemy_op_capture_factor_tt
+			}
+			add_to_variable = {
+				SPT_JAP_max_dig_in = 5
+				tooltip = SPT_JAP_max_dig_in_tt
+			}
 		}
 	}
 	focus = {
 		id = SPT_JAP_offensive_war
-		icon = GFX_focus_jap_showa_restoration
+		icon = GFX_focus_eng_move_to_secure_the_dominions
 		prerequisite = { focus = SPT_JAP_non_aggression_sov }
 		mutually_exclusive = {
 			focus = SPT_JAP_defensive_war
@@ -5186,7 +5210,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 2
 
 		ai_will_do = {
 			factor = 4
@@ -5206,12 +5230,20 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			#add_stability = 0.1
+			custom_effect_tooltip = SPT_JAP_nanshin_ron_header_tt
+			add_to_variable = {
+				SPT_JAP_army_morale_factor = 0.1
+				tooltip = army_morale_factor_tt
+			}
+			add_to_variable = {
+				SPT_JAP_max_planning = 0.05
+				tooltip = SPT_JAP_max_planning_tt
+			}
 		}
 	}
 	focus = {
 		id = SPT_JAP_constant_pressure
-		icon = GFX_focus_jap_showa_restoration
+		icon = GFX_goal_generic_amphibious_assault
 		prerequisite = { focus = SPT_JAP_offensive_war }
 		# mutually_exclusive = {
 		# 	focus = SPT_JAP_defensive_war
@@ -5227,7 +5259,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 2
 
 		ai_will_do = {
 			factor = 4
@@ -5247,12 +5279,20 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			#add_stability = 0.1
+			custom_effect_tooltip = SPT_JAP_nanshin_ron_header_tt
+			add_to_variable = {
+				SPT_JAP_naval_invasion_planning_bonus_speed = 0.1
+				tooltip = SPT_JAP_naval_invasion_planning_bonus_speed_tt
+			}
+			add_to_variable = {
+				SPT_JAP_naval_invasion_capacity = 15
+				tooltip = naval_invasion_capacity_tt
+			}
 		}
 	}
 	focus = {
 		id = SPT_JAP_information_gathering
-		icon = GFX_focus_jap_showa_restoration
+		icon = GFX_focus_SWE_radiotjanst
 		prerequisite = { focus = SPT_JAP_constant_pressure }
 		# mutually_exclusive = {
 		# 	focus = SPT_JAP_defensive_war
@@ -5268,7 +5308,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 2
 
 		ai_will_do = {
 			factor = 4
@@ -5288,12 +5328,20 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			#add_stability = 0.1
+			custom_effect_tooltip = SPT_JAP_nanshin_ron_header_tt
+			add_to_variable = {
+				SPT_JAP_operative_slot = 1
+				tooltip = operative_slot_tt
+			}
+			add_to_variable = {
+				SPT_JAP_special_forces_attack_factor = 0.05
+				tooltip = special_forces_attack_factor_tt
+			}
 		}
 	}
 	focus = {
 		id = SPT_JAP_war_prep_finished
-		icon = GFX_focus_jap_showa_restoration
+		icon = GFX_goal_generic_national_unity
 		prerequisite = { 
 			focus = SPT_JAP_information_suppression
 			focus = SPT_JAP_information_gathering 
@@ -5345,7 +5393,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_nanshin_ron_completed
-		icon = GFX_focus_jap_showa_restoration
+		icon = GFX_focus_jap_strike_south
 		prerequisite = { 
 			focus = SPT_JAP_industry_reorg
 			focus = SPT_JAP_war_prep_finished
