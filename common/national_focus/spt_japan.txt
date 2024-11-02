@@ -3610,7 +3610,7 @@ focus_tree = {
 
 	focus = {
 		id = SPT_JAP_marco_polo
-		icon = GFX_focus_jap_showa_restoration
+		icon = GFX_focus_jap_cast_the_die
 		#  prerequisite = { focus = SPT_JAP_ }
 		#mutually_exclusive = {  }
 		x = 19
@@ -3773,7 +3773,7 @@ focus_tree = {
 
 	focus = {
 		id = SPT_JAP_learn_from_germany
-		icon = GFX_focus_jap_showa_restoration
+		icon = GFX_focus_chi_mission_to_germany
 		prerequisite = { focus = SPT_JAP_marco_polo }
 		#mutually_exclusive = {  }
 		x = 2
@@ -3833,7 +3833,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_german_advisors
-		icon = GFX_focus_jap_showa_restoration
+		icon = GFX_goal_continuous_armor_production
 		prerequisite = { focus = SPT_JAP_learn_from_germany }
 		#mutually_exclusive = {  }
 		x = 0
@@ -3875,12 +3875,14 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			add_ideas = SPT_JAP_german_advisors
+			add_ideas = SPT_JAP_german_advisors_spirit
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			JAP_intervene_in_china_level_down = yes
 		}
 	}
 	focus = {
 		id = SPT_JAP_learn_from_italy
-		icon = GFX_focus_jap_showa_restoration
+		icon = GFX_focus_befriend_italy
 		prerequisite = { focus = SPT_JAP_marco_polo }
 		#mutually_exclusive = {  }
 		x = 0
@@ -3939,7 +3941,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_italian_advisors
-		icon = GFX_focus_jap_showa_restoration
+		icon = GFX_focus_generic_manpower
 		prerequisite = { focus = SPT_JAP_learn_from_italy }
 		#mutually_exclusive = {  }
 		x = 0
@@ -3981,12 +3983,14 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			add_ideas = SPT_JAP_italian_advisors
+			add_ideas = SPT_JAP_italian_advisors_spirit
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			JAP_intervene_in_china_level_down = yes
 		}
 	}
 	focus = {
 		id = SPT_JAP_learn_from_japan
-		icon = GFX_focus_jap_showa_restoration
+		icon = GFX_focus_attack_japan
 		prerequisite = { focus = SPT_JAP_marco_polo }
 		#mutually_exclusive = {  }
 		x = -2
@@ -4045,8 +4049,8 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = SPT_JAP_japanese_innovations
-		icon = GFX_focus_jap_showa_restoration
+		id = SPT_JAP_japanese_advisors
+		icon = GFX_goal_generic_position_armies
 		prerequisite = { focus = SPT_JAP_learn_from_japan }
 		#mutually_exclusive = {  }
 		x = 0
@@ -4088,12 +4092,14 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			add_ideas = SPT_JAP_japanese_advisors
+			add_ideas = SPT_JAP_japanese_advisors_spirit
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			JAP_intervene_in_china_level_down = yes
 		}
 	}
 	focus = {
 		id = SPT_JAP_learn_from_china
-		icon = GFX_focus_jap_showa_restoration
+		icon = GFX_focus_generic_china1
 		prerequisite = { focus = SPT_JAP_marco_polo }
 		prerequisite = {
 			focus = SPT_JAP_manchurian_project
@@ -4155,7 +4161,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_manchu_advisors
-		icon = GFX_focus_jap_showa_restoration
+		icon = GFX_focus_generic_conspiracy
 		prerequisite = { focus = SPT_JAP_learn_from_china }
 		#mutually_exclusive = {  }
 		x = 0
@@ -4200,6 +4206,8 @@ focus_tree = {
 			CHI = {
 				add_ideas = SPT_JAP_debuff_for_china
 			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			JAP_intervene_in_china_level_down = yes
 		}
 	}
 }
