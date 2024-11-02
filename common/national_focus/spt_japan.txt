@@ -4420,6 +4420,53 @@ focus_tree = {
 			custom_effect_tooltip = SPT_JAP_strike_south_tt
 		}
 	}
+	focus = {
+		id = SPT_JAP_tripartite
+		icon = GFX_focus_chi_mission_to_germany
+		prerequisite = { 
+			focus = SPT_JAP_strike_south
+		}
+		#mutually_exclusive = {  }
+		x = 2
+		y = 1
+		relative_position_id = SPT_JAP_strike_south
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			random_country = {
+				limit = {
+					original_tag = GER
+					has_government = fascism
+				}
+				country_event = { id = wtt_japan.109 days = 1 }
+			}
+		}
+	}
 
 	focus = {
 		id = SPT_JAP_non_aggression_sov
