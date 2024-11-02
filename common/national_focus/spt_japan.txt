@@ -3867,7 +3867,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -3975,7 +3975,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -4084,7 +4084,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -4195,7 +4195,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -4380,7 +4380,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -4437,7 +4437,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 2
 
 		ai_will_do = {
 			factor = 4
@@ -4463,6 +4463,588 @@ focus_tree = {
 			SOV = { country_event = { id = wtt_japan.11 } }
 		}
 	}
+	focus = {
+		id = SPT_JAP_rapid_dev
+		icon = GFX_focus_SOV_organize_wreckers
+		prerequisite = { focus = SPT_JAP_non_aggression_sov }
+		mutually_exclusive = { 
+			focus = SPT_JAP_slow_dev
+		}
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_non_aggression_sov
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_nanshin_ron_header_tt
+			add_to_variable = {
+				SPT_JAP_production_speed_arms_factory_factor = -0.4 tooltip = production_speed_arms_factory_factor_tt
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			add_timed_idea = {
+				idea = SPT_JAP_rapid_arms_dev
+				days = 250
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_quick_factory_retool
+		icon = GFX_goal_generic_air_production
+		prerequisite = { focus = SPT_JAP_rapid_dev }
+		# mutually_exclusive = { 
+		# 	focus = SPT_JAP_slow_dev
+		# }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_rapid_dev
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_nanshin_ron_header_tt
+			add_to_variable = {
+				SPT_JAP_factory_max_efficiency_factor = -0.1
+				tooltip = production_factory_max_efficiency_factor_tt
+			}
+			add_to_variable = {
+				SPT_JAP_production_factory_efficiency_gain_factor = -0.2
+				tooltip = production_factory_efficiency_gain_factor_tt
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			add_timed_idea = {
+				idea = SPT_JAP_quick_retool
+				days = 250
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_factory_mobilize
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = SPT_JAP_quick_factory_retool }
+		# mutually_exclusive = { 
+		# 	focus = SPT_JAP_slow_dev
+		# }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_quick_factory_retool
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_nanshin_ron_header_tt
+
+			add_to_variable = {
+				SPT_JAP_conscription = -0.005
+				tooltip = conscription_tt
+			}
+			add_to_variable = {
+				SPT_JAP_industrial_capacity_factory = -0.2
+				tooltip = industrial_capacity_factory_tt
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			add_timed_idea = {
+				idea = SPT_JAP_factory_mobi
+				days = 250
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_slow_dev
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = SPT_JAP_non_aggression_sov }
+		mutually_exclusive = { 
+			focus = SPT_JAP_rapid_dev
+		}
+		x = -1
+		y = 1
+		relative_position_id = SPT_JAP_non_aggression_sov
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			date < 1940.1.1
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_long_term
+		icon = GFX_focus_SOV_merge_plants
+		prerequisite = { focus = SPT_JAP_slow_dev }
+		# mutually_exclusive = { 
+		# 	focus = SPT_JAP_rapid_dev
+		# }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_slow_dev
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			date < 1940.1.1
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_nanshin_ron_header_tt
+			add_to_variable = {
+				SPT_JAP_production_factory_efficiency_gain_factor = 0.05
+				tooltip = production_factory_efficiency_gain_factor_tt
+			}
+			add_to_variable = {
+				SPT_JAP_factory_max_efficiency_factor = 0.05
+				tooltip = production_factory_max_efficiency_factor_tt
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_stockpile_strats
+		icon = GFX_goal_generic_trade
+		prerequisite = { focus = SPT_JAP_long_term }
+		# mutually_exclusive = { 
+		# 	focus = SPT_JAP_rapid_dev
+		# }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_long_term
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			date < 1940.1.1
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_nanshin_ron_header_tt
+			add_to_variable = {
+				SPT_JAP_local_resources_factor = 0.05
+				tooltip = local_resources_factor_tt
+			}
+			add_to_variable = {
+				SPT_JAP_fuel_gain_factor = 0.1
+				tooltip = fuel_gain_add_factor_tt
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = fuel_silo
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = fuel_silo
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = fuel_silo
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = fuel_silo
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_industry_reorg
+		icon = GFX_goal_continuous_naval_production
+		prerequisite = { 
+			focus = SPT_JAP_factory_mobilize
+			focus = SPT_JAP_stockpile_strats
+		}
+		# mutually_exclusive = { 
+		# 	focus = SPT_JAP_rapid_dev
+		# }
+		x = -1
+		y = 1
+		relative_position_id = SPT_JAP_factory_mobilize
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_nanshin_ron_header_tt
+			add_to_variable = {
+				SPT_JAP_global_building_slots_factor = 0.1
+				tooltip = global_building_slots_factor_tt
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
 }
 
 	# focus = {
