@@ -4470,7 +4470,7 @@ focus_tree = {
 		mutually_exclusive = { 
 			focus = SPT_JAP_slow_dev
 		}
-		x = 1
+		x = -1
 		y = 1
 		relative_position_id = SPT_JAP_non_aggression_sov
 		# offset = {
@@ -4701,7 +4701,7 @@ focus_tree = {
 		mutually_exclusive = { 
 			focus = SPT_JAP_rapid_dev
 		}
-		x = -1
+		x = -3
 		y = 1
 		relative_position_id = SPT_JAP_non_aggression_sov
 		# offset = {
@@ -5041,6 +5041,364 @@ focus_tree = {
 					level = 2
 					instant_build = yes
 				}
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_defensive_war
+		icon = GFX_focus_jap_showa_restoration
+		prerequisite = { focus = SPT_JAP_non_aggression_sov }
+		mutually_exclusive = {
+			focus = SPT_JAP_offensive_war
+		}
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_non_aggression_sov
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			#add_stability = 0.1
+		}
+	}
+	focus = {
+		id = SPT_JAP_fort_construction
+		icon = GFX_focus_jap_showa_restoration
+		prerequisite = { focus = SPT_JAP_defensive_war }
+		# mutually_exclusive = {
+		# 	focus = SPT_JAP_offensive_war
+		# }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_defensive_war
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			#add_stability = 0.1
+		}
+	}
+	focus = {
+		id = SPT_JAP_information_suppression
+		icon = GFX_focus_jap_showa_restoration
+		prerequisite = { focus = SPT_JAP_fort_construction }
+		# mutually_exclusive = {
+		# 	focus = SPT_JAP_offensive_war
+		# }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_fort_construction
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			#add_stability = 0.1
+		}
+	}
+	focus = {
+		id = SPT_JAP_offensive_war
+		icon = GFX_focus_jap_showa_restoration
+		prerequisite = { focus = SPT_JAP_non_aggression_sov }
+		mutually_exclusive = {
+			focus = SPT_JAP_defensive_war
+		}
+		x = 3
+		y = 1
+		relative_position_id = SPT_JAP_non_aggression_sov
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			#add_stability = 0.1
+		}
+	}
+	focus = {
+		id = SPT_JAP_constant_pressure
+		icon = GFX_focus_jap_showa_restoration
+		prerequisite = { focus = SPT_JAP_offensive_war }
+		# mutually_exclusive = {
+		# 	focus = SPT_JAP_defensive_war
+		# }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_offensive_war
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			#add_stability = 0.1
+		}
+	}
+	focus = {
+		id = SPT_JAP_information_gathering
+		icon = GFX_focus_jap_showa_restoration
+		prerequisite = { focus = SPT_JAP_constant_pressure }
+		# mutually_exclusive = {
+		# 	focus = SPT_JAP_defensive_war
+		# }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_constant_pressure
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			#add_stability = 0.1
+		}
+	}
+	focus = {
+		id = SPT_JAP_war_prep_finished
+		icon = GFX_focus_jap_showa_restoration
+		prerequisite = { 
+			focus = SPT_JAP_information_suppression
+			focus = SPT_JAP_information_gathering 
+		}
+		# mutually_exclusive = {
+		# 	focus = SPT_JAP_defensive_war
+		# }
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_information_suppression
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_nanshin_ron_header_tt
+			add_to_variable = {
+				SPT_JAP_air_doctrine_cost_factor = -0.1
+				tooltip = air_doctrine_cost_factor_tt
+			}
+			add_to_variable = {
+				SPT_JAP_naval_doctrine_cost_factor = -0.1
+				tooltip = naval_doctrine_cost_factor_tt
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_nanshin_ron_completed
+		icon = GFX_focus_jap_showa_restoration
+		prerequisite = { 
+			focus = SPT_JAP_industry_reorg
+			focus = SPT_JAP_war_prep_finished
+		}
+		# mutually_exclusive = {
+		# 	focus = SPT_JAP_defensive_war
+		# }
+		x = 2
+		y = 1
+		relative_position_id = SPT_JAP_industry_reorg
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_nanshin_ron_header_tt
+			add_to_variable = {
+				SPT_JAP_resistance_target = -0.05
+				tooltip = SPT_JAP_resistance_target_tt
+			}
+			add_to_variable = {
+				SPT_JAP_war_support_factor = 0.1
+				tooltip = war_support_factor_tt
+			}
+			#custom_effect_tooltip = SPT_JAP_strike_south_completed_tt
+			
+			unlock_decision_tooltip = JAP_declare_war_on_allies
+
+			hidden_effect = {
+				SIA = { country_event = { id = spt_sia.1 } }
 			}
 		}
 	}
