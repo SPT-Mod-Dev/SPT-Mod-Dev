@@ -1,5 +1,5 @@
 focus_tree = {
-	id = japan_wtt_focus
+	id = SPT_jap_tree
 	
 	country = {
 		factor = 0
@@ -3312,7 +3312,17 @@ focus_tree = {
 				}
 				add_core_of = JAP
 				add_manpower = 35000
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_korea_industry_help
+					days = 180
+				}
 			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			add_victory_points = {
 				province = 4056
 				value = 4
@@ -3345,7 +3355,17 @@ focus_tree = {
 				}
 				add_core_of = JAP
 				add_manpower = 35000
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_korea_industry_help
+					days = 180
+				}
 			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			
 			add_victory_points = {
 				province = 4056
@@ -3733,7 +3753,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -3787,7 +3807,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -3896,7 +3916,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -4004,7 +4024,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -4116,7 +4136,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -4208,6 +4228,239 @@ focus_tree = {
 			}
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			JAP_intervene_in_china_level_down = yes
+		}
+	}
+	
+	focus = {
+		id = SPT_JAP_exploit_chinese_industry
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { 
+			focus = SPT_JAP_manchu_advisors 
+			focus = SPT_JAP_japanese_advisors
+			focus = SPT_JAP_italian_advisors
+			focus = SPT_JAP_german_advisors
+		}
+		mutually_exclusive = {
+			focus = SPT_JAP_exploit_chinese_resources
+		}
+		x = -1
+		y = 1
+		relative_position_id = SPT_JAP_japanese_advisors
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			OR = {
+				CHI = {
+					exists = no
+				}
+				CHI = {
+					is_puppet_of = JAP
+				}
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			every_controlled_state = {
+				limit = {
+					is_core_of = CHI
+				}
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_exploit_chinese_industry_modifier
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_exploit_chinese_resources
+		icon = GFX_focus_chi_one_china_policy
+		prerequisite = { 
+			focus = SPT_JAP_manchu_advisors 
+			focus = SPT_JAP_japanese_advisors
+			focus = SPT_JAP_italian_advisors
+			focus = SPT_JAP_german_advisors
+		}
+		mutually_exclusive = {
+			focus = SPT_JAP_exploit_chinese_industry
+		}
+		x = 3
+		y = 1
+		relative_position_id = SPT_JAP_japanese_advisors
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			OR = {
+				CHI = {
+					exists = no
+				}
+				CHI = {
+					is_puppet_of = JAP
+				}
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			605 = {
+				add_resource = {
+					type = aluminium
+					amount = 8
+				}
+			}
+			325 = {
+				add_resource = {
+					type = aluminium
+					amount = 12
+				}
+			}
+			if = {
+				limit = { has_dlc = "Waking the Tiger" }
+				unlock_decision_category_tooltip = prospect_for_resources
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_strike_south
+		icon = GFX_goal_generic_territory_or_war
+		prerequisite = { 
+			focus = SPT_JAP_exploit_chinese_industry 
+			focus = SPT_JAP_exploit_chinese_resources
+		}
+		#mutually_exclusive = {  }
+		x = -2
+		y = 1
+		relative_position_id = SPT_JAP_exploit_chinese_resources
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_strike_south_tutorial_tt
+			add_doctrine_cost_reduction = {
+				name = JAP_strike_south_doctrine
+				cost_reduction = 0.5
+				uses = 2
+				category = naval_doctrine	
+			}
+			unlock_decision_tooltip = JAP_pressure_france
+			hidden_effect = {
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_nanshin_ron
+				}
+				set_variable = {
+					SPT_JAP_non_core_manpower = 0.1
+				}
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_strike_south_tt
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_non_aggression_sov
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		prerequisite = { focus = SPT_JAP_strike_south }
+		#mutually_exclusive = {  }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_strike_south
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+			OR = {
+				has_non_aggression_pact_with = SOV
+				has_war_with = SOV
+			}
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			SOV = { country_event = { id = wtt_japan.11 } }
 		}
 	}
 }
