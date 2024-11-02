@@ -3607,4 +3607,639 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = {
+		id = SPT_JAP_marco_polo
+		icon = GFX_focus_jap_showa_restoration
+		#  prerequisite = { focus = SPT_JAP_ }
+		#mutually_exclusive = {  }
+		x = 19
+		y = 0
+		relative_position_id = SPT_JAP_purge_kodoha
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 100
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = { 
+			always = no
+		}
+		bypass = {
+			OR = {
+				CHI = {
+					exists = no
+				}
+				CHI = {
+					is_puppet_of = JAP
+				}
+				has_war_with = CHI
+			}
+		}
+
+		will_lead_to_war_with = CHI
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			hidden_effect = {
+				CHI = {
+					add_ai_strategy = {
+						type = befriend
+						id = SOV
+						value = 1000
+					}
+				}
+			}
+			if = {
+				limit = {
+					CHI = { #if CHI owns one of these states, they get the event
+						OR = {
+							controls_state = 608
+							controls_state = 597
+							controls_state = 614
+						}
+					}
+				}
+				CHI = {
+					country_event = china.1
+				}
+			}
+			if = {
+				limit = {
+					PRC = { #only fires the event for PRC if they control ALL of the states (to ensure that only one of them gets it, to avoid issues when one selects to turn over the states and the other doesn't)
+						AND = {
+							controls_state = 608
+							controls_state = 597
+							controls_state = 614
+						}
+					}
+				}
+				PRC = {
+					country_event = china.1
+				}
+			}
+			if = {
+				limit = {
+					SHX = { #only fires the event for SHX if they control ALL of the states (to ensure that only one of them gets it, to avoid issues when one selects to turn over the states and the other doesn't)
+						AND = {
+							controls_state = 608
+							controls_state = 597
+							controls_state = 614
+						}
+					}
+				}
+				SHX = {
+					country_event = china.1
+				}
+			}
+			add_named_threat = { threat = 1 name = JAP_intervene_in_china }
+			add_ideas = JAP_intervene_in_china_5
+			unlock_decision_tooltip = JAP_china_step_up_war_effort
+
+			hidden_effect = { scoped_play_song = "domineer" } 
+			SIA = {
+				hidden_effect = { scoped_play_song = "domineer" } 
+			}
+			MAN = {
+				hidden_effect = { scoped_play_song = "domineer" } 
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_manchurian_project
+		icon = GFX_focus_jap_manchurian_project
+		#  prerequisite = { focus = SPT_JAP_ }
+		#mutually_exclusive = {  }
+		x = -4
+		y = 0
+		relative_position_id = SPT_JAP_marco_polo
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			OR = {
+				MAN = { is_subject_of = ROOT }
+				any_controlled_state = {
+					is_core_of = MAN
+				}
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			if = {
+				limit = {MAN = { is_subject_of = ROOT } }
+				MAN = {				
+					add_stability = 0.1
+					add_war_support = 0.1
+					add_political_power = 150
+				}
+			}
+			
+			custom_effect_tooltip = JAP_the_manchurian_project_tt
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_learn_from_germany
+		icon = GFX_focus_jap_showa_restoration
+		prerequisite = { focus = SPT_JAP_marco_polo }
+		#mutually_exclusive = {  }
+		x = 2
+		y = 1
+		relative_position_id = SPT_JAP_marco_polo
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_war_with = CHI
+		}
+
+		bypass = {
+			OR = {
+				CHI = {
+					exists = no
+				}
+				CHI = {
+					is_puppet_of = JAP
+				}
+			}
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			army_experience = 25
+
+			every_army_leader = {
+				limit = {
+					OR = {
+						is_character = JAP_tomoyuki_yamashita
+						is_character = JAP_kenkichi_ueda
+						is_character = JAP_otozo_yamada
+					}
+				}
+				add_trait = {
+					trait = armor_officer
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_german_advisors
+		icon = GFX_focus_jap_showa_restoration
+		prerequisite = { focus = SPT_JAP_learn_from_germany }
+		#mutually_exclusive = {  }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_learn_from_germany
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_war_with = CHI
+		}
+
+		bypass = {
+			OR = {
+				CHI = {
+					exists = no
+				}
+				CHI = {
+					is_puppet_of = JAP
+				}
+			}
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_ideas = SPT_JAP_german_advisors
+		}
+	}
+	focus = {
+		id = SPT_JAP_learn_from_italy
+		icon = GFX_focus_jap_showa_restoration
+		prerequisite = { focus = SPT_JAP_marco_polo }
+		#mutually_exclusive = {  }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_marco_polo
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_war_with = CHI
+		}
+
+		bypass = {
+			OR = {
+				CHI = {
+					exists = no
+				}
+				CHI = {
+					is_puppet_of = JAP
+				}
+			}
+
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			army_experience = 25
+
+			every_army_leader = {
+				limit = {
+					OR = {
+						is_character = JAP_toshizo_nishio
+						is_character = JAP_naruhiko_higashikuni
+						is_character = JAP_hitoshi_imamura
+					}
+				}
+				add_trait = {
+					trait = engineer_officer
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_italian_advisors
+		icon = GFX_focus_jap_showa_restoration
+		prerequisite = { focus = SPT_JAP_learn_from_italy }
+		#mutually_exclusive = {  }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_learn_from_italy
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_war_with = CHI
+		}
+
+		bypass = {
+			OR = {
+				CHI = {
+					exists = no
+				}
+				CHI = {
+					is_puppet_of = JAP
+				}
+			}
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_ideas = SPT_JAP_italian_advisors
+		}
+	}
+	focus = {
+		id = SPT_JAP_learn_from_japan
+		icon = GFX_focus_jap_showa_restoration
+		prerequisite = { focus = SPT_JAP_marco_polo }
+		#mutually_exclusive = {  }
+		x = -2
+		y = 1
+		relative_position_id = SPT_JAP_marco_polo
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_war_with = CHI
+		}
+
+		bypass = {
+			OR = {
+				CHI = {
+					exists = no
+				}
+				CHI = {
+					is_puppet_of = JAP
+				}
+			}
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			army_experience = 25
+
+			every_army_leader = {
+				limit = {
+					OR = {
+						is_character = JAP_kuniaki_koiso
+						is_character = JAP_seishiro_itagaki
+						is_character = JAP_takashi_sakai
+					}
+				}
+				add_trait = {
+					trait = naval_invader
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_japanese_innovations
+		icon = GFX_focus_jap_showa_restoration
+		prerequisite = { focus = SPT_JAP_learn_from_japan }
+		#mutually_exclusive = {  }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_learn_from_japan
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_war_with = CHI
+		}
+
+		bypass = {
+			OR = {
+				CHI = {
+					exists = no
+				}
+				CHI = {
+					is_puppet_of = JAP
+				}
+			}
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_ideas = SPT_JAP_japanese_advisors
+		}
+	}
+	focus = {
+		id = SPT_JAP_learn_from_china
+		icon = GFX_focus_jap_showa_restoration
+		prerequisite = { focus = SPT_JAP_marco_polo }
+		prerequisite = {
+			focus = SPT_JAP_manchurian_project
+		}
+		#mutually_exclusive = {  }
+		x = -4
+		y = 1
+		relative_position_id = SPT_JAP_marco_polo
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_war_with = CHI
+		}
+
+		bypass = {
+			OR = {
+				CHI = {
+					exists = no
+				}
+				CHI = {
+					is_puppet_of = JAP
+				}
+			}
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			army_experience = 25
+
+			every_army_leader = {
+				limit = {
+					OR = {
+						is_character = JAP_hisaichi_terauchi
+						is_character = JAP_shunroku_hata
+					}
+				}
+				add_trait = {
+					trait = logistics_wizard
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_manchu_advisors
+		icon = GFX_focus_jap_showa_restoration
+		prerequisite = { focus = SPT_JAP_learn_from_china }
+		#mutually_exclusive = {  }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_learn_from_china
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_war_with = CHI
+		}
+
+		bypass = {
+			OR = {
+				CHI = {
+					exists = no
+				}
+				CHI = {
+					is_puppet_of = JAP
+				}
+			}
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			CHI = {
+				add_ideas = SPT_JAP_debuff_for_china
+			}
+		}
+	}
 }
+
+	# focus = {
+	# 	id = SPT_JAP_
+	# 	icon = GFX_focus_jap_showa_restoration
+	##  prerequisite = { focus = SPT_JAP_ }
+	# 	#mutually_exclusive = {  }
+	# 	x = 0
+	# 	y = 0
+	# 	relative_position_id = SPT_JAP_
+	# 	# offset = {
+	# 	# 	x = 0
+	# 	# 	y = 0
+	# 	# 	trigger = {
+	# 	# 	#	NOT = { has_dlc = "Waking the Tiger" }
+	# 	# 	}
+	# 	# }
+
+	# 	cost = 10
+
+	# 	ai_will_do = {
+	# 		factor = 4
+	# 	}
+
+	# 	available = {
+
+	# 	}
+
+	# 	bypass = {
+
+	# 	}
+
+	# 	cancel_if_invalid = yes
+	# 	continue_if_invalid = no
+	# 	available_if_capitulated = no
+
+	# 	search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+	# 	completion_reward = {
+	# 		#add_stability = 0.1
+	# 	}
+	# }
