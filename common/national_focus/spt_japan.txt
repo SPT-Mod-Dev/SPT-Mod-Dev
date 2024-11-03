@@ -2251,7 +2251,7 @@ focus_tree = {
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			custom_effect_tooltip = SPT_JAP_pol_showa_state_header_tt
 			add_to_variable = {
-				SPT_JAP_pol_production_speed_fuel_silo_factor = 0.10 tooltip = production_speed_fuel_silo_factor_tt
+				SPT_JAP_pol_experience_gain_navy_factor = 0.10 tooltip = experience_gain_navy_tt
 			}
 		}
 	}
@@ -3003,7 +3003,7 @@ focus_tree = {
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			custom_effect_tooltip = SPT_JAP_pol_showa_state_header_tt
 			add_to_variable = {
-				SPT_JAP_pol_fuel_gain_factor = 0.10 tooltip = fuel_gain_add_factor_tt
+				SPT_JAP_pol_experience_gain_army_factor = 0.10 tooltip = experience_gain_army_factor_tt
 			}
 		}
 	}
@@ -3657,7 +3657,10 @@ focus_tree = {
 		}
 
 		available = { 
-			always = no
+			custom_trigger_tooltip = {
+				tooltip = SPT_JAP_marco_polo_trigger_tt	
+				always = no
+			}
 		}
 		bypass = {
 			OR = {
@@ -3873,7 +3876,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -3981,7 +3984,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -4030,7 +4033,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -4142,7 +4145,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -5546,6 +5549,7 @@ focus_tree = {
 			focus = SPT_JAP_industry_reorg
 			focus = SPT_JAP_war_prep_finished
 		}
+		text_icon = NORDIC_focus_style
 		# mutually_exclusive = {
 		# 	focus = SPT_JAP_defensive_war
 		# }
