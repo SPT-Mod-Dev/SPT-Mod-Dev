@@ -4327,7 +4327,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -5848,6 +5848,1543 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = {
+		id = SPT_JAP_army_expansion_law
+		icon = GFX_focus_generic_fascist_troops
+		x = 27
+		y = 0
+		relative_position_id = SPT_JAP_purge_kodoha #SPT change, changed the relative position
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+			}
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			army_experience = 30
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_small_arms_modernization
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = SPT_JAP_army_expansion_law }
+		x = -1
+		y = 1
+		relative_position_id = SPT_JAP_army_expansion_law
+
+		cost = 5 #SPT change 10 -> 5
+
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 2
+			}
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			army_experience = 15 #SPT change added 15 army xp reward
+			add_tech_bonus = {
+				name = JAP_small_arms_modernization
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons	
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_supremacy_of_technology
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = SPT_JAP_small_arms_modernization }
+		mutually_exclusive = { focus = SPT_JAP_supremacy_of_will }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_small_arms_modernization
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+			}
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_ideas = JAP_supremacy_of_technology
+			#SPT change to give supremacy of tech a boost
+			every_military_industrial_organization = {
+				tooltip = every_mio_tt
+				add_mio_funds_gain_factor = 0.10
+			}
+		}
+	}
+
+	focus = {
+		allow_branch = {always = no} #SPTChange
+		id = SPT_JAP_modern_artillery
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus =JAP_supremacy_of_technology  }
+		x = -1
+		y = 1
+		relative_position_id = SPT_JAP_supremacy_of_technology
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_tech_bonus = {
+				name = JAP_modern_artillery
+				bonus = 1.0
+				uses = 2
+				category = artillery	
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_artillery_efficient
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = SPT_JAP_supremacy_of_technology  }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_supremacy_of_technology
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			army_experience = 10
+			add_tech_bonus = {
+				name = JAP_modern_artillery
+				bonus = 0.5
+				uses = 2
+				category = artillery	
+			}
+			add_ideas = JAP_cheap_arty
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_artillery_empower
+		icon = GFX_goal_generic_army_artillery
+		prerequisite = { focus = SPT_JAP_artillery_efficient  }
+		x = 0
+		y = 2
+		relative_position_id = SPT_JAP_supremacy_of_technology
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			army_experience = 10
+			swap_ideas = {
+				add_idea = JAP_cheap_arty_improved
+				remove_idea = JAP_cheap_arty
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_armored_divs
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = SPT_JAP_supremacy_of_technology }
+		x = -2
+		y = 1
+		relative_position_id = SPT_JAP_supremacy_of_technology
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			army_experience = 15
+			add_tech_bonus = {
+				name = JAP_armored_divisions
+				bonus = 1.0
+				uses = 1
+				category = armor	
+			}
+			mio:JAP_osaka_army_arsenal_organization = {
+				add_mio_size = 1
+				unlock_mio_trait_tooltip = SPT_JAP_armored_divisions_trait_tk
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_armored_spear
+		icon = GFX_focus_generic_license_production
+		prerequisite = { focus = SPT_JAP_armored_divs }
+		x = -2
+		y = 2
+		relative_position_id = SPT_JAP_supremacy_of_technology
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			army_experience = 10
+			add_tech_bonus = {
+				name = JAP_armored_divisions
+				bonus = 1.0
+				uses = 1
+				category = armor	
+			}
+			hidden_effect = {
+				set_technology = {
+					JAP_tank_jungle_training = 1
+				}
+			}
+				custom_effect_tooltip = JAP_armored_spearhead_tt
+		}
+
+	}
+
+	focus = {
+		id = SPT_JAP_greater_artillery
+		icon = GFX_focus_generic_railway_gun
+		prerequisite = { focus = SPT_JAP_artillery_empower }
+		prerequisite = { focus = SPT_JAP_armored_spear }
+		x = -1
+		y = 3
+		relative_position_id = SPT_JAP_supremacy_of_technology
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = { has_tech = armored_train }
+				}
+				set_technology = { armored_train = 1 }
+			}
+			if = {
+				limit = {
+					NOT = { has_tech = railway_gun }
+				}
+				set_technology = { railway_gun = 1 }
+			}
+			SPT_JAP_spawn_railway_guns = yes
+		}
+	}
+
+
+
+	focus = {
+		allow_branch = {always = no} #SPTChange
+		id = SPT_JAP_bicycle_battalions
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = SPT_JAP_supremacy_of_technology focus = SPT_JAP_supremacy_of_will }
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_supremacy_of_technology
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			set_technology = { bicycle_infantry = 1 }
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_army_expansion
+		icon = GFX_focus_chi_army_reform
+		prerequisite = { focus = SPT_JAP_army_expansion_law }
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_army_expansion_law
+
+		cost = 5 #SPT change 10 -> 5
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+			}
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			army_experience = 30 #SPT change added 30 army xp reward
+			custom_effect_tooltip = available_chief_of_army
+			show_ideas_tooltip = hajime_sugiyama
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_supremacy_of_will
+		icon = GFX_focus_generic_japanese_imperial_glory
+		prerequisite = { focus = SPT_JAP_army_expansion }
+		mutually_exclusive = { focus = SPT_JAP_supremacy_of_technology }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_army_expansion
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+			}
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			add_ideas = JAP_superior_will
+		}
+	}
+	focus = {
+		id = SPT_JAP_fearless_army_new
+		icon = GFX_focus_ITA_moschettieri_del_duce
+		prerequisite = { focus = SPT_JAP_supremacy_of_will}
+		x = 0
+		y = 2
+		relative_position_id = SPT_JAP_army_expansion
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+			}
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			swap_ideas = {
+			add_idea = JAP_superior_will2
+			remove_idea = JAP_superior_will
+			}
+			add_doctrine_cost_reduction = {
+				name = JAP_superior_will_cost
+				cost_reduction = 0.5
+				uses = 2
+				category = cat_grand_battle_plan
+				category = cat_mass_assault
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_revive_bushido_new
+		icon = GFX_spt_focus_bushido_spirit
+		prerequisite = { focus = SPT_JAP_fearless_army_new}
+		x = 0
+		y = 3
+		relative_position_id = SPT_JAP_army_expansion
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+			}
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			custom_effect_tooltip = JAP_revive_bushido_tt
+			every_army_leader = {
+				limit = { has_trait = JAP_samurai_lineage }
+				add_unit_leader_trait = JAP_bushido_spirit
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_fighter_modernization
+		icon = GFX_goal_continuous_air_production
+		prerequisite = { focus = SPT_JAP_army_expansion_law focus = SPT_JAP_new_naval_estimates }
+		x = 4
+		y = 2
+		relative_position_id = SPT_JAP_army_expansion_law
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+			}
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_tech_bonus = {
+				name = JAP_fighter_modernization
+				bonus = 1.0
+				uses = 1
+				category = light_fighter		
+			}
+			add_tech_bonus = {
+				name = JAP_fighter_modernization
+				bonus = 1.0
+				uses = 1
+				category = cat_heavy_fighter	
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_range_focus
+		icon = GFX_focus_generic_multi_role_aircraft
+		prerequisite = { focus = SPT_JAP_fighter_modernization }
+		#mutually_exclusive = {focus = SPT_JAP_agility_focus}
+		x = -1
+		y = 1
+		relative_position_id = SPT_JAP_fighter_modernization
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}	
+				custom_effect_tooltip = available_mio_tt
+				show_mio_tooltip = JAP_aichi_organization
+				mio:JAP_aichi_organization = {
+					add_mio_funds = 1500
+				}
+			}
+			ELSE = {
+				custom_effect_tooltip = available_designer
+				show_ideas_tooltip = aichi
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_agility_focus
+		icon = GFX_goal_generic_air_fighter2
+		prerequisite = { focus = SPT_JAP_fighter_modernization }
+		#mutually_exclusive = {focus = SPT_JAP_range_focus} 
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_fighter_modernization
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+			}
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}	
+				custom_effect_tooltip = available_mio_tt
+				show_mio_tooltip = JAP_mitsubishi_organization
+				mio:JAP_mitsubishi_organization = {
+					add_mio_funds = 1500
+				}
+			}
+			ELSE = {
+				custom_effect_tooltip = available_designer
+				show_ideas_tooltip = mitsubishi
+			}
+			#remove_ideas = JAP_duplicate_research_efforts #SPTChange #Changed it again to rebalance air focuses
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_the_zero
+		icon = GFX_focus_jap_zero
+		prerequisite = { focus = SPT_JAP_first_air_fleet }
+		prerequisite = { focus = SPT_JAP_agility_focus }
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_agility_focus
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+			}
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+			has_tech = cv_fighter2
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			custom_effect_tooltip = JAP_the_zero_tt
+			add_ideas = JAP_the_zero_spirit #SPT change adds new spirit on completion
+			IF = { #SPT change to award mio funds to yokosuka
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}	
+			}
+			else = {
+				add_ideas = yokosuka #SPT change adds the naval designer on completion	
+			}
+			hidden_effect = { 
+
+				if = {
+					limit = {
+						NOT = {
+							has_dlc = "By Blood Alone"
+						}
+					}
+					set_technology = { cv_fighter2 = 1 } 
+				}
+				else = {
+					#SPTChange replaced giving variant with unlocking fighter 2 tech
+					set_technology = { improved_small_airframe = 1 } 
+					# create_equipment_variant = {
+					# 	name = "A6M Zero-Sen"
+					# 	type = cv_small_plane_airframe_2
+					# 	modules = {
+					# 		fixed_main_weapon_slot = light_mg_2x
+					# 		fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_2x
+					# 		engine_type_slot = engine_3_1x
+					# 		special_type_slot_1 = drop_tanks
+					# 		special_type_slot_2 = fuel_tanks_small
+					# 	}
+					# 	icon = "GFX_JAP_cv_fighter2_medium"
+					# }
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_bomber_modernization
+		icon = GFX_goal_generic_CAS
+		prerequisite = { focus = SPT_JAP_range_focus focus = SPT_JAP_agility_focus }
+		x = 0
+		y = 2
+		relative_position_id = SPT_JAP_fighter_modernization
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_tech_bonus = {
+				name = JAP_bomber_modernization
+				bonus = 1.0
+				uses = 1
+				category = cas_bomber
+				category = tactical_bomber					
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_strategic_bomber_effort
+		icon = GFX_goal_generic_air_bomber
+		prerequisite = { focus = SPT_JAP_range_focus }
+		prerequisite = { focus = SPT_JAP_bomber_modernization }
+		x = -1
+		y = 3
+		relative_position_id = SPT_JAP_fighter_modernization
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_tech_bonus = {
+				name = JAP_strategic_bomber_effort
+				bonus = 1.0
+				uses = 2
+				category = cat_strategic_bomber	
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_unified_fighter_development
+		icon = GFX_goal_generic_air_fighter
+		prerequisite = { focus = SPT_JAP_agility_focus }
+		prerequisite = { focus = SPT_JAP_the_zero }
+		x = 1
+		y = 3
+		relative_position_id = SPT_JAP_fighter_modernization
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			#SPTChange - removed remove_ideas = JAP_duplicate_research_efforts
+			add_tech_bonus = {
+				name = JAP_fighter_modernization
+				bonus = 1.0
+				uses = 1
+				category = light_fighter		
+			}
+			add_tech_bonus = {
+				name = JAP_fighter_modernization
+				bonus = 1.0
+				uses = 1
+				category = cat_heavy_fighter	
+			}
+		}
+	}
+
+	focus = {
+		
+		id = SPT_JAP_jet_prototypes
+		icon = GFX_goal_generic_build_airforce
+		prerequisite = { focus = SPT_JAP_unified_fighter_development focus = SPT_JAP_strategic_bomber_effort }
+		x = 0
+		y = 4
+		relative_position_id = SPT_JAP_fighter_modernization
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_tech_bonus = {
+				name = JAP_jet_prototypes
+				bonus = 1.0
+				uses = 2
+				category = jet_technology
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_new_naval_estimates
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 8
+		y = 0
+		relative_position_id = SPT_JAP_army_expansion_law
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+			}
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		complete_tooltip = {
+			random_state = {
+				limit = {
+					has_state_flag = JAP_new_naval_estimates_DY1
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_state = {
+				limit = {
+					has_state_flag = JAP_new_naval_estimates_DY2
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+
+		completion_reward = {
+			if = {
+				limit = {
+					not = { has_dlc = "Man the Guns" }
+				}
+				add_tech_bonus = {
+					name = JAP_supremacy_of_the_battlefleet
+					bonus = 1.0
+					uses = 1
+					category = shbb_tech	
+				}
+			}
+			else = {
+				navy_experience = 50
+			}
+			random_owned_controlled_state = {
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = JAP_new_naval_estimates_DY1
+			}
+			random_owned_controlled_state = {
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+					is_core_of = ROOT	
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}				
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = JAP_new_naval_estimates_DY2
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_carrier_warfare_experiments
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = SPT_JAP_new_naval_estimates }
+		mutually_exclusive = { focus = SPT_JAP_supremacy_of_the_battlefleet }
+		x = -1
+		y = 1
+		relative_position_id = SPT_JAP_new_naval_estimates
+
+		cost = 5 #SPT change 10 -> 5
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+			}
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = JAP_carrier_warfare_experiments
+				cost_reduction = 0.25
+				uses = 2
+				category = cat_base_strike
+			}
+
+			#SPT change, focus now awards 3 dockyards
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_expand_the_snlf
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = SPT_JAP_carrier_warfare_experiments focus = SPT_JAP_supremacy_of_the_battlefleet }
+		x = 0
+		y = 2
+		relative_position_id = SPT_JAP_new_naval_estimates
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+			}
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_ideas = JAP_expand_the_snlf
+			if = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				add_potential_special_forces_tree = yes
+				add_doctrine_cost_reduction = {
+					name = JAP_expand_the_snlf
+					cost_reduction = 0.25
+					uses = 2
+					category = special_forces_doctrine
+				}
+			}
+			else = {
+				add_tech_bonus = {
+					name = JAP_expand_the_snlf
+					bonus = 1.0
+					uses = 1
+					category = marine_tech	
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_first_air_fleet
+		icon = GFX_goal_generic_navy_carrier
+		prerequisite = { focus = SPT_JAP_carrier_warfare_experiments }
+		x = 0
+		y = 2
+		relative_position_id = SPT_JAP_carrier_warfare_experiments
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+			}
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			add_ideas = JAP_first_air_fleet
+			#SPT change, focus now awards 2 dockyards
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		allow_branch = {always = no} #SPTChange
+		id = SPT_JAP_modern_escorts
+		icon = GFX_focus_generic_destroyer
+		prerequisite = { focus = SPT_JAP_first_air_fleet focus = SPT_JAP_the_ultimate_battleship }
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_first_air_fleet
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_tech_bonus = {
+				name = JAP_modern_escorts
+				bonus = 1.0
+				uses = 1
+				category = dd_tech	
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_supremacy_of_the_battlefleet
+		icon = GFX_focus_generic_navy_battleship2
+		prerequisite = { focus = SPT_JAP_new_naval_estimates }
+		mutually_exclusive = { focus = SPT_JAP_carrier_warfare_experiments }
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_new_naval_estimates
+
+		cost = 5 #SPT change 10 -> 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_tech_bonus = {
+				name = JAP_supremacy_of_the_battlefleet
+				bonus = 1.0
+				uses = 1
+				category = bb_tech
+			}
+			#SPT change, focus now awards 3 dockyards
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = ROOT
+				not = {
+					OR = {
+						state = 646
+						state = 645
+						state = 555
+					}
+				}
+			}
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = dockyard
+				level = 3
+				instant_build = yes
+			}
+		}
+		IF = {
+			limit = {
+				has_dlc = "Arms Against Tyranny"
+			}	
+			custom_effect_tooltip = available_mio_tt
+			show_mio_tooltip = JAP_kure_naval_arsenal_organization
+			mio:JAP_kure_naval_arsenal_organization = {
+				add_mio_size = 2
+			}
+		}
+		ELSE = {
+			custom_effect_tooltip = available_designer
+			show_ideas_tooltip = kure_naval_arsenal
+		}
+		}
+		
+	}
+
+	focus = {
+		id = SPT_JAP_the_ultimate_battleship
+		icon = GFX_focus_ETH_an_ethiopian_navy_in_exile
+		prerequisite = { focus = SPT_JAP_supremacy_of_the_battlefleet }
+		x = 0
+		y = 2
+		relative_position_id = SPT_JAP_supremacy_of_the_battlefleet
+
+		cost = 5 #SPT change 10 -> 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+			AND = {
+				has_tech = heavy_battleship
+				has_tech = heavy_battleship2
+			}
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			if = {
+				limit = {
+					not = { has_dlc = "Man the Guns" }
+				}
+				add_tech_bonus = {
+					name = JAP_the_ultimate_battleship
+					bonus = 3.0
+					uses = 1
+					category = shbb_tech	
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						not = { has_tech = ship_hull_super_heavy }
+					}
+					set_technology = {
+						ship_hull_super_heavy = 1
+					}
+				}
+				create_equipment_variant = {
+					name = "Yamato Class"
+					type = ship_hull_super_heavy_1
+					name_group = JAP_BB_HISTORICAL
+					parent_version = 0
+					modules = {
+						fixed_ship_battery_slot = ship_super_heavy_battery_1
+						fixed_ship_anti_air_slot = ship_anti_air_2
+						fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+						fixed_ship_radar_slot = empty
+						fixed_ship_engine_slot = heavy_ship_engine_2
+						fixed_ship_secondaries_slot = ship_secondaries_2
+						fixed_ship_armor_slot = ship_armor_shbb
+						front_1_custom_slot = ship_anti_air_1
+						front_2_custom_slot = empty
+						mid_1_custom_slot = empty
+						mid_2_custom_slot = ship_secondaries_2
+						mid_3_custom_slot = ship_secondaries_2
+						rear_1_custom_slot = ship_super_heavy_battery_1
+						rear_2_custom_slot = ship_airplane_launcher_1
+					}
+				}
+				custom_effect_tooltip = SPT_JAP_yamato_tt
+				hidden_effect = {
+					add_equipment_production = {
+						equipment = {
+							type = ship_hull_super_heavy_1
+							creator = "JAP" 
+							version_name = "Yamato Class"
+						}
+						name = "Yamato" 
+						requested_factories = 1
+						progress = 0.75
+						amount = 1
+					}
+					add_equipment_production = {
+						equipment = {
+							type = ship_hull_super_heavy_1
+							creator = "JAP" 
+							version_name = "Yamato Class"
+						}
+						name = "Musashi" 
+						requested_factories = 1
+						progress = 0.75
+						amount = 1
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_cruiser_modernization
+		icon = GFX_focus_generic_cruiser2
+		prerequisite = { focus = SPT_JAP_new_naval_estimates }
+		x = 3
+		y = 1
+		relative_position_id = SPT_JAP_new_naval_estimates
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_tech_bonus = {
+				name = JAP_cruiser_modernization
+				bonus = 3.0
+				uses = 1
+				category = cl_tech	
+				category = ca_tech	
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_long_lance_torpedoes
+		icon = GFX_focus_generic_torpedo_production
+		prerequisite = { focus = SPT_JAP_cruiser_modernization }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_cruiser_modernization
+
+		cost = 5 #SPT change 10 -> 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			add_ideas = the_long_lance
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_torpedo_cruisers
+		icon = GFX_focus_generic_refit_civilian_ships
+		prerequisite = { focus = SPT_JAP_long_lance_torpedoes }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_long_lance_torpedoes
+
+		cost = 5 #SPT change 10 -> 5
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			if = {
+				limit = {
+					not = { has_dlc = "Man the Guns" }
+				}
+				set_technology = { torpedo_cruiser = 1 }
+			}
+			else = {
+				set_technology = { torpedo_cruiser_mtg = 1 }
+			}
+		}
+	}
+
 }
 
 	# focus = {
