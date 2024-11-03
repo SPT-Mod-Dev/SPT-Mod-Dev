@@ -68,7 +68,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -119,7 +119,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -180,7 +180,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -420,7 +420,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -636,7 +636,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -3907,6 +3907,24 @@ focus_tree = {
 			add_ideas = SPT_JAP_german_advisors_spirit
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			JAP_intervene_in_china_level_down = yes
+
+			if = {
+				limit = {
+					NOT = {
+						has_war_with = CHI
+					}
+				}
+				hidden_effect = {
+					add_ideas = JAP_intervene_in_china_4
+				}
+				swap_ideas = {
+					remove_idea = JAP_intervene_in_china_4
+					add_idea = JAP_intervene_in_china_5
+				}
+				hidden_effect = {
+					remove_ideas = JAP_intervene_in_china_5
+				}
+			}
 		}
 	}
 	focus = {
@@ -4015,6 +4033,24 @@ focus_tree = {
 			add_ideas = SPT_JAP_italian_advisors_spirit
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			JAP_intervene_in_china_level_down = yes
+
+			if = {
+				limit = {
+					NOT = {
+						has_war_with = CHI
+					}
+				}
+				hidden_effect = {
+					add_ideas = JAP_intervene_in_china_4
+				}
+				swap_ideas = {
+					remove_idea = JAP_intervene_in_china_4
+					add_idea = JAP_intervene_in_china_5
+				}
+				hidden_effect = {
+					remove_ideas = JAP_intervene_in_china_5
+				}
+			}
 		}
 	}
 	focus = {
@@ -4124,6 +4160,24 @@ focus_tree = {
 			add_ideas = SPT_JAP_japanese_advisors_spirit
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			JAP_intervene_in_china_level_down = yes
+
+			if = {
+				limit = {
+					NOT = {
+						has_war_with = CHI
+					}
+				}
+				hidden_effect = {
+					add_ideas = JAP_intervene_in_china_4
+				}
+				swap_ideas = {
+					remove_idea = JAP_intervene_in_china_4
+					add_idea = JAP_intervene_in_china_5
+				}
+				hidden_effect = {
+					remove_ideas = JAP_intervene_in_china_5
+				}
+			}
 		}
 	}
 	focus = {
@@ -4237,6 +4291,25 @@ focus_tree = {
 			}
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			JAP_intervene_in_china_level_down = yes
+
+			if = {
+				limit = {
+					NOT = {
+						has_war_with = CHI
+					}
+				}
+				hidden_effect = {
+					add_ideas = JAP_intervene_in_china_4
+				}
+				swap_ideas = {
+					remove_idea = JAP_intervene_in_china_4
+					add_idea = JAP_intervene_in_china_5
+				}
+				hidden_effect = {
+					remove_ideas = JAP_intervene_in_china_5
+				}
+			}
+
 		}
 	}
 	
@@ -4299,6 +4372,56 @@ focus_tree = {
 				}
 				add_dynamic_modifier = {
 					modifier = SPT_JAP_exploit_chinese_industry_modifier
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = CHI
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = CHI
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = CHI
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = CHI
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = CHI
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
 				}
 			}
 		}
