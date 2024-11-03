@@ -3089,6 +3089,12 @@ focus_tree = {
 						state = 869
 						state = 289
 						state = 724
+						state = 747
+						state = 325
+						state = 670
+						state = 869
+						state = 289
+						state = 724
 					}
 				}
 				add_dynamic_modifier = {
@@ -3221,7 +3227,7 @@ focus_tree = {
 		}
 
 		#mutually_exclusive = { focus = SPT_JAP_empower_generals }
-		x = 2
+		x = 1
 		y = 1
 		relative_position_id = SPT_JAP_showa_restoration
 
@@ -3633,7 +3639,7 @@ focus_tree = {
 		icon = GFX_focus_jap_cast_the_die
 		#  prerequisite = { focus = SPT_JAP_ }
 		#mutually_exclusive = {  }
-		x = 19
+		x = 20
 		y = 0
 		relative_position_id = SPT_JAP_purge_kodoha
 		# offset = {
@@ -4269,6 +4275,9 @@ focus_tree = {
 					is_puppet_of = JAP
 				}
 			}
+			any_controlled_state = {
+				is_core_of = CHI
+			}
 		}
 
 		bypass = {
@@ -4438,7 +4447,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 2
 
 		ai_will_do = {
 			factor = 4
@@ -4464,6 +4473,97 @@ focus_tree = {
 					has_government = fascism
 				}
 				country_event = { id = wtt_japan.109 days = 1 }
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_siam_focus
+		icon = GFX_focus_NOR_approach_the_fatherland_league
+		prerequisite = { 
+			focus = SPT_JAP_strike_south
+		}
+		#mutually_exclusive = {  }
+		x = -2
+		y = 1
+		relative_position_id = SPT_JAP_strike_south
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 2
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			is_faction_leader = yes
+			country_exists = SIA
+		}
+
+		bypass = {
+			is_in_faction_with = SIA
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			if = {
+				limit = { 
+					SIA = { is_ai = yes } 
+					JAP = { is_ai = no }
+				}
+				annex_country = {
+					target = SIA
+				}
+				JAP = {					
+					SIA = {
+						every_core_state = {
+							add_compliance = 100
+						}
+					}			
+					CAM = {
+						every_core_state = {
+							add_compliance = 100
+						}
+					}								
+					LAO = {
+						every_core_state = {
+							add_compliance = 100
+						}
+					}			
+					VIN = { # Vietnam #not vinland sadge
+						every_core_state = {
+							add_compliance = 100
+						}
+					}
+					# add_state_core = 289
+					# add_state_core = 671
+					# add_state_core = 286
+					# add_state_core = 670
+					# add_state_core = 741
+					# add_state_core = 724
+					# add_state_core = 869
+					# add_state_core = 868
+				}
+			}
+			else = {
+				SIA = { country_event = generic.5 }
+			}
+			else = {
+				SIA = { country_event = generic.5 }
+			}
+			add_ai_strategy = {
+				type = protect
+				id = "SIA"
+				value = 100
 			}
 		}
 	}
@@ -4548,6 +4648,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_conferences_reminder_tt
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT
@@ -4779,6 +4880,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_conferences_reminder_tt
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT
@@ -5130,6 +5232,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_conferences_reminder_tt
 			custom_effect_tooltip = SPT_JAP_nanshin_ron_header_tt
 			add_to_variable = {
 				SPT_JAP_army_org_factor = 0.05
@@ -5277,6 +5380,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_conferences_reminder_tt
 			custom_effect_tooltip = SPT_JAP_nanshin_ron_header_tt
 			add_to_variable = {
 				SPT_JAP_army_morale_factor = 0.1
@@ -5479,6 +5583,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_conferences_reminder_tt
 			custom_effect_tooltip = SPT_JAP_nanshin_ron_header_tt
 			add_to_variable = {
 				SPT_JAP_resistance_target = -0.05
@@ -5497,7 +5602,251 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = {
+		id = SPT_JAP_pan_asia
+		icon = GFX_spt_focus_pan_asia
+	    prerequisite = { focus = SPT_JAP_exploit_chinese_industry }
+		prerequisite = {
+			focus = SPT_JAP_showa_restoration
+		}
+		#mutually_exclusive = {  }
+		x = -4
+		y = 7
+		relative_position_id = SPT_JAP_exploit_chinese_industry
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			OR = {
+				CHI = {
+					exists = no
+				}
+				CHI = {
+					is_puppet_of = JAP
+				}
+			}
+			any_controlled_state = {
+				is_core_of = CHI
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					NOT = {	is_core_of = JAP }
+					is_fully_controlled_by = JAP
+					is_core_of = CHI
+				}
+				remove_dynamic_modifier = {
+					modifier = SPT_JAP_exploit_chinese_industry_modifier
+				}
+				add_dynamic_modifier = {
+					modifier = JAP_pan_asian_integration
+					scope = JAP
+				}
+			}
+		}
+	}
 	
+	focus = {
+		id = SPT_JAP_the_northern_border
+		icon = GFX_focus_generic_provoke_border_clashes
+	 	prerequisite = { 
+			focus = SPT_JAP_pan_asia 
+		}
+		prerequisite = {
+			focus = SPT_JAP_nanshin_ron_completed
+		}
+		#mutually_exclusive = {  }
+		x = 3
+		y = 1
+		relative_position_id = SPT_JAP_pan_asia
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_full_control_of_state = 336
+			has_full_control_of_state = 431
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_nanshin_ron_header_tt
+			add_to_variable = {
+				SPT_JAP_supply_consumption_factor = -0.1
+				tooltip = SPT_JAP_army_supply_consumption_tt
+			}
+			add_to_variable = {
+				SPT_JAP_production_speed_supply_node_factor = 0.5
+				tooltip = production_speed_supply_node_factor_tt
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_organize_the_supply
+		icon = GFX_focus_generic_supply_line
+	 	prerequisite = { 
+			focus = SPT_JAP_the_northern_border
+		}
+		#mutually_exclusive = {  }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_the_northern_border
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_full_control_of_state = 336
+			has_full_control_of_state = 431
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			every_controlled_state = {
+				limit = {
+					OR = {
+						state = 604
+						state = 755
+						state = 756
+						state = 621
+						state = 527
+						state = 612
+						state = 761
+						state = 714
+						state = 717
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_state_supply_build_up_army
+					scope = JAP
+					days = 180
+				}
+			}
+			MAN = {
+				every_controlled_state = {
+					limit = {
+						OR = {
+							state = 612
+							state = 761
+							state = 714
+							state = 717
+						}
+					}
+					add_dynamic_modifier = {
+						modifier = SPT_JAP_state_supply_build_up_army
+						scope = MAN
+						days = 180
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_hokushin_ron
+		icon = GFX_focus_attack_soviet
+	 	prerequisite = { 
+			focus = SPT_JAP_organize_the_supply
+		}
+		#mutually_exclusive = {  }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_organize_the_supply
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 1
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_full_control_of_state = 336
+			RAJ = {
+				has_capitulated = yes
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = SOV
+			}
+		}
+	}
 }
 
 	# focus = {
