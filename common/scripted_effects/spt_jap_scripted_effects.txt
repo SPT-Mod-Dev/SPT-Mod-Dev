@@ -217,3 +217,49 @@ SPT_JAP_add_factories_with_counter_test = {
 		}
 	}
 }
+
+SPT_JAP_set_up_militia = {
+	division_template = {
+		name = "Kokumin Giyūtai"
+		#division_names_group = 
+		is_locked = yes
+		force_allow_recruiting = no
+		priority = 0
+		#override_model = BRA_militia_entity
+		#division_cap = 6
+		#template_counter = 06
+		regiments = {
+			militia = { x = 0 y = 0 }
+			militia = { x = 0 y = 1 }
+			militia = { x = 0 y = 2 }
+			militia = { x = 0 y = 3 }
+			militia = { x = 1 y = 0 }
+			militia = { x = 1 y = 1 }
+			militia = { x = 1 y = 2 }
+			militia = { x = 1 y = 3 }
+		}
+	}
+}
+
+SPT_JAP_spawn_militia = {
+	hidden_effect = {
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = JAP
+				NOT = { 
+					OR = {
+						state = 526
+						state = 555
+						state = 537
+						state = 645
+						state = 646
+					}
+				}
+			}
+			create_unit = {
+				division = "division_template = \"Kokumin Giyūtai\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
+				OWNER = ROOT
+			}
+		}
+	}
+}
