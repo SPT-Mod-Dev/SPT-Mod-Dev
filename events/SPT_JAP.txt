@@ -32,3 +32,35 @@ country_event = { #start Marco Polo mission
 		custom_effect_tooltip = SPT_JAP_marco_polo_mission_start_tt
 	}
 }
+
+country_event = { #hidden event to spawn militia units periodically
+	id = spt_jap.2
+	title = spt_jap.2.t
+	desc = spt_jap.2.desc
+	is_triggered_only = yes
+	timeout_days = 1
+	hidden = yes
+	picture = GFX_report_event_chinese_soldiers
+
+	immediate = {
+		country_event = {
+			id = spt_jap.2
+			days = 40
+		}
+
+		for_loop_effect = {
+			start = 0
+			end = 6
+			add = 1
+
+			SPT_JAP_spawn_militia = yes
+
+		}
+
+
+	}
+
+	option = {
+		name = spt_jap.2.a
+	}
+}
