@@ -323,7 +323,7 @@ focus_tree = {
 					has_country_flag = BUL_industrial_investments_in_bulgaria_flag
 				}
 			}
-			is_subject = no
+#			is_subject = no #SPTchange
 		}
 
 		search_filters = {FOCUS_FILTER_INDUSTRY}
@@ -7821,17 +7821,20 @@ focus_tree = {
 				}
 				add_ideas = partial_economic_mobilisation
 			}
-			else_if = {
-				limit = {
-					has_idea = partial_economic_mobilisation
-				}
-				add_ideas = war_economy
-			}
-			else_if = {
-				limit = {
-					has_idea = war_economy
-				}
-				add_ideas = tot_economic_mobilisation
+			# else_if = {
+			# 	limit = {
+			# 		has_idea = partial_economic_mobilisation
+			# 	}
+			# 	add_ideas = war_economy
+			# }
+			# else_if = {
+			# 	limit = {
+			# 		has_idea = war_economy
+			# 	}
+			# 	add_ideas = tot_economic_mobilisation
+			# }
+			else = { #SPT change, made it so fascist bulgaria cant jump eco laws with focus
+				add_political_power = 150
 			}
 			BUL_zveno_low_loyalty_increase_effect = yes
 			BUL_bs_low_loyalty_decrease_effect = yes
@@ -8602,7 +8605,7 @@ focus_tree = {
 		}
 
 		available = {
-			threat > 0.35
+			threat > 0.25 #SPTchange 0.35 -> 0.25
 			OR = {
 				AND = {
 					GER = { is_faction_leader = yes }
@@ -8632,7 +8635,7 @@ focus_tree = {
 				}
 			}
 			is_in_faction = no
-			is_subject = no
+#			is_subject = no
 		}
 		
 		search_filters = {FOCUS_FILTER_ANNEXATION}
@@ -9117,7 +9120,6 @@ focus_tree = {
 		cost = 10
 
 		available = {
-			is_subject = no
 		}
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY}

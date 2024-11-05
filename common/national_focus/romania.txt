@@ -348,7 +348,7 @@
 			}
 			is_in_faction = no
 			NOT = { has_war_with = GER }
-			is_subject = no
+
 			NOT = {
 				any_other_country = {
 					is_in_faction_with = GER
@@ -1244,8 +1244,8 @@
 
 		}
 
-		cancel_if_invalid = yes
-		continue_if_invalid = no
+		cancel_if_invalid = no
+		continue_if_invalid = yes
 		available_if_capitulated = no
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
@@ -1751,7 +1751,6 @@
 		}
 
 		available = {
-			is_subject = no
 			communism < 0.5
 			fascism < 0.5
 			neutrality < 0.5
@@ -2284,7 +2283,6 @@
 		}
 
 		available = {
-			is_subject = no
 			GER = {
 				is_faction_leader = yes
 				has_government = fascism
@@ -2473,14 +2471,11 @@
 				communism > 0.35
 				fascism > 0.35
 			}
-			is_subject = no
-			
 		}
 
 		bypass = {
 
 		}
-
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes

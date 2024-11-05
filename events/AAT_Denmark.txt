@@ -1631,13 +1631,6 @@ country_event = { #Denmark Declares Independence
 
 	is_triggered_only = yes
 
-	# SPTchange Germany can reject and Denmark can't do anything about it.
-	option = {
-		name = spt_denmark_occupation_event.6.c
-		ai_chance = {
-			base = 0
-		}
-	}
 	# option = { #War
 	# 	name = denmark_occupation_event.6.a
 	# 	ai_chance = {
@@ -1750,6 +1743,14 @@ country_event = { #Denmark Declares Independence
 		# 	remove_ideas = DEN_sahnefront_ns
 		# }
 		FROM = { country_event = { id = denmark_occupation_event.8 hours = 1 }}
+	}	
+
+	# SPTchange Germany can reject and Denmark can't do anything about it.
+	option = {
+		name = spt_denmark_occupation_event.6.c
+		ai_chance = {
+			base = 0
+		}
 	}
 }
 country_event = { #Danish Liberation War
@@ -8243,7 +8244,6 @@ country_event = { #Denmark Demands Norway's Subjugation
 				# SPTchange
 				annex_country = {
 					target = NOR
-					transfer_troops = yes
 				}
 			}
 		}
@@ -8300,23 +8300,20 @@ country_event = { #Denmark Puppets Norway
 		name = denmark_expansion_event.21.a
 		ROOT = { 
 			# SPTchange to annex instead
+			DEN = {
+				annex_country = {
+					target = NOR
+					transfer_troops = yes
+				}
+			}
 			every_country_with_original_tag = {
 				original_tag_to_check = NOR
 				DEN = {
 					annex_country = {
 						target = prev
-						transfer_troops = yes
 					}
 				}
-			}
-			hidden_effect = {				
-				every_state = {
-					limit = {
-						is_core_of = NOR
-					}
-					add_resistance = 30
-				}
-			}
+			}		
 		}
 	}
 }
@@ -8434,21 +8431,18 @@ country_event = { #Denmark Puppets Norway
 		# add_political_power = 50 # SPTchange
 		ROOT = {
 			# SPTchange to annex instead
+			DEN = {
+				annex_country = {
+					target = NOR
+					transfer_troops = yes
+				}
+			}
 			every_country_with_original_tag = {
 				original_tag_to_check = NOR
 				DEN = {
 					annex_country = {
 						target = prev
-						transfer_troops = yes
 					}
-				}
-			}
-			hidden_effect = {				
-				every_state = {
-					limit = {
-						is_core_of = NOR
-					}
-					add_resistance = 30
 				}
 			}
 		}

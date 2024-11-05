@@ -37,6 +37,7 @@ country_event = {
 }
 
 #USA gets control of greenland
+# DEPRECATED BY GREENLAND PATROL
 country_event = {
 	id = spt.3
 	title = spt.3.t
@@ -1011,21 +1012,36 @@ country_event = {
 
 	option = { # Yes (Annex)
 		name = spt_den.1.a
+		DEN = {
+			annex_country = {
+				target = NOR
+				transfer_troops = yes
+			}
+		}
 		every_country_with_original_tag = {
 			original_tag_to_check = NOR
 			DEN = {
 				annex_country = {
 					target = prev
-					transfer_troops = yes
 				}
 			}
 		}
+		add_collaboration = {
+			target = NOR
+			value = 0.8
+		}		
 		every_state = {
 			limit = {
 				is_core_of = NOR
 			}
-			add_core_of = DEN
+			add_resistance = 30
 		}
+		# every_state = {
+		# 	limit = {
+		# 		is_core_of = NOR
+		# 	}
+		# 	add_core_of = DEN
+		# }
 		hidden_effect = {			
 			DEN = {
 				drop_cosmetic_tag = yes
@@ -1036,5 +1052,211 @@ country_event = {
 
 	option = { # No
 		name = spt_den.1.b
+	}
+}
+add_namespace = spt_ger
+country_event = { #Economic integration with hungary/romania/bulgaria 
+	id = spt_ger.1
+	title = spt_ger.1.t
+	desc = spt_ger.1.desc
+	picture = GFX_report_event_generic_read_write
+
+	is_triggered_only = yes
+	
+	option = { # Yaplx
+		name = spt_ger.1.a
+		effect_tooltip = {
+			GER = {
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+						NOT = { has_state_flag = GER_integrate_war_economies }
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+					set_state_flag = GER_integrate_war_economies
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = GER_integrate_war_economies_1
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = GER_integrate_war_economies_2
+			}
+			if = {
+				limit = {
+					has_dlc = "Death or Dishonor" 
+					is_in_faction_with = FROM
+					FROM = { is_subject = no }
+				}
+				FROM = {
+					set_autonomy = { target = ROOT autonomy_state = autonomy_satellite }
+				}
+			}
+			if = {
+				limit = { 
+					has_dlc = "Together for Victory"
+					NOT = { has_dlc = "Death or Dishonor" } 
+					is_in_faction_with = FROM
+					FROM = { is_subject = no }
+				}
+				FROM = {
+					set_autonomy = { target = ROOT autonomy_state = autonomy_dominion }
+				}
+			}
+			if = {
+				limit = { 
+					NOT = { has_dlc = "Together for Victory" }
+					NOT = { has_dlc = "Death or Dishonor" }
+					is_in_faction_with = FROM
+					FROM = { is_subject = no }
+				}
+				FROM = { puppet = ROOT }
+			}
+		}
+		custom_effect_tooltip = wtt_germany.72_tt
+		FROM = {
+			country_event = { id = spt_ger.2 days = 1 }
+		}
+	}
+}
+country_event = {
+	id = spt_ger.2 #accepts
+	title = spt_ger.1.t
+	desc = spt_ger.1.desc
+	picture = GFX_report_event_generic_read_write
+
+	is_triggered_only = yes
+	
+	option = {
+		name = wtt_germany.73.a
+		effect_tooltip = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+					NOT = { has_state_flag = GER_integrate_war_economies }
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = GER_integrate_war_economies
+			}
+			FROM = {
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+					set_state_flag = GER_integrate_war_economies_1
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = arms_factory
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+					set_state_flag = GER_integrate_war_economies_2
+				}
+			}
+			if = {
+				limit = {
+					has_dlc = "Death or Dishonor" 
+					is_subject = no
+				}
+				every_country = {
+					limit = {
+						is_subject_of = FROM
+					}
+					ROOT = { set_autonomy = { target = PREV autonomy_state = autonomy_satellite end_wars = no end_civil_wars = no} }
+				}
+				set_autonomy = { target = FROM autonomy_state = autonomy_satellite end_wars = no end_civil_wars = no}
+			}
+			if = {
+				limit = { 
+					has_dlc = "Together for Victory"
+					NOT = { has_dlc = "Death or Dishonor" } 
+					is_subject = no
+				}
+				every_country = {
+					limit = {
+						is_subject_of = FROM
+					}
+					ROOT = { set_autonomy = { target = PREV autonomy_state = autonomy_dominion end_wars = no end_civil_wars = no} }
+				}
+				set_autonomy = { target = FROM autonomy_state = autonomy_dominion end_wars = no end_civil_wars = no}
+			}
+			if = {
+				limit = { 
+					NOT = { has_dlc = "Together for Victory" }
+					NOT = { has_dlc = "Death or Dishonor" }
+					is_subject = no
+				}
+				every_country = {
+					limit = {
+						is_subject_of = FROM
+					}
+					ROOT = { puppet = PREV }
+				}
+				puppet = FROM
+			}
+		}
 	}
 }

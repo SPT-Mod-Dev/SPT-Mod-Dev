@@ -1,5 +1,233 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.12.10 "Twilight of the Mod Devs"
+
+#### General
+ - Added additional automation to Japanese decision "Hakkō Ichiu"
+   - USA joins the Allies immediately upon Japanese DoW
+   - USA joins all British wars, namely the war against the European Axis
+
+#### Tanks
+ - Amphibious Tank Chassis IC cost increased to 6, from 4.5
+ - Amphibious Tank Chassis can no longer use Light Tank Turrets
+ - Amphibious Drive added IC cost multiplier of +10%
+ - Dozer Blades entrenchment reduced to 1, from 1.5
+ - Dozer Blades defense reduced to 8, from 10
+ - Made Medium Navs, classified as naval patrol bombers, possible
+ - Guided ASM +5 Naval Targeting
+ - Pioneers now get affected by engineers research
+ - Pioneers: Jungle specialists defense boost brought inline with regular engineers
+ - Support Rocket artillery now counts as support artillery for purposes of special forces doctrine modifiers
+
+#### Japan
+ - "Alliance with Siam" grants 100% compliance when annexing AI Siam, instead of cores
+
+#### Bulgaria
+ - Focus "The Path Towards a Greater Bulgaria" no longer increases your economy law past Partial Mobilization, rewarding 150 political power instead if you already have reached it
+
+#### UK
+ - Removed decisions "Invade Ireland", "The MacDonald Proposal", and "Invoke the Alliance of 1373"
+   
+### 3.12.9
+
+#### General
+ - Increased score in peace conferences
+ - Added Mexico to host tool 
+ - Super Heavy Tanks now can only use Super Heavy Turrets
+
+#### USA
+ - SPT version of operation "The Greenland Patrol" added to account for fascist Denmark route. Available from when Denmark joins the Axis until the USA is at war with Germany
+
+#### Raj
+ - 'Great Indian Peninsula Railway' 70 days -> 35 days
+ - 'East India Railways' now prioritises Bengal
+
+#### Mongolia
+ - 'Motorise the Army' now adds early truck tech and always adds 1000 trucks to stockpile
+
+#### Denmark
+ - Foci 'Seize Power' and 'Ask for Support' are no longer bypassed by being fascist, ensuring the leader change takes effect
+
+#### Italy
+ - Leader BoPs should now correctly activate only when the Mediterranean BoP is not active 
+
+#### Brazil
+ - Ported vanilla change to Potenji Conference to ensure Brazil joins the existing war rather than declaring
+
+### 3.12.8 "Missing Bracket"
+
+#### General
+ - Made 4 speed, 2 speed and 1 speed slightly faster
+
+ - Updated rules on paratroopers
+ - Fixed error causing some straits to not activate
+ - Fixed error causing some straits to not activate
+ - Brazil now has a decision to annex AI controlled Mexico
+ - Embargos now require targeted country to generate 50 tension
+ - Democracies no longer have embargo tension requirement lowered by 50%
+
+#### Army Spirits
+ - Added 'Accomplished Heritage' which grants medal cost -90%
+                                 field officer promotion cost -90%
+ - 'Flexible Organisation' reduced max planning malus to 5% from 10%
+                           reduced org loss when moving bonus to 10% from 20%
+                           reduced planning speed bonus to 10% from 20% 
+
+#### Mexico
+ - Gulf Coast Naval Yards and Pacific coast yards now give 1 more slot and dockyard
+
+#### Soviet union 
+ - Focus 'Superior War Machines' time to complete reduced to 56 from 70
+ - Focus 'The Means To Wage War' time to complete reduced to 56 from 70
+ - Focus 'PC Of Mechanical Engineering' time to complete reduced to 56 from 70
+ - Fix issue where 'New Economic Plan' would lock lower export laws
+
+#### Germany
+ - Focus 'Integrate War Economies' Grants 2 fewer mills per accepted country for Germany
+                                   Grants spirit 'Integrated War Economies'
+                                   Now applies to Bulgaria
+ - Added focus 'Standardization Program' which upgrades spirit 'Integrated War Economies' for the minor powers
+                                         Grants smaller version of 'Integrated War Economies' for the Germany and Italy
+ - Focus 'Align Romania' time to complete reduced to 14 days from 35
+ - Focus 'Align Hungary' time to complete reduced to 14 days from 35
+ - Focus 'Install Collaborationists in Poland' can no longer be taken after Poland is annexed, in the event a major Allied skill issue allows Poland to go to peace conference
+
+ #### Denmark
+ - Reduced "Administer Norway" from full cores to 80% collaboration & 30% resistance
+ - Events annexing Norway no longer transfer democratic Norway's troops
+ - Clarified effect of Pan-Scandinavian decisions in focus tooltip
+ - Reduced bonus steel relative to vanilla by -36 to limit civ boosting potential
+
+##### USA & UK
+ - If country has specific radar tech unlocked, it will now also unlock for malaya and philippines (updates monthly)
+
+#### Japan 
+ - Spirit 'Tora Tora Tora' increased CV Plane DMG/Tageting/Agility Buff to 25% from 12%
+                           Removed 50% overstacking penalty reduction. 
+ - Added cores to Siam and Indochina when annexed as AI
+
+#### Navy
+- Regular heavy cruiser battery damage increased: Tier I   to 9 from 6
+                                                  Tier II  to 12 from 8
+                                                  Tier III to 15 from 10
+                                                  Tier IV  to 18 from 12
+(buffed to offer more dmg at their lower pierce point than heavy gun equivalents at higher pierce)
+
+- Panzerschiff: Range reduced to 5000 from 7500
+                Speed increased to 26 kn from 27kn
+                Module Slot 1 may now fit Fuel tank (was just AA)
+- Submarine 3 Speed reduced to 16 from 18
+              Center slot can now also fit AA (was just snorkel/radar)
+              Hull Cost Reduced to 420 from 42000
+- Reenabled Submarine engine 3
+- Submarine Torpedo tubes are now researched with torpedo launcher technology tree (was submarine hull technology tree)
+- Cruiser Sub : Range reduced to 4000 from 4750, 
+                Fuel tank availability moved from slot 1 to dedicated slot option shared with AA
+
+- Fuel tanks: now increases range by 50% from 1000km
+              Percentage cost modifier decreased to 10% from 25%
+- Torpedo: Weapon hit profile reduced to 110 from 120 (vanilla 100)
+- Wings launched Penalty % per Carrier over 4 reduced to 15% (was 20%)
+
+#### Navy Spirits
+- Spirit of Naval Command: Decisive Battle: Now availeable regardless of Doctrine
+- Added 'Swift Response' new Spirit of Naval Command which grants: +25% Escort and Screening efficiancy
+                                                                   +5% Damage
+                                                                   +10% Spotting Speed and Sub Detection
+                                                                   +20% convoy retreat speed
+                                                                   +15% naval speed
+                                                                   -25% Strike force Org loss
+                                                                   Only available with 'Fleet in Being'
+
+#### Navy Doctrine
+- Floating Fortress Doctrine Point (all doctrines): Now grants +10 org to Battlecruiser 
+- Massed Strikes Doctrine Point (Base strike): Replaced -20% overcrowding penalty with +20 Heavy Cruiser org
+- Carrier Battlegroups Doctrine Point (Base strike capstone): Now grants +10 org to Battleships  
+                                                              Now grants 10% CV Plane Damage 
+                                                              Now grants -20% Strike force org loss 
+
+
+### 3.12.7  'The return of Python'
+
+#### General 
+ - Reworked air zones Tobruk, Egypt and Upper Nile
+
+#### India
+ - Ishapore arsenal focus reduced to 56 days from 70
+
+#### New Zealand
+ - Expand the NZPAF - Removed subsidy, added air Experience +50 and 1x 50% reduction to air doc
+
+#### Germany
+ - Heavy water production decision: Number of research bonuses reduced from 2 to 1
+                                    Research bonus reduced from 200% to 100%
+                                    Time to complete decreased forom 365  to 160 days
+                                    Added cost of 4 civs whilst active.
+
+#### Australia
+ - Useless railway focus now gives 1 infra in 2 states
+
+#### Soviet Union
+ - Removed random -25% Aircraft designer cost from "Expand the Aircraft Industry"
+
+#### Italy
+ - Specialization focus Removed
+ - Standarization focus path changed 
+ - Made long range and multi role aircraft mutually exclusive, Added 5% reduction to aircraft
+ - Multi role aircraft focus removed air template cost and added 1 x 75% research boost for air 
+
+#### Spirits 
+ - Air spirit material destruction removed designer cost and added light aircraft research speed 10% and reduced Tactical bomber research from 25% to 20%
+ - industrial destruction had large plane airframe design removed
+
+### Romania
+ - Expand the University of bucharest focus now continues when requirements are not met
+ 
+### Germany 
+ - Begin heavy water production now requires Telemark to be controlled by the axis while the decision is active - reduced time taken to 160 days, Reduced boost to 1x 100% boost and costs 4 civs during the time.  
+ 
+#### USA
+ - Alf Landons focuses requiering senate support no longer cancel when due to dropped senate support (now same as Roosevelt)
+ - Fix issue where 'Defend the Seas' would spawn dockyards inland
+ - National Spirit 'Temporary Relief' now removes if National Spirit 'The 1937 Recession' is removed
+
+#### Navy
+- Improved destroyer guns (pen, DMG)
+- Improved CA guns (pen)
+- Improved BB/C guns (pen, DMG)
+- Unified secondary speed modifier (all mow at -2% except for 4th tier)
+- basic Dp now availeable with 36 light guns
+- SHBB guns now type Heavy Gun Slot Module, and SHBBs now fit all heavy guns
+- SHBB Hull Ic Cost 5500->6000
+- added secondary 3
+- added plane catapult 3
+- plane catapults now provide small amount of aa
+- 1936/40 plane catapults now require the light airframe of the same year to research
+- all DD engine speed mod modifier increased by 5%
+- DD base speeds now 32;33;34;35 (was 32 flat)
+- Sonars now reduces torpeedo damage
+- BC Armor: Armor reduced, speed bonus increased
+- Cruiser Armor 3/4: Armor increased, now makes ship capital ship
+- Torpedo Cruiser Tech: Increases Cruiser Torpedo damage to bring torp attack per ic for cruisers closer to destroyer levels
+- Panzerschiff: Build Cost 3500 -> 2700, Speed 2 -> 27, Visibility 22 -> 20, availeable as 36 cruiser subtech for all nations
+- Changed damage and piercing modifiers on shell tech.
+- Adjusted Convoy hitprofile to be in line with new torpeedo hit profile
+- Carrier armour now add small AA modifier
+
+Visbility Rework:
+- DD: Remain at 10
+
+- Cl(Armor <lvl3): remain at 15 
+- Cl(Armor >lvl3): 15-> 20
+- CAs: 15 -> 20
+
+- BCs: 20 -> 25 Vis
+- BBs: 20 -> 30 Vis
+- SHBC: 20 -> 30 Vis
+- SHBB: 20 -> 35 Vis
+
+- Gun Hit profiles: Heavy guns 85 -> 90, Torps 100 -> 120
+
 ### 3.12.6 'Delayed by Deadlock'
 
 ### Rules

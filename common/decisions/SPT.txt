@@ -109,6 +109,9 @@ spt_category = {
 		}
 		fire_only_once = yes
 		complete_effect = {
+			ENG = {
+				add_to_faction = USA
+			}
 			every_country = {
 				limit = {
 					is_in_faction_with = ENG
@@ -117,6 +120,19 @@ spt_category = {
 					declare_war_on = {
 						target = PREV
 						type = annex_everything
+					}
+				}
+			}
+			# Ensure USA joins the war in Europe too
+			every_other_country = {
+				limit = {
+					has_war_with = ENG
+				}
+				USA = {
+					add_to_war = {
+					    targeted_alliance = ENG
+					    enemy = PREV
+					    hostility_reason = asked_to_join
 					}
 				}
 			}
@@ -325,8 +341,39 @@ spt_category = {
 		}
 		fire_only_once = yes
 	}
-}
 
+BRA_annex_MEX_decision = {
+	allowed = {
+		original_tag = BRA
+	}
+	available = {
+		MEX = {
+			is_ai = yes
+		}
+		is_ai = no
+	}
+	complete_effect = {
+		annex_country = {
+			target = MEX
+			transfer_troops = yes
+		}
+		add_state_core = 484
+		add_state_core = 483
+		add_state_core = 482
+		add_state_core = 481
+		add_state_core = 480
+		add_state_core = 479
+		add_state_core = 478
+		add_state_core = 477
+		add_state_core = 476
+		add_state_core = 475
+		add_state_core = 485
+		add_state_core = 277
+		add_state_core = 474	
+	}
+	fire_only_once = yes
+}
+}
 USA_PAC_category = {
 	USA_PAC_island_targets = {
 		available = {
