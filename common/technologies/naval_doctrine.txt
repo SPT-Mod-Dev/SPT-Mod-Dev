@@ -43,7 +43,11 @@ technologies = {
 			leads_to_tech = submarine_operations 
 			research_cost_coeff = 1
 		}
-		
+		path = {
+			leads_to_tech = cag_night_fighting
+			research_cost_coeff = 1
+		}
+
 		xp_research_type = navy
 		xp_unlock_cost = 0 #SPTChange set to 0
 		doctrine = yes	
@@ -912,6 +916,10 @@ technologies = {
 			leads_to_tech = carrier_operations 
 			research_cost_coeff = 1
 		}
+		path = {
+			leads_to_tech = cag_night_fighting
+			research_cost_coeff = 1
+		}
 		
 		xp_research_type = navy
 		xp_unlock_cost = 0 #SPTChange set to 0
@@ -1751,7 +1759,11 @@ technologies = {
 			leads_to_tech =  convoy_escorts_bs
 			research_cost_coeff = 1
 		}
-		
+		path = {
+			leads_to_tech = cag_night_fighting
+			research_cost_coeff = 1
+		}
+
 		xp_research_type = navy
 		xp_unlock_cost = 0 #SPTChange set to 0
 		doctrine = yes	
@@ -2691,5 +2703,52 @@ technologies = {
 			battleship = 1.0
 		}
 	}
+
+	cag_night_fighting = {
+
+		carrier_night_traffic = 0.5 #SPTChanges
+		air_carrier_night_penalty_reduction_factor = 0.33
+
+		xp_research_type = navy
+		xp_unlock_cost = 100
+		doctrine = yes
+		research_cost = 3
+
+		categories = {
+			naval_doctrine
+		}
+
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = 22 y = 0 }
+		}
+
+		ai_will_do = {
+			factor = 1.25
+
+			modifier = {
+				has_war = yes
+				factor = 2
+			}
+			modifier = {
+				OR = {
+					tag = ENG
+				}
+				factor = 2.5
+			}
+			modifier = {
+				OR = {
+					has_war_with = JAP
+					has_war_with = USA
+				}
+				factor = 2
+			}
+			modifier = {
+				has_navy_experience > 120
+				factor = 2
+			}
+		}
+	}
+
 	
 }
