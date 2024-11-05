@@ -244,8 +244,8 @@ ideas = {
 		night_fighting_spirit = {
 			ledger = navy
 			modifier = {
-				night_spotting_chance = 0.1
-				naval_night_attack = 0.1
+				night_spotting_chance = 0.33
+				naval_night_attack = 0.33
 
 			}
 			ai_will_do = {
@@ -256,7 +256,8 @@ ideas = {
 			ledger = navy
 			modifier = {
 				amphibious_invasion = 0.5
-				naval_coordination = 0.3
+				naval_retreat_speed_after_initial_combat = 0.1
+				naval_retreat_chance_after_initial_combat = 1
 				naval_retreat_speed = 0.3
 				ships_at_battle_start = 0.3
 				
@@ -347,8 +348,8 @@ ideas = {
 			ledger = navy
 			visible = { has_tech = base_strike }
 			modifier = {
-				navy_weather_penalty = -0.25
-				air_weather_penalty = -0.1
+				carrier_night_traffic = 0.5 #SPTChanges
+				air_carrier_night_penalty_reduction_factor = 0.33 #doesnt do anything afaik
 				naval_accidents_chance = -0.25
 				sortie_efficiency = 0.25
 				spotting_chance = 0.2
