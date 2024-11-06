@@ -1287,9 +1287,6 @@ early_ship_hull_carrier = {
 			leads_to_tech = advanced_ship_hull_carrier
 			research_cost_coeff = 1
 		}
-		sub_technologies = {
-			cag_night_fighting
-		}
 
 		research_cost = 1.5
 
@@ -1731,47 +1728,6 @@ early_ship_hull_carrier = {
 		#set at gamestart
 		allow = {
 			always = no
-		}
-	}
-	cag_night_fighting = { #SPTaddition
-
-		carrier_night_traffic = 0.5 #SPTChanges
-		air_carrier_night_penalty_reduction_factor = 0.33
-
-		xp_research_type = navy
-		xp_unlock_cost = 100
-		doctrine = yes
-		research_cost = 3
-
-		categories = {
-			naval_doctrine
-			cv_tech
-		}
-
-		ai_will_do = {
-			factor = 1.25
-
-			modifier = {
-				has_war = yes
-				factor = 2
-			}
-			modifier = {
-				OR = {
-					tag = ENG
-				}
-				factor = 2.5
-			}
-			modifier = {
-				OR = {
-					has_war_with = JAP
-					has_war_with = USA
-				}
-				factor = 2
-			}
-			modifier = {
-				has_navy_experience > 120
-				factor = 2
-			}
 		}
 	}
 }
