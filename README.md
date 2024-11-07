@@ -1,6 +1,11 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.13.0
+### 3.12.10 "Twilight of the Mod Devs"
+
+#### General
+ - Added additional automation to Japanese decision "Hakkō Ichiu"
+   - USA joins the Allies immediately upon Japanese DoW
+   - USA joins all British wars, namely the war against the European Axis
 
 #### Navy
  - Converted carrier can now retain modules of source ships, allowing for Hybrid designs, wich will behave as Carriers.
@@ -10,6 +15,7 @@
  - Naval Spirit: Inclement Weather experience: Removed weather effect modifiers (possibly not applying). Added +10% Naval Hit chance.
  - removed visibility/availability of minelaying techs
  - Added Naval Doctrine "Tech": CAG night operations. Independent of doctrine tree, costs air XP. Allows for carrier play without blocking slot for air spirits.
+ -
 #### Tanks
  - Amphibious Tank Chassis IC cost increased to 6, from 4.5
  - Amphibious Tank Chassis can no longer use Light Tank Turrets
@@ -21,7 +27,22 @@
  - Made Medium Navs classified as naval patrol bombers, possible
  - All-Weather AIr advsor now gives 2/4/6% Buff to air mission efficiency instead of possibly not applying -10/-20/-30 weather% penalty
  - CAG Night Fighting spirit removed
+=======
+ - Made Medium Navs, classified as naval patrol bombers, possible
+ - Guided ASM +5 Naval Targeting
+ - Pioneers now get affected by engineers research
+ - Pioneers: Jungle specialists defense boost brought inline with regular engineers
+ - Support Rocket artillery now counts as support artillery for purposes of special forces doctrine modifiers
 
+#### Japan
+ - "Alliance with Siam" grants 100% compliance when annexing AI Siam, instead of cores
+
+#### Bulgaria
+ - Focus "The Path Towards a Greater Bulgaria" no longer increases your economy law past Partial Mobilization, rewarding 150 political power instead if you already have reached it
+
+#### UK
+ - Removed decisions "Invade Ireland", "The MacDonald Proposal", and "Invoke the Alliance of 1373"
+   
 ### 3.12.9
 
 #### General

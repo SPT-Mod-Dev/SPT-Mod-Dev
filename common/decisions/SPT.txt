@@ -109,6 +109,9 @@ spt_category = {
 		}
 		fire_only_once = yes
 		complete_effect = {
+			ENG = {
+				add_to_faction = USA
+			}
 			every_country = {
 				limit = {
 					is_in_faction_with = ENG
@@ -117,6 +120,19 @@ spt_category = {
 					declare_war_on = {
 						target = PREV
 						type = annex_everything
+					}
+				}
+			}
+			# Ensure USA joins the war in Europe too
+			every_other_country = {
+				limit = {
+					has_war_with = ENG
+				}
+				USA = {
+					add_to_war = {
+					    targeted_alliance = ENG
+					    enemy = PREV
+					    hostility_reason = asked_to_join
 					}
 				}
 			}
