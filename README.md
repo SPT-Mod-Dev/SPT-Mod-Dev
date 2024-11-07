@@ -2,13 +2,25 @@
 
 ### 3.13.0
 
+#### Navy
+ - Converted carrier can now retain modules of source ships, allowing for Hybrid designs, wich will behave as Carriers.
+ - Added two AA/Secondary only slots to dedicated Carriers.
+ - Naval Spirit: Night fighting: returned 5% visibility reduction. when other spirits were rebalanced, it was left at original nerfed state. now thatother spirits are stronger, this should return it into consideration.
+ - Naval Spirit: Suprise Attacks: Removed 30% Naval coordination Boost, added automatic opportunity to disengage after initial combat, as a chance to take advantage of a spotting advantage with smaller fleets.
+ - Naval Spirit: Inclement Weather experience: Removed weather effect modifiers (possibly not applying). Added +10% Naval Hit chance.
+ - removed visibility/availability of minelaying techs
+ - Added Naval Doctrine "Tech": CAG night operations. Independent of doctrine tree, costs air XP. Allows for carrier play without blocking slot for air spirits.
 #### Tanks
  - Amphibious Tank Chassis IC cost increased to 6, from 4.5
  - Amphibious Tank Chassis can no longer use Light Tank Turrets
  - Amphibious Drive added IC cost multiplier of +10%
  - Dozer Blades entrenchment reduced to 1, from 1.5
  - Dozer Blades defense reduced to 8, from 10
+
+#### Air
  - Made Medium Navs classified as naval patrol bombers, possible
+ - All-Weather AIr advsor now gives 2/4/6% Buff to air mission efficiency instead of possibly not applying -10/-20/-30 weather% penalty
+ - CAG Night Fighting spirit removed
 
 ### 3.12.9
 
