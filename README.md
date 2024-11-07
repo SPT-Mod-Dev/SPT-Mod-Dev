@@ -27,13 +27,13 @@
  - Made Medium Navs classified as naval patrol bombers, possible
  - All-Weather AIr advsor now gives 2/4/6% Buff to air mission efficiency instead of possibly not applying -10/-20/-30 weather% penalty
  - CAG Night Fighting spirit removed
-=======
  - Made Medium Navs, classified as naval patrol bombers, possible
  - Guided ASM +5 Naval Targeting
+   
+#### Army
  - Pioneers now get affected by engineers research
  - Pioneers: Jungle specialists defense boost brought inline with regular engineers
  - Support Rocket artillery now counts as support artillery for purposes of special forces doctrine modifiers
-
  - Armored cars stats increased to ~equal those of equal ic light tanks
  - Armored car tech levels moved to 1914/1936/1940 (was 1914/1940/1942)
 
