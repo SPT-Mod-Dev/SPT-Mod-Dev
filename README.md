@@ -4,8 +4,8 @@
 
 #### General
  - Added additional automation to Japanese decision "Hakkō Ichiu"
-   - USA joins the Allies immediately upon Japanese DoW
-   - USA joins all British wars, namely the war against the European Axis
+ - USA joins the Allies immediately upon Japanese DoW
+ - USA joins all British wars, namely the war against the European Axis
 
 #### Navy
  - Converted carrier can now retain modules of source ships, allowing for Hybrid designs, wich will behave as Carriers.
@@ -13,9 +13,9 @@
  - Naval Spirit: Night fighting: returned 5% visibility reduction. when other spirits were rebalanced, it was left at original nerfed state. now thatother spirits are stronger, this should return it into consideration.
  - Naval Spirit: Suprise Attacks: Removed 30% Naval coordination Boost, added automatic opportunity to disengage after initial combat, as a chance to take advantage of a spotting advantage with smaller fleets.
  - Naval Spirit: Inclement Weather experience: Removed weather effect modifiers (possibly not applying). Added +10% Naval Hit chance.
- - removed visibility/availability of minelaying techs
+ - Removed visibility/availability of minelaying techs
  - Added Naval Doctrine "Tech": CAG night operations. Independent of doctrine tree, costs air XP. Allows for carrier play without blocking slot for air spirits.
- -
+
 #### Tanks
  - Amphibious Tank Chassis IC cost increased to 6, from 4.5
  - Amphibious Tank Chassis can no longer use Light Tank Turrets
@@ -42,6 +42,7 @@
 
 #### Bulgaria
  - Focus "The Path Towards a Greater Bulgaria" no longer increases your economy law past Partial Mobilization, rewarding 150 political power instead if you already have reached it
+ - Fixed Italian MIO availability when becoming Germany's subject
 
 #### UK
  - Removed decisions "Invade Ireland", "The MacDonald Proposal", and "Invoke the Alliance of 1373"
