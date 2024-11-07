@@ -26,12 +26,22 @@ SPT_JAP_take_away_civ_factories = {
 				industrial_complex > 0
 			}
 
-			any_controlled_state = {
-				is_core_of = JAP
-				free_building_slots = {
-					building = industrial_complex
-					size > 0
-					include_locked = yes
+			AND = {
+				any_controlled_state = {
+					is_core_of = JAP
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				any_controlled_state = {
+					is_core_of = JAP
+					free_building_slots = {
+						building = industrial_complex
+						size < 15
+						include_locked = yes
+					}
 				}
 			}
 
@@ -114,14 +124,25 @@ SPT_JAP_take_away_mil_factories = {
 				arms_factory > 0
 			}
 
-			any_controlled_state = {
-				is_core_of = JAP
-				free_building_slots = {
-					building = arms_factory
-					size > 0
-					include_locked = yes
+			AND = {
+				any_controlled_state = {
+					is_core_of = JAP
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				any_controlled_state = {
+					is_core_of = JAP
+					free_building_slots = {
+						building = arms_factory
+						size < 15
+						include_locked = yes
+					}
 				}
 			}
+
 
 			check_variable = {
 				var = taken_factories_count
