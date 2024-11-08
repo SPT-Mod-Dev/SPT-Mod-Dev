@@ -54,11 +54,55 @@ focus_tree = {
 	# 	}
 	# }
 
+		focus = {
+		id = SPT_JAP_fake_focus_for_aligning_tree
+		icon = GFX_focus_jap_showa_restoration
+	#  prerequisite = { focus = SPT_JAP_ }
+		#mutually_exclusive = {  }
+		x = 0
+		y = 0
+		#relative_position_id = SPT_JAP_
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		allow_branch = {
+			always = no
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			#add_stability = 0.1
+		}
+	}
+
 	focus = {
 		id = SPT_JAP_purge_kodoha
 		icon = GFX_focus_SWE_neither_death_nor_dishonor
 		mutually_exclusive = { focus = SPT_JAP_support_kodoha }
-		x = 0
+		x = 8
 		y = 0
 		# offset = {
 		# 	x = 0
@@ -67,6 +111,8 @@ focus_tree = {
 		# 	#	NOT = { has_dlc = "Waking the Tiger" }
 		# 	}
 		# }
+
+		relative_position_id = SPT_JAP_fake_focus_for_aligning_tree
 
 		cost = 5
 
@@ -282,7 +328,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_maritime_tradition
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_goal_generic_occupy_states_coastal
 
 		prerequisite = { focus = SPT_JAP_tip_the_scales }
 		x = 0
@@ -2016,7 +2062,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_shared_resources
-		icon = GFX_focus_generic_stockpile_fuel
+		icon = GFX_focus_generic_resource_extraction
 		prerequisite = { 
 			focus = SPT_JAP_unity_of_purpose
 		}
@@ -2687,7 +2733,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_seize_zaibatsu_vessels
-		icon = GFX_focus_POL_develop_polish_shipbuilding
+		icon = GFX_goal_generic_construct_naval_dockyard
 		prerequisite = { 
 			focus = SPT_JAP_prepare_the_southern_expansion
 		}
@@ -3903,7 +3949,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_german_advisors
-		icon = GFX_goal_continuous_armor_production
+		icon = GFX_focus_BRA_acquire_german_tanks
 		prerequisite = { focus = SPT_JAP_learn_from_germany }
 		#mutually_exclusive = {  }
 		x = 0
@@ -4029,7 +4075,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_italian_advisors
-		icon = GFX_focus_generic_manpower
+		icon = GFX_focus_ITA_a_colonial_empire
 		prerequisite = { focus = SPT_JAP_learn_from_italy }
 		#mutually_exclusive = {  }
 		x = 0
@@ -4445,26 +4491,6 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			random_owned_controlled_state = {
-				limit = {
-					is_core_of = CHI
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-			random_owned_controlled_state = {
-				limit = {
-					is_core_of = CHI
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
 		}
 	}
 
@@ -4523,11 +4549,21 @@ focus_tree = {
 					type = aluminium
 					amount = 8
 				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
 			}
 			325 = {
 				add_resource = {
 					type = aluminium
 					amount = 12
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
 				}
 			}
 			if = {
@@ -4598,7 +4634,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_tripartite
-		icon = GFX_focus_chi_mission_to_germany
+		icon = GFX_goal_molotov_ribbentrop_pact
 		prerequisite = { 
 			focus = SPT_JAP_strike_south
 		}
@@ -5151,7 +5187,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_stockpile_strats
-		icon = GFX_goal_generic_trade
+		icon =  GFX_focus_generic_stockpile_fuel
 		prerequisite = { focus = SPT_JAP_long_term }
 		# mutually_exclusive = { 
 		# 	focus = SPT_JAP_rapid_dev
@@ -5556,7 +5592,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_constant_pressure
-		icon = GFX_goal_generic_amphibious_assault
+		icon = GFX_focus_spr_crush_the_revolution
 		prerequisite = { focus = SPT_JAP_offensive_war }
 		# mutually_exclusive = {
 		# 	focus = SPT_JAP_defensive_war
@@ -5762,6 +5798,8 @@ focus_tree = {
 				tooltip = war_support_factor_tt
 			}
 			#custom_effect_tooltip = SPT_JAP_strike_south_completed_tt
+
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			
 			unlock_decision_tooltip = JAP_declare_war_on_allies
 
@@ -6305,7 +6343,7 @@ focus_tree = {
 			army_experience = 10
 			add_tech_bonus = {
 				name = JAP_modern_artillery
-				bonus = 0.5
+				bonus = 0.75
 				uses = 2
 				category = artillery	
 			}
@@ -6393,7 +6431,7 @@ focus_tree = {
 
 	focus = {
 		id = SPT_JAP_armored_spear
-		icon = GFX_focus_generic_license_production
+		icon = GFX_focus_generic_tankette
 		prerequisite = { focus = SPT_JAP_armored_divs }
 		x = -2
 		y = 2
@@ -6673,7 +6711,7 @@ focus_tree = {
 
 	focus = {
 		id = SPT_JAP_fighter_modernization
-		icon = GFX_goal_continuous_air_production
+		icon = GFX_focus_generic_copy_plane_designs
 		prerequisite = { focus = SPT_JAP_army_expansion_law focus = SPT_JAP_new_naval_estimates }
 		x = 4
 		y = 2
@@ -6704,16 +6742,17 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = JAP_fighter_modernization
-				bonus = 1.0
+				bonus = 0.75
 				uses = 1
 				category = light_fighter		
 			}
 			add_tech_bonus = {
 				name = JAP_fighter_modernization
-				bonus = 1.0
+				bonus = 0.75
 				uses = 1
 				category = cat_heavy_fighter	
 			}
+
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			country_event = { id = spt_jap.3 }
 		}
@@ -7660,7 +7699,7 @@ focus_tree = {
 
 	focus = {
 		id = SPT_JAP_fanaticism
-		icon = GFX_goal_generic_secret_weapon
+		icon = GFX_focus_generic_total_war
 		prerequisite = {
 			focus = SPT_JAP_autarky
 			focus = SPT_JAP_rule_the_sea
