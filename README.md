@@ -24,7 +24,7 @@
  - Dozer Blades defense reduced to 8, from 10
 
 #### Air
- - Made Medium Navs classified as naval patrol bombers, possible
+ - ~~Made Medium Navs classified as naval patrol bombers, possible~~ Reverted, causes crash without defineable error
  - All-Weather AIr advsor now gives 2/4/6% Buff to air mission efficiency instead of possibly not applying -10/-20/-30 weather% penalty
  - CAG Night Fighting spirit removed
  - Made Medium Navs, classified as naval patrol bombers, possible
