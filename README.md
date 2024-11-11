@@ -1,5 +1,10 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.12.11 
+
+#### Bulgaria
+ - Fixed Foreign Company decisions availability when becoming Germany's subject
+
 ### 3.12.10 "Twilight of the Mod Devs"
 
 #### General
