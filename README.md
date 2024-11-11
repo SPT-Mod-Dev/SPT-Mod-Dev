@@ -2,6 +2,12 @@
 
 ### 3.12.11 
 
+#### AI
+ - Added Manchukuo AI to complete all industry focuses.
+
+#### Japan
+ - Triparte Pact guarantees now removed in January 1942
+
 #### Bulgaria
  - Fixed Foreign Company decisions availability when becoming Germany's subject
 
