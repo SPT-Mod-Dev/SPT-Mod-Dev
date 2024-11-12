@@ -1017,204 +1017,204 @@ country_event = {
 			}
 		}
 	}
-	option = {
-		name = germany.1002.b
-		ai_chance = {
-			base = 0 #AI should never refuse
-		}
-		every_country = {
-			limit = {
-				NOT = { tag = ROOT }
-				is_in_faction_with = ROOT
-			}
-			country_event = germany.1003
-		}
-		SOU = { country_event = germany.16 }
-		clr_global_flag = sov_yes_pact
-		GER = {
-			diplomatic_relation = {
-				country = SOV
-				relation = non_aggression_pact
-				active = no
-			}
-		}
-		SOU = {
-			if = {
-				limit = {
-					NOT = { owns_state = 146 }
-				}
-				add_state_claim = 146 #KARELIA (FIN)
-			}
-			if = {
-				limit = {
-					NOT = { owns_state = 147 }
-				}
-				add_state_claim = 147 #SALLA (FIN)
-			}
-			if = {
-				limit = {
-					NOT = { owns_state = 722 }
-				}
-				add_state_claim = 722 #PETSAMO (FIN)
-			}
-			if = {
-				limit = {
-					NOT = { owns_state = 13 }
-				}
-				add_state_claim = 13 #PÄRNU (EST)
-			}
-			if = {
-				limit = {
-					NOT = { owns_state = 191 }
-				}
-				add_state_claim = 191 #TARTU (EST)
-			}
-			if = {
-				limit = {
-					NOT = { owns_state = 811 }
-				}
-				add_state_claim = 811 #SAAREMAA (EST)
-			}
-			if = {
-				limit = {
-					NOT = { owns_state = 813 }
-				}
-				add_state_claim = 813 #VIRUMAA (EST)
-			}
-			if = {
-				limit = {
-					NOT = { owns_state = 812 }
-				}
-				add_state_claim = 812 #TALLIN (EST)
-			}
-			if = {
-				limit = {
-					NOT = { owns_state = 12 }
-				}
-				add_state_claim = 12 #VIDZEME (LAT)
-			}
-			if = {
-				limit = {
-					NOT = { owns_state = 190 }
-				}
-				add_state_claim = 190 #KURZEME (LAT)
-			}
-			if = {
-				limit = {
-					NOT = { owns_state = 808 }
-				}
-				add_state_claim = 808 #RIGA (LAT)
-			}
-			if = {
-				limit = {
-					NOT = { owns_state = 809 }
-				}
-				add_state_claim = 809 #ZEMGALE (LAT)
-			}
-			if = {
-				limit = {
-					NOT = { owns_state = 810 }
-				}
-				add_state_claim = 810 #LATGALE (LAT)
-			}
-			if = {
-				limit = {
-					NOT = { owns_state = 11 }
-				}
-				add_state_claim = 11 #KAUNAS (LIT)
-			}
-			if = {
-				limit = {
-					NOT = { owns_state = 784 }
-				}
-				add_state_claim = 784 #WILNO (LIT)
-			}
-			if = {
-				limit = {
-					NOT = { owns_state = 189 }
-				}
-				add_state_claim = 189 #ZEMAITIJA (LIT)
-			}
-			if = {
-				limit = {
-					NOT = { owns_state = 814 }
-				}
-				add_state_claim = 814 #SUDUVA (LIT)
-			}
-			if = {
-				limit = {
-					NOT = { owns_state = 815 }
-				}
-				add_state_claim = 815 #AUKSTAITIJA (LIT)
-			}
-			if = {
-				limit = {
-					NOT = { owns_state = 89 }
-				}
-				add_state_claim = 89 #STANISLAWOW (POL)
-			}
-			if = {
-				limit = {
-					NOT = { owns_state = 91 }
-				}
-				add_state_claim = 91 #LWOW (POL)
-			}
-			if = {
-				limit = {
-					NOT = { owns_state = 93 }
-				}
-				add_state_claim = 93 #WOLYN (POL)
-			}
-			if = {
-				limit = {
-					NOT = { owns_state = 94 }
-				}
-				add_state_claim = 94 #POLESIE (POL)
-			}
-			if = {
-				limit = {
-					NOT = { owns_state = 95 }
-				}
-				add_state_claim = 95 #NOWOGRODEK (POL)
-			}
-			if = {
-				limit = {
-					NOT = { owns_state = 96 }
-				}
-				add_state_claim = 96 #WILEJKA (POL)
-			}
-			if = {
-				limit = {
-					NOT = { owns_state = 97 }
-				}
-				add_state_claim = 97 #BIALYSTOK (POL)
-			}
-			if = {
-				limit = {
-					NOT = { owns_state = 78 }
-				}
-				add_state_claim = 78 #BESSARABIA (ROM)
-			}
-			if = {
-				limit = {
-					NOT = { owns_state = 80 }
-				}
-				add_state_claim = 80 #BUCOVINA (ROM)
-			}
-			if = {
-				limit = {
-					NOT = { owns_state = 766 }
-				}
-				add_state_claim = 766 #SOUTHERN BESSARABIA (ROM)
-			}
-			effect_tooltip = {
-				create_wargoal = {
-					type = annex_everything
-					target = GER
-				}
-			}
-		}
-	}
+	# option = { #SPTChange remove refusal 
+	# 	name = germany.1002.b
+	# 	ai_chance = {
+	# 		base = 0 #AI should never refuse
+	# 	}
+	# 	every_country = {
+	# 		limit = {
+	# 			NOT = { tag = ROOT }
+	# 			is_in_faction_with = ROOT
+	# 		}
+	# 		country_event = germany.1003
+	# 	}
+	# 	SOU = { country_event = germany.16 }
+	# 	clr_global_flag = sov_yes_pact
+	# 	GER = {
+	# 		diplomatic_relation = {
+	# 			country = SOV
+	# 			relation = non_aggression_pact
+	# 			active = no
+	# 		}
+	# 	}
+	# 	SOU = {
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { owns_state = 146 }
+	# 			}
+	# 			add_state_claim = 146 #KARELIA (FIN)
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { owns_state = 147 }
+	# 			}
+	# 			add_state_claim = 147 #SALLA (FIN)
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { owns_state = 722 }
+	# 			}
+	# 			add_state_claim = 722 #PETSAMO (FIN)
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { owns_state = 13 }
+	# 			}
+	# 			add_state_claim = 13 #PÄRNU (EST)
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { owns_state = 191 }
+	# 			}
+	# 			add_state_claim = 191 #TARTU (EST)
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { owns_state = 811 }
+	# 			}
+	# 			add_state_claim = 811 #SAAREMAA (EST)
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { owns_state = 813 }
+	# 			}
+	# 			add_state_claim = 813 #VIRUMAA (EST)
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { owns_state = 812 }
+	# 			}
+	# 			add_state_claim = 812 #TALLIN (EST)
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { owns_state = 12 }
+	# 			}
+	# 			add_state_claim = 12 #VIDZEME (LAT)
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { owns_state = 190 }
+	# 			}
+	# 			add_state_claim = 190 #KURZEME (LAT)
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { owns_state = 808 }
+	# 			}
+	# 			add_state_claim = 808 #RIGA (LAT)
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { owns_state = 809 }
+	# 			}
+	# 			add_state_claim = 809 #ZEMGALE (LAT)
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { owns_state = 810 }
+	# 			}
+	# 			add_state_claim = 810 #LATGALE (LAT)
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { owns_state = 11 }
+	# 			}
+	# 			add_state_claim = 11 #KAUNAS (LIT)
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { owns_state = 784 }
+	# 			}
+	# 			add_state_claim = 784 #WILNO (LIT)
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { owns_state = 189 }
+	# 			}
+	# 			add_state_claim = 189 #ZEMAITIJA (LIT)
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { owns_state = 814 }
+	# 			}
+	# 			add_state_claim = 814 #SUDUVA (LIT)
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { owns_state = 815 }
+	# 			}
+	# 			add_state_claim = 815 #AUKSTAITIJA (LIT)
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { owns_state = 89 }
+	# 			}
+	# 			add_state_claim = 89 #STANISLAWOW (POL)
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { owns_state = 91 }
+	# 			}
+	# 			add_state_claim = 91 #LWOW (POL)
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { owns_state = 93 }
+	# 			}
+	# 			add_state_claim = 93 #WOLYN (POL)
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { owns_state = 94 }
+	# 			}
+	# 			add_state_claim = 94 #POLESIE (POL)
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { owns_state = 95 }
+	# 			}
+	# 			add_state_claim = 95 #NOWOGRODEK (POL)
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { owns_state = 96 }
+	# 			}
+	# 			add_state_claim = 96 #WILEJKA (POL)
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { owns_state = 97 }
+	# 			}
+	# 			add_state_claim = 97 #BIALYSTOK (POL)
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { owns_state = 78 }
+	# 			}
+	# 			add_state_claim = 78 #BESSARABIA (ROM)
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { owns_state = 80 }
+	# 			}
+	# 			add_state_claim = 80 #BUCOVINA (ROM)
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				NOT = { owns_state = 766 }
+	# 			}
+	# 			add_state_claim = 766 #SOUTHERN BESSARABIA (ROM)
+	# 		}
+	# 		effect_tooltip = {
+	# 			create_wargoal = {
+	# 				type = annex_everything
+	# 				target = GER
+	# 			}
+	# 		}
+	# 	}
+	# }
 }
 
 #Event telling Germany their ally broke the pact

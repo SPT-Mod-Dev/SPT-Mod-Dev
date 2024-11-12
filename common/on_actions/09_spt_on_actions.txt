@@ -1168,4 +1168,27 @@ on_actions = {
 			}
 		}
 	}
+	on_monthly = {
+		effect = {
+			if = {
+				limit = {
+					date > 1941.12.30
+					NOT = { has_global_flag = riptriparte }
+				}
+				set_global_flag = riptriparte
+				JAP = {
+					diplomatic_relation = { country = GER relation = guarantee active = no } 
+					diplomatic_relation = { country = ITA relation = guarantee active = no } 
+				}
+				GER = {
+					diplomatic_relation = { country = JAP relation = guarantee active = no } 
+					diplomatic_relation = { country = ITA relation = guarantee active = no } 
+				}
+				ITA = {
+					diplomatic_relation = { country = GER relation = guarantee active = no } 
+					diplomatic_relation = { country = JAP relation = guarantee active = no } 
+				}
+			}
+		}
+	}
 }
