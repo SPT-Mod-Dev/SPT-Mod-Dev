@@ -5,18 +5,32 @@
 #### AI
  - Added Manchukuo AI to complete all industry focuses
 
+#### Army
+ - Nerfed armoured cars
+
+#### Navy
+ - Reduced dd tankiness
+
+#### Mexico
+ - 'Army Expansion Program' now gives two mils per state
+
 #### Hungary
  - Removed division requirements for 'Claim Overlordship of Slovakia'
  - Can no longer refuse the Molotov-Ribbentrop Pact if called upon
 
-#### Japan
- - Triparte Pact guarantees now removed in January 1942
 
 #### Bulgaria
  - Fixed Foreign Company decisions availability when becoming Germany's subject
 
 #### Finland
  - Remove advisors that can never be bought 
+
+#### Japan
+ - Triparte Pact guarantees now removed in January 1942
+ 
+#### Manchu
+ - Made focus positions make more sense
+ - Fixed Early Destroyer localisation
 
 ### 3.12.10 "Twilight of the Mod Devs"
 
