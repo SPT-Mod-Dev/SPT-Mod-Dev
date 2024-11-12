@@ -18,7 +18,6 @@
  - Removed division requirements for 'Claim Overlordship of Slovakia'
  - Can no longer refuse the Molotov-Ribbentrop Pact if called upon
 
-
 #### Bulgaria
  - Fixed Foreign Company decisions availability when becoming Germany's subject
 
