@@ -6,7 +6,8 @@
  - Added Manchukuo AI to complete all industry focuses
 
 #### Army
- - Nerfed armoured cars
+ - Nerfed armoured cars stats
+ - Added a modifier to hills and desert for armoured cars 
 
 #### Navy
  - Reduced dd tankiness
