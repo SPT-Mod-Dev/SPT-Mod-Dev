@@ -1,15 +1,22 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.12.11 
+### 3.12.11 "The Not Biased Update"
 
 #### AI
- - Added Manchukuo AI to complete all industry focuses.
+ - Added Manchukuo AI to complete all industry focuses
+
+#### Hungary
+ - Removed division requirements for 'Claim Overlordship of Slovakia'
+ - Can no longer refuse the Molotov-Ribbentrop Pact if called upon
 
 #### Japan
  - Triparte Pact guarantees now removed in January 1942
 
 #### Bulgaria
  - Fixed Foreign Company decisions availability when becoming Germany's subject
+
+#### Finland
+ - Remove advisors that can never be bought 
 
 ### 3.12.10 "Twilight of the Mod Devs"
 
