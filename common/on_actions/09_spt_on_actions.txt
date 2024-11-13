@@ -766,6 +766,27 @@ on_actions = {
 			# 		}
 			# 	}
 			# }
+
+			if = { # remove pan-asia integration and exploit chinese industry modifiers if japan loses control of them
+				limit = {
+					tag = JAP
+					OR = {
+						has_completed_focus = SPT_JAP_exploit_chinese_industry
+						has_completed_focus = SPT_JAP_pan_asia
+					}
+				}
+				every_state = {
+					limit = {
+						is_core_of = CHI
+					}
+					remove_dynamic_modifier = {
+						modifier = SPT_JAP_exploit_chinese_industry_modifier
+					}
+					remove_dynamic_modifier = {
+						modifier = JAP_pan_asian_integration
+					}
+				}
+			}
 		}
 	}
 	on_declare_war = {
