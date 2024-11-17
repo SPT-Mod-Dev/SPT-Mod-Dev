@@ -1018,15 +1018,11 @@ MAN_war_preparations = {
 		visible = {
 			check_variable = { var = MAN_seize_arms_prep value = 0 compare = greater_than }
 		}
-
 		cost = 0
-
 		fire_only_once = yes
-
 		ai_will_do = {
 			factor = 10
 		}
-
 		complete_effect = {
 			if = {
 				limit = {
@@ -1128,7 +1124,7 @@ MAN_war_preparations = {
 					check_variable = { var = MAN_seize_arms_prep value = 40 compare = less_than }
 				}
 				JAP = {
-				add_timed_idea = { idea = MAN_arms_seized_2 days = 60 }
+					add_timed_idea = { idea = MAN_arms_seized_2 days = 60 }
 				}
 			}
 			if = {
@@ -1167,10 +1163,10 @@ prospect_for_resources = {
 			has_tech = excavation1
 		}
 		highlight_states = {
- 		highlight_state_targets = {
+ highlight_state_targets = {
 			state = 328
-			} 
 		}
+}
 
 		visible = {
 			has_completed_focus = SPT_MAN_develop_aluminum_sources
@@ -1194,7 +1190,6 @@ prospect_for_resources = {
 		ai_will_do = {
 			factor = 10
 		}
-
 		remove_effect = { 
 			328 = { set_state_flag = kirin_aluminium_developed } 
 			328 = {
@@ -1215,10 +1210,10 @@ prospect_for_resources = {
 		}
 
 		highlight_states = {
- 		highlight_state_targets = {
+ highlight_state_targets = {
 			state = 716
-			} 
 		}
+}
 
 		available = {
 			has_tech = construction2
