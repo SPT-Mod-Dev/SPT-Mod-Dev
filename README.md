@@ -1,5 +1,13 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.13.01 "Holy crap lois, that's a dlc"
+
+#### Japan
+ - 'Bushido Spirit' trait infantry attack bonus reduced to 10%, from 20%
+ - 'Bushido Spirit' trait breakthrough bonus reduced to 20%, from 25%
+
+
+
 ### 3.12.11 "The Not Biased Update"
 
 #### AI

@@ -567,6 +567,7 @@ guiTypes = {
 			name = "air_wings_list"
 			position = { x = 6 y = 6 }
 			size = { x = 550 y = 428 } # Only max size before we start scrolling, will scale to lower if needed
+			clipping = yes
 			scrollbartype = "standardlistbox_slider"
 		}
 
@@ -976,19 +977,14 @@ guiTypes = {
 
 			containerWindowType = {
 				name = "strategic_air_priorities_window"
-				position = {x=4 y=-75}
-				size = { width=600 height=280 }
-				#animation_time = 300
-				#Orientation = center_down
-				#clipping = yes
-				fade_time = 300
-				fade_type = linear
+				position = { x = 4 y = -75 }
+				size = { width = 640 height = 84 }
 				clipping = no
 
 				background = {
 					name = "Background"
-					spriteType = "GFX_air_priorities_bg"
-					position = { x = 4 y = 2 }
+					quadTextureSprite = "GFX_air_priorities_tiled_bg"
+					position = { x = 0 y = 0 }
 				}
 
 				instantTextboxType = {
@@ -1142,7 +1138,6 @@ guiTypes = {
 				position = { x=565 y=8}
 				spriteType = "GFX_UV_btn_unassign"
 				clicksound = click_default
-				shortcut = "x"
 			}
 
 			buttonType = {
@@ -1158,6 +1153,7 @@ guiTypes = {
 			name = "air_selection"
 			position = { x = 2 y = 120 }
 			size = { x = 600 y = 0 } #Height set in code
+			clipping = no
 		}
 	}
 }
