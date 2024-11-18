@@ -1665,132 +1665,6 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = SPT_USA_liberty_torch
-		icon = GFX_focus_generic_strike_at_democracy3
-		prerequisite = {
-			focus = USA_arsenal_of_democracy
-		}
-		x = 2
-		y = 1
-		relative_position_id = USA_arsenal_of_democracy
-		cost = 5
-		available_if_capitulated = yes
-		available = {
-			has_government = democratic
-		}
-		search_filters = {
-			FOCUS_FILTER_RESEARCH
-		}
-		completion_reward = {
-			add_ideas = SPT_USA_torch_of_liberty
-		}
-	}
-
-	focus = {
-		id = USA_scientist_haven
-		icon = GFX_focus_research
-		prerequisite = { focus = SPT_USA_liberty_torch }
-		x = 1
-		y = 1
-		relative_position_id = USA_black_chamber
-
-		offset = {
-			x = -1
-			y = -4
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = USA_neutrality_act
-			}
-		}
-		offset = {
-			x = -1
-			y = 0
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = USA_neutrality_act
-				has_completed_focus = USA_reestablish_the_gold_standard
-			}
-		}
-		offset = {
-			x = -1
-			y = 0
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = USA_limited_intervention
-			}
-		}
-
-		cost = 10
-		#ai_will_do = {
-		#	factor = 1
-		#}
-
-		available_if_capitulated = yes
-		available = {
-			has_government = democratic
-		}
-		search_filters = {FOCUS_FILTER_RESEARCH}
-		completion_reward = {
-			add_research_slot = 1
-		}
-	}
-
-	focus = {
-		id = USA_manhattan_project
-		icon = GFX_focus_wonderweapons
-		prerequisite = { focus = USA_scientist_haven }
-
-		x = 0
-		y = 1
-		relative_position_id = USA_scientist_haven
-		cost = 10
-		#ai_will_do = {
-		#	factor = 1
-		#}
-
-		available_if_capitulated = yes
-
-		search_filters = {FOCUS_FILTER_RESEARCH}
-		completion_reward = {
-
-			IF = {
-				limit = {
-					NOT = {
-						has_tech = atomic_research
-					}
-				}
-				add_tech_bonus = {
-					name = USA_manhattan_project
-					bonus = 0.5
-					uses = 1
-					category = nuclear
-				}
-				add_breakthrough_progress = {
-					specialization = specialization_nuclear
-					value = 0.5
-				}
-				add_ideas = USA_manhattan_project_ns
-			}
-			ELSE = {
-				add_breakthrough_progress = {
-					specialization = specialization_nuclear
-					value = 1
-				}
-				add_ideas = USA_manhattan_project_ns
-			}
-		}
-	}
-
-	focus = {
 		id = USA_neutrality_act
 		icon = GFX_goal_generic_neutrality_focus
 		x = 5
@@ -1843,106 +1717,6 @@ focus_tree = {
 					days = 3
 					random_days = 5
 				}
-			}
-		}
-	}
-	focus = {
-		id = USA_lend_lease_act
-		icon = GFX_focus_generic_treaty
-		x = -4
-		y = 2
-		prerequisite = {
-			focus = USA_neutrality_act
-		}
-		prerequisite = {
-			focus = USA_continue_the_new_deal #SPT change to require new deal
-		}
-		relative_position_id = USA_neutrality_act
-		cost = 5 #SPT change 10 -> 5
-		ai_will_do = {
-			factor = 1
-		}
-		available = {
-			ENG = {
-				has_war_with = GER
-			}
-			if = {
-				limit = {
-					has_war_support > 0.4
-				}
-				congress_medium_support_trigger = yes
-			}
-			else = {
-				congress_high_support_trigger = yes
-			}
-			democratic > 0.95
-		}
-		bypass = {
-		}
-		cancel_if_invalid = no
-		continue_if_invalid = yes
-		available_if_capitulated = no
-		search_filters = {
-			FOCUS_FILTER_USA_CONGRESS
-		}
-		completion_reward = {
-			every_other_country = {
-				limit = {
-					is_major = yes
-					has_government = ROOT
-				}
-				ROOT = {
-					add_ai_strategy = {
-						type = support
-						id = PREV
-						value = 200
-					}
-				}
-			}
-			if = {
-				limit = {
-					has_completed_focus = USA_limited_intervention
-				}
-				swap_ideas = {
-					remove_idea = USA_limited_intervention
-					add_idea = USA_lend_lease_act_li
-				}
-			}
-			else_if = {
-				limit = {
-					has_completed_focus = USA_neutrality_act
-				}
-				swap_ideas = {
-					remove_idea = USA_neutrality_act
-					add_idea = USA_lend_lease_act_na
-				}
-			}
-			else = {
-				add_ideas = USA_lend_lease_act_dummy				#should never get here, just for tooltip purposes
-			}
-			if = {
-				limit = {
-					has_war_support > 0.6
-					has_war = no
-				}
-				USA_congress_small_support = yes
-			}
-			else_if = {
-				limit = {
-					has_war_support > 0.4
-					has_war = no
-				}
-				USA_congress_small_opposition = yes
-			}
-			else_if = {
-				limit = {
-					has_war_support < 0.4
-					has_war = no
-				}
-				USA_congress_large_opposition = yes
-			}
-			else = {
-				USA_congress_medium_opposition = yes
 			}
 		}
 	}
@@ -2078,6 +1852,231 @@ focus_tree = {
 					instant_build = yes
 				}
 				set_state_flag = USA_arsenal_of_democracy_3AF
+			}
+		}
+	}
+	focus = {
+		id = SPT_USA_liberty_torch
+		icon = GFX_focus_generic_strike_at_democracy3
+		prerequisite = {
+			focus = USA_arsenal_of_democracy
+		}
+		x = 2
+		y = 1
+		relative_position_id = USA_arsenal_of_democracy
+		cost = 5
+		available_if_capitulated = yes
+		available = {
+			has_government = democratic
+		}
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		completion_reward = {
+			add_ideas = SPT_USA_torch_of_liberty
+		}
+	}
+
+	focus = {
+		id = USA_scientist_haven
+		icon = GFX_focus_research
+		prerequisite = { focus = SPT_USA_liberty_torch }
+		x = 1
+		y = 1
+		relative_position_id = USA_black_chamber
+
+		offset = {
+			x = -1
+			y = -4
+			trigger = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+				has_completed_focus = USA_neutrality_act
+			}
+		}
+		offset = {
+			x = -1
+			y = 0
+			trigger = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+				has_completed_focus = USA_neutrality_act
+				has_completed_focus = USA_reestablish_the_gold_standard
+			}
+		}
+		offset = {
+			x = -1
+			y = 0
+			trigger = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+				has_completed_focus = USA_limited_intervention
+			}
+		}
+
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+
+		available_if_capitulated = yes
+		available = {
+			has_government = democratic
+		}
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = USA_manhattan_project
+		icon = GFX_focus_wonderweapons
+		prerequisite = { focus = USA_scientist_haven }
+
+		x = 0
+		y = 1
+		relative_position_id = USA_scientist_haven
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+
+		available_if_capitulated = yes
+
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+
+			IF = {
+				limit = {
+					NOT = {
+						has_tech = atomic_research
+					}
+				}
+				add_tech_bonus = {
+					name = USA_manhattan_project
+					bonus = 0.5
+					uses = 1
+					category = nuclear
+				}
+				add_breakthrough_progress = {
+					specialization = specialization_nuclear
+					value = 0.5
+				}
+				add_ideas = USA_manhattan_project_ns
+			}
+			ELSE = {
+				add_breakthrough_progress = {
+					specialization = specialization_nuclear
+					value = 1
+				}
+				add_ideas = USA_manhattan_project_ns
+			}
+		}
+	}
+	focus = {
+		id = USA_lend_lease_act
+		icon = GFX_focus_generic_treaty
+		x = -4
+		y = 2
+		prerequisite = {
+			focus = USA_neutrality_act
+		}
+		prerequisite = {
+			focus = USA_continue_the_new_deal #SPT change to require new deal
+		}
+		relative_position_id = USA_neutrality_act
+		cost = 5 #SPT change 10 -> 5
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			ENG = {
+				has_war_with = GER
+			}
+			if = {
+				limit = {
+					has_war_support > 0.4
+				}
+				congress_medium_support_trigger = yes
+			}
+			else = {
+				congress_high_support_trigger = yes
+			}
+			democratic > 0.95
+		}
+		bypass = {
+		}
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = no
+		search_filters = {
+			FOCUS_FILTER_USA_CONGRESS
+		}
+		completion_reward = {
+			every_other_country = {
+				limit = {
+					is_major = yes
+					has_government = ROOT
+				}
+				ROOT = {
+					add_ai_strategy = {
+						type = support
+						id = PREV
+						value = 200
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = USA_limited_intervention
+				}
+				swap_ideas = {
+					remove_idea = USA_limited_intervention
+					add_idea = USA_lend_lease_act_li
+				}
+			}
+			else_if = {
+				limit = {
+					has_completed_focus = USA_neutrality_act
+				}
+				swap_ideas = {
+					remove_idea = USA_neutrality_act
+					add_idea = USA_lend_lease_act_na
+				}
+			}
+			else = {
+				add_ideas = USA_lend_lease_act_dummy				#should never get here, just for tooltip purposes
+			}
+			if = {
+				limit = {
+					has_war_support > 0.6
+					has_war = no
+				}
+				USA_congress_small_support = yes
+			}
+			else_if = {
+				limit = {
+					has_war_support > 0.4
+					has_war = no
+				}
+				USA_congress_small_opposition = yes
+			}
+			else_if = {
+				limit = {
+					has_war_support < 0.4
+					has_war = no
+				}
+				USA_congress_large_opposition = yes
+			}
+			else = {
+				USA_congress_medium_opposition = yes
 			}
 		}
 	}

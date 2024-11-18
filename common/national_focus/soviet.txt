@@ -10159,13 +10159,13 @@ focus_tree = {
 	focus = {
 		id = SOV_coup_detat
 		icon = GFX_SOV_coup_detat_ccp_2d_sov_compatibility
-		prerequisite = { focus = SOV_the_plan_for_the_coup} #SPT change, change prerequisite
+		prerequisite = { focus = SOV_the_plan_for_the_coup } #SPT change, change prerequisite
 		x = 0
 		y = 3
 		relative_position_id = SOV_dissent_in_the_party
 		cost = 5 #SPT change 10 -> 5
 		available = {
-			SOV_soviet_civil_war_not_started = yes 
+			SOV_soviet_civil_war_not_started = yes
 		}
 		bypass = {
 			OR = {
@@ -10173,8 +10173,8 @@ focus_tree = {
 				has_global_flag = SOV_soviet_civil_war
 			}
 		}
-		                
-		search_filters = {}
+
+		search_filters = { }
 
 		completion_reward = {
 			# Stalin dead
@@ -10184,9 +10184,9 @@ focus_tree = {
 				}
 				custom_effect_tooltip = SOV_coup_detat_success_tt
 				hidden_effect = {
-					set_cosmetic_tag = SOV_right_opposition 
+					set_cosmetic_tag = SOV_right_opposition
 					set_global_flag = SOV_soviet_civil_war_over
-					SOV_remove_paranoia_effect = yes 
+					SOV_remove_paranoia_effect = yes
 					if = {
 						limit = {
 							has_idea = SOV_anti_soviet_military_thinking_banned_army
@@ -10226,8 +10226,9 @@ focus_tree = {
 						}
 					}
 				}
-			custom_effect_tooltip = SOV_exiled_advisors_available_tt
+				custom_effect_tooltip = SOV_exiled_advisors_available_tt
 
+			}
 		}
 	}
 
