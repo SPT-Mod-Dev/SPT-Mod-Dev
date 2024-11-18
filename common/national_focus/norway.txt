@@ -6041,12 +6041,14 @@ focus_tree = {
 			every_owned_state = {
 				limit = {
 					# Just celebrating the fact that I don't need to exclude Jan Mayen this time
-					is_controlled_by = ROOT 
-					free_building_slots = {
-						building = bunker
-						size < 2
-						include_locked = yes
-					}	
+					is_controlled_by = ROOT
+					# NOTE : This now triggers an error on load because bunker is a province building!
+					# Commented out for now, please fix -- RRK
+#					free_building_slots = {
+#						building = bunker
+#						size < 2
+#						include_locked = yes
+#					}
 				}
 				add_building_construction = {
 					type = bunker 
@@ -8370,7 +8372,6 @@ focus_tree = {
 					free_building_slots = {
 						building = anti_air_building
 						size > 1
-						include_locked = yes 
 					}	
 				}
 				prioritize = { # Southern States
