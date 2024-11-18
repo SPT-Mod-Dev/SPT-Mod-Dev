@@ -1075,7 +1075,7 @@
 			}
 
 			if = {
-				limit = { has_tech = radio_detection }
+				limit = { is_special_project_completed = sp:sp_air_radar }
 				random_owned_controlled_state = {
 					prioritize = { 521 872 }
 					limit = {
@@ -1138,50 +1138,16 @@
 					}
 					set_state_flag = AST_volunteer_air_observers_corps_radar3
 				}
-				else = {
-					complete_special_project = {
-						project = sp:sp_air_radar
-					}
-					effect_tooltip = {
-						random_owned_controlled_state = {
-							prioritize = { 521 872 }
-							limit = {
-								is_in_home_area = yes
-								NOT = {
-									state = 674
-								}
-							}
-							add_building_construction = {
-								type = radar_station
-								level = 1
-								instant_build = yes
-							}
-						}
-
-						random_owned_controlled_state = {
-							prioritize = { 285 }
-							limit = {
-								NOT = { has_state_flag = AST_volunteer_air_observers_corps_radar1 }
-								is_in_home_area = yes
-								NOT = {
-									state = 674
-								}
-							}
-							add_building_construction = {
-								type = radar_station
-								level = 1
-								instant_build = yes
-							}
-						}
-					}
+			}
+			else = {
+				complete_special_project = {
+					project = sp:sp_air_radar
+				}
+				effect_tooltip = {
 					random_owned_controlled_state = {
 						prioritize = { 521 872 }
 						limit = {
 							is_in_home_area = yes
-							free_building_slots = {
-								building = radar_station
-								size > 0
-							}
 							NOT = {
 								state = 674
 							}
@@ -1191,18 +1157,12 @@
 							level = 1
 							instant_build = yes
 						}
-						set_state_flag = AST_volunteer_air_observers_corps_radar1
 					}
-
 					random_owned_controlled_state = {
 						prioritize = { 285 }
 						limit = {
 							NOT = { has_state_flag = AST_volunteer_air_observers_corps_radar1 }
 							is_in_home_area = yes
-							free_building_slots = {
-								building = radar_station
-								size > 0
-							}
 							NOT = {
 								state = 674
 							}
@@ -1212,12 +1172,51 @@
 							level = 1
 							instant_build = yes
 						}
-						set_state_flag = AST_volunteer_air_observers_corps_radar2
 					}
+				}
+				random_owned_controlled_state = {
+					prioritize = { 521 872 }
+					limit = {
+						is_in_home_area = yes
+						free_building_slots = {
+							building = radar_station
+							size > 0
+						}
+						NOT = {
+							state = 674
+						}
+					}
+					add_building_construction = {
+						type = radar_station
+						level = 1
+						instant_build = yes
+					}
+					set_state_flag = AST_volunteer_air_observers_corps_radar1
+				}
+				random_owned_controlled_state = {
+					prioritize = { 285 }
+					limit = {
+						NOT = { has_state_flag = AST_volunteer_air_observers_corps_radar1 }
+						is_in_home_area = yes
+						free_building_slots = {
+							building = radar_station
+							size > 0
+						}
+						NOT = {
+							state = 674
+						}
+					}
+					add_building_construction = {
+						type = radar_station
+						level = 1
+						instant_build = yes
+					}
+					set_state_flag = AST_volunteer_air_observers_corps_radar2
 				}
 			}
 		}
 	}
+
 
 	focus = {
 		id = AST_naval_bombers
