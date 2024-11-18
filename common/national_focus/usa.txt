@@ -1634,12 +1634,8 @@ focus_tree = {
 	focus = {
 		id = USA_black_chamber
 		icon = GFX_goal_generic_military_deal
-		prerequisite = {
-			focus = USA_magic
-			focus = USA_office_of_strategic_services
-		}
-		available = {
-		}
+		prerequisite = { focus = USA_magic focus = USA_office_of_strategic_services}
+		available = { }
 		x = 1
 		y = 3
 		relative_position_id = USA_war_propaganda
@@ -1647,9 +1643,7 @@ focus_tree = {
 		ai_will_do = {
 			factor = 1
 		}
-		search_filters = {
-			FOCUS_FILTER_RESEARCH
-		}
+		search_filters = {FOCUS_FILTER_RESEARCH}
 		completion_reward = {
 			if = {
 				limit = {
@@ -1659,7 +1653,7 @@ focus_tree = {
 				}
 				add_tech_bonus = {
 					name = USA_black_chamber
-					bonus = 1
+					bonus = 1.0
 					uses = 2
 					category = encryption_tech
 					category = decryption_tech
@@ -1670,6 +1664,132 @@ focus_tree = {
 			}
 		}
 	}
+	focus = {
+		id = SPT_USA_liberty_torch
+		icon = GFX_focus_generic_strike_at_democracy3
+		prerequisite = {
+			focus = USA_arsenal_of_democracy
+		}
+		x = 2
+		y = 1
+		relative_position_id = USA_arsenal_of_democracy
+		cost = 5
+		available_if_capitulated = yes
+		available = {
+			has_government = democratic
+		}
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		completion_reward = {
+			add_ideas = SPT_USA_torch_of_liberty
+		}
+	}
+
+	focus = {
+		id = USA_scientist_haven
+		icon = GFX_focus_research
+		prerequisite = { focus = SPT_USA_liberty_torch }
+		x = 1
+		y = 1
+		relative_position_id = USA_black_chamber
+
+		offset = {
+			x = -1
+			y = -4
+			trigger = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+				has_completed_focus = USA_neutrality_act
+			}
+		}
+		offset = {
+			x = -1
+			y = 0
+			trigger = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+				has_completed_focus = USA_neutrality_act
+				has_completed_focus = USA_reestablish_the_gold_standard
+			}
+		}
+		offset = {
+			x = -1
+			y = 0
+			trigger = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+				has_completed_focus = USA_limited_intervention
+			}
+		}
+
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+
+		available_if_capitulated = yes
+		available = {
+			has_government = democratic
+		}
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = USA_manhattan_project
+		icon = GFX_focus_wonderweapons
+		prerequisite = { focus = USA_scientist_haven }
+
+		x = 0
+		y = 1
+		relative_position_id = USA_scientist_haven
+		cost = 10
+		#ai_will_do = {
+		#	factor = 1
+		#}
+
+		available_if_capitulated = yes
+
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+
+			IF = {
+				limit = {
+					NOT = {
+						has_tech = atomic_research
+					}
+				}
+				add_tech_bonus = {
+					name = USA_manhattan_project
+					bonus = 0.5
+					uses = 1
+					category = nuclear
+				}
+				add_breakthrough_progress = {
+					specialization = specialization_nuclear
+					value = 0.5
+				}
+				add_ideas = USA_manhattan_project_ns
+			}
+			ELSE = {
+				add_breakthrough_progress = {
+					specialization = specialization_nuclear
+					value = 1
+				}
+				add_ideas = USA_manhattan_project_ns
+			}
+		}
+	}
+
 	focus = {
 		id = USA_neutrality_act
 		icon = GFX_goal_generic_neutrality_focus
@@ -1958,85 +2078,6 @@ focus_tree = {
 					instant_build = yes
 				}
 				set_state_flag = USA_arsenal_of_democracy_3AF
-			}
-		}
-	}
-
-	focus = {
-		id = SPT_USA_liberty_torch
-		icon = GFX_focus_generic_strike_at_democracy3
-		prerequisite = {
-			focus = USA_arsenal_of_democracy
-		}
-		x = 2
-		y = 1
-		relative_position_id = USA_arsenal_of_democracy
-		cost = 5
-		available_if_capitulated = yes
-		available = {
-			has_government = democratic
-		}
-		search_filters = {
-			FOCUS_FILTER_RESEARCH
-		}
-		completion_reward = {
-			add_ideas = SPT_USA_torch_of_liberty
-		}
-	}
-
-	focus = {
-		id = USA_scientist_haven
-		icon = GFX_focus_research
-		prerequisite = {
-			focus = SPT_USA_liberty_torch
-		}
-		x = 0
-		y = 1
-		relative_position_id = SPT_USA_liberty_torch
-		cost = 10
-		#ai_will_do = {
-		#	factor = 1
-		#}
-		available_if_capitulated = yes
-		available = {
-			has_government = democratic
-		}
-		search_filters = {
-			FOCUS_FILTER_RESEARCH
-		}
-		completion_reward = {
-			add_research_slot = 1
-		}
-	}
-	focus = {
-		id = USA_manhattan_project
-		icon = GFX_focus_wonderweapons
-		prerequisite = {
-			focus = USA_scientist_haven
-		}
-		x = 0
-		y = 1
-		relative_position_id = USA_scientist_haven
-		cost = 10
-		#ai_will_do = {
-		#	factor = 1
-		#}
-		available_if_capitulated = yes
-		search_filters = {
-			FOCUS_FILTER_RESEARCH
-		}
-		completion_reward = {
-			add_tech_bonus = {
-				name = USA_manhattan_project
-				bonus = 1.0
-				uses = 1
-				category = nuclear
-			}
-			add_tech_bonus = {
-				name = USA_manhattan_project
-				bonus = 1.0
-				uses = 1
-				category = nuclear
 			}
 		}
 	}
@@ -8354,6 +8395,10 @@ focus_tree = {
 			FOCUS_FILTER_RESEARCH
 		}
 		completion_reward = {
+			add_breakthrough_progress = {
+				specialization = specialization_land
+				value = 0.5
+			}
 			add_tech_bonus = {
 				name = USA_tank_experiments
 				uses = 1
@@ -9018,6 +9063,10 @@ focus_tree = {
 			FOCUS_FILTER_RESEARCH
 		}
 		completion_reward = {
+			add_breakthrough_progress = {
+				specialization = specialization_naval
+				value = 0.25
+			}
 			add_tech_bonus = {
 				name = USA_battleship_primacy
 				bonus = 1
@@ -9121,6 +9170,10 @@ focus_tree = {
 			FOCUS_FILTER_RESEARCH
 		}
 		completion_reward = {
+			add_breakthrough_progress = {
+				specialization = specialization_naval
+				value = 0.25
+			}
 			add_tech_bonus = {
 				name = USA_carrier_primacy
 				bonus = 1
@@ -9180,10 +9233,20 @@ focus_tree = {
 			FOCUS_FILTER_RESEARCH
 		}
 		completion_reward = {
+
+			add_breakthrough_progress = {
+				specialization = specialization_naval
+				value = 0.25
+			}
+			add_breakthrough_progress = {
+				specialization = specialization_air
+				value = 0.5
+			}
+
 			add_tech_bonus = {
 				name = USA_naval_radar
-				uses = 2
-				bonus = 1
+				uses = 1 # was 2
+				bonus = 1.0
 				category = radar_tech
 			}
 		}
@@ -9246,33 +9309,41 @@ focus_tree = {
 		ai_will_do = {
 			factor = 1
 		}
+
 		available = {
+			is_special_project_completed = sp:sp_naval_cruiser_submarine
 		}
-		bypass = {
-		}
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = {
-			FOCUS_FILTER_RESEARCH
-		}
+
+		search_filters = {FOCUS_FILTER_RESEARCH}
 		completion_reward = {
 			add_tech_bonus = {
 				name = USA_fleet_submarines
-				bonus = 1
+				bonus = 1.0
 				uses = 2
 				category = ss_tech
 			}
-			if = {
+
+			add_breakthrough_progress = {
+				specialization = specialization_naval
+				value = 0.25
+			}
+
+			IF = {
 				limit = {
 					has_dlc = "Man the Guns"
 				}
-				set_technology = {
-					cruiser_submarines = 1
-				}
+				add_ideas = fleet_submarine_specialization_mtg
+			}
+			ELSE = {
+				add_ideas = fleet_submarine_specialization
 			}
 		}
 	}
+
 	focus = {
 		id = USA_unrestricted_submarine_warfare
 		icon = GFX_goal_generic_wolf_pack
@@ -9336,6 +9407,7 @@ focus_tree = {
 			}
 		}
 	}
+
 	focus = {
 		id = USA_amphibious_operations
 		icon = GFX_goal_generic_amphibious_assault
@@ -9349,6 +9421,7 @@ focus_tree = {
 		#ai_will_do = {
 		#	factor = 1
 		#}
+
 		available_if_capitulated = yes
 		search_filters = {
 			FOCUS_FILTER_RESEARCH
@@ -9362,4 +9435,9 @@ focus_tree = {
 			}
 		}
 	}
+
+
+
+
+
 }

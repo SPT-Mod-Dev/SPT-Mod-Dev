@@ -317,10 +317,6 @@
 		}
 	}
 
-	
-
-	
-
 	focus = {
 		id = ROM_join_axis
 		icon = GFX_focus_ger_oppose_hitler
@@ -372,9 +368,6 @@
 			}
 		}
 	}
-
-	
-
 	focus = {
 		id = ROM_demand_transnistria
 		icon = GFX_focus_attack_soviet
@@ -731,13 +724,11 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			add_to_tech_sharing_group = ROM_joint_allied_staff_college_tech_group
-			ENG = { add_to_tech_sharing_group = ROM_joint_allied_staff_college_tech_group }
-			if = {
-				limit = {
-					FRA = { is_in_faction_with = ENG }
-				}
-				FRA = { add_to_tech_sharing_group = ROM_joint_allied_staff_college_tech_group }
+			add_doctrine_cost_reduction = {
+				name = ROM_joint_allied_staff_college
+			    cost_reduction = 0.35
+			    uses = 2
+			    category = land_doctrine
 			}
 		}
 	}
@@ -1825,6 +1816,8 @@
 						owns_state = 155
 						owns_state = 154
 						owns_state = 43
+						owns_state = 973
+						owns_state = 974
 					}
 				}
 			}
@@ -3629,14 +3622,25 @@
 		available_if_capitulated = no
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
+
+			add_breakthrough_progress = {
+				specialization = specialization_nuclear
+				value = 0.75
+			}
+
 			add_tech_bonus = {
 				name = ROM_nuclear_bomb_project
 				bonus = 1.0
 				uses = 1
 				category = nuclear
 			}
+
 		}
 	}
+
+	############################
+	####### ARMY BRANCH ########
+	############################
 
 	focus = {
 		id = ROM_exploit_the_baita_mines
