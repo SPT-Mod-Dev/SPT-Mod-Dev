@@ -2,6 +2,9 @@
 
 ### 3.13.01 "Holy crap lois, that's a dlc"
 
+#### General
+ - Updated the mod to work with the new Götterdämmerung DLC
+
 #### Japan
  - 'Bushido Spirit' trait infantry attack bonus reduced to 10%, from 20%
  - 'Bushido Spirit' trait breakthrough bonus reduced to 20%, from 25%
