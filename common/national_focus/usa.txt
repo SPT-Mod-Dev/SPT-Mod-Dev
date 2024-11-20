@@ -1881,44 +1881,43 @@ focus_tree = {
 		id = USA_scientist_haven
 		icon = GFX_focus_research
 		prerequisite = { focus = SPT_USA_liberty_torch }
-		x = 1
+		x = 0
 		y = 1
-		relative_position_id = USA_black_chamber
-
-		offset = {
-			x = -1
-			y = -4
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = USA_neutrality_act
-			}
-		}
-		offset = {
-			x = -1
-			y = 0
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = USA_neutrality_act
-				has_completed_focus = USA_reestablish_the_gold_standard
-			}
-		}
-		offset = {
-			x = -1
-			y = 0
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = USA_limited_intervention
-			}
-		}
+		relative_position_id = SPT_USA_liberty_torch
+		# offset = {
+		# 	x = -1
+		# 	y = -4
+		# 	trigger = {
+		# 		has_game_rule = {
+		# 			rule = obsolete_focus_branches_visibility
+		# 			option = HIDE
+		# 		}
+		# 		has_completed_focus = USA_neutrality_act
+		# 	}
+		# }
+		# offset = {
+		# 	x = -1
+		# 	y = 0
+		# 	trigger = {
+		# 		has_game_rule = {
+		# 			rule = obsolete_focus_branches_visibility
+		# 			option = HIDE
+		# 		}
+		# 		has_completed_focus = USA_neutrality_act
+		# 		has_completed_focus = USA_reestablish_the_gold_standard
+		# 	}
+		# }
+		# offset = {
+		# 	x = -1
+		# 	y = 0
+		# 	trigger = {
+		# 		has_game_rule = {
+		# 			rule = obsolete_focus_branches_visibility
+		# 			option = HIDE
+		# 		}
+		# 		has_completed_focus = USA_limited_intervention
+		# 	}
+		# }
 
 		cost = 10
 		#ai_will_do = {
@@ -1961,7 +1960,7 @@ focus_tree = {
 				}
 				add_tech_bonus = {
 					name = USA_manhattan_project
-					bonus = 0.5
+					bonus = 1.0 #SPT change, 0.5 -> 1.0
 					uses = 1
 					category = nuclear
 				}
@@ -8377,7 +8376,7 @@ focus_tree = {
 			focus = USA_support_rock_island
 		}
 		relative_position_id = USA_selective_training_act
-		cost = 10
+		cost = 5 #SPT change, 10 -> 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -8412,7 +8411,7 @@ focus_tree = {
 		prerequisite = { focus = USA_tank_experiments }
 		mutually_exclusive = { focus = USA_main_battle_tanks }
 		relative_position_id = USA_selective_training_act
-		cost = 10
+		cost = 5 #SPT change, 10 -> 5
 
 		ai_will_do = {
 			factor = 1
@@ -8456,7 +8455,7 @@ focus_tree = {
 		prerequisite = { focus = USA_tank_experiments }
 		mutually_exclusive = { focus = USA_tank_destroyer_doctrine }
 		relative_position_id = USA_selective_training_act
-		cost = 10
+		cost = 5 #SPT change, 10 -> 5
 
 		ai_will_do = {
 			factor = 1

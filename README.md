@@ -4,11 +4,16 @@
 
 #### General
  - Updated the mod to work with the new Götterdämmerung DLC
+ - Several Nuclear Special Project focus rewards reduced and/or rebalanced
 
 #### Japan
  - 'Bushido Spirit' trait infantry attack bonus reduced to 10%, from 20%
  - 'Bushido Spirit' trait breakthrough bonus reduced to 20%, from 25%
 
+#### USA
+ - Focus 'Tank Experiments' time to complete reduced to 35 days, from 70
+ - Focus 'Tank Destroyer Board' time to complete reduced to 35 days, from 70
+ - Focus 'Main Battle Tanks' time to complete reduced to 35 days, from 70
 
 
 ### 3.12.11 "The Not Biased Update"
