@@ -22,6 +22,9 @@
  - Focus 'Every Man Will Do His Duty' spawn-in division template changed to 12 width, from 14
  - Focus 'Every Man Will Do His Duty' spawn-in division template changed to irregular infantry, previously infantry
 
+#### Navy
+ - included PDX balance changes with buffs to Sonar detection, Depth charge module damage and reduction in Range for sub 1/2
+
 ### 3.12.11 "The Not Biased Update"
 
 #### AI
