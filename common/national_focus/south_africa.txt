@@ -1995,6 +1995,7 @@
 			}
 		}
 	}
+
 	############################
 	##### INDUSTRY SECTION #####
 	############################
@@ -2026,6 +2027,24 @@
         search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
+
+			IF = {
+				limit = {
+					NOT = { has_tech = basic_train }
+				}
+				set_technology = {
+					basic_train = 1
+					popup = yes
+				}
+			}
+			add_equipment_to_stockpile = {
+				type = train_equipment_1
+				amount = 15
+				producer = ENG
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			custom_effect_tooltip = available_designer
 			show_ideas_tooltip = SAF_south_african_railways
 		}
@@ -2477,11 +2496,24 @@
         search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			add_tech_bonus = {
-				name = SAF_establish_the_atomics_energy_board
-				bonus = 1.0
-				uses = 2
-				category = nuclear
+			if = {
+				limit = {
+					NOT = {
+						has_tech = atomic_research
+					}
+				}
+				add_tech_bonus = {
+					name = SAF_establish_the_atomics_energy_board
+					bonus = 0.25 #SPT change 0.5 -> 0.25
+					uses = 1
+					category = nuclear
+				}
+			}
+			else = {
+				add_breakthrough_progress = {
+					specialization = specialization_nuclear
+					value = 0.75
+				}
 			}
 		}
 	}

@@ -1835,6 +1835,98 @@ focus_tree = {
 	}
 
 	focus = {
+		id = GRE_reorganize_the_royal_guard
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = GRE_the_right_to_rule }
+
+		x = -1
+		y = 1
+
+		relative_position_id = GRE_the_right_to_rule
+		cost = 5
+		ai_will_do = {
+			base = 5
+		}
+
+		available = {
+			always = no
+		}
+
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_WAR_SUPPORT }
+		completion_reward = {
+
+			add_manpower = 2500
+
+			hidden_effect = {
+				delete_unit_template_and_units = {
+					division_template = "Tmíma Vasilikís Synodeías"
+					disband = yes #if yes, will refund equipment/manpower.
+				}
+				delete_unit_template_and_units = {
+					division_template = "Íli Vasilikís Frourás"
+					disband = yes #if yes, will refund equipment/manpower.
+				}
+
+				division_template = {
+					name = "Tmíma Vasilikís Synodeías"
+					division_names_group = GRE_INF_01
+					is_locked = no
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 2 y = 0 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+					}
+				}
+				division_template = {
+					name = "Íli Vasilikís Frourás"
+					division_names_group = GRE_CAV_01
+					is_locked = no
+					regiments = {
+						cavalry = { x = 0 y = 0 }
+						cavalry = { x = 0 y = 1 }
+						cavalry = { x = 1 y = 0 }
+						cavalry = { x = 1 y = 1 }
+						cavalry = { x = 2 y = 0 }
+					}
+					support = {
+						recon = { x = 0 y = 0 }
+					}
+				}
+			}
+
+			random_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					is_owned_by = ROOT
+					is_core_of = ROOT
+				}
+				create_unit = {
+				    division = "name = \"Tmíma Vasilikís Synodeías'\" division_template = \"Tmíma Vasilikís Synodeías\" start_experience_factor = 0.4 start_equipment_factor = 0.9"
+				    owner = ROOT
+				}
+			}
+
+			random_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					is_owned_by = ROOT
+					is_core_of = ROOT
+				}
+				create_unit = {
+				    division = "name = \"Íli Vasilikís Frourás'\" division_template = \"Íli Vasilikís Frourás\" start_experience_factor = 0.4 start_equipment_factor = 0.9"
+				    owner = ROOT
+				}
+			}
+
+		}
+	}
+
+	focus = {
 		id = GRE_petition_britain_for_aid
 		icon = GFX_goal_generic_military_deal
 		available = { 
@@ -3221,6 +3313,32 @@ focus_tree = {
 	}
 
 	focus = {
+		id = GRE_the_macedonian_farmlands
+		icon = GFX_focus_generic_farmland
+		prerequisite = { focus = GRE_extracting_more_from_our_soil }
+		x = 0
+		y = 1
+		relative_position_id = GRE_extracting_more_from_our_soil
+		cost = 10
+		ai_will_do = {
+			base = 1
+		}
+
+		available = {
+			731 = {
+				is_fully_controlled_by = ROOT
+				is_core_of = ROOT
+			}
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_ideas = GRE_macedonian_farmlands_idea
+		}
+	}
+
+	focus = {
 		id = GRE_utilize_our_strengths
 		icon = GFX_focus_generic_concessions
 		prerequisite = { focus = GRE_reevaluating_the_drachma }
@@ -3529,21 +3647,18 @@ focus_tree = {
 					free_building_slots = {
 						building = infrastructure
 						size < 1
-						include_locked = yes
 					}
 				}
 				186 = { 
 					free_building_slots = {
 						building = infrastructure
 						size < 1
-						include_locked = yes
 					}
 				}
 				185 = { 
 					free_building_slots = {
 						building = infrastructure
 						size < 1
-						include_locked = yes
 					}
 				}
 			}	
@@ -3559,7 +3674,6 @@ focus_tree = {
 						free_building_slots = {
 							building = infrastructure
 							size > 0
-							include_locked = yes
 						}
 					}
 					add_building_construction = {
@@ -3576,7 +3690,6 @@ focus_tree = {
 						free_building_slots = {
 							building = infrastructure
 							size > 0
-							include_locked = yes
 						}
 					}
 					add_building_construction = {
@@ -3593,7 +3706,6 @@ focus_tree = {
 						free_building_slots = {
 							building = infrastructure
 							size > 0
-							include_locked = yes
 						}
 					}
 					add_building_construction = {
@@ -4752,13 +4864,21 @@ focus_tree = {
 			base = 1
 		}
 
-		completion_reward = { 
-			if = {
+		completion_reward = {
+			add_breakthrough_progress = {
+				specialization = specialization_naval
+				value = 0.25
+			}
+			IF = {
 				limit = {
 					has_dlc = "Man the Guns"
 				}
-				set_technology = { cruiser_submarines = 1 }
+				add_ideas = cruiser_submarine_specialization_mtg
 			}
+			ELSE = {
+				add_ideas = cruiser_submarine_specialization
+			}
+
 			add_tech_bonus = {
 				name = GRE_a_modern_navy
 				bonus = 0.75

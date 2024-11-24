@@ -1,5 +1,31 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.13.01 "Holy crap lois, that's a dlc"
+
+#### General
+ - Updated the mod to work with the new Götterdämmerung DLC
+ - Several Nuclear Special Project focus rewards reduced and/or rebalanced
+ - 'Assault Gun Manufacturer' MIO type now has access to multiple tank-focused policies it previously lacked
+
+#### Japan
+ - 'Bushido Spirit' trait infantry attack bonus reduced to 10%, from 20%
+ - 'Bushido Spirit' trait breakthrough bonus reduced to 20%, from 25%
+
+#### USA
+ - Focus 'Tank Experiments' time to complete reduced to 35 days, from 70
+ - Focus 'Tank Destroyer Board' time to complete reduced to 35 days, from 70
+ - Focus 'Main Battle Tanks' time to complete reduced to 35 days, from 70
+
+#### UK
+ - Focus 'Every Man Will Do His Duty' time to complete increased to 70 days, from 35
+ - Focus 'Every Man Will Do His Duty' spawn-in division count doubled
+ - Focus 'Every Man Will Do His Duty' spawn-in division template changed to 12 width, from 14
+ - Focus 'Every Man Will Do His Duty' spawn-in division template changed to irregular infantry, previously infantry
+
+#### Navy
+ - included PDX balance changes with buffs to Sonar detection, Depth charge module damage and reduction in Range for sub 1/2
+ - brought new Sub Hull Slots inline with existing changes
+
 ### 3.12.11 "The Not Biased Update"
 
 #### AI

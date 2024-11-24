@@ -2701,8 +2701,7 @@ focus_tree = {
 					498 = {
 						free_building_slots = {
 							building = air_base
-							size > 2 
-							include_locked = yes
+							size > 2
 						}
 					}
 				}
@@ -2719,8 +2718,7 @@ focus_tree = {
 						498 = {
 							free_building_slots = {
 								building = air_base
-								size > 1 
-								include_locked = yes
+								size > 1
 							}
 						}
 					}
@@ -2738,8 +2736,7 @@ focus_tree = {
 						498 = {
 							free_building_slots = {
 								building = air_base
-								size > 0 
-								include_locked = yes
+								size > 0
 							}
 						}
 					}
@@ -7170,15 +7167,17 @@ focus_tree = {
 						size > 1
 						include_locked = yes
 					}
-					OR = {
-						state = 961
-						state = 962
-						state = 963
-						state = 964
-						state = 965
-						state = 966
-						state = 967
-						state = 968
+					NOT = {
+						OR = {
+							state = 961
+							state = 962
+							state = 963
+							state = 964
+							state = 965
+							state = 966
+							state = 967
+							state = 968
+						}
 					}
 				}
 				add_extra_state_shared_building_slots = 1

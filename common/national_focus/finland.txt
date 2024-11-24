@@ -7916,7 +7916,7 @@ focus_tree = {
 						allow_without_tech = yes # Tooltip purposes, tech is required anyways
 						modules = {
 							main_armament_slot = tank_heavy_machine_gun
-							turret_type_slot = tank_light_fixed_superstructure_turret
+							turret_type_slot = tank_light_three_man_tank_turret #SPTChange from fixed to 3 man
 							suspension_type_slot = tank_bogie_suspension
 							armor_type_slot = tank_riveted_armor
 							engine_type_slot = tank_gasoline_engine
@@ -10329,32 +10329,18 @@ focus_tree = {
 		cost = 10
 		available = {
 			has_tech = construction4
+			148 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			929 = {
+				is_owned_and_controlled_by = ROOT
+			}
 		}
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
 			add_ideas = FIN_hydro_electric_expansion
-
-			random_core_state = {
-				prioritize = { 150 } #KUOPIO
-				limit = {
-					is_fully_controlled_by = ROOT
-					free_building_slots = {
-						building = industrial_complex
-						size > 0
-						include_locked = yes
-					}
-					NOT = { has_state_flag = FIN_power_from_the_dams_flag }
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-				}
-				set_state_flag = FIN_power_from_the_dams_flag
-			}
 
 			random_core_state = {
 				prioritize = { 927 } #HÄME (Tampere)
@@ -10376,25 +10362,40 @@ focus_tree = {
 				set_state_flag = FIN_power_from_the_dams_flag
 			}
 
-			random_core_state = {
-				prioritize = { 930 } #MIKKELI
-				limit = {
-					is_fully_controlled_by = ROOT
-					free_building_slots = {
-						building = industrial_complex
-						size > 0
-						include_locked = yes
-					}
-					NOT = { has_state_flag = FIN_power_from_the_dams_flag }
-				}
-				add_extra_state_shared_building_slots = 1
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			148 = {
 				add_building_construction = {
-					type = industrial_complex
+					type = dam
 					level = 1
 					instant_build = yes
+					province = {
+						id = 11164
+					}
 				}
-				set_state_flag = FIN_power_from_the_dams_flag
+				custom_effect_tooltip = {
+					localization_key = building_state_modifier|dam
+					INDENT = "    "
+				}
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			929 = {
+				add_building_construction = {
+					type = dam
+					level = 1
+					instant_build = yes
+					province = {
+						id = 158
+					}
+				}
+				custom_effect_tooltip = {
+					localization_key = building_state_modifier|dam
+					INDENT = "    "
+				}
+			}
+
 		}
 	}
 	
@@ -11593,12 +11594,20 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY FOCUS_FILTER_MILITARY_CHARACTER }
 
 		completion_reward = {
+
+			add_breakthrough_progress = {
+				specialization = specialization_land
+				value = 0.5
+			}
+
 			add_tech_bonus = {
 				name = FIN_national_armor_focus
 				bonus = 0.5
 				uses = 2
 				category = armor
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
 
 			show_unit_leaders_tooltip = FIN_ruben_lagus
 
@@ -12012,7 +12021,7 @@ focus_tree = {
 		relative_position_id = FIN_mannerheim_line
 		cost = 5
 		available = {
-			has_tech = radio_detection
+			is_special_project_completed = sp:sp_air_radar
 			controls_state = 111 #UUSIMAA (Helsinki)
 		}
 

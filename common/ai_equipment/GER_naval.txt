@@ -1239,14 +1239,10 @@ GER_naval_carrier = {
 			type = ship_hull_carrier_conversion_ca
 			modules = {
 				fixed_ship_deck_slot_1 = ship_deck_space
+				#fixed_ship_deck_slot_2 = ship_deck_space #SPTChange bugfix
 				fixed_ship_anti_air_slot = ship_anti_air
-				fixed_ship_fire_control_system_slot = ship_fire_control_system
-				fixed_ship_radar_slot = empty
 				fixed_ship_engine_slot = cruiser_ship_engine_1
-				fixed_ship_secondaries_slot = ship_secondaries
-				mid_1_custom_slot = ship_secondaries
-				mid_2_custom_slot = ship_secondaries
-				rear_1_custom_slot = ship_deck_space
+				fixed_ship_secondaries_slot = empty
 			}
 		}
 		
@@ -1409,7 +1405,7 @@ GER_naval_submarine = {
 		target_variant = {
 			match_value = 1000.0
 			
-			type = ship_hull_submarine_1
+			type = ship_hull_submarine #SPTChange bugfix 
 			modules = {
 				fixed_ship_engine_slot = sub_ship_engine_1
 				fixed_ship_torpedo_slot = ship_torpedo_sub_1
