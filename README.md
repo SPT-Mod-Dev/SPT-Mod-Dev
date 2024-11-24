@@ -24,6 +24,7 @@
 
 #### Navy
  - included PDX balance changes with buffs to Sonar detection, Depth charge module damage and reduction in Range for sub 1/2
+ - brought new Sub Hull Slots inline with existing changes
 
 ### 3.12.11 "The Not Biased Update"
 
