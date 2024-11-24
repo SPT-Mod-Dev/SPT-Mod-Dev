@@ -7639,7 +7639,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = ENG_global_defense
-		cost = 5 #SPT change 10 -> 5
+		cost = 10
 		ai_will_do = {
 			factor = 1
 		}	
@@ -7657,18 +7657,21 @@ focus_tree = {
 					#division_cap = 6
 					template_counter = 06
 					regiments = {
-						infantry = { x = 0 y = 0 }
-						infantry = { x = 0 y = 1 }
-						infantry = { x = 0 y = 2 }
-						infantry = { x = 0 y = 3 }
-						infantry = { x = 1 y = 0 }
-						infantry = { x = 1 y = 1 }
-						infantry = { x = 1 y = 2 }
+						irregular_infantry = { x = 0 y = 0 }
+						irregular_infantry = { x = 0 y = 1 }
+						irregular_infantry = { x = 0 y = 2 }
+						irregular_infantry = { x = 0 y = 3 }
+						irregular_infantry = { x = 1 y = 0 }
+						irregular_infantry = { x = 1 y = 1 }
 					}
 				}
 				every_owned_state = {
 					limit = {
 						is_core_of = ENG
+					}
+					create_unit = {
+						division = "division_template = \"Conscripts\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
+						OWNER = ROOT
 					}
 					create_unit = {
 						division = "division_template = \"Conscripts\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
