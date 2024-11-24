@@ -5,6 +5,7 @@
 #### General
  - Updated the mod to work with the new Götterdämmerung DLC
  - Several Nuclear Special Project focus rewards reduced and/or rebalanced
+ - 'Assault Gun Manufacturer' MIO type now has access to multiple tank-focused policies it previously lacked
 
 #### Japan
  - 'Bushido Spirit' trait infantry attack bonus reduced to 10%, from 20%
