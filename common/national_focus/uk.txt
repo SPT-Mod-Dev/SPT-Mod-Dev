@@ -314,6 +314,45 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = {
+		id = ENG_expand_the_secret_intelligence_service_focus 
+
+		prerequisite = { focus = limited_rearmament_focus }
+
+		dynamic = yes
+
+		available = {
+		} 
+
+		allow_branch = {
+			has_dlc = "La Resistance"
+		}
+
+		icon = GFX_focus_generic_secret_service_agency
+
+		x = 2
+		y = 1
+		relative_position_id = limited_rearmament_focus
+
+		cost = 10
+
+		available_if_capitulated = no
+
+		completion_reward = {
+
+			IF = {
+				limit = {
+					has_intelligence_agency = no
+				}
+				create_intelligence_agency = yes
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
+
+			add_ideas = ENG_mi6_ns
+
+		}
+	}
 	
 	focus = {
 		id = air_defense_focus
