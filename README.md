@@ -20,7 +20,7 @@
  - Focus 'Every Man Will Do His Duty' time to complete increased to 70 days, from 35
  - Focus 'Every Man Will Do His Duty' spawn-in division count doubled
  - Focus 'Every Man Will Do His Duty' spawn-in division template changed to 12 width, from 14
-  - Focus 'Every Man Will Do His Duty' spawn-in division template changed to irregular infantry, previously infantry
+ - Focus 'Every Man Will Do His Duty' spawn-in division template changed to irregular infantry, previously infantry
 
 ### 3.12.11 "The Not Biased Update"
 
