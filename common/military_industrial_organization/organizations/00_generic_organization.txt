@@ -925,7 +925,7 @@ generic_mobile_tank_organization = {
 		position = { x=1 y=0 }
 		
 		equipment_bonus = {
-			maximum_speed = 0.02
+			maximum_speed = 0.05 # SPTChange +0.03
 			reliability = 0.05
 		}
 	}
@@ -976,6 +976,7 @@ generic_mobile_tank_organization = {
 		
 		equipment_bonus = {
 			defense = 0.05
+            breakthrough = 0.05 # SPTchange
 		}
 	}
 
@@ -991,7 +992,7 @@ generic_mobile_tank_organization = {
 		
 		equipment_bonus = {
 			breakthrough = 0.05
-			maximum_speed = 0.05
+			maximum_speed = 0.1 # SPTchange
 		}
 	}
 
@@ -1005,13 +1006,14 @@ generic_mobile_tank_organization = {
 
 		equipment_bonus = {
 			defense = 0.05
+            armor_value = 0.05 # SPTchange
 		}
 	}
 
 	trait = {
 		token = generic_mio_lighter_materials
 		name = generic_mio_lighter_materials
-		icon = GFX_generic_mio_trait_icon_resources
+		icon = GFX_generic_mio_trait_icon_reliability # SPTchange
 
 		position = { x=-1 y=1 }
 		relative_position_id = generic_mio_sloping_armor
@@ -1020,8 +1022,8 @@ generic_mobile_tank_organization = {
 
 		mutually_exclusive = { generic_mio_armor_hardening_process }
 		
-		production_bonus = {
-			production_resource_penalty_factor = -0.1
+		equipment_bonus = {
+			reliability = 0.05 # SPTchange from resource penalty reduction
 		}
 	}
 
@@ -1054,6 +1056,7 @@ generic_mobile_tank_organization = {
 		
 		equipment_bonus = {
 			soft_attack = 0.05
+            hard_attack = 0.05 # SPTchange
 		}
 	}
 
@@ -1076,16 +1079,19 @@ generic_mobile_tank_organization = {
 	trait = {
 		token = generic_mio_quality_assurance_routines
 		name = generic_mio_quality_assurance_routines
-		icon = GFX_generic_mio_trait_icon_reliability
+		icon = GFX_generic_mio_trait_icon_resources # SPTchange
 
 		position = { x=3 y=1 }
 		relative_position_id = generic_mio_trait_improved_boogies
 
 		all_parents = { generic_mio_trait_improved_boogies generic_mio_sloping_armor }
 		
-		equipment_bonus = {
-			reliability = 0.05
-			build_cost_ic = 0.05
+		production_bonus = {
+			production_resource_need_factor = -0.10 # SPTchange
+		}
+
+		equipment_bonus = {			
+			build_cost_ic = -0.05 # SPTchange
 		}
 	}
 
@@ -1102,6 +1108,7 @@ generic_mobile_tank_organization = {
 
 		production_bonus = {
 			production_efficiency_cap_factor = 0.05
+            production_efficiency_gain_factor = 0.05 # SPTchange
 		}
 	}
 }
