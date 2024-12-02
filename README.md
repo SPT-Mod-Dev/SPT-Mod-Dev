@@ -1,6 +1,28 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.13.01 "Holy crap lois, that's a dlc"
+### 3.13.2
+
+#### General
+ - Fixed Austria and Germany Historical AI focus orders
+ - Disabled ahistorical Spanish Civil War event options
+ - Improved the Fast Tank Designer MIO
+    - "Improved Boogies" speed +2% -> +5%
+    - "Improved Ventillation" breakthrough +5%
+    - "Improved Tracks and Suspension" speed +5% -> +10% 
+    - "Sloping Armor" armor +5%
+    - "Lighter Materials" Production Resource Penalty Factor -10% -> Reliability +5%
+    - "Enlarged Breech" hard attack +5%
+    - "Quality Assurance Routines" reliability +5% -> Production Resource Need Factor -10%
+    - "Streamlined Production" Production Efficiency Gain Factor +5%
+ 
+#### UK
+ - 'Operation Fork' is now available if Norway does not exist
+
+#### South Africa
+ - Focus 'Secure Interests in Africa' now grants benefits immediately instead of requiring event decisions
+ - Focus 'Secure Interests in Africa' now has anti-exploit checks for state control
+
+### 3.13.1 "Holy crap lois, that's a dlc"
 
 #### General
  - Updated the mod to work with the new Götterdämmerung DLC
