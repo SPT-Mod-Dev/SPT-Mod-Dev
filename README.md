@@ -22,6 +22,10 @@
  - Focus 'Secure Interests in Africa' now grants benefits immediately instead of requiring event decisions
  - Focus 'Secure Interests in Africa' now has anti-exploit checks for state control
 
+#### Manchukuo
+ - States transfered by 'Return of The Qing' focus/events no longer retain Pan-Asian Integration state modifiers
+
+
 ### 3.13.1 "Holy crap lois, that's a dlc"
 
 #### General
