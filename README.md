@@ -26,6 +26,7 @@
 
 #### Hungary
  - Removed army and manpower requirements from focus 'Claim Overlordship Over Slovakia'
+ - Reverted reward of focus 'Reaffirm Territorial Claims' to Death or Dishonor version (cores + 1 claim on Banat).
 
 #### South Africa
  - Focus 'Secure Interests in Africa' now grants benefits immediately instead of requiring event decisions
