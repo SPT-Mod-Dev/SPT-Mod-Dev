@@ -14,9 +14,18 @@
     - "Enlarged Breech" hard attack +5%
     - "Quality Assurance Routines" reliability +5% -> Production Resource Need Factor -10%
     - "Streamlined Production" Production Efficiency Gain Factor +5%
- 
+
 #### UK
  - 'Operation Fork' is now available if Norway does not exist
+
+#### Germany, Main Character of WW2
+ - Removed "Diversify Special Forces" decision
+
+#### France
+ - Removed "Diversify Special Forces" decision
+
+#### Hungary
+ - Removed army and manpower requirements from focus 'Claim Overlordship Over Slovakia'
 
 #### South Africa
  - Focus 'Secure Interests in Africa' now grants benefits immediately instead of requiring event decisions
