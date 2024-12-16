@@ -22,6 +22,8 @@
  - Removed "Diversify Special Forces" decision
  - Fixed 'Recovering Economy' not receiving the +75% consumer goods modifier it should have
  - No longer capable of removing 'MEFO bills' spirit through decision
+ - Trait 'Der Fuhrer' no longer grants production efficiency cap
+ - Trait 'Der Fuhrer' no longer grants construction speed
 
 #### France
  - Removed "Diversify Special Forces" decision
