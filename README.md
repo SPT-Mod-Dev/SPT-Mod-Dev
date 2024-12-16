@@ -1,6 +1,6 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.13.2
+### 3.13.2 
 
 #### General
  - Fixed Austria and Germany Historical AI focus orders
@@ -20,6 +20,8 @@
 
 #### Germany, Main Character of WW2
  - Removed "Diversify Special Forces" decision
+ - Fixed 'Recovering Economy' not receiving the +75% consumer goods modifier it should have
+ - No longer capable of removing 'MEFO bills' spirit through decision
 
 #### France
  - Removed "Diversify Special Forces" decision
