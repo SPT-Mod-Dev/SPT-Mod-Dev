@@ -522,8 +522,21 @@
 
 		available = {
 			NOT = { has_war_with = ENG }
-			ENG = { is_puppet = no }
-
+			# SPTchange anti-exploit checks
+			ENG = { 
+				is_puppet = no
+				controls_state = 542
+				controls_state = 545
+				controls_state = 546
+				controls_state = 547
+				controls_state = 903
+				controls_state = 904
+				controls_state = 905
+				controls_state = 548
+				controls_state = 771
+				controls_state = 770
+				controls_state = 981
+			}
 		}
 		
 		bypass = {
@@ -537,10 +550,22 @@
 
 		completion_reward = {
 			add_stability = 0.1
-			OVERLORD = { set_autonomy = { target = ROOT autonomy_state = autonomy_free } } #SPTChange Set Saf free
-			ENG = { custom_effect_tooltip = needs_approval 
-				country_event = tfv_south_africa.1
-				}
+			# SPTchange set SAF free, auto-transfer colonies
+			OVERLORD = { set_autonomy = { target = ROOT autonomy_state = autonomy_free } }
+			transfer_state = 542
+			transfer_state = 545
+			transfer_state = 546
+			transfer_state = 547
+			transfer_state = 903
+			transfer_state = 904
+			transfer_state = 905
+			transfer_state = 548
+			transfer_state = 771
+			transfer_state = 770
+			transfer_state = 981
+			hidden_effect = {
+				news_event = { id = news.260 hours = 6 }
+			}
 		}
 	}
 

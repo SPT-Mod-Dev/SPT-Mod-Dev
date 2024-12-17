@@ -1,6 +1,58 @@
 # Saving Private Tryin' Historical MP Full Changelog
+### 3.13.2 "Projects as special as PDX balance"
 
-### 3.13.01 "Holy crap lois, that's a dlc"
+#### General
+ - Fixed Austria and Germany Historical AI focus orders
+ - Disabled ahistorical Spanish Civil War event options
+ - Made some focus trees look better
+ - Performance and stability improvements?
+ - Reduced breakthrough gain from tech to 75% of Vanilla
+ - Incorporated naval module balance changes from 1.15.2
+ - Improved the Fast Tank Designer MIO
+    - "Improved Boogies" speed +2% -> +5%
+    - "Improved Ventillation" breakthrough +5%
+    - "Improved Tracks and Suspension" speed +5% -> +10% 
+    - "Sloping Armor" armor +5%
+    - "Lighter Materials" Production Resource Penalty Factor -10% -> Reliability +5%
+    - "Enlarged Breech" hard attack +5%
+    - "Quality Assurance Routines" reliability +5% -> Production Resource Need Factor -10%
+    - "Streamlined Production" Production Efficiency Gain Factor +5%
+
+#### Special Projects
+ - Land cruiser: Base Hull IC cost x2, Module IC cost x5
+ - Superheavy Railway Gun: -25% Damage, +50% IC cost.
+ - Mothership Aircraft: 190/60/44 ATK/DEF/AGI to 100/45/40 ATK/DEF/AGI
+ - Some project unlocks moved from start of game/1924 tech level to 1936 techs
+
+#### UK
+ - 'Operation Fork' is now available if Norway does not exist
+
+#### Germany, Main Character of WW2
+ - Removed "Diversify Special Forces" decision
+ - Fixed 'Recovering Economy' not receiving the +75% consumer goods modifier it should have
+ - No longer capable of removing 'MEFO bills' spirit through decision
+ - Trait 'Der Fuhrer' no longer grants production efficiency cap
+ - Trait 'Der Fuhrer' no longer grants construction speed
+ - National Spirit 'Recovering Economy' now grants 5% expected consumer goods
+ - Returned 'Second Vienna Award'
+
+#### France
+ - Removed "Diversify Special Forces" decision
+
+#### Hungary
+ - Removed army and manpower requirements from focus 'Claim Overlordship Over Slovakia'
+ - Reverted reward of focus 'Reaffirm Territorial Claims' to Death or Dishonor version (cores + 1 claim on Banat)
+ - Removed the demands branch while events are worked on
+
+#### South Africa
+ - Focus 'Secure Interests in Africa' now grants benefits immediately instead of requiring event decisions
+ - Focus 'Secure Interests in Africa' now has anti-exploit checks for state control
+
+#### Manchukuo
+ - States transfered by 'Return of The Qing' focus/events no longer retain Pan-Asian Integration state modifiers
+
+
+### 3.13.1 "Holy crap lois, that's a dlc"
 
 #### General
  - Updated the mod to work with the new Götterdämmerung DLC

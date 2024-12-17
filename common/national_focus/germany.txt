@@ -1144,11 +1144,10 @@ focus_tree = {
 					}
 				}
 			}
-			#SPT change, hid temporarily to actually be able to work on the tree
-			# custom_effect_tooltip = {
-			# 	localization_key = building_state_modifier|dam
-			# 	INDENT = "    "
-			# }
+			custom_effect_tooltip = {
+				localization_key = building_state_modifier|dam
+				INDENT = "    "
+			}
 		}
 	}
 	
@@ -10668,7 +10667,7 @@ focus_tree = {
 	#	}
 	#}
 
-	focus = {
+	focus = { 
 		id = GER_form_rome_berlin_axis
 
 		icon = GFX_focus_befriend_italy
@@ -10684,6 +10683,10 @@ focus_tree = {
 		#SPT change, changed relative focus
 		relative_position_id = GER_fate_of_czechoslovakia
 		cost = 5
+
+		allow_branch = {
+			always = no #SPTChange remake second vienna award
+		}
 
 		bypass = {
 			OR = {
@@ -10747,11 +10750,83 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = {
+		id = GER_second_vienna_award
+		icon = GFX_spt_focus_second_vienna
+		prerequisite = {focus = GER_fate_of_czechoslovakia }
+		x = -1
+		y = 1
+		relative_position_id = GER_fate_of_czechoslovakia
+		cost = 5 #SPTChange 10 -> 5
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			is_subject = no
+			has_army_manpower = { size > 749999 }
+			has_capitulated = no
+		}
+		bypass = {
+			OR = {
+				AND = {
+					OR = {
+						HUN = {
+							NOT = { has_government = fascism }
+							is_friend_or_potential_friend_of_GER = no
+						}
+						ROM = {
+							OR = {
+								AND = {
+									NOT = { controls_state = 76 }
+									NOT = { controls_state = 83 }
+									NOT = { controls_state = 84 }
+								}
+								has_war_with = HUN
+								# AND = { # SPTChange avoid bypassing
+								# 	is_in_faction_with = GER
+								# 	HUN = { NOT = { is_in_faction_with = GER } }#GER should not want to give territory to Hungary if Romania joined the axis early.
+								# }
+							}
+						}
+					}
+					OR = {
+						BUL = { is_friend_or_potential_friend_of_GER = no }
+						ROM = {
+							OR = {
+								# NOT = { controls_state = 77 }
+								has_war_with = BUL					
+							}
+						}					
+					}
+				}
+				HUN = { exists = no } 
+				ROM = { exists = no	}
+				HUN = { has_capitulated = yes }
+				ROM = { has_capitulated = yes }
+				HUN = { is_subject_of = ROM } #just rude
+			}
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					HUN = {
+						is_friend_or_potential_friend_of_GER = yes
+					}
+					ROM = {
+						controls_state = 76
+						NOT = { has_war_with = HUN }
+					}
+				}
+				country_event = { id = germany.20 }
+			}
+		}
+	}
 	
 	focus = {
 		id = GER_invade_italy
 		icon = GFX_focus_attack_italy
-		prerequisite = { focus = GER_around_maginot focus = GER_influence_the_benelux }
+		#prerequisite = { focus = GER_around_maginot focus = GER_influence_the_benelux }
 		#mutually_exclusive = { focus = GER_form_rome_berlin_axis }
 		#SPT change, hid mutual exclusivity
 		x = 4
@@ -10818,11 +10893,12 @@ focus_tree = {
 		# mutually_exclusive = { focus = GER_operation_felix }
 		#SPT change, changed prereqs and mutual exclusivity
 		prerequisite = {
-			focus = GER_form_rome_berlin_axis
+			#focus = GER_form_rome_berlin_axis # SPTChange replace with second vienna award
+			focus = GER_second_vienna_award
 		}
 		x = 0
 		y = 1
-		relative_position_id = GER_form_rome_berlin_axis
+		relative_position_id = GER_second_vienna_award #GER_form_rome_berlin_axis
 		cost = 5
 
 		bypass = { 
