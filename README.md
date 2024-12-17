@@ -24,6 +24,7 @@
  - No longer capable of removing 'MEFO bills' spirit through decision
  - Trait 'Der Fuhrer' no longer grants production efficiency cap
  - Trait 'Der Fuhrer' no longer grants construction speed
+ - National Spirit 'Recovering Economy' now grants 5% expected consumer goods
 
 #### France
  - Removed "Diversify Special Forces" decision
