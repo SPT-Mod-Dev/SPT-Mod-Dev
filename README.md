@@ -1,20 +1,10 @@
 # Saving Private Tryin' Historical MP Full Changelog
-### 3.13.02 "Projects as special as PDX balance"
+### 3.13.2 "Projects as special as PDX balance"
 
 #### General
  - reduced Breakthrough gain from tech to 75% of Vanilla
  - incorporated naval module balance changes from 1.15.2
-
-#### Special Projects
- - Land cruiser: Base Hull IC cost x2, Module IC cost x5
- - Superheavy Railway Gun: -25% Damage, +50% IC cost.
- - Mothership Aircraft: 190/60/44 ATK/DEF/AGI to 100/45/40 ATK/DEF/AGI
- - Some project unlocks moved from start of game/1924 tech level to 1936 techs
-
-### 3.13.2 
-
-#### General
- - Fixed Austria and Germany Historical AI focus orders
+ - - Fixed Austria and Germany Historical AI focus orders
  - Disabled ahistorical Spanish Civil War event options
  - Made some focus trees look better
  - Improved the Fast Tank Designer MIO
@@ -26,6 +16,12 @@
     - "Enlarged Breech" hard attack +5%
     - "Quality Assurance Routines" reliability +5% -> Production Resource Need Factor -10%
     - "Streamlined Production" Production Efficiency Gain Factor +5%
+
+#### Special Projects
+ - Land cruiser: Base Hull IC cost x2, Module IC cost x5
+ - Superheavy Railway Gun: -25% Damage, +50% IC cost.
+ - Mothership Aircraft: 190/60/44 ATK/DEF/AGI to 100/45/40 ATK/DEF/AGI
+ - Some project unlocks moved from start of game/1924 tech level to 1936 techs 
 
 #### UK
  - 'Operation Fork' is now available if Norway does not exist
