@@ -1,7 +1,5 @@
 # Saving Private Tryin' Historical MP Full Changelog
-### 3.13.02 "Projects as special as PDX balance"
-
-### 3.13.2 
+### 3.13.2 "Projects as special as PDX balance"
 
 #### General
  - Fixed Austria and Germany Historical AI focus orders
