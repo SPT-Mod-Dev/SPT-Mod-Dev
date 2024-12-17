@@ -9857,11 +9857,15 @@ operations = {
 				NOR = { has_capitulated = yes }
 				is_in_faction_with = NOR
 			}
-			ELSE = {
-				any_country_with_original_tag = {
-					original_tag_to_check = NOR 
-					has_capitulated = yes
-					is_in_faction_with = ROOT 
+			ELSE = {				
+				# SPTchange to deal with annexed Norway
+				OR = {
+					any_country_with_original_tag = {
+						original_tag_to_check = NOR 
+						has_capitulated = yes
+						is_in_faction_with = ROOT 
+					}
+					NOR = { exists = no }
 				}
 			}
 		}

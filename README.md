@@ -1,6 +1,47 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.13.01 "Holy crap lois, that's a dlc"
+### 3.13.2 
+
+#### General
+ - Fixed Austria and Germany Historical AI focus orders
+ - Disabled ahistorical Spanish Civil War event options
+ - Improved the Fast Tank Designer MIO
+    - "Improved Boogies" speed +2% -> +5%
+    - "Improved Ventillation" breakthrough +5%
+    - "Improved Tracks and Suspension" speed +5% -> +10% 
+    - "Sloping Armor" armor +5%
+    - "Lighter Materials" Production Resource Penalty Factor -10% -> Reliability +5%
+    - "Enlarged Breech" hard attack +5%
+    - "Quality Assurance Routines" reliability +5% -> Production Resource Need Factor -10%
+    - "Streamlined Production" Production Efficiency Gain Factor +5%
+
+#### UK
+ - 'Operation Fork' is now available if Norway does not exist
+
+#### Germany, Main Character of WW2
+ - Removed "Diversify Special Forces" decision
+ - Fixed 'Recovering Economy' not receiving the +75% consumer goods modifier it should have
+ - No longer capable of removing 'MEFO bills' spirit through decision
+ - Trait 'Der Fuhrer' no longer grants production efficiency cap
+ - Trait 'Der Fuhrer' no longer grants construction speed
+ - National Spirit 'Recovering Economy' now grants 5% expected consumer goods
+
+#### France
+ - Removed "Diversify Special Forces" decision
+
+#### Hungary
+ - Removed army and manpower requirements from focus 'Claim Overlordship Over Slovakia'
+ - Reverted reward of focus 'Reaffirm Territorial Claims' to Death or Dishonor version (cores + 1 claim on Banat).
+
+#### South Africa
+ - Focus 'Secure Interests in Africa' now grants benefits immediately instead of requiring event decisions
+ - Focus 'Secure Interests in Africa' now has anti-exploit checks for state control
+
+#### Manchukuo
+ - States transfered by 'Return of The Qing' focus/events no longer retain Pan-Asian Integration state modifiers
+
+
+### 3.13.1 "Holy crap lois, that's a dlc"
 
 #### General
  - Updated the mod to work with the new Götterdämmerung DLC
