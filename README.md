@@ -5,6 +5,7 @@
 #### General
  - Fixed Austria and Germany Historical AI focus orders
  - Disabled ahistorical Spanish Civil War event options
+ - Made some focus trees look better
  - Improved the Fast Tank Designer MIO
     - "Improved Boogies" speed +2% -> +5%
     - "Improved Ventillation" breakthrough +5%
@@ -25,13 +26,15 @@
  - Trait 'Der Fuhrer' no longer grants production efficiency cap
  - Trait 'Der Fuhrer' no longer grants construction speed
  - National Spirit 'Recovering Economy' now grants 5% expected consumer goods
+ - Returned 'Second Vienna Award'
 
 #### France
  - Removed "Diversify Special Forces" decision
 
 #### Hungary
  - Removed army and manpower requirements from focus 'Claim Overlordship Over Slovakia'
- - Reverted reward of focus 'Reaffirm Territorial Claims' to Death or Dishonor version (cores + 1 claim on Banat).
+ - Reverted reward of focus 'Reaffirm Territorial Claims' to Death or Dishonor version (cores + 1 claim on Banat)
+ - Removed the demands branch while events are worked on
 
 #### South Africa
  - Focus 'Secure Interests in Africa' now grants benefits immediately instead of requiring event decisions
