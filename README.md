@@ -1,4 +1,15 @@
 # Saving Private Tryin' Historical MP Full Changelog
+### 3.13.02 "Projects as special as PDX balance"
+
+#### General
+ - reduced Breakthrough gain from tech to 75% of Vanilla
+ - incorporated naval module balance changes from 1.15.2
+
+#### Special Projects
+ - Land cruiser: Base Hull IC cost x2, Module IC cost x5
+ - Superheavy Railway Gun: -25% Damage, +50% IC cost.
+ - Mothership Aircraft: 190/60/44 ATK/DEF/AGI to 100/45/40 ATK/DEF/AGI
+ - Some project unlocks moved from start of game/1924 tech level to 1936 techs
 
 ### 3.13.01 "Holy crap lois, that's a dlc"
 
