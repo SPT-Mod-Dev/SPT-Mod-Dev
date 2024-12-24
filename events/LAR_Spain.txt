@@ -1,4 +1,4 @@
-add_namespace = lar_spain 
+﻿add_namespace = lar_spain 
 
 # Election of 1936 - La Resistance Edition
 country_event = {
@@ -230,21 +230,49 @@ country_event = {
 						neutrality = 11
 						communism = 39
 					}
-					retire_ideology_leader = democratic
+					#retire_ideology_leader = democratic
 					retire_ideology_leader = neutrality
 					retire_ideology_leader = communism
 				}
 				SPD = { # Remove Carlist/Falangist country leaders for new SPD tag
 					retire_ideology_leader = fascism
 					retire_ideology_leader = neutrality
-					create_country_leader = {
-						name = "Manuel Azaña"
-						desc = "POLITICS_MANUEL_AZANA_DESC"
-						picture = GFX_portrait_Manuel_Azana
-						expire = "1965.1.1"
-						ideology = conservatism
-						traits = {
-							figurehead_president
+					every_possible_country = {
+						limit = {
+							has_character = SPR_manuel_azana	
+						}
+						SPR_manuel_azana = { set_nationality = SPD }
+					}
+					IF = {
+						limit = {
+							NOT = {
+								has_country_leader = {
+									character = SPR_manuel_azana
+									ruling_only = yes
+								}
+							}
+						}
+						IF = {
+							limit = {
+								NOT = {
+									can_be_country_leader = SPR_manuel_azana
+								}
+							}
+							add_country_leader_role = {
+								character = SPR_manuel_azana
+								country_leader = {
+								 	ideology = conservatism
+								 	traits = { figurehead_president }
+								 	expire = "1965.1.1"
+								}
+								promote_leader = yes
+							}
+						}
+						ELSE = {
+							promote_character = {
+							    character = SPR_manuel_azana
+							    ideology = conservatism
+							}
 						}
 					}
 				}
@@ -544,8 +572,8 @@ country_event = {
 							infantry = { x = 1 y = 1 }
 							infantry = { x = 1 y = 2 }
 							infantry = { x = 2 y = 0 }
-							artillery_brigade = { x = 2 y = 1 }
-							artillery_brigade = { x = 2 y = 2 }
+							artillery_brigade = { x = 3 y = 0 }
+							artillery_brigade = { x = 3 y = 1 }
 						}
 						support = {
 							recon = { x = 0 y = 0 }
@@ -653,6 +681,7 @@ country_event = {
 								has_id = 1104
 								has_id = 1105
 								has_id = 1106
+								is_character = SPR_enrique_lister
 							}
 						}
 						add_unit_leader_trait = trait_SPR_stalinist_loyalties
@@ -2508,14 +2537,36 @@ country_event = {
 				SPD = {
 					retire_ideology_leader = fascism
 					retire_ideology_leader = neutrality
-					create_country_leader = {
-						name = "Manuel Azaña"
-						desc = "POLITICS_MANUEL_AZANA_DESC"
-						picture = GFX_portrait_Manuel_Azana
-						expire = "1965.1.1"
-						ideology = conservatism
-						traits = {
-							figurehead_president
+					IF = {
+						limit = {
+							NOT = {
+								has_country_leader = {
+									character = SPR_manuel_azana
+									ruling_only = yes
+								}
+							}
+						}
+						IF = {
+							limit = {
+								NOT = {
+									can_be_country_leader = SPR_manuel_azana
+								}
+							}
+							add_country_leader_role = {
+								character = SPR_manuel_azana
+								country_leader = {
+								 	ideology = conservatism
+								 	traits = { figurehead_president }
+								 	expire = "1965.1.1"
+								}
+								promote_leader = yes
+							}
+						}
+						ELSE = {
+							promote_character = {
+							    character = SPR_manuel_azana
+							    ideology = conservatism
+							}
 						}
 					}
 				}
@@ -4500,12 +4551,9 @@ country_event = {
 		}
 		complete_national_focus = SPA_unify_the_nationalist_front
 	}
-	
 	option = { # Option for Nationalists - Falangism
 		name = lar_spain.2.b
-		#SPTChange added ai check
-		trigger = { has_completed_focus = SPA_sin_paquito is_ai=yes }
-		
+		trigger = { has_completed_focus = SPA_sin_paquito always = no } #SPTChange remove ahistorical 
 		ai_chance = {
 			base = 30
 			modifier = {
@@ -4550,8 +4598,7 @@ country_event = {
 	}
 	option = { # Option for Nationalists - Carlism
 		name = lar_spain.2.c
-		#SPTChange added ai check
-		trigger = { has_completed_focus = SPA_a_great_spain is_ai=yes}
+		trigger = { has_completed_focus = SPA_a_great_spain always = no } #SPTChange remove ahistorical 
 		ai_chance = {
 			base = 30
 			modifier = {
@@ -4597,7 +4644,7 @@ country_event = {
 	}
 	option = { # Option for Republicans - Democratic
 		name = lar_spain.2.d
-		trigger = { has_completed_focus = SPR_the_popular_front }
+		trigger = { has_completed_focus = SPR_the_popular_front always = no } #SPTChange remove ahistorical 
 		ai_chance = {
 			base = 40
 			modifier = {
@@ -4653,7 +4700,7 @@ country_event = {
 	}
 	option = { # Option for Republicans - Communism
 		name = lar_spain.2.e
-		trigger = { has_completed_focus = SPR_the_popular_front }
+		trigger = { has_completed_focus = SPR_the_popular_front always = no } #SPTChange remove ahistorical 
 		ai_chance = {
 			base = 30
 			modifier = {
@@ -4699,7 +4746,7 @@ country_event = {
 	}
 	option = { # Option for Republicans - Anarchism
 		name = lar_spain.2.f
-		trigger = { has_completed_focus = SPR_the_popular_front }
+		trigger = { has_completed_focus = SPR_the_popular_front always = no } #SPTChange remove ahistorical 
 		ai_chance = {
 			base = 30
 			modifier = {
@@ -5461,6 +5508,10 @@ country_event = {
 						}
 						check_variable = { var = SPA_garrison_control value = 4 compare = less_than }
 					}
+				}
+				modifier = { # Preventing potential error log and logic breaking due to all options in the random list returning 0.
+					add = 0.01
+					always = yes
 				}
 				country_event = { id = lar_spain.5 days = 1 random_days = 9 }
 			}
@@ -8178,14 +8229,42 @@ country_event = {
 				}
 			}
 			SPD = {
-				create_country_leader = {
-					name = "Manuel Azaña"
-					desc = "POLITICS_MANUEL_AZANA_DESC"
-					picture = GFX_portrait_Manuel_Azana
-					expire = "1965.1.1"
-					ideology = conservatism
-					traits = {
-						figurehead_president
+				every_possible_country = {
+					limit = {
+						has_character = SPR_manuel_azana	
+					}
+					SPR_manuel_azana = { set_nationality = SPD }
+				}
+				IF = {
+					limit = {
+						NOT = {
+							has_country_leader = {
+								character = SPR_manuel_azana
+								ruling_only = yes
+							}
+						}
+					}
+					IF = {
+						limit = {
+							NOT = {
+								can_be_country_leader = SPR_manuel_azana
+							}
+						}
+						add_country_leader_role = {
+							character = SPR_manuel_azana
+							country_leader = {
+							 	ideology = conservatism
+							 	traits = { figurehead_president }
+							 	expire = "1965.1.1"
+							}
+							promote_leader = yes
+						}
+					}
+					ELSE = {
+						promote_character = {
+						    character = SPR_manuel_azana
+						    ideology = conservatism
+						}
 					}
 				}
 				load_focus_tree = {
@@ -9456,6 +9535,12 @@ country_event = {
 		}
 		add_political_power = -200
 		custom_effect_tooltip = lar_spain.36_tt
+		effect_tooltip = {
+			create_wargoal = {
+			    type = topple_government
+			    target = FROM
+			}
+		}
 		hidden_effect = {
 			FROM = {
 				country_event = { id = lar_spain.37 hours = 18 random_hours = 6 }
@@ -9506,12 +9591,12 @@ country_event = {
 				is_historical_focus_on = yes
 			}
 		}
-		#FROM = {
-		#	create_wargoal = {
-		#	type = topple_government
-		#	    target = ROOT
-		#	}
-		#}
+		FROM = {
+			create_wargoal = {
+			    type = topple_government
+			    target = ROOT
+			}
+		}
 		290 = {
 			add_extra_state_shared_building_slots = 3
 			add_building_construction = {
@@ -11236,7 +11321,9 @@ country_event = {
 	immediate = {
 		hidden_effect = {
 			SPA_francisco_franco = {
-				set_leader_portrait = "GFX_portrait_spain_francisco_franco_old"
+				set_portraits = {
+					civilian = { large =  GFX_portrait_spain_francisco_franco_old }
+				}
 			}
 		}
 	}
@@ -11662,29 +11749,53 @@ country_event = {
 				add_political_power = 10
 			}
 			retire_country_leader = yes
-			create_country_leader = {
-				name = "Manuel Azaña"
-				desc = "POLITICS_MANUEL_AZANA_DESC"
-				picture = GFX_portrait_Manuel_Azana
-				expire = "1965.1.1"
-				ideology = conservatism
-				traits = {
-					figurehead_president
+			add_country_leader_role = {
+				character = SPR_manuel_azana
+				country_leader = {
+				 	ideology = conservatism
+				 	traits = { figurehead_president }
+				 	expire = "1965.1.1"
 				}
+				promote_leader = yes
 			}
 		}
 		else = {
 			retire_country_leader = yes
-			create_country_leader = {
-				name = "Manuel Azaña"
-				desc = "POLITICS_MANUEL_AZANA_DESC"
-				picture = GFX_portrait_Manuel_Azana
-				expire = "1965.1.1"
-				ideology = conservatism
-				traits = {
-		
+			add_country_leader_role = {
+				character = SPR_manuel_azana
+				country_leader = {
+				 	ideology = conservatism
+				 	traits = { }
+				 	expire = "1965.1.1"
 				}
+				promote_leader = yes
 			}
 		}
 	}
 }
+
+
+# Spain unites the Hispanics!
+news_event = {
+	id = lar_spain.100
+	title = lar_spain.100.t
+	desc = lar_spain.100.d
+	picture = GFX_news_event_journalists_speech
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = lar_spain.100.a
+		trigger = {
+			NOT = {
+				original_tag = SPR
+			}
+		}
+	}
+	option = {
+		name = lar_spain.100.b
+		trigger = { original_tag = SPR }
+	}
+} 

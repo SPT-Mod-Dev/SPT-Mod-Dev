@@ -1,11 +1,121 @@
 # Saving Private Tryin' Historical MP Full Changelog
+### 3.13.2 "Projects as special as PDX balance"
+
+#### General
+ - Fixed Austria and Germany Historical AI focus orders
+ - Disabled ahistorical Spanish Civil War event options
+ - Made some focus trees look better
+ - Performance and stability improvements?
+ - Reduced breakthrough gain from tech to 75% of Vanilla
+ - Incorporated naval module balance changes from 1.15.2
+ - Improved the Fast Tank Designer MIO
+    - "Improved Boogies" speed +2% -> +5%
+    - "Improved Ventillation" breakthrough +5%
+    - "Improved Tracks and Suspension" speed +5% -> +10% 
+    - "Sloping Armor" armor +5%
+    - "Lighter Materials" Production Resource Penalty Factor -10% -> Reliability +5%
+    - "Enlarged Breech" hard attack +5%
+    - "Quality Assurance Routines" reliability +5% -> Production Resource Need Factor -10%
+    - "Streamlined Production" Production Efficiency Gain Factor +5%
+
+#### Special Projects
+ - Land cruiser: Base Hull IC cost x2, Module IC cost x5
+ - Superheavy Railway Gun: -25% Damage, +50% IC cost.
+ - Mothership Aircraft: 190/60/44 ATK/DEF/AGI to 100/45/40 ATK/DEF/AGI
+ - Some project unlocks moved from start of game/1924 tech level to 1936 techs
+
+#### UK
+ - 'Operation Fork' is now available if Norway does not exist
+
+#### Germany, Main Character of WW2
+ - Removed "Diversify Special Forces" decision
+ - Fixed 'Recovering Economy' not receiving the +75% consumer goods modifier it should have
+ - No longer capable of removing 'MEFO bills' spirit through decision
+ - Trait 'Der Fuhrer' no longer grants production efficiency cap
+ - Trait 'Der Fuhrer' no longer grants construction speed
+ - National Spirit 'Recovering Economy' now grants 5% expected consumer goods
+ - Returned 'Second Vienna Award'
+
+#### France
+ - Removed "Diversify Special Forces" decision
+
+#### Hungary
+ - Removed army and manpower requirements from focus 'Claim Overlordship Over Slovakia'
+ - Reverted reward of focus 'Reaffirm Territorial Claims' to Death or Dishonor version (cores + 1 claim on Banat)
+ - Removed the demands branch while events are worked on
+
+#### South Africa
+ - Focus 'Secure Interests in Africa' now grants benefits immediately instead of requiring event decisions
+ - Focus 'Secure Interests in Africa' now has anti-exploit checks for state control
+
+#### Manchukuo
+ - States transfered by 'Return of The Qing' focus/events no longer retain Pan-Asian Integration state modifiers
+
+
+### 3.13.1 "Holy crap lois, that's a dlc"
+
+#### General
+ - Updated the mod to work with the new Götterdämmerung DLC
+ - Several Nuclear Special Project focus rewards reduced and/or rebalanced
+ - 'Assault Gun Manufacturer' MIO type now has access to multiple tank-focused policies it previously lacked
+
+#### Japan
+ - 'Bushido Spirit' trait infantry attack bonus reduced to 10%, from 20%
+ - 'Bushido Spirit' trait breakthrough bonus reduced to 20%, from 25%
+
+#### USA
+ - Focus 'Tank Experiments' time to complete reduced to 35 days, from 70
+ - Focus 'Tank Destroyer Board' time to complete reduced to 35 days, from 70
+ - Focus 'Main Battle Tanks' time to complete reduced to 35 days, from 70
+
+#### UK
+ - Focus 'Every Man Will Do His Duty' time to complete increased to 70 days, from 35
+ - Focus 'Every Man Will Do His Duty' spawn-in division count doubled
+ - Focus 'Every Man Will Do His Duty' spawn-in division template changed to 12 width, from 14
+ - Focus 'Every Man Will Do His Duty' spawn-in division template changed to irregular infantry, previously infantry
+
+#### Navy
+ - included PDX balance changes with buffs to Sonar detection, Depth charge module damage and reduction in Range for sub 1/2
+ - brought new Sub Hull Slots inline with existing changes
+
+### 3.12.11 "The Not Biased Update"
+
+#### AI
+ - Added Manchukuo AI to complete all industry focuses
+
+#### Army
+ - Nerfed armoured cars stats
+ - Added a modifier to hills and desert for armoured cars 
+
+#### Navy
+ - Reduced dd tankiness
+
+#### Mexico
+ - 'Army Expansion Program' now gives two mils per state
+
+#### Hungary
+ - Removed division requirements for 'Claim Overlordship of Slovakia'
+ - Can no longer refuse the Molotov-Ribbentrop Pact if called upon
+
+#### Bulgaria
+ - Fixed Foreign Company decisions availability when becoming Germany's subject
+
+#### Finland
+ - Remove advisors that can never be bought 
+
+#### Japan
+ - Triparte Pact guarantees now removed in January 1942
+ 
+#### Manchu
+ - Made focus positions make more sense
+ - Fixed Early Destroyer localisation
 
 ### 3.12.10 "Twilight of the Mod Devs"
 
 #### General
  - Added additional automation to Japanese decision "Hakkō Ichiu"
-   - USA joins the Allies immediately upon Japanese DoW
-   - USA joins all British wars, namely the war against the European Axis
+ - USA joins the Allies immediately upon Japanese DoW
+ - USA joins all British wars, namely the war against the European Axis
 
 #### Navy
  - Converted carrier can now retain modules of source ships, allowing for Hybrid designs, wich will behave as Carriers.
@@ -13,9 +123,9 @@
  - Naval Spirit: Night fighting: returned 5% visibility reduction. when other spirits were rebalanced, it was left at original nerfed state. now thatother spirits are stronger, this should return it into consideration.
  - Naval Spirit: Suprise Attacks: Removed 30% Naval coordination Boost, added automatic opportunity to disengage after initial combat, as a chance to take advantage of a spotting advantage with smaller fleets.
  - Naval Spirit: Inclement Weather experience: Removed weather effect modifiers (possibly not applying). Added +10% Naval Hit chance.
- - removed visibility/availability of minelaying techs
+ - Removed visibility/availability of minelaying techs
  - Added Naval Doctrine "Tech": CAG night operations. Independent of doctrine tree, costs air XP. Allows for carrier play without blocking slot for air spirits.
- -
+
 #### Tanks
  - Amphibious Tank Chassis IC cost increased to 6, from 4.5
  - Amphibious Tank Chassis can no longer use Light Tank Turrets
@@ -24,7 +134,7 @@
  - Dozer Blades defense reduced to 8, from 10
 
 #### Air
- - Made Medium Navs classified as naval patrol bombers, possible
+ - ~~Made Medium Navs classified as naval patrol bombers, possible~~ Reverted, causes crash without defineable error
  - All-Weather AIr advsor now gives 2/4/6% Buff to air mission efficiency instead of possibly not applying -10/-20/-30 weather% penalty
  - CAG Night Fighting spirit removed
  - Made Medium Navs, classified as naval patrol bombers, possible
@@ -42,6 +152,7 @@
 
 #### Bulgaria
  - Focus "The Path Towards a Greater Bulgaria" no longer increases your economy law past Partial Mobilization, rewarding 150 political power instead if you already have reached it
+ - Fixed Italian MIO availability when becoming Germany's subject
 
 #### UK
  - Removed decisions "Invade Ireland", "The MacDonald Proposal", and "Invoke the Alliance of 1373"

@@ -27,7 +27,7 @@ political_actions = {
 			#Target is FROM
 			FROM = {
         		NOT = { is_in_faction_with = ROOT }
-				has_tech = nuclear_reactor
+				is_special_project_completed = sp:sp_nuclear_reactor
 				any_owned_state = {
 					nuclear_reactor > 0
 				}
@@ -41,7 +41,7 @@ political_actions = {
             NOT = { has_idea = race_for_the_bomb }
             FROM = {
         		NOT = { is_in_faction_with = ROOT }
-				has_tech = nuclear_reactor
+				is_special_project_completed = sp:sp_nuclear_reactor
 				any_owned_state = {
 					nuclear_reactor > 0
 				}
@@ -65,7 +65,7 @@ political_actions = {
 	improved_worker_conditions = {
 
 		icon = generic_industry
-
+		priority = 10
 		available = {
 			has_stability < 1.0
 			if = {
@@ -117,7 +117,17 @@ political_actions = {
 				has_completed_focus = ICE_not_our_king
 				NOT = { has_completed_focus = ICE_break_with_the_crown }
 			}
-
+			modifier = {
+				factor = 0
+				tag = GER
+				has_completed_focus = GER_oppose_hitler_ww
+				NOT = {
+					OR = {
+						has_completed_focus = GER_the_peoples_victory
+						has_completed_focus = GER_monarchist_sentiment
+					}
+				}
+			}
 			modifier = {
 				add = 1000
 				has_stability < 0.76
@@ -556,8 +566,18 @@ propaganda_efforts = {
 		icon = generic_prepare_civil_war
 
 		available = {
-			threat > 0.35 #SPT change 0.25 -> 0.35
-			has_tech = radio
+			IF = {
+				limit = {
+					tag = BRA
+				}
+				threat > 0.35 #SPT
+				#has_tech = radio
+				has_completed_focus = BRA_radio_nacional
+			}
+			ELSE = {
+				threat > 0.35 #SPT
+				has_tech = radio
+			}
 		}
 
 		visible = {
@@ -1658,7 +1678,22 @@ war_measures = {
 
         available = {
             has_war = yes
-            has_idea = tot_economic_mobilisation
+            if = {
+				limit = {
+					NOT = { original_tag = GER }
+				}
+        		has_idea = tot_economic_mobilisation
+			}
+			else_if = {
+				limit = {
+					original_tag = GER
+				}
+				OR = {
+        			has_idea = tot_economic_mobilisation
+					has_idea = totaler_krieg_economy
+				}
+				NOT = { has_completed_focus = GER_womens_rights_and_equality }
+			}
             OR = {
                 AND = {
                     has_government = democratic
@@ -1684,14 +1719,35 @@ war_measures = {
         }
         visible = {
             has_war = yes
+            if = {
+            	limit = {
+            		original_tag = GER
+            	}
+            	NOT = { has_completed_focus = GER_womens_rights_and_equality }
+            }
         }
         cost = 100
         days_remove = -1
         remove_trigger = {
-        	OR = {
-            	has_war = no
-            	not = { has_idea = tot_economic_mobilisation }
+            if = {
+            	limit = {
+            		original_tag = GER
+            	}
+        		OR = {
+        			has_war = no
+        			AND = {
+        				NOT = { has_idea = tot_economic_mobilisation }
+        				NOT = { has_idea = totaler_krieg_economy }
+        			}
+        			has_completed_focus = GER_womens_rights_and_equality
+        		}
             }
+        	else = {
+	        	OR = {
+	            	has_war = no
+	            	NOT = { has_idea = tot_economic_mobilisation }
+	            }
+        	}
         }
         modifier = {
             conscription = 0.03
@@ -1843,18 +1899,45 @@ war_measures = {
 		}
 
 		visible = {
-			has_dlc = "Arms Against Tyranny"
-			NOT = {
-				OR = {
-					tag = ENG #has a focus
-					tag = USA #has a focus
-					tag = SOV #has a focus
-					tag = JAP #has a focus
-					tag = CHL #has a focus
-					tag = BRA #has a focus
-					tag = ARG #has a focus
+			AND = {
+				# is_major = yes # SPTchange yes minors get to have fun too
+				has_dlc = "Arms Against Tyranny"
+				NOT = {
+					OR = {
+						tag = ENG #has a focus
+						tag = USA #has a focus
+						tag = SOV #has a focus
+						tag = JAP #has a focus
+						tag = CHL #has a focus
+						tag = BRA #has a focus
+						tag = ARG #has a focus
+						tag = AST #has a focus
+						tag = FRA #has a focus
+					}
 				}
-			} 
+				AND = {
+					has_dlc = "Trial of Allegiance"
+					NOT = {
+						OR = {
+							tag = CHL #has a focus
+							tag = BRA #has a focus
+							tag = ARG #has a focus
+							tag = URG #has a focus
+							tag = PAR #has a focus
+						}
+					}
+				}
+				AND = {
+					has_dlc = "Gotterdammerung"
+					NOT = {
+						OR = {
+							tag = BEL #has a focus
+							tag = COG #has a focus
+							tag = GER #SPTchange has a focus
+						}
+					}
+				}
+			}
 		}
 
 		fire_only_once = yes
@@ -1936,6 +2019,7 @@ foreign_politics = {
 }
 
 economy_decisions = {
+
 	infrastructure_building_slot = {
 
 		icon = generic_construction
@@ -1949,27 +2033,27 @@ economy_decisions = {
 
         days_re_enable = 30
 
-	available = {
-		any_owned_state = {
-			NOT = { has_state_flag = infrastructure_building_slot_flag }
-			is_fully_controlled_by = ROOT
-			free_building_slots = {
-				building = infrastructure
-				size < 1
+		available = {
+			any_owned_state = {
+				NOT = { has_state_flag = infrastructure_building_slot_flag }
+				is_fully_controlled_by = ROOT
+				free_building_slots = {
+					building = infrastructure
+					size < 1
+				}
 			}
 		}
-	}
 
-	visible = {
-		any_owned_state = {
-			NOT = { has_state_flag = infrastructure_building_slot_flag }
-			is_fully_controlled_by = ROOT
-			free_building_slots = {
-				building = infrastructure
-				size < 1
+		visible = {
+			any_owned_state = {
+				NOT = { has_state_flag = infrastructure_building_slot_flag }
+				is_fully_controlled_by = ROOT
+				free_building_slots = {
+					building = infrastructure
+					size < 1
+				}
 			}
 		}
-	}
 
         complete_effect = {
 			random_owned_state = {
@@ -1991,10 +2075,10 @@ economy_decisions = {
 			}
 		}
 		ai_will_do = {
-			factor = 1
+			base = 1
 			modifier = {
-				factor = 10
-				any_owned_state = { free_building_slots = { building = industrial_complex size < 1 include_locked = no } }
+				factor = 1.5
+				all_owned_state = { free_building_slots = { building = industrial_complex size < 1 include_locked = no } }
 			}
 		}
     }
@@ -2114,17 +2198,10 @@ economy_decisions = {
 			}
 		}
 		ai_will_do = {
-			factor = 1
+			base = 0
 			modifier = {
-				factor = 10
+				add = 1
 				all_owned_state = { free_building_slots = { building = industrial_complex size < 1 include_locked = no } }
-			}
-			modifier = {
-				any_owned_state = {
-					infrastructure > 3
-					free_building_slots = { building = industrial_complex size > 0 include_locked = no }
-				}
-				factor = 0
 			}
 		}
     }
@@ -2184,6 +2261,12 @@ foreign_support = {
 
 		visible = {
 			is_subject = no
+			NOT = {
+				OR = {
+					has_subject = CHI
+					has_war_with = CHI
+				}
+			}
 			OR = {
 				AND = {
 					288 = { #Burma
@@ -2228,7 +2311,7 @@ foreign_support = {
 		}
 
 		ai_will_do = {
-			factor = 1
+			base = 1
 			modifier = {
 				factor = 0
 				any_country = {
@@ -2340,6 +2423,12 @@ foreign_support = {
 
 		visible = {
 			is_subject = no
+			NOT = {
+				OR = {
+					has_subject = CHI
+					has_war_with = CHI
+				}
+			}
 			OR = {
 				AND = {
 					288 = { #Burma
@@ -2399,7 +2488,7 @@ foreign_support = {
 		}
 
 		ai_will_do = {
-			factor = 1
+			base = 1
 			modifier = {
 				factor = 200
 				any_country = {
@@ -2531,6 +2620,12 @@ foreign_support = {
 
 		visible = {
 			is_subject = no
+			NOT = {
+				OR = {
+					has_subject = CHI
+					has_war_with = CHI
+				}
+			}
 			OR = {
 				AND = {
 					432 = { #Assam
@@ -2575,7 +2670,7 @@ foreign_support = {
 		}
 
 		ai_will_do = {
-			factor = 1
+			base = 1
 			modifier = {
 				factor = 0
 				any_country = {
@@ -2687,6 +2782,12 @@ foreign_support = {
 
 		visible = {
 			is_subject = no
+			NOT = {
+				OR = {
+					has_subject = CHI
+					has_war_with = CHI
+				}
+			}
 			OR = {
 				AND = {
 					432 = { #Assam
@@ -2758,7 +2859,7 @@ foreign_support = {
 		}
 
 		ai_will_do = {
-			factor = 1
+			base = 1
 			modifier = {
 				factor = 200
 				any_country = {
@@ -2879,6 +2980,12 @@ foreign_support = {
 
  		visible = {
  			is_subject = no
+ 			NOT = {
+ 				OR = {
+ 					has_subject = CHI
+ 					has_war_with = CHI
+ 				}
+ 			}
 			OR = {
 				AND = {
 					434 = { #Arunachal Pradesh
@@ -2914,7 +3021,7 @@ foreign_support = {
  		}
 
  		ai_will_do = {
- 			factor = 1
+ 			base = 1
 			modifier = {
 				factor = 0
 				any_country = {
@@ -3011,6 +3118,12 @@ foreign_support = {
 
  		visible = {
  			is_subject = no
+ 			NOT = {
+ 				OR = {
+ 					has_subject = CHI
+ 					has_war_with = CHI
+ 				}
+ 			}
 			OR = {
 				AND = {
 					434 = { #Arunachal Pradesh
@@ -3056,7 +3169,7 @@ foreign_support = {
  		}
 
  		ai_will_do = {
- 			factor = 1
+ 			base = 1
 			modifier = {
 				factor = 200
 				any_country = {
@@ -3179,6 +3292,12 @@ foreign_support = {
 
 		visible = {
 			is_subject = no
+			NOT = {
+				OR = {
+					has_subject = CHI
+					has_war_with = CHI
+				}
+			}
 			OR = {
 				AND = {
 					671 = { #Tonkin
@@ -3214,7 +3333,7 @@ foreign_support = {
 		}
 
 		ai_will_do = {
-			factor = 1
+			base = 1
 			modifier = {
 				factor = 0
 				any_country = {

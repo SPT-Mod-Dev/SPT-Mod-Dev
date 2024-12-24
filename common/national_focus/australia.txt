@@ -452,6 +452,10 @@
 		search_filters = { FOCUS_FILTER_RESEARCH  }
 
 		completion_reward = {
+			add_breakthrough_progress = {
+				specialization = specialization_land
+				value = 0.5
+			}
 			add_tech_bonus = {
 				name = AST_sentinel_tank_project
 				bonus = 1.0
@@ -706,7 +710,7 @@
 		}
 	}
 
-############################
+	############################
 	####### AIR SECTION ########
 	############################
 
@@ -737,7 +741,11 @@
 
 		complete_tooltip = {
 			air_experience = 25
-			random_state = {				
+			add_breakthrough_progress = {
+				specialization = specialization_air
+				value = 0.25
+			}
+			random_state = {
 				limit = {
 					has_state_flag = AST_expand_the_raaf_AB
 				}
@@ -757,6 +765,10 @@
 
 		completion_reward = {
 			air_experience = 25
+			add_breakthrough_progress = {
+				specialization = specialization_air
+				value = 0.25
+			}
 			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
@@ -1063,7 +1075,7 @@
 			}
 
 			if = {
-				limit = { has_tech = radio_detection }
+				limit = { is_special_project_completed = sp:sp_air_radar }
 				random_owned_controlled_state = {
 					prioritize = { 521 872 }
 					limit = {
@@ -1126,50 +1138,16 @@
 					}
 					set_state_flag = AST_volunteer_air_observers_corps_radar3
 				}
-				else = {
-					set_technology = {
-						radio_detection = 1
-					}
-					effect_tooltip = {
-						random_owned_controlled_state = {
-							prioritize = { 521 872 }
-							limit = {
-								is_in_home_area = yes
-								NOT = {
-									state = 674
-								}
-							}
-							add_building_construction = {
-								type = radar_station
-								level = 1
-								instant_build = yes
-							}
-						}
-
-						random_owned_controlled_state = {
-							prioritize = { 285 }
-							limit = {
-								NOT = { has_state_flag = AST_volunteer_air_observers_corps_radar1 }
-								is_in_home_area = yes
-								NOT = {
-									state = 674
-								}
-							}
-							add_building_construction = {
-								type = radar_station
-								level = 1
-								instant_build = yes
-							}
-						}
-					}
+			}
+			else = {
+				complete_special_project = {
+					project = sp:sp_air_radar
+				}
+				effect_tooltip = {
 					random_owned_controlled_state = {
 						prioritize = { 521 872 }
 						limit = {
 							is_in_home_area = yes
-							free_building_slots = {
-								building = radar_station
-								size > 0
-							}
 							NOT = {
 								state = 674
 							}
@@ -1179,18 +1157,12 @@
 							level = 1
 							instant_build = yes
 						}
-						set_state_flag = AST_volunteer_air_observers_corps_radar1
 					}
-
 					random_owned_controlled_state = {
 						prioritize = { 285 }
 						limit = {
 							NOT = { has_state_flag = AST_volunteer_air_observers_corps_radar1 }
 							is_in_home_area = yes
-							free_building_slots = {
-								building = radar_station
-								size > 0
-							}
 							NOT = {
 								state = 674
 							}
@@ -1200,12 +1172,51 @@
 							level = 1
 							instant_build = yes
 						}
-						set_state_flag = AST_volunteer_air_observers_corps_radar2
 					}
+				}
+				random_owned_controlled_state = {
+					prioritize = { 521 872 }
+					limit = {
+						is_in_home_area = yes
+						free_building_slots = {
+							building = radar_station
+							size > 0
+						}
+						NOT = {
+							state = 674
+						}
+					}
+					add_building_construction = {
+						type = radar_station
+						level = 1
+						instant_build = yes
+					}
+					set_state_flag = AST_volunteer_air_observers_corps_radar1
+				}
+				random_owned_controlled_state = {
+					prioritize = { 285 }
+					limit = {
+						NOT = { has_state_flag = AST_volunteer_air_observers_corps_radar1 }
+						is_in_home_area = yes
+						free_building_slots = {
+							building = radar_station
+							size > 0
+						}
+						NOT = {
+							state = 674
+						}
+					}
+					add_building_construction = {
+						type = radar_station
+						level = 1
+						instant_build = yes
+					}
+					set_state_flag = AST_volunteer_air_observers_corps_radar2
 				}
 			}
 		}
 	}
+
 
 	focus = {
 		id = AST_naval_bombers
@@ -1513,7 +1524,7 @@
 	focus = {
 		id = AST_cockatoo_island_shipyards
 		icon = GFX_goal_generic_construct_naval_dockyard
-		x = 11
+		x = 10
 		y = 0
 
 		cost = 5
@@ -1947,6 +1958,9 @@
 
 		completion_reward = {
 			add_ideas = AST_standard_gauge_railway
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = available_industrial_concern
+			show_ideas_tooltip = AST_new_south_wales_rc_ic
 		}
 	}
 
@@ -2029,7 +2043,6 @@
 					free_building_slots = {
 						building = infrastructure
 						size > 0
-						include_locked = yes
 					}
 					NOT = {state = 674}
 				}
@@ -2047,7 +2060,6 @@
 					free_building_slots = {
 						building = infrastructure
 						size > 0
-						include_locked = yes
 					}
 					NOT = {state = 674}
 				}
@@ -2377,7 +2389,6 @@
 					free_building_slots = {
 						building = infrastructure
 						size > 0
-						include_locked = yes
 					}
 					NOT = {state = 674}
 				}
@@ -2394,7 +2405,6 @@
 					free_building_slots = {
 						building = infrastructure
 						size > 0
-						include_locked = yes
 					}
 					NOT = {state = 674}
 				}
@@ -2470,11 +2480,28 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			add_tech_bonus = {
-				name = AST_uranium_mining
-				bonus = 0.5
-				uses = 2
-				category = nuclear
+			if = {
+				limit = {
+					NOT = {
+						has_tech = atomic_research
+					}
+				}
+				add_tech_bonus = {
+					name = AST_uranium_mining
+					bonus = 0.5
+					uses = 1
+					category = nuclear
+				}
+				add_breakthrough_progress = {
+					specialization = specialization_nuclear
+					value = 0.15
+				}
+			}
+			else = {
+				add_breakthrough_progress = {
+					specialization = specialization_nuclear
+					value = 0.75
+				}
 			}
 			custom_effect_tooltip = CHL_skip_one_line_tt
 			add_tech_bonus = {
@@ -4386,6 +4413,12 @@
 		}
 		
 		bypass = {
+			INS = {
+				OR = {
+					has_government = fascism
+					is_subject = no
+				}
+			}
 		}
 
 		cancel_if_invalid = yes
@@ -4513,7 +4546,7 @@
 			modifier = {
 				JAP = { has_capitulated = yes }
 				factor = 0
-				}
+			}
 		}
 
 		available = {
