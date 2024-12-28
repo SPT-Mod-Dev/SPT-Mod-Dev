@@ -7,6 +7,9 @@
  - Performance and stability improvements (confirm)
  - Armoured maintenance III recovery made vanilla
 
+#### Germany
+ - Autarky requirements now can be met by Germany, subject or allied countries
+
 #### Soviets 
  - 'PC of Mechanical Engineering' Cap 0% -> 2.5% and tooltip fixed 
  - Added a decision to annex AI Mongolia 
