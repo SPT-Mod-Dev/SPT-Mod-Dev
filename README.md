@@ -1,4 +1,19 @@
 # Saving Private Tryin' Historical MP Full Changelog
+
+### 3.13.3 "Where were you when mod was fix?"
+
+#### General
+ - Fixed early truck tooltip
+ - Performance and stability improvements (confirm)
+ - Armoured maintenance III recovery made vanilla
+
+#### Soviets 
+ - 'PC of Mechanical Engineering' Cap 0% -> 2.5% and tooltip fixed 
+ - Added a decision to annex AI Mongolia 
+
+#### AI
+ - Siam should no longer join Axis
+
 ### 3.13.2 "Projects as special as PDX balance"
 
 #### General
