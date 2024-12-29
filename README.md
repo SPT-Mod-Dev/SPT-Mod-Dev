@@ -3,6 +3,7 @@
 ### 3.13.3 "Where were you when mod was fix?"
 
 #### General
+ - Added Land and Naval Warfare facility variants of the "Radar" special project, so that countries are not railroaded into building the Air Warfare facility
  - Fixed early truck tooltip
  - Performance and stability improvements (confirm)
  - Armoured maintenance III recovery made vanilla
@@ -15,6 +16,7 @@
  - Added a decision to annex AI Mongolia 
 
 #### Siam
+ - Focus 'Train Development' train research bonus reduced from 300% to 100%
  - 'Infantry Equipment Development'  tech boost now works for infantry equipment
 
 #### AI

@@ -5693,8 +5693,13 @@ focus_tree = {
 		y = 1
 		relative_position_id = GER_form_the_jagdwaffe
 		cost = 5
-		available = {
-			is_special_project_completed = sp:sp_air_radar
+		available = {							
+			# SPTchange alternative projects
+			OR = {
+				is_special_project_completed = sp:sp_air_radar
+				is_special_project_completed = sp:sp_naval_radar
+				is_special_project_completed = sp:sp_land_radar
+			}
 		}
 
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY }
@@ -6424,8 +6429,13 @@ focus_tree = {
 
 			if = {
 				limit = { 
-					has_dlc = "Man the Guns"
-					is_special_project_completed = sp:sp_air_radar
+					has_dlc = "Man the Guns"							
+					# SPTchange alternative projects
+					OR = {
+						is_special_project_completed = sp:sp_air_radar
+						is_special_project_completed = sp:sp_naval_radar
+						is_special_project_completed = sp:sp_land_radar
+					}
 					has_tech = improved_heavy_battery
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
@@ -6475,8 +6485,13 @@ focus_tree = {
 			}
 			else_if = {
 				limit = {
-					has_dlc = "Man the Guns"
-					is_special_project_completed = sp:sp_air_radar
+					has_dlc = "Man the Guns"							
+					# SPTchange alternative projects
+					OR = {
+						is_special_project_completed = sp:sp_air_radar
+						is_special_project_completed = sp:sp_naval_radar
+						is_special_project_completed = sp:sp_land_radar
+					}
 					NOT = {
 						has_tech = improved_heavy_battery
 					}
@@ -6530,8 +6545,13 @@ focus_tree = {
 				limit = {
 					has_dlc = "Man the Guns"
 					has_tech = improved_heavy_battery
-					NOT = {
-						is_special_project_completed = sp:sp_air_radar
+					NOT = {							
+						# SPTchange alternative projects
+						OR = {
+							is_special_project_completed = sp:sp_air_radar
+							is_special_project_completed = sp:sp_naval_radar
+							is_special_project_completed = sp:sp_land_radar
+						}
 					}
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
@@ -6582,8 +6602,13 @@ focus_tree = {
 			else_if = {
 				limit = {
 					has_dlc = "Man the Guns"
-					NOT = {
-						is_special_project_completed = sp:sp_air_radar
+					NOT = {							
+						# SPTchange alternative projects
+						OR = {
+							is_special_project_completed = sp:sp_air_radar
+							is_special_project_completed = sp:sp_naval_radar
+							is_special_project_completed = sp:sp_land_radar
+						}
 						has_tech = improved_heavy_battery
 					}
 				}

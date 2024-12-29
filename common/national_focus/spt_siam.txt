@@ -1561,7 +1561,12 @@ focus_tree = {
 		}
 
 		available = {
-			is_special_project_completed = sp:sp_air_radar
+			# SPTchange alternative projects
+			OR = {
+				is_special_project_completed = sp:sp_air_radar
+				is_special_project_completed = sp:sp_naval_radar
+				is_special_project_completed = sp:sp_land_radar
+			}
 		}
 
 		bypass = {
@@ -2187,7 +2192,7 @@ focus_tree = {
 			add_ideas = SPT_SIA_supply_0
 			add_tech_bonus = {
 				name = SPT_SIA_trains_tech
-				bonus = 3.0
+				bonus = 1.0
 				uses = 1
 				category = train_tech 
 			}
