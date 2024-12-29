@@ -15,6 +15,9 @@
  - 'PC of Mechanical Engineering' Cap 0% -> 2.5% and tooltip fixed 
  - Added a decision to annex AI Mongolia 
 
+#### Siam
+ - Focus 'Train Development' train research bonus reduced from 300% to 100%
+
 #### AI
  - Siam should no longer join Axis
 
