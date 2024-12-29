@@ -14,6 +14,9 @@
  - 'PC of Mechanical Engineering' Cap 0% -> 2.5% and tooltip fixed 
  - Added a decision to annex AI Mongolia 
 
+#### Siam
+ - 'Infantry Equipment Development'  tech boost now works for infantry equipment
+
 #### AI
  - Siam should no longer join Axis
 
