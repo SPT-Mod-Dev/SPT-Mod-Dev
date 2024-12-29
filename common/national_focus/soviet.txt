@@ -2727,7 +2727,14 @@ focus_tree = {
 				}
 				if = {
 					limit = {
-						ROOT = { is_special_project_completed = sp:sp_air_radar }
+						ROOT = {							
+							# SPTchange alternative projects
+							OR = {
+								is_special_project_completed = sp:sp_air_radar
+								is_special_project_completed = sp:sp_naval_radar
+								is_special_project_completed = sp:sp_land_radar
+							}
+						 }
 						radar_station < 1
 					}
 					add_building_construction = {
@@ -13482,8 +13489,15 @@ focus_tree = {
 						province = 4728
 					}
 					if = {
-						limit = {
-							ROOT = { is_special_project_completed = sp:sp_air_radar }
+						limit = {							
+							ROOT = {							
+								# SPTchange alternative projects
+								OR = {
+									is_special_project_completed = sp:sp_air_radar
+									is_special_project_completed = sp:sp_naval_radar
+									is_special_project_completed = sp:sp_land_radar
+								}
+							}
 							radar_station < 1
 						}
 						add_building_construction = {
