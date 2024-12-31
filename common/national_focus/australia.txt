@@ -1075,7 +1075,14 @@
 			}
 
 			if = {
-				limit = { is_special_project_completed = sp:sp_air_radar }
+				limit = { 							
+					# SPTchange alternative projects
+					OR = {
+						is_special_project_completed = sp:sp_air_radar
+						is_special_project_completed = sp:sp_naval_radar
+						is_special_project_completed = sp:sp_land_radar
+					}
+				}
 				random_owned_controlled_state = {
 					prioritize = { 521 872 }
 					limit = {

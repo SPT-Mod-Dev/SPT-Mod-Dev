@@ -2727,7 +2727,14 @@ focus_tree = {
 				}
 				if = {
 					limit = {
-						ROOT = { is_special_project_completed = sp:sp_air_radar }
+						ROOT = {							
+							# SPTchange alternative projects
+							OR = {
+								is_special_project_completed = sp:sp_air_radar
+								is_special_project_completed = sp:sp_naval_radar
+								is_special_project_completed = sp:sp_land_radar
+							}
+						 }
 						radar_station < 1
 					}
 					add_building_construction = {
@@ -4206,7 +4213,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
 
 		completion_reward = {
-			#add_to_variable = { SOV_defense_industry_production_factory_max_efficiency_factor = 0.05 } SPTChange removed this
+			add_to_variable = { SOV_defense_industry_production_factory_max_efficiency_factor = 0.025 } #SPTChange 5 -> 2.5
 			add_to_variable = { SOV_defense_industry_production_factory_efficiency_gain_factor = -0.05 }
 			custom_effect_tooltip = SOV_pc_of_mechanical_engineering_ns_tt
 
@@ -13482,8 +13489,15 @@ focus_tree = {
 						province = 4728
 					}
 					if = {
-						limit = {
-							ROOT = { is_special_project_completed = sp:sp_air_radar }
+						limit = {							
+							ROOT = {							
+								# SPTchange alternative projects
+								OR = {
+									is_special_project_completed = sp:sp_air_radar
+									is_special_project_completed = sp:sp_naval_radar
+									is_special_project_completed = sp:sp_land_radar
+								}
+							}
 							radar_station < 1
 						}
 						add_building_construction = {
