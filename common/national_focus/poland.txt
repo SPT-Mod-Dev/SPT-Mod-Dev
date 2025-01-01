@@ -14923,7 +14923,16 @@ focus_tree = {
 					occupier = POL
 					occupied = DNZ
 				}
-				start_resistance = DNZ
+				if = {
+					limit = {
+						NOT = {
+							85 = {
+								has_resistance = yes
+							}
+						}
+					}
+					start_resistance = DNZ
+				}
 				set_resistance = 40
 				set_compliance = 30
 				add_resistance_target = { 

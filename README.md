@@ -1,4 +1,33 @@
 # Saving Private Tryin' Historical MP Full Changelog
+
+### 3.13.3 "Where were you when mod was fix?"
+
+#### General
+ - Added Land and Naval Warfare facility variants of the "Radar" special project, so that countries are not railroaded into building the Air Warfare facility
+ - Fixed early truck tooltip
+ - Performance and stability improvements (confirm)
+ - Armoured maintenance III recovery made vanilla
+
+#### Germany
+ - Autarky requirements now can be met by Germany, subject or allied countries
+
+#### Soviets 
+ - 'PC of Mechanical Engineering' Cap 0% -> 2.5% and tooltip fixed 
+ - Added a decision to annex AI Mongolia 
+
+#### Siam
+ - Focus 'Train Development' train research bonus reduced from 300% to 100%
+ - 'Infantry Equipment Development'  tech boost now works for infantry equipment
+
+#### Manchu
+ - 'Develop Manchukan shipyards' now adds 'Overworking dockyard workers' spirit
+ - 'Embrace the Opium Trade' stability -10% -> -5%
+ - 'New Chinese Economic Policy TM' recruitable population -30% -> -10% 
+ - Happier Baba noises 
+
+#### AI
+ - Siam should no longer join Axis
+
 ### 3.13.2 "Projects as special as PDX balance"
 
 #### General
