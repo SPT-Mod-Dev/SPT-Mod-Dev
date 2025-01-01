@@ -19,6 +19,12 @@
  - Focus 'Train Development' train research bonus reduced from 300% to 100%
  - 'Infantry Equipment Development'  tech boost now works for infantry equipment
 
+#### Manchu
+ - 'Develop Manchukan shipyards' now adds 'Overworking dockyard workers' spirit
+ - 'Embrace the Opium Trade' stability -10% -> -5%
+ - 'New Chinese Economic Policy TM' recruitable population -30% -> -10% 
+ - Happier Baba noises 
+
 #### AI
  - Siam should no longer join Axis
 
