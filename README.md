@@ -1,5 +1,10 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.13.4
+
+#### General
+ - Topbar Resources updated (thanks Lennard)
+
 ### 3.13.3 "Where were you when mod was fix?"
 
 #### General
