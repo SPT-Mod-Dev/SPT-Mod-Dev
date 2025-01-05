@@ -651,14 +651,34 @@ focus_tree = {
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
 		completion_reward = {
-			add_tech_bonus = {
-				name = BUL_uranium_prospecting
-			    bonus = 1.0
-			    uses = 2
-			    category = nuclear
+
+			IF = {
+				limit = {
+					NOT = {
+						has_tech = atomic_research
+					}
+				}
+				add_tech_bonus = {
+					name = BUL_uranium_prospecting
+				    bonus = 0.5 #SPT change 1 -> 0.5
+				    uses = 1 # was 2
+				    category = nuclear
+				}
+				add_breakthrough_progress = {
+					specialization = specialization_nuclear
+					value = 0.2 #SPT change 0.8 -> 0.2
+				}
 			}
+			ELSE = {
+				add_breakthrough_progress = {
+					specialization = specialization_nuclear
+					value = 1
+				}
+			}
+
 			add_ideas = BUL_buhovo_uranium_mines
-			if = { 
+
+			if = {
 				limit = {
 					any_allied_country = {
 						is_faction_leader = yes
@@ -1170,7 +1190,7 @@ focus_tree = {
 						limit = {
 							country_exists = ENG
 							NOT = { has_war_with = ENG }
-							ENG = { BUL_is_valid_subject = yes }
+							GER = { BUL_is_valid_subject = yes }
 						}
 						activate_targeted_decision = { target = ENG decision = BUL_military_agreements }
 					}
@@ -1178,7 +1198,7 @@ focus_tree = {
 						limit = {
 							country_exists = SOV
 							NOT = { has_war_with = SOV }
-							SOV = { BUL_is_valid_subject = yes }
+							GER = { BUL_is_valid_subject = yes }
 						}
 						activate_targeted_decision = { target = SOV decision = BUL_military_agreements }
 					}
@@ -1186,7 +1206,7 @@ focus_tree = {
 						limit = {
 							country_exists = ITA
 							NOT = { has_war_with = ITA }
-							ITA = { BUL_is_valid_subject = yes }
+							GER = { BUL_is_valid_subject = yes }
 						}
 						activate_targeted_decision = { target = ITA decision = BUL_military_agreements }
 					}
@@ -7821,17 +7841,20 @@ focus_tree = {
 				}
 				add_ideas = partial_economic_mobilisation
 			}
-			else_if = {
-				limit = {
-					has_idea = partial_economic_mobilisation
-				}
-				add_ideas = war_economy
-			}
-			else_if = {
-				limit = {
-					has_idea = war_economy
-				}
-				add_ideas = tot_economic_mobilisation
+			# else_if = {
+			# 	limit = {
+			# 		has_idea = partial_economic_mobilisation
+			# 	}
+			# 	add_ideas = war_economy
+			# }
+			# else_if = {
+			# 	limit = {
+			# 		has_idea = war_economy
+			# 	}
+			# 	add_ideas = tot_economic_mobilisation
+			# }
+			else = { #SPT change, made it so fascist bulgaria cant jump eco laws with focus
+				add_political_power = 150
 			}
 			BUL_zveno_low_loyalty_increase_effect = yes
 			BUL_bs_low_loyalty_decrease_effect = yes
@@ -8833,6 +8856,14 @@ focus_tree = {
 				}
 				77 = { set_state_flag = BUL_bulgarian_reintegration_campaign_flag }
 				add_state_core = 77
+			}
+			if = {
+				limit = {
+					has_full_control_of_state = 971
+					971 = { NOT = { is_core_of = ROOT } }
+				}
+				971 = { set_state_flag = BUL_bulgarian_reintegration_campaign_flag }
+				add_state_core = 971
 			}
 			custom_effect_tooltip = BUL_historical_states_tt
 

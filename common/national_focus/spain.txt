@@ -2188,6 +2188,7 @@ focus_tree = {
 				    expire = 0
 				}
 			}
+
 		}
 	}
 
@@ -4854,14 +4855,17 @@ focus_tree = {
 
 	focus = {
 		id = SPA_dictator_for_life
+
 		available = {
 			has_country_leader = {
 				character = SPA_francisco_franco
 				ruling_only = yes
 			}
 		}
+
 		bypass = {
 		}
+
 		prerequisite = { focus = SPA_adopt_the_26_points }
 		mutually_exclusive = { focus = SPA_restore_the_monarchy }
 		
@@ -5220,6 +5224,7 @@ focus_tree = {
 
 	focus = {
 		id = SPA_restore_the_monarchy
+
 		available = {
 			NOT = {
 				has_government = fascism
@@ -5442,9 +5447,10 @@ focus_tree = {
 			add_state_claim = 660
 			add_state_claim = 539
 			add_state_claim = 772
-			if = {
+			IF = {
 				limit = {
-					FRA = {
+					any_country = {
+						original_tag = FRA
 						OR = {
 							owns_state = 557
 							owns_state = 272
@@ -5463,16 +5469,9 @@ focus_tree = {
 						}
 					}
 				}
-				create_wargoal = {
-					type = take_state_focus
-					target = FRA
-					generator = { 557 272 780 556 779 778 781 777 776 773 774 660 539 772 }
-					expire = 0
-				}
-			}
-			if = {
-				limit = {
-					VIC = {
+				every_country = {
+					limit = {
+						original_tag = FRA
 						OR = {
 							owns_state = 557
 							owns_state = 272
@@ -5490,13 +5489,16 @@ focus_tree = {
 							owns_state = 772
 						}
 					}
+					ROOT = {
+						create_wargoal = {
+							type = take_state_focus
+							target = PREV
+							generator = { 557 272 780 556 779 778 781 777 776 773 774 660 539 772 }
+							expire = 0
+						}
+					}
 				}
-				create_wargoal = {
-					type = take_state_focus
-					target = VIC
-					generator = { 557 272 780 556 779 778 781 777 776 773 774 660 539 772 }
-					expire = 0
-				}
+
 			}
 		}
 	}
@@ -11997,7 +11999,7 @@ focus_tree = {
 		id = SPR_oppose_the_communists
 		available = {
 			has_country_leader = {
-				name = "Manuel Azaña"
+				character = SPR_manuel_azana
 				ruling_only = yes
 			}
 		}

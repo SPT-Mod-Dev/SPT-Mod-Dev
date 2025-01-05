@@ -1054,6 +1054,12 @@
 		completion_reward = {
 			set_rule = { can_create_factions = yes }
 			create_faction = JAP_greater_east_asian_co_prosperity_sphere
+			IF = {
+				limit = {
+					has_dlc = "La Resistance"
+				}
+				JAP_create_ignatius_lincoln_operative = yes
+			}
 		}
 	}
 
@@ -1564,6 +1570,12 @@
 				cost_reduction = 0.5
 				uses = 2
 				category = naval_doctrine	
+			}
+			IF = {
+				limit = {
+					has_dlc = "La Resistance"
+				}
+				JAP_create_patrick_heenan_operative = yes
 			}
 			unlock_decision_tooltip = JAP_pressure_france
 			hidden_effect = {
@@ -2920,15 +2932,35 @@
 				annex_country = {
 					target = SIA
 				}
-				JAP = {
-					add_state_core = 289
-					add_state_core = 671
-					add_state_core = 286
-					add_state_core = 670
-					add_state_core = 741
-					add_state_core = 724
-					add_state_core = 869
-					add_state_core = 868
+				JAP = {					
+					SIA = {
+						every_core_state = {
+							add_compliance = 100
+						}
+					}			
+					CAM = {
+						every_core_state = {
+							add_compliance = 100
+						}
+					}								
+					LAO = {
+						every_core_state = {
+							add_compliance = 100
+						}
+					}			
+					VIN = { # Vietnam
+						every_core_state = {
+							add_compliance = 100
+						}
+					}
+					# add_state_core = 289
+					# add_state_core = 671
+					# add_state_core = 286
+					# add_state_core = 670
+					# add_state_core = 741
+					# add_state_core = 724
+					# add_state_core = 869
+					# add_state_core = 868
 				}
 			}
 			else = {
@@ -3069,32 +3101,44 @@
 		}
 
 		bypass = {
-			custom_trigger_tooltip = {
-				tooltip = JAP_sign_tripartite_pact_bypass_tt
-				OR = {
-					NOT = {
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = JAP_sign_tripartite_pact_bypass_tt
+					OR = {
+						NOT = {
+							any_country = {
+								original_tag = GER
+								has_government = fascism
+							}
+						}
 						any_country = {
 							original_tag = GER
 							has_government = fascism
+							has_war_with = ROOT
 						}
-					}
-					any_country = {
-						original_tag = GER
-						has_government = fascism
-						has_war_with = ROOT
-					}
-					NOT = {
+						NOT = {
+							any_country = {
+								original_tag = ITA
+								has_government = fascism
+							}
+						}
 						any_country = {
 							original_tag = ITA
 							has_government = fascism
+							has_war_with = ROOT
 						}
-					}
-					any_country = {
-						original_tag = ITA
-						has_government = fascism
-						has_war_with = ROOT
 					}	
-				}	
+				}
+				AND = {
+					GER = {
+						has_government = fascism
+						has_war_with = ITA
+					}
+					ITA = {
+						has_government = fascism
+						has_war_with = GER
+					}
+				}
 			}
 		}
 
@@ -4642,7 +4686,7 @@
 			IF = {
 				limit = {
 					ROOT = { is_in_faction_with = GER }
-					GER = { has_completed_focus = GER_mol_rib_pact }
+					GER = { has_completed_focus = GER_molotov_ribbentrop_pact }
 					GER = { NOT = { has_war_with = SOV } }
 					NOT = { has_war_with = SOV }
 				}
@@ -5529,6 +5573,11 @@
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
+			add_breakthrough_progress = {
+				specialization = specialization_nuclear
+				value = 0.75
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_to_tech_sharing_group = JAP_ultimate_deterrence
 			every_country = {
 				limit = { is_in_faction_with = ROOT }				
@@ -5965,9 +6014,10 @@
 							is_controlled_by = SOV
 						}
 					}
-					set_building_level = {
+					add_building_construction = {
 						type = bunker
 						level = 2
+						instant_build = yes
 						province = {
 							all_provinces = yes
 							limit_to_border = yes
@@ -6208,6 +6258,10 @@
 				add_idea = JAP_cheap_arty_improved
 				remove_idea = JAP_cheap_arty
 			}
+			add_breakthrough_progress = {
+				specialization = specialization_land
+				value = 0.25
+			}
 		}
 	}
 
@@ -6249,6 +6303,10 @@
 			mio:JAP_osaka_army_arsenal_organization = {
 				add_mio_size = 1
 				unlock_mio_trait_tooltip = SPT_JAP_armored_divisions_trait_tk
+			}
+			add_breakthrough_progress = {
+				specialization = specialization_land
+				value = 0.5
 			}
 		}
 	}
@@ -6755,7 +6813,11 @@
 				custom_effect_tooltip = available_designer
 				show_ideas_tooltip = mitsubishi
 			}
-			#remove_ideas = JAP_duplicate_research_efforts #SPTChange #Changed it again to rebalance air focuses
+
+			custom_effect_tooltip = {
+				localization_key = available_scientist_one_line_tt
+				CHARACTER = JAP_jiro_horikoshi
+			}
 		}
 	}
 
@@ -6982,12 +7044,19 @@
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
+
+			add_breakthrough_progress = {
+				specialization = specialization_air
+				value = 1
+			}
+
 			add_tech_bonus = {
 				name = JAP_jet_prototypes
 				bonus = 1.0
-				uses = 2
+				uses = 1 # was 2
 				category = jet_technology
 			}
+
 		}
 	}
 
@@ -7427,6 +7496,7 @@
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
+			add_ideas = JAP_supremacy_of_the_battlefleet
 			add_tech_bonus = {
 				name = JAP_supremacy_of_the_battlefleet
 				bonus = 1.0
@@ -7485,7 +7555,7 @@
 		}
 
 		available = {
-
+			is_special_project_completed = sp:sp_naval_super_heavy_battleship
 		}
 
 		bypass = {
@@ -7501,26 +7571,40 @@
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
+
+			add_breakthrough_progress = {
+				specialization = specialization_naval
+				value = 0.5
+			}
+
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				custom_effect_tooltip = available_mio_tt
+				show_mio_tooltip = JAP_kure_naval_arsenal_organization
+			}
+
 			if = {
 				limit = {
 					not = { has_dlc = "Man the Guns" }
 				}
 				add_tech_bonus = {
 					name = JAP_the_ultimate_battleship
-					bonus = 3.0
+					bonus = 2.0
 					uses = 1
 					category = shbb_tech	
 				}
 			}
 			else = {
-				if = {
-					limit = {
-						not = { has_tech = ship_hull_super_heavy }
-					}
-					set_technology = {
-						ship_hull_super_heavy = 1
-					}
-				}
+				#if = {
+					#limit = {
+						#not = { has_tech = ship_hull_super_heavy }
+					#}
+					#set_technology = {
+						#ship_hull_super_heavy = 1
+					#}
+				#}
 				create_equipment_variant = {
 					name = "Yamato Class"
 					type = ship_hull_super_heavy_1
@@ -7640,12 +7724,14 @@
 		completion_reward = {
 			add_ideas = the_long_lance
 		}
+
 	}
 
 	focus = {
 		id = JAP_torpedo_cruisers
 		icon = GFX_focus_generic_refit_civilian_ships
 		prerequisite = { focus = JAP_long_lance_torpedoes }
+
 		x = 0
 		y = 1
 		relative_position_id = JAP_long_lance_torpedoes
@@ -7669,16 +7755,27 @@
 		available_if_capitulated = no
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
+
 		completion_reward = {
-			if = {
+
+			add_breakthrough_progress = {
+				specialization = specialization_naval
+				value = 0.75
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			IF = {
 				limit = {
-					not = { has_dlc = "Man the Guns" }
+					has_dlc = "Man the Guns"
 				}
-				set_technology = { torpedo_cruiser = 1 }
+				add_ideas = torpedo_cruisers_ns_mtg
 			}
-			else = {
-				set_technology = { torpedo_cruiser_mtg = 1 }
+			ELSE = {
+				add_ideas = torpedo_cruisers_ns
 			}
+
 		}
 	}
+
 }
