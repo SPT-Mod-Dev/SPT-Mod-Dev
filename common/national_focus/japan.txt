@@ -6854,7 +6854,7 @@
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
-			custom_effect_tooltip = JAP_the_zero_tt
+			# custom_effect_tooltip = JAP_the_zero_tt # SPTchange misleading tooltip
 			add_ideas = JAP_the_zero_spirit #SPT change adds new spirit on completion
 			IF = { #SPT change to award mio funds to yokosuka
 				limit = {
@@ -6864,33 +6864,33 @@
 			else = {
 				add_ideas = yokosuka #SPT change adds the naval designer on completion	
 			}
-			hidden_effect = { 
-
-				if = {
-					limit = {
-						NOT = {
-							has_dlc = "By Blood Alone"
-						}
+			# SPTchange no point hiding the effect, the custom tooltip is gone
+			# hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "By Blood Alone"
 					}
-					set_technology = { cv_fighter2 = 1 } 
 				}
-				else = {
-					#SPTChange replaced giving variant with unlocking fighter 2 tech
-					set_technology = { improved_small_airframe = 1 } 
-					# create_equipment_variant = {
-					# 	name = "A6M Zero-Sen"
-					# 	type = cv_small_plane_airframe_2
-					# 	modules = {
-					# 		fixed_main_weapon_slot = light_mg_2x
-					# 		fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_2x
-					# 		engine_type_slot = engine_3_1x
-					# 		special_type_slot_1 = drop_tanks
-					# 		special_type_slot_2 = fuel_tanks_small
-					# 	}
-					# 	icon = "GFX_JAP_cv_fighter2_medium"
-					# }
-				}
+				set_technology = { cv_fighter2 = 1 } 
 			}
+			else = {
+				#SPTChange replaced giving variant with unlocking fighter 2 tech
+				set_technology = { improved_small_airframe = 1 } 
+				# create_equipment_variant = {
+				# 	name = "A6M Zero-Sen"
+				# 	type = cv_small_plane_airframe_2
+				# 	modules = {
+				# 		fixed_main_weapon_slot = light_mg_2x
+				# 		fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_2x
+				# 		engine_type_slot = engine_3_1x
+				# 		special_type_slot_1 = drop_tanks
+				# 		special_type_slot_2 = fuel_tanks_small
+				# 	}
+				# 	icon = "GFX_JAP_cv_fighter2_medium"
+				# }
+			}
+			# }
 		}
 	}
 
