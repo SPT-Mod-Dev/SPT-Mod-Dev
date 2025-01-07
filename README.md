@@ -5,6 +5,9 @@
 #### General
  - Topbar Resources updated (thanks Lennard)
 
+#### Japan
+ - Cleaned up tooltip for Focus 'The Zero'
+
 ### 3.13.3 "Where were you when mod was fix?"
 
 #### General
