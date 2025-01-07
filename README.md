@@ -5,6 +5,9 @@
 #### General
  - Topbar Resources updated (thanks Lennard)
 
+#### Germany
+ - Trade deal with Sweden returned to old mechanics
+
 #### Japan
  - Cleaned up tooltip for Focus 'The Zero'
 
