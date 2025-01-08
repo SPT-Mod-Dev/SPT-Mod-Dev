@@ -1,5 +1,18 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.13.4 Whos ready for errors?
+- Legacy of the black army now gives:
+     5% org <---- 10%
+     2.5% cav attack <---- 5%
+     5% cav defence <---- 10%
+- Pass statute XIX recruitable pop changed from 1.00% to 0.50%
+- Heirs of the Huns: 
+     2.5% Supply Consumption <--- 5%
+     2.5% Cav attack <---- 5%
+- Expand the Honvedseg recruitable pop reduced from 1.5% to 1%
+-
+
+
 ### 3.13.3 "Where were you when mod was fix?"
 
 #### General
