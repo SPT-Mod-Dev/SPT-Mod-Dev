@@ -8136,7 +8136,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = wuw_HUN_restrict_voting_rights
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 10
@@ -9599,7 +9599,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = wuw_HUN_promote_hungarianism
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 15
@@ -16047,7 +16047,7 @@ focus_tree = {
 			add_tech_bonus = {
 				name = HUN_announce_the_gyor_program
 				bonus = 0.5
-				uses = 2
+				uses = 1
 				category = cat_production
 			}
 
@@ -17481,7 +17481,7 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = wuw_HUN_expand_on_the_weiss_wm_16
-				bonus = 0.3
+				bonus = 0.40
 				ahead_reduction = 1
 				uses = 2
 				category = medium_air
@@ -17529,8 +17529,8 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = HUN_solyom_development
-				bonus = 0.30
-				uses = 3
+				bonus = 0.50
+				uses = 2
 				category = cat_air_bombs
 				category = cat_air_engine
 			}
@@ -17898,6 +17898,21 @@ focus_tree = {
 			# }
 			#SPT change, removed arms market subsidies
 
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 
@@ -19494,9 +19509,6 @@ focus_tree = {
 		available = {
 			has_war = yes
 			73 = {
-				is_fully_controlled_by = ROOT
-			}
-			76 = {
 				is_fully_controlled_by = ROOT
 			}
 		}
