@@ -16160,6 +16160,109 @@ focus_tree = {
 
 		}
 	}
+
+	focus = {
+		id = wuw_HUN_support_for_our_finnish_brothers
+		icon = GFX_focus_invite_finland
+		prerequisite = { focus = wuw_HUN_secret_rearmament }
+		#mutually_exclusive = { focus = wuw_HUN_avoid_interventionalist_destablilization }
+		x = -3
+		y = 1
+		relative_position_id = wuw_HUN_secret_rearmament
+
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+
+		cost = 2
+
+		ai_will_do = {
+			factor = 5
+		}
+
+		allow_branch = { # SPTChange remove focus
+			always = no 
+		}
+
+		available = {
+			has_war = no
+			FIN = {
+				has_war = yes
+				has_civil_war = no
+			}
+			custom_trigger_tooltip = {
+				tooltip = wuw_HUN_support_for_our_finnish_brothers_tt
+				OR = {
+					AND = {
+						FIN = {
+							OR = {
+								has_government = neutrality
+								has_government = fascism
+							}
+						}
+						HUN = {
+							OR = {
+								has_government = neutrality
+								has_government = fascism
+							}
+						}
+					}
+					AND = {
+						FIN = {
+							OR = {
+								has_government = democratic
+								has_government = communism
+							}
+						}
+						HUN = {
+							OR = {
+								has_government = democratic
+								has_government = communism
+							}
+						}
+					}
+				}
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = no
+
+		completion_reward = {
+
+			add_timed_idea = {
+				idea = HUN_pan_ugric_volunteer_force
+				days = 1095
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			add_relation_rule_override = {
+			    target = FIN
+			    can_send_volunteers = yes
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			random_country = {
+				limit = {
+					original_tag = FIN
+					has_war = yes
+					has_civil_war = no
+				}
+				country_event = {
+					id = WW_hungary.2
+					days = 3
+					random_days = 4
+				}
+			}
+
+		}
+	}
+
 	focus = {
 		id = wuw_HUN_undercover_air_maneuvers
 		icon = GFX_goal_generic_air_doctrine

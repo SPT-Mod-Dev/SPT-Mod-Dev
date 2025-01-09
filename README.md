@@ -4,9 +4,9 @@
 
 #### Hungary
 - Legacy of the black army now Reductions:
-     5% org <---- 10%
-     2.5% cav attack <---- 5%
-     5% cav defence <---- 10%
+    Org 10% -> 5% 
+    Cavalry attack 5% -> 2.5%
+    Cavalry defence 10% -> 5%
 - Pass statute XIX recruitable pop changed from 1.00% to 0.50%
 - Heirs of the Huns reductions: 
      2.5% Supply Consumption <---- 5%
@@ -22,7 +22,7 @@
 - promote hungarianism 35 days instead of 70
 
 #### Romania
-- Join axis focus time changed to 1 day
+- 'Join the Axis' focus time 7
 - Human wave tactics, 1 use any doctorine <---- 2 uses mass assault
 - Expand the galati shipyards now provides 3 dockyards instead of 2
 - Expand the marine regiment Now provides 100% bonus instead of 50%
