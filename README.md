@@ -10,7 +10,6 @@
 
 #### Japan
  - Cleaned up tooltip for Focus 'The Zero'
-### 3.13.4 Whos ready for errors?
 
 #### USA
 - 'Air Support' localisation cas -> fighter 
