@@ -26,7 +26,7 @@
 - 'Make the Magyar Légierö Known' 
     Doctrine 50% -> 30% 
     Air XP now 15 -> 50
-- 'Develop the WeissWM-21 Sólyom' 3x15% -> 2x50% 
+- 'Develop the Weiss WM-21 Sólyom' 3x15% -> 2x50% 
 - 'Quantity over Quality' research 25% -> 50%
 - 'Anounce the Györi Program' production bonus uses 2 -> 1
 - 'Restrict Voting Rights' time 70 -> 35
