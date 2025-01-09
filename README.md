@@ -1,17 +1,32 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
 ### 3.13.4 Whos ready for errors?
-- Legacy of the black army now gives:
+
+#### Hungary
+- Legacy of the black army now Reductions:
      5% org <---- 10%
      2.5% cav attack <---- 5%
      5% cav defence <---- 10%
 - Pass statute XIX recruitable pop changed from 1.00% to 0.50%
-- Heirs of the Huns: 
-     2.5% Supply Consumption <--- 5%
+- Heirs of the Huns reductions: 
+     2.5% Supply Consumption <---- 5%
      2.5% Cav attack <---- 5%
 - Expand the Honvedseg recruitable pop reduced from 1.5% to 1%
--
-
+- HUN make the magyar legiero known doctorine reduction now 50% instead of 30% and experience gain now 50 instead of 15
+- solyom development now gives a 
+     50% Bonus uses 2 <---- 15% uses 3
+- quantity over quality now gives:
+     50% armor research bonus <---- 25%
+     50% arty research bonus <---- 25%
+- restrict voting rights 35 days instead of 70
+- promote hungarianism 35 days instead of 70
+- 
+#### Romania
+- Join axis focus time changed to 1 day
+- Human wave tactics, 1 use any doctorine <---- 2 uses mass assault
+- Expand the galati shipyards now provides 3 dockyards instead of 2
+- Expand the marine regiment Now provides 100% bonus instead of 50%
+- Special forces focus now provides only 1 use instead of 2
 
 ### 3.13.3 "Where were you when mod was fix?"
 
