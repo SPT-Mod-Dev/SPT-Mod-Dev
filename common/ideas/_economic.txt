@@ -753,7 +753,7 @@ ideas = {
 		}
 
 		new_economic_policy = {
-
+		
 			picture = new_economic_policy
 
 			allowed = {
@@ -1052,6 +1052,13 @@ ideas = {
 							}
 						}
 					}
+					hidden_trigger = {
+						TAG = SOV
+						OR = {
+							has_idea = new_economic_policy
+							has_idea = new_economic_policy_2
+						}
+					}
 				}
 
 
@@ -1069,6 +1076,7 @@ ideas = {
 					}
 					NOT = { has_completed_focus = SPR_all_must_bear_the_torch }
 				}
+
 			}
 			rule = { can_access_market = no } #SPT
 			cost = 150

@@ -1177,21 +1177,81 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_INTERNATIONAL_TRADE FOCUS_FILTER_HISTORICAL}
 
+		# completion_reward = { #SPTChange return old event
+		# 	SWE = {
+		# 		country_event = { id = wuw_GER_diplomacy.1 days = 2 }
+		# 	}
+
+		# 	custom_effect_tooltip = if_they_accept_tt
+		# 	effect_tooltip = {
+		# 		SWE = {
+		# 			add_ideas = GER_german_trade_ns
+		# 			add_opinion_modifier = {
+		# 				target = PREV
+		# 				modifier = GER_trading_partners
+		# 			}
+		# 		}
+		# 		custom_effect_tooltip = war_will_cancel_deal_tt
+		# 	}
+		# }
+
 		completion_reward = {
 			SWE = {
-				country_event = { id = wuw_GER_diplomacy.1 days = 2 }
+				country_event = { id = AAT_germany.1 hours = 5 random_hours = 5 }
 			}
-
-			custom_effect_tooltip = if_they_accept_tt
-			effect_tooltip = {
-				SWE = {
-					add_ideas = GER_german_trade_ns
-					add_opinion_modifier = {
-						target = PREV
-						modifier = GER_trading_partners
+			if = {
+				limit = {
+					NOT = { has_global_flag = GER_norr_rights }
+					110 = { 
+						controller = { 
+							OR = {
+								AND = {
+									original_tag = NOR
+									has_government = fascism
+									NOT = { is_ally_with = GER }
+								}	
+								is_ally_with =  GER
+							}
+						}
 					}
 				}
-				custom_effect_tooltip = war_will_cancel_deal_tt
+				GER = {
+					set_global_flag = GER_norr_rights
+					country_event = {
+						days = 3
+						id = spt.1
+					}
+				}
+			}
+	
+			#SPTChange hid tooltip
+			effect_tooltip = {
+				SWE = {
+					# add_offsite_building = {
+					# 	type = industrial_complex
+					# 	level = 2
+					# }
+			
+					# add_offsite_building = {
+					# 	type = arms_factory
+					# 	level = 1
+					# }
+			
+					# add_timed_idea = {
+					# 	idea = GER_german_swedish_trade_agreement
+					# 	days = 480
+					# }
+			
+					give_resource_rights = {
+						receiver = ROOT 
+						state = 918 #Västerbotten 
+					}
+				}
+			
+				add_opinion_modifier = {
+					target = SWE # target of the relation
+					modifier = GER_SWE_historic_trade_Partners
+				}
 			}
 		}
 	}
@@ -14440,6 +14500,7 @@ focus_tree = {
 
 		available = {
 			is_subject = no
+			date > 1941.03.01
 		}
 
 		cancel = {
