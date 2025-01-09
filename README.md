@@ -20,7 +20,7 @@
      50% arty research bonus <---- 25%
 - restrict voting rights 35 days instead of 70
 - promote hungarianism 35 days instead of 70
-- 
+
 #### Romania
 - Join axis focus time changed to 1 day
 - Human wave tactics, 1 use any doctorine <---- 2 uses mass assault
