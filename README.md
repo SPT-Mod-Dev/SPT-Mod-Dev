@@ -1,12 +1,40 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.13.4
+### 3.13.4 "Python"
 
 #### General
  - Topbar Resources updated (thanks Lennard)
 
+#### Germany
+ - Trade deal with Sweden returned to old mechanics
+
 #### Japan
  - Cleaned up tooltip for Focus 'The Zero'
+
+#### USA
+- 'Air Support' localisation cas -> fighter 
+
+#### Hungary
+- 'Legacy of the Black Army':
+    Org 10% -> 5% 
+    Cavalry attack 5% -> 2.5%
+    Cavalry defence 10% -> 5%
+- 'Heirs of the Huns' reductions: 
+    Supply consumption 5% -> 2.5%
+    Cavalry attack 5% -> 2.5%
+- 'Expand the Honvedseg' pop 1% -> 1.5%
+- 'Make the Magyar Légierö Known' 
+    Doctrine 50% -> 30% 
+    Air XP now 15 -> 50
+- 'Develop the Weiss WM-21 Sólyom' 3x15% -> 2x50% 
+- 'Quantity over Quality' research 25% -> 50%
+- 'Anounce the Györi Program' production bonus uses 2 -> 1
+- 'Restrict Voting Rights' time 70 -> 35
+- 'Promote Hungarianism' time 70 -> 35
+
+#### Romania
+- 'Demand Transnistria' time 7 -> 35
+- 'Expand the Galati Shipyards' dockyards 2 -> 3 and prioritises Northern Dobruja
 
 ### 3.13.3 "Where were you when mod was fix?"
 

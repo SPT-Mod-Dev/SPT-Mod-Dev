@@ -2243,6 +2243,22 @@ country_event = {
 				}
 			}
 		}
+		trigger = {
+			NOT = { has_war_with = GER }
+			is_puppet = no # can't do anything if puppet
+		}
+		# if = {
+		#	limit = {
+		#		has_completed_focus = ENG_no_further_appeasement
+		#	}
+		#	add_political_power = -200
+		# }
+		if = {
+			limit = {
+				tag = HOL
+			}
+			ENG = { country_event = germany.40 }
+		}
 
 		#Send follow-up event to next country
 		if = {
