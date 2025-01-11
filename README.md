@@ -1,5 +1,11 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+###
+FREE FRANCE : 
+Imported vanilla france decisions
+Attempted content for Free France (Focus, Ideas, Events)
+Localisation
+
 ### 3.12.3
 
 ### Hungary

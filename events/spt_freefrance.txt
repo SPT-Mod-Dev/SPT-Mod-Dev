@@ -1,0 +1,204 @@
+namespace = spt_freefrance
+
+country_event {
+	id = spt_freefrance.1
+	title = spt_freefrance.1.t
+	desc = spt_freefrance.1.d
+    picture = GFX_event_liberation_complete
+    is_triggered_only = yes
+
+    immediate = {
+        if = {
+            limit = {
+                AND = {
+                    controller = { state = 461 owner = ROOT }
+                    controller = { state = 459 owner = ROOT }
+                    controller = { state = 458 owner = ROOT }
+                }
+            }
+            remove_ideas = FRA_Babylon
+        }
+    }
+}
+country_event = {
+    id = spt_freefrance.2
+    title = spt_freefrance.2.t
+    desc = spt_freefrance.2.d
+    picture = GFX_event_generic_political
+
+    is_triggered_only = yes
+    major = yes
+
+    trigger = {
+        tag = FRA
+    }
+
+    option = {
+        name = spt_freefrance.2.a
+
+        add_stability = -0.20
+        add_war_support = -0.1
+        
+    }
+
+    option = {
+        name = spt_freefrance.2.b
+        add_stability = 0.2
+        add_war_support = 0.2
+        add_political_power = -100
+        add_manpower = -40000
+    }
+}
+country_event = {
+    id = spt_freefrance.3
+    title = spt_freefrance.3.t
+    desc = spt_freefrance.3.d
+    picture = GFX_report_event_generic
+
+    is_triggered_only = yes
+    major = yes
+
+    option = {
+        name = spt_freefrance.3.a
+        custom_effect_tooltip = SPT_FreeFrance_3_Option_1_tt
+        ai_chance = {
+            factor = 50
+        }
+        add_ideas = FRA_strike_back
+    }
+
+    option = {
+        name = spt_freefrance.3.b
+        custom_effect_tooltip = SPT_FreeFrance_3_Option_2_tt
+        ai_chance = {
+            factor = 50
+        }
+        add_ideas = FRA_defend_asia
+    }
+}
+
+
+## UK free france related matter
+country_event = {
+    id = spt_freefrance.4
+    title = spt_freefrance.4.t
+    desc = spt_freefrance.4.d
+    picture = GFX_report_event_generic
+
+    is_triggered_only = yes
+    major = yes
+
+    option = {
+        name = spt_freefrance.4.a
+        ai_chance = {
+            factor = 60
+        }
+        add_manpower = 30000
+        add_land_experience = 200
+    }
+
+    option = {
+        name = spt_freefrance.4.b
+        ai_chance = {
+            factor = 40
+        }
+        add_manpower = 20000
+        add_air_experience = 150
+        add_naval_experience = 150
+    }
+}
+
+## Free France soviet lend lease
+event = {
+    id = spt_freefrance.5
+    title = spt_freefrance.5.t
+    desc = spt_freefrance.5.d
+    picture = GFX_event_soviet_aid
+    major = yes
+    is_triggered_only = yes
+
+    option = {
+        name = spt_freefrance.5.a
+        custom_effect_tooltip = SPT_FreeFrance_5_Option_1_tt
+        ai_chance = {
+            factor = 50
+        }
+    }
+    option = {
+        name = spt_freefrance.5.b
+        ai_chance = {
+            factor = 30
+        }
+        add_political_power = -50
+        FROM = { 
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = 8000
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = artillery_equipment
+                amount = 120
+                producer = SOV
+            }
+        }
+    }
+    option = {
+        name = spt_freefrance.5.c
+        ai_chance = {
+            factor = 20
+        }
+        add_political_power = -120
+        FROM = { 
+            add_equipment_to_stockpile = {
+                type = infantry_equipment
+                amount = 10000
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = artillery_equipment
+                amount = 200
+                producer = SOV
+            }
+            add_equipment_to_stockpile = {
+                type = heavy_tank_chassis
+                amount = 100
+                producer = SOV
+            }
+        }
+    }
+}
+country_event = {
+    id = spt_freefrance.6
+    title = spt_freefrance.6.t
+    desc = spt_freefrance.6.d
+    picture = GFX_report_event_generic
+
+    is_triggered_only = yes
+
+    option = {
+        name = spt_freefrance.6.a
+        custom_effect_tooltip = SPT_FreeFrance_6_Option_1_tt
+
+        remove_character = FRA_henri_giraud
+        remove_idea = FRA_henri_giraud
+
+        add_stability = -0.1
+    }
+
+    option = {
+        name = spt_freefrance.6.b
+        custom_effect_tooltip = SPT_FreeFrance_6_Option_2_tt
+
+        add_government_leader = {
+            id = FRA_henri_giraud
+            is_unremovable = yes
+        }
+
+        add_political_power = 50
+        add_stability = 0.15
+        add_war_support = 0.10
+        add_army_experience = 200
+
+    }
+}
