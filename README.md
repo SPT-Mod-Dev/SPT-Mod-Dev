@@ -1,5 +1,10 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.13.5 Twilight of the Game Stability
+
+#### Netherlands
+ - Removed faction check for Malaysia in focus 'The Singapore Conference'
+
 ### 3.13.4 "Python"
 
 #### General
