@@ -203,6 +203,7 @@ country_event = {
 				NOT = { state = 158 }
 				NOT = { state = 114 }
 				NOT = { state = 50 }
+				NOT = { state = 978 } #BADEN
 				NOT = { state = 42 }
 				is_controlled_by = ROOT
 				OR = {
@@ -232,6 +233,14 @@ country_event = {
 					is_owned_by = ROOT
 					is_controlled_by = PREV
 				}
+			}
+		}
+		# PLEASE Don't fire if this will end the war (No other ally is a major)
+		FRA = {
+			any_allied_country = {
+				is_major = yes
+				has_capitulated = no
+				has_war_with = GER
 			}
 		}
 	}
@@ -266,6 +275,7 @@ country_event = {
 		GER = { country_event = france.14 }
 		custom_effect_tooltip = france.10.a_tt
 		# Switches to Vichy if GER accepts
+		set_country_flag = GER_dont_seize_gold_reserves_flag #Can't allow Germany to seize out gold reserves just yet
 	}
 	option = { # Become Free French
 		name = france.10.b
@@ -501,6 +511,9 @@ country_event = {
 			limit = { 19 = { owner = { original_tag = FRA } } }
 			set_state_controller = 19
 		}
+
+		GER_set_consumer_goods_war_reparations = yes
+
 		# Italian Occupation Zone (if they did well)
 		if = { #if Italy did really well, they get an extra bonus state (but only if that doesn't lead to bordergore)
 			limit = {
@@ -588,12 +601,7 @@ country_event = {
 		}
 		FRA = {
 			set_capital = { state = 539 }
-			if = {
-				limit = {
-					has_dlc = "La Resistance"
-				}
-				
-			}
+
 			hidden_effect = {
 				set_state_controller = 26
 				set_state_controller = 22
@@ -748,17 +756,38 @@ country_event = {
 				}
 				set_nationality = FRA
 			}
+
+			set_country_flag = vichy_france
+			save_event_target_as = vichy_france
+
+			FRA = { #Move Petain to Vichy
+				set_nationality = {
+					target_country = PREV
+					character = FRA_philippe_petain
+				}
+			}
+
+			add_country_leader_role = {
+				character = FRA_philippe_petain
+				country_leader = {
+					ideology = fascism_ideology
+					expire = "1965.1.1.1"
+					id = -1
+				}
+				promote_leader = yes
+			}
 			# FRA Player Switches to Vichy
 			if = {
 				limit = { FRA = { has_country_flag = become_vichy } }
 				change_tag_from = FRA
 			}
-			save_event_target_as = vichy_france
-			set_country_flag = vichy_france
 		}
 		country_event = { hours = 6 id = news.34 }
 		hidden_effect =  {
 			FRA = { news_event = { id = france.20 days = 1 } }
+		}
+		FROM = {
+			clr_country_flag = GER_dont_seize_gold_reserves_flag
 		}
 	}
 
@@ -833,6 +862,9 @@ country_event = {
             limit = { 806 = { owner = { original_tag = FRA } } }
             set_state_controller = 806
         }
+
+        GER_set_consumer_goods_war_reparations = yes
+
 		# Italian Occupation Zone (if they did well)
 		if = { #if Italy did really well, they get an extra bonus state (but only if that doesn't lead to bordergore)
 			limit = {
@@ -1100,6 +1132,9 @@ country_event = {
 		hidden_effect =  {
 			FRA = { news_event = { id = france.20 days = 1 } }
 		}
+		FROM = {
+			clr_country_flag = GER_dont_seize_gold_reserves_flag
+		}
 	}
 	option = { # Agree - Fascism - LaR
 		trigger = {always = no} #SPTChange hid option
@@ -1138,6 +1173,9 @@ country_event = {
 			}
 		}
 		custom_effect_tooltip = establishing_vichy_tt
+
+		GER_set_consumer_goods_war_reparations = yes
+
 		hidden_effect = {
 			create_dynamic_country = {
 				original_tag = FRA
@@ -1315,6 +1353,9 @@ country_event = {
 				}
 			}
 		}
+		FROM = {
+			clr_country_flag = GER_dont_seize_gold_reserves_flag
+		}
 	}
 	option = { # Conquer everything!
 		name = france.14.b
@@ -1330,6 +1371,9 @@ country_event = {
 			hidden_effect = {
 				country_event = {days = 2 id = spt.107} #SPT Change to trigger french fleet fiasco event chain
 			}
+		}
+		FROM = {
+			clr_country_flag = GER_dont_seize_gold_reserves_flag
 		}
 	}
 }
@@ -1788,7 +1832,7 @@ country_event = {
 			FRA = {
 				add_ai_strategy = {
 					type = alliance
-					id = "ENG"
+					id = ENG
 					value = 200
 				}
 			}

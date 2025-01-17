@@ -1947,6 +1947,71 @@ country_event = {
 	}
 }
 
+country_event = { #Charlie Brown and Franz Stigler incident (USA)
+	id = usa.65
+	title = usa.65.t
+	desc = usa.65.desc
+	picture = GFX_report_event_USA_charlie_brown
+
+	fire_only_once = yes
+
+	trigger = {
+		date > 1943.12.20
+		original_tag = USA
+		has_government = democratic
+		has_deployed_air_force_size = {
+			size > 0
+			type = strategic_bomber
+		}
+		any_country = {
+			original_tag = GER
+			has_government = fascism
+			has_war_with = ROOT
+		}
+	}
+
+	option = { #A hero through and through
+		name = usa.65.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_ace = {
+			name = Charles
+			surname = Brown
+			callsign = "Charlie"
+			type = bomber_unique
+		}
+
+		add_war_support = -0.03
+	}
+
+	option = { #Make an example of him for defying us
+		name = usa.65.b
+		ai_chance = {
+			base = 10
+		}
+
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.05
+		}
+
+		add_war_support = 0.03
+	}
+
+	option = { #Silence this situation! The troops cannot know
+		name = usa.65.c
+		ai_chance = {
+			base = 10
+			modifier = { #historically this was silenced
+				factor = 10
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
 country_event = {
 	id = usa.176 #Fire arsenal of democracy speech
 	
