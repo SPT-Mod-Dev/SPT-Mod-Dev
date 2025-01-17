@@ -185,6 +185,7 @@ characters={
 		}
 	}
 
+
 	# Unit Leaders
 
 	SPR_vicente_rojo_lluch={
@@ -572,7 +573,6 @@ characters={
 							has_global_flag = spanish_civil_war
 							has_global_flag = SPR_sin_paquito
 						}
-						original_tag = CHL
 					}
 				}
 			}
@@ -747,7 +747,6 @@ characters={
 			name=SPA_emilio_mola_vidal
 			portraits={
 				army={
-					large="GFX_portrait_SPA_emilio_mola"
 					small="GFX_idea_generic_army_europe_5"
 				}
 			}
@@ -796,10 +795,7 @@ characters={
 				ledger = army
 				allowed = {
 					has_dlc = "La Resistance"
-					OR = {
-						original_tag = SPR
-						original_tag = CHL
-					}
+					original_tag = SPR
 				}
 				visible = {
 					NOT = {
@@ -931,10 +927,7 @@ characters={
 				ledger = army
 				allowed = {
 					has_dlc = "La Resistance"
-					OR = {
-						original_tag = SPR
-						original_tag = CHL
-					}
+					original_tag = SPR
 				}
 				visible = {
 					NOT = {
@@ -1021,10 +1014,7 @@ characters={
 				ledger = army
 				allowed = {
 					has_dlc = "La Resistance"
-					OR = {
-						original_tag = SPR
-						original_tag = CHL
-					}
+					original_tag = SPR
 				}
 				visible = {
 					NOT = {
@@ -1120,21 +1110,6 @@ characters={
 				}
 			}
 		}
-	}
-
-	SPA_karl_pius_von_habsburg = {
-		name = SPA_karl_pius_von_habsburg
-		portraits = {
-			civilian = {
-				large = GFX_portrait_SPR_karl_pius_von_habsburg
-			}
-		}
-		#country_leader = {
-		#	ideology = despotism
-		#	traits = { carlist_habsburg_pretender }
-		#	expire="1965.1.1.1"
-		#	id = -1
-		#}
 	}
 
 	SPA_miguel_cabanellas={ # Carlist
@@ -1416,10 +1391,7 @@ characters={
 			ledger = army
 			allowed = {
 				has_dlc = "La Resistance"
-				OR = {
-					original_tag = SPR
-					original_tag = CHL
-				}
+				original_tag = SPR
 			}
 			visible = {
 				NOT = {
@@ -1469,10 +1441,7 @@ characters={
 			ledger = army
 			allowed = {
 				has_dlc = "La Resistance"
-				OR = {
-					original_tag = SPR
-					original_tag = CHL
-				}
+				original_tag = SPR
 			}
 
 			visible = {
@@ -3525,10 +3494,7 @@ characters={
 				idea_token = SPR_augusto_barcia_trelles
 				allowed = {
 					has_dlc = "La Resistance"
-					OR = {
-						original_tag = SPR
-						original_tag = SWE
-					}
+					original_tag = SPR
 				}
 				visible = {
 					NOT = {
@@ -3537,22 +3503,16 @@ characters={
 					}
 				}
 				available = {
-					OR = {
-						AND = {
-							NOT = {
-								has_completed_focus = SPR_masters_of_our_own_fate
-								has_completed_focus = SPR_communists_in_the_government
-							}
-							custom_trigger_tooltip = {
-								tooltip = SPR_not_nationalist_spain_tt
-								NOT = {
-									tag = SPA
-									tag = SPB
-								}
-							}
+					NOT = {
+						has_completed_focus = SPR_masters_of_our_own_fate 
+						has_completed_focus = SPR_communists_in_the_government 
+					}
+					custom_trigger_tooltip = {
+						tooltip = SPR_not_nationalist_spain_tt
+						NOT = {
+							tag = SPA 
+							tag = SPB 
 						}
-
-						SWE_refuge_for_revolutionaries_trigger = yes
 					}
 				}
 				traits = {
@@ -3702,10 +3662,7 @@ characters={
 				idea_token = SPR_dolores_ibarruri
 				allowed = {
 					has_dlc = "La Resistance"
-					OR = {
-						original_tag = SPR
-						original_tag = SWE
-					}
+					original_tag = SPR
 				}
 				visible = {
 					NOT = {
@@ -3715,23 +3672,18 @@ characters={
 				}
 				available = {
 					OR = {
-						AND = {
-							OR = {
-								has_completed_focus = SPR_demand_ministerial_positions
-								has_completed_focus = SPR_communists_in_the_government
-							}
-							NOT = {
-								has_completed_focus = SPR_masters_of_our_own_fate
-							}
-							custom_trigger_tooltip = {
-								tooltip = SPR_not_nationalist_spain_tt
-								NOT = {
-									tag = SPA
-									tag = SPB
-								}
-							}
+						has_completed_focus = SPR_demand_ministerial_positions 
+						has_completed_focus = SPR_communists_in_the_government 
+					}
+					NOT = {
+						has_completed_focus = SPR_masters_of_our_own_fate 
+					}
+					custom_trigger_tooltip = {
+						tooltip = SPR_not_nationalist_spain_tt
+						NOT = {
+							tag = SPA 
+							tag = SPB 
 						}
-						SWE_refuge_for_revolutionaries_trigger = yes
 					}
 				}
 				traits = {
@@ -4031,10 +3983,7 @@ characters={
 			idea_token = SPR_federica_montseny
 			allowed = {
 				has_dlc = "La Resistance"
-				OR = {
-					original_tag = SWE
-					original_tag = SPR
-				}
+				original_tag = SPR
 			}
 			visible = {
 				NOT = {
@@ -4043,19 +3992,14 @@ characters={
 				}
 			}
 			available = {
-				OR = {
-					AND = {
-						NOT = {
-							has_completed_focus = SPR_crush_the_revolution
-						}
-						custom_trigger_tooltip = {
-							tooltip = SPR_not_nationalist_spain_tt
-							NOT = {
-								tag = SPA
-							}
-						}
+				NOT = {
+					has_completed_focus = SPR_crush_the_revolution 
+				}
+				custom_trigger_tooltip = {
+					tooltip = SPR_not_nationalist_spain_tt
+					NOT = {
+						tag = SPA 
 					}
-					SWE_refuge_for_revolutionaries_trigger = yes
 				}
 			}
 			traits = {
@@ -4079,7 +4023,7 @@ characters={
 		name=SPR_juan_andrade
 		portraits={
 			army={
-				small="GFX_idea_SPR_juan_andrade"
+				small="GFX_idea_generic_political_advisor_europe_6"
 			}
 		}
 		advisor={
@@ -4087,10 +4031,7 @@ characters={
 			idea_token = SPR_juan_andrade
 			allowed = {
 				has_dlc = "La Resistance"
-				OR = {
-					original_tag = SPR
-					original_tag = SWE
-				}
+				original_tag = SPR
 			}
 			visible = {
 				NOT = {
@@ -4099,20 +4040,15 @@ characters={
 				}
 			}
 			available = {
-				OR = {
-					AND = {
-						has_completed_focus = SPR_masters_of_our_own_fate
-						NOT = {
-							has_completed_focus = SPR_regional_defense_council_of_aragon
-						}
-						custom_trigger_tooltip = {
-							tooltip = SPR_not_nationalist_spain_tt
-							NOT = {
-								tag = SPA
-							}
-						}
+				has_completed_focus = SPR_masters_of_our_own_fate 
+				NOT = {
+					has_completed_focus = SPR_regional_defense_council_of_aragon 
+				}
+				custom_trigger_tooltip = {
+					tooltip = SPR_not_nationalist_spain_tt
+					NOT = {
+						tag = SPA 
 					}
-					SWE_refuge_for_revolutionaries_trigger = yes
 				}
 			}
 			traits = {
@@ -4136,7 +4072,7 @@ characters={
 		name=SPR_antonia_adroher_i_pascual
 		portraits={
 			army={
-				small="GFX_idea_SPR_antonia_adroher_i_pascual"
+				small="GFX_idea_generic_political_advisor_female_europe"
 			}
 		}
 		gender = female
@@ -4237,7 +4173,7 @@ characters={
 		name=SPR_alexander_orlov
 		portraits={
 			army={
-				small="GFX_idea_SPR_alexander_orlov"
+				small="GFX_idea_generic_political_advisor_europe_5"
 			}
 		}
 		advisor={
@@ -4303,6 +4239,7 @@ characters={
 				original_tag = SPR
 			}
 			visible = {
+
 				NOT = {
 					tag = SPA 
 					tag = SPB 
@@ -4453,10 +4390,7 @@ characters={
 			name = SPA_manuel_hedilla 
 			allowed = {
 				has_dlc = "La Resistance"
-				OR = {
-					original_tag = SPR
-					original_tag = CHL
-				}
+				original_tag = SPR
 			}
 
 			visible = {
@@ -4535,10 +4469,7 @@ characters={
 			name = SPA_tomas_dominguez_arevalo 
 			allowed = {
 				has_dlc = "La Resistance"
-				OR = {
-					original_tag = SPR
-					original_tag = CHL
-				}
+				original_tag = SPR
 			}
 			visible = {
 				is_ai = yes #SPTChange hidden if player
@@ -4688,7 +4619,7 @@ characters={
 		name=SPA_martin_de_riquer
 		portraits={
 			army={
-				small="GFX_idea_SPA_martin_de_riquer"
+				small="GFX_idea_generic_political_advisor_europe_2"
 			}
 		}
 		advisor={
@@ -4697,10 +4628,7 @@ characters={
 			name = SPA_martin_de_riquer 
 			allowed = {
 				has_dlc = "La Resistance"
-				OR = {
-					original_tag = SPR
-					original_tag = CHL
-				}
+				original_tag = SPR
 			}
 
 			visible = {
@@ -4712,10 +4640,7 @@ characters={
 			}
 
 			available = {
-				OR = {
-					has_completed_focus = SPA_supremacy_of_the_communion
-					original_tag = CHL
-				}
+				has_completed_focus = SPA_supremacy_of_the_communion
 				custom_trigger_tooltip = {
 					tooltip = SPA_not_republican_spain_tt
 					NOT = { tag = SPD }
@@ -4731,7 +4656,7 @@ characters={
 		name=SPA_mauricio_de_sivatte
 		portraits={
 			army={
-				small="GFX_idea_SPA_mauricio_de_sivatte"
+				small="GFX_idea_generic_political_advisor_europe_1"
 			}
 		}
 		advisor={

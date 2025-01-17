@@ -726,6 +726,7 @@ focus_tree = {
 					free_building_slots = {
 						building = infrastructure
 						size > 0
+						include_locked = yes
 					}
 				}
 
@@ -741,6 +742,7 @@ focus_tree = {
 					free_building_slots = {
 						building = infrastructure
 						size > 0
+						include_locked = yes
 					}
 				}
 
@@ -1034,42 +1036,10 @@ focus_tree = {
 		
 
 		completion_reward = {
-
-			add_breakthrough_progress = {
-				specialization = specialization_air
-				value = 0.5
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			IF = {
-				limit = {
-					has_dlc = "Arms Against Tyranny"
-				}
-				custom_effect_tooltip = available_mio_tt
-				show_mio_tooltip = MAN_mamc_light_organization
-				show_mio_tooltip = MAN_mamc_medium_organization
-				show_mio_tooltip = MAN_mamc_heavy_organization
-
-				custom_effect_tooltip = generic_skip_one_line_tt
-
-				mio:MAN_mamc_light_organization = {
-					add_mio_funds = 500
-				}
-				mio:MAN_mamc_medium_organization = {
-					add_mio_funds = 500
-				}
-				mio:MAN_mamc_heavy_organization = {
-					add_mio_funds = 500
-				}
-			}
-
-			ELSE = {
-				custom_effect_tooltip = available_designer
-				show_ideas_tooltip = MAN_mamc_light
-				show_ideas_tooltip = MAN_mamc_medium
-				show_ideas_tooltip = MAN_mamc_heavy
-			}
+			custom_effect_tooltip = available_designer
+			show_ideas_tooltip = MAN_mamc_light
+			show_ideas_tooltip = MAN_mamc_medium
+			show_ideas_tooltip = MAN_mamc_heavy
 		}
 	}
 
@@ -1320,15 +1290,10 @@ focus_tree = {
 		completion_reward = {
 			MAN_low_legitimacy_level_down = yes
 			set_country_flag = MAN_assertiveness
-			if = {
-				limit = {
-					is_subject_of = JAP
-				}
-				JAP = {
-					set_autonomy = {
-						target = MAN
-						autonomy_state = autonomy_wtt_imperial_subject
-					}
+			JAP = { 
+				set_autonomy = {
+					target = MAN
+					autonomy_state = autonomy_wtt_imperial_subject
 				}
 			}			
 		}
@@ -1844,14 +1809,8 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			if = {
-				limit = {
-					is_subject_of = JAP
-				}
-				unlock_decision_tooltip = MAN_prepare_to_seize_arms
-			}
 			add_stability = 0.1
-
+			unlock_decision_tooltip = MAN_prepare_to_seize_arms
 			if = {
 				limit = {
 					has_idea = MAN_kwantung_veto
@@ -1931,12 +1890,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 		completion_reward = {
 			hidden_effect = { set_variable = { MAN_independence_target = OVERLORD } } #We're using a variable here because the saved event target becomes invalidated deep in ScopedEventTarget
-			if = {
-				limit = {
-					is_subject = yes
-				}
-				add_country_leader_trait = nationalist_symbol
-			}
 			OVERLORD = { set_autonomy = { target = ROOT autonomy_state = autonomy_free } }
 			effect_tooltip = {		
 				if = {
@@ -1965,6 +1918,8 @@ focus_tree = {
 			hidden_effect = {
 				news_event = { id = wtt_news.48 days = 2 }
 			}
+			
+			add_country_leader_trait = nationalist_symbol
 		}
 	}
 
@@ -1998,18 +1953,6 @@ focus_tree = {
 
 		completion_reward = {
 			MAN_low_legitimacy_level_down = yes
-
-			if = {
-				limit = {
-
-					NOT = {
-						has_country_leader_with_trait = nationalist_symbol
-					}
-
-					is_subject = no
-				}
-				add_country_leader_trait = nationalist_symbol
-			}
 		}
 	}
 

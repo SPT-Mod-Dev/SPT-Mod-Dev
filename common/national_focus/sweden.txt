@@ -22,37 +22,27 @@ focus_tree = {
 		x = 37
 		y = 0
 	}
-
-
 	############################
 	#####    Test focuses      #	
 	############################
-
 	focus = {
 		id = SWE_defense_act
 		icon = GFX_focus_SWE_defense_act
 		x = 3
 		y = 0
-
 		cost = 5
-
 		ai_will_do = {
 			factor = 10
 		}
-
 		available = {
-
 		}
-
 		bypass = {
-
 		}
-
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = {  }
-
+		search_filters = {
+		}
 		completion_reward = {
 			custom_effect_tooltip = SWE_defense_act_tt
 			country_event = {
@@ -60,20 +50,19 @@ focus_tree = {
 			}
 		}
 	}
-
-
-
 	focus = {
 		id = SWE_the_old_enemy_stirs
 		icon = GFX_focus_SWE_the_beast_stirs
 		x = 14
 		y = 7
-
 		cost = 5
-		prerequisite = { focus = SWE_defense_act }
+		prerequisite = {
+			focus = SWE_defense_act
+		}
 		relative_position_id = SWE_defense_act
-		mutually_exclusive = { focus = SWE_continue_the_second_industrial_revolution }
-
+		mutually_exclusive = {
+			focus = SWE_continue_the_second_industrial_revolution
+		}
 		ai_will_do = {
 			factor = 10
 		}
@@ -81,18 +70,14 @@ focus_tree = {
 		allow_branch = {
 			always = no
 		}
-
 		available = {
 			OR = {
 				threat > 0.1
 				has_war_support > 0.1
 			}
 		}
-
 		bypass = {
-
 		}
-
 		cancel_if_invalid = no
 		continue_if_invalid = no
 		available_if_capitulated = no
@@ -109,63 +94,54 @@ focus_tree = {
 				name = SWE_the_old_enemy_stirs
 				cost_reduction = 0.25
 				uses = 1
-				category = land_doctrine # optional
+				category = land_doctrine				# optional 
 				# technology  = technology_id # optional
 			}
 			add_popularity = {
 				ideology = neutrality
 				popularity = 0.08
 			}
-
 			add_popularity = {
 				ideology = fascism
 				popularity = 0.08
 			}
-
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = SWE_sven_hedin
-
 			if = {
 				limit = {
-						has_idea = neutrality_idea
+					has_idea = neutrality_idea
 				}
 				remove_ideas = neutrality_idea
 			}
 		}
 	}
-
 	focus = {
 		id = SWE_urbanization
 		icon = GFX_focus_SWE_urbanization
 		#x = -24
 		x = 0
 		y = 1
-
 		cost = 10
-		prerequisite = { focus = SWE_defense_act }
+		prerequisite = {
+			focus = SWE_defense_act
+		}
 		relative_position_id = SWE_defense_act
-
-
 		ai_will_do = {
 			factor = 10
 		}
-
 		available = {
-
 		}
-
 		bypass = {
-
 		}
-
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
 		completion_reward = {
 			random_core_state = {
-				limit =	{
+				limit = {
 					is_fully_controlled_by = ROOT
 				}
 				add_extra_state_shared_building_slots = 2
@@ -175,9 +151,8 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-
 			random_core_state = {
-				limit =	{
+				limit = {
 					is_fully_controlled_by = ROOT
 					is_coastal = yes
 				}
@@ -192,36 +167,29 @@ focus_tree = {
 			#custom_effect_tooltip = SWE_urbanization_tt
 		}
 	}
-
-
 	focus = {
 		id = SWE_hygenic_housing
 		icon = GFX_focus_SWE_hygienic_housing
 		x = -2
 		y = 1
-
 		cost = 10
-		prerequisite = { focus = SWE_urbanization }
+		prerequisite = {
+			focus = SWE_urbanization
+		}
 		relative_position_id = SWE_urbanization
-
-
 		ai_will_do = {
 			factor = 10
 		}
-
 		available = {
-
 		}
-
 		bypass = {
-
 		}
-
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
 		completion_reward = {
 			141 = {
 				add_dynamic_modifier = {
@@ -857,7 +825,7 @@ focus_tree = {
 			add_tech_bonus = {
 				bonus = 0.5
 				uses = 1
-				technology  = motorized_rocket_unit # optional
+				technology = motorized_rocket_unit				# optional
 				name = SWE_kp_bill
 			}
 		}
@@ -1402,69 +1370,40 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-
+		search_filters = {
+			FOCUS_FILTER_INDUSTRY
+		}
 		completion_reward = {
-
-			hidden_effect = {
-				set_province_name = {
-					id = 3054
-					name = SWE_harspranget_dam
-				}
-			}
-
-			random_core_state = {
-				prioritize = { 666 }
-				limit = {
-					infrastructure < 5
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-
-			random_core_state = {
-				prioritize = { 918 }
-				limit = {
-					infrastructure < 5
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-
-			IF = {
-				limit = {
-					666 = {
-						is_fully_controlled_by = ROOT
-					}
-				}
-				666 = {
-					add_building_construction = {
-						type = dam
-						level = 1
-						instant_build = yes
-						province = {
-							id = 3054
-						}
-					}
-					custom_effect_tooltip = {
-						localization_key = building_state_modifier|dam
-						INDENT = "    "
-					}
-				}
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = SWE_frans_severin
+			random_core_state = {
+				prioritize = {
+					666
+				}
+				limit = {
+					infrastructure < 5
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_core_state = {
+				prioritize = {
+					918
+				}
+				limit = {
+					infrastructure < 5
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
 		}
 	}
-
 	focus = {
 		id = SWE_deep_mining_complexes
 		icon = GFX_focus_generic_land_reclamation
@@ -1906,16 +1845,6 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			add_breakthrough_progress = {
-				specialization = specialization_naval
-				value = 0.25
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
 			if = {
 				limit = {
 					has_dlc = "Man the Guns"
@@ -3082,23 +3011,20 @@ focus_tree = {
 		x = -1
 		y = 1
 		cost = 10
-		prerequisite = { focus = SWE_airforce_modernization }
+		prerequisite = {
+			focus = SWE_airforce_modernization
+		}
 		relative_position_id = SWE_airforce_modernization
-		mutually_exclusive	= { focus = SWE_rockets }
-
-
+		mutually_exclusive = {
+			focus = SWE_rockets
+		}
 		ai_will_do = {
 			factor = 10
 		}
-
 		available = {
-
 		}
-
 		bypass = {
-
 		}
-
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
@@ -3106,12 +3032,6 @@ focus_tree = {
 			FOCUS_FILTER_RESEARCH
 		}
 		completion_reward = {
-
-			add_breakthrough_progress = {
-				specialization = specialization_air
-				value = 0.75
-			}
-
 			add_tech_bonus = {
 				bonus = 1
 				uses = 1
@@ -3130,74 +3050,55 @@ focus_tree = {
 				technology = jet_engines
 				name = SWE_the_barrel
 			}
-
-			#add_tech_bonus = {
-			#	bonus = 1
-			#	uses = 1
-			#	technology = rocket_engines
-			#	name = SWE_the_barrel
-			#}
-			#add_tech_bonus = {
-			#	bonus = 1
-			#	uses = 1
-			#	technology  = jet_engines
-			#	name = SWE_the_barrel
-			#}
-
 		}
 	}
-
 	focus = {
 		id = SWE_rockets
 		icon = GFX_focus_rocketry
 		x = 1
 		y = 1
 		cost = 10
-		prerequisite = { focus = SWE_airforce_modernization }
+		prerequisite = {
+			focus = SWE_airforce_modernization
+		}
 		relative_position_id = SWE_airforce_modernization
-		mutually_exclusive = { focus = SWE_the_barrel }
-
+		mutually_exclusive = {
+			focus = SWE_the_barrel
+		}
 		ai_will_do = {
 			factor = 10
 		}
-
 		available = {
-
 		}
-
 		bypass = {
-
 		}
-
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
 		completion_reward = {
 			add_tech_bonus = {
 				bonus = 1
 				uses = 1
-				technology  = experimental_rockets # optional
+				technology = experimental_rockets				# optional
 				name = SWE_rockets
 			}
-
 			add_tech_bonus = {
 				bonus = 1
 				uses = 1
-				technology  = sp_rockets_improved_guidance # optional
+				technology = rocket_engines				# optional
 				name = SWE_rockets
 			}
-
 			add_tech_bonus = {
 				bonus = 0.75
 				uses = 1
-				technology  = improved_rocket_engines # optional
+				technology = improved_rocket_engines				# optional
 				name = SWE_rockets
 			}
 		}
 	}
-
 	#focus = {
 	#	id = SWE_military_academy
 	#	#icon = 
@@ -5290,17 +5191,17 @@ focus_tree = {
 					type = ship_hull_super_heavy_1
 					parent_version = 0
 					modules = {
-						fixed_ship_anti_air_slot=ship_anti_air_2
-						fixed_ship_radar_slot=ship_radar_2
-						fixed_ship_engine_slot=heavy_ship_engine_2
-						fixed_ship_secondaries_slot=ship_secondaries_2
-						fixed_ship_armor_slot=ship_armor_shbb
-						front_1_custom_slot=ship_super_heavy_battery_1
-						rear_1_custom_slot=ship_anti_air_2
-						fixed_ship_battery_slot=ship_super_heavy_battery_1
-						fixed_ship_fire_control_system_slot=ship_fire_control_system_2
-						rear_2_custom_slot=ship_super_heavy_battery_1
-						front_2_custom_slot=ship_super_heavy_battery_1
+						fixed_ship_anti_air_slot = ship_anti_air_2
+						fixed_ship_radar_slot = ship_radar_2
+						fixed_ship_engine_slot = heavy_ship_engine_2
+						fixed_ship_secondaries_slot = ship_secondaries_2
+						fixed_ship_armor_slot = ship_armor_shbb
+						front_1_custom_slot = ship_super_heavy_battery_1
+						rear_1_custom_slot = ship_anti_air_2
+						fixed_ship_battery_slot = ship_super_heavy_battery_1
+						fixed_ship_fire_control_system_slot = ship_fire_control_system_2
+						rear_2_custom_slot = ship_super_heavy_battery_1
+						front_2_custom_slot = ship_super_heavy_battery_1
 					}
 				}
 				add_equipment_production = {
@@ -7922,12 +7823,15 @@ focus_tree = {
 			}
 		}
 	}
-
 	focus = {
 		id = SWE_economic_independence
 		icon = GFX_focus_generic_support_the_left_right
-		prerequisite = { focus = SWE_delegation_to_berlin }
-		mutually_exclusive = { focus = SWE_economic_integration }
+		prerequisite = {
+			focus = SWE_delegation_to_berlin
+		}
+		mutually_exclusive = {
+			focus = SWE_economic_integration
+		}
 		x = 1
 		y = 1
 		relative_position_id = SWE_delegation_to_berlin
@@ -7974,7 +7878,7 @@ focus_tree = {
 			if = {
 				limit = {
 					GER = {
-						has_completed_focus = GER_remilitarize_the_rhineland
+						has_completed_focus = GER_rhineland
 					}
 					NOT = {
 						has_global_flag = von_lettow_is_in_a_country
@@ -8277,28 +8181,19 @@ focus_tree = {
 			is_subject_of = GER
 			has_government = fascism
 		}
-
-		search_filters = {}
-
+		search_filters = {
+		}
 		completion_reward = {
-			add_breakthrough_progress = {
-				specialization = specialization_nuclear
-				value = 0.25
-			}
 			add_tech_bonus = {
 				name = SWE_ger_swe_nuclear_bonus
-				bonus = 0.5
-				uses = 1 # was 2
+				bonus = 1
+				uses = 2
 				category = nuclear
 			}
 			GER = {
-				add_breakthrough_progress = {
-					specialization = specialization_nuclear
-					value = 0.5
-				}
 				add_tech_bonus = {
 					name = SWE_ger_swe_nuclear_bonus
-					bonus = 0.75 # was 1
+					bonus = 1
 					uses = 1
 					category = nuclear
 				}
@@ -10125,62 +10020,39 @@ focus_tree = {
 	focus = {
 		id = SWE_karnvapenprogram
 		icon = GFX_focus_wonderweapons
-		prerequisite = { focus = SWE_extend_the_time_of_preparedness }
-
+		prerequisite = {
+			focus = SWE_extend_the_time_of_preparedness
+		}
 		x = 0
 		y = 1
 		relative_position_id = SWE_extend_the_time_of_preparedness
 		cost = 10
 		available = {
 		}
-
-		search_filters = { FOCUS_FILTER_RESEARCH }
-
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
 		completion_reward = {
-
-			IF = {
-				limit = {
-					NOT = {
-						has_tech = atomic_research
-					}
-				}
-				add_tech_bonus = {
-					name = SWE_karnvapenprogram_nuclear_bonus
-					bonus = 0.5 # was 1
-					uses = 1
-					category = nuclear
-				}
-				add_breakthrough_progress = {
-					specialization = specialization_nuclear
-					value = 0.5
-				}
+			add_tech_bonus = {
+				name = SWE_karnvapenprogram_nuclear_bonus
+				bonus = 1
+				uses = 1
+				category = nuclear
 			}
-			ELSE = {
-				add_breakthrough_progress = {
-					specialization = specialization_nuclear
-					value = 0.75
-				}
-			}
-
-			add_breakthrough_progress = {
-				specialization = specialization_air
-				value = 0.25
-			}
-
 			add_tech_bonus = {
 				name = SWE_karnvapenprogram_air_bonus
-				bonus = 0.75 # was 1
+				bonus = 1
 				uses = 1
 				category = air_equipment
 			}
-
 		}
 	}
 	focus = {
 		id = SWE_specialized_equipment
 		icon = GFX_focus_generic_license_production
-		prerequisite = { focus = SWE_special_forces }
-
+		prerequisite = {
+			focus = SWE_special_forces
+		}
 		x = 0
 		y = 1
 		relative_position_id = SWE_special_forces

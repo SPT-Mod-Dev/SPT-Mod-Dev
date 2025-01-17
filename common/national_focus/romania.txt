@@ -14,7 +14,7 @@
 	
 	default = no
 
-	continuous_focus_position = { x = 50 y = 1400 }
+	continuous_focus_position = { x = 50 y = 1300 }
 
 #	focus = {
 #		id = ROM_
@@ -317,6 +317,10 @@
 		}
 	}
 
+	
+
+	
+
 	focus = {
 		id = ROM_join_axis
 		icon = GFX_focus_ger_oppose_hitler
@@ -368,6 +372,9 @@
 			}
 		}
 	}
+
+	
+
 	focus = {
 		id = ROM_demand_transnistria
 		icon = GFX_focus_attack_soviet
@@ -376,7 +383,7 @@
 		y = 2
 		relative_position_id = ROM_trade_treaty_with_germany
 
-		cost = 5
+		cost = 1
 
 		ai_will_do = {
 			factor = 1
@@ -724,11 +731,13 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			add_doctrine_cost_reduction = {
-				name = ROM_joint_allied_staff_college
-			    cost_reduction = 0.35
-			    uses = 2
-			    category = land_doctrine
+			add_to_tech_sharing_group = ROM_joint_allied_staff_college_tech_group
+			ENG = { add_to_tech_sharing_group = ROM_joint_allied_staff_college_tech_group }
+			if = {
+				limit = {
+					FRA = { is_in_faction_with = ENG }
+				}
+				FRA = { add_to_tech_sharing_group = ROM_joint_allied_staff_college_tech_group }
 			}
 		}
 	}
@@ -1816,8 +1825,6 @@
 						owns_state = 155
 						owns_state = 154
 						owns_state = 43
-						owns_state = 973
-						owns_state = 974
 					}
 				}
 			}
@@ -3622,25 +3629,14 @@
 		available_if_capitulated = no
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
-
-			add_breakthrough_progress = {
-				specialization = specialization_nuclear
-				value = 0.25 #SPT change 0.75 -> 0.25
-			}
-
 			add_tech_bonus = {
 				name = ROM_nuclear_bomb_project
-				bonus = 0.5 #SPT change 1 -> 0.5
+				bonus = 1.0
 				uses = 1
 				category = nuclear
 			}
-
 		}
 	}
-
-	############################
-	####### ARMY BRANCH ########
-	############################
 
 	focus = {
 		id = ROM_exploit_the_baita_mines
@@ -4493,7 +4489,7 @@
 				}
 				add_building_construction = {
 					type = dockyard
-					level = 3
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -4506,7 +4502,7 @@
 
 			navy_experience = 100
 			random_owned_controlled_state = {
-				prioritize = { 971 }
+				prioritize = { 46 }
 				limit = {
 					ROOT = { has_full_control_of_state = PREV }
 					free_building_slots = {
@@ -4515,10 +4511,10 @@
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 3
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = dockyard
-					level = 3
+					level = 2
 					instant_build = yes
 				}
 				set_state_flag = ROM_expand_the_galati_shipyards_AB
@@ -4855,7 +4851,7 @@
 			add_tech_bonus = {
 				name = ROM_expand_the_marine_regiment
 				bonus = 0.5
-				uses = 1
+				uses = 2
 				category = tp_tech
 				category = marine_tech
 			}

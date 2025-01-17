@@ -138,17 +138,18 @@ SOV_paranoia_system = {
 		icon = GFX_decision_eng_trade_unions_support
 
 		ai_will_do = {
-			factor = 1.0
+			base = 0
 			modifier = {
-				add = var:SOV_paranoia
+				add = 1
+				check_variable = { SOV_paranoia > 35 }
 			}
 			modifier = {
-				factor = 1.2
+				add = 100
+				check_variable = { SOV_paranoia > 75 }
+			}
+			modifier = {
+				factor = 2
 				SOV_is_opposition = yes
-			}
-			modifier = {
-				factor = 0
-				check_variable = { SOV_paranoia < 20 }
 			}
 		}
 
@@ -315,14 +316,7 @@ SOV_paranoia_system = {
 		icon = GFX_decision_generic_political_discourse
 
 		ai_will_do = {
-			factor = 0.9
-			modifier = {
-				add = var:SOV_paranoia
-			}
-			modifier = {
-				factor = 0
-				check_variable = { SOV_paranoia < 20 }
-			}
+			base = 0
 		}
 
 		allowed = {
@@ -445,7 +439,7 @@ SOV_paranoia_system = {
 		icon = generic_brainwash
 
 		ai_will_do = {
-			base = 2
+			base = 1
 			modifier = {
 				factor = 2
 				any_enemy_country = {
@@ -455,10 +449,6 @@ SOV_paranoia_system = {
 			modifier = {
 				factor = 5
 				has_idea = SOV_anti_soviet_military_thinking_banned_army
-			}
-			modifier = {
-				factor = 2
-				has_idea = SOV_anti_soviet_military_thinking_banned_airforce
 			}
 		}
 
@@ -473,12 +463,6 @@ SOV_paranoia_system = {
 				}
 				has_country_flag = SOV_assassinated_stalin_flag
 			}
-			else_if = {
-				limit = {
-					has_global_flag = SOV_soviet_civil_war
-				}
-				has_global_flag = SOV_soviet_civil_war
-			}
 			else = {
 				has_country_flag = { flag = SOV_third_moscow_trial_flag days > 365 }
 			}
@@ -492,8 +476,6 @@ SOV_paranoia_system = {
 			}
 			OR = {
 				SOV_is_stalinist = yes
-				SOV_is_left_opposition = yes
-				SOV_is_right_opposition = yes
 				has_country_flag = SOV_assassinated_stalin_flag
 			}
 		}
@@ -558,21 +540,7 @@ SOV_paranoia_system = {
 		}
 
 		available = {
-			if = {
-				limit = {
-					has_country_flag = SOV_assassinated_stalin_flag
-				}
-				has_country_flag = SOV_assassinated_stalin_flag
-			}
-			else_if = {
-				limit = {
-					has_global_flag = SOV_soviet_civil_war
-				}
-				has_global_flag = SOV_soviet_civil_war
-			}
-			else = {
-				has_country_flag = { flag = SOV_third_moscow_trial_flag days > 365 }
-			}
+			has_country_flag = { flag = SOV_third_moscow_trial_flag days > 365 }
 		}
 
 		visible = {
@@ -581,12 +549,7 @@ SOV_paranoia_system = {
 				has_idea = SOV_purged_junior_army_officers_2
 				has_idea = SOV_purged_junior_army_officers_3
 			}
-			OR = {
-				SOV_is_stalinist = yes
-				SOV_is_left_opposition = yes
-				SOV_is_right_opposition = yes
-				has_country_flag = SOV_assassinated_stalin_flag
-			}
+			SOV_is_stalinist = yes
 		}
 
 		days_remove = SOV_reinforce_officer_ranks_days
@@ -663,21 +626,7 @@ SOV_paranoia_system = {
 		}
 
 		available = {
-			if = {
-				limit = {
-					has_country_flag = SOV_assassinated_stalin_flag
-				}
-				has_country_flag = SOV_assassinated_stalin_flag
-			}
-			else_if = {
-				limit = {
-					has_global_flag = SOV_soviet_civil_war
-				}
-				has_global_flag = SOV_soviet_civil_war
-			}
-			else = {
-				has_country_flag = { flag = SOV_third_moscow_trial_flag days > 365 }
-			}
+			has_country_flag = { flag = SOV_third_moscow_trial_flag days > 365 }
 		}
 
 		visible = {
@@ -686,12 +635,7 @@ SOV_paranoia_system = {
 				has_idea = SOV_purged_junior_navy_officers_2
 				has_idea = SOV_purged_junior_navy_officers_3
 			}
-			OR = {
-				SOV_is_stalinist = yes
-				SOV_is_left_opposition = yes
-				SOV_is_right_opposition = yes
-				has_country_flag = SOV_assassinated_stalin_flag
-			}
+			SOV_is_stalinist = yes
 		}
 
 		days_remove = SOV_reinforce_officer_ranks_days
@@ -763,13 +707,6 @@ SOV_paranoia_system = {
 				flag = SOV_mig_design_bureau_dissolved_flag
 				days > 365
 			}
-			custom_trigger_tooltip = {
-				tooltip = SOV_mig_design_bureau_dissolved_days_tt
-				has_country_flag = {
-					flag = SOV_mig_design_bureau_dissolved_flag
-					days > 365
-				}
-			}
 			num_of_civilian_factories_available_for_projects > 1
 		}
 
@@ -810,13 +747,6 @@ SOV_paranoia_system = {
 			has_country_flag = {
 				flag = SOV_ilyushin_design_bureau_dissolved_flag
 				days > 365
-			}
-			custom_trigger_tooltip = {
-				tooltip = SOV_ilyushin_design_bureau_dissolved_days_tt
-				has_country_flag = {
-					flag = SOV_ilyushin_design_bureau_dissolved_flag
-					days > 365
-				}
 			}
 			num_of_civilian_factories_available_for_projects > 1
 		}
@@ -859,13 +789,6 @@ SOV_paranoia_system = {
 				flag = SOV_tupolev_design_bureau_dissolved_flag
 				days > 365
 			}
-			custom_trigger_tooltip = {
-				tooltip = SOV_tupolev_design_bureau_dissolved_days_tt
-				has_country_flag = {
-					flag = SOV_tupolev_design_bureau_dissolved_flag
-					days > 365
-				}
-			}
 			num_of_civilian_factories_available_for_projects > 1
 		}
 
@@ -906,13 +829,6 @@ SOV_paranoia_system = {
 			has_country_flag = {
 				flag = SOV_yakovlev_design_bureau_dissolved_flag
 				days > 365
-			}
-			custom_trigger_tooltip = {
-				tooltip = SOV_yakovlev_design_bureau_dissolved_days_tt
-				has_country_flag = {
-					flag = SOV_yakovlev_design_bureau_dissolved_flag
-					days > 365
-				}
 			}
 			num_of_civilian_factories_available_for_projects > 1
 		}
@@ -5332,14 +5248,6 @@ SOV_diplomacy_baltic_decision_category = {
 
 		ai_will_do = {
 			base = 200
-			modifier = {
-				factor = 0.1
-				NOT = { is_neighbor_of = FROM }
-			}
-			modifier = {
-				factor = 0.25
-				date < 1940.1.1
-			}
 			modifier = {
 				factor = 10
 				has_political_power > 160
@@ -10903,7 +10811,7 @@ SOV_industry_relocation = {
 		icon = generic_construction
 
 		ai_will_do = {
-			base = 10
+			factor = 0
 			modifier = {
 				add = 200 # oh shit they are getting close!
 				FROM = {
@@ -10916,15 +10824,6 @@ SOV_industry_relocation = {
 					}
 					any_neighbor_state = {
 						NOT = { is_fully_controlled_by = ROOT }
-					}
-				}
-			}
-			modifier = {
-				factor = 10
-				GER = {
-					focus_progress = {
-						focus = GER_war_with_the_ussr
-						progress > 0
 					}
 				}
 			}
@@ -11166,7 +11065,7 @@ SOV_industry_relocation = {
 		}
 
 		ai_will_do = {
-			base = 0.5
+			factor = 0.5
 			modifier = {
 				factor = 200 # oh shit they are getting close!
 				OR = {
@@ -11193,15 +11092,6 @@ SOV_industry_relocation = {
 					AND = {
 						owns_state = 146
 						NOT = { controls_state = 146 }
-					}
-				}
-			}
-			modifier = {
-				factor = 10
-				GER = {
-					focus_progress = {
-						focus = GER_war_with_the_ussr
-						progress > 0
 					}
 				}
 			}
@@ -11905,7 +11795,7 @@ SOV_great_patriotic_war = {
 		icon = generic_army_support
 
 		ai_will_do = {
-			base = 1
+			factor = 1
 			modifier = {
 				surrender_progress > 0.25
 				factor = 10
@@ -12575,7 +12465,7 @@ SOV_great_patriotic_war = {
 		}
 
 		ai_will_do = {
-			base = 1
+			factor = 1
 
 			modifier = {
 				factor = 0
@@ -12665,7 +12555,7 @@ SOV_great_patriotic_war = {
 		}
 
 		ai_will_do = {
-			base = 1
+			factor = 1
 		}
 	}
 
@@ -12715,7 +12605,7 @@ SOV_great_patriotic_war = {
 		}
 
 		ai_will_do = {
-			base = 1
+			factor = 1
 		}
 	}
 
@@ -12763,7 +12653,7 @@ SOV_great_patriotic_war = {
 		}
 
 		ai_will_do = {
-			base = 1
+			factor = 1
 		}
 	}
 
@@ -12834,7 +12724,7 @@ SOV_great_patriotic_war = {
 		}
 
 		ai_will_do = {
-			base = 1
+			factor = 1
 		}
 	}
 
@@ -12898,7 +12788,7 @@ SOV_great_patriotic_war = {
 		}
 
 		ai_will_do = {
-			base = 1
+			factor = 1
 		}
 	}
 
@@ -12964,7 +12854,7 @@ SOV_great_patriotic_war = {
 		}
 
 		ai_will_do = {
-			base = 1
+			factor = 1
 		}
 	}
 }
@@ -14759,8 +14649,8 @@ SOV_soviet_civil_war_dec_cat = {
 				OR = {
 					#region = 155 # Manchuria
 					region = 151
-					region = 261
-					region = 262
+					region = 261 
+					region = 262 
 					region = 149
 					region = 256
 					region = 257
@@ -15455,8 +15345,8 @@ SOV_soviet_civil_war_dec_cat = {
 					region = 147
 					region = 263
 					region = 151
-					region = 261
-					region = 262
+					region = 261 
+					region = 262 
 					region = 149
 					region = 256
 					region = 257
@@ -16490,8 +16380,8 @@ SOV_soviet_civil_war_dec_cat = {
 					region = 147
 					region = 263
 					region = 151
-					region = 261
-					region = 262
+					region = 261 
+					region = 262 
 					region = 149
 					region = 256
 					region = 257
@@ -16514,8 +16404,8 @@ SOV_soviet_civil_war_dec_cat = {
 							region = 147
 							region = 263
 							region = 151
-							region = 261
-							region = 262
+							region = 261 
+							region = 262 
 							region = 149
 							region = 256
 							region = 257
@@ -17544,7 +17434,7 @@ operations = {
 		}
 
 		ai_will_do = {
-			base = 1
+			factor = 1
 			modifier = {
 				MAN = {
 					is_ai = no
@@ -17609,7 +17499,7 @@ political_actions = {
 		}
 
 		ai_will_do = {
-			base = 1
+			factor = 1
 		}
 	}
 }
@@ -17839,7 +17729,7 @@ political_actions = {
 		}
 
 		ai_will_do = {
-			base = 0
+			factor = 0
 		}
 	}
 
@@ -17856,7 +17746,6 @@ SOV_panslavic_nationalism = {
 		available = {
 			has_full_control_of_state = 9
 			has_full_control_of_state = 69
-			has_full_control_of_state = 972
 			has_full_control_of_state = 70
 			has_full_control_of_state = 71
 			has_full_control_of_state = 72
@@ -17874,13 +17763,12 @@ SOV_panslavic_nationalism = {
 		fire_only_once = yes
 		days_remove = 90
 		ai_will_do = {
-			base = 1
+			factor = 1
 		}
 
 		remove_effect = {
 			add_state_core = 9
 			add_state_core = 69
-			add_state_core = 972
 			add_state_core = 70
 			add_state_core = 71
 			add_state_core = 72
@@ -17914,7 +17802,7 @@ SOV_panslavic_nationalism = {
 		fire_only_once = yes
 		days_remove = 90
 		ai_will_do = {
-			base = 1
+			factor = 1
 		}
 
 		remove_effect = {
@@ -17961,7 +17849,7 @@ SOV_panslavic_nationalism = {
 		fire_only_once = yes
 		days_remove = 90
 		ai_will_do = {
-			base = 1
+			factor = 1
 		}
 
 		remove_effect = {
@@ -18000,7 +17888,6 @@ SOV_panslavic_nationalism = {
 			has_full_control_of_state = 804
 			has_full_control_of_state = 802
 			has_full_control_of_state = 106
-			has_full_control_of_state = 970
 			has_full_control_of_state = 105
 			has_full_control_of_state = 108
 			has_full_control_of_state = 107
@@ -18022,7 +17909,7 @@ SOV_panslavic_nationalism = {
 		fire_only_once = yes
 		days_remove = 90
 		ai_will_do = {
-			base = 1
+			factor = 1
 		}
 
 		remove_effect = {
@@ -18032,7 +17919,6 @@ SOV_panslavic_nationalism = {
 			add_state_core = 804
 			add_state_core = 802
 			add_state_core = 106
-			add_state_core = 970
 			add_state_core = 105
 			add_state_core = 108
 			add_state_core = 107
@@ -18062,7 +17948,6 @@ SOV_panslavic_nationalism = {
 			has_country_flag = SOV_integrated_yugoslavia_flag
 			has_full_control_of_state = 9
 			has_full_control_of_state = 69
-			has_full_control_of_state = 972
 			has_full_control_of_state = 70
 			has_full_control_of_state = 71
 			has_full_control_of_state = 72
@@ -18097,7 +17982,6 @@ SOV_panslavic_nationalism = {
 			has_full_control_of_state = 804
 			has_full_control_of_state = 802
 			has_full_control_of_state = 106
-			has_full_control_of_state = 970
 			has_full_control_of_state = 105
 			has_full_control_of_state = 108
 			has_full_control_of_state = 107
@@ -18115,7 +17999,7 @@ SOV_panslavic_nationalism = {
 		cost = 25
 		fire_only_once = yes
 		ai_will_do = {
-			base = 1
+			factor = 1
 		}
 
 		complete_effect = {
@@ -18134,8 +18018,8 @@ SOV_polish_territory = {
 		}
 
 		visible = {
-			POL = {
-				exists = yes
+			POL = { 
+				exists = yes 
 				is_subject_of = ROOT
 				NOT = { has_completed_focus = POL_surrender_the_east }
 			}
@@ -18143,7 +18027,7 @@ SOV_polish_territory = {
 				is_core_of = POL
 				is_owned_by = ROOT
 				OR = {
-
+					
 					any_country_with_core = {
 						not = { tag = POL }
 					}
@@ -18159,7 +18043,7 @@ SOV_polish_territory = {
 			base = 50
 			modifier = {
 				NOT = {
-					has_war_with = GER
+					has_war_with = GER 
 				}
 				factor = 5
 			}
@@ -18169,7 +18053,7 @@ SOV_polish_territory = {
 			POL = {
 				country_event = {
 					id = soviet.74
-					hours = 4
+					hours = 4 
 					random_hours = 4
 				}
 				custom_effect_tooltip = if_they_accept_newline_tt
@@ -18178,8 +18062,8 @@ SOV_polish_territory = {
 						add_stability = 0.05
 					}
 					POL = {
-						add_autonomy_score = {
-							value = -250
+						add_autonomy_score = { 
+							value = -250 
 							localization = POL_accepted_states
 						}
 						add_popularity = {
@@ -18190,10 +18074,10 @@ SOV_polish_territory = {
 					ROOT  ={
 						every_owned_state = {
 							limit = {
-								is_core_of = POL
+								is_core_of = POL 
 								OR = {
 									# Białystok
-									state = 97
+									state = 97 
 									# Uncontested Polish Cores
 									NOT = {
 										any_country_with_core = {
@@ -18201,7 +18085,7 @@ SOV_polish_territory = {
 										}
 									}
 								}
-
+								
 							}
 							transfer_state_to = POL
 						}
@@ -18210,18 +18094,18 @@ SOV_polish_territory = {
 				custom_effect_tooltip = if_they_refuse_newline_tt
 				effect_tooltip = {
 					POL = {
-						add_autonomy_score = {
-							value = 250
+						add_autonomy_score = { 
+							value = 250 
 							localization = POL_refused_states
 						}
 					}
 					ROOT = {
 						every_owned_state = {
 							limit = {
-								is_core_of = POL
+								is_core_of = POL 
 								OR = {
 									# Białystok
-									state = 97
+									state = 97 
 									# Uncontested Polish Cores
 									NOT = {
 										any_country_with_core = {
@@ -18229,11 +18113,11 @@ SOV_polish_territory = {
 										}
 									}
 								}
-
+								
 							}
-							remove_core_of = POL
+							remove_core_of = POL  
 							add_core_of = SOV
-							add_claim_by = POL
+							add_claim_by = POL 
 						}
 					}
 				}

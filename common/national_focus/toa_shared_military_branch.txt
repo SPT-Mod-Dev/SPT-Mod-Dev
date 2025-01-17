@@ -1384,25 +1384,14 @@ shared_focus = {
 		}
 
 	completion_reward = {
-
-		add_breakthrough_progress = {
-			specialization = specialization_air
-			value = 0.75
+		add_tech_bonus = {
+			name = secret_bonus
+			bonus = 0.5
+			uses = 2
+			category = electronics
+			#category = nuclear #SPT change, no longer applies to nuke tech
+			category = rocketry
 		}
-
-		custom_effect_tooltip = generic_skip_one_line_tt
-
-		add_ideas = generic_secret_weapons_ns
-
-		#add_tech_bonus = {
-		#	name = secret_bonus
-		#	bonus = 0.5
-		#	uses = 2
-		#	category = electronics
-		#	category = nuclear
-		#	category = rocketry
-		#}
-
 	}
 }
 
@@ -1426,37 +1415,22 @@ shared_focus = {
 	}
 
 	ai_will_do = {
-		factor = 20
-	}
+			factor = 20
+		} 
 
 	completion_reward = {
-
-		if = {
-			limit = {
-				NOT = {
-					has_tech = atomic_research
-				}
-			}
-			add_tech_bonus = {
-				name = JUNO_nuclear_initiative
-				ahead_reduction = 2
-				bonus = 1
-				uses = 1
-				category = nuclear
-			}
-			add_breakthrough_progress = {
-				specialization = specialization_nuclear
-				value = 0.25
-			}
+		add_tech_bonus = {
+			name = nuclear_bonus
+			ahead_reduction = 1 #SPT change, 2 -> 1
+			category = nuclear
 		}
-		else = {
-			add_breakthrough_progress = {
-				specialization = specialization_nuclear
-				value = 0.25 #SPT change 0.75 -> 0.25
-			}
+		add_tech_bonus = {
+			name = JUNO_nuclear_initiative
+			bonus = 1
+			uses = 1
+			category = nuclear
 		}
-
-	}
+	}   
 }  
  
 shared_focus = {
@@ -2370,6 +2344,7 @@ shared_focus = {
 				free_building_slots = {
 					building = air_base
 					size > 0
+					include_locked = yes
 				}
 				is_owned_and_controlled_by = ROOT
 				NOT = {
@@ -2397,6 +2372,7 @@ shared_focus = {
 				free_building_slots = {
 					building = air_base
 					size > 0
+					include_locked = yes
 				}
 				is_owned_and_controlled_by = ROOT
 				NOT = {
@@ -2630,7 +2606,6 @@ shared_focus = {
 			mio:BRA_embraer_organization = {
 				add_mio_size = 1
 			}
-			custom_effect_tooltip = generic_skip_one_line_tt
 		}
 		random_core_state = {
 			limit = {
@@ -3110,10 +3085,6 @@ shared_focus = {
 			add_to_variable = { JUNO_airforce_modifier_air_agility_factor = 0.05 tooltip = air_agility_factor_tt }
 			add_to_variable = { JUNO_airforce_modifier_air_defence_factor = 0.1 tooltip = air_defence_factor_tt }
 		}
-		add_breakthrough_progress = {
-			specialization = specialization_air
-			value = 0.25
-		}
 		add_tech_bonus = {
 			name = SMB_jet_tech_bonus
 			bonus = 0.5
@@ -3183,10 +3154,6 @@ shared_focus = {
 
 	completion_reward = {
 		navy_experience = 15
-		add_breakthrough_progress = {
-			specialization = specialization_naval
-			value = 0.5
-		}
 		add_tech_bonus = {
 			name = SMB_aircraft_carriers
 			bonus = 1
@@ -4014,6 +3981,7 @@ shared_focus = {
 		}
 
 	completion_reward = {
+		add_ideas = CAN_degauss_ship_hulls
 		if = {
 			limit = {
 				has_dlc = "Man the Guns"
@@ -4023,21 +3991,12 @@ shared_focus = {
 					has_tech = degaussing
 				}
 				navy_experience = 20
-				else = {
-					set_technology = {
-						   degaussing = 1
-					}
-				}
+			}
+			else = {
+				set_technology = {
+				    degaussing = 1
 				}
 			}
-
-		if = {
-			limit = {
-					NOT = {
-						has_dlc = "Man the Guns"
-					}
-				}
-			add_ideas = CAN_degauss_ship_hulls
 		}
 	}	
 }
@@ -4104,19 +4063,14 @@ shared_focus = {
 			category = ss_tech
 		}
 
-		add_breakthrough_progress = {
-			specialization = specialization_naval
-			value = 0.25
-		}
-
-		IF = {
+		if = {
 			limit = {
 				has_dlc = "Man the Guns"
 			}
-			add_ideas = cruiser_submarine_specialization_mtg
+			set_technology = { cruiser_submarines = 1 }
 		}
-		ELSE = {
-			add_ideas = cruiser_submarine_specialization
+		else = {
+			navy_experience = 50
 		}
 	}
 }
@@ -4145,33 +4099,24 @@ shared_focus = {
 		}
 
 	completion_reward = {
-
 		add_tech_bonus = {
 			name = SMB_midget_subs
 			bonus = 1.0
 			uses = 1
 			category = ss_tech
 		}
-
-		custom_effect_tooltip = generic_skip_one_line_tt
-
-		add_breakthrough_progress = {
-			specialization = specialization_naval
-			value = 0.25
-		}
-
-		custom_effect_tooltip = generic_skip_one_line_tt
-
-		IF = {
+		if = {
 			limit = {
 				has_dlc = "Man the Guns"
 			}
-			add_ideas = midget_submarine_specialization_mtg
+			set_technology = { 
+				midget_submarines = 1
+				popup = no
+			}
 		}
-		ELSE = {
-			add_ideas = midget_submarine_specialization
+		else = {
+			navy_experience = 50
 		}
-
 	}
 }
 
@@ -4228,15 +4173,10 @@ shared_focus = {
 	}
 
 	ai_will_do = {
-		factor = 20
-	}
+			factor = 20
+		}
 
 	completion_reward = {
-		add_breakthrough_progress = {
-			specialization = specialization_naval
-			value = 0.5
-		}
-		custom_effect_tooltip = generic_skip_one_line_tt
 		IF = {
 			limit = {
 				has_dlc = "Man the Guns"

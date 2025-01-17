@@ -1,12 +1,13 @@
 ﻿capital = 162
 
+
+
 set_research_slots = 3
 set_stability = 0.5
 set_war_support = 0.5
-
 add_ideas = {
-
 }
+
 
 # Starting tech
 set_technology = {
@@ -15,7 +16,6 @@ set_technology = {
 	tech_support = 1		
 	tech_engineers = 1
 	tech_mountaineers = 1
-	tech_trucks = 1
 	motorised_infantry = 1
 	gw_artillery = 1
 	interwar_antiair = 1
@@ -30,8 +30,7 @@ set_technology = {
 	basic_train = 1
 	armored_car1 = 1 #Fiat AB611 entered service in 1933
 }
-
-IF = {
+if = {
 	limit = {
 		NOT = { has_dlc = "No Step Back" }
 	}
@@ -40,7 +39,7 @@ IF = {
 		basic_light_tank = 1
 	}
 }
-IF = {
+if = {
 	limit = {
 		has_dlc = "No Step Back"
 	}
@@ -49,13 +48,13 @@ IF = {
 		basic_light_tank_chassis = 1
 	}
 }
-IF = {
+if = {
 	limit = {
 		has_dlc = "Battle for the Bosporus"
 	}
 	set_technology = { camelry = 1 }
 }
-IF = {
+if = {
 	limit = { not = { has_dlc = "Man the Guns" } }
 		set_technology = {
 		early_submarine = 1
@@ -68,7 +67,7 @@ IF = {
 		transport = 1
 	}
 }
-IF = {
+if = {
 	limit = { has_dlc = "Man the Guns" }
 	set_technology = {
 		basic_naval_mines = 1
@@ -96,7 +95,6 @@ IF = {
 }
 
 
-
 set_convoys = 60
 
 set_politics = {
@@ -105,7 +103,6 @@ set_politics = {
 	election_frequency = 60
 	elections_allowed = no
 }
-
 set_popularities = {
 	democratic = 30
 	fascism = 5
@@ -113,27 +110,26 @@ set_popularities = {
 	neutrality = 60
 }
 
-recruit_character = TOS_joseph_ferdinand_von_habsburg
+
 
 ### VARIANTS ###
 # 1936 Start #
 #plane variants
 create_equipment_variant = {
-	name = "CR.42"
-	type = fighter_equipment_0
-	upgrades = {
-		plane_gun_upgrade = 1
-		plane_range_upgrade = 0  
-		plane_engine_upgrade = 2
-		plane_reliability_upgrade = 1
-	}
+		name = "CR.42"
+		type = fighter_equipment_0
+		upgrades = {
+			plane_gun_upgrade = 1
+			plane_range_upgrade = 0  
+			plane_engine_upgrade = 2
+			plane_reliability_upgrade = 1
+		}
 }
-
-IF = {
+if = {
 	limit = {
 		has_dlc = "No Step Back"
 	}
-		create_equipment_variant = {
+	create_equipment_variant = {
 		name = "L3/35"
 		type = light_tank_chassis_1
 		parent_version = 0
@@ -151,7 +147,7 @@ IF = {
 		icon = "GFX_ITA_basic_light_tank_medium"
 	}
 }
-IF = {
+if = {
 	limit = {
 		NOT = { has_dlc = "Man the Guns" }
 	}
@@ -236,7 +232,7 @@ IF = {
 		}
 	}
 }
-IF = {
+if = {
 	limit = { has_dlc = "Man the Guns"}
 	### Battleship Variants	
 	create_equipment_variant = {			# original configuration of class pre-refit (refit in 1937-40)

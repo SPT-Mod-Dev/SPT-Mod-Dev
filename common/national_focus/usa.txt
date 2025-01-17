@@ -1634,8 +1634,12 @@ focus_tree = {
 	focus = {
 		id = USA_black_chamber
 		icon = GFX_goal_generic_military_deal
-		prerequisite = { focus = USA_magic focus = USA_office_of_strategic_services}
-		available = { }
+		prerequisite = {
+			focus = USA_magic
+			focus = USA_office_of_strategic_services
+		}
+		available = {
+		}
 		x = 1
 		y = 3
 		relative_position_id = USA_war_propaganda
@@ -1643,7 +1647,9 @@ focus_tree = {
 		ai_will_do = {
 			factor = 1
 		}
-		search_filters = {FOCUS_FILTER_RESEARCH}
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
 		completion_reward = {
 			if = {
 				limit = {
@@ -1653,7 +1659,7 @@ focus_tree = {
 				}
 				add_tech_bonus = {
 					name = USA_black_chamber
-					bonus = 1.0
+					bonus = 1
 					uses = 2
 					category = encryption_tech
 					category = decryption_tech
@@ -1717,6 +1723,106 @@ focus_tree = {
 					days = 3
 					random_days = 5
 				}
+			}
+		}
+	}
+	focus = {
+		id = USA_lend_lease_act
+		icon = GFX_focus_generic_treaty
+		x = -4
+		y = 2
+		prerequisite = {
+			focus = USA_neutrality_act
+		}
+		prerequisite = {
+			focus = USA_continue_the_new_deal #SPT change to require new deal
+		}
+		relative_position_id = USA_neutrality_act
+		cost = 5 #SPT change 10 -> 5
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			ENG = {
+				has_war_with = GER
+			}
+			if = {
+				limit = {
+					has_war_support > 0.4
+				}
+				congress_medium_support_trigger = yes
+			}
+			else = {
+				congress_high_support_trigger = yes
+			}
+			democratic > 0.95
+		}
+		bypass = {
+		}
+		cancel_if_invalid = no
+		continue_if_invalid = yes
+		available_if_capitulated = no
+		search_filters = {
+			FOCUS_FILTER_USA_CONGRESS
+		}
+		completion_reward = {
+			every_other_country = {
+				limit = {
+					is_major = yes
+					has_government = ROOT
+				}
+				ROOT = {
+					add_ai_strategy = {
+						type = support
+						id = PREV
+						value = 200
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = USA_limited_intervention
+				}
+				swap_ideas = {
+					remove_idea = USA_limited_intervention
+					add_idea = USA_lend_lease_act_li
+				}
+			}
+			else_if = {
+				limit = {
+					has_completed_focus = USA_neutrality_act
+				}
+				swap_ideas = {
+					remove_idea = USA_neutrality_act
+					add_idea = USA_lend_lease_act_na
+				}
+			}
+			else = {
+				add_ideas = USA_lend_lease_act_dummy				#should never get here, just for tooltip purposes
+			}
+			if = {
+				limit = {
+					has_war_support > 0.6
+					has_war = no
+				}
+				USA_congress_small_support = yes
+			}
+			else_if = {
+				limit = {
+					has_war_support > 0.4
+					has_war = no
+				}
+				USA_congress_small_opposition = yes
+			}
+			else_if = {
+				limit = {
+					has_war_support < 0.4
+					has_war = no
+				}
+				USA_congress_large_opposition = yes
+			}
+			else = {
+				USA_congress_medium_opposition = yes
 			}
 		}
 	}
@@ -1855,6 +1961,7 @@ focus_tree = {
 			}
 		}
 	}
+
 	focus = {
 		id = SPT_USA_liberty_torch
 		icon = GFX_focus_generic_strike_at_democracy3
@@ -1880,65 +1987,33 @@ focus_tree = {
 	focus = {
 		id = USA_scientist_haven
 		icon = GFX_focus_research
-		prerequisite = { focus = SPT_USA_liberty_torch }
+		prerequisite = {
+			focus = SPT_USA_liberty_torch
+		}
 		x = 0
 		y = 1
 		relative_position_id = SPT_USA_liberty_torch
-		# offset = {
-		# 	x = -1
-		# 	y = -4
-		# 	trigger = {
-		# 		has_game_rule = {
-		# 			rule = obsolete_focus_branches_visibility
-		# 			option = HIDE
-		# 		}
-		# 		has_completed_focus = USA_neutrality_act
-		# 	}
-		# }
-		# offset = {
-		# 	x = -1
-		# 	y = 0
-		# 	trigger = {
-		# 		has_game_rule = {
-		# 			rule = obsolete_focus_branches_visibility
-		# 			option = HIDE
-		# 		}
-		# 		has_completed_focus = USA_neutrality_act
-		# 		has_completed_focus = USA_reestablish_the_gold_standard
-		# 	}
-		# }
-		# offset = {
-		# 	x = -1
-		# 	y = 0
-		# 	trigger = {
-		# 		has_game_rule = {
-		# 			rule = obsolete_focus_branches_visibility
-		# 			option = HIDE
-		# 		}
-		# 		has_completed_focus = USA_limited_intervention
-		# 	}
-		# }
-
 		cost = 10
 		#ai_will_do = {
 		#	factor = 1
 		#}
-
 		available_if_capitulated = yes
 		available = {
 			has_government = democratic
 		}
-		search_filters = {FOCUS_FILTER_RESEARCH}
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
 		completion_reward = {
 			add_research_slot = 1
 		}
 	}
-
 	focus = {
 		id = USA_manhattan_project
 		icon = GFX_focus_wonderweapons
-		prerequisite = { focus = USA_scientist_haven }
-
+		prerequisite = {
+			focus = USA_scientist_haven
+		}
 		x = 0
 		y = 1
 		relative_position_id = USA_scientist_haven
@@ -1946,136 +2021,22 @@ focus_tree = {
 		#ai_will_do = {
 		#	factor = 1
 		#}
-
 		available_if_capitulated = yes
-
-		search_filters = {FOCUS_FILTER_RESEARCH}
-		completion_reward = {
-
-			IF = {
-				limit = {
-					NOT = {
-						has_tech = atomic_research
-					}
-				}
-				add_tech_bonus = {
-					name = USA_manhattan_project
-					bonus = 1.0 #SPT change, 0.5 -> 1.0
-					uses = 1
-					category = nuclear
-				}
-				add_breakthrough_progress = {
-					specialization = specialization_nuclear
-					value = 0.5
-				}
-				add_ideas = USA_manhattan_project_ns
-			}
-			ELSE = {
-				add_breakthrough_progress = {
-					specialization = specialization_nuclear
-					value = 1
-				}
-				add_ideas = USA_manhattan_project_ns
-			}
-		}
-	}
-	focus = {
-		id = USA_lend_lease_act
-		icon = GFX_focus_generic_treaty
-		x = -4
-		y = 2
-		prerequisite = {
-			focus = USA_neutrality_act
-		}
-		prerequisite = {
-			focus = USA_continue_the_new_deal #SPT change to require new deal
-		}
-		relative_position_id = USA_neutrality_act
-		cost = 5 #SPT change 10 -> 5
-		ai_will_do = {
-			factor = 1
-		}
-		available = {
-			ENG = {
-				has_war_with = GER
-			}
-			if = {
-				limit = {
-					has_war_support > 0.4
-				}
-				congress_medium_support_trigger = yes
-			}
-			else = {
-				congress_high_support_trigger = yes
-			}
-			democratic > 0.95
-		}
-		bypass = {
-		}
-		cancel_if_invalid = no
-		continue_if_invalid = yes
-		available_if_capitulated = no
 		search_filters = {
-			FOCUS_FILTER_USA_CONGRESS
+			FOCUS_FILTER_RESEARCH
 		}
 		completion_reward = {
-			every_other_country = {
-				limit = {
-					is_major = yes
-					has_government = ROOT
-				}
-				ROOT = {
-					add_ai_strategy = {
-						type = support
-						id = PREV
-						value = 200
-					}
-				}
+			add_tech_bonus = {
+				name = USA_manhattan_project
+				bonus = 1.0
+				uses = 1
+				category = nuclear
 			}
-			if = {
-				limit = {
-					has_completed_focus = USA_limited_intervention
-				}
-				swap_ideas = {
-					remove_idea = USA_limited_intervention
-					add_idea = USA_lend_lease_act_li
-				}
-			}
-			else_if = {
-				limit = {
-					has_completed_focus = USA_neutrality_act
-				}
-				swap_ideas = {
-					remove_idea = USA_neutrality_act
-					add_idea = USA_lend_lease_act_na
-				}
-			}
-			else = {
-				add_ideas = USA_lend_lease_act_dummy				#should never get here, just for tooltip purposes
-			}
-			if = {
-				limit = {
-					has_war_support > 0.6
-					has_war = no
-				}
-				USA_congress_small_support = yes
-			}
-			else_if = {
-				limit = {
-					has_war_support > 0.4
-					has_war = no
-				}
-				USA_congress_small_opposition = yes
-			}
-			else_if = {
-				limit = {
-					has_war_support < 0.4
-					has_war = no
-				}
-				USA_congress_large_opposition = yes
-			}
-			else = {
-				USA_congress_medium_opposition = yes
+			add_tech_bonus = {
+				name = USA_manhattan_project
+				bonus = 1.0
+				uses = 1
+				category = nuclear
 			}
 		}
 	}
@@ -2205,6 +2166,7 @@ focus_tree = {
 					free_building_slots = {
 						building = infrastructure
 						size > 2
+						include_locked = yes
 					}
 					OR = {
 						region = 117
@@ -2226,6 +2188,7 @@ focus_tree = {
 					free_building_slots = {
 						building = infrastructure
 						size > 2
+						include_locked = yes
 					}
 					OR = {
 						region = 117
@@ -4696,7 +4659,7 @@ focus_tree = {
 				}	
 			}
 			GER = {
-				has_completed_focus = GER_fate_of_czechoslovakia
+				has_completed_focus = GER_end_of_czechoslovakia
 			}
 		}
 		bypass = {
@@ -8376,7 +8339,7 @@ focus_tree = {
 			focus = USA_support_rock_island
 		}
 		relative_position_id = USA_selective_training_act
-		cost = 5 #SPT change, 10 -> 5
+		cost = 10
 		ai_will_do = {
 			factor = 1
 		}
@@ -8391,10 +8354,6 @@ focus_tree = {
 			FOCUS_FILTER_RESEARCH
 		}
 		completion_reward = {
-			add_breakthrough_progress = {
-				specialization = specialization_land
-				value = 0.5
-			}
 			add_tech_bonus = {
 				name = USA_tank_experiments
 				uses = 1
@@ -8411,7 +8370,7 @@ focus_tree = {
 		prerequisite = { focus = USA_tank_experiments }
 		mutually_exclusive = { focus = USA_main_battle_tanks }
 		relative_position_id = USA_selective_training_act
-		cost = 5 #SPT change, 10 -> 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -8455,7 +8414,7 @@ focus_tree = {
 		prerequisite = { focus = USA_tank_experiments }
 		mutually_exclusive = { focus = USA_tank_destroyer_doctrine }
 		relative_position_id = USA_selective_training_act
-		cost = 5 #SPT change, 10 -> 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 1
@@ -9059,10 +9018,6 @@ focus_tree = {
 			FOCUS_FILTER_RESEARCH
 		}
 		completion_reward = {
-			add_breakthrough_progress = {
-				specialization = specialization_naval
-				value = 0.25
-			}
 			add_tech_bonus = {
 				name = USA_battleship_primacy
 				bonus = 1
@@ -9166,10 +9121,6 @@ focus_tree = {
 			FOCUS_FILTER_RESEARCH
 		}
 		completion_reward = {
-			add_breakthrough_progress = {
-				specialization = specialization_naval
-				value = 0.25
-			}
 			add_tech_bonus = {
 				name = USA_carrier_primacy
 				bonus = 1
@@ -9229,20 +9180,10 @@ focus_tree = {
 			FOCUS_FILTER_RESEARCH
 		}
 		completion_reward = {
-
-			add_breakthrough_progress = {
-				specialization = specialization_naval
-				value = 0.25
-			}
-			add_breakthrough_progress = {
-				specialization = specialization_air
-				value = 0.5
-			}
-
 			add_tech_bonus = {
 				name = USA_naval_radar
-				uses = 1 # was 2
-				bonus = 1.0
+				uses = 2
+				bonus = 1
 				category = radar_tech
 			}
 		}
@@ -9305,41 +9246,33 @@ focus_tree = {
 		ai_will_do = {
 			factor = 1
 		}
-
 		available = {
-			is_special_project_completed = sp:sp_naval_cruiser_submarine
 		}
-
+		bypass = {
+		}
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-
-		search_filters = {FOCUS_FILTER_RESEARCH}
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
 		completion_reward = {
 			add_tech_bonus = {
 				name = USA_fleet_submarines
-				bonus = 1.0
+				bonus = 1
 				uses = 2
 				category = ss_tech
 			}
-
-			add_breakthrough_progress = {
-				specialization = specialization_naval
-				value = 0.25
-			}
-
-			IF = {
+			if = {
 				limit = {
 					has_dlc = "Man the Guns"
 				}
-				add_ideas = fleet_submarine_specialization_mtg
-			}
-			ELSE = {
-				add_ideas = fleet_submarine_specialization
+				set_technology = {
+					cruiser_submarines = 1
+				}
 			}
 		}
 	}
-
 	focus = {
 		id = USA_unrestricted_submarine_warfare
 		icon = GFX_goal_generic_wolf_pack
@@ -9403,7 +9336,6 @@ focus_tree = {
 			}
 		}
 	}
-
 	focus = {
 		id = USA_amphibious_operations
 		icon = GFX_goal_generic_amphibious_assault
@@ -9417,7 +9349,6 @@ focus_tree = {
 		#ai_will_do = {
 		#	factor = 1
 		#}
-
 		available_if_capitulated = yes
 		search_filters = {
 			FOCUS_FILTER_RESEARCH
@@ -9431,9 +9362,4 @@ focus_tree = {
 			}
 		}
 	}
-
-
-
-
-
 }

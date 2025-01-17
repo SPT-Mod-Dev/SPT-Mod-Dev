@@ -4,32 +4,43 @@
 # Political advisors
 every_possible_country = {
 	limit = {
-		NOT = { OR = { tag = GER tag = ENG tag = SOV original_tag = FRA tag = ITA tag = JAP tag = USA tag = AST tag = RAJ tag = CAN tag = SAF tag = CZE tag = ROM tag = CHI tag = MAN tag = MEX tag = HOL original_tag = SPR original_tag = POL tag = FIN  tag = SIA tag = DEN } }
+		NOT = { OR = {
+			#SPTChange
+			tag = GER 
+			tag = ENG 
+			tag = SOV 
+			original_tag = FRA 
+			tag = ITA
+			tag = JAP
+			tag = USA 
+			tag = AST 
+			tag = RAJ 
+			tag = CAN 
+			tag = SAF 
+			tag = CZE 
+			tag = ROM 
+			tag = CHI 
+			tag = MAN 
+			tag = MEX 
+			tag = HOL 
+			original_tag = SPR 
+			original_tag = POL 
+			tag = FIN 
+			tag = SIA
+			tag = DEN
+		} }
 		# avoid generic advisors in temporary countries
 		is_dynamic_country = no
 		NOT = {
 			has_allowed_idea_with_traits = { idea = communist_revolutionary characters = yes }
 		}
-		IF = {
+		if = {
 			limit = { has_dlc = "Battle for the Bosporus" }
 			NOT = { tag = TUR tag = GRE }
 		}
 		IF = {
-			limit = { has_dlc = "By Blood Alone" }
-			NOT = { OR = { tag = ETH tag = SWI } }
-		}
-		IF = {
-			limit = { has_dlc = "Arms Against Tyranny" }
-			NOT = { OR = { tag = ICE tag = DEN tag = SWE tag = NOR } }
-		}
-
-		IF = {
 			limit = { has_dlc = "Trial of Allegiance" }
 			NOT = { OR = { tag = CHL tag = ARG tag = BRA tag = PAR tag = URG } }
-		}
-		IF = {
-			limit = { has_dlc = "Gotterdammerung" }
-			NOT = { tag = HUN tag = AUS tag = COG tag = BEL }
 		}
 	}
 	generate_character = {
@@ -38,14 +49,14 @@ every_possible_country = {
 			slot = political_advisor
 			traits = { communist_revolutionary }
 			available = {
-				IF = {
+				if = {
 					limit = { 
 						original_tag = NZL
 						has_dlc = "Together for Victory"
 					}
 					has_completed_focus = NZL_the_lee_affair
 				}
-				IF = {
+				if = {
 					limit = { has_dlc = "Man the Guns" }	
 					NOT = { has_autonomy_state = autonomy_supervised_state }
 				}
@@ -62,32 +73,22 @@ every_possible_country = {
 
 every_possible_country = {
 	limit = {
-		NOT = { OR = { tag = GER tag = ENG tag = SOV original_tag = FRA tag = ITA tag = JAP tag = USA tag = AST tag = RAJ tag = CAN tag = SAF tag = CZE tag = PRC tag = CHI tag = MAN tag = MEX tag = HOL original_tag = SPR original_tag = POL tag = FIN  } }
+		NOT = { OR = { tag = GER tag = ENG tag = SOV original_tag = FRA tag = ITA tag = JAP tag = USA tag = AST tag = RAJ tag = CAN tag = SAF tag = CZE tag = PRC tag = CHI tag = MAN tag = MEX tag = HOL original_tag = SPR original_tag = POL tag = FIN tag = SIA} } #SPTChange added fin
 		is_dynamic_country = no
 		NOT = {
 			has_allowed_idea_with_traits = { idea = democratic_reformer characters = yes }
 		}
-		IF = {
+		if = {
 			limit = { has_dlc = "Battle for the Bosporus" }
 			NOT = { tag = TUR tag = GRE }
 		}
-		IF = {
+		if = {
 			limit = { has_dlc = "By Blood Alone" }
 			NOT = { OR = { tag = ETH tag = SWI } }
 		}
 		IF = {
-			limit = { has_dlc = "Arms Against Tyranny" }
-			NOT = { OR = { tag = ICE tag = DEN tag = SWE tag = NOR } }
-		}
-
-		IF = {
 			limit = { has_dlc = "Trial of Allegiance" }
 			NOT = { OR = { tag = CHL tag = ARG tag = BRA tag = PAR tag = URG } }
-		}
-
-		IF = {
-			limit = { has_dlc = "Gotterdammerung"}
-			NOT = { OR = { tag = AUS tag = COG tag = BEL }}
 		}
 	}
 	generate_character = {
@@ -96,7 +97,7 @@ every_possible_country = {
 			slot = political_advisor
 			traits = { democratic_reformer }
 			available = {
-				IF = {
+				if = {
 					limit = { 
 						original_tag = NZL
 						has_dlc = "Together for Victory"
@@ -106,7 +107,7 @@ every_possible_country = {
 						has_completed_focus = NZL_constitution_amendment_act
 					}
 				}
-				IF = {
+				if = {
 					limit = { has_dlc = "Man the Guns" }	
 					NOT = { has_autonomy_state = autonomy_supervised_state }
 				}
@@ -123,31 +124,22 @@ every_possible_country = {
 
 every_possible_country = {
 	limit = {
-		NOT = { OR = { tag = GER tag = ENG tag = SOV original_tag = FRA tag = ITA tag = JAP tag = USA tag = AST tag = RAJ tag = CAN tag = SAF tag = ROM tag = CZE tag = PRC tag = CHI tag = MAN tag = MEX tag = HOL original_tag = SPR original_tag = POR original_tag = POL original_tag = LAT tag = FIN } }
+		NOT = { OR = { tag = GER tag = ENG tag = SOV original_tag = FRA tag = ITA tag = JAP tag = USA tag = AST tag = RAJ tag = CAN tag = SAF tag = ROM tag = CZE tag = PRC tag = CHI tag = MAN tag = MEX tag = HOL original_tag = SPR original_tag = POR original_tag = POL original_tag=LAT tag = FIN } } #SPTChange added FIN
 		is_dynamic_country = no
 		NOT = {
 			has_allowed_idea_with_traits = { idea = fascist_demagogue characters = yes }
 		}
-		IF = {
+		if = {
 			limit = { has_dlc = "Battle for the Bosporus" }
 			NOT = { tag = TUR tag = GRE }
 		}
-		IF = {
+		if = {
 			limit = { has_dlc = "By Blood Alone" }
 			NOT = { OR = { tag = ETH tag = SWI } }
 		}
 		IF = {
-			limit = { has_dlc = "Arms Against Tyranny" }
-			NOT = { OR = { tag = ICE tag = DEN tag = SWE tag = NOR } }
-		}
-		# TODO CHANGE THIS TO THE CORRECT DLC LOCK
-		IF = {
 			limit = { has_dlc = "Trial of Allegiance" }
 			NOT = { OR = { tag = CHL tag = ARG tag = BRA tag = PAR tag = URG } }
-		}
-		IF = {
-			limit = { has_dlc = "Gotterdammerung" }
-			NOT = { tag = HUN tag = AUS tag = COG tag = BEL }
 		}
 	}
 	generate_character = {
@@ -156,14 +148,14 @@ every_possible_country = {
 			slot = political_advisor
 			traits = { fascist_demagogue }
 			available = {
-				IF = {
+				if = {
 					limit = { 
 						original_tag = NZL
 						has_dlc = "Together for Victory"
 					}
 					has_completed_focus = NZL_in_the_darkness
 				}
-				IF = {
+				if = {
 					limit = { has_dlc = "Man the Guns" }	
 					NOT = { has_autonomy_state = autonomy_supervised_state }
 				}				
@@ -183,10 +175,8 @@ every_possible_country = {
 		has_dlc = "La Resistance"
 		# china gets a special one via focus
 		NOT = { original_tag = CHI }
-		# Germany as Wilhelm Canaris
-		NOT = { original_tag = GER }
 		NOT = { is_chinese_warlord = yes }
-		IF = {
+		if = {
 			limit = {
 				has_dlc = "Battle for the Bosporus"
 			}
@@ -195,30 +185,18 @@ every_possible_country = {
 				tag = TUR
 			}
 		}
-		IF = {
+		if = {
 			limit = { has_dlc = "By Blood Alone" }
 			NOT = { OR = { tag = ETH tag = SWI } }
 		}
-
-		IF = {
-			limit = { has_dlc = "Arms Against Tyranny" }
-			NOT = { OR = { tag = SWE } }
-		}
-
 		IF = {
 			limit = { has_dlc = "Trial of Allegiance" }
-			NOT = { OR = { tag = CHL tag = ARG tag = BRA } }
-		}
-
-		IF = {
-			limit = { has_dlc = "Gotterdammerung" }
-			NOT = { OR = { tag = HUN tag = AUS tag = BEL } }
+			NOT = { OR = { tag = CHL tag = ARG tag = BRA tag = PAR tag = URG tag = SIA } } #SPTChange added SIA
 		}
 
 		NOT = {
 			has_allowed_idea_with_traits = { idea = head_of_intelligence characters = yes }
 		}
-
 		is_dynamic_country = no
 	}
 	generate_character = {
@@ -246,8 +224,7 @@ every_possible_country = {
 # Military advisors
 every_possible_country = {
 	limit = {
-		OR = { original_tag = MOR original_tag = KOR original_tag = SER  original_tag = SYR original_tag = LEB original_tag = EGY original_tag = JOR original_tag = CRO original_tag = LBA original_tag = INS original_tag = MAL original_tag = AZR original_tag = UKR original_tag = GEO original_tag = ARM original_tag = VIN original_tag = CAM original_tag = MNT original_tag = LIB original_tag = LAO original_tag = PAL original_tag = ALT original_tag = KAL original_tag = KAR original_tag = CRI original_tag = TAT original_tag = CIN original_tag = DAG original_tag = BYA original_tag = CKK original_tag = FER original_tag = YAK original_tag = VLA original_tag = KKP original_tag = YAM original_tag = TAY original_tag = OVO original_tag = NEN original_tag = KOM original_tag = ABK original_tag = KBK original_tag = NOA original_tag = VGE original_tag = BSK original_tag = KHI original_tag = BUK original_tag = UDM original_tag = CHU original_tag = MEL original_tag = HAR original_tag = TIG original_tag = AFA original_tag = BEG original_tag = GBA original_tag = SID original_tag = ORO original_tag = QEM original_tag = RIF original_tag = AOI original_tag = SMI original_tag = RAP original_tag = QUE original_tag = RIG original_tag = YUC original_tag = GAR original_tag = INC original_tag = MIS original_tag = MAY original_tag = INU original_tag = CHR original_tag = ITZ original_tag = NAH original_tag = IAS original_tag = GYA original_tag = CAY original_tag = SUR original_tag = BAH original_tag = WLA original_tag = KAT original_tag = BIA original_tag = CBV original_tag = BAR original_tag = EVE original_tag = SLV original_tag = BOS original_tag = KOS original_tag = MAC original_tag = SIL original_tag = KSH original_tag = LBV original_tag = SPM original_tag = TOS original_tag = PAP original_tag = TTS original_tag = GRN original_tag = ISR original_tag = KHA original_tag = SOK original_tag = BAS original_tag = CAT original_tag = GLC original_tag = NAV original_tag = COR original_tag = IVO original_tag = RCG original_tag = MAD original_tag = GDL original_tag = SHL original_tag = MEK original_tag = HAN original_tag = SAX original_tag = PRE original_tag = BAY original_tag = WUR original_tag = THU original_tag = HES original_tag = RHI original_tag = DNZ original_tag = WGR original_tag = DDR original_tag = UBD original_tag = RKB original_tag = RKN original_tag = RKG original_tag = RKU original_tag = RKO original_tag = RKK original_tag = RKM original_tag = RKL original_tag = GEN original_tag = RKH original_tag = RKI original_tag = RKC original_tag = RGB original_tag = RKA original_tag = RNA original_tag = RKV original_tag = RAN original_tag = RCO original_tag = RUS original_tag = RHD original_tag = RAR original_tag = ROA original_tag = RAA original_tag = DON original_tag = KUB original_tag = BLR
-		}
+		OR = { original_tag = MOR original_tag = KOR original_tag = SER original_tag = ICE original_tag = SYR original_tag = LEB original_tag = EGY original_tag = JOR original_tag = CRO original_tag = LBA original_tag = INS original_tag = MAL original_tag = AZR original_tag = UKR original_tag = GEO original_tag = ARM original_tag = VIN original_tag = CAM original_tag = MNT original_tag = LIB original_tag = LAO original_tag = PAL original_tag = ALT original_tag = KAL original_tag = KAR original_tag = CRI original_tag = TAT original_tag = CIN original_tag = DAG original_tag = BYA original_tag = CKK original_tag = FER original_tag = YAK original_tag = VLA original_tag = KKP original_tag = YAM original_tag = TAY original_tag = OVO original_tag = NEN original_tag = KOM original_tag = ABK original_tag = KBK original_tag = NOA original_tag = VGE original_tag = BSK original_tag = KHI original_tag = BUK original_tag = UDM original_tag = CHU original_tag = MEL original_tag = HAR original_tag = TIG original_tag = AFA original_tag = BEG original_tag = GBA original_tag = SID original_tag = ORO original_tag = QEM original_tag = RIF original_tag = AOI }
 	}
 	# generic political advisors
 	generate_character = {
@@ -489,127 +466,6 @@ every_possible_country = {
 		}
 		portraits = { 
 			army = { small = GFX_idea_generic_head_of_intelligence }
-		}
-	}
-}
-
-every_possible_country = { #Iceland is a special case
-	limit = {
-		original_tag = ICE
-		has_dlc = "Arms Against Tyranny"
-	}
-	generate_character = {
-		token_base = generic_army_art # token will be TAG_token_base
-		advisor = {
-			slot = high_command
-			traits = { army_artillery_1 }
-			ledger = army
-			cost = 50
-		}
-		portraits = {
-			army = { small = GFX_idea_generic_army_art }
-		}
-	}
-	generate_character = {
-		token_base = generic_army_log # token will be TAG_token_base
-		advisor = {
-			slot = high_command
-			traits = { army_logistics_2 }
-			ledger = army
-			cost = 100
-		}
-		portraits = {
-			army = { small = GFX_idea_generic_army_log }
-		}
-	}
-	generate_character = {
-		token_base = generic_navy_fleet_log # token will be TAG_token_base
-		advisor = {
-			slot = high_command
-			traits = { navy_fleet_logistics_1 }
-			ledger = navy
-			cost = 50
-		}
-		portraits = {
-			army = { small = GFX_idea_generic_navy_fleet_log }
-		}
-	}
-	generate_character = {
-		token_base = generic_air_air_combat_trainer # token will be TAG_token_base
-		advisor = {
-			slot = high_command
-			traits = { air_air_combat_training_2 }
-			ledger = air
-			cost = 100
-		}
-		portraits = {
-			army = { small = GFX_idea_generic_air_air_combat_trainer }
-		}
-	}
-	# generic theorists
-	generate_character = {
-		token_base = generic_military_theorist # token will be TAG_token_base
-		advisor = {
-			slot = theorist
-			traits = { military_theorist }
-			ledger = army
-			cost = 50
-		}
-		portraits = {
-			army = { small = GFX_idea_generic_military_theorist }
-		}
-	}
-	generate_character = {
-		token_base = generic_naval_theorist # token will be TAG_token_base
-		advisor = {
-			slot = theorist
-			traits = { naval_theorist }
-			ledger = navy
-			cost = 50
-		}
-		portraits = {
-			army = { small = GFX_idea_generic_naval_theorist }
-		}
-	}
-	generate_character = {
-		token_base = generic_air_warfare_theorist # token will be TAG_token_base
-		advisor = {
-			slot = theorist
-			traits = { air_warfare_theorist }
-			ledger = air
-			cost = 50
-		}
-		portraits = {
-			army = { small = GFX_idea_generic_air_warfare_theorist }
-		}
-	}
-}
-
-every_possible_country = { #BEL has no chief of navy, nor any naval theorists
-	limit = {
-		original_tag = BEL
-	}
-	generate_character = {
-		token_base = generic_naval_theorist # token will be TAG_token_base
-		advisor = {
-			slot = theorist
-			traits = { naval_theorist }
-			ledger = navy
-			cost = 100
-		}
-		portraits = {
-			army = { small = GFX_idea_generic_naval_theorist }
-		}
-	}
-	generate_character = {
-		token_base = navy_chief_reform # token will be TAG_token_base
-		advisor = {
-			slot = navy_chief
-			traits = { navy_chief_reform_1 }
-			cost = 50
-		}
-		portraits = {
-			army = { small = GFX_idea_ENG_generic_navy_1 }
 		}
 	}
 }

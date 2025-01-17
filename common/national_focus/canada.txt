@@ -313,6 +313,7 @@
 					free_building_slots = {
 						building = infrastructure
 						size > 0
+						include_locked = yes
 					}
 				}
 
@@ -328,6 +329,7 @@
 					free_building_slots = {
 						building = infrastructure
 						size > 0
+						include_locked = yes
 					}
 				}
 
@@ -1658,29 +1660,12 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			IF = {
-				limit = {
-					NOT = {
-						has_tech = atomic_research
-					}
-				}
-				add_tech_bonus = {
-					name = CAN_uranium_mining
-					bonus = 0.5
-					uses = 1
-					category = nuclear
-				}
-				add_breakthrough_progress = {
-					specialization = specialization_nuclear
-					value = 0.25
-				}
-			}
-			ELSE = {
-				add_breakthrough_progress = {
-					specialization = specialization_nuclear
-					value = 0.75
-				}
-			}
+			add_tech_bonus = {
+				name = CAN_uranium_mining
+				bonus = 0.5
+				uses = 2
+				category = nuclear
+			}	
 		}
 	}
 
@@ -2159,10 +2144,6 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			add_breakthrough_progress = {
-				specialization = specialization_land
-				value = 0.15
-			}
 			add_tech_bonus = {
 				name = CAN_royal_regiment_of_canadian_artillery
 				bonus = 1.0
@@ -2301,6 +2282,7 @@
 					category = special_forces_doctrine
 				}
 			}
+
 		}
 	}
 
@@ -2407,12 +2389,6 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-
-			add_breakthrough_progress = {
-				specialization = specialization_land
-				value = 0.5
-			}
-
 			add_tech_bonus = {
 				name = CAN_the_valentine_tank
 				bonus = 1.0
@@ -2426,7 +2402,6 @@
 				uses = 1
 				category = cat_light_armor
 			}
-
 		}
 	}
 
@@ -3050,51 +3025,11 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-
-			add_breakthrough_progress = {
-				specialization = specialization_naval
-				value = 0.5
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			if = {
-				limit = {
-					has_dlc = "Gotterdammerung"
-				}
-				if = {
-					limit = {
-						has_dlc = "Man the Guns"
-					}
-					add_ideas = habakkuk_carriers_ns_mtg
-					custom_effect_tooltip = generic_skip_one_line_tt
-
-					add_tech_bonus = {
-						name = CAN_habakkuk_carrier
-						bonus = 0.5
-						uses = 1
-						category = pykrete_tech
-					}
-				}
-				else = {
-					add_ideas = habakkuk_carriers_ns
-					custom_effect_tooltip = generic_skip_one_line_tt
-				}
-
-				add_tech_bonus = {
-					name = CAN_habakkuk_carrier
-					bonus = 1.0
-					uses = 1
-					category = cv_tech
-				}
-			}
-			else = {
-				add_tech_bonus = {
-					name = CAN_habakkuk_carrier
-					bonus = 1.0
-					uses = 2
-					category = cv_tech
-				}
+			add_tech_bonus = {
+				name = CAN_habakkuk_carrier
+				bonus = 1.0
+				uses = 2
+				category = cv_tech
 			}
 		}
 	}
@@ -3128,12 +3063,10 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			USA = {
-				add_to_tech_sharing_group = us_research
-			}
+		USA = {
 			add_to_tech_sharing_group = us_research
-			custom_effect_tooltip = generic_skip_one_line_tt
-			add_ideas = generic_secret_weapons_ns
+		}
+		add_to_tech_sharing_group = us_research
 		}
 	}
 
@@ -4513,12 +4446,6 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		complete_tooltip = {
-
-			add_breakthrough_progress = {
-				specialization = specialization_air
-				value = 0.25
-			}
-
 			add_tech_bonus = {
 				name = CAN_the_pacific_coast_air_defence_radar_system
 				bonus = 1.0
@@ -4558,12 +4485,6 @@
 		}
 
 		completion_reward = {
-
-			add_breakthrough_progress = {
-				specialization = specialization_air
-				value = 0.25
-			}
-
 			add_tech_bonus = {
 				name = CAN_the_pacific_coast_air_defence_radar_system
 				bonus = 1.0
@@ -4625,8 +4546,8 @@
 					set_state_flag = CAN_the_pacific_coast_air_defence_radar_system_radar3
 				}
 				else = {
-					complete_special_project = {
-						project = sp:sp_air_radar
+					set_technology = {
+						radio_detection = 1
 					}
 					effect_tooltip = {
 						random_owned_controlled_state = {
@@ -4804,8 +4725,6 @@
 				category = cas_bomber
 			}
 
-			custom_effect_tooltip = generic_skip_one_line_tt
-
 			IF = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
@@ -4863,8 +4782,6 @@
 				category = cat_strategic_bomber
 			}
 
-			custom_effect_tooltip = generic_skip_one_line_tt
-
 			IF = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
@@ -4918,12 +4835,6 @@
 		search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-
-			add_breakthrough_progress = {
-				specialization = specialization_air
-				value = 0.5
-			}
-
 			add_tech_bonus = {
 				name = CAN_the_sabre_project
 				ahead_reduction = 2
@@ -4931,7 +4842,6 @@
 				category = rocketry
 				category = jet_technology
 			}
-
 		}
 	}
 
@@ -5181,10 +5091,6 @@
 
 		completion_reward = {
 			navy_experience = 25
-			add_breakthrough_progress = {
-				specialization = specialization_naval
-				value = 0.15
-			}
 			add_doctrine_cost_reduction = {
 				name = CAN_escort_fleet
 				cost_reduction = 0.25
@@ -5224,10 +5130,6 @@
 
 		completion_reward = {
 			navy_experience = 25
-			add_breakthrough_progress = {
-				specialization = specialization_naval
-				value = 0.15
-			}
 			add_doctrine_cost_reduction = {
 				name = CAN_fleet_in_being
 				cost_reduction = 0.25
@@ -5285,16 +5187,7 @@
 						    degaussing = 1
 						}
 					}
-					}
 				}
-
-			if = {
-				limit = {
-						NOT = {
-							has_dlc = "Man the Guns"
-						}
-					}
-				add_ideas = CAN_degauss_ship_hulls
 			}
 		}
 	}

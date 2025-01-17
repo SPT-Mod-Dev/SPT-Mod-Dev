@@ -522,21 +522,8 @@
 
 		available = {
 			NOT = { has_war_with = ENG }
-			# SPTchange anti-exploit checks
-			ENG = { 
-				is_puppet = no
-				controls_state = 542
-				controls_state = 545
-				controls_state = 546
-				controls_state = 547
-				controls_state = 903
-				controls_state = 904
-				controls_state = 905
-				controls_state = 548
-				controls_state = 771
-				controls_state = 770
-				controls_state = 981
-			}
+			ENG = { is_puppet = no }
+
 		}
 		
 		bypass = {
@@ -550,22 +537,10 @@
 
 		completion_reward = {
 			add_stability = 0.1
-			# SPTchange set SAF free, auto-transfer colonies
-			OVERLORD = { set_autonomy = { target = ROOT autonomy_state = autonomy_free } }
-			transfer_state = 542
-			transfer_state = 545
-			transfer_state = 546
-			transfer_state = 547
-			transfer_state = 903
-			transfer_state = 904
-			transfer_state = 905
-			transfer_state = 548
-			transfer_state = 771
-			transfer_state = 770
-			transfer_state = 981
-			hidden_effect = {
-				news_event = { id = news.260 hours = 6 }
-			}
+			OVERLORD = { set_autonomy = { target = ROOT autonomy_state = autonomy_free } } #SPTChange Set Saf free
+			ENG = { custom_effect_tooltip = needs_approval 
+				country_event = tfv_south_africa.1
+				}
 		}
 	}
 
@@ -2020,7 +1995,6 @@
 			}
 		}
 	}
-
 	############################
 	##### INDUSTRY SECTION #####
 	############################
@@ -2052,24 +2026,6 @@
         search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-
-			IF = {
-				limit = {
-					NOT = { has_tech = basic_train }
-				}
-				set_technology = {
-					basic_train = 1
-					popup = yes
-				}
-			}
-			add_equipment_to_stockpile = {
-				type = train_equipment_1
-				amount = 15
-				producer = ENG
-			}
-
-			custom_effect_tooltip = generic_skip_one_line_tt
-
 			custom_effect_tooltip = available_designer
 			show_ideas_tooltip = SAF_south_african_railways
 		}
@@ -2521,24 +2477,11 @@
         search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			if = {
-				limit = {
-					NOT = {
-						has_tech = atomic_research
-					}
-				}
-				add_tech_bonus = {
-					name = SAF_establish_the_atomics_energy_board
-					bonus = 0.25 #SPT change 0.5 -> 0.25
-					uses = 1
-					category = nuclear
-				}
-			}
-			else = {
-				add_breakthrough_progress = {
-					specialization = specialization_nuclear
-					value = 0.75
-				}
+			add_tech_bonus = {
+				name = SAF_establish_the_atomics_energy_board
+				bonus = 1.0
+				uses = 2
+				category = nuclear
 			}
 		}
 	}

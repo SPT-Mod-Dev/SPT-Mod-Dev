@@ -1,4 +1,4 @@
-﻿capital = 361 # Washington DC
+﻿capital = 361
 
 oob = "USA_1936"
 
@@ -25,8 +25,6 @@ if = {
 			aa_lmg = 1
 			early_bombs = 1
 			aircraft_construction = 1
-			air_torpedoe_1 = 1
-			bba_early_transport_plane = 1
 		}
 	else = {
 		set_air_oob = "USA_1936_air_legacy"
@@ -38,7 +36,6 @@ if = {
 			naval_bomber1 = 1
 			CAS1 = 1
 			early_bomber = 1
-			early_transport_plane = 1
 		}
 	}
 }
@@ -47,7 +44,6 @@ set_research_slots = 4
 set_stability = 0.75
 set_war_support = 0
 add_command_power = 20
-
 set_variable = { var = senators_support value = 48 }
 set_variable = { var = senators_total value = 96 }
 set_variable = { var = representatives_support value = 218 }
@@ -56,17 +52,14 @@ set_variable = { var = quorum_low value = 39 }
 set_variable = { var = quorum_medium value = 49 }
 set_variable = { var = quorum_high value = 58 }
 USA_recalc_congress_icon_frames = yes
-
 USA = {
 	country_event = { id = usa.50 days = 2 }
 	country_event = { id = usa.51 days = 2 }
 }
-
 # Starting tech
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
-	tech_trucks = 1
 	tech_recon = 1
 	tech_support = 1		
 	tech_engineers = 1
@@ -79,22 +72,7 @@ set_technology = {
 	fuel_refining = 1
 	marines = 1
 	basic_train = 1
-	engine_tech_1 = 1
-}
-
-add_breakthrough_progress = {
-	specialization = specialization_land
-	value = 0.3
-}
-
-add_breakthrough_progress = {
-	specialization = specialization_naval
-	value = 0.8
-}
-
-add_breakthrough_progress = {
-	specialization = specialization_air
-	value = 0.4
+	tech_trucks = 1
 }
 
 if = {
@@ -243,7 +221,6 @@ give_guarantee = URG
 				basic_large_airframe = 1
 				improved_small_airframe = 1
 				aa_hmg = 1
-				air_torpedoe_1 = 1
 			}
 		else = {
 			set_air_oob = "USA_1939_air_legacy"
@@ -256,35 +233,6 @@ give_guarantee = URG
 				strategic_bomber1 = 1
 			}
 		}
-	}
-
-	complete_special_project = {
-		project = sp:sp_naval_cruiser_submarine
-		scientist = USA_william_francis_gibbs
-		state = 361
-	}
-
-	complete_special_project = {
-		project = sp:sp_air_radar
-		scientist = USA_vannevar_bush
-		state = 386
-	}
-
-	IF = {
-		limit = {
-			has_dlc = "Gotterdammerung"
-		}
-		complete_special_project = {
-			project = sp:sp_air_helicopter
-			scientist = USA_edward_curtis_wells
-			state = 386
-		}
-	}
-
-	complete_special_project = {
-		project = sp:sp_land_military_engineering_vehicles
-		scientist = USA_john_walter_christie
-		state = 393
 	}
 
 	set_technology = {
@@ -308,6 +256,7 @@ give_guarantee = URG
 		#electronics
 		electronic_mechanical_engineering = 1
 		radio = 1
+		radio_detection = 1
 		mechanical_computing = 1
 		computing_machine = 1
 		basic_encryption = 1
@@ -356,7 +305,7 @@ give_guarantee = URG
 
 
 
-set_convoys = 700
+set_convoys = 500
 
 
 set_politics = {
@@ -459,14 +408,6 @@ recruit_character = USA_henry_stimson
 recruit_character = USA_victor_perlo
 recruit_character = USA_charles_coughlin
 recruit_character = USA_harry_white
-recruit_character = USA_native_american_council
-recruit_character = USA_leslie_skinner
-recruit_character = USA_edward_curtis_wells
-recruit_character = USA_william_francis_gibbs
-recruit_character = USA_andrew_mckee
-recruit_character = USA_john_walter_christie
-recruit_character = USA_vannevar_bush
-
 
 
 if = {
@@ -592,12 +533,12 @@ if = {
 		obsolete = yes
 	}
 	create_equipment_variant = {
-		name = "P-26A" # Boeing P-26 Peashooter
+		name = "P-26A" #
 		type = small_plane_airframe_0
 		modules = {
 			fixed_main_weapon_slot = light_mg_2x
 			engine_type_slot = engine_1_1x
-			fixed_auxiliary_weapon_slot_1 = bomb_locks
+			special_type_slot_1 = empty
 		}
 		obsolete = yes
 		icon = "GFX_USA_light_plane_2_medium"
@@ -636,8 +577,8 @@ if = {
 		name = "A-12" #
 		type = small_plane_cas_airframe_0
 		modules = {
-			fixed_main_weapon_slot = bomb_locks
-			fixed_auxiliary_weapon_slot_1 = light_mg_4x
+			fixed_main_weapon_slot = small_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = empty
 			engine_type_slot = engine_1_1x
 			special_type_slot_1 = empty
 		}
@@ -726,7 +667,6 @@ if = {
 		modules = {
 			fixed_main_weapon_slot = medium_bomb_bay
 			fixed_auxiliary_weapon_slot_1 = torpedo_mounting
-			fixed_auxiliary_weapon_slot_2 = torpedo_mounting
 			engine_type_slot = engine_2_2x
 			special_type_slot_1 = flying_boat_medium
 			special_type_slot_2 = lmg_defense_turret
@@ -777,7 +717,7 @@ if = {
 		}
 		icon = "GFX_USA_basic_light_tank_medium"
 	}
-	create_equipment_variant = { #Note: There is a copy of this variant in Finnish National Focus file (FIN_bring_foreign_armor_experts). Any changes here should also be applied there
+	create_equipment_variant = {
 		name = "M2A2"
 		type = light_tank_chassis_1
 		parent_version = 1
@@ -792,7 +732,7 @@ if = {
 		}
 		upgrades = {
 			tank_nsb_armor_upgrade = 2
-			tank_nsb_engine_upgrade = 4
+			tank_nsb_engine_upgrade = 5
 		}
 		icon = "GFX_USA_basic_light_tank_medium"
 	}
@@ -1069,12 +1009,12 @@ if = {
 		parent_version = 0
 		modules = {
 			fixed_ship_deck_slot_1 = ship_deck_space
+			fixed_ship_deck_slot_2 = ship_deck_space
 			fixed_ship_anti_air_slot = ship_anti_air_1
 			fixed_ship_radar_slot = empty
 			fixed_ship_engine_slot = heavy_ship_engine_2
 			fixed_ship_secondaries_slot = ship_secondaries_1
-			front_1_custom_slot = ship_deck_space
-			rear_1_custom_slot = ship_deck_space
+			mid_1_custom_slot = ship_deck_space
 		}
 		obsolete = yes
 	}

@@ -1041,9 +1041,7 @@ on_actions = {
 					}
 				}
 			}
-
-
-			if = {
+			else_if = {
 				limit = {
 					FROM = { has_idea = instilled_aggression_spirit }
 				}
@@ -1052,10 +1050,10 @@ on_actions = {
 						limit = { is_navy_leader = yes }
 		
 						random_list = {
-							50 = {
+							40 = { 
 								add_attack = 1 
 							}
-							50 = {}
+							60 = {}
 						}
 					}
 				}
@@ -1069,10 +1067,10 @@ on_actions = {
 						limit = { is_navy_leader = yes }
 					
 						random_list = {
-							50 = {
+							40 = { 
 								add_defense = 1 
 							}
-							50 = {}
+							60 = {}
 						}
 					}
 				}
@@ -1086,11 +1084,11 @@ on_actions = {
 						limit = { is_navy_leader = yes }
 					
 						random_list = {
-							50 = {
+							40 = { 
 								add_maneuver = 1
 								add_coordination = 1
 							}
-							50 = {}
+							60 = {}
 						}
 					}
 				}
@@ -1353,7 +1351,7 @@ on_actions = {
 				}
 				GER = { #Stop democratic Germany from doing Anschluss and awakening their ambition of global domination
 					uncomplete_national_focus = {
-						focus = GER_remilitarize_the_rhineland
+						focus = GER_rhineland
 						uncomplete_children = yes
 					}
 					uncomplete_national_focus = {

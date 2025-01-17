@@ -4469,14 +4469,13 @@ DEN_trade_deal_category = {
 		icon = GFX_decision_eng_trade_unions_support
 
 		ai_will_do = { 
-			base = 0
-			modifier = { #only do this if DEN is the player
-				add = 10
+			base = 5
+			modifier = {
+				factor = 5
 				has_opinion = {
 					target = DEN
 					value > 25
 				}
-				DEN = { is_ai = no }
 			}
 		}
 

@@ -218,7 +218,8 @@
 		available = {
 			
 		}
-
+		
+		
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY  } 
 
 		completion_reward = {
@@ -1849,6 +1850,7 @@
 						free_building_slots = {
 							building = infrastructure 
 							size > 0
+							include_locked = no
 						}
 					}
 					add_building_construction = {
@@ -1864,6 +1866,7 @@
 						free_building_slots = {
 							building = infrastructure 
 							size > 0
+							include_locked = no
 						}
 					}
 					add_building_construction = {
@@ -1879,6 +1882,7 @@
 						free_building_slots = {
 							building = infrastructure 
 							size > 0
+							include_locked = no
 						}
 					}
 					add_building_construction = {
@@ -2253,28 +2257,23 @@
 						modifier = SWI_banned_countrys_ideology
 					}
 				}
-				if = {
+				every_other_country = {
 					limit = {
-						has_start_date < 1936.01.02
+						SWI_is_country_to_balance = yes
 					}
-					every_other_country = {
+					if = {
 						limit = {
-							SWI_is_country_to_balance = yes
+							has_government = communism 
 						}
-						if = {
-							limit = {
-								has_government = communism
-							}
-							add_opinion_modifier = {
-								target = ROOT
-								modifier = SWI_banned_countrys_ideology
-							}
+						add_opinion_modifier = {
+							target = ROOT 
+							modifier = SWI_banned_countrys_ideology					
 						}
-						else = {
-							add_opinion_modifier = {
-								target = ROOT
-								modifier = SWI_banned_communism_good
-							}
+					}
+					else = {
+						add_opinion_modifier = {
+							target = ROOT 
+							modifier = SWI_banned_communism_good
 						}
 					}
 				}
@@ -2757,6 +2756,7 @@
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL}
 		
 		completion_reward = {
+			
 			add_ideas = { SWI_pro_helvetia_idea }
 			SWI_min_mr_low_reduction = yes
 		}
@@ -3077,7 +3077,7 @@
 		}
 
 		available = {
-			is_special_project_completed = sp:sp_air_radar
+			has_tech = radio_detection
 			has_tech = interwar_antiair
 			power_balance_value = {
 				id = SWI_centralization_bop
@@ -3184,7 +3184,7 @@
 	
 	focus = {
 		id = SWI_spirit_of_resistance 
-		icon = GFX_focus_SWI_spirit_of_resistance
+		icon = GFX_focus_generic_the_giant_wakes
 		prerequisite = { focus = SWI_luftschutz }
 		prerequisite = { focus = SWI_ortswehren }
 		x = 1
@@ -3709,6 +3709,8 @@
 
 		cost = 5
 
+		
+
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -3920,10 +3922,7 @@
 		}
 		
 		bypass = {
-			or = {
-				has_war = yes
-				is_in_faction = yes
-			}
+
 		}
 
 		cancel_if_invalid = yes
@@ -4882,18 +4881,18 @@
 
 		completion_reward = {
 			add_research_slot = 1
-
-			add_breakthrough_progress = {
-				specialization = specialization_nuclear
-				value = 0.75
-			}
-
 			add_tech_bonus = {
 				name = SWI_weapons_of_democracy
-				bonus = 0.5 # was 1
+				bonus = 2
 				uses = 1
 				category = nuclear  
 			}
+			add_tech_bonus = {
+				name = SWI_weapons_of_democracy
+				ahead_reduction = 1
+				uses = 2 
+				category = nuclear
+			} 			
 		}
 	}
 
@@ -5183,12 +5182,7 @@
 					GER = {
 						exists = yes 
 						has_government = fascism
-						NOT = {
-							OR = {
-								has_completed_focus = GER_oppose_hitler
-								has_completed_focus = GER_oppose_hitler_ww
-							}
-						}
+						NOT = { has_completed_focus = GER_oppose_hitler }
 					}
 				}
 				GER = { 
@@ -5291,20 +5285,13 @@
 		available = {
 			democratic < 0.70
 			fascism < 0.15
-			AUS = {
-				exists = yes
-				is_subject = no
-			}
+			AUS = {	exists = yes }
 			SWI_is_fully_centralized = yes 
-
 		}
 		
 		bypass = {
 			AUS = {
-				OR = {
-					exists = no
-					is_subject = yes
-				}
+				exists = no 
 			}
 		}
 		search_filters = {FOCUS_FILTER_ANNEXATION}
@@ -6081,7 +6068,6 @@
 		search_filters = {FOCUS_FILTER_MANPOWER FOCUS_FILTER_SWI_MILITARY_READINESS FOCUS_FILTER_ARMY_XP}
 		
 		completion_reward = {
-			custom_effect_tooltip = SWI_neutrality_decisions_disabled_TT
 			army_experience = 50
 			add_command_power = 50
 			SWI_remove_militia_recruitment_law = yes 
@@ -6719,8 +6705,8 @@
 					skill = 2
 					attack_skill = 2
 					defense_skill = 2
-					maneuvering_skill = 2
-					coordination_skill = 2
+					planning_skill = 2
+					logistics_skill = 2
 				}  
 			}
 			create_navy_leader = {
@@ -6981,19 +6967,17 @@
 			var:SWI.SWI_biggest_fascist = { 
 				SWI_add_large_good_opinion = yes
 			}
-			if = {
-				limit = { is_ai = no } #Fixes tooltip
-				every_other_country = {
-					limit = {
-						SWI_is_country_to_balance = yes
-						NOT = {
-							tag = SWI.SWI_biggest_fascist
-							has_government = fascism
-						}
+			every_other_country = {
+				limit = {
+					SWI_is_country_to_balance = yes 
+					NOT = { 
+						tag = SWI.SWI_biggest_fascist 
+						has_government = fascism 
 					}
-					SWI_add_large_bad_opinion = yes
 				}
-			}
+				SWI_add_large_bad_opinion = yes 
+			} 
+
 		}
 	}
 
@@ -8003,7 +7987,7 @@ focus = {
 		}
 		
 		bypass = {
-			is_in_faction_with = var:SWI_biggest_fascist
+
 		}
 		search_filters = {FOCUS_FILTER_POLITICAL}
 		cancel_if_invalid = yes

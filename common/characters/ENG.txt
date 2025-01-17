@@ -33,7 +33,7 @@ characters={
 				royalist_bulldog 
 			}
 			ai_will_do  = {
-				base = 1
+				factor  = 1.000
 			}
 		}
 
@@ -88,7 +88,7 @@ characters={
 				economic_organizer 
 			}
 			ai_will_do  = {
-				base = 1
+				factor  = 1.000
 			}
 		}
 		
@@ -142,7 +142,7 @@ characters={
 				}
 			}
 			ai_will_do  = {
-				base = 0
+				factor  = 0.000
 			}
 		}
 		
@@ -211,7 +211,7 @@ characters={
 			}
 			cost = 200
 			ai_will_do = {
-				base = 0.5
+				factor = 1.000
 			}
 		}
 		
@@ -253,15 +253,6 @@ characters={
 			traits = {
 				grand_battle_plan_expert
 			}
-
-			ai_will_do = {
-				base = 2
-				modifier = {
-					has_idea_with_trait = industrial_concern
-					has_idea_with_trait = silent_workhorse
-					factor = 5
-				}
-			}
 		}
 		
 		field_marshal={
@@ -297,7 +288,7 @@ characters={
 			}
 			cost = 100
 			ai_will_do = {
-				base = 2
+				factor = 2.000
 			}
 		}
 		
@@ -450,7 +441,7 @@ characters={
 				military_theorist
 			}
 			ai_will_do = {
-				base = 2
+				factor = 2.000
 				modifier = {
 					has_idea_with_trait = industrial_concern
 					has_idea_with_trait = silent_workhorse
@@ -589,12 +580,7 @@ characters={
 			}
 			cost = 100
 			ai_will_do = {
-				base = 3
-				modifier = {
-					has_idea_with_trait = industrial_concern
-					has_idea_with_trait = silent_workhorse
-					factor = 10
-				}
+				factor = 2.000
 			}
 		}
 
@@ -750,7 +736,7 @@ characters={
 			}
 			cost = 100
 			ai_will_do = {
-				base = 1
+				factor = 1.000
 			}
 		}
 		
@@ -824,7 +810,7 @@ characters={
 			}
 			cost = 100
 			ai_will_do = {
-				base = 0.7
+				factor = 0.700
 			}
 		}
 		
@@ -860,7 +846,7 @@ characters={
 			}
 			cost = 100
 			ai_will_do = {
-				base = 0.5
+				factor = 0.500
 			}
 		}
 		
@@ -1066,10 +1052,6 @@ characters={
 			traits = {
 				grand_fleet_proponent
 			}
-
-			ai_will_do  = {
-				base = 1
-			}
 		}
 	}
 
@@ -1089,9 +1071,6 @@ characters={
 				original_tag = ENG
 			}
 			traits = { naval_theorist }
-			ai_will_do  = {
-				base = 0.5
-			}
 		}
 	}
 
@@ -1112,10 +1091,6 @@ characters={
 			}
 			traits = {
 				air_warfare_theorist
-			}
-
-			ai_will_do  = {
-				base = 0.5
 			}
 		}
 	}
@@ -1139,11 +1114,55 @@ characters={
 			traits = {
 				victory_through_airpower
 			}
+		}
+	}
 
-			ai_will_do  = {
-				base = 0.25
+	ENG_james_chadwick={
+		name=ENG_james_chadwick
+		portraits={
+			army={
+				small="GFX_idea_james_chadwick"
 			}
 		}
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = james_chadwick
+			ledger = army
+			allowed = {
+				original_tag = ENG
+			}
+			research_bonus = {
+				nuclear = 0.150
+			}
+			traits = {
+				nuclear_scientist
+			}
+		}
+	}
+
+	ENG_frank_whittle={
+		name=ENG_frank_whittle
+		portraits={
+			army={
+				small="GFX_idea_frank_whittle"
+			}
+		}
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = frank_whittle
+			ledger = air
+			allowed = {
+				original_tag = ENG
+			}
+			research_bonus = {
+				rocketry = 0.150
+			}
+			traits = {
+				rocket_scientist
+			}
+		}		
 	}
 
 	ENG_jfc_fuller={
@@ -1170,7 +1189,7 @@ characters={
 				blitzkrieg_theorist
 			}
 			ai_will_do = {
-				base = 1
+				factor = 1.000
 			}
 		}
 	}
@@ -1253,7 +1272,7 @@ characters={
 			}
 			cost = 100
 			ai_will_do = {
-				base = 2
+				factor = 2.000
 			}
 		}
 	}
@@ -1281,7 +1300,7 @@ characters={
 			}
 			cost = 100
 			ai_will_do = {
-				base = 3
+				factor = 1.000
 			}
 		}
 	}
@@ -1304,7 +1323,7 @@ characters={
 			}
 			cost =  50
 			ai_will_do = {
-				base = 1
+				factor = 1.000
 			}
 		}
 	}
@@ -1330,7 +1349,7 @@ characters={
 			}
 			cost = 100
 			ai_will_do = {
-				base = 2
+				factor = 1.000
 			}
 		}
 	}
@@ -1353,7 +1372,7 @@ characters={
 			}
 			cost = 100
 			ai_will_do = {
-				base = 3
+				factor = 1.000
 			}
 		}
 	}
@@ -1376,7 +1395,7 @@ characters={
 			}
 			cost = 100
 			ai_will_do = {
-				base = 1
+				factor = 1.000
 			}
 		}		
 	}
@@ -1408,7 +1427,7 @@ characters={
 			}
 			cost = 100
 			ai_will_do = {
-				base = 2
+				factor = 2.000
 			}
 		}
 	}
@@ -1432,7 +1451,7 @@ characters={
 			}
 			cost = 100
 			ai_will_do = {
-				base = 1
+				factor = 1.000
 			}
 		}
 	}
@@ -1456,7 +1475,7 @@ characters={
 			}
 			cost = 100
 			ai_will_do = {
-				base = 1
+				factor = 1.000
 			}
 		}
 	}
@@ -1480,7 +1499,7 @@ characters={
 			}
 			cost = 100
 			ai_will_do = {
-				base = 1
+				factor = 1.000
 			}
 		}
 	}
@@ -1509,7 +1528,7 @@ characters={
 			}
 			cost = 200
 			ai_will_do = {
-				base = 1.000
+				factor = 1.000
 			}
 		}
 	}
@@ -1533,7 +1552,7 @@ characters={
 			}
 			cost = 100
 			ai_will_do = {
-				base = 0.2
+				factor = 0.200
 			}
 		}
 	}
@@ -1560,7 +1579,7 @@ characters={
 			}
 			cost = 200
 			ai_will_do = {
-				base = 0.2
+				factor = 0.200
 			}
 		}
 	}
@@ -1614,7 +1633,7 @@ characters={
 				}
 			}
 			ai_will_do  = {
-				base = 0
+				factor  = 0.000
 			}
 		}		
 	}
@@ -1658,7 +1677,7 @@ characters={
 				}
 			}
 			ai_will_do  = {
-				base = 0
+				factor  = 0.000
 			}
 		}
 	}
@@ -1691,13 +1710,13 @@ characters={
 				silent_workhorse 
 			}
 			ai_will_do  = {
-				base = 2
+				factor  = 2.000
 				modifier  = {
 					has_country_leader = {
 						character = ENG_stanley_baldwin
 						ruling_only = yes 
 					}
-					factor = 10
+					factor  = 10.000
 				}
 			}
 		}		
@@ -1719,9 +1738,6 @@ characters={
 			traits  = {
 				backroom_backstabber 
 			}
-			ai_will_do  = {
-				base = 0.5
-			}
 		}
 	}
 
@@ -1742,7 +1758,7 @@ characters={
 				war_industrialist 
 			}
 			ai_will_do  = {
-				base = 2
+				factor  = 2.000
 			}
 		}
 	}
@@ -1762,9 +1778,6 @@ characters={
 			}
 			traits  = {
 				armaments_organizer 
-			}
-			ai_will_do  = {
-				base = 0
 			}
 		}
 	}
@@ -1786,7 +1799,7 @@ characters={
 				quartermaster_general 
 			}
 			ai_will_do  = {
-				base = 1.000
+				factor  = 1.000
 			}
 		}
 	}
@@ -1813,7 +1826,7 @@ characters={
 				princess_of_terror 
 			}
 			ai_will_do  = {
-				base = 1.5
+				factor  = 1.000
 			}
 		}
 	}
@@ -1848,7 +1861,7 @@ characters={
 				socialist_novelist 
 			}
 			ai_will_do  = {
-				base = 1.5
+				factor  = 1.000
 			}
 		}
 	}
@@ -1865,10 +1878,7 @@ characters={
 			slot = political_advisor
 			idea_token = ENG_sylvia_pankhurst
 			available  = {
-				OR = {
-					has_government  = communism
-					SWE_refuge_for_revolutionaries_trigger = yes
-				}
+				has_government  = communism 
 			}
 			allowed  = {
 				always = no #SptChange set to always not allowed 
@@ -1881,11 +1891,6 @@ characters={
 						original_tag = ETH
 						has_dlc = "By Blood Alone"
 					}
-
-					AND = {
-						original_tag = SWE
-						has_aat = yes
-					}
 				}
 				
 			}
@@ -1893,7 +1898,7 @@ characters={
 				red_suffragette 
 			}
 			ai_will_do  = {
-				base = 1
+				factor  = 1.000
 			}
 			on_add = {
 				owner = {
@@ -1936,7 +1941,7 @@ characters={
 				old_figurehead 
 			}
 			ai_will_do  = {
-				base = 1
+				factor  = 1.000
 			}
 		}
 	}
@@ -2340,9 +2345,6 @@ characters={
 			traits  = {
 				head_of_intelligence 
 			}
-			ai_will_do  = {
-				base = 0.5
-			}
 		}
 	}
 
@@ -2364,10 +2366,10 @@ characters={
 				}
 			}
 			ai_will_do  = {
-				base = 1
+				factor  = 1.000
 				modifier  = {
-					has_political_power < 200
-					factor = 0
+					has_political_power < 200.000
+					factor  = 0.000
 				}
 			}
 			allowed  = {
@@ -2376,147 +2378,6 @@ characters={
 			}
 			traits  = {
 				mastermind_code_cracker 
-			}
-		}
-	}
-
-
-
-  #####
- #     #   ####   #  ######  #    #  #####  #   ####   #####   ####
- #        #    #  #  #       ##   #    #    #  #         #    #
-  #####   #       #  #####   # #  #    #    #   ####     #     ####
-       #  #       #  #       #  # #    #    #       #    #         #
- #     #  #    #  #  #       #   ##    #    #  #    #    #    #    #
-  #####    ####   #  ######  #    #    #    #   ####     #     ####
-
-
-	ENG_james_chadwick = {
-		name = ENG_james_chadwick
-		portraits = {
-			army = {
-				large = GFX_portrait_ENG_james_chadwick
-				small = GFX_idea_james_chadwick
-			}
-		}
-
-		scientist = {
-			traits = { scientist_trait_nuclear_warfare_expert }
-			skills = {
-				specialization_nuclear = 2
-			}
-		}
-
-		#advisor = {
-		#	cost = 100
-		#	slot = theorist
-		#	idea_token = james_chadwick
-		#	ledger = army
-		#	allowed = {
-		#		original_tag = ENG
-		#	}
-		#	research_bonus = {
-		#		nuclear = 0.150
-		#	}
-		#	traits = {
-		#		nuclear_scientist
-		#	}
-		#}
-	}
-
-	ENG_frank_whittle = {
-		name = ENG_frank_whittle
-		portraits = {
-			army = {
-				large = GFX_portrait_ENG_frank_whittle
-				small = GFX_idea_frank_whittle
-			}
-		}
-
-		scientist = {
-			traits = { scientist_trait_jet_expert scientist_trait_bright }
-			skills = {
-				specialization_air = 2
-			}
-		}
-
-		#advisor = {
-		#	cost = 100
-		#	slot = theorist
-		#	idea_token = frank_whittle
-		#	ledger = air
-		#	allowed = {
-		#		original_tag = ENG
-		#	}
-		#	research_bonus = {
-		#		rocketry = 0.150
-		#	}
-		#	traits = {
-		#		rocket_scientist
-		#	}
-		#}
-	}
-
-	ENG_john_cockcroft = {
-		name = ENG_john_cockcroft
-		portraits = {
-			army = {
-				large = GFX_portrait_ENG_john_cockcroft
-			}
-		}
-
-		scientist = {
-			traits = { scientist_trait_nuclear_power_expert }
-			skills = {
-				specialization_nuclear = 2
-			}
-		}
-	}
-
-	ENG_charles_goodeve = {
-		name = ENG_charles_goodeve
-		portraits = {
-			army = {
-				large = GFX_portrait_ENG_charles_goodeve
-			}
-		}
-
-		scientist = {
-			traits = { scientist_trait_surface_ship_specialist }
-			skills = {
-				specialization_naval = 2
-			}
-		}
-	}
-
-	ENG_nevil_shute = {
-		name = ENG_nevil_shute
-		portraits = {
-			army = {
-				large = GFX_portrait_ENG_nevil_shute
-			}
-		}
-
-		scientist = {
-			traits = { scientist_trait_aircraft_specialist scientist_trait_gifted_engineer }
-			skills = {
-				specialization_air = 2
-			}
-		}
-	}
-
-	ENG_robert_watson_watt = {
-		name = ENG_robert_watson_watt
-		portraits = {
-			army = {
-				large = GFX_portrait_ENG_robert_watson_watt
-			}
-		}
-
-		scientist = {
-			traits = { scientist_trait_electronics_specialist }
-			skills = {
-				specialization_air = 2
 			}
 		}
 	}
