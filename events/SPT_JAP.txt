@@ -1,0 +1,86 @@
+add_namespace = spt_jap
+
+#country_event = {
+#	id = spt_jap.1
+#	title = spt_jap.1.t
+#	desc = spt_jap.1.desc
+#	is_triggered_only = yes
+#	option = {
+#		name = spt_jap.1.a
+#	}
+#}
+
+country_event = { #start Marco Polo mission
+	id = spt_jap.1
+	title = spt_jap.1.t
+	desc = spt_jap.1.desc
+	is_triggered_only = yes
+	picture = GFX_report_event_chinese_soldiers
+
+	immediate = {
+		hidden_effect = {
+			add_ideas = SPT_JAP_marco_polo_timer_active
+			
+			set_rule = { can_create_factions = yes }
+			create_faction = JAP_greater_east_asian_co_prosperity_sphere
+		}
+	}
+
+	option = {
+		name = spt_jap.1.a
+
+		custom_effect_tooltip = SPT_JAP_marco_polo_mission_start_tt
+	}
+}
+
+country_event = { #hidden event to spawn militia units periodically
+	id = spt_jap.2
+	title = spt_jap.2.t
+	desc = spt_jap.2.desc
+	is_triggered_only = yes
+	timeout_days = 1
+	hidden = yes
+	picture = GFX_report_event_chinese_soldiers
+
+	immediate = {
+		country_event = {
+			id = spt_jap.2
+			days = 20
+		}
+
+		for_loop_effect = {
+			start = 0
+			end = 6
+			add = 1
+
+			SPT_JAP_spawn_militia = yes
+
+		}
+
+
+	}
+
+	option = {
+		name = spt_jap.2.a
+	}
+}
+country_event = { #prioritize aircraft type
+	id = spt_jap.3
+	title = spt_jap.3.t
+	desc = spt_jap.3.desc
+	is_triggered_only = yes
+	timeout_days = 14
+	picture = GFX_report_event_airplane_factory
+
+	immediate = {
+	}
+
+	option = {
+		name = spt_jap.3.a
+		add_ideas = JAP_prioritize_army_aircraft_construction
+	}
+	option = {
+		name = spt_jap.3.b
+		add_ideas = JAP_prioritize_naval_aircraft_construction
+	}
+}

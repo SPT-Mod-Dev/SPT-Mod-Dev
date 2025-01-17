@@ -1,0 +1,524 @@
+SPT_JAP_Marco_Polo = {
+
+	SPT_JAP_rising_tensions = {
+
+
+		allowed = { tag = JAP }
+
+		icon = GFX_decision_generic_ignite_civil_war
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+
+		days_mission_timeout = JAP.daysUntilMarcoPolo #620 days base
+		is_good = no
+		fire_only_once = yes
+
+		cancel_trigger = {
+			#has_idea = SPT_JAP_marco_polo_timer_inactive
+		}
+		
+		activation = {
+			has_idea = SPT_JAP_marco_polo_timer_active
+		}
+
+		visible = {
+			NOT = {
+				has_idea = SPT_JAP_marco_polo_timer_inactive
+			}
+		}
+		
+		cancel_effect = {
+		}
+
+		timeout_effect = {
+			complete_national_focus = SPT_JAP_marco_polo
+
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = SPT_JAP_marco_polo_timer_active
+					add_idea = SPT_JAP_marco_polo_timer_inactive
+				}
+			}
+		}
+
+		ai_will_do = {
+		}
+	}
+
+	SPT_JAP_incite_the_army = {
+
+		cost = 25
+		fire_only_once = no
+
+		icon = GFX_decision_revolt
+
+		available = {
+			
+		}
+		visible = {
+			has_active_mission = SPT_JAP_rising_tensions
+		}
+
+		days_remove = 30
+		
+		remove_effect = {
+			add_days_mission_timeout = {
+				mission = SPT_JAP_rising_tensions
+				days = JAP.deltaDaysNegative
+			}
+			hidden_effect = {
+				add_to_variable = {
+					var = JAP.daysTotal
+					value = JAP.deltaDaysNegative
+				}
+			}
+		}
+
+	}
+	SPT_JAP_restrain_the_army = {
+
+		cost = 25
+		fire_only_once = no
+		
+		icon = GFX_decision_generic_political_address
+
+		available = {
+			check_variable = {
+				var = JAP.daysTotal
+				value =  JAP.limitOfDays
+				compare = less_than
+			}
+		}
+		visible = {
+			check_variable = {
+				var = JAP.daysTotal
+				value =  JAP.limitOfDays
+				compare = less_than
+			}
+			has_active_mission = SPT_JAP_rising_tensions
+		}
+		
+		days_remove = 10
+
+		remove_effect = {
+			add_days_mission_timeout = {
+				mission = SPT_JAP_rising_tensions
+				days = JAP.deltaDaysPositive
+			}
+			hidden_effect = {
+				add_to_variable = {
+					var = JAP.daysTotal
+					value = JAP.deltaDaysPositive
+				}
+			}
+		}
+
+	}
+
+}
+
+SPT_JAP_conference = {
+
+	SPT_JAP_conference_add_buff_debug = {
+		cost = 0
+		fire_only_once = no
+
+		icon = GFX_decision_revolt
+
+		available = {
+			hidden_trigger = {
+				NOT = {
+					has_idea = SPT_JAP_conference_debug_idea
+				}
+			}
+		}
+		visible = {
+			always = no
+		}
+
+		#days_remove = 2
+		
+		# modifier = {
+		# 	#fake modifiers using tooltips combined with hidden ideas, makes it easier to add and remove the effects
+		# }
+
+		complete_effect = {
+			hidden_effect = {
+				add_ideas = SPT_JAP_conference_debug_idea
+			}
+			custom_effect_tooltip = SPT_JAP_conference_debug_add_buff_tt
+		}
+	}
+	SPT_JAP_conference_remove_buff_debug = {
+		cost = 0
+		fire_only_once = no
+
+		icon = GFX_decision_revolt
+
+		available = {
+			
+		}
+		visible = {
+			has_idea = SPT_JAP_conference_debug_idea
+			always = no
+		}
+
+		#days_remove = 2
+		
+		# modifier = {
+		# 	#fake modifiers using tooltips combined with hidden ideas, makes it easier to add and remove the effects
+		# }
+
+		complete_effect = {
+			hidden_effect = {
+				remove_ideas = SPT_JAP_conference_debug_idea
+			}
+			custom_effect_tooltip = SPT_JAP_conference_debug_remove_buff_tt
+		}
+	}
+
+	SPT_JAP_eco_conf_active = {
+
+		cost = 75
+		fire_only_once = no
+
+		icon = GFX_decision_generic_factory
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SPT_JAP_eco_conf_active_tt
+			}
+			hidden_trigger = {
+				has_idea = SPT_JAP_conf_eco_decision_active
+				NOT = {
+					has_idea = SPT_JAP_conf_eco_decision_cooldown
+				}
+			}
+
+		}
+		visible = {
+			has_idea = SPT_JAP_conf_eco_decision_active
+		}
+
+		#days_remove = -1
+	
+		# modifier = {
+		# 	#fake modifiers using tooltips combined with hidden ideas, makes it easier to add and remove the effects
+		# 	custom_effect_tooltip = SPT_JAP_conf_civ_up_tt
+		# }
+
+		complete_effect = {
+			hidden_effect = {
+				remove_ideas = SPT_JAP_conf_eco_decision_active
+			}
+			if = {
+				limit = {
+					has_idea = SPT_JAP_conf_civ_up_idea
+				}
+				remove_ideas = SPT_JAP_conf_civ_up_idea
+			}
+			if = {
+				limit = {
+					has_idea = SPT_JAP_conf_mil_up_idea
+				}
+				remove_ideas = SPT_JAP_conf_mil_up_idea
+			}
+			if = {
+				limit = {
+					has_idea = SPT_JAP_conf_dock_up_idea
+				}
+				remove_ideas = SPT_JAP_conf_dock_up_idea
+			}
+			if = {
+				limit = {
+					has_idea = SPT_JAP_conf_mil_out_up_idea
+				}
+				remove_ideas = SPT_JAP_conf_mil_out_up_idea
+			}
+			if = {
+				limit = {
+					has_idea = SPT_JAP_conf_dock_out_up_idea
+				}
+				remove_ideas = SPT_JAP_conf_dock_out_up_idea
+			}
+			if = {
+				limit = {
+					has_idea = SPT_JAP_conf_eff_growth_up_idea 
+				}
+				remove_ideas = SPT_JAP_conf_eff_growth_up_idea 
+			}
+		}
+	}
+
+	SPT_JAP_conf_civ_up = {
+		cost = 0
+		fire_only_once = no
+
+		icon = GFX_decision_generic_factory
+
+		available = {
+			hidden_trigger = {
+				NOT = {
+					has_idea = SPT_JAP_conf_eco_decision_active
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_JAP_eco_conf_lack_tt
+			}
+			has_completed_focus = SPT_JAP_initial_support_neutral
+
+		}
+		visible = {
+			has_completed_focus = SPT_JAP_initial_support_neutral
+		}
+
+		#days_remove = -1
+	
+		# modifier = {
+		# 	#fake modifiers using tooltips combined with hidden ideas, makes it easier to add and remove the effects
+		# 	custom_effect_tooltip = SPT_JAP_conf_civ_up_tt
+		# }
+
+		complete_effect = {
+			hidden_effect = {
+				add_ideas = SPT_JAP_conf_civ_up_idea
+				add_ideas = SPT_JAP_conf_eco_decision_active
+				add_timed_idea = {
+					idea = SPT_JAP_conf_eco_decision_cooldown
+					days = 180
+				}
+			}
+			custom_effect_tooltip = SPT_JAP_conf_cost_20_tt
+			custom_effect_tooltip = SPT_JAP_conf_civ_up_tt
+		}
+	}
+	SPT_JAP_conf_mil_up = {
+		cost = 0
+		fire_only_once = no
+
+		icon = GFX_decision_generic_factory
+
+		available = {
+			hidden_trigger = {
+				NOT = {
+					has_idea = SPT_JAP_conf_eco_decision_active
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_JAP_eco_conf_lack_tt
+			}
+		}
+		visible = {
+		}
+
+		#days_remove = -1
+	
+		# modifier = {
+		# 	#fake modifiers using tooltips combined with hidden ideas, makes it easier to add and remove the effects
+		# 	custom_effect_tooltip = SPT_JAP_conf_civ_up_tt
+		# }
+
+		complete_effect = {
+			hidden_effect = {
+				add_ideas = SPT_JAP_conf_mil_up_idea
+				add_ideas = SPT_JAP_conf_eco_decision_active
+				add_timed_idea = {
+					idea = SPT_JAP_conf_eco_decision_cooldown
+					days = 180
+				}
+			}
+			custom_effect_tooltip = SPT_JAP_conf_cost_20_tt
+			custom_effect_tooltip = SPT_JAP_conf_mil_up_tt
+		}
+	}
+	SPT_JAP_conf_dock_up = {
+		cost = 0
+		fire_only_once = no
+
+		icon = GFX_decision_generic_factory
+
+		available = {
+			hidden_trigger = {
+				NOT = {
+					has_idea = SPT_JAP_conf_eco_decision_active
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_JAP_eco_conf_lack_tt
+			}
+		}
+		visible = {
+		}
+
+		#days_remove = -1
+	
+		# modifier = {
+		# 	#fake modifiers using tooltips combined with hidden ideas, makes it easier to add and remove the effects
+		# 	custom_effect_tooltip = SPT_JAP_conf_civ_up_tt
+		# }
+
+		complete_effect = {
+			hidden_effect = {
+				add_ideas = SPT_JAP_conf_dock_up_idea
+				add_ideas = SPT_JAP_conf_eco_decision_active
+				add_timed_idea = {
+					idea = SPT_JAP_conf_eco_decision_cooldown
+					days = 180
+				}
+			}
+			custom_effect_tooltip = SPT_JAP_conf_cost_20_tt
+			custom_effect_tooltip = SPT_JAP_conf_dock_up_tt
+		}
+	}
+	SPT_JAP_conf_mil_out_up = {
+		cost = 0
+		fire_only_once = no
+
+		icon = GFX_decision_generic_factory
+
+		available = {
+			hidden_trigger = {
+				NOT = {
+					has_idea = SPT_JAP_conf_eco_decision_active
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_JAP_eco_conf_lack_tt
+			}
+		}
+		visible = {
+			has_completed_focus = SPT_JAP_initial_support_army
+		}
+
+		#days_remove = -1
+	
+		# modifier = {
+		# 	#fake modifiers using tooltips combined with hidden ideas, makes it easier to add and remove the effects
+		# 	custom_effect_tooltip = SPT_JAP_conf_civ_up_tt
+		# }
+
+		complete_effect = {
+			hidden_effect = {
+				add_ideas = SPT_JAP_conf_mil_out_up_idea
+				add_ideas = SPT_JAP_conf_eco_decision_active
+				add_timed_idea = {
+					idea = SPT_JAP_conf_eco_decision_cooldown
+					days = 180
+				}
+			}
+			custom_effect_tooltip = SPT_JAP_conf_cost_20_tt
+			custom_effect_tooltip = SPT_JAP_conf_mil_out_up_tt
+		}
+	}
+	SPT_JAP_conf_dock_out_up = {
+		cost = 0
+		fire_only_once = no
+
+		icon = GFX_decision_generic_factory
+
+		available = {
+			hidden_trigger = {
+				NOT = {
+					has_idea = SPT_JAP_conf_eco_decision_active
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_JAP_eco_conf_lack_tt
+			}
+		}
+		visible = {
+			has_completed_focus = SPT_JAP_initial_support_navy
+		}
+
+		#days_remove = -1
+	
+		# modifier = {
+		# 	#fake modifiers using tooltips combined with hidden ideas, makes it easier to add and remove the effects
+		# 	custom_effect_tooltip = SPT_JAP_conf_civ_up_tt
+		# }
+
+		complete_effect = {
+			hidden_effect = {
+				add_ideas = SPT_JAP_conf_dock_out_up_idea
+				add_ideas = SPT_JAP_conf_eco_decision_active
+				add_timed_idea = {
+					idea = SPT_JAP_conf_eco_decision_cooldown
+					days = 180
+				}
+			}
+			custom_effect_tooltip = SPT_JAP_conf_cost_20_tt
+			custom_effect_tooltip = SPT_JAP_conf_dock_out_up_tt
+		}
+	}
+	SPT_JAP_conf_eff_growth_up = {
+		cost = 0
+		fire_only_once = no
+
+		icon = GFX_decision_generic_factory
+
+		available = {
+			hidden_trigger = {
+				NOT = {
+					has_idea = SPT_JAP_conf_eco_decision_active
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_JAP_eco_conf_lack_tt
+			}
+			has_completed_focus = SPT_JAP_every_man_a_soldier
+		}
+		visible = {
+			has_completed_focus = SPT_JAP_every_man_a_soldier
+		}
+
+		#days_remove = -1
+	
+		# modifier = {
+		# 	#fake modifiers using tooltips combined with hidden ideas, makes it easier to add and remove the effects
+		# 	custom_effect_tooltip = SPT_JAP_conf_civ_up_tt
+		# }
+
+		complete_effect = {
+			hidden_effect = {
+				add_ideas = SPT_JAP_conf_eff_growth_up_idea
+				add_ideas = SPT_JAP_conf_eco_decision_active
+				add_timed_idea = {
+					idea = SPT_JAP_conf_eco_decision_cooldown
+					days = 180
+				}
+			}
+			custom_effect_tooltip = SPT_JAP_conf_cost_20_tt
+			custom_effect_tooltip = SPT_JAP_conf_eff_growth_up_tt
+		}
+	}
+}
+
+
+# SPT_JAP_conf_ = {
+# 	cost = 50
+# 	fire_only_once = no
+
+# 	icon = GFX_decision_revolt
+
+# 	available = {
+		
+# 	}
+# 	visible = {
+
+# 	}
+
+# 	#days_remove = 2
+	
+# 	# modifier = {
+# 	# 	#fake modifiers using tooltips combined with hidden ideas, makes it easier to add and remove the effects
+# 	# }
+
+# 	complete_effect = {
+# 		#hidden_effect = {
+# 		#	remove_ideas = SPT_JAP_conference_debug_idea
+# 		#}
+# 		#custom_effect_tooltip = SPT_JAP_conference_debug_remove_buff_tt
+# 	}
+# }
