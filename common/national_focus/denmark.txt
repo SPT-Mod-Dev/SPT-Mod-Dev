@@ -8761,10 +8761,12 @@ focus_tree = {
 				tooltip = air_weather_penalty_tt
 			}
 
-			# SPTchange
-			add_collaboration = {
-				target = NOR
-				value = 0.6
+			# SPTchange		
+			every_state = {
+				limit = {
+					is_core_of = NOR
+				}
+				add_compliance = 80
 			}
 
 			if = {
