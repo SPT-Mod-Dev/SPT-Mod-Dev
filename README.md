@@ -2,6 +2,10 @@
 
 ### 3.13.5 Twilight of the Game Stability
 
+#### General
+ - Added additional automation to Japanese decision "Hakkō Ichiu"
+ - If in the Allies, Mexico and/or Brazil joins all British wars, namely the war against the European Axis
+
 #### Netherlands
  - Removed faction check for Malaysia in focus 'The Singapore Conference'
 

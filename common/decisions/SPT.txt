@@ -135,7 +135,32 @@ spt_category = {
 					    hostility_reason = asked_to_join
 					}
 				}
-			}
+				# Mexico and Brazil join the war in Europe if they're in the Allies
+				MEX = {
+					if = {
+						limit = {
+							is_in_faction_with = USA
+						}
+						add_to_war = {
+							targeted_alliance = ENG
+							enemy = PREV
+							hostility_reason = asked_to_join
+						}
+					}
+				}
+				BRA = {
+					if = {
+						limit = {
+							is_in_faction_with = USA
+						}
+						add_to_war = {
+							targeted_alliance = ENG
+							enemy = PREV
+							hostility_reason = asked_to_join
+						}
+					}
+				}
+			}			
 		}
 	}
 	FRA_push_into_italy = {
