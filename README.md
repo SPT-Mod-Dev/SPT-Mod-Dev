@@ -6,14 +6,15 @@
  - Added additional automation to Japanese decision "Hakkō Ichiu"
  - If in the Allies, Mexico and/or Brazil joins all British wars, namely the war against the European Axis
  - Add Pacific Front tutorial tips to Brazil and Mexico
+ - Reduced all Concentrated Industry dockyard output 15%->12.5%
+ - Reduced convoy cost from 70->65 IC
 
 #### Netherlands
  - Removed faction check for Malaysia in focus 'The Singapore Conference'
 
 #### Denmark
  - Nerf Danish naval tree
- - Focus 'Administer Norway' compliance fixed (reduced to 60%)
- - Focus 'Reclaim Norway' compliance fixed (increased to 80%)
+ - Focus 'Administer Norway' compliance should now be working
 
 #### Hungary
  - Focus 'Join the Axis' is now available even if fucked over by German deals
@@ -26,6 +27,9 @@
 
 #### Romania
  - Added Super-Heavy Railway Gun production cost decrease to idea 'Karl Manufacturing Plant'
+
+#### Mexico
+ - Added new decision 'Support the Republicans' in the Spanish Civil War from vanilla, as a source of early Army and Navy XP
 
 ### 3.13.4 "Python"
 
