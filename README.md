@@ -5,6 +5,9 @@
 #### Netherlands
  - Removed faction check for Malaysia in focus 'The Singapore Conference'
 
+#### Denmark
+ - Nerf Danish naval tree
+
 ### 3.13.4 "Python"
 
 #### General

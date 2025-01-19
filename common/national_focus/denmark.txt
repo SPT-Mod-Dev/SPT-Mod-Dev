@@ -10510,11 +10510,11 @@ focus_tree = {
 			add_command_power = 25
 			navy_experience = 25
 
-			mio:DEN_orlogsvaerftet_organization = {
-				add_mio_size = 1
-				add_mio_funds_gain_factor = 0.2
-				add_mio_research_bonus = 0.05
-			}
+			# mio:DEN_orlogsvaerftet_organization = {
+			# 	add_mio_size = 1
+			# 	add_mio_funds_gain_factor = 0.2
+			# 	add_mio_research_bonus = 0.05
+			# }
 
 			if = {
 				limit = {
@@ -10531,42 +10531,43 @@ focus_tree = {
 				limit = { 
 					has_dlc = "Man the Guns"
 				}
-				create_equipment_variant = {
-					name = "Havmanden Class"				
-					type = ship_hull_submarine_1
-					name_group = DEN_SS_HISTORICAL
-					parent_version = 0
-					modules = {
-						fixed_ship_torpedo_slot = ship_torpedo_sub_1
-						fixed_ship_engine_slot = sub_ship_engine_2
-						rear_1_custom_slot = empty
-					}
-					design_team = mio:DEN_orlogsvaerftet_organization
-				}
-				add_equipment_production = {
-					equipment = {
-						type = ship_hull_submarine_1
-						creator = "DEN"
-						version_name = "Havmanden Class"
-					}
-					name = "Havmanden"
-					requested_factories = 1
-					progress = 0.30
-					amount = 2
-					industrial_manufacturer = mio:DEN_orlogsvaerftet_organization
-				}
-				add_equipment_production = {
-					equipment = {
-						type = ship_hull_submarine_1
-						creator = "DEN"
-						version_name = "Havmanden Class"
-					}
-					name = "Havkalen"
-					requested_factories = 1
-					progress = 0.20
-					amount = 2
-					industrial_manufacturer = mio:DEN_orlogsvaerftet_organization
-				}
+				# SPTchange
+				# create_equipment_variant = {
+				# 	name = "Havmanden Class"				
+				# 	type = ship_hull_submarine_1
+				# 	name_group = DEN_SS_HISTORICAL
+				# 	parent_version = 0
+				# 	modules = {
+				# 		fixed_ship_torpedo_slot = ship_torpedo_sub_1
+				# 		fixed_ship_engine_slot = sub_ship_engine_2
+				# 		rear_1_custom_slot = empty
+				# 	}
+				# 	design_team = mio:DEN_orlogsvaerftet_organization
+				# }
+				# add_equipment_production = {
+				# 	equipment = {
+				# 		type = ship_hull_submarine_1
+				# 		creator = "DEN"
+				# 		version_name = "Havmanden Class"
+				# 	}
+				# 	name = "Havmanden"
+				# 	requested_factories = 1
+				# 	progress = 0.30
+				# 	amount = 2
+				# 	industrial_manufacturer = mio:DEN_orlogsvaerftet_organization
+				# }
+				# add_equipment_production = {
+				# 	equipment = {
+				# 		type = ship_hull_submarine_1
+				# 		creator = "DEN"
+				# 		version_name = "Havmanden Class"
+				# 	}
+				# 	name = "Havkalen"
+				# 	requested_factories = 1
+				# 	progress = 0.20
+				# 	amount = 2
+				# 	industrial_manufacturer = mio:DEN_orlogsvaerftet_organization
+				# }
 				add_tech_bonus = {
 					name = DEN_expand_ubadsvabnet
 					bonus = 0.5
@@ -10681,7 +10682,7 @@ focus_tree = {
 				add_tech_bonus = {
 					name = DEN_refit_civilian_ships
 					bonus = 0.25
-					uses = 4
+					uses = 2 # SPTchange 4->2
 					category = ship_modules_tech
 				}
 				#Re-instate the Olfert Fischer Coastal Defence Ship
@@ -10782,16 +10783,17 @@ focus_tree = {
 		completion_reward = {
 			add_manpower = 1500
 			
-			mio:DEN_orlogsvaerftet_organization = {
-				add_mio_size = 1
-				add_mio_funds_gain_factor = 0.1
+			# SPTchange
+			# mio:DEN_orlogsvaerftet_organization = {
+			# 	add_mio_size = 1
+			# 	add_mio_funds_gain_factor = 0.1
 
-				unlock_mio_trait_tooltip = DEN_mio_trait_burmeister_wain_engines
-			}
+			# 	unlock_mio_trait_tooltip = DEN_mio_trait_burmeister_wain_engines
+			# }
 
 			DEN_improve_sovaernet_NS = yes
 			add_to_variable = {
-				DEN_sovaernet_naval_detection = 0.1
+				DEN_sovaernet_naval_detection = 0.05 # SPTChange 0.1->0.05
 				tooltip = naval_detection_tt
 			}
 			add_to_variable = {
@@ -10957,7 +10959,7 @@ focus_tree = {
 				add_tech_bonus = {
 					name = DEN_modernize_the_navy
 					bonus = 0.5
-					uses = 2
+					uses = 1 # SPTChange 2->1
 					category = cl_tech
 					category = dd_tech
 				}
@@ -11048,14 +11050,15 @@ focus_tree = {
 				DEN_sovaernet_naval_coordination = 0.05
 				tooltip = naval_coordination_tt
 			}
-			add_to_variable = {
-				DEN_sovaernet_navy_org = 0.05
-				tooltip = navy_org_factor_tt
-			}
-			add_to_variable = {
-				DEN_sovaernet_naval_morale = 0.05
-				tooltip = naval_morale_factor_tt
-			}
+			# SPTchange
+			# add_to_variable = {
+			# 	DEN_sovaernet_navy_org = 0.05
+			# 	tooltip = navy_org_factor_tt
+			# }
+			# add_to_variable = {
+			# 	DEN_sovaernet_naval_morale = 0.05
+			# 	tooltip = naval_morale_factor_tt
+			# }
 			add_to_variable = { 
 				DEN_sovaernet_naval_critical_score_chance = 0.05
 				tooltip = naval_critical_score_chance_factor_tt
@@ -11117,14 +11120,15 @@ focus_tree = {
 				DEN_sovaernet_naval_coordination = 0.05
 				tooltip = naval_coordination_tt
 			}
-			add_to_variable = {
-				DEN_sovaernet_navy_org = 0.05
-				tooltip = navy_org_factor_tt
-			}
-			add_to_variable = {
-				DEN_sovaernet_naval_morale = 0.05
-				tooltip = naval_morale_factor_tt
-			}
+			# SPTchange
+			# add_to_variable = {
+			# 	DEN_sovaernet_navy_org = 0.05
+			# 	tooltip = navy_org_factor_tt
+			# }
+			# add_to_variable = {
+			# 	DEN_sovaernet_naval_morale = 0.05
+			# 	tooltip = naval_morale_factor_tt
+			# }
 			add_to_variable = {
 				DEN_sovaernet_naval_critical_score_chance = 0.05
 				tooltip = naval_critical_score_chance_factor_tt
@@ -11300,27 +11304,29 @@ focus_tree = {
 				DEN_sovaernet_naval_morale = 0.05
 				tooltip = naval_morale_factor_tt
 			}
+			# SPTchange
+			# add_to_variable = {
+			# 	DEN_sovaernet_navy_screen_attack = 0.05
+			# 	tooltip = navy_screen_attack_factor_tt
+			# }
+			# add_to_variable = {
+			# 	DEN_sovaernet_navy_screen_defence = 0.05
+			# 	tooltip = navy_screen_defence_factor_tt
+			# }
 			add_to_variable = {
-				DEN_sovaernet_navy_screen_attack = 0.05
-				tooltip = navy_screen_attack_factor_tt
-			}
-			add_to_variable = {
-				DEN_sovaernet_navy_screen_defence = 0.05
-				tooltip = navy_screen_defence_factor_tt
-			}
-			add_to_variable = {
-				DEN_sovaernet_screening_efficiency = 0.1
+				DEN_sovaernet_screening_efficiency = 0.05 # SPTChange 0.1->0.05
 				tooltip = screening_efficiency_tt
 			}
 			
-			add_tech_bonus = {
-				name = DEN_baltic_sea_domination
-				bonus = 0.75
-				uses = 3
-				category = dd_tech
-				category = cl_tech
-				category = ca_tech
-			}
+			# SPTchange
+			# add_tech_bonus = {
+			# 	name = DEN_baltic_sea_domination
+			# 	bonus = 0.75
+			# 	uses = 3
+			# 	category = dd_tech
+			# 	category = cl_tech
+			# 	category = ca_tech
+			# }
 
 			if = { 	#Gotland
 				limit = { 124 = { is_fully_controlled_by = ROOT } }
@@ -11387,18 +11393,20 @@ focus_tree = {
 				DEN_sovaernet_navy_org = 0.05
 				tooltip = navy_org_factor_tt
 			}
-			add_to_variable = { 
-				DEN_sovaernet_naval_morale = 0.05
-				tooltip = naval_morale_factor_tt
-			}
+			# SPTchange
+			# add_to_variable = { 
+			# 	DEN_sovaernet_naval_morale = 0.05
+			# 	tooltip = naval_morale_factor_tt
+			# }
 			add_to_variable = {
 				DEN_sovaernet_navy_anti_air = 0.05
 				tooltip = navy_anti_air_attack_factor_tt
 			}
-			add_to_variable = {
-				DEN_sovaernet_capital_ship_defence = 0.05
-				tooltip = navy_capital_ship_defence_tt
-			}
+			# SPTchange
+			# add_to_variable = {
+			# 	DEN_sovaernet_capital_ship_defence = 0.05
+			# 	tooltip = navy_capital_ship_defence_tt
+			# }
 			add_to_variable = {
 				DEN_sovaernet_positioning = 0.05
 				tooltip = positioning_tt
@@ -12365,11 +12373,11 @@ focus_tree = {
 
 			DEN_improve_flyvevabnet_NS = yes
 			add_to_variable = {
-				DEN_flyvevabnet_naval_strike_targetting = 0.1
+				DEN_flyvevabnet_naval_strike_targetting = 0.05 # SPTChange 0.1->0.05
 				tooltip = naval_strike_targetting_factor_tt
 			}
 			add_to_variable = {
-				DEN_flyvevabnet_air_agility = 0.05
+				DEN_flyvevabnet_air_agility = 0.05 # SPTChange 0.05->0.025
 				tooltip = air_agility_factor_tt
 			}
 
