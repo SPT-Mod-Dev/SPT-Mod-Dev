@@ -8,7 +8,7 @@
 #### Denmark
  - Nerf Danish naval tree
  - Focus 'Administer Norway' compliance fixed (reduced to 60%)
- - Focus 'Reclaim Norway' compliance fixed (reduced to 60%)
+ - Focus 'Reclaim Norway' compliance fixed (increased to 80%)
 
 #### Hungary
  - Focus 'Join the Axis' is now available even if fucked over by German deals
