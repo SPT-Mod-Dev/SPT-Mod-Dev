@@ -5,6 +5,7 @@
 #### General
  - Added additional automation to Japanese decision "Hakkō Ichiu"
  - If in the Allies, Mexico and/or Brazil joins all British wars, namely the war against the European Axis
+ - Add Pacific Front tutorial tips to Brazil and Mexico
 
 #### Netherlands
  - Removed faction check for Malaysia in focus 'The Singapore Conference'
