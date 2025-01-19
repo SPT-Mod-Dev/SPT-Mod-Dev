@@ -13,6 +13,9 @@
 #### Hungary
  - Focus 'Join the Axis' is now available even if fucked over by German deals
 
+#### South Africa
+ - Added historical flavor event on the replacement of Prime Minister Hertzog with Smuts
+
 ### 3.13.4 "Python"
 
 #### General

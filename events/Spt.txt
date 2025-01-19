@@ -877,6 +877,50 @@ news_event = { #Ahistorical is on
 	}
 }
 
+# SAF's Nazi sympathizer PM replaced with a better racist
+country_event = {
+	id = spt.113
+	title = spt.113.t
+	desc = spt.113.desc
+	picture = GFX_report_event_saf_coup
+	
+	fire_only_once = yes
+
+	trigger = {
+		tag = SAF
+		SAF = { has_war_with = GER }
+		SAF = { has_government = democratic } 
+		has_country_leader = { ruling_only = yes name = "J. B. M. Hertzog" } 
+	}
+	
+	option = {
+		name = spt.113.a
+		create_country_leader = {
+			name = "Jan Smuts"
+			desc = "POLITICS_JAN_SMUTS_DESC"
+			picture = "Portrait_SouthAfrica_Jan_Smuts.dds"
+			expire = "1950.1.1"
+			ideology = conservatism
+			traits = {
+				dealbroker
+			}
+		}
+		party_leader = {
+			limit = {
+				has_ideology = conservatism
+			}
+			add_field_marshal_role = {
+				skill = 1
+				attack_skill = 1
+				defense_skill = 1
+				planning_skill = 1
+				logistics_skill = 1
+			}
+		}
+		retire_character = SAF_j_b_m_hertzog
+	}
+}
+
 
 add_namespace = spt_man
 country_event = { 
