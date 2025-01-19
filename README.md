@@ -16,6 +16,12 @@
 #### South Africa
  - Added historical flavor event on the replacement of Prime Minister Hertzog with Smuts
 
+#### Mongolia
+ - Added Super-Heavy Railway Gun production cost decrease to idea 'Streamlined Artillery Production'
+
+#### Romania
+ - Added Super-Heavy Railway Gun production cost decrease to idea 'Karl Manufacturing Plant'
+
 ### 3.13.4 "Python"
 
 #### General
