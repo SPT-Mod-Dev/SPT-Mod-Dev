@@ -7,6 +7,8 @@
 
 #### Denmark
  - Nerf Danish naval tree
+ - Focus 'Administer Norway' compliance fixed (reduced to 60%)
+ - Focus 'Reclaim Norway' compliance fixed (reduced to 60%)
 
 ### 3.13.4 "Python"
 
