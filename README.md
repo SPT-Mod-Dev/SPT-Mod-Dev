@@ -10,6 +10,9 @@
  - Focus 'Administer Norway' compliance fixed (reduced to 60%)
  - Focus 'Reclaim Norway' compliance fixed (reduced to 60%)
 
+#### Hungary
+ - Focus 'Join the Axis' is now available even if fucked over by German deals
+
 ### 3.13.4 "Python"
 
 #### General
