@@ -1,9 +1,38 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.14.5
+### 3.13.5 Twilight of the Game Stability
+
+#### General
+ - Added additional automation to Japanese decision "Hakkō Ichiu"
+ - If in the Allies, Mexico and/or Brazil joins all British wars, namely the war against the European Axis
+ - Add Pacific Front tutorial tips to Brazil and Mexico
+ - Reduced all Concentrated Industry dockyard output 15%->12.5%
+ - Reduced convoy cost from 70->65 IC
+ - Radio Navigation: Surface, Sub Detection moved from mission to general stats
+ - Radio Navigation II: Surface, Sub Detection moved from mission to general stats
+
+#### Netherlands
+ - Removed faction check for Malaysia in focus 'The Singapore Conference'
+
+#### Denmark
+ - Nerf Danish naval tree
+ - Focus 'Administer Norway' compliance should now be working
 
 #### Hungary
-- 'Restrict Voting Rights' time 35 -> 70
+ - Focus 'Join the Axis' is now available even if fucked over by German deals
+ - 'Restrict Voting Rights' time 35 -> 70
+
+#### South Africa
+ - Added historical flavor event on the replacement of Prime Minister Hertzog with Smuts
+
+#### Mongolia
+ - Added Super-Heavy Railway Gun production cost decrease to idea 'Streamlined Artillery Production'
+
+#### Romania
+ - Added Super-Heavy Railway Gun production cost decrease to idea 'Karl Manufacturing Plant'
+
+#### Mexico
+ - Added new decision 'Support the Republicans' in the Spanish Civil War from vanilla, as a source of early Army and Navy XP
 
 ### 3.13.4 "Python"
 
