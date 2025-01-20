@@ -1,14 +1,57 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.14.5
 
-### General
- - Africa front allies debuff: Tier 2 Attack modifier against Germany/Italy -5% -> 0%
-                                      Defence modifier against Germany/Italy -5% -> 0%
-                                      Army attrition rate 0% -> 3%
-                               Tier 3 Attack modifier against Germany/Italy -10% -> -5%
-                                      Defence modifier against Germany/Italy -10% -> -5%
-                                      Army attrition rate 0% -> 3%
+### 3.13.5 Twilight of the Game Stability
+
+#### General
+ - Added additional automation to Japanese decision "Hakkō Ichiu"
+ - If in the Allies, Mexico and/or Brazil joins all British wars, namely the war against the European Axis
+ - Add Pacific Front tutorial tips to Brazil and Mexico
+ - Reduced all Concentrated Industry dockyard output 15%->12.5%
+ - Reduced convoy cost from 70->65 IC
+ - Radio Navigation: Surface, Sub Detection moved from mission to general stats
+ - Radio Navigation II: Surface, Sub Detection moved from mission to general stats
+ - Training limit increased to 1M
+
+#### Soviets
+ - Removed recurring Stalin Admiral decision due to lag
+
+#### Finland
+ - Added decision to allow sending volunteers after the Soviets are near capitulation
+
+#### Netherlands
+ - Removed faction check for Malaysia in focus 'The Singapore Conference'
+
+#### Denmark
+ - Nerf Danish naval tree
+ - Focus 'Administer Norway' compliance should now be working
+
+#### Hungary
+ - Focus 'Join the Axis' is now available even if fucked over by German deals
+ - 'Restrict Voting Rights' time 35 -> 70
+ - 'Act of Defence' time 70 -> 35
+ - 'Wherever the Cross Points' time 70 -> 35
+
+#### South Africa
+ - Added historical flavor event on the replacement of Prime Minister Hertzog with Smuts
+
+#### Mongolia
+ - Added Super-Heavy Railway Gun production cost decrease to idea 'Streamlined Artillery Production'
+
+#### Romania
+ - Added Super-Heavy Railway Gun production cost decrease to idea 'Karl Manufacturing Plant'
+
+#### Mexico
+ - Added new decision 'Support the Republicans' in the Spanish Civil War from vanilla, as a source of early Army and Navy XP
+
+#### Transport Planes
+ - 1940 
+    IC 50 -> 40
+    Range 1400 -> 1500
+ - 1945
+    IC 50 -> 30
+    Range 1800 -> 2000
+    Speed 480 -> 500
 
 ### 3.13.4 "Python"
 
