@@ -430,28 +430,32 @@ spt_category = {
 		allowed = {
 			original_tag = FIN
 		}
+
 		visible = {
-			SOV = {
-				surrender_progress = 0.8
+			NOT = {
+				SOV = {
+					controls_state = 219
+				}
+			}
+			NOT = {
+				has_rule = can_send_volunteers
 			}
 		}
+
 		available = {
 			SOV = {
 				OR= {
 					has_capitulated = yes
 					exists = no
+					surrender_progress > 0.8
 				}
+			}	
+		}
+
+		complete_effect = {
+			FIN = {
+				set_rule = { can_send_volunteers = yes }
 			}
-			any_country = {
-				is_in_faction_with = GER
-				any_state = {
-				is_on_continent = europe 
-				is_in_home_area = yes
-				controlled_by_allies = yes
-				}
-			}
-			}
-			
 		}
 	}
 }

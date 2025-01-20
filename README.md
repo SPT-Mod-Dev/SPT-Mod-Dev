@@ -14,7 +14,10 @@
 
 #### Soviets
  - Removed recurring Stalin Admiral decision due to lag
- 
+
+#### Finland
+ - Added decision to allow sending volunteers after the Soviets are near capitulation
+
 #### Netherlands
  - Removed faction check for Malaysia in focus 'The Singapore Conference'
 
