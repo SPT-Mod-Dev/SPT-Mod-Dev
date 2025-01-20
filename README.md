@@ -12,6 +12,9 @@
  - Radio Navigation II: Surface, Sub Detection moved from mission to general stats
  - Training limit increased to 1M
 
+#### Soviets
+ - Removed recurring Stalin Admiral decision due to lag
+ 
 #### Netherlands
  - Removed faction check for Malaysia in focus 'The Singapore Conference'
 

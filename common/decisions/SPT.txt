@@ -425,6 +425,35 @@ spt_category = {
 		}
 		fire_only_once = yes
 	}
+
+	SPT_FIN_volunteer_decision = {
+		allowed = {
+			original_tag = FIN
+		}
+		visible = {
+			SOV = {
+				surrender_progress = 0.8
+			}
+		}
+		available = {
+			SOV = {
+				OR= {
+					has_capitulated = yes
+					exists = no
+				}
+			}
+			any_country = {
+				is_in_faction_with = GER
+				any_state = {
+				is_on_continent = europe 
+				is_in_home_area = yes
+				controlled_by_allies = yes
+				}
+			}
+			}
+			
+		}
+	}
 }
 
 USA_PAC_category = {
