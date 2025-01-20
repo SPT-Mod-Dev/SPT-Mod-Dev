@@ -7,13 +7,22 @@
  - Added additional automation to Japanese decision "Hakkō Ichiu"
  - If in the Allies, Mexico and/or Brazil joins all British wars, namely the war against the European Axis
  - Add Pacific Front tutorial tips to Brazil and Mexico
- - Reduced all Concentrated Industry dockyard output 15%->12.5%
- - Reduced convoy cost from 70->65 IC
+ - Reduced all Concentrated Industry dockyard output 15% -> 12.5%
+ - Reduced convoy cost from 70 -> 65 IC
  - Radio Navigation: Surface, Sub Detection moved from mission to general stats
  - Radio Navigation II: Surface, Sub Detection moved from mission to general stats
  - Training limit increased to 1M
+ - Africa front allies debuff: Tier 2 Attack modifier against Germany/Italy -5% -> 0%
+                                      Defence modifier against Germany/Italy -5% -> 0%
+                                      Army attrition rate 0% -> 3%
+                               Tier 3 Attack modifier against Germany/Italy -10% -> -5%
+                                      Defence modifier against Germany/Italy -10% -> -5%
+                                      Army attrition rate 0% -> 3%
 
 #### Soviets
+ - Focus 'Preemptive Invasion of Iran' Time 35 -> 14
+                                       No longer makes Iran a Puppet
+                                       Now directly transfers states 'Tibriz', 'Gilan', 'Tehran', 'Khorasan' to Soviets and 'Khuzestan', 'Fars' to UK 
  - Removed recurring Stalin Admiral decision due to lag
 
 #### Finland

@@ -14842,7 +14842,7 @@ ai_will_do = {
 		x = 2
 		y = 0
 		relative_position_id = SOV_the_threat_from_the_land_of_the_rising_sun
-		cost = 5
+		cost = 2
 
 		ai_will_do = {
 			factor = 0
@@ -14853,32 +14853,19 @@ ai_will_do = {
 		}
 		will_lead_to_war_with = PER
 		available = {
-			country_exists = PER
-			NOT = { has_war_with = PER }
-			is_subject = no
-			any_enemy_country = { is_major = yes }
+			has_war_with = GER
 		}
-		
+
 		search_filters = {}
 
 		completion_reward = {
-			PER = {
-				set_country_flag = SOV_ultimatum_sent_flag
-				country_event = { id = NSB_soviet_foreign_politics_events.210 hours = 16 random_hours = 8 }
-			}
-
-			effect_tooltip = {
-				custom_effect_tooltip = if_they_accept_tt
-				ROOT = {
-					puppet = PER
-				}
-
-				custom_effect_tooltip = if_they_refuse_tt
-				effect_tooltip = {
-					activate_mission = SOV_preparations_for_operation_countenance
-					custom_effect_tooltip = SOV_preparations_for_operation_countenance_tt
-				}
-				custom_effect_tooltip = SOV_preemptive_invasion_of_iran_tt
+			set_state_controller = 419
+			set_state_controller = 420
+			set_state_controller = 266
+			set_state_controller = 416
+			ENG = {
+				set_state_controller = 413
+				set_state_controller = 412
 			}
 		}
 	}
