@@ -8,6 +8,8 @@
  - Add Pacific Front tutorial tips to Brazil and Mexico
  - Reduced all Concentrated Industry dockyard output 15%->12.5%
  - Reduced convoy cost from 70->65 IC
+ - Radio Navigation: Surface, Sub Detection moved from mission to general stats
+ - Radio Navigation II: Surface, Sub Detection moved from mission to general stats
 
 #### Netherlands
  - Removed faction check for Malaysia in focus 'The Singapore Conference'
