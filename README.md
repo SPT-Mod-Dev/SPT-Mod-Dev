@@ -4,6 +4,8 @@
 ### 3.13.5 Twilight of the Game Stability
 
 #### General
+ - Estonia and Lithuania annexed in to Latvia
+ - Iran and Afghanistan annexed in to Middle Eastern Trade Federation
  - Added additional automation to Japanese decision "Hakkō Ichiu"
  - If in the Allies, Mexico and/or Brazil joins all British wars, namely the war against the European Axis
  - Add Pacific Front tutorial tips to Brazil and Mexico
@@ -24,6 +26,8 @@
                                        No longer makes Iran a Puppet
                                        Now directly transfers states 'Tibriz', 'Gilan', 'Tehran', 'Khorasan' to Soviets and 'Khuzestan', 'Fars' to UK 
  - Removed recurring Stalin Admiral decision due to lag
+ - Intelligence Angency operation 'Prepare Collaboration Government' Increased Cost by 100% to compensate for single nation baltic
+ - Decision 'Send Ultimatum to Latvia' Political Power cost 75 -> 175 (Compensate for single nation baltic)
 
 #### Finland
  - Added decision to allow sending volunteers after the Soviets are near capitulation
