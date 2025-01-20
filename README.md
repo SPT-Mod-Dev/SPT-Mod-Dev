@@ -1,5 +1,15 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.14.5
+
+### General
+ - Africa front allies debuff: Tier 2 Attack modifier against Germany/Italy -5% -> 0%
+                                      Defence modifier against Germany/Italy -5% -> 0%
+                                      Army attrition rate 0% -> 3%
+                               Tier 3 Attack modifier against Germany/Italy -10% -> -5%
+                                      Defence modifier against Germany/Italy -10% -> -5%
+                                      Army attrition rate 0% -> 3%
+
 ### 3.13.4 "Python"
 
 #### General
