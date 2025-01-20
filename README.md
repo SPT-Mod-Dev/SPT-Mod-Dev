@@ -1,5 +1,10 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.14.5
+
+#### Hungary
+- 'Restrict Voting Rights' time 35 -> 70
+
 ### 3.13.4 "Python"
 
 #### General
