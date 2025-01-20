@@ -10,6 +10,7 @@
  - Reduced convoy cost from 70->65 IC
  - Radio Navigation: Surface, Sub Detection moved from mission to general stats
  - Radio Navigation II: Surface, Sub Detection moved from mission to general stats
+ - Training limit increased to 1M
 
 #### Netherlands
  - Removed faction check for Malaysia in focus 'The Singapore Conference'
@@ -21,6 +22,8 @@
 #### Hungary
  - Focus 'Join the Axis' is now available even if fucked over by German deals
  - 'Restrict Voting Rights' time 35 -> 70
+ - 'Act of Defence' time 70 -> 35
+ - 'Wherever the Cross Points' time 70 -> 35
 
 #### South Africa
  - Added historical flavor event on the replacement of Prime Minister Hertzog with Smuts
@@ -33,6 +36,15 @@
 
 #### Mexico
  - Added new decision 'Support the Republicans' in the Spanish Civil War from vanilla, as a source of early Army and Navy XP
+
+#### Transport Planes
+ - 1940 
+    IC 50 -> 40
+    Range 1400 -> 1500
+ - 1945
+    IC 50 -> 30
+    Range 1800 -> 2000
+    Speed 480 -> 500
 
 ### 3.13.4 "Python"
 
