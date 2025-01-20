@@ -43,7 +43,8 @@ NDefines.NNavy.GUN_HIT_PROFILES = { -- hit profiles for guns, if target ih profi
     110.0,	-- torpedoes
     45.0,	-- small guns
 }
-NDefines.NNavy.CONVOY_HIT_PROFILE                                            = 105
+NDefines.NNavy.CONVOY_HIT_PROFILE                                               = 105
+NDefines.NNavy.CONVOY_RAID_MAX_REGION_TO_TASKFORCE_RATIO                        = 1
 
 NDefines.NDiplomacy.EMBARGO_THREAT_THRESHOLD = 50
 

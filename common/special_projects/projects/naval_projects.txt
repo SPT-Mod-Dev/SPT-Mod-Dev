@@ -1581,6 +1581,99 @@ sp_naval_anechoic_tiles = {
 ##   ##  #  # #   #  #  ##  ###     ##  #  # ### #    ##  
 
 #########################################################
+#Dstroyer Escort
+sp_naval_escort_destroyer = {
+	specialization = specialization_naval
+
+
+	project_tags = sp_tag_surface_ship
+
+	ai_will_do = {
+		base = 1
+	}
+
+	allowed = {
+		#FREE
+	}
+	available = {
+		FROM = {
+			if = {
+				limit = {
+					has_dlc = "Man the Guns"
+				}
+				has_tech = basic_ship_hull_light
+			}
+			else = {
+				has_tech = basic_destroyer
+			}
+
+		}
+
+	}
+
+	complexity = sp_complexity.small
+	prototype_time = sp_time.prototype.medium
+
+	resource_cost = {
+		resources = {
+			steel = 8
+			tungsten = 2
+			chromium = 2
+		}
+	}
+
+	breakthrough_cost = {
+		specialization_naval = 1
+	}
+	project_output = {
+
+		enable_equipments = {
+			limit = {
+				has_dlc = "Man the Guns"
+			}
+			ship_hull_light_escort
+		}
+
+
+		enable_equipments = {
+			limit = {
+				not = {has_dlc = "Man the Guns"}
+			}
+			ship_hull_light_escort
+		}
+
+		enable_equipment_modules = {
+
+		}
+
+		enable_subunits = {
+
+		}
+
+	}
+	generic_prototype_rewards = {
+		sp_naval_generic_reward_scientist_xp_1
+		sp_naval_generic_reward_scientist_xp_2
+		sp_naval_generic_reward_scientist_xp_3
+		sp_naval_generic_reward_navy_xp_1
+		sp_naval_generic_reward_navy_xp_2
+		sp_naval_generic_reward_navy_xp_3
+		sp_naval_generic_reward_major_progress_1
+		sp_naval_generic_reward_major_progress_2
+		sp_naval_generic_reward_major_progress_3
+		sp_naval_generic_reward_test_failure_1
+		sp_naval_generic_reward_test_failure_2
+		sp_naval_generic_reward_test_failure_3
+		sp_naval_generic_reward_armor_tech_1
+		sp_naval_generic_reward_armor_tech_2
+		sp_naval_generic_reward_armor_tech_3
+		sp_naval_generic_reward_artillery_tech_1
+		sp_naval_generic_reward_artillery_tech_2
+		sp_naval_generic_reward_artillery_tech_3
+		sp_naval_generic_failure_torpedo_accident
+	}
+}
+
 #Torpedo Cruiser
 sp_naval_torpedo_cruiser = {
 	specialization = specialization_naval
@@ -1755,9 +1848,186 @@ sp_naval_torpedo_cruiser = {
 			}
 		}	
 	}
-
 }
 
+#Panzerschiff
+sp_naval_panzerschiff = {
+	specialization = specialization_naval
+
+
+	project_tags = sp_tag_surface_ship
+
+	ai_will_do = {
+		base = 1
+	}
+
+	allowed = {
+		#FREE
+	}
+	available = {
+		FROM = {
+			if = {
+				limit = {
+					has_dlc = "Man the Guns"
+				}
+				has_tech = basic_ship_hull_cruiser
+			}
+			else = {
+				has_tech = basic_light_cruiser
+			}
+
+		}
+
+	}
+
+	complexity = sp_complexity.small
+	prototype_time = sp_time.prototype.medium
+
+	resource_cost = {
+		resources = {
+			steel = 8
+			tungsten = 2
+			chromium = 2
+		}
+	}
+
+	breakthrough_cost = {
+		specialization_naval = 1
+	}
+	project_output = {
+
+		enable_equipments = {
+			limit = {
+				has_dlc = "Man the Guns"
+			}
+			ship_hull_cruiser_panzerschiff
+		}
+
+
+		enable_equipments = {
+			limit = {
+				not = {has_dlc = "Man the Guns"}
+			}
+			ship_hull_cruiser_panzerschiff
+		}
+
+		enable_equipment_modules = {
+			ship_extra_fuel_tank
+		}
+
+		enable_subunits = {
+
+		}
+
+	}
+	generic_prototype_rewards = {
+		sp_naval_generic_reward_scientist_xp_1
+		sp_naval_generic_reward_scientist_xp_2
+		sp_naval_generic_reward_scientist_xp_3
+		sp_naval_generic_reward_navy_xp_1
+		sp_naval_generic_reward_navy_xp_2
+		sp_naval_generic_reward_navy_xp_3
+		sp_naval_generic_reward_major_progress_1
+		sp_naval_generic_reward_major_progress_2
+		sp_naval_generic_reward_major_progress_3
+		sp_naval_generic_reward_test_failure_1
+		sp_naval_generic_reward_test_failure_2
+		sp_naval_generic_reward_test_failure_3
+		sp_naval_generic_reward_armor_tech_1
+		sp_naval_generic_reward_armor_tech_2
+		sp_naval_generic_reward_armor_tech_3
+		sp_naval_generic_reward_artillery_tech_1
+		sp_naval_generic_reward_artillery_tech_2
+		sp_naval_generic_reward_artillery_tech_3
+		sp_naval_generic_failure_torpedo_accident
+	}
+
+	unique_prototype_rewards = {
+		sp_naval_panzerschiff_unique_reward_a = {
+			fire_only_once = yes
+
+			threshold = {
+				min = 40
+				max = 90
+			}
+
+			weight = {
+				base = 100
+			}
+
+			option = {
+				token = sp_naval_panzerschiff_preference_a
+
+				iteration_output = {
+					country_effects = {
+						if = {
+							limit = { has_dlc = "Man the Guns"}
+
+							add_equipment_bonus = {
+								name = sp_naval_panzerschiff_eq_bonus_heavy_attack
+								bonus = {
+									ship_hull_cruiser_panzerschiff = {
+										naval_heavy_gun_hit_chance_factor = 0.15
+										hg_attack = 0.1
+										hg_armor_piercing = 0.1
+									}
+								}
+							}
+						}
+						else = {
+							add_equipment_bonus = {
+								name = sp_torpedo_cruiser_eq_bonus_heavy_attack
+								bonus = {
+									ship_hull_cruiser_panzerschiff = {
+										naval_light_gun_hit_chance_factor = 0.15
+										hg_attack = 0.1
+										hg_armor_piercing = 0.1
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+			option = {
+				token = sp_naval_panzerschiff_preference_b
+
+				iteration_output = {
+					country_effects = {
+						if = {
+							limit = { has_dlc = "Man the Guns"}
+
+							add_equipment_bonus = {
+								name = sp_naval_panzerschiff_eq_bonus_light_attack
+								bonus = {
+									ship_hull_cruiser_panzerschiff = {
+										naval_light_gun_hit_chance_factor = 0.15
+										lg_attack = 0.1
+										lg_armor_piercing = 0.1
+									}
+								}
+							}
+						}
+						else = {
+							add_equipment_bonus = {
+								name = sp_naval_panzerschiff_eq_bonus_light_attack
+								bonus = {
+									ship_hull_cruiser_panzerschiff = {
+										naval_light_gun_hit_chance_factor = 0.15
+										lg_attack = 0.1
+										lg_armor_piercing = 0.1
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+}
 
 #Super Heavy Battleship
 sp_naval_super_heavy_battleship = {
@@ -3096,6 +3366,7 @@ sp_naval_proximity_fuze = {
 	available = {
 		FROM = {
 			has_tech = improved_radio
+			NOT = { is_special_project_completed = sp_land_proximity_fuze }
 		}	
 	}
 	
@@ -3204,6 +3475,5 @@ sp_naval_proximity_fuze = {
 				}
 			}
 		}	
-	}	
-
+	}
 }
