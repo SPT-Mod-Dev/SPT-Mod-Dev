@@ -21,6 +21,9 @@
                                       Defence modifier against Germany/Italy -10% -> -5%
                                       Army attrition rate 0% -> 3%
 
+### Allies
+ - 'Disrupted Shipping Routes' national spirit air and navy fuel consumption buffed to -10%, from -15%
+
 #### Soviets
  - Focus 'Preemptive Invasion of Iran' Time 35 -> 14
                                        No longer makes Iran a Puppet
