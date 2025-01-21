@@ -10,12 +10,7 @@
     - If in the Allies, Mexico and/or Brazil joins all British wars, namely the war against the European Axis
  - Add Pacific Front tutorial tips to Brazil and Mexico
  - Training limit increased to 1M
- - Africa front allies debuff: Tier 2 Attack modifier against Germany/Italy -5% -> 0%
-                                      Defence modifier against Germany/Italy -5% -> 0%
-                                      Army attrition rate 0% -> 3%
-                               Tier 3 Attack modifier against Germany/Italy -10% -> -5%
-                                      Defence modifier against Germany/Italy -10% -> -5%
-                                      Army attrition rate 0% -> 3%
+
 #### Navy
  - Reduced all Concentrated Industry dockyard output 15% -> 12.5%
  - Increased all Dispersed Industry dockyard output 10% -> 12.5%
@@ -35,7 +30,16 @@
 
 ### Allies
  - 'Disrupted Shipping Routes' national spirit air and navy fuel consumption buffed to -10%, from -15%
+ - Africa front allies debuff: Tier 2 Attack modifier against Germany/Italy -5% -> 0%
+                                      Defence modifier against Germany/Italy -5% -> 0%
+                                      Army attrition rate 0% -> 3%
+                               Tier 3 Attack modifier against Germany/Italy -10% -> -5%
+                                      Defence modifier against Germany/Italy -10% -> -5%
+                                      Army attrition rate 0% -> 3%
 
+#### Germany
+ - Anschluss army strength requirement now starts ticking down after January 1st 1937 instead of November 5th 1937
+ 
 #### Soviets
  - Focus 'Preemptive Invasion of Iran' Time 35 -> 14
                                        No longer makes Iran a Puppet
