@@ -1,10 +1,9 @@
 on_actions = {
 	on_startup = {
 		effect = {
-			LAT = {
-				activate_decision = form_baltic_federation
-				set_cosmetic_tag = SPT_china_color_random_40
-			}
+
+			# LAT = { activate_decision = form_baltic_federation }
+
 			#le funneh happens
 			# CHI = {
 			# 	#SPT_randomize_china_color = yes
@@ -339,6 +338,16 @@ on_actions = {
 				}
 
 				GER = { news_event = spt.112 }
+				
+				sound_effect = "spt_pipe_falling"
+			}
+
+			if = {
+				limit = {
+					has_dlc = "Axis Armor Pack"
+				}
+
+				GER = { news_event = spt.1121 }
 				
 				sound_effect = "spt_pipe_falling"
 			}

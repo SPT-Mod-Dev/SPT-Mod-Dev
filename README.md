@@ -4,6 +4,7 @@
 ### 3.13.5 Twilight of the Game Stability
 
 #### General
+ - Axis Armour Pack warning added
  - Estonia and Lithuania annexed in to Latvia (industry focuses and focus order changed to compensate)
  - Iran and Afghanistan annexed in to Middle Eastern Trade Federation
  - Added additional automation to Japanese decision "Hakkō Ichiu"
