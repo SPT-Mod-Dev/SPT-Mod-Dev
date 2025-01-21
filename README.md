@@ -7,7 +7,7 @@
  - Estonia and Lithuania annexed in to Latvia
  - Iran and Afghanistan annexed in to Middle Eastern Trade Federation
  - Added additional automation to Japanese decision "Hakkō Ichiu"
- - If in the Allies, Mexico and/or Brazil joins all British wars, namely the war against the European Axis
+    - If in the Allies, Mexico and/or Brazil joins all British wars, namely the war against the European Axis
  - Add Pacific Front tutorial tips to Brazil and Mexico
  - Reduced all Concentrated Industry dockyard output 15% -> 12.5%
  - Reduced convoy cost from 70 -> 65 IC
