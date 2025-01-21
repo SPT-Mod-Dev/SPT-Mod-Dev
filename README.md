@@ -9,10 +9,6 @@
  - Added additional automation to Japanese decision "Hakkō Ichiu"
     - If in the Allies, Mexico and/or Brazil joins all British wars, namely the war against the European Axis
  - Add Pacific Front tutorial tips to Brazil and Mexico
- - Reduced all Concentrated Industry dockyard output 15% -> 12.5%
- - Reduced convoy cost from 70 -> 65 IC
- - Radio Navigation: Surface, Sub Detection moved from mission to general stats
- - Radio Navigation II: Surface, Sub Detection moved from mission to general stats
  - Training limit increased to 1M
  - Africa front allies debuff: Tier 2 Attack modifier against Germany/Italy -5% -> 0%
                                       Defence modifier against Germany/Italy -5% -> 0%
@@ -21,11 +17,16 @@
                                       Defence modifier against Germany/Italy -10% -> -5%
                                       Army attrition rate 0% -> 3%
 #### Navy
+ - Reduced all Concentrated Industry dockyard output 15% -> 12.5%
+ - Increased all Dispersed Industry dockyard output 10% -> 12.5%
+ - Reduced convoy cost from 70 -> 65 IC
  - +25% to sub Hull costs
  - reduced raiding area capability per taskforce by 33%
  - added Destroer Escort special project, cheaper shittier destroyers
  - Destroyers can now carry 2 sets of Hydrophones
  - +2 Sub detection to both tiers of Sonar. Second sonar tech made 1939 tech.
+ - Radio Navigation: Surface, Sub Detection moved from mission to general stats
+ - Radio Navigation II: Surface, Sub Detection moved from mission to general stats
 
 #### Special Projects
  - Proximity fuse is now completeable in land or navy facility
