@@ -14,7 +14,16 @@ sp_air_radar = {
 	project_tags = sp_tag_radar
 
 	available = { 
-		FROM = { has_tech = electronic_mechanical_engineering }
+		FROM = {
+			has_tech = electronic_mechanical_engineering
+			NOT = {
+				OR = {
+					is_special_project_completed = sp:sp_air_radar
+					is_special_project_completed = sp:sp_naval_radar
+					is_special_project_completed = sp:sp_land_radar
+				}
+			}
+		}
 	}
 
 	resource_cost = {
@@ -96,9 +105,16 @@ sp_land_radar = {
 		specialization_land = 1
 	}
 
-	available = { 
-		FROM = { 
-			has_tech = electronic_mechanical_engineering 
+	available = {
+		FROM = {
+			has_tech = electronic_mechanical_engineering
+			NOT = {
+				OR = {
+					is_special_project_completed = sp:sp_air_radar
+					is_special_project_completed = sp:sp_naval_radar
+					is_special_project_completed = sp:sp_land_radar
+				}
+			}
 			is_ai = no
 		}
 	}
@@ -183,9 +199,16 @@ sp_naval_radar = {
 		specialization_naval = 1
 	}
 
-	available = { 
+	available = {
 		FROM = {
 			has_tech = electronic_mechanical_engineering
+			NOT = {
+				OR = {
+					is_special_project_completed = sp:sp_air_radar
+					is_special_project_completed = sp:sp_naval_radar
+					is_special_project_completed = sp:sp_land_radar
+				}
+			}
 			is_ai = no
 		}
 	}
