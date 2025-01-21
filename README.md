@@ -4,7 +4,7 @@
 ### 3.13.5 Twilight of the Game Stability
 
 #### General
- - Estonia and Lithuania annexed in to Latvia
+ - Estonia and Lithuania annexed in to Latvia (industry focuses and focus order changed to compensate)
  - Iran and Afghanistan annexed in to Middle Eastern Trade Federation
  - Added additional automation to Japanese decision "Hakkō Ichiu"
     - If in the Allies, Mexico and/or Brazil joins all British wars, namely the war against the European Axis
