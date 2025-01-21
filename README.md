@@ -1,16 +1,17 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
 
-### 3.13.5 Twilight of the Game Stability
+### 3.13.5 'Twilight of the Game Stability'
 
 #### General
  - Axis Armour Pack warning added
- - Estonia and Lithuania annexed in to Latvia (industry focuses and focus order changed to compensate)
+ - United the Baltics
  - Iran and Afghanistan annexed in to Middle Eastern Trade Federation
  - Added additional automation to Japanese decision "Hakkō Ichiu"
-    - If in the Allies, Mexico and/or Brazil joins all British wars, namely the war against the European Axis
+ - If in the Allies, Mexico and/or Brazil joins all British wars, namely the war against the European Axis
  - Add Pacific Front tutorial tips to Brazil and Mexico
  - Training limit increased to 1M
+ - Updated Infantry Tank MIO to vanilla
 
 #### Navy
  - Reduced all Concentrated Industry dockyard output 15% -> 12.5%
@@ -67,6 +68,7 @@
  - 'Restrict Voting Rights' time 35 -> 70
  - 'Act of Defence' time 70 -> 35
  - 'Wherever the Cross Points' time 70 -> 35
+ - Made Slovakia always accept annexation 
 
 #### South Africa
  - Added historical flavor event on the replacement of Prime Minister Hertzog with Smuts
