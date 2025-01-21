@@ -20,6 +20,17 @@
                                Tier 3 Attack modifier against Germany/Italy -10% -> -5%
                                       Defence modifier against Germany/Italy -10% -> -5%
                                       Army attrition rate 0% -> 3%
+#### Navy
+ - +25% to sub Hull costs
+ - reduced raiding area capability per taskforce by 33%
+ - added Destroer Escort special project, cheaper shittier destroyers
+ - Destroyers can now carry 2 sets of Hydrophones
+ - +2 Sub detection to both tiers of Sonar. Second sonar tech made 1939 tech.
+
+#### Special Projects
+ - Proximity fuse is now completeable in land or navy facility
+ - Radar project can only be done once
+ - Panzerschiffe are now Special Project
 
 ### Allies
  - 'Disrupted Shipping Routes' national spirit air and navy fuel consumption buffed to -10%, from -15%
@@ -37,6 +48,9 @@
 
 #### Netherlands
  - Removed faction check for Malaysia in focus 'The Singapore Conference'
+
+#### UK
+ - Focus "Naval Rearmament" grants 5 more dockyards.
 
 #### Denmark
  - Nerf Danish naval tree
