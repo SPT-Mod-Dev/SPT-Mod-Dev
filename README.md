@@ -25,8 +25,8 @@
  - Increased all Dispersed Industry dockyard output 10% -> 12.5%
  - Reduced convoy cost from 70 -> 65 IC
  - +25% to sub Hull costs
- - reduced raiding area capability per taskforce by 33%
- - added Destroer Escort special project, cheaper shittier destroyers
+ - Reduced raiding area capability per taskforce by 33%
+ - Added Destroyer Escort special project, cheaper shittier destroyers
  - Destroyers can now carry 2 sets of Hydrophones
  - +2 Sub detection to both tiers of Sonar. Second sonar tech made 1939 tech.
  - Radio Navigation: Surface, Sub Detection moved from mission to general stats
