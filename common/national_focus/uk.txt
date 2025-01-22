@@ -1557,106 +1557,6 @@ focus_tree = {
 		}
 	}
 
-	focus = { #SPTChange new focus
-		id = SPT_ENG_more_naval_rearmament_focus
-		prerequisite = { focus = uk_waves_focus }
-		icon = GFX_goal_generic_construct_naval_dockyard 
-		x = 3
-		y = 1
-		relative_position_id = uk_waves_focus
-		cost = 5
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-
-		bypass = {
-			custom_trigger_tooltip =  {
-				tooltip = naval_effort_tt
-				NOT = {
-					any_owned_state = {
-						free_building_slots = {
-							building = dockyard
-							size > 1
-							include_locked = yes
-						}
-					}
-				}
-			}
-		}
-
-		complete_tooltip = {
-			every_state = {
-				limit = { has_state_flag = ENG_naval_rearmament_focus_1dockyard }
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = dockyard
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
-
-		completion_reward = {
-			navy_experience = 30
-			random_owned_controlled_state = {
-				limit = {
-					is_coastal = yes
-					free_building_slots = {
-						building = dockyard
-						size > 0
-						include_locked = yes
-					}
-					is_core_of = ROOT
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = dockyard
-					level = 1
-					instant_build = yes
-				}
-				set_state_flag = ENG_naval_rearmament_focus_1dockyard
-			}
-			random_owned_controlled_state = {
-				limit = {
-					is_coastal = yes
-					free_building_slots = {
-						building = dockyard
-						size > 0
-						include_locked = yes
-					}
-					is_core_of = ROOT
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = dockyard
-					level = 1
-					instant_build = yes
-				}
-				set_state_flag = ENG_naval_rearmament_focus_1dockyard
-			}
-			random_owned_controlled_state = {
-				limit = {
-					is_coastal = yes
-					free_building_slots = {
-						building = dockyard
-						size > 0
-						include_locked = yes
-					}
-					is_core_of = ROOT
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = dockyard
-					level = 1
-					instant_build = yes
-				}
-				set_state_flag = ENG_naval_rearmament_focus_1dockyard
-			}
-		}
-	}
-
 	focus = {
 		allow_branch = {always=no} #SptChange removed mine focus
 		id = ENG_anti_non_contact_committee
@@ -1854,6 +1754,107 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = { #SPTChange new focus
+		id = SPT_ENG_more_naval_rearmament_focus
+		prerequisite = { focus = uk_waves_focus }
+		icon = GFX_goal_generic_construct_naval_dockyard 
+		x = 3
+		y = 1
+		relative_position_id = uk_waves_focus
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+
+		bypass = {
+			custom_trigger_tooltip =  {
+				tooltip = naval_effort_tt
+				NOT = {
+					any_owned_state = {
+						free_building_slots = {
+							building = dockyard
+							size > 1
+							include_locked = yes
+						}
+					}
+				}
+			}
+		}
+
+		complete_tooltip = {
+			every_state = {
+				limit = { has_state_flag = ENG_naval_rearmament_focus_1dockyard }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+		completion_reward = {
+			navy_experience = 30
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = ENG_naval_rearmament_focus_1dockyard
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = ENG_naval_rearmament_focus_1dockyard
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = ENG_naval_rearmament_focus_1dockyard
+			}
+		}
+	}
+
 	focus = {
 		id = uk_carrier_focus
 		prerequisite = { focus = uk_waves_focus }

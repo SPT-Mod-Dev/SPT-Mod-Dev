@@ -1,6 +1,6 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.13.6
+### 3.13.5a
 
 #### UK
  - 'Home Defence' time 70 -> 35
@@ -11,7 +11,6 @@
                       xp 50 -> 30
  - New focus 'Focus on Naval Rearmament' Added
  - 'Britannia Rules the Waves' time 70 -> 35
-                
 
 
 ### 3.13.5 'Twilight of the Game Stability'
