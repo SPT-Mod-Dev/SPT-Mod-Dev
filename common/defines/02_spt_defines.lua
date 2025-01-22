@@ -43,10 +43,14 @@ NDefines.NNavy.GUN_HIT_PROFILES = { -- hit profiles for guns, if target ih profi
     110.0,	-- torpedoes
     45.0,	-- small guns
 }
-NDefines.NNavy.CONVOY_HIT_PROFILE                                            = 105
+NDefines.NNavy.CONVOY_HIT_PROFILE                                               = 105
+NDefines.NNavy.CONVOY_RAID_MAX_REGION_TO_TASKFORCE_RATIO                        = 1
 
 NDefines.NDiplomacy.EMBARGO_THREAT_THRESHOLD = 50
 
 NDefines.NDiplomacy.PEACE_SCORE_DISTRIBUTION = { 1, 1, 1, 1, 1 }
 
 NDefines.NProject.BREAKTHROUGH_DAILY_TECHNOLOGY_GAIN = 9
+
+-- SPTChange add manpower increase
+NDefines.NProduction.MIN_POSSIBLE_TRAINING_MANPOWER = 1000000

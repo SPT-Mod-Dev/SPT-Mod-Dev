@@ -877,6 +877,63 @@ news_event = { #Ahistorical is on
 	}
 }
 
+news_event = { #Axis Armour Pack is on
+	id = spt.1121
+	title = spt.1121.t
+	desc = spt.1121.desc
+	picture = GFX_news_event_panay_incident
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = spt.1121.a
+
+	}
+}
+
+# SAF's Nazi sympathizer PM replaced with a better racist
+country_event = {
+	id = spt.113
+	title = spt.113.t
+	desc = spt.113.desc
+	picture = GFX_report_event_saf_coup
+	
+	fire_only_once = yes
+
+	trigger = {
+		tag = SAF
+		SAF = { has_war_with = GER }
+		SAF = { has_government = democratic } 
+		has_country_leader = { ruling_only = yes name = "J. B. M. Hertzog" } 
+	}
+	
+	option = {
+		name = spt.113.a
+		create_country_leader = {
+			name = "Jan Smuts"
+			desc = "POLITICS_JAN_SMUTS_DESC"
+			picture = "Portrait_SouthAfrica_Jan_Smuts.dds"
+			expire = "1950.1.1"
+			ideology = conservatism
+			traits = {
+				dealbroker
+			}
+		}
+		party_leader = {
+			limit = {
+				has_ideology = conservatism
+			}
+			add_field_marshal_role = {
+				skill = 1
+				attack_skill = 1
+				defense_skill = 1
+				planning_skill = 1
+				logistics_skill = 1
+			}
+		}
+		retire_character = SAF_j_b_m_hertzog
+	}
+}
+
 
 add_namespace = spt_man
 country_event = { 
@@ -1101,15 +1158,14 @@ country_event = {
 				}
 			}
 		}
-		add_collaboration = {
-			target = NOR
-			value = 0.8
-		}		
-		every_state = {
-			limit = {
-				is_core_of = NOR
+		DEN = {			
+			every_state = {
+				limit = {
+					is_core_of = NOR
+				}
+				add_resistance = 30
+				add_compliance = 60
 			}
-			add_resistance = 30
 		}
 		# every_state = {
 		# 	limit = {
