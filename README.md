@@ -3,8 +3,8 @@
 ### 3.13.6
 
 #### UK
- - 'Naval Rearmament' mils 8 -> 4 
-                      xp 50 -> 20
+ - 'Naval Rearmament' dockyards 8 -> 3
+                      xp 50 -> 30
  - New focus 'Focus on Naval Rearmament' Added
  - 'Britannia Rules the Waves' time 70 -> 35
 
