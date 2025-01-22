@@ -12,6 +12,11 @@
  - New focus 'Focus on Naval Rearmament' Added
  - 'Britannia Rules the Waves' time 70 -> 35
 
+### Infantry Tank MIO
+ - Traits moved to unhide Merge Plant Trait
+ - Speed -5% -> -10%
+ - Adaptable Turret Ring 5% piercing -> -5% speed
+ - Anti-Tank Role hard attack 10% -> 5%
 
 ### 3.13.5 'Twilight of the Game Stability'
 
