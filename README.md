@@ -3,10 +3,16 @@
 ### 3.13.6
 
 #### UK
+ - 'Home Defence' time 70 -> 35
+ - 'Prepare for the Inevitable' time 35 -> 70
+ - 'Global Defence' time 70 -> 35
+                    war support 0 -> 2.5
  - 'Naval Rearmament' dockyards 8 -> 3
                       xp 50 -> 30
  - New focus 'Focus on Naval Rearmament' Added
  - 'Britannia Rules the Waves' time 70 -> 35
+                
+
 
 ### 3.13.5 'Twilight of the Game Stability'
 
