@@ -1,5 +1,22 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.13.5a
+
+#### UK
+ - 'Home Defence' time 70 -> 35
+ - 'Prepare for the Inevitable' time 35 -> 70
+ - 'Global Defence' time 70 -> 35
+                    war support 0 -> 2.5
+ - 'Naval Rearmament' dockyards 8 -> 3
+                      xp 50 -> 30
+ - New focus 'Focus on Naval Rearmament' Added
+ - 'Britannia Rules the Waves' time 70 -> 35
+
+### Infantry Tank MIO
+ - Traits moved to unhide Merge Plant Trait
+ - Speed -5% -> -10%
+ - Adaptable Turret Ring 5% piercing -> -5% speed
+ - Anti-Tank Role hard attack 10% -> 5%
 
 ### 3.13.5 'Twilight of the Game Stability'
 
@@ -18,8 +35,8 @@
  - Increased all Dispersed Industry dockyard output 10% -> 12.5%
  - Reduced convoy cost from 70 -> 65 IC
  - +25% to sub Hull costs
- - reduced raiding area capability per taskforce by 33%
- - added Destroer Escort special project, cheaper shittier destroyers
+ - Reduced raiding area capability per taskforce by 33%
+ - Added Destroyer Escort special project, cheaper shittier destroyers
  - Destroyers can now carry 2 sets of Hydrophones
  - +2 Sub detection to both tiers of Sonar. Second sonar tech made 1939 tech.
  - Radio Navigation: Surface, Sub Detection moved from mission to general stats

@@ -344,7 +344,7 @@ generic_infantry_tank_organization = {
 		
 		equipment_bonus = {
 			armor_value = 0.05
-			maximum_speed =-0.05
+			maximum_speed =-0.1 # SPTChange 0.05 -> 0.1
 		}
 	}
 
@@ -423,7 +423,7 @@ generic_infantry_tank_organization = {
 		name = generic_mio_trait_battle_tank_specifications
 		icon = GFX_generic_mio_department_icon_tank_general_armor
 		
-		position = { x=6 y=0 }
+		position = { x=5 y=0 } # SPTChange 6 -> 5 for OKMO
 
 		equipment_bonus = {
 			armor_value = 0.03
@@ -436,15 +436,16 @@ generic_infantry_tank_organization = {
 		name = generic_mio_trait_adaptable_turret_ring
 		icon = GFX_generic_mio_trait_icon_hard_attack
 		
-		position = { x=-3 y=1 }
+		position = { x=-2 y=1 }
 		relative_position_id = generic_mio_trait_battle_tank_specifications
 		
 		any_parent = { generic_mio_trait_battle_tank_specifications }
 
 		equipment_bonus = {
 			soft_attack = 0.05
-			hard_attack = 0.05
-			ap_attack = 0.05
+			hard_attack = 0.05 
+			# ap_attack = 0.05 # SPTChange
+			maximum_speed = -0.5 # SPTChange
 		}
 	}
 
@@ -459,7 +460,7 @@ generic_infantry_tank_organization = {
 		any_parent = { generic_mio_trait_adaptable_turret_ring }
 
 		equipment_bonus = {
-			soft_attack = 0.05
+			soft_attack = 0.05 
 			hard_attack = 0.05
 			breakthrough = 0.05
 		}
@@ -495,8 +496,8 @@ generic_infantry_tank_organization = {
 		mutually_exclusive= { generic_mio_trait_close_support_role }
 
 		equipment_bonus = {
-		hard_attack = 0.1
-		ap_attack = 0.1
+		hard_attack = 0.05 # SPTChange 0.1 -> 0.05
+		ap_attack = 0.05 # SPTChange 0.1 -> 0.05
 		}
 	}
 	trait = {
@@ -504,7 +505,7 @@ generic_infantry_tank_organization = {
 		name = generic_mio_trait_adaptable_chassis
 		icon = GFX_generic_mio_department_icon_tank_general_technology
 		
-		position = { x=1 y=1 }
+		position = { x=1 y=1 } # SPTChange 2 -> 1 for OKMO
 		relative_position_id = generic_mio_trait_close_support_role
 		
 		any_parent = { generic_mio_trait_close_support_role generic_mio_trait_anti_tank_role }
@@ -575,7 +576,7 @@ generic_infantry_tank_organization = {
 		name = generic_mio_trait_thick_armor
 		icon = GFX_generic_mio_department_icon_tank_general_armor
 		
-		position = { x=3 y=1 }
+		position = { x=2 y=1 } # SPTChange 2 -> 1 for OKMO
 		relative_position_id = generic_mio_trait_battle_tank_specifications
 	
 		any_parent = { generic_mio_trait_battle_tank_specifications }
