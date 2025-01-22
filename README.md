@@ -1,5 +1,12 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.13.6
+
+#### UK
+ - 'Naval Rearmament' mils 8 -> 4 
+                      xp 50 -> 20
+ - New focus 'Focus on Naval Rearmament' Added
+ - 'Britannia Rules the Waves' time 70 -> 35
 
 ### 3.13.5 'Twilight of the Game Stability'
 
