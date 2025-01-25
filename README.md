@@ -1,5 +1,13 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.13.6
+
+#### Soviets
+ - Fixed Iran focus
+
+#### Germany
+ - Limited convoy to cruiser decision to 5 clicks
+
 ### 3.13.5a
 
 #### UK
