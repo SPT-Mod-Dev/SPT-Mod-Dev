@@ -3251,11 +3251,17 @@ GER_hilfskreuzer_cat = {
 		}
 
 		fire_only_once = no
+
 		available = {	
 			has_equipment = {
    				convoy > 19
 	  		}
 		}
+
+		visible = {
+			check_variable = { var = GER_convoy_to_cruiser_count  value = 5  compare = less_than } # SPTChange limit clicks 
+		}
+
 		days_remove = 25
 
 		complete_effect = {
@@ -3264,6 +3270,7 @@ GER_hilfskreuzer_cat = {
 			#	amount = -20 
 			#}
 		}
+
 		remove_effect = {
 			if = {
 				limit = {
@@ -3299,6 +3306,7 @@ GER_hilfskreuzer_cat = {
 					equipment_variant = "Hilfskreuzer"
 					creator = ROOT
 				}
+				hidden_effect = { add_to_variable = { GER_convoy_to_cruiser_count = 1 } } # SPTChange limit clicks
 			}
 			else = {
 				if = {
