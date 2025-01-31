@@ -1,5 +1,17 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.13.6
+
+#### Soviets
+ - Fixed Iran focus
+
+#### Germany
+ - Limited convoy to cruiser decision to 5 clicks
+ - 'Trade with Sweden' removed
+ - 'Operation Weserbung' civilian factory shipping mechanic now works
+ - 'Demand Sweden' now provides resource rights for both states
+                   35 -> 70 days
+
 ### 3.13.5a
 
 #### UK
