@@ -1,5 +1,10 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.13.7
+
+#### Germany 
+ - 'Ruhr Dam' Now accessible from Autarky
+
 ### 3.13.6
 
 #### Soviets
