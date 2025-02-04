@@ -25,3 +25,112 @@
 # 		#custom_effect_tooltip = SPT_JAP_conference_debug_remove_buff_tt
 # 	}
 # }
+
+SPT_JAP_eco_pressure = {
+	SPT_JAP_eco_debug = {
+
+		cost = 10
+		fire_only_once = no
+
+		icon = GFX_decision_revolt
+
+		available = {
+		
+		}
+		visible = {
+			is_debug = yes
+			is_ai = no
+		}
+
+		#days_remove = 2
+	
+		# modifier = {
+			# 	#fake modifiers using tooltips combined with hidden ideas, makes it easier to add and remove the effects
+		# }
+
+		complete_effect = {
+			#hidden_effect = {
+			#	remove_ideas = SPT_JAP_conference_debug_idea
+			#}
+			#custom_effect_tooltip = SPT_JAP_conference_debug_remove_buff_tt
+		}
+	}
+	SPT_JAP_eco_pressure_up_debug = {
+		cost = 0
+		fire_only_once = no
+
+		icon = GFX_decision_revolt
+
+		available = {
+		
+		}
+		visible = {
+			is_debug = yes
+			is_ai = no
+		}
+
+		#days_remove = 2
+	
+		# modifier = {
+			# 	#fake modifiers using tooltips combined with hidden ideas, makes it easier to add and remove the effects
+		# }
+
+		complete_effect = {
+			add_to_variable = {
+				SPT_JAP_eco_pressure_consumer_goods_expected_value = 0.01
+			}
+		}
+	}
+	SPT_JAP_eco_pressure_down_debug = {
+		cost = 0
+		fire_only_once = no
+
+		icon = GFX_decision_revolt
+
+		available = {
+		
+		}
+		visible = {
+			is_debug = yes
+			is_ai = no
+		}
+
+		#days_remove = 2
+	
+		# modifier = {
+			# 	#fake modifiers using tooltips combined with hidden ideas, makes it easier to add and remove the effects
+		# }
+
+		complete_effect = {
+			add_to_variable = {
+				SPT_JAP_eco_pressure_consumer_goods_expected_value = -0.01
+			}
+		}
+	}
+	SPT_JAP_eco_pressure_reset_debug = {
+		cost = 0
+		fire_only_once = no
+
+		icon = GFX_decision_revolt
+
+		available = {
+		
+		}
+		visible = {
+			is_debug = yes
+			is_ai = no
+		}
+
+		#days_remove = 2
+	
+		# modifier = {
+			# 	#fake modifiers using tooltips combined with hidden ideas, makes it easier to add and remove the effects
+		# }
+
+		complete_effect = {
+			set_variable = {
+				SPT_JAP_eco_pressure_consumer_goods_expected_value = 0
+			}
+		}
+	}
+}

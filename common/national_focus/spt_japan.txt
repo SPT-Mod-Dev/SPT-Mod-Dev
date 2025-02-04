@@ -260,7 +260,15 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			#add_stability = 0.1
+			custom_effect_tooltip = SPT_JAP_eco_pressure_begins_tt
+			hidden_effect = {
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_eco_pressure_modifier
+				}
+				set_variable = {
+					SPT_JAP_eco_pressure_consumer_goods_expected_value = 0.0
+				}
+			}
 		}
 	}
 
