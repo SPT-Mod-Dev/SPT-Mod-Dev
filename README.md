@@ -1,9 +1,129 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.13.5 Twilight of the Game Stability
+### 3.13.7
+
+#### Germany 
+ - 'Ruhr Dam' Now accessible from Autarky
+
+### 3.13.6
+
+#### Soviets
+ - Fixed Iran focus
+
+#### Germany
+ - Limited convoy to cruiser decision to 5 clicks
+ - 'Trade with Sweden' removed
+ - 'Operation Weserbung' civilian factory shipping mechanic now works
+ - 'Demand Sweden' now provides resource rights for both states
+                   35 -> 70 days
+
+### 3.13.5a
+
+#### UK
+ - 'Home Defence' time 70 -> 35
+ - 'Prepare for the Inevitable' time 35 -> 70
+ - 'Global Defence' time 70 -> 35
+                    war support 0 -> 2.5
+ - 'Naval Rearmament' dockyards 8 -> 3
+                      xp 50 -> 30
+ - New focus 'Focus on Naval Rearmament' Added
+ - 'Britannia Rules the Waves' time 70 -> 35
+
+### Infantry Tank MIO
+ - Traits moved to unhide Merge Plant Trait
+ - Speed -5% -> -10%
+ - Adaptable Turret Ring 5% piercing -> -5% speed
+ - Anti-Tank Role hard attack 10% -> 5%
+
+### 3.13.5 'Twilight of the Game Stability'
+
+#### General
+ - Axis Armour Pack warning added
+ - United the Baltics
+ - Iran and Afghanistan annexed in to Middle Eastern Trade Federation
+ - Added additional automation to Japanese decision "Hakkō Ichiu"
+ - If in the Allies, Mexico and/or Brazil joins all British wars, namely the war against the European Axis
+ - Add Pacific Front tutorial tips to Brazil and Mexico
+ - Training limit increased to 1M
+ - Updated Infantry Tank MIO to vanilla
+
+#### Navy
+ - Reduced all Concentrated Industry dockyard output 15% -> 12.5%
+ - Increased all Dispersed Industry dockyard output 10% -> 12.5%
+ - Reduced convoy cost from 70 -> 65 IC
+ - +25% to sub Hull costs
+ - Reduced raiding area capability per taskforce by 33%
+ - Added Destroyer Escort special project, cheaper shittier destroyers
+ - Destroyers can now carry 2 sets of Hydrophones
+ - +2 Sub detection to both tiers of Sonar. Second sonar tech made 1939 tech.
+ - Radio Navigation: Surface, Sub Detection moved from mission to general stats
+ - Radio Navigation II: Surface, Sub Detection moved from mission to general stats
+
+#### Special Projects
+ - Proximity fuse is now completeable in land or navy facility
+ - Radar project can only be done once
+ - Panzerschiffe are now Special Project
+
+### Allies
+ - 'Disrupted Shipping Routes' national spirit air and navy fuel consumption buffed to -10%, from -15%
+ - Africa front allies debuff: Tier 2 Attack modifier against Germany/Italy -5% -> 0%
+                                      Defence modifier against Germany/Italy -5% -> 0%
+                                      Army attrition rate 0% -> 3%
+                               Tier 3 Attack modifier against Germany/Italy -10% -> -5%
+                                      Defence modifier against Germany/Italy -10% -> -5%
+                                      Army attrition rate 0% -> 3%
+
+#### Germany
+ - Anschluss army strength requirement now starts ticking down after January 1st 1937 instead of November 5th 1937
+ 
+#### Soviets
+ - Focus 'Preemptive Invasion of Iran' Time 35 -> 14
+                                       No longer makes Iran a Puppet
+                                       Now directly transfers states 'Tibriz', 'Gilan', 'Tehran', 'Khorasan' to Soviets and 'Khuzestan', 'Fars' to UK 
+ - Removed recurring Stalin Admiral decision due to lag
+ - Intelligence Angency operation 'Prepare Collaboration Government' Increased Cost by 100% to compensate for single nation baltic
+ - Decision 'Send Ultimatum to Latvia' Political Power cost 75 -> 175 (Compensate for single nation baltic)
+
+#### Finland
+ - Added decision to allow sending volunteers after the Soviets are near capitulation
 
 #### Netherlands
  - Removed faction check for Malaysia in focus 'The Singapore Conference'
+
+#### UK
+ - Focus "Naval Rearmament" grants 5 more dockyards.
+
+#### Denmark
+ - Nerf Danish naval tree
+ - Focus 'Administer Norway' compliance should now be working
+
+#### Hungary
+ - Focus 'Join the Axis' is now available even if fucked over by German deals
+ - 'Restrict Voting Rights' time 35 -> 70
+ - 'Act of Defence' time 70 -> 35
+ - 'Wherever the Cross Points' time 70 -> 35
+ - Made Slovakia always accept annexation 
+
+#### South Africa
+ - Added historical flavor event on the replacement of Prime Minister Hertzog with Smuts
+
+#### Mongolia
+ - Added Super-Heavy Railway Gun production cost decrease to idea 'Streamlined Artillery Production'
+
+#### Romania
+ - Added Super-Heavy Railway Gun production cost decrease to idea 'Karl Manufacturing Plant'
+
+#### Mexico
+ - Added new decision 'Support the Republicans' in the Spanish Civil War from vanilla, as a source of early Army and Navy XP
+
+#### Transport Planes
+ - 1940 
+    IC 50 -> 40
+    Range 1400 -> 1500
+ - 1945
+    IC 50 -> 30
+    Range 1800 -> 2000
+    Speed 480 -> 500
 
 ### 3.13.4 "Python"
 

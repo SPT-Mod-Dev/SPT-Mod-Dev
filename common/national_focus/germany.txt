@@ -1098,7 +1098,7 @@ focus_tree = {
 	focus = {
 		id = GER_build_the_rur_dam
 		icon = GFX_focus_generic_hydroelectric_energy
-		prerequisite = { focus = GER_construct_the_reichsautobahn focus = GER_currency_reforms }
+		prerequisite = { focus = GER_construct_the_reichsautobahn focus = GER_currency_reforms focus = GER_autarky_efforts }
 
 		x = -2
 		y = 1
@@ -1156,6 +1156,10 @@ focus_tree = {
 		icon = GFX_focus_generic_befriend_sweden
 		prerequisite = { focus = GER_construct_the_reichsautobahn focus = GER_autarky_efforts }
 
+		allow_branch = { #SPTChange hidden
+			always = no
+		}
+
 		x = 2
 		y = 1
 		relative_position_id = GER_construct_the_reichsautobahn
@@ -1177,83 +1181,83 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_INTERNATIONAL_TRADE FOCUS_FILTER_HISTORICAL}
 
-		# completion_reward = { #SPTChange return old event
-		# 	SWE = {
-		# 		country_event = { id = wuw_GER_diplomacy.1 days = 2 }
-		# 	}
-
-		# 	custom_effect_tooltip = if_they_accept_tt
-		# 	effect_tooltip = {
-		# 		SWE = {
-		# 			add_ideas = GER_german_trade_ns
-		# 			add_opinion_modifier = {
-		# 				target = PREV
-		# 				modifier = GER_trading_partners
-		# 			}
-		# 		}
-		# 		custom_effect_tooltip = war_will_cancel_deal_tt
-		# 	}
-		# }
-
-		completion_reward = {
+		completion_reward = { 
 			SWE = {
-				country_event = { id = AAT_germany.1 hours = 5 random_hours = 5 }
+				country_event = { id = wuw_GER_diplomacy.1 days = 2 }
 			}
-			if = {
-				limit = {
-					NOT = { has_global_flag = GER_norr_rights }
-					110 = { 
-						controller = { 
-							OR = {
-								AND = {
-									original_tag = NOR
-									has_government = fascism
-									NOT = { is_ally_with = GER }
-								}	
-								is_ally_with =  GER
-							}
-						}
-					}
-				}
-				GER = {
-					set_global_flag = GER_norr_rights
-					country_event = {
-						days = 3
-						id = spt.1
-					}
-				}
-			}
-	
-			#SPTChange hid tooltip
+
+			custom_effect_tooltip = if_they_accept_tt
 			effect_tooltip = {
 				SWE = {
-					# add_offsite_building = {
-					# 	type = industrial_complex
-					# 	level = 2
-					# }
-			
-					# add_offsite_building = {
-					# 	type = arms_factory
-					# 	level = 1
-					# }
-			
-					# add_timed_idea = {
-					# 	idea = GER_german_swedish_trade_agreement
-					# 	days = 480
-					# }
-			
-					give_resource_rights = {
-						receiver = ROOT 
-						state = 918 #Västerbotten 
+					add_ideas = GER_german_trade_ns
+					add_opinion_modifier = {
+						target = PREV
+						modifier = GER_trading_partners
 					}
 				}
-			
-				add_opinion_modifier = {
-					target = SWE # target of the relation
-					modifier = GER_SWE_historic_trade_Partners
-				}
+				custom_effect_tooltip = war_will_cancel_deal_tt
 			}
 		}
+
+		# completion_reward = {
+		# 	SWE = {
+		# 		country_event = { id = AAT_germany.1 hours = 5 random_hours = 5 }
+		# 	}
+		# 	if = {
+		# 		limit = {
+		# 			NOT = { has_global_flag = GER_norr_rights }
+		# 			110 = { 
+		# 				controller = { 
+		# 					OR = {
+		# 						AND = {
+		# 							original_tag = NOR
+		# 							has_government = fascism
+		# 							NOT = { is_ally_with = GER }
+		# 						}	
+		# 						is_ally_with =  GER
+		# 					}
+		# 				}
+		# 			}
+		# 		}
+		# 		GER = {
+		# 			set_global_flag = GER_norr_rights
+		# 			country_event = {
+		# 				days = 3
+		# 				id = spt.1
+		# 			}
+		# 		}
+		# 	}
+	
+		# 	#SPTChange hid tooltip
+		# 	effect_tooltip = {
+		# 		SWE = {
+		# 			# add_offsite_building = {
+		# 			# 	type = industrial_complex
+		# 			# 	level = 2
+		# 			# }
+			
+		# 			# add_offsite_building = {
+		# 			# 	type = arms_factory
+		# 			# 	level = 1
+		# 			# }
+			
+		# 			# add_timed_idea = {
+		# 			# 	idea = GER_german_swedish_trade_agreement
+		# 			# 	days = 480
+		# 			# }
+			
+		# 			give_resource_rights = {
+		# 				receiver = ROOT 
+		# 				state = 918 #Västerbotten 
+		# 			}
+		# 		}
+			
+		# 		add_opinion_modifier = {
+		# 			target = SWE # target of the relation
+		# 			modifier = GER_SWE_historic_trade_Partners
+		# 		}
+		# 	}
+		# }
 	}
 	
 	focus = {
@@ -7583,6 +7587,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_MILITARY_CHARACTER FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			hidden_effect = { set_variable = { GER_convoy_to_cruiser_count = 0 } } # SPTChange limit clicks
 			random_core_state = {
 				limit = {
 					is_fully_controlled_by = ROOT
@@ -12270,11 +12275,12 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = GER_operation_weserubung
-		cost = 5
+		cost = 10 # SPTChange 5 -> 10
 		available = {
 			is_subject = no
-			144 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
+			144 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes } # SPTChange add faction member
 			918 = { is_fully_controlled_by = SWE }
+			666 = { is_fully_controlled_by = SWE }
 
 		}
 
@@ -12300,7 +12306,7 @@ focus_tree = {
 				} 
 			}
 
-			custom_effect_tooltip = if_they_accept_tt
+			# custom_effect_tooltip = if_they_accept_tt # SPTChange tidy tooltip
 			effect_tooltip = {
 				SWE = {
 					add_offsite_building = {
@@ -12322,6 +12328,10 @@ focus_tree = {
 						receiver = ROOT 
 						state = 918 #Västerbotten 
 					}
+					give_resource_rights = {
+						receiver = ROOT 
+						state = 666 #Norrbotten
+					}
 				}
 
 				add_opinion_modifier = {
@@ -12329,13 +12339,13 @@ focus_tree = {
 					modifier = GER_SWE_historic_trade_Partners
 				}
 
-				custom_effect_tooltip = if_they_refuse_tt
-				create_wargoal = {
-					type = take_state_focus
-					target = SWE
-					expire = 0
-					generator = { 918 666 }
-				}
+				# custom_effect_tooltip = if_they_refuse_tt # SPTChange tidy tooltip
+				# create_wargoal = {
+				# 	type = take_state_focus
+				# 	target = SWE
+				# 	expire = 0
+				# 	generator = { 918 666 }
+				# }
 			}
 		}
 	}

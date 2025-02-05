@@ -1,0 +1,92 @@
+
+SPT_MEX_gun_running_category = {
+	SPT_MEX_decision_support_spanish_loyalists = {	
+		icon = generic_nationalism
+		
+		fire_only_once = no
+	
+		fixed_random_seed = no
+		
+		days_remove = 28 # 7 in the original game, but let's not fuck Axis too hard
+	
+		allowed = {
+			original_tag = MEX
+		}
+	
+		visible = {
+			is_subject = no
+			has_global_flag = spanish_civil_war
+		}
+	
+		targets = { SPR SPD }
+		targets_dynamic = yes
+	
+		target_trigger = {
+			FROM = {
+				original_tag = SPR
+				OR = {
+					has_government = communism
+					has_government = democratic
+				}
+				has_civil_war = yes
+			}
+		}
+		
+		available = {
+			has_equipment = {
+				convoy > 2
+			}
+			
+			has_equipment = {
+				infantry_equipment > 249
+			}
+			
+			any_other_country = {
+				original_tag = SPR
+				has_civil_war = yes
+			}
+			
+			hidden_trigger = {
+				NOT = { has_global_flag = scw_over }
+			}
+		}
+	
+		modifier = {
+			
+		}
+		
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = convoy_1
+				amount = -3
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_0
+				amount = -250
+			}			
+		}
+	
+		remove_effect = {
+			random_list = {
+				60 = { # Shipment gets through
+					army_experience = 20
+					add_equipment_to_stockpile = {
+						type = convoy_1
+						amount = 3
+					}
+					FROM = {
+						country_event = { id = mexico.50 }
+					}
+				}
+				40 = { # Sunk by Italians
+					navy_experience = 25
+					country_event = { id = mexico.51 }
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
