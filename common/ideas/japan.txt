@@ -49,194 +49,41 @@ ideas = {
 				
 			}
 		}
-		SPT_JAP_marco_polo_timer_active = {
+	}
+
+	economy = { #spt eco laws exclusive for japan
+		spt_jap_controlled_eco_law = {
+			name = spt_jap_controlled_eco_law
+
+			picture = SPR_collectivized_society	
+
 			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				has_completed_focus = SPT_JAP_planned_eco
+			}
+			allowed_to_remove = {
 				always = no
 			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			modifier = {
-				
-			}
-		}
-		SPT_JAP_marco_polo_timer_inactive = {
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			modifier = {
-				
-			}
-		}
-		SPT_JAP_conference_debug_idea = {
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			modifier = {
-				stability_factor = 0.1
-			}
-		}
-		SPT_JAP_conf_eco_decision_active = {
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			modifier = {
-				
-			}
-		}
-		SPT_JAP_conf_eco_decision_cooldown = {
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			modifier = {
-				
-			}
-		}
-		SPT_JAP_conf_civ_up_idea = {
-			
-			
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			
 			removal_cost = -1
 
-			picture = generic_goods_red_bonus
-			
 			modifier = {
-				political_power_cost = 0.2
-				production_speed_industrial_complex_factor = 0.1
-				production_speed_arms_factory_factor = -0.1
-				production_speed_dockyard_factor = -0.1
-			}
-		}
-		SPT_JAP_conf_mil_up_idea = {
-			
-			
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			
-			removal_cost = -1
-
-			picture = generic_goods_red_bonus
-			
-			modifier = {
-				political_power_cost = 0.2
-				production_speed_industrial_complex_factor = -0.1
-				production_speed_arms_factory_factor = 0.1
-				production_speed_dockyard_factor = -0.1
-			}
-		}
-		SPT_JAP_conf_dock_up_idea = {
-			
-			
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			
-			removal_cost = -1
-
-			picture = generic_goods_red_bonus
-			
-			modifier = {
-				political_power_cost = 0.2
-				production_speed_industrial_complex_factor = -0.1
-				production_speed_arms_factory_factor = -0.1
-				production_speed_dockyard_factor = 0.1
-			}
-		}
-		SPT_JAP_conf_mil_out_up_idea = {
-			
-			
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			
-			removal_cost = -1
-
-			picture = generic_goods_red_bonus
-			
-			modifier = {
-				political_power_cost = 0.2
+				consumer_goods_expected_value = 0.1
+				conscription = -0.01
+				production_speed_arms_factory_factor = 0.25
+				production_speed_dockyard_factor = 0.05
+				industrial_capacity_dockyard = 0.05
 				industrial_capacity_factory = 0.1
-				industrial_capacity_dockyard = -0.1
-			}
-		}
-		SPT_JAP_conf_dock_out_up_idea = {
-			
-			
-			allowed = {
-				always = no
+				surrender_limit = 0.1
+				production_factory_efficiency_gain_factor = -0.075
 			}
 
-			allowed_civil_war = {
-				always = yes
-			}
-			
-			removal_cost = -1
+			cancel_if_invalid = no
 
-			picture = generic_goods_red_bonus
-			
-			modifier = {
-				political_power_cost = 0.2
-				industrial_capacity_factory = -0.1
-				industrial_capacity_dockyard = 0.1
-			}
-		}
-		SPT_JAP_conf_eff_growth_up_idea = {
-			
-			
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-			
-			removal_cost = -1
-
-			picture = generic_goods_red_bonus
-			
-			modifier = {
-				political_power_cost = 0.2
-				production_factory_max_efficiency_factor = -0.1
-				production_factory_efficiency_gain_factor = 0.2
-			}
+			ai_will_do = {
+   				factor = 0
+   			}
 		}
 	}
 
@@ -495,8 +342,6 @@ ideas = {
 				#SPTChange
 				army_core_attack_factor = 0.2
 				army_core_defence_factor = 0.2
-				industrial_capacity_factory = 0.1
-				surrender_limit = 0.1
 			}
 		}
 
