@@ -2,6 +2,9 @@
 
 ### 3.13.7
 
+#### General
+ - Infantry Tank MIO speed fixed
+
 #### Germany 
  - 'Ruhr Dam' Now accessible from Autarky
 
