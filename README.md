@@ -1,5 +1,43 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.14.0
+
+#### Cobat Tactics
+ - Guerilla tactics: Attacket tactic damage -30% from -40%
+                     Defender tactic damage -25% from -30%
+
+#### Tank designer
+ - Tank destroyer combatwidth increased to 3 from 2
+ - Standardized Buffs and Debuffs with Self-Propelled Artillery (Supply Consumption, Recovery Rate, HP, Breakthrough, Stats Multipliers)
+ - High Velocity Cannon: Soft Attack Reduced to 8 from 10
+                         Hard Attack Increased to 25.5 from 22.5
+ - High Velocity Cannon II: Soft Attack Reduced to 10 from 12
+                            Hard Attack Increased to 32 from 28
+ - High Velocity Cannon III: Soft Attack Reduced to 14 from 17
+                             Hard Attack Increased to 35 from 30
+- Super Heavy Cannon: Soft Attack Reduced to 49.5 from 51
+                      Hard Attack Reduced to 44 from 45
+#### Artillery Technologies
+ - Improved Artillery II: Increased Self-Propelled Artillery Soft Attack to +10% from +5%
+ - Anti-Tank Upgrade: Increased Tank Destroyer Piercing to +5% from 0
+ - 1940 Anti-Tank: Added Tank Destroyer Hard Attack +10% from 0
+
+#### Superior Firepower Doctrine
+ - Integrated Support: Self-Propelled Artillery Added Recovery Rate +0.2 from 0
+                                                Added Organisation +3.0 from 0
+
+ - Regimental Combat Teams: Self-Propelled Artillery Added Soft Attack +10%
+                                                     Added HP +15%
+
+ - Dispersed Support: Tank Destroyer Added Recovery Rate +0.2 from 0
+                                     Added Organisation +3.0 from 0
+                      Support Companies Added Recovery Rate +0.1
+                                        Added Organisation +5
+                                        Added Hard Attack +25%
+
+ - Regimental Combat Teams: Tank Destroyer Added Hard Attack +10%
+                                           Added HP +15%
+
 ### 3.13.6
 
 #### Soviets
