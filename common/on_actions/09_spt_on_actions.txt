@@ -368,60 +368,61 @@ on_actions = {
 	}
 	on_state_control_changed = {
 		effect = {
-			#Checks axis take oslo SPTChange makes it work idk
-			if = {
-				limit = {
-					NOT = { has_global_flag = GER_norr_rights }
-					GER = { has_completed_focus = GER_trade_deal_with_sweden }
-					110 = { 
-						controller = { 
-							OR = {
-								AND = {
-									original_tag = NOR
-									has_government = fascism
-									NOT = { is_ally_with = GER }
-								}	
-								is_ally_with = GER
-							}
-						}
-					}
-				}
-				GER = {
-					set_global_flag = GER_norr_rights
-					country_event = {
-						days = 3
-						id = spt.1
-					}
-				}
-			}
-			#Checks axis lose oslo
-			if = {
-				limit = {
-					has_global_flag = GER_norr_rights
-					GER = { has_completed_focus = GER_trade_deal_with_sweden }
-					NOT = {
-						110 = { 
-							controller = { 
-								OR = {
-									AND = {
-										original_tag = NOR
-										has_government = fascism
-										NOT = { is_ally_with = GER }
-									}	
-									is_ally_with =  GER
-								}
-							}
-						}
-					}
-				}
-				GER = {
-					clr_global_flag = GER_norr_rights
-					country_event = {
-						days = 3
-						id = spt.2
-					}
-				}
-			}
+			# #Checks axis take oslo SPTChange makes it work idk
+			# if = {
+			# 	limit = {
+			# 		NOT = { has_global_flag = GER_norr_rights }
+			# 		GER = { has_completed_focus = GER_trade_deal_with_sweden }
+			# 		110 = { 
+			# 			controller = { 
+			# 				OR = {
+			# 					AND = {
+			# 						original_tag = NOR
+			# 						has_government = fascism
+			# 						NOT = { is_ally_with = GER }
+			# 					}	
+			# 					is_ally_with = GER
+			# 				}
+			# 			}
+			# 		}
+			# 	}
+			# 	GER = {
+			# 		set_global_flag = GER_norr_rights
+			# 		country_event = {
+			# 			days = 3
+			# 			id = spt.1
+			# 		}
+			# 	}
+			# }
+			# #Checks axis lose oslo
+			# if = {
+			# 	limit = {
+			# 		has_global_flag = GER_norr_rights
+			# 		GER = { has_completed_focus = GER_trade_deal_with_sweden }
+			# 		NOT = {
+			# 			110 = { 
+			# 				controller = { 
+			# 					OR = {
+			# 						AND = {
+			# 							original_tag = NOR
+			# 							has_government = fascism
+			# 							NOT = { is_ally_with = GER }
+			# 						}	
+			# 						is_ally_with =  GER
+			# 					}
+			# 				}
+			# 			}
+			# 		}
+			# 	}
+			# 	GER = {
+			# 		clr_global_flag = GER_norr_rights
+			# 		country_event = {
+			# 			days = 3
+			# 			id = spt.2
+			# 		}
+			# 	}
+			# }
+
 			#Pacific front checks
 			#USA takes island
 			if = {
@@ -1254,6 +1255,45 @@ on_actions = {
 				ITA = {
 					diplomatic_relation = { country = GER relation = guarantee active = no } 
 					diplomatic_relation = { country = JAP relation = guarantee active = no } 
+				}
+			}
+		}
+	}
+	on_monthly_GER = {
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							144 = { is_fully_controlled_by = NOR }
+							NOR = { has_government = fascism }
+						}
+						144 = { is_fully_controlled_by = DEN }
+					}
+					check_variable = { GER_narvik_civs < 8 }
+					
+					666 = {
+						NOT = {
+							has_dynamic_modifier = {
+								modifier = SWE_blown_up_mines
+							}
+						}
+					}
+				}
+
+				add_to_variable = { GER_narvik_shipments = 1 }
+				if = {
+					limit = {
+						check_variable = { GER_narvik_shipments > 5 }
+					}
+
+					add_offsite_building = {
+						type = industrial_complex
+						level = 1
+					}
+
+					set_variable = { GER_narvik_shipments = 0 }
+					add_to_variable = { GER_narvik_civs = 1 }
 				}
 			}
 		}

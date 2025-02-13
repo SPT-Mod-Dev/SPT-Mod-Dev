@@ -10459,7 +10459,7 @@ country_event = { #Germany wants resource rights for Sweden
 	option = { #No
 		name = AAT_germany.1.a
 		ai_chance = {
-			base = 1
+			base = 0 # SPTChange always accept
 			modifier = {
 				date > 1942.12.1
 				OR = {
@@ -10502,7 +10502,7 @@ country_event = { #Germany wants resource rights for Sweden
 
 	option = { #Yes
 		ai_chance = {
-			base = 9
+			base = 100 # SPTChange always accept
 		}
 		name = AAT_germany.1.b
 
@@ -10524,6 +10524,11 @@ country_event = { #Germany wants resource rights for Sweden
 		give_resource_rights = {
 			receiver = FROM 
 			state = 918 #Västerbotten 
+		}
+
+		give_resource_rights = { # SPTChange add Norrbotten
+			receiver = FROM
+			state = 666 #Norrbotten
 		}
 
 		add_opinion_modifier = {
@@ -10594,6 +10599,12 @@ country_event = { #Accepts deal
 					receiver = PREV 
 					state = 918 #Västerbotten 
 				}
+
+				give_resource_rights = { # SPTChange add Norrbotten
+				receiver = PREV
+				state = 666 #Norrbotten
+				}
+
 				add_opinion_modifier = {
 					target = PREV # target of the relation
 					modifier = GER_SWE_historic_trade_Partners

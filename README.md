@@ -2,6 +2,12 @@
 
 ### 3.14.0
 
+#### General
+ - Infantry Tank MIO speed fixed
+
+#### Germany 
+ - 'Ruhr Dam' Now accessible from Autarky
+
 #### Cobat Tactics
  - Guerilla tactics: Attacket tactic damage -30% from -40%
                      Defender tactic damage -25% from -30%
@@ -45,6 +51,10 @@
 
 #### Germany
  - Limited convoy to cruiser decision to 5 clicks
+ - 'Trade with Sweden' removed
+ - 'Operation Weserbung' civilian factory shipping mechanic now works
+ - 'Demand Sweden' now provides resource rights for both states
+                   35 -> 70 days
 
 ### 3.13.5a
 
