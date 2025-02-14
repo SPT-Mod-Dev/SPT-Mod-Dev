@@ -1093,11 +1093,13 @@ technologies = {
 			leads_to_tech = sup_mechanized_offensive 
 			research_cost_coeff = 1
 		}
+
 		category_self_propelled_artillery = {
-			max_strength = 0.15
+			max_strength = 5
 			soft_attack = 0.10
 		}
-
+		
+		custom_modifier_tooltip = SPT_THEY_LIE_TO_YOU_GI_2_tt
 		doctrine = yes	
 		research_cost = 4.5
 		
@@ -1217,9 +1219,10 @@ technologies = {
 			default_morale = 0.2 #SPTchange moved from above to reduce clutter
 		}
 		category_tank_destroyers = {
-			max_strength = 0.15
+			max_strength = 5
 			hard_attack = 0.10
 		}
+		custom_modifier_tooltip = SPT_THEY_LIE_TO_YOU_GI_2_tt
 		coordination_bonus = 0.05
 
 		enable_tactic = tactic_overwhelming_fire
@@ -2815,11 +2818,17 @@ technologies = {
 	large_front_operations = {
 		xp_research_type = army
 		xp_unlock_cost = 100
+		max_planning = 0.05 #SPTchange added
+		supply_consumption_factor = -0.10
 		xor = {
 			peoples_army
 		}
 
-		supply_consumption_factor = -0.10
+		category_tanks = {
+			max_strength = 2 #SPTchange
+		}
+
+		custom_modifier_tooltip = SPT_THEY_LIE_TO_YOU_GI_tt
 
 		additional_brigade_column_size = 1
 
@@ -2944,7 +2953,7 @@ technologies = {
 		xp_research_type = army
 		xp_unlock_cost = 100
 		max_planning = 0.10
-		land_reinforce_rate = 0.05
+		land_reinforce_rate = 0.04 #SPTchange 0.05 -> 0.4
 
 		enable_tactic = tactic_elastic_defense
 		
@@ -3105,13 +3114,14 @@ technologies = {
 	}
 	
 	mechanized_wave = {
-		category_tanks = {
-			max_organisation = 2
-		}
+		# category_tanks = {
+		# 	max_organisation = 2
+		# }
 		xp_research_type = army
 		xp_unlock_cost = 100
 		category_all_armor = {
 			default_morale = 0.1
+			max_organisation = 3 #SPTchange moved so tank org applies to
 		}
 		armored_car = {
 			max_organisation = 3
@@ -3122,9 +3132,9 @@ technologies = {
 			max_organisation = 10
 			default_morale = 0.1
 		}
-		armored_car_recon = {
+		light_tank_recon = { #SPTchange changed to light tanks from armoured recon
 			battalion_mult = {
-				category = category_light_infantry
+				category = category_tanks #SPTchange from leg_infantry
 				max_organisation = 1
 				add = yes
 			}
@@ -3177,8 +3187,7 @@ technologies = {
 		xp_research_type = army
 		xp_unlock_cost = 100
 		org_loss_when_moving = -0.25
-		land_reinforce_rate = 0.05
-		
+		# land_reinforce_rate = 0.05 #SPTchange
 		enable_tactic = tactic_backhand_blow
 
 		doctrine = yes	
@@ -3306,7 +3315,7 @@ technologies = {
 		infantry = {
 			default_morale = 0.30
 		}
-		land_reinforce_rate = 0.05		
+		#land_reinforce_rate = 0.05	#SPTchange
 		
 		path = {
 			leads_to_tech = large_front_offensive
@@ -3399,7 +3408,7 @@ technologies = {
 			combat_width = -0.4
 		}
 
-		land_reinforce_rate = 0.08 #SPTChange 0.15->0.08		
+		land_reinforce_rate = 0.05 #SPTChange 0.15->0.05		
 		
 		path = {
 			leads_to_tech = guerilla_warfare

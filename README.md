@@ -9,8 +9,7 @@
  - 'Ruhr Dam' Now accessible from Autarky
 
 #### Cobat Tactics
- - Guerilla tactics: Attacket tactic damage -30% from -40%
-                     Defender tactic damage -25% from -30%
+ - 
 
 #### Tank designer
  - Tank destroyer combatwidth increased to 3 from 2
