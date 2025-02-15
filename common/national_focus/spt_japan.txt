@@ -201,7 +201,7 @@ focus_tree = {
 			}
 			add_political_power = 50
 			custom_effect_tooltip = available_political_advisor
-			show_ideas_tooltip = SPT_JAP_kita_ikki	
+			show_ideas_tooltip = SPT_JAP_sadao_araki
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			custom_effect_tooltip = SPT_JAP_pol_showa_state_add_tt
 			hidden_effect = {
@@ -397,7 +397,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_zaibatsu_in_gov
-		icon = GFX_focus_jap_showa_restoration
+		icon = GFX_SOV_infiltrate_the_nkvd_ccp_2d_sov_compatibility
 		prerequisite = { focus = SPT_JAP_guide_zaibatsu }
 		mutually_exclusive = { focus = SPT_JAP_state_control }
 		x = 2
@@ -437,7 +437,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_state_control
-		icon = GFX_focus_jap_showa_restoration
+		icon = GFX_focus_GER_total_control_over_domestic_affairs
 		prerequisite = { focus = SPT_JAP_guide_zaibatsu }
 		mutually_exclusive = { focus = SPT_JAP_zaibatsu_in_gov }
 		x = -2
@@ -477,7 +477,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_nationalize_war_industry
-		icon = GFX_focus_jap_showa_restoration
+		icon = GFX_spt_focus_national_war_industry
 		prerequisite = { focus = SPT_JAP_state_control focus = SPT_JAP_zaibatsu_in_gov }
 		x = 2
 		y = 1
@@ -508,9 +508,80 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		complete_tooltip = {
+			random_state = {
+				limit = {
+					has_state_flag = JAP_nationalize_war_industry_AF
+				}
+				add_building_construction = {
+					type = industrial_complex #SPT change arms factory -> industrial complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_state = {
+				limit = {
+					has_state_flag = JAP_nationalize_war_industry_IC
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
 		completion_reward = {
-			#add_stability = 0.1
+			random_owned_controlled_state = {
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex #SPT change arms factory -> industrial complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = JAP_nationalize_war_industry_AF
+			}
+			random_owned_controlled_state = {
+				limit = {
+					ROOT = { has_full_control_of_state = PREV }
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}					
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = JAP_nationalize_war_industry_IC
+			}
 		}
 	}
 
@@ -555,7 +626,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_invest_in_urban_centers
-		icon = GFX_focus_jap_showa_restoration
+		icon = GFX_focus_generic_low_cost_housing
 		prerequisite = { focus = SPT_JAP_nationalize_war_industry }
 		prerequisite = { focus = SPT_JAP_zaibatsu_in_gov }
 		x = 0
@@ -589,7 +660,36 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			#add_stability = 0.1
+			282 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_investing_in_urban
+					days = 180
+				}
+			}
+			531 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_investing_in_urban
+					days = 180
+				}
+			}
+			528 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_investing_in_urban
+					days = 180
+				}
+			}
 		}
 	}
 	focus = {
@@ -634,7 +734,7 @@ focus_tree = {
 
 	focus = {
 		id = SPT_JAP_challenge_zaibatsu
-		icon = FX_spt_focus_challenge_zaibatsus
+		icon = GFX_spt_focus_challenge_zaibatsus
 		prerequisite = { focus = SPT_JAP_support_kodoha }
 		prerequisite = { focus = SPT_JAP_planned_eco }
 		x = 0
@@ -935,7 +1035,8 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			#add_stability = 0.1
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = SPT_JAP_kita_ikki
 		}
 	}
 	focus = {
