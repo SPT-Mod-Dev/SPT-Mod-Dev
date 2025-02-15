@@ -694,7 +694,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_research_mobilization
-		icon = GFX_focus_jap_showa_restoration
+		icon = GFX_focus_research
 		prerequisite = { focus = SPT_JAP_japan_elec_co focus = SPT_JAP_invest_in_urban_centers }
 		prerequisite = { focus = SPT_JAP_konoe_government }
 		x = 2
@@ -728,7 +728,7 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			#add_stability = 0.1
+			add_research_slot = 1
 		}
 	}
 
@@ -775,7 +775,7 @@ focus_tree = {
 		id = SPT_JAP_new_cabinet
 		icon = GFX_focus_jap_showa_restoration
 		prerequisite = { focus = SPT_JAP_support_kodoha }
-		x = 5
+		x = 4
 		y = 2
 		relative_position_id = SPT_JAP_support_kodoha
 		# offset = {
@@ -813,7 +813,7 @@ focus_tree = {
 		id = SPT_JAP_crown_new_emperor
 		icon = GFX_focus_jap_showa_restoration
 		prerequisite = { focus = SPT_JAP_new_cabinet }
-		x = 0
+		x = 2
 		y = 1
 		relative_position_id = SPT_JAP_new_cabinet
 		# offset = {
@@ -964,7 +964,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_imperial_arsenals
-		icon = GFX_focus_jap_showa_restoration
+		icon = GFX_spt_focus_imperial_arsenal
 		prerequisite = { focus = SPT_JAP_seize_wealth }
 		x = 0
 		y = 2
@@ -995,14 +995,88 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+		complete_tooltip = {
+			random_state = {
+				limit = {
+					has_state_flag = JAP_imperial_arsenals1
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+			random_state = {
+				limit = {
+					has_state_flag = JAP_imperial_arsenals2
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+			}
+		}
+
 		completion_reward = {
-			#add_stability = 0.1
+			random_owned_controlled_state = {
+				limit = {
+					is_fully_controlled_by = PREV
+					is_core_of = ROOT	
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}					
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = JAP_imperial_arsenals1
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_fully_controlled_by = PREV
+					is_core_of = ROOT	
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}					
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = JAP_imperial_arsenals2
+			}
 		}
 	}	
 	focus = {
 		id = SPT_JAP_new_theories
-		icon = GFX_focus_jap_showa_restoration
+		icon = GFX_focus_ARG_fascist_researchers
 		prerequisite = { focus = SPT_JAP_gov_oversight }
 		x = 0
 		y = 2
@@ -1037,6 +1111,8 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = SPT_JAP_kita_ikki
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			add_research_slot = 1
 		}
 	}
 	focus = {
@@ -1124,7 +1200,7 @@ focus_tree = {
 		prerequisite = {
 			focus = SPT_JAP_new_theories
 		}
-		x = 0
+		x = -2
 		y = 2
 		relative_position_id = SPT_JAP_recognize_secret_societies
 		# offset = {
@@ -1176,7 +1252,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 100
+		cost = 2
 
 		ai_will_do = {
 			factor = 4
@@ -1749,6 +1825,7 @@ focus = {
 		}
 
 		available = {
+			has_completed_focus = SPT_JAP_planned_eco
 			OR = {
 				MAN = { is_subject_of = ROOT }
 				any_controlled_state = {
