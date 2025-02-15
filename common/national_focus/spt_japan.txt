@@ -147,12 +147,6 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-
-			custom_effect_tooltip = SPT_JAP_eco_conf_edicts_available_tt
-			
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
-
-			#add_stability = 0.1
 			custom_effect_tooltip = SPT_JAP_pol_showa_state_add_tt
 			hidden_effect = {
 				add_dynamic_modifier ={
@@ -199,12 +193,7 @@ focus_tree = {
 		available_if_capitulated = no
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
-		completion_reward = {
-			#add_stability = 0.1
-
-			custom_effect_tooltip = SPT_JAP_eco_conf_edicts_available_tt
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
-			
+		completion_reward = {	
 			set_party_name = {
 				ideology = fascism
 				long_name = "Kōdōha Faction"
@@ -274,9 +263,9 @@ focus_tree = {
 		}
 	}
 
-		focus = {
+	focus = {
 		id = SPT_JAP_guide_zaibatsu
-		icon = GFX_focus_jap_showa_restoration
+		icon = GFX_spt_focus_guide_zaibatsus
 		prerequisite = { focus = SPT_JAP_planned_eco }
 		prerequisite = { focus = SPT_JAP_purge_kodoha }
 		#mutually_exclusive = {  }
@@ -311,7 +300,23 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			#add_stability = 0.1
+			custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+			add_to_variable = {
+				SPT_JAP_zai_production_speed_arms_factory_factor = 0.05
+				tooltip = production_speed_arms_factory_factor_tt
+			}
+			add_to_variable = {
+				SPT_JAP_zai_production_speed_industrial_complex_factor = 0.05
+				tooltip = production_speed_industrial_complex_factor_tt
+			}
+			add_to_variable = {
+				SPT_JAP_zai_industrial_capacity_factory = 0.05
+				tooltip = industrial_capacity_factory_tt
+			}
+			add_to_variable = {
+				SPT_JAP_zai_political_power_gain = -0.05
+				tooltip = political_power_gain_tt
+			}
 		}
 	}
 	focus = {
@@ -426,7 +431,8 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			#add_stability = 0.1
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = SPT_JAP_koyata_iwasaki
 		}
 	}
 	focus = {
@@ -465,7 +471,8 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			#add_stability = 0.1
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = SPT_JAP_ikeda_shigeaki
 		}
 	}
 	focus = {
@@ -627,7 +634,7 @@ focus_tree = {
 
 	focus = {
 		id = SPT_JAP_challenge_zaibatsu
-		icon = GFX_focus_jap_showa_restoration
+		icon = FX_spt_focus_challenge_zaibatsus
 		prerequisite = { focus = SPT_JAP_support_kodoha }
 		prerequisite = { focus = SPT_JAP_planned_eco }
 		x = 0
