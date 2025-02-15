@@ -4,8 +4,9 @@
 
 #DECISIONS
 
-SPT_JAP_eco_pressure:0 "The Pressure of Control"
+SPT_JAP_eco_pressure:0 "Growing Economic Bubble"
 SPT_JAP_eco_pressure_desc:0 "Following the Great War our economy has gone through a series of growth spurts and recessions that has created an unstable and uncertain model. The invisible hand of the free market has done little to help steer us into a desireable position in the global stage and it is becoming increasingly obvious to our greatest economists that this situation can not continue. Western writters have debated for the better part of a century how to truly break the chains of this model and achieve a truly efficient economy, and the recent experiment that is the Soviet economy and our manchurian puppet have given us a glimpse into what could be. To be independent and safe we must control the economy and adjust it to our needs."
+SPT_JAP_eco_pressure_half_year_increase:0 "Economic Decline"
 
 JAP_manchu_lightindustry:0 "Develop manchurian light industry"
 JAP_manchu_heavyindustry:0 "Develop manchurian heavy industry"
@@ -16,7 +17,7 @@ JAP_manchuria_development_desc:0 "While our islands are scarce in usable land, o
 
 #IDEAS
 
-SPT_JAP_eco_pressure_modifier:0 "Economic Pressure (WIP name)"
+SPT_JAP_eco_pressure_modifier:0 "Economic Troubles"
 SPT_JAP_zaibatsu_modifier:0 "Zaibatsu"
 
 SPT_JAP_pol_showa_state:0 "Showa Statism"
@@ -54,7 +55,7 @@ SPT_JAP_learn_from_china:0 "Learning From The Enemy"
 SPT_JAP_learn_from_china_desc:0 "It is not our first time fighting the chinese in their homeland and it is time for us to learn from their tactics. Our puppet state in Manchuria should have plenty of military personell that we can use to better understand the chinese mind."
 SPT_JAP_manchu_advisors:0 "Manchurian Subterfuge"
 SPT_JAP_manchu_advisors_desc:0 "Despite our best efforts to control our colony it is clear that the cutthroat and highly corrupt state of manchurian politics makes them incredibly difficult to deal with, but it also is a tool to train and perfect the best fifth-collumnists we could ever hope for."
-SPT_JAP_learn_from_japan:0 "Learning From Our Past"
+SPT_JAP_learn_from_japan:0 "Learning From Our Past Wars"
 SPT_JAP_learn_from_japan_desc:0 "Our army drills need to be constantly updated to better deal with the realities of war in China and other fronts we will face."
 SPT_JAP_japanese_advisors:0 "Japanese Expertise"
 SPT_JAP_japanese_advisors_desc:0 "Being an island nation forced to invade our enemies from their shores has given us an expertise in amphibious warfare preparation like no other."
@@ -92,6 +93,25 @@ SPT_JAP_exploit_south_desc:0 "We must greatly expand the exploitation of the Eas
 
 SPT_JAP_planned_eco:0 "Subjugate the Industry"
 SPT_JAP_planned_eco_desc:0 "Japan's economy has been in the hands of liberals and oligarchs for far too long, the free market has failed our nation. Many radical thinkers, from the left and right, have been inspired by the Soviet model and the experiments in Manchukuo to create an economy that will be subservient to the will of the people and the Emperor."
+SPT_JAP_guide_zaibatsu:0 "Guide the Zaibatsu"
+SPT_JAP_guide_zaibatsu_desc:0 "The largest corporations of our nation have long had unprecedented political and economical power. With some finesse, we may be able to guide their efforts in our favour."
+SPT_JAP_challenge_zaibatsu:0 "Challenge the Zaibatsu"
+SPT_JAP_challenge_zaibatsu_desc:0 "The largest corporations of our nation have long had unprecedented political and economical power. We must remind them they are still subordinate to the Emperor's wishes."
+SPT_JAP_state_control:0 "Complete State Control Over Economic Policies"
+SPT_JAP_state_control_desc:0 "The future of our economy is ours to write, letting the capitalists meddle with the creation of new policies and quotas will only hinder our efforts to make our nation great."
+SPT_JAP_zaibatsu_in_gov:0 "Allow The Zaibatsu in The Ministries"
+SPT_JAP_zaibatsu_in_gov_desc:0 "Our goal for the future of our economy is complete government control, but as of right now it is in a half-way state that is undesirable to both our politicians and our businessmen. Perhaps as a show of goodwill and acceptance of their expertise we can allow a few of the more successful men of our nation to help create economic policies that will push our agenda further."
+SPT_JAP_nationalize_war_industry:0 "Nationalize the War Industry"
+SPT_JAP_nationalize_war_industry_desc:0 "Increasing state control over our war industry will go a long way to improving efficiency and, therefore, output."
+SPT_JAP_imperial_arsenals:0 "Imperial Arsenals"
+SPT_JAP_imperial_arsenals_desc:0 "Increasing imperial control over our war industry will go a long way to improving efficiency and, therefore, output."
+SPT_JAP_invest_in_urban_centers:0 "Invest In The Urban Centers"
+SPT_JAP_invest_in_urban_centers_desc:0 "Japan's economy must grow if we are to succeed in achieving and maintaining hegemony over Asia, to do that we must invest further into the urban centers of our nation."
+SPT_JAP_research_mobilization:0 "National Research Policy"
+SPT_JAP_research_mobilization_desc:0 "Government support and control of our research institutions will allow us greater flexibility and productivity in our R&D programs."
+SPT_JAP_new_theories:0 "New Theories"
+SPT_JAP_new_theories_desc:0 "Many thinkers in our nation have envisioned a bright and prosperous future for Japan. To make sure that they can continue to improve and innovate we must give them the facilities and funding to work on their ideas."
+
 
 
 #EVENTS
@@ -139,8 +159,10 @@ SPT_JAP_yamato_tt:1 "Adds two §YYamato-Class§! Super-Heavy Battleship producti
 
 SPT_JAP_land_doctrine_cost_factor_tt:0 " $MODIFIER_LAND_DOCTRINE_COST_FACTOR$: $RIGHT|-=%1$"
 
-SPT_JAP_eco_pressure_modifiers_tt: "[GetEcoPressureModifiers]"
-SPT_JAP_eco_pressure_tt: "§Y $SPT_JAP_eco_pressure_modifier$ §!\n $MODIFIER_CONSUMER_GOODS_EXPECTED_VALUE$: §Y[?ROOT.SPT_JAP_eco_pressure_consumer_goods_expected_value|1%]§!"
+SPT_JAP_eco_pressure_modifiers_tt:0 "[GetEcoPressureModifiers]"
+SPT_JAP_eco_pressure_tt:0 "§Y $SPT_JAP_eco_pressure_modifier$ §!\n $MODIFIER_CONSUMER_GOODS_EXPECTED_VALUE$: §Y[?ROOT.SPT_JAP_eco_pressure_consumer_goods_expected_value|1%]§!"
+SPT_JAP_eco_pressure_modify_header_tt:0 "Modify §Y$SPT_JAP_eco_pressure_modifier$§W by"
+SPT_JAP_cg_expected_tt:0 "§W$MODIFIER_CONSUMER_GOODS_EXPECTED_VALUE$§W: §Y$RIGHT|%1$§!"
 
 #CHARACTERS
 

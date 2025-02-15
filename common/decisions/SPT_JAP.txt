@@ -133,4 +133,51 @@ SPT_JAP_eco_pressure = {
 			}
 		}
 	}
+
+	SPT_JAP_eco_pressure_half_year_increase = {
+		allowed = {
+			tag = JAP 
+		}
+
+		icon = GFX_decision_gre_paying_ifc_debt
+
+		days_mission_timeout = 180
+		is_good = yes
+		fire_only_once = yes
+
+		cancel_trigger = {
+			# NOT = {
+			# 	has_idea = SPT_USA_recession_looming
+			# }
+		}
+		
+		activation = {
+			has_completed_focus = SPT_JAP_planned_eco
+		}
+		available = {
+			always = no
+		}
+
+		visible = {
+			has_completed_focus = SPT_JAP_planned_eco
+		}
+		
+		cancel_effect = {
+		}
+
+		timeout_effect = {
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.01
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+			hidden_effect = {
+				activate_mission = SPT_JAP_eco_pressure_half_year_increase
+			}
+		}
+
+		ai_will_do = {
+		}
+	}
 }
