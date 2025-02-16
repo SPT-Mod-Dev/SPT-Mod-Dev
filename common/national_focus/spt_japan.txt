@@ -433,8 +433,22 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			custom_effect_tooltip = available_political_advisor
-			show_ideas_tooltip = SPT_JAP_koyata_iwasaki
+			if = {
+				limit = {
+					amount_taken_ideas = {
+						amount < 3
+						slots = {
+							political_advisor
+						}
+					}
+				}
+				add_ideas = SPT_JAP_koyata_iwasaki
+			}
+			else = {
+				custom_effect_tooltip = available_political_advisor
+				show_ideas_tooltip = SPT_JAP_koyata_iwasaki
+			}
+
 		}
 	}
 	focus = {
@@ -473,8 +487,23 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			custom_effect_tooltip = available_political_advisor
-			show_ideas_tooltip = SPT_JAP_ikeda_shigeaki
+			#custom_effect_tooltip = available_political_advisor
+			#show_ideas_tooltip = SPT_JAP_mori_hideoto
+			if = {
+				limit = {
+					amount_taken_ideas = {
+						amount < 3
+						slots = {
+							political_advisor
+						}
+					}
+				}
+				add_ideas = SPT_JAP_mori_hideoto
+			}
+			else = {
+				custom_effect_tooltip = available_political_advisor
+				show_ideas_tooltip = SPT_JAP_mori_hideoto
+			}
 		}
 	}
 	focus = {
@@ -589,7 +618,7 @@ focus_tree = {
 
 	focus = {
 		id = SPT_JAP_japan_elec_co
-		icon = GFX_focus_jap_showa_restoration
+		icon = GFX_focus_generic_hydroelectric_energy
 		prerequisite = { focus = SPT_JAP_state_control }
 		prerequisite = { focus = SPT_JAP_nationalize_war_industry }
 		x = 0
@@ -623,7 +652,28 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			#add_stability = 0.1
+			529 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_investing_in_urban
+					days = 150
+				}
+			}
+			532 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_investing_in_urban
+					days = 150
+				}
+			}
 		}
 	}
 	focus = {
