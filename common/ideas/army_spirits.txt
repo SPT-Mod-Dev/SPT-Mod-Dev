@@ -86,7 +86,7 @@ ideas = {
 				trait_naval_invader_xp_gain_factor = 0.5
 				trait_commando_xp_gain_factor = 0.5
 				trait_trickster_xp_gain_factor = 0.5
-				planning_speed = 0.1
+				planning_speed = 0.15
 
 			}
 			ai_will_do = {
@@ -116,10 +116,6 @@ ideas = {
 				trait_scavenger_xp_gain_factor = 0.5
 				dig_in_speed_factor = 0.15
 				max_dig_in_factor = 0.05
-
-
-				
-
 
 			}
 			ai_will_do = {
@@ -163,7 +159,7 @@ ideas = {
 			ledger = army
 			modifier = {
 				experience_gain_army_factor = 0.05
-				land_doctrine_cost_factor = -0.05
+				land_doctrine_cost_factor = -0.1
 			}
 			ai_will_do = {
 				factor = 1
@@ -173,9 +169,8 @@ ideas = {
 		elevated_engineering_corps_spirit = {
 			ledger = army
 			modifier = {
-				dig_in_speed_factor = 0.1
 				max_dig_in_factor = 0.1
-				railway_gun_bombardment_factor = 1
+				railway_gun_bombardment_factor = 0.5
 			}
 			ai_will_do = {
 				factor = 1
@@ -185,9 +180,8 @@ ideas = {
 		proper_heritage_spirit = {
 			ledger = army
 			modifier = {
-				cavalry_attack_factor = 0.25
-				cavalry_defence_factor = 0.25
-				recon_factor = 0.25
+				cavalry_attack_factor = 0.15
+				cavalry_defence_factor = 0.15
 			}
 			ai_will_do = {
 				factor = 1
@@ -199,8 +193,6 @@ ideas = {
 			modifier = {
 				command_abilities_cost_factor = -0.25
 				command_power_gain = 0.25
-				planning_speed = 0.5
-
 			}
 			ai_will_do = {
 				factor = 1
@@ -223,10 +215,8 @@ ideas = {
 			ledger = army
 			visible = { has_government = communism }
 			modifier = {
-				pocket_penalty = -0.1 #SPTchange -0.25 -> -0.1
-				weekly_manpower = 500
+				pocket_penalty = -0.075 #SPTchange -0.25 -> -0.1
 				army_morale_factor = 0.1
-
 			}
 			ai_will_do = {
 				factor = 1
@@ -237,7 +227,6 @@ ideas = {
 			ledger = army
 			visible = { has_government = fascism }
 			modifier = {
-				political_power_factor = 0.1
 				mobilization_laws_cost_factor = -0.25
 				army_advisor_cost_factor = -0.25
 			}
@@ -262,15 +251,12 @@ ideas = {
 			visible = { has_tech = mobile_warfare }
 			ledger = army
 			modifier = {
-
-				experience_gain_motorized_combat_factor = 0.25
-				experience_gain_mechanized_combat_factor = 0.25
-				motorized_attack_factor = 0.15
-				motorized_defence_factor = 0.15
+				motorized_attack_factor = 0.1
+				motorized_defence_factor = 0.1
 				mechanized_attack_factor = 0.1
 				mechanized_defence_factor = 0.1
-				breakthrough_factor = 0.05
-				truck_attrition_factor = 0.2
+				experience_gain_motorized_combat_factor = 0.25
+				experience_gain_mechanized_combat_factor = 0.25
 			}
 			ai_will_do = {
 				factor = 1
@@ -284,8 +270,6 @@ ideas = {
 				experience_gain_artillery_combat_factor = 1
 				breakthrough_factor = 0.05
 				army_artillery_attack_factor = 0.15
-				supply_consumption_factor = 0.05
-				
 			}
 			ai_will_do = {
 				factor = 1
@@ -297,12 +281,7 @@ ideas = {
 			ledger = army
 			modifier = {
 				naval_invasion_capacity = 20
-				extra_paratrooper_supply_grace = 72
-				extra_marine_supply_grace = 72
 				naval_invasion_planning_bonus_speed = 0.15
-				land_night_attack = 0.05
-
-
 			}
 			ai_will_do = {
 				factor = 1
@@ -315,7 +294,7 @@ ideas = {
 			modifier = {
 				experience_gain_infantry_combat_factor = 0.2
 				army_infantry_attack_factor = 0.1
-				
+				army_morale_factor = 0.1
 			}
 			ai_will_do = {
 				factor = 1
@@ -329,11 +308,9 @@ ideas = {
 			modifier = {
 				tactic_elastic_defense_preferred_weight_factor = 2
 				tactic_overwhelming_fire_preferred_weight_factor = 2
-				max_dig_in_factor = 0.25
-				dig_in_speed_factor = 0.25
-				org_loss_when_moving = 0.15
-
-
+				max_dig_in_factor = 0.15
+				dig_in_speed_factor = 0.15
+				LAND_BUNKER_EFFECTIVENESS_FACTOR = 0.1
 			}
 			ai_will_do = {
 				factor = 1
@@ -343,13 +320,9 @@ ideas = {
 		flexible_organization_spirit = {
 			ledger = army
 			modifier = {
-				org_loss_when_moving = -0.1
-				army_speed_factor = 0.05
-				choose_preferred_tactics_cost = -20
-				planning_speed = 0.1
+				org_loss_when_moving = -0.15
+				planning_speed = 0.15
 				coordination_bonus = 0.1
-				max_planning = -0.05
-
 			}
 			ai_will_do = {
 				factor = 1
@@ -359,12 +332,9 @@ ideas = {
 		aggressive_reconnaisance_spirit = {
 			ledger = army
 			modifier = {
-				tactic_infantry_charge_preferred_weight_factor = 2
 				intel_from_combat_factor = 0.5
-				recon_factor = 0.5
 				land_reinforce_rate = 0.03
 				land_night_attack = 0.1
-				supply_consumption_factor = 0.05
 			}
 			ai_will_do = {
 				factor = 1
@@ -392,8 +362,7 @@ ideas = {
 			modifier = {
 				tactic_human_wave_tactics_preferred_weight_factor = 2
 				org_loss_at_low_org_factor = -0.5
-				army_attack_factor = 0.1
-				army_defence_factor = -0.2
+				pocket_penalty = -0.075
 			}
 			ai_will_do = {
 				factor = 1
@@ -403,21 +372,11 @@ ideas = {
 		maneuver_warfare_spirit = {
 			visible = { has_tech = mobile_warfare }
 
-			equipment_bonus = {
-						armor = {
-							instant = yes
-							maximum_speed = 0.10
-						}
-					}
-
 			modifier = {
 				tactic_unexpected_thrust_preferred_weight_factor = 2
-				coordination_bonus = 0.2
-				breakthrough_factor = 0.1
+				coordination_bonus = 0.075
 				org_loss_when_moving = -0.3
-				supply_consumption_factor = 0.10
-				truck_attrition_factor = 0.15
-				out_of_supply_factor = 0.1
+				army_speed_factor = 0.075
 			}
 			ai_will_do = {
 				factor = 1
@@ -429,11 +388,9 @@ ideas = {
 			visible = { has_tech = superior_firepower }
 			modifier = {
 				tactic_barrage_preferred_weight_factor = 2
-				army_artillery_attack_factor = 0.3
+				army_artillery_attack_factor = 0.25
 				breakthrough_factor = 0.05
 				coordination_bonus = 0.1
-				supply_consumption_factor = 0.15
-				army_defence_factor = 0.05
 			}
 			ai_will_do = {
 				factor = 1
@@ -445,12 +402,11 @@ ideas = {
 			visible = { has_tech = trench_warfare }
 			modifier = {
 				tactic_planned_attack_preferred_weight_factor = 2
-				supply_consumption_factor = -0.2
-				air_fuel_consumption_factor = -0.2
-				navy_fuel_consumption_factor = -0.2
+				air_fuel_consumption_factor = -0.1
+				navy_fuel_consumption_factor = -0.1
+				army_fuel_consumption_factor = -0.1
 				no_supply_grace = 72
 				out_of_supply_factor = -0.1
-				supply_combat_penalties_on_core_factor = -0.1
 			}
 			ai_will_do = {
 				factor = 1

@@ -1,15 +1,12 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.14.0
+###  3.13.7 Another Week another minor UpdatE
 
 #### General
  - Infantry Tank MIO speed fixed
 
 #### Germany 
  - 'Ruhr Dam' Now accessible from Autarky
-
-#### Cobat Tactics
- - 
 
 #### Tank designer
  - Tank destroyer combatwidth increased to 3 from 2
@@ -22,17 +19,89 @@
                              Hard Attack Increased to 35 from 30
 - Super Heavy Cannon: Soft Attack Reduced to 49.5 from 51
                       Hard Attack Reduced to 44 from 45
+
 #### Artillery Technologies
  - Improved Artillery II: Increased Self-Propelled Artillery Soft Attack to +10% from +5%
  - Anti-Tank Upgrade: Increased Tank Destroyer Piercing to +5% from 0
  - 1940 Anti-Tank: Added Tank Destroyer Hard Attack +10% from 0
+
+#### Army Command
+ - Inventive Leadership: Planning Speed Increased to +15% from +10%
+
+ - Bayonet Strength: Infantry Attack Reduced to +10% from +15%
+                     Infantry Defence Reduced to 0 from +15%
+                     Recovery Rate Increased to +10% from 0%
+
+ - Professional Officer Corps: Daily Command Power Gain Reduced to 0 from +0.25
+
+ - Elevated Engineering Corps: Entrenchment Speed Reduced to 0 from +10%
+                               Railway Gun Bombardment Reduced to 50% from 100%
+
+ - Quick Improvisation: Planning Speed Reduced to 0 from +50%
+
+ - Proper Heritage: Recon Reduced to 0 from 25%
+                    Cavalry Attack Bonus Reduced to +15% from +25%
+                    Cavalry Defence Bonus Reduced to +15% from +25%
+
+ - Ideological Loyalty: Weekly Manpower Reduced to 0 from +500
+                        Encirclement Penalty Reduction Reduced To +7.5% from +10%
+
+ - State Serves The Military: Political Power Gain Increased to 0% from 10%
+
+ - Motorization Drive: Motorized Attack Reduced to 10% from 15%
+                       Motorized Defence Reduced to 10% from 15%
+                       Supply Truck Attrition Reduced to 0 from +20%
+
+ - Overwhelming Firepower: Supply Consumption Penalty Reduced to 0 from 5%
+
+ - Tip Of The Spear: Paratrooper Supply Grace Reduced to 0 hrs from 72 hrs
+                     Marine Supply Grace Reduced to 0 hrs from 72 hrs
+
+ - Static Warfare: Org Loss When Moving Penalty Reduced to 0 from +15%
+                   Entrenchment Speed Reduced to +15% from +25%
+                   Max Entrenchment Reduced to +15% from +25%
+                   Land Fort Effectivness Added +10%
+
+ - Flexible Organisation: Org Loss When Moving Reduced to -15% from -10%
+                          Max Planning Penalty Reduced to 0 from -5%
+                          Planning Speed Increased to +15% from +10%
+                          Prefered Tactic Selection Cost Bonus Reduced to 0 from -20
+                          Army Speed Reduced to 0 from +5%
+
+ - Aggresive Recon: Infiltration Assult Tactic Selection Bonus Reduced to 0 from +200%
+                    Supply Consumption Penalty Reduced to 0 from +5%
+                    Reconnaisance Redued to 0% from +50%
+
+ - Victory or Death: Encirclement Penalty Reduction Increased To +7.5% from +0%
+                     Attack Bonus Reduced to 0 from +10%
+                     Defence Penalty Reduced to 0 from -20%
+
+ - Maneuver Warafare: Supply Truck Attrition Reduced to 0% from +15%
+                      Non-Combat Out of Supply Penalties Reduced to 0% from +10%
+                      Coordination Reduced to +10% from +20%
+                      Supply Consumption Reduced to 0 from +10%
+                      Army Speed Increased to +7.5% from 0
+                      Coordination Reduced from +20% from +7.5%
+
+ - Smoke and Fire: Supply Consumption Reduced to 0 from +15%
+                   Division Defence Reduced to 0 from +5%
+                   Artillery Attack Reduced to +25% from +30%
+
+ - Logistical Focus: Navy Fuel Consumption Reduction Reduced to -10% from -20%
+                     Air Fuel Consumption Reduction Reduced to -10% from -20%
+                     Army Fuel Consumption Reduction Incresed to -10% from 0%
+                     Supply Consumption Recuction Reduced to 0 from -20%
+                     Supply Combat Penalties on Core Territory Reduction Reduced to 0 from -10%
+
+ - Operational Reserves: Reduced HP bonus to +10% from +15%
+                         Reinforce Rate Penalty Removed
 
 #### Superior Firepower Doctrine
  - Integrated Support: Self-Propelled Artillery Added Recovery Rate +0.2 from 0
                                                 Added Organisation +3.0 from 0
 
  - Regimental Combat Teams: Self-Propelled Artillery Added Soft Attack +10%
-                                                     Added HP +15%
+                                                     Added HP +5
 
  - Dispersed Support: Tank Destroyer Added Recovery Rate +0.2 from 0
                                      Added Organisation +3.0 from 0
@@ -41,7 +110,23 @@
                                         Added Hard Attack +25%
 
  - Regimental Combat Teams: Tank Destroyer Added Hard Attack +10%
-                                           Added HP +15%
+                                           Added HP +5%
+
+#### Mass Assault Doctrine 
+ - Large Front Operations: Tanks Added +2 HP
+                           Added Max Planning +5%
+
+ - Operational Concentration: Reinforce Rate Decreased to 4 from 5
+
+ - Mechanized Wave: Armoured Car Recon Removed Organisation to Infantry
+                    Light Tank Recon Added 1+ Organisation to Tanks
+                    Tanks and Armor Variants Increased Organisation to 3 from 2
+
+ - Continous Offensieve: Reinforce Rate reduced to 0 from 5
+
+ - Infantry Offensive: Reinforce Rate reduced to 0 from 5
+
+ - Human Wave Offensive: Reinforce Rate reduced to 5 from 8
 
 ### 3.13.6
 
