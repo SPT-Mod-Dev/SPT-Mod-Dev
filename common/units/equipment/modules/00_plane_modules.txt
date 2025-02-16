@@ -1050,10 +1050,73 @@ equipment_modules = {
 				naval_strike_targetting = 4
 			}
 		}
+		mission_type_stats = {
+			limit = {
+				strategic_bomber
+			}
+			add_stats = {
+				air_bombing = 1
+				weight = 4
+				air_agility = -15
+			}
+		}
 		dismantle_cost_ic = 0.5
 	}
 
 	heavy_bomb_locks = {
+		abbreviation = "bol"
+		category = cas_weapon
+		sfx = sfx_ui_sd_module_turret
+		add_equipment_type = cas
+
+		add_stats = {
+			build_cost_ic = 6   #Brought on Par with change to base bomb locks
+		}
+		xp_cost = 0
+		allow_mission_type = {  #Logi strike is banished to the shadow realm. Historical ability to port strike on par with small bomb bay is added
+			cas
+			port_strike
+			naval_bomber
+			strategic_bomber
+		}
+		mission_type_stats = {
+			limit = {
+				cas
+			}
+			add_stats = {
+				air_agility = -20
+				weight = 6
+				air_ground_attack = 10
+			}
+		}
+		mission_type_stats = {
+			limit = {
+				naval_bomber
+				port_strike
+			}
+			add_stats = {
+				air_agility = -20
+				weight = 6
+				naval_strike_attack = 8
+			}
+			add_average_stats = {
+				naval_strike_targetting = 4
+			}
+		}
+		mission_type_stats = {
+			limit = {
+				strategic_bomber
+			}
+			add_stats = {
+				air_bombing = 2
+				weight = 6
+				air_agility = -20
+			}
+		}
+		dismantle_cost_ic = 0.5
+	}
+
+	armor_piercing_bomb_locks = {
 		abbreviation = "bol"
 		category = cas_weapon
 		sfx = sfx_ui_sd_module_turret
@@ -1086,52 +1149,20 @@ equipment_modules = {
 			add_stats = {
 				air_agility = -20
 				weight = 6
-				naval_strike_attack = 3
-			}
-			add_average_stats = {
-				naval_strike_targetting = 4
-			}
-		}
-		dismantle_cost_ic = 0.5
-	}
-
-	armor_piercing_bomb_locks = {
-		abbreviation = "bol"
-		category = cas_weapon
-		sfx = sfx_ui_sd_module_turret
-		add_equipment_type = cas
-
-		add_stats = {
-			build_cost_ic = 6   #Brought on Par with change to base bomb locks
-		}
-		xp_cost = 0
-		allow_mission_type = {  #Logi strike is banished to the shadow realm. Historical ability to port strike on par with small bomb bay is added
-			cas
-			port_strike
-			naval_bomber
-		}
-		mission_type_stats = {
-			limit = {
-				cas
-			}
-			add_stats = {
-				air_agility = -20
-				weight = 6
-				air_ground_attack = 2
-			}
-		}
-		mission_type_stats = {
-			limit = {
-				naval_bomber
-				port_strike
-			}
-			add_stats = {
-				air_agility = -20
-				weight = 6
 				naval_strike_attack = 6
 			}
 			add_average_stats = {
 				naval_strike_targetting = 4
+			}
+		}
+		mission_type_stats = {
+			limit = {
+				strategic_bomber
+			}
+			add_stats = {
+				air_bombing = 1
+				weight = 6
+				air_agility = -20
 			}
 		}
 		dismantle_cost_ic = 0.5
@@ -1206,6 +1237,16 @@ equipment_modules = {
 				naval_strike_targetting = 4
 			}
 		}
+		mission_type_stats = {
+			limit = {
+				strategic_bomber
+			}
+			add_stats = {
+				air_bombing = 2
+				weight = 4
+				air_agility = -15
+			}
+		}
 		dismantle_cost_ic = 3.5
 	}
 
@@ -1239,7 +1280,7 @@ equipment_modules = {
 				strategic_bomber
 			}
 			add_stats = {
-				air_bombing = 6
+				air_bombing = 7
 				weight = 5
 				air_agility = -15
 			}
@@ -1649,7 +1690,7 @@ equipment_modules = {
 		sfx = sfx_ui_sd_module_turret
 
 		add_stats = {
-			air_defence = 4
+			air_defence = 3
 			build_cost_ic = 1
 			weight = 2
 		}
@@ -1795,7 +1836,7 @@ equipment_modules = {
 		sfx = sfx_ui_sd_module_turret
 
 		add_stats = {
-			air_defence = 6
+			air_defence = 9
 			build_cost_ic = 3
 			weight = 6
 		}
@@ -1912,7 +1953,7 @@ equipment_modules = {
 		sfx = sfx_ui_sd_module_turret
 
 		add_stats = {
-			air_defence = 8
+			air_defence = 13.5
 			build_cost_ic = 5
 			weight = 9
 		}
@@ -2013,9 +2054,12 @@ equipment_modules = {
 		sfx = sfx_ui_sd_module_turret
 
 		add_stats = {
-			air_bombing = 4
+			air_bombing = 2
 			build_cost_ic = 1.5
 			weight = 1
+		}
+		multiply_stats = {
+			air_bombing = 0.1
 		}
 		xp_cost = 0
 	}
@@ -2028,9 +2072,12 @@ equipment_modules = {
 		parent = bomb_sights_1
 
 		add_stats = {
-			air_bombing = 6
+			air_bombing = 4
 			build_cost_ic = 2
 			weight = 0
+		}
+		multiply_stats = {
+			air_bombing = 0.15
 		}
 		xp_cost = 0
 	}
@@ -2087,12 +2134,13 @@ equipment_modules = {
 				cas
 			}
 			add_stats = {
-				air_bombing = 4
+				air_bombing = 1
 				night_penalty = -0.3
 				
 			}
 			multiply_stats = {
 				air_ground_attack = 0.05
+				air_bombing = 0.1
 		}
 	}
 	xp_cost = 0
@@ -2116,12 +2164,13 @@ equipment_modules = {
 				cas
 			}
 			add_stats = {
-				air_bombing = 4
+				air_bombing = 2
 				night_penalty = -0.3
 				
 			}
 			multiply_stats = {
 				air_ground_attack = 0.1
+				air_bombing = 0.2
 			}
 		}
 		xp_cost = 0
@@ -2192,7 +2241,7 @@ equipment_modules = {
 		add_stats = {
 			build_cost_ic = 1
 			weight = 1
-			air_attack = 1
+			air_attack = 2
 			air_defence = 1
 		}
 
@@ -2213,7 +2262,7 @@ equipment_modules = {
 		}
 
 		multiply_stats ={
-			maximum_speed = -0.03
+			maximum_speed = -0.025
 		}
 
 		dismantle_cost_ic = 1
@@ -2241,7 +2290,7 @@ equipment_modules = {
 		add_stats = {
 			build_cost_ic = 2
 			weight = 2
-			air_attack = 1.5
+			air_attack = 4
 			air_defence = 2
 		}
 
@@ -2262,7 +2311,7 @@ equipment_modules = {
 		}
 
 		multiply_stats ={
-			maximum_speed = -0.06
+			maximum_speed = -0.05
 		}
 
 		dismantle_cost_ic = 2
@@ -2290,7 +2339,7 @@ equipment_modules = {
 		add_stats = {
 			build_cost_ic = 2
 			weight = 2
-			air_attack = 1.5
+			air_attack = 4
 			air_defence = 2
 		}
 
@@ -2310,7 +2359,7 @@ equipment_modules = {
 		}
 
 		multiply_stats ={
-			maximum_speed = -0.035
+			maximum_speed = -0.025
 		}
 
 		dismantle_cost_ic = 1
@@ -2338,7 +2387,7 @@ equipment_modules = {
 		add_stats = {	
 			build_cost_ic = 4
 			weight = 4
-			air_attack = 3
+			air_attack = 8
 			air_defence = 4
 		}
 
@@ -2358,7 +2407,7 @@ equipment_modules = {
 		}
 
 		multiply_stats ={
-			maximum_speed = -0.07
+			maximum_speed = -0.05
 		}
 
 		dismantle_cost_ic = 2
@@ -2386,7 +2435,7 @@ equipment_modules = {
 		add_stats = {
 			build_cost_ic = 4
 			weight = 4
-			air_attack = 3
+			air_attack = 8
 			air_defence = 4
 		}
 
@@ -2406,7 +2455,7 @@ equipment_modules = {
 		}
 
 		multiply_stats ={
-			maximum_speed = -0.037
+			maximum_speed = -0.025
 		}
 
 		dismantle_cost_ic = 1
@@ -2430,7 +2479,7 @@ equipment_modules = {
 		add_stats = {
 			build_cost_ic = 8
 			weight = 8
-			air_attack = 6
+			air_attack = 16
 			air_defence = 8
 		}
 
@@ -2450,7 +2499,7 @@ equipment_modules = {
 		}
 
 		multiply_stats ={
-			maximum_speed = -0.075
+			maximum_speed = -0.05
 		}
 
 		dismantle_cost_ic = 2
