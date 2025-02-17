@@ -241,7 +241,7 @@ ideas = {
 			#picture = GFX_idea_emperor_yasuhito
 
 			modifier = {
-				party_popularity_stability_factor = 0.5 #SPT change, made hirohito all party pop stab
+				party_popularity_stability_factor = 0.6
 				army_attack_factor = 0.05
 			}
 		}
@@ -259,8 +259,20 @@ ideas = {
 			picture = jap_hirohito
 			
 			modifier = {
-				#stability_factor = 0.5
-				party_popularity_stability_factor = 0.4
+				stability_factor = 0.4
+			}
+		}
+		SPT_JAP_wealth_redistribution = {
+			allowed = {
+				always = no
+			}
+			
+			removal_cost = -1
+
+			picture = generic_foreign_capital
+			
+			modifier = {
+				consumer_goods_factor = 0.15
 			}
 		}
 
@@ -2322,6 +2334,29 @@ ideas = {
 			}
 			
 			traits = { refinery_concern }
+		}
+
+		SPT_JAP_national_company = {
+			picture = fascist_company
+			
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				has_completed_focus = SPT_JAP_national_companies
+			}
+						
+			research_bonus = {
+				industry = 0.1
+				electronics = 0.1
+				synth_resources = 0.1
+				excavation_tech = 0.1
+			}
+			modifier = {
+				political_power_gain = -0.1
+			}
+			
+			traits = { national_company_trait }
 		}
 	}
 	
