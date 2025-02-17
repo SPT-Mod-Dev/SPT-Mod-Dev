@@ -127,7 +127,7 @@ focus_tree = {
 
 		relative_position_id = SPT_JAP_fake_focus_for_aligning_tree
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -174,7 +174,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -283,7 +283,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -813,7 +813,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -835,20 +835,24 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
 			add_to_variable = {
-				SPT_JAP_zai_production_speed_arms_factory_factor = 0.05
+				SPT_JAP_zai_production_speed_arms_factory_factor = 0.1
 				tooltip = production_speed_arms_factory_factor_tt
 			}
 			add_to_variable = {
-				SPT_JAP_zai_production_speed_industrial_complex_factor = 0.05
+				SPT_JAP_zai_production_speed_industrial_complex_factor = 0.1
 				tooltip = production_speed_industrial_complex_factor_tt
 			}
 			add_to_variable = {
-				SPT_JAP_zai_production_speed_dockyard_factor = 0.05
+				SPT_JAP_zai_production_speed_dockyard_factor = 0.1
 				tooltip = production_speed_dockyard_factor_tt
 			}
 			add_to_variable = {
-				SPT_JAP_zai_factory_max_efficiency_factor = 0.05
-				tooltip = production_factory_max_efficiency_factor_tt
+				SPT_JAP_zai_stability_factor = -0.05
+				tooltip = stability_factor_tt
+			}
+			add_to_variable = {
+				SPT_JAP_zai_political_power_gain = 0.1
+				tooltip = political_power_gain_tt
 			}
 		}
 	}
@@ -933,6 +937,10 @@ focus_tree = {
 				remove_idea = SPT_JAP_hirohito_weak
 				add_idea = SPT_JAP_emperor_yasuhito
 			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
 		}
 	}
 	focus = {
@@ -1014,12 +1022,23 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			#add_stability = 0.1
+			add_political_power = 25
+			add_timed_idea = {
+				idea = SPT_JAP_wealth_redistribution
+				days = 180
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = -0.01
+				tooltip = SPT_JAP_cg_expected_tt
+			}
 		}
 	}
 	focus = {
-		id = SPT_JAP_gov_oversight
-		icon = GFX_focus_jap_showa_restoration
+		id = SPT_JAP_invest_in_country_side
+		icon = GFX_focus_generic_farmland
 		prerequisite = { focus = SPT_JAP_challenge_zaibatsu }
 		prerequisite = { focus = SPT_JAP_new_cabinet }
 		x = 2
@@ -1053,7 +1072,50 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			#add_stability = 0.1
+			533 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_investing_in_urban
+					days = 120
+				}
+			}
+			534 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_investing_in_urban
+					days = 120
+				}
+			}
+			535 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_investing_in_urban
+					days = 120
+				}
+			}
+			530 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 1
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_investing_in_urban
+					days = 120
+				}
+			}
 		}
 	}
 	focus = {
@@ -1171,10 +1233,10 @@ focus_tree = {
 	focus = {
 		id = SPT_JAP_new_theories
 		icon = GFX_focus_ARG_fascist_researchers
-		prerequisite = { focus = SPT_JAP_gov_oversight }
+		prerequisite = { focus = SPT_JAP_invest_in_country_side }
 		x = 0
 		y = 2
-		relative_position_id = SPT_JAP_gov_oversight
+		relative_position_id = SPT_JAP_invest_in_country_side
 		# offset = {
 		# 	x = 0
 		# 	y = 0
@@ -1211,8 +1273,8 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_national_companies
-		icon = GFX_focus_jap_showa_restoration
-		prerequisite = { focus = SPT_JAP_gov_oversight }
+		icon = GFX_focus_ICE_state_corporatism
+		prerequisite = { focus = SPT_JAP_invest_in_country_side }
 		prerequisite = { focus = SPT_JAP_seize_wealth }
 		x = 2
 		y = 1
@@ -1225,7 +1287,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -1245,7 +1307,8 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			#add_stability = 0.1
+			custom_effect_tooltip = available_industrial_concern
+			show_ideas_tooltip = SPT_JAP_national_company
 		}
 	}
 	focus = {
@@ -1284,7 +1347,20 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			#add_stability = 0.1
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_pol_showa_state_header_tt
+			add_to_variable = { 
+				SPT_JAP_pol_fascism_drift = 0.05 
+				tooltip = fascism_drift_tt
+			}
+			add_to_variable = {
+				SPT_JAP_pol_global_building_slots_factor = 0.1
+				tooltip = global_building_slots_factor_tt
+			}
+			add_to_variable = {
+				SPT_JAP_pol_production_factory_start_efficiency_factor = 0.05
+				tooltip = production_factory_start_efficiency_factor_tt
+			}
 		}
 	}
 	focus = {
