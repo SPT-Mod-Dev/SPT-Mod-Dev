@@ -26,6 +26,8 @@ NDefines.NMilitary.EXPERIENCE_COMBAT_FACTOR = 0.2
 
 NDefines.NIndustrialOrganisation.DESIGN_TEAM_CHANGE_XP_COST = 1
 
+NDefines.NBuildings.ANTI_AIR_SUPERIORITY_MULT = 25
+
 NDefines.NMilitary.ARMOR_VS_AVERAGE = 0.25
 NDefines.NMilitary.PEN_VS_AVERAGE = 0.3
 NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_IMPACT = 0.25
