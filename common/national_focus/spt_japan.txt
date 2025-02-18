@@ -326,7 +326,7 @@ focus_tree = {
 		id = SPT_JAP_ishihara_plan
 		icon = GFX_focus_generic_mass_production
 		prerequisite = { focus = SPT_JAP_guide_zaibatsu }
-		x = -5
+		x = -6
 		y = 1
 		relative_position_id = SPT_JAP_guide_zaibatsu
 		# offset = {
@@ -366,6 +366,68 @@ focus_tree = {
 			add_to_variable = {
 				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
 				value = 0.01
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_extend_the_plan
+		icon = GFX_focus_generic_currency_reforms
+		prerequisite = { focus = SPT_JAP_ishihara_plan }
+		x = 2
+		y = 1
+		relative_position_id = SPT_JAP_ishihara_plan
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_idea = SPT_JAP_ishihara_plan_idea
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						has_idea = SPT_JAP_ishihara_plan_idea
+					}
+				}
+				add_timed_idea = {
+					idea = SPT_JAP_ishihara_plan_idea
+					days = 120
+				}
+			}
+			else = {
+				modify_timed_idea = {
+					idea = SPT_JAP_ishihara_plan_idea
+					days = 120
+				}
+			}
+			
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.015
 				tooltip = SPT_JAP_cg_expected_tt
 			}
 		}
@@ -913,7 +975,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -945,7 +1007,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_recognize_secret_societies
-		icon = GFX_focus_ITA_banda_carita
+		icon = GFX_focus_generic_infiltration
 		prerequisite = { focus = SPT_JAP_crown_new_emperor }
 		x = 0
 		y = 2
@@ -989,7 +1051,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_seize_wealth
-		icon = GFX_focus_generic_currency_reforms
+		icon = GFX_focus_generic_welfare
 		prerequisite = { focus = SPT_JAP_challenge_zaibatsu }
 		x = -2
 		y = 1
@@ -1043,6 +1105,13 @@ focus_tree = {
 
 			}
 			535 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			530 = {
 				add_building_construction = {
 					type = infrastructure
 					level = 1
@@ -1410,10 +1479,6 @@ focus_tree = {
 		}
 
 		available = { 
-			custom_trigger_tooltip = {
-				tooltip = SPT_JAP_marco_polo_trigger_tt	
-				always = no
-			}
 		}
 		bypass = {
 			OR = {
@@ -1685,7 +1750,7 @@ focus_tree = {
 		prerequisite = {
 			focus = SPT_JAP_marco_polo
 		}
-		x = -1
+		x = 0
 		y = 3
 		relative_position_id = SPT_JAP_konoe_government
 		# offset = {
@@ -1696,7 +1761,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -1751,7 +1816,9 @@ focus_tree = {
 		}
 
 		available = {
-
+			NOT = {
+				has_idea = SPT_JAP_koyata_iwasaki
+			}
 		}
 
 		bypass = {
@@ -1770,6 +1837,7 @@ focus_tree = {
 				long_name = "Taisei Yokusankai"
 				name = "Taisei Yokusankai"
 			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			promote_character = {
 				character = SPT_JAP_hideki_tojo_leader
 				ideology = fascism_ideology
@@ -1803,7 +1871,7 @@ focus_tree = {
 		}
 
 		available = {
-
+			has_idea = SPT_JAP_koyata_iwasaki
 		}
 
 		bypass = {
