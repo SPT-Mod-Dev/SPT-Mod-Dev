@@ -1098,7 +1098,7 @@ focus_tree = {
 	focus = {
 		id = GER_build_the_rur_dam
 		icon = GFX_focus_generic_hydroelectric_energy
-		prerequisite = { focus = GER_construct_the_reichsautobahn focus = GER_currency_reforms }
+		prerequisite = { focus = GER_construct_the_reichsautobahn focus = GER_currency_reforms focus = GER_autarky_efforts }
 
 		x = -2
 		y = 1
@@ -2896,17 +2896,7 @@ focus_tree = {
 		relative_position_id = GER_armament_rationalization
 		cost = 5
 		available = {
-			has_war_with_major = yes
-			OR = {
-				has_war_support > 0.89
-				surrender_progress > 0
-			}
-			any_enemy_country = {
-				ic_ratio = {
-					tag = ROOT
-					ratio > 0.5
-				}
-			}
+			has_idea = tot_economic_mobilisation
 		}
 
 		continue_if_invalid = yes

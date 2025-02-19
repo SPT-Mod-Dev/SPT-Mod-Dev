@@ -1,5 +1,182 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+###  3.13.7 Another Week another minor UpdatE
+
+#### General
+ - Infantry Tank MIO speed fixed
+ - Make Static AA Air superiority reduction per level 25 (was 5). Still requires at least 1 active wing in airzone to apply properly.
+ - Land/Navy/Air Facility: -2000 IC base Cost, +2000 IC incremental cost
+ - Base bonus to attack from CAS in battles now 20% (was 25%)
+ - Air superiority bonus base now 25% (was 35)
+ - Reduction by AA increase, base 25% now cancelled out at 80 Division AA (was at 112)
+
+#### Germany 
+ - Focus 'Ruhr Dam' now accessible from Autarky
+ - Advisor 'Ludwig Erhard' added 10% civ construction speed
+ - Focus 'Totaler Krieg' now requires total mobilisation
+
+#### Soviets
+ - Focus 'Superior War Machines' no longer requires improved medium chassis
+
+#### South Africa
+ - Removed Barotziland and Northeast Rhodesian cores on formable
+ - Added decision to take control of Mozambique
+
+#### Naval designer
+ - Added "Helicopter Facilities" module. Uses catapult slotting rules. Better sub detection, worse surface detection, built in depth charge attack instead of air attack compared to catapults. Gained from helicopter special project.
+
+#### Air designer
+ - 1924 Airframe IC cost reduced from 4 to 1
+ - 1936 Airframe IC cost reduced from 5 to 2
+ - 1936 Airframe gains additional support module slot (was 2, now 3)
+ - Turret Modules now give 2 Air Attack and 1 Air Defense per weight, and -2.5% Speed per turret (was 1/1/-3,75%)
+ - Armor Plates Unified at 1.5 Air defense per Weight (was 2/1/0.8 for light/medium/heavy airframe)
+ - AP Bomb Locks: Renamed to Multipurpose bomb locks. Ground attack damage increased to 8 (was 2). Still less weight-efficient than regular locks and equal to bomb bays.
+ - Heavy Bomb Locks: Ground attack damage increased to 10 (was 8). For being a later tech now actually more weight efficient for CAS damage/weight than small bombs.
+ - Bomb Locks & Multipurpose Bomb Locks: added 1 strat bombing when on strat bombing mission
+ - Heavy Bomb Locks / Small Bomb Bay: added 2 strat bombing when on strat bombing mission
+ - Heavy Bomb Locks now allow for strat bombing
+ - Medium Bomb Bay: Increased strat bombing from 6 to 7
+ - Bomb Sights / Air to ground radar: decreased flat strat bombing buff in exchange for % modifier
+
+
+#### Tank designer
+ - Tank destroyer combat width increased to 3 from 2
+ - Standardized Buffs and Debuffs with Self-Propelled Artillery (Supply Consumption, Recovery Rate, HP, Breakthrough, Stats Multipliers)
+ - High Velocity Cannon: Soft Attack Reduced to 8 from 10
+                         Hard Attack Increased to 25.5 from 22.5
+ - High Velocity Cannon II: Soft Attack Reduced to 10 from 12
+                            Hard Attack Increased to 32 from 28
+ - High Velocity Cannon III: Soft Attack Reduced to 14 from 17
+                             Hard Attack Increased to 35 from 30
+- Super Heavy Cannon: Soft Attack Reduced to 49.5 from 51
+                      Hard Attack Reduced to 44 from 45
+
+#### Air Technologies
+ - Survivability Studies now 1937 technology
+ - Aircraft Cannons 1 now 1938 technology
+
+#### Artillery Technologies
+ - Improved Artillery II: Increased Self-Propelled Artillery Soft Attack to +10% from +5%
+ - Anti-Tank Upgrade: Increased Tank Destroyer Piercing to +5% from 0
+ - 1940 Anti-Tank: Added Tank Destroyer Hard Attack +10% from 0
+
+#### Army Command
+ - Inventive Leadership: Planning Speed Increased to +15% from +10%
+
+ - Bayonet Strength: Infantry Attack Reduced to +10% from +15%
+                     Infantry Defence Reduced to 0 from +15%
+                     Recovery Rate Increased to +10% from 0%
+
+ - Professional Officer Corps: Daily Command Power Gain Reduced to 0 from +0.25
+
+ - Elevated Engineering Corps: Entrenchment Speed Reduced to 0 from +10%
+                               Railway Gun Bombardment Reduced to 50% from 100%
+
+ - Quick Improvisation: Planning Speed Reduced to 0 from +50%
+
+ - Proper Heritage: Recon Reduced to 0 from 25%
+                    Cavalry Attack Bonus Reduced to +15% from +25%
+                    Cavalry Defence Bonus Reduced to +15% from +25%
+
+ - Ideological Loyalty: Weekly Manpower Reduced to 0 from +500
+                        Encirclement Penalty Reduction Reduced To +7.5% from +10%
+
+ - State Serves The Military: Political Power Gain Increased to 0% from 10%
+
+ - Motorization Drive: Motorized Attack Reduced to 10% from 15%
+                       Motorized Defence Reduced to 10% from 15%
+                       Supply Truck Attrition Reduced to 0 from +20%
+
+ - Overwhelming Firepower: Supply Consumption Penalty Reduced to 0 from 5%
+
+ - Tip Of The Spear: Paratrooper Supply Grace Reduced to 0 hrs from 72 hrs
+                     Marine Supply Grace Reduced to 0 hrs from 72 hrs
+
+ - Static Warfare: Org Loss When Moving Penalty Reduced to 0 from +15%
+                   Entrenchment Speed Reduced to +15% from +25%
+                   Max Entrenchment Reduced to +15% from +25%
+                   Land Fort Effectivness Added +10%
+
+ - Flexible Organisation: Org Loss When Moving Reduced to -15% from -10%
+                          Max Planning Penalty Reduced to 0 from -5%
+                          Planning Speed Increased to +15% from +10%
+                          Prefered Tactic Selection Cost Bonus Reduced to 0 from -20
+                          Army Speed Reduced to 0 from +5%
+
+ - Aggresive Recon: Infiltration Assult Tactic Selection Bonus Reduced to 0 from +200%
+                    Supply Consumption Penalty Reduced to 0 from +5%
+                    Reconnaisance Redued to 0% from +50%
+
+ - Victory or Death: Encirclement Penalty Reduction Increased To +7.5% from +0%
+                     Attack Bonus Reduced to 0 from +10%
+                     Defence Penalty Reduced to 0 from -20%
+
+ - Maneuver Warafare: Supply Truck Attrition Reduced to 0% from +15%
+                      Non-Combat Out of Supply Penalties Reduced to 0% from +10%
+                      Coordination Reduced to +10% from +20%
+                      Supply Consumption Reduced to 0 from +10%
+                      Army Speed Increased to +7.5% from 0
+                      Coordination Reduced from +20% from +7.5%
+
+ - Smoke and Fire: Supply Consumption Reduced to 0 from +15%
+                   Division Defence Reduced to 0 from +5%
+                   Artillery Attack Reduced to +25% from +30%
+
+ - Logistical Focus: Navy Fuel Consumption Reduction Reduced to -10% from -20%
+                     Air Fuel Consumption Reduction Reduced to -10% from -20%
+                     Army Fuel Consumption Reduction Incresed to -10% from 0%
+                     Supply Consumption Recuction Reduced to 0 from -20%
+                     Supply Combat Penalties on Core Territory Reduction Reduced to 0 from -10%
+
+ - Operational Reserves: Reduced HP bonus to +10% from +15%
+                         Reinforce Rate Penalty Removed
+
+#### Superior Firepower Doctrine
+ - Integrated Support: Self-Propelled Artillery Added Recovery Rate +0.2 from 0
+                                                Added Organisation +3.0 from 0
+
+ - Regimental Combat Teams: Self-Propelled Artillery Added Soft Attack +10%
+                                                     Added HP +5
+
+ - Dispersed Support: Tank Destroyer Added Recovery Rate +0.2 from 0
+                                     Added Organisation +3.0 from 0
+                      Support Companies Added Recovery Rate +0.1
+                                        Added Organisation +5
+                                        Added Hard Attack +25%
+
+ - Regimental Combat Teams: Tank Destroyer Added Hard Attack +10%
+                                           Added HP +5%
+ - Mechanized Offensive: Stats bonuses now equal with mechanized offensive in GBP/MW. Removed 10% Armor Breaktrough.
+ - Concentrated Fire Plans & Centralized Fire Control: Modifiers swapped
+ - Centralized Fire Control: Added +2% reinforce rate
+ - Forward Observers/Combined Arms: Swapped Sides.
+ - Forward Observers: Added 10% Army Breakthrough.
+ - Combined Arms: Added 10% Armor breakthrough
+ - Advanced Firebases/Tactical Control: Swapped Sides.
+ - Tactical Control: Now has modifiers of old Advanced Firebases
+ - Advanced Firebases: Now has 5% soft/hard on inf/mot/mech & artillery (Tactical Control in its position was +2% reinforce rate)
+ - Shock and Awe: Removed 5% soft/hard on inf/mot/mech & artillery
+
+#### Mass Assault Doctrine 
+ - Large Front Operations: Tanks Added +2 HP
+                           Added Max Planning +5%
+
+ - Operational Concentration: Reinforce Rate Decreased to 4 from 5
+
+ - Mechanized Wave: Armoured Car Recon Removed Organisation to Infantry
+                    Light Tank Recon Added 1+ Organisation to Tanks
+                    Tanks and Armor Variants Increased Organisation to 3 from 2
+
+ - Continous Offensieve: Reinforce Rate reduced to 0 from 5
+
+ - Infantry Offensive: Reinforce Rate reduced to 0 from 5
+
+ - Human Wave Offensive: Reinforce Rate reduced to 5 from 8
+
+#### Battlefield Support Doctrine
+ - Direct Ground Support: Decreased ground support modifier from +20% to +15%
+
 ### 3.13.6
 
 #### Soviets
