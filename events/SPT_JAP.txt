@@ -1,4 +1,5 @@
 add_namespace = spt_jap
+add_namespace = spt_jap_news
 
 #country_event = {
 #	id = spt_jap.1
@@ -74,8 +75,6 @@ country_event = {
 	option = { #Take their advice
 		name = spt_jap.3.b
 
-		add_political_power = -25
-		custom_effect_tooltip = SPT_JAP_whitespace_tt
 		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
 		add_to_variable = {
 			SPT_JAP_zai_production_factory_efficiency_gain_factor = 0.1
@@ -87,6 +86,118 @@ country_event = {
 		}
 		hidden_effect = {
 			add_ideas = SPT_JAP_took_german_advice
+		}
+	}
+}
+
+# NEWS EVENTS
+
+#kodoha dudes fumble the coup, just like me with the goth girl
+news_event = {
+	id = spt_jap_news.1
+	title = spt_jap_news.1.t
+	desc = spt_jap_news.1.d
+	picture = GFX_news_event_ger_civil_war
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = spt_jap_news.1.a
+		trigger = {
+			OR = { 
+				TAG = ENG
+				TAG = USA
+				TAG = FRA
+				TAG = BRA
+				TAG = CAN
+				TAG = RAJ
+				TAG = AST
+				TAG = NZL
+				TAG = SAF
+				TAG = HOL
+				TAG = MEX
+				TAG = SOV
+				TAG = MON
+			}
+		}
+	}
+	option = {
+		name = spt_jap_news.1.b
+		trigger = {
+			NOT = {
+				OR = { 
+					TAG = ENG
+					TAG = USA
+					TAG = FRA
+					TAG = BRA
+					TAG = CAN
+					TAG = RAJ
+					TAG = AST
+					TAG = NZL
+					TAG = SAF
+					TAG = HOL
+					TAG = MEX
+					TAG = SOV
+					TAG = MON
+				}
+			}
+		}
+	}
+}
+
+#kodoha dudes succeed the coup
+news_event = {
+	id = spt_jap_news.2
+	title = spt_jap_news.2.t
+	desc = spt_jap_news.2.d
+	picture = GFX_news_event_japanese_army_parade
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = spt_jap_news.2.a
+		trigger = {
+			OR = { 
+				TAG = ENG
+				TAG = USA
+				TAG = FRA
+				TAG = BRA
+				TAG = CAN
+				TAG = RAJ
+				TAG = AST
+				TAG = NZL
+				TAG = SAF
+				TAG = HOL
+				TAG = MEX
+				TAG = SOV
+				TAG = MON
+			}
+		}
+	}
+	option = {
+		name = spt_jap_news.2.b
+		trigger = {
+			NOT = {
+				OR = { 
+					TAG = ENG
+					TAG = USA
+					TAG = FRA
+					TAG = BRA
+					TAG = CAN
+					TAG = RAJ
+					TAG = AST
+					TAG = NZL
+					TAG = SAF
+					TAG = HOL
+					TAG = MEX
+					TAG = SOV
+					TAG = MON
+				}
+			}
 		}
 	}
 }

@@ -14,6 +14,17 @@ focus_tree = {
 
 	continuous_focus_position = { x = 20 y = 2200 }
 
+	shortcut = {
+		name = SPT_JAP_shortcut_politics
+		target = SPT_JAP_planned_eco
+		scroll_wheel_factor = 1
+	}
+	shortcut = {
+		name = SPT_JAP_shortcut_wartime_measures
+		target = SPT_JAP_strike_south
+		scroll_wheel_factor = 1
+	}
+
 	# focus = {
 	# 	id = SPT_JAP_
 	# 	icon = GFX_focus_jap_showa_restoration
@@ -145,7 +156,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_HISTORICAL  }
 		completion_reward = {
 			custom_effect_tooltip = SPT_JAP_pol_showa_state_add_tt
 			hidden_effect = {
@@ -155,6 +166,13 @@ focus_tree = {
 			}
 			add_to_variable = {
 				SPT_JAP_pol_stability_factor = 0.1 tooltip = stability_factor_tt
+			}
+			hidden_effect = {
+				every_country = {
+					ROOT = {
+						news_event = spt_jap_news.1
+					}
+				}
 			}
 		}
 	}
@@ -192,7 +210,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL FOCUS_FILTER_POLITICAL_CHARACTER }
 		completion_reward = {	
 			set_party_name = {
 				ideology = fascism
@@ -211,7 +229,17 @@ focus_tree = {
 				}
 			}
 			add_to_variable = { SPT_JAP_pol_fascism_drift = 0.1 tooltip = fascism_drift_tt }
-			
+			hidden_effect = {
+				every_country = {
+					ROOT = {
+						news_event = {
+							id = spt_jap_news.2
+							days = 22
+						}
+					
+					}
+				}
+			}
 		}
 	}
 	focus = {
@@ -248,7 +276,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
 		completion_reward = {
 			add_ideas = spt_jap_controlled_eco_law
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
@@ -302,7 +330,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
 		completion_reward = {
 			custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
 			add_to_variable = {
@@ -356,7 +384,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
 		completion_reward = {
 			add_timed_idea = {
 				idea = SPT_JAP_ishihara_plan_idea
@@ -404,7 +432,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			if = {
 				limit = {
@@ -466,7 +494,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_POLITICAL_CHARACTER FOCUS_FILTER_HISTORICAL }
 		completion_reward = {
 			add_political_power = 50
 			custom_effect_tooltip = available_political_advisor
@@ -507,7 +535,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_POLITICAL_CHARACTER  }
 		completion_reward = {
 			if = {
 				limit = {
@@ -561,7 +589,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_POLITICAL_CHARACTER  }
 		completion_reward = {
 			#custom_effect_tooltip = available_political_advisor
 			#show_ideas_tooltip = SPT_JAP_mori_hideoto
@@ -615,7 +643,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL  }
 		complete_tooltip = {
 			random_state = {
 				limit = {
@@ -726,7 +754,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL  }
 		completion_reward = {
 			529 = {
 				add_building_construction = {
@@ -786,7 +814,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			282 = {
 				add_building_construction = {
@@ -854,7 +882,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			add_research_slot = 1
 		}
@@ -894,7 +922,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
 			add_to_variable = {
@@ -952,7 +980,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_STABILITY }
 		completion_reward = {
 			promote_character = {
 				character = SPT_JAP_kodoha_cabinet
@@ -994,7 +1022,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_STABILITY }
 		completion_reward = {
 			swap_ideas = {
 				remove_idea = SPT_JAP_hirohito_weak
@@ -1039,7 +1067,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { }
 		completion_reward = {
 			if = {
 				limit = {
@@ -1083,7 +1111,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			add_political_power = 25
 			add_timed_idea = {
@@ -1155,7 +1183,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			add_timed_idea = {
 				idea = SPT_JAP_rapid_mobi_idea 
@@ -1315,7 +1343,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_POLITICAL_CHARACTER FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = SPT_JAP_kita_ikki
@@ -1357,7 +1385,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			custom_effect_tooltip = available_industrial_concern
 			show_ideas_tooltip = SPT_JAP_national_company
@@ -1397,7 +1425,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			custom_effect_tooltip = SPT_JAP_pol_showa_state_header_tt
 			add_to_variable = { 
@@ -1450,7 +1478,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		
 		completion_reward = {
 			add_political_power = 25
@@ -1520,7 +1548,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ANNEXATION  }
 		completion_reward = {
 			complete_national_focus = SPT_JAP_liaison_conference
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
@@ -1636,7 +1664,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			every_controlled_state = {
 				limit = {
@@ -1694,7 +1722,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			605 = {
 				add_resource = {
@@ -1814,7 +1842,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
 		completion_reward = {
 			add_political_power = 25
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
@@ -1864,7 +1892,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_HISTORICAL  }
 		completion_reward = {
 
 			set_party_name = {
@@ -1917,14 +1945,14 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 		completion_reward = {
 			#add_stability = 0.1
 		}
 	}
 	focus = {
 		id = SPT_JAP_rapid_dev
-		icon = GFX_focus_jap_showa_restoration
+		icon = GFX_focus_AUS_raid_military_storages
 		prerequisite = {
 			focus = SPT_JAP_marco_polo
 		}
@@ -1942,7 +1970,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 3
 
 		ai_will_do = {
 			factor = 4
@@ -1960,9 +1988,49 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
-			
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = JAP
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+							state = 537
+							state = 526
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = JAP
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+							state = 537
+							state = 526
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
 			add_to_variable = {
 				SPT_JAP_zai_production_speed_arms_factory_factor = -0.4
@@ -1997,7 +2065,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -2015,7 +2083,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			#add_stability = 0.1
 		}
@@ -2057,7 +2125,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			country_event = spt_jap.3
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
@@ -2109,7 +2177,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
 			add_relation_modifier = {
 				target = GER
@@ -2160,7 +2228,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			add_tech_bonus = {
 				name = "Japanese Engineering Studies"
@@ -2228,7 +2296,7 @@ focus = {
 	continue_if_invalid = no
 	available_if_capitulated = no
 
-	search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+	search_filters = {  }
 	completion_reward = {
 		add_ideas = JAP_liaison_conference
 		every_army_leader = {
@@ -2276,7 +2344,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
 		completion_reward = {
 			if = {
 				limit = {MAN = { is_subject_of = ROOT } }
@@ -2333,7 +2401,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_ARMY_XP  }
 		completion_reward = {
 			army_experience = 25
 
@@ -2393,7 +2461,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = {  }
 		completion_reward = {
 			add_ideas = SPT_JAP_german_advisors_spirit
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
@@ -2459,7 +2527,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
 		completion_reward = {
 			army_experience = 25
 
@@ -2519,7 +2587,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = {  }
 		completion_reward = {
 			add_ideas = SPT_JAP_italian_advisors_spirit
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
@@ -2586,7 +2654,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
 		completion_reward = {
 			army_experience = 25
 
@@ -2646,7 +2714,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = {  }
 		completion_reward = {
 			add_ideas = SPT_JAP_japanese_advisors_spirit
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
@@ -2716,7 +2784,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
 		completion_reward = {
 			army_experience = 25
 
@@ -2775,7 +2843,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = {  }
 		completion_reward = {
 			CHI = {
 				add_ideas = SPT_JAP_debuff_for_china
@@ -2851,7 +2919,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_ANNEXATION }
 		completion_reward = {
 			custom_effect_tooltip = SPT_JAP_strike_south_tutorial_tt
 			add_doctrine_cost_reduction = {
