@@ -210,7 +210,7 @@ focus_tree = {
 					modifier = SPT_JAP_pol_showa_state
 				}
 			}
-			add_to_variable = { SPT_JAP_pol_fascism_drift = 0.15 tooltip = fascism_drift_tt }
+			add_to_variable = { SPT_JAP_pol_fascism_drift = 0.1 tooltip = fascism_drift_tt }
 			
 		}
 	}
@@ -1415,13 +1415,13 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_korean_project
-		icon = GFX_focus_jap_showa_restoration
+		icon = GFX_spt_korea_diplo
 		prerequisite = { focus = SPT_JAP_recognize_secret_societies }
 		prerequisite = {
 			focus = SPT_JAP_new_theories
 		}
-		x = -1
-		y = 2
+		x = -2
+		y = 1
 		relative_position_id = SPT_JAP_recognize_secret_societies
 		# offset = {
 		# 	x = 0
@@ -1431,7 +1431,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -1450,8 +1450,23 @@ focus_tree = {
 		available_if_capitulated = no
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		
 		completion_reward = {
-			#add_stability = 0.1
+			add_political_power = 25
+			custom_effect_tooltip = SPT_JAP_korean_project_tt
+			custom_effect_tooltip = SPT_JAP_whitespace_tt	
+			add_victory_points = {
+				province = 4056
+				value = 4
+			}
+			add_victory_points = {
+				province = 4052
+				value = 4
+			}
+			add_victory_points = {
+				province = 7125
+				value = 7
+			}
 		}
 	}
 
@@ -1703,14 +1718,16 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = SPT_JAP_showa_restoration
-		icon = GFX_focus_jap_showa_restoration
-		prerequisite = { focus = SPT_JAP_korean_project }
+		id = SPT_JAP_towards_restoration
+		icon = GFX_spt_focus_showa_restored
 		prerequisite = {
 			focus = SPT_JAP_marco_polo
 		}
-		x = 0
-		y = 1
+		prerequisite = {
+			focus = SPT_JAP_recognize_secret_societies
+		}
+		x = 2
+		y = 2
 		relative_position_id = SPT_JAP_korean_project
 		# offset = {
 		# 	x = 0
@@ -1727,7 +1744,7 @@ focus_tree = {
 		}
 
 		available = {
-
+			has_idea = SPT_JAP_kita_ikki
 		}
 
 		bypass = {
@@ -1738,9 +1755,20 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			#add_stability = 0.1
+			remove_trait = {
+				character = SPT_JAP_kita_ikki
+				slot = political_advisor
+				trait = kita_ikki_weak
+			}
+			add_trait = {
+				character = SPT_JAP_kita_ikki
+				slot = political_advisor
+				trait = kita_ikki_strong
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			set_cosmetic_tag = JAP_pan_asia_empire
 		}
 	}
 	focus = {
