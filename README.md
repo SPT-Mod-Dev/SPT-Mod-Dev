@@ -10,14 +10,18 @@
  - Air superiority bonus base now 25% (was 35)
  - Reduction by AA increase, base 25% now cancelled out at 80 Division AA (was at 112)
 
-Added ASW helipad gained by Helicoptr special project
+Added ASW helipad gained by Helicopter special project
 
 #### Germany 
  - Focus 'Ruhr Dam' Now accessible from Autarky
  - Advisor 'Ludwig Erhard' Added 10% civ construction speed
- 
+
 #### Soviets
  - Focus 'Supperior Warmachines' no longer requires improved medium chassis
+
+#### South Africa
+ - Removed Barotziland and Northeast Rhodesian cores on formable
+ - Added Decision to take controll of Mozambique
 
 #### Naval designer
  - Added "Helicopter Facilities" module. Uses catapult slotting rules. Better Sub detection, worse Surface detection, built in depth charge attack instead of air attack compared to catapults. Gained from helicopter special project.
