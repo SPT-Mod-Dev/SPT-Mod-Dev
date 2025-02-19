@@ -262,6 +262,7 @@ focus_tree = {
 				set_variable = {
 					SPT_JAP_eco_pressure_consumer_goods_expected_value = 0.0
 				}
+				
 			}
 		}
 	}
@@ -1454,7 +1455,7 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 25
 			custom_effect_tooltip = SPT_JAP_korean_project_tt
-			custom_effect_tooltip = SPT_JAP_whitespace_tt	
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			add_victory_points = {
 				province = 4056
 				value = 4
@@ -1466,6 +1467,12 @@ focus_tree = {
 			add_victory_points = {
 				province = 7125
 				value = 7
+			}
+			every_controlled_state = {
+				limit = {
+					is_core_of = KOR
+				}
+				add_compliance = 10
 			}
 		}
 	}
@@ -1737,7 +1744,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -1955,7 +1962,19 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			#add_stability = 0.1
+			
+			custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+			add_to_variable = {
+				SPT_JAP_zai_production_speed_arms_factory_factor = -0.4
+				tooltip = production_speed_arms_factory_factor_tt
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			add_timed_idea = {
+				idea = SPT_JAP_rapid_arms_dev
+				days = 250
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_cg_expected_timed_increase_up_tt
 		}
 	}
 	focus = {
@@ -1999,6 +2018,156 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			#add_stability = 0.1
+		}
+	}
+	focus = {
+		id = SPT_JAP_invite_german_experts
+		icon = GFX_focus_GER_prioritize_the_four_year_plan
+		prerequisite = {
+			focus = SPT_JAP_rapid_dev
+			focus = SPT_JAP_long_term_dev
+		}
+
+		x = 2
+		y = 1
+		relative_position_id = SPT_JAP_rapid_dev
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			country_event = spt_jap.3
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = BRA_address_labor_disputes_tt_1
+			event_option_tooltip = spt_jap.3.a
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = BRA_address_labor_disputes_tt_2
+			event_option_tooltip = spt_jap.3.b
+		}
+	}
+	focus = {
+		id = SPT_JAP_western_ideas
+		icon = GFX_focus_generic_german_trade
+		prerequisite = {
+			focus = SPT_JAP_invite_german_experts
+		}
+		mutually_exclusive = {
+			focus = SPT_JAP_eastern_ideas
+		}
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_invite_german_experts
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SPT_JAP_yes_german_advice_tt
+				has_idea =  SPT_JAP_took_german_advice
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_relation_modifier = {
+				target = GER
+				modifier = ITA_military_agreements
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_eastern_ideas
+		icon = GFX_focus_generic_university_3
+		prerequisite = {
+			focus = SPT_JAP_invite_german_experts
+		}
+		mutually_exclusive = {
+			focus = SPT_JAP_western_ideas
+		}
+		x = -1
+		y = 1
+		relative_position_id = SPT_JAP_invite_german_experts
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SPT_JAP_no_german_advice_tt
+				NOT = {
+					has_idea =  SPT_JAP_took_german_advice
+				}
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_tech_bonus = {
+				name = "Japanese Engineering Studies"
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
 		}
 	}
 # .........................................................

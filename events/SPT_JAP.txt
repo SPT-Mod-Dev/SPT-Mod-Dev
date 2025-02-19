@@ -10,6 +10,7 @@ add_namespace = spt_jap
 #	}
 #}
 
+
 country_event = { #hidden event to spawn militia units periodically
 	id = spt_jap.2
 	title = spt_jap.2.t
@@ -39,5 +40,53 @@ country_event = { #hidden event to spawn militia units periodically
 
 	option = {
 		name = spt_jap.2.a
+	}
+}
+
+
+#German Production Engineers Inspect Our Methods
+country_event = { 
+	id = spt_jap.3
+	title = spt_jap.3.t
+	desc = spt_jap.3.desc
+	is_triggered_only = yes
+	timeout_days = 14
+	picture = GFX_report_event_generic_factory
+
+	immediate = {
+
+	}
+
+	option = { #Maintain the japanese model
+		name = spt_jap.3.a
+
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_production_factory_start_efficiency_factor = 0.05
+			tooltip = production_factory_start_efficiency_factor_tt
+		}
+		add_to_variable = {
+			SPT_JAP_zai_production_factory_efficiency_gain_factor = -0.05
+			tooltip = production_factory_efficiency_gain_factor_tt
+		}
+	}
+
+	option = { #Take their advice
+		name = spt_jap.3.b
+
+		add_political_power = -25
+		custom_effect_tooltip = SPT_JAP_whitespace_tt
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_production_factory_efficiency_gain_factor = 0.1
+			tooltip = production_factory_efficiency_gain_factor_tt
+		}
+		add_to_variable = {
+			SPT_JAP_zai_political_power_gain = -0.05
+			tooltip = political_power_gain_tt
+		}
+		hidden_effect = {
+			add_ideas = SPT_JAP_took_german_advice
+		}
 	}
 }
