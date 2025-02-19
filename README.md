@@ -4,43 +4,43 @@
 
 #### General
  - Infantry Tank MIO speed fixed
- - Make Static AA Air superiority reduction per level 25 (was 5). STill requires at least 1 active Wing in Airzone to apply properly.
- - Land/Navy/Air Facility: -2000 IC base Cost, +2000IC incremental cost
- - base bonus to attack from cas in battles now 20% (was 25%)
+ - Make Static AA Air superiority reduction per level 25 (was 5). Still requires at least 1 active wing in airzone to apply properly.
+ - Land/Navy/Air Facility: -2000 IC base Cost, +2000 IC incremental cost
+ - Base bonus to attack from CAS in battles now 20% (was 25%)
  - Air superiority bonus base now 25% (was 35)
  - Reduction by AA increase, base 25% now cancelled out at 80 Division AA (was at 112)
 
 #### Germany 
- - Focus 'Ruhr Dam' Now accessible from Autarky
- - Advisor 'Ludwig Erhard' Added 10% civ construction speed
+ - Focus 'Ruhr Dam' now accessible from Autarky
+ - Advisor 'Ludwig Erhard' added 10% civ construction speed
 
 #### Soviets
- - Focus 'Supperior Warmachines' no longer requires improved medium chassis
+ - Focus 'Superior War Machines' no longer requires improved medium chassis
 
 #### South Africa
  - Removed Barotziland and Northeast Rhodesian cores on formable
- - Added Decision to take controll of Mozambique
+ - Added decision to take control of Mozambique
 
 #### Naval designer
- - Added "Helicopter Facilities" module. Uses catapult slotting rules. Better Sub detection, worse Surface detection, built in depth charge attack instead of air attack compared to catapults. Gained from helicopter special project.
+ - Added "Helicopter Facilities" module. Uses catapult slotting rules. Better sub detection, worse surface detection, built in depth charge attack instead of air attack compared to catapults. Gained from helicopter special project.
 
 #### Air designer
  - 1924 Airframe IC cost reduced from 4 to 1
  - 1936 Airframe IC cost reduced from 5 to 2
  - 1936 Airframe gains additional support module slot (was 2, now 3)
  - Turret Modules now give 2 Air Attack and 1 Air Defense per weight, and -2.5% Speed per turret (was 1/1/-3,75%)
- - Armor plates Unified at 1.5 Air defense per Weight (was 2/1/0.8 for light/medium/heavy airframe)
- - AP Bomb locks: Renamed to Multipurpose bomb locks. Ground attack damage increased to 8 (was 2). Still less weight-efficient than regular locks and equal to bomb bays.
- - Heavy bomb locks: Ground attack damage increased to 10 (was 8). For being a later tech now actually more weight efficient for cas damage/weight than small bombs.
- - Bomb locks & Multipurpose bomb locks: added 1 Strat bombing when on Strat bombing mission
- - Heavy Bomb locks / Small bomb bay: added 2 Strat bombing when on Strat bombing mission
- - Heavy bomb locks now allow for Strat bombing
- - Medium Bomb bay: increased Strat Bombing from 6 to 7
- - Bomb Sights / Air to ground radar: decreased flat Strat bombing buff in exchange for % modifier
+ - Armor Plates Unified at 1.5 Air defense per Weight (was 2/1/0.8 for light/medium/heavy airframe)
+ - AP Bomb Locks: Renamed to Multipurpose bomb locks. Ground attack damage increased to 8 (was 2). Still less weight-efficient than regular locks and equal to bomb bays.
+ - Heavy Bomb Locks: Ground attack damage increased to 10 (was 8). For being a later tech now actually more weight efficient for CAS damage/weight than small bombs.
+ - Bomb Locks & Multipurpose Bomb Locks: added 1 strat bombing when on strat bombing mission
+ - Heavy Bomb Locks / Small Bomb Bay: added 2 strat bombing when on strat bombing mission
+ - Heavy Bomb Locks now allow for strat bombing
+ - Medium Bomb Bay: Increased strat bombing from 6 to 7
+ - Bomb Sights / Air to ground radar: decreased flat strat bombing buff in exchange for % modifier
 
 
 #### Tank designer
- - Tank destroyer combatwidth increased to 3 from 2
+ - Tank destroyer combat width increased to 3 from 2
  - Standardized Buffs and Debuffs with Self-Propelled Artillery (Supply Consumption, Recovery Rate, HP, Breakthrough, Stats Multipliers)
  - High Velocity Cannon: Soft Attack Reduced to 8 from 10
                          Hard Attack Increased to 25.5 from 22.5
@@ -147,15 +147,15 @@
  - Regimental Combat Teams: Tank Destroyer Added Hard Attack +10%
                                            Added HP +5%
  - Mechanized Offensive: Stats bonuses now equal with mechanized offensive in GBP/MW. Removed 10% Armor Breaktrough.
- - Concentrated Fire Plans & Centralized Fire Control: modifiers swapped
- - Centralized Fire Control: added +2% reinforce rate
+ - Concentrated Fire Plans & Centralized Fire Control: Modifiers swapped
+ - Centralized Fire Control: Added +2% reinforce rate
  - Forward Observers/Combined Arms: Swapped Sides.
  - Forward Observers: Added 10% Army Breakthrough.
  - Combined Arms: Added 10% Armor breakthrough
  - Advanced Firebases/Tactical Control: Swapped Sides.
- - Tactical Control: now has modifiers of old Advanced Firebases
- - Advanced Firebases: now has 5% soft/hard on inf/mot/mech & artillery (Tactical Control in its position was +2% reinforce rate)
- - Shock and Awe: removed 5% soft/hard on inf/mot/mech & artillery
+ - Tactical Control: Now has modifiers of old Advanced Firebases
+ - Advanced Firebases: Now has 5% soft/hard on inf/mot/mech & artillery (Tactical Control in its position was +2% reinforce rate)
+ - Shock and Awe: Removed 5% soft/hard on inf/mot/mech & artillery
 
 #### Mass Assault Doctrine 
  - Large Front Operations: Tanks Added +2 HP
@@ -174,7 +174,7 @@
  - Human Wave Offensive: Reinforce Rate reduced to 5 from 8
 
 #### Battlefield Support Doctrine
- - Direct Ground Support: decreased ground support modifier from +20% to +15%
+ - Direct Ground Support: Decreased ground support modifier from +20% to +15%
 
 ### 3.13.6
 
