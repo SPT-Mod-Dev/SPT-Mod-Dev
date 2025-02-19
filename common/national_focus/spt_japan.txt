@@ -291,6 +291,13 @@ focus_tree = {
 					SPT_JAP_eco_pressure_consumer_goods_expected_value = 0.0
 				}
 				
+				JAP = {
+					set_variable = { #this tracks the amount of expected cg that increases each iteration for the eco bubble mechanic
+						var = spt_jap_cg_increase_tracker
+						value = 0.01
+					}
+				}
+
 			}
 		}
 	}
@@ -332,6 +339,47 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
 		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = JAP
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+							state = 537
+							state = 526
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = JAP
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+							state = 537
+							state = 526
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
 			add_to_variable = {
 				SPT_JAP_zai_production_speed_arms_factory_factor = 0.05
@@ -764,7 +812,7 @@ focus_tree = {
 				add_extra_state_shared_building_slots = 2
 				add_dynamic_modifier = {
 					modifier = SPT_JAP_investing_in_urban
-					days = 150
+					days = 180
 				}
 			}
 			532 = {
@@ -775,7 +823,7 @@ focus_tree = {
 				add_extra_state_shared_building_slots = 2
 				add_dynamic_modifier = {
 					modifier = SPT_JAP_investing_in_urban
-					days = 150
+					days = 180
 				}
 			}
 		}
@@ -823,7 +871,7 @@ focus_tree = {
 				}
 				add_dynamic_modifier = {
 					modifier = SPT_JAP_investing_in_urban
-					days = 180
+					days = 150
 				}
 			}
 			531 = {
@@ -833,7 +881,7 @@ focus_tree = {
 				}
 				add_dynamic_modifier = {
 					modifier = SPT_JAP_investing_in_urban
-					days = 180
+					days = 150
 				}
 			}
 			528 = {
@@ -843,7 +891,7 @@ focus_tree = {
 				}
 				add_dynamic_modifier = {
 					modifier = SPT_JAP_investing_in_urban
-					days = 180
+					days = 150
 				}
 			}
 		}
@@ -924,6 +972,47 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = JAP
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+							state = 537
+							state = 526
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = JAP
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+							state = 537
+							state = 526
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
 			add_to_variable = {
 				SPT_JAP_zai_production_speed_arms_factory_factor = 0.1
@@ -2043,6 +2132,12 @@ focus_tree = {
 			}
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			custom_effect_tooltip = SPT_JAP_cg_expected_timed_increase_up_tt
+			hidden_effect = {
+				add_to_variable = {
+					var = JAP.spt_jap_cg_increase_tracker
+					value = 0.005
+				}
+			}
 		}
 	}
 	focus = {

@@ -168,30 +168,27 @@ SPT_JAP_eco_pressure = {
 		}
 
 		timeout_effect = {
-			if = {
-				limit = {
-					has_completed_focus = SPT_JAP_rapid_dev
-				}
-				custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
-				add_to_variable = {
-					var = SPT_JAP_eco_pressure_consumer_goods_expected_value
-					value = 0.015
-					tooltip = SPT_JAP_cg_expected_tt
-				}
-				hidden_effect = {
-					activate_mission = SPT_JAP_eco_pressure_timed_increase 
-				}
+			# so, just to be clear here because it can be a bit weird and
+			# there's some technical debt that i can't be arsed to deal with,
+			# the way this works is that there's a variable called spt_jap_cg_increase_tracker
+			# that determines how much the cg increase will be. This variable gets
+			# set up in the focus SPT_JAP_planned_eco, which i know is a bit odd
+			# and not exactly great coding, but it is what it is. If you wanna
+			# adjust how much this increase is at base, then you just gotta go
+			# in that focus and move the needle a bit. 
+			# Other info that might be useful is that this stupid value can't go
+			# negative (fuck you paradox) and if you want an example of how to change
+			# it on the fly, the focus SPT_JAP_rapid_dev is a good one to look at.
+			# Sincerely, if it wasn't my obsession to make this nation both more fun and
+			# more miserable to play, i wouldn't ever recommend going down this route
+			# for making a mechanic, this whole thing is held together with duct tape and spit.
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = spt_jap_cg_increase_tracker
+				tooltip = SPT_JAP_cg_expected_tt
 			}
-			else = {
-				custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
-				add_to_variable = {
-					var = SPT_JAP_eco_pressure_consumer_goods_expected_value
-					value = 0.01
-					tooltip = SPT_JAP_cg_expected_tt
-				}
-				hidden_effect = {
-					activate_mission = SPT_JAP_eco_pressure_timed_increase 
-				}
+			hidden_effect = {
+				activate_mission = SPT_JAP_eco_pressure_timed_increase 
 			}
 
 		}
