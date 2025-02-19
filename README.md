@@ -13,8 +13,9 @@
 Added ASW helipad gained by Helicoptr special project
 
 #### Germany 
- - 'Ruhr Dam' Now accessible from Autarky
-
+ - Focus 'Ruhr Dam' Now accessible from Autarky
+ - Advisor 'Ludwig Erhard' Added 10% civ construction speed
+ 
 #### Soviets
  - Focus 'Supperior Warmachines' no longer requires improved medium chassis
 
