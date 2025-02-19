@@ -10,8 +10,6 @@
  - Air superiority bonus base now 25% (was 35)
  - Reduction by AA increase, base 25% now cancelled out at 80 Division AA (was at 112)
 
-Added ASW helipad gained by Helicopter special project
-
 #### Germany 
  - Focus 'Ruhr Dam' Now accessible from Autarky
  - Advisor 'Ludwig Erhard' Added 10% civ construction speed
