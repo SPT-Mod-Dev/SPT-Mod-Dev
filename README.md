@@ -13,6 +13,7 @@
 #### Germany 
  - Focus 'Ruhr Dam' now accessible from Autarky
  - Advisor 'Ludwig Erhard' added 10% civ construction speed
+ - Focus 'Totaler Krieg' now requires total mobilisation
 
 #### Soviets
  - Focus 'Superior War Machines' no longer requires improved medium chassis
