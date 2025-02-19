@@ -8,6 +8,9 @@
 #### Germany 
  - 'Ruhr Dam' Now accessible from Autarky
 
+#### Soviets
+ - Focus 'Supperior Warmachines' no longer requires improved medium chassis
+
 #### Tank designer
  - Tank destroyer combatwidth increased to 3 from 2
  - Standardized Buffs and Debuffs with Self-Propelled Artillery (Supply Consumption, Recovery Rate, HP, Breakthrough, Stats Multipliers)
