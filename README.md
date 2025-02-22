@@ -1,5 +1,10 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+###  3.13.8
+
+#### Denmark
+ - Focus 'Reclaim Norway' compliance should now be working (?)
+
 ###  3.13.7 Another Week another minor UpdatE
 
 #### General
