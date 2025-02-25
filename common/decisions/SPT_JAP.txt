@@ -148,9 +148,7 @@ SPT_JAP_eco_pressure = {
 		fire_only_once = yes
 
 		cancel_trigger = {
-			# NOT = {
-			# 	has_idea = SPT_USA_recession_looming
-			# }
+			has_completed_focus = SPT_JAP_full_eco_control
 		}
 		
 		activation = {
@@ -162,6 +160,9 @@ SPT_JAP_eco_pressure = {
 
 		visible = {
 			has_completed_focus = SPT_JAP_planned_eco
+			not = {
+				has_completed_focus = SPT_JAP_full_eco_control
+			}
 		}
 		
 		cancel_effect = {
@@ -220,6 +221,11 @@ SPT_JAP_eco_pressure = {
 			}
 
 		}
+		visible = {
+			not = {
+				has_completed_focus = SPT_JAP_full_eco_control
+			}
+		}
 		fire_only_once = yes
 		#days_remove = 70
 		cost = 25
@@ -267,6 +273,11 @@ SPT_JAP_eco_pressure = {
 				}
 			}
 
+		}
+		visible = {
+			not = {
+				has_completed_focus = SPT_JAP_full_eco_control
+			}
 		}
 		fire_only_once = yes
 		days_remove = 70
