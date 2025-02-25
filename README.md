@@ -10,8 +10,10 @@
  - Focus 'Demand Southern Slovakia' removed
  - Focus 'Claim Overlordship of Slovakia' Days 70 -> 35
 
- 
-###  3.13.7 Another Week another minor Update
+#### Denmark
+ - Focus 'Reclaim Norway' compliance should now be working (?)
+
+###  3.13.7 Another Week another minor UpdatE
 
 #### General
  - Infantry Tank MIO speed fixed
