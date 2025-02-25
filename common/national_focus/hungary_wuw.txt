@@ -10375,55 +10375,62 @@ focus_tree = {
 		completion_reward = {
 
 			custom_effect_tooltip = HUN_demands_tt
-			IF = {
-				limit = {
-					70 = {
-						controller = {
-							NOT = {
-								has_war_with = ROOT
-							}
-						}
-					}
-					SLO = { exists = no }
-					any_other_country = {
-						NOT = {
-							owns_state = 70
-							owns_state = 71
-							owns_state = 72
-							owns_state = 73
-						}
-					}
-				}
-				70 = {
-					controller = {
-						country_event = { id = DOD_hungary.100 hours = 5 }
-					}
-				}
-			}
-			IF = {
-				limit = {
-					SLO = {
-						exists = yes
-						is_puppet = no
-						NOT = {
-							has_war_with = ROOT
-						}
-					}
-				}
-				SLO = { country_event = { id = DOD_hungary.107 hours = 3 } }
-			}
-			IF = {
-				limit = {
-					SLO = {
-						exists = yes
-						is_puppet = yes
-						NOT = {
-							has_war_with = ROOT
-						}
-					}
-				}
-				SLO = { OVERLORD = { country_event = { id = DOD_hungary.107 hours = 4 } } }
-			}
+
+			70 = {
+				 		controller = {
+							country_event = { id = spt.30 hours = 5 }
+				 		}
+				 	}
+
+			# IF = {
+			# 	limit = {
+			# 		70 = {
+			# 			controller = {
+			# 				NOT = {
+			# 					has_war_with = ROOT
+			# 				}
+			# 			}
+			# 		}
+			# 		SLO = { exists = no }
+			# 		any_other_country = {
+			# 			NOT = {
+			# 				owns_state = 70
+			# 				owns_state = 71
+			# 				owns_state = 72
+			# 				owns_state = 73
+			# 			}
+			# 		}
+			# 	}
+			# 	70 = {
+			# 		controller = {
+			# 			country_event = { id = DOD_hungary.100 hours = 5 }
+			# 		}
+			# 	}
+			# }
+			# IF = {
+			# 	limit = {
+			# 		SLO = {
+			# 			exists = yes
+			# 			is_puppet = no
+			# 			NOT = {
+			# 				has_war_with = ROOT
+			# 			}
+			# 		}
+			# 	}
+			# 	SLO = { country_event = { id = DOD_hungary.107 hours = 3 } }
+			# }
+			# IF = {
+			# 	limit = {
+			# 		SLO = {
+			# 			exists = yes
+			# 			is_puppet = yes
+			# 			NOT = {
+			# 				has_war_with = ROOT
+			# 			}
+			# 		}
+			# 	}
+			# 	SLO = { OVERLORD = { country_event = { id = DOD_hungary.107 hours = 4 } } }
+			# }
 			hidden_effect = {
 				news_event = { id = news.309 hours = 8 }
 			}
