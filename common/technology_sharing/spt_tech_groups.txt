@@ -12,3 +12,26 @@ technology_sharing_group = {
     }
 
 }
+
+technology_sharing_group = {
+
+	id = SPT_JAP_jap_ger_industry_sharing
+	name = JAP_GER_industry_tech
+	desc = JAP_GER_industry_tech_desc
+	picture = GFX_technology_sharing_default
+	research_sharing_per_country_bonus = 0.1
+
+	categories = { industry }
+
+	available = {
+		if = {
+			limit = {
+				OR = {
+					original_tag = JAP
+					original_tag = GER
+				}
+				
+			}
+		}
+	}
+}

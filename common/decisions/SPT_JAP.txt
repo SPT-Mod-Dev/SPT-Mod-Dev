@@ -304,7 +304,7 @@ SPT_JAP_korea_dev = {
 		}
 		fire_only_once = yes
 		days_remove = 70
-		cost = 25
+		cost = 20
 		modifier = {
 			civilian_factory_use = 3
 		}
@@ -358,7 +358,7 @@ SPT_JAP_korea_dev = {
 		}
 		fire_only_once = yes
 		days_remove = 70
-		cost = 25
+		cost = 20
 		modifier = {
 			civilian_factory_use = 3
 		}
@@ -396,6 +396,43 @@ SPT_JAP_korea_dev = {
 			}
 		}
 	}
+	SPT_JAP_infra_boost_korea = {
+		allowed = {
+			original_tag = JAP
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		available = {
+			has_completed_focus = SPT_JAP_korean_project
+			OR = {
+				KOR = {exists = yes}
+				any_controlled_state = {is_core_of = KOR}
+			}
+		}
+		fire_only_once = yes
+		days_remove = 50
+		cost = 20
+		modifier = {
+			civilian_factory_use = 2
+		}
+		icon = GFX_decision_generic_construction
+		remove_effect = {
+			527 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			525 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+		}
+	}
+
 	SPT_JAP_japanese_settlement = {
 		allowed = {
 			original_tag = JAP
@@ -412,7 +449,7 @@ SPT_JAP_korea_dev = {
 		}
 		fire_only_once = yes
 		days_remove = 70
-		cost = 25
+		cost = 20
 		modifier = {
 			civilian_factory_use = 3
 		}
