@@ -1,6 +1,17 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-###  3.13.7 Another Week another minor UpdatE
+###  3.13.8
+
+#### Germany
+- 'Second Vienna Award' Days 35 -> 14
+
+#### Hungary
+ - Focus 'Demand Burgenland' now available
+ - Focus 'Demand Southern Slovakia' removed
+ - Focus 'Claim Overlordship of Slovakia' Days 70 -> 35
+
+ 
+###  3.13.7 Another Week another minor Update
 
 #### General
  - Infantry Tank MIO speed fixed

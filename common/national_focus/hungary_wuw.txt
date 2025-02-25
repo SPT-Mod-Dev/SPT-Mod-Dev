@@ -9768,6 +9768,10 @@ focus_tree = {
 		will_lead_to_war_with = CZE
 		will_lead_to_war_with = SLO
 
+		allow_branch = {
+			always = no #SPTChange
+		}
+
 		cost = 5
 
 		ai_will_do = {
@@ -10222,15 +10226,15 @@ focus_tree = {
 	focus = {
 		id = wuw_HUN_demand_burgenland
 		icon = GFX_focus_generic_attack_austria
-		prerequisite = { focus = wuw_HUN_demand_transylvania }
+		prerequisite = { focus = wuw_HUN_reaffirm_territorial_claims } # SPTChange
 		#mutually_exclusive = { focus = wuw_HUN_government_of_national_unity }
-		x = -1
+		x = 2
 		y = 1
-		relative_position_id = wuw_HUN_demand_transylvania
+		relative_position_id = wuw_HUN_reaffirm_territorial_claims # wuw_HUN_demand_transylvania
 
 		will_lead_to_war_with = AUS
 
-		cost = 10
+		cost = 2
 
 		ai_will_do = {
 			factor = 5
@@ -10238,24 +10242,29 @@ focus_tree = {
 
 		available = {
 
-			is_subject = no
-
 			975 = {
-				NOT = {
-					is_owned_by = ROOT
-				}
+				is_controlled_by = GER
 			}
+			
 
-			IF = {
-				limit = {
-					975 = {
-						is_owned_by = AUS
-					}
-				}
-				strength_ratio = { tag = AUS ratio > 0.70 }
-			}
+			# is_subject = no
 
-			has_army_manpower = { size > 185000 }
+			# 975 = {
+			# 	NOT = {
+			# 		is_owned_by = ROOT
+			# 	}
+			# }
+
+			# IF = {
+			# 	limit = {
+			# 		975 = {
+			# 			is_owned_by = AUS
+			# 		}
+			# 	}
+			# 	strength_ratio = { tag = AUS ratio > 0.70 }
+			# }
+
+			# has_army_manpower = { size > 185000 }
 
 		}
 
@@ -10286,9 +10295,8 @@ focus_tree = {
 					owns_state = 975
 				}
 				country_event = {
-					id = WW_hungary.23
-					days = 2
-					random_days = 3
+					id = spt.32
+					days = 1
 				}
 			}
 
@@ -10298,15 +10306,15 @@ focus_tree = {
 	focus = {
 		id = wuw_HUN_claim_overlordship_over_slovakia
 		icon = GFX_goal_generic_position_armies
-		prerequisite = { focus = wuw_HUN_demand_southern_slovakia }
+		prerequisite = { focus = wuw_HUN_reaffirm_territorial_claims } # SPTChange
 		mutually_exclusive = { focus = wuw_HUN_demand_the_return_of_slovakia }
-		x = 0
+		x = -2
 		y = 1
-		relative_position_id = wuw_HUN_demand_southern_slovakia
+		relative_position_id = wuw_HUN_reaffirm_territorial_claims # wuw_HUN_demand_southern_slovakia
 
 		will_lead_to_war_with = SLO
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 10
@@ -10553,7 +10561,7 @@ focus_tree = {
 		#mutually_exclusive = { focus = wuw_HUN_claim_overlordship_over_slovakia }
 		#SPT change, changed prereqs
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = wuw_HUN_demand_carpathian_ruthenia
 
 		cost = 10
