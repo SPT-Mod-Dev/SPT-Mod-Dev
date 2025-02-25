@@ -2248,7 +2248,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_HISTORICAL }
 		completion_reward = {
 			if = { #this whole thing is setup this way to make the tooltip in the focus tree properly show what the focus does
 				limit = {
@@ -2403,6 +2403,120 @@ focus_tree = {
 				}
 			}
 
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_improve_chinese_ports
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { 
+			focus = SPT_JAP_intensive_mining
+		}
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_intensive_mining
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 3
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { }
+		completion_reward = {
+			608 = { #Beijing
+				add_building_construction = {
+					type = naval_base
+					level = 3
+					instant_build = yes
+					province = 10068
+				}
+			}
+			613 = { #Shanghai
+				add_building_construction = {
+					type = naval_base
+					level = 3
+					instant_build = yes
+					province = 7014
+				}
+			}
+			592 = { #Beijing
+				add_building_construction = {
+					type = naval_base
+					level = 3
+					instant_build = yes
+					province = 1047
+				}
+			}
+		
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_utilize_collaborationists
+		icon = GFX_focus_generic_subjugation
+		prerequisite = { 
+			focus = SPT_JAP_improve_chinese_ports
+			focus = SPT_JAP_relocate_chinese_mils
+		}
+		prerequisite = {
+			focus = SPT_JAP_grain_market
+		}
+		x = 2
+		y = 1
+		relative_position_id = SPT_JAP_relocate_chinese_mils
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {  }
+		completion_reward = {
+			every_controlled_state = {
+				limit = {
+					is_core_of = CHI
+				}
+				add_compliance = 10
+				add_resistance = 5
+			}
 		}
 	}
 
