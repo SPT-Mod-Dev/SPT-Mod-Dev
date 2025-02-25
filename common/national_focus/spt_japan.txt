@@ -276,7 +276,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ECONOMIC_BUBBLE }
 		completion_reward = {
 			add_ideas = spt_jap_controlled_eco_law
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
@@ -433,7 +433,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ECONOMIC_BUBBLE }
 		completion_reward = {
 			add_timed_idea = {
 				idea = SPT_JAP_ishihara_plan_idea
@@ -481,7 +481,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_ECONOMIC_BUBBLE }
 		completion_reward = {
 			if = {
 				limit = {
@@ -1285,7 +1285,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_ECONOMIC_BUBBLE }
 		completion_reward = {
 			add_timed_idea = {
 				idea = SPT_JAP_rapid_mobi_idea 
@@ -1808,7 +1808,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = SPT_JAP_marco_polo
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 2
@@ -1870,7 +1870,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = SPT_JAP_coal_liquification
 
-		cost = 5 #SPT change 10 -> 5
+		cost = 5
 
 		ai_will_do = {
 			factor = 10
@@ -1975,7 +1975,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 3
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -2033,7 +2033,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -2090,7 +2090,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -2223,7 +2223,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -2471,6 +2471,54 @@ focus_tree = {
 	}
 
 	focus = {
+		id = SPT_JAP_grain_market
+		icon = GFX_focus_generic_price_controls
+		prerequisite = { 
+			focus = SPT_JAP_exploit_chinese_industry
+			focus = SPT_JAP_exploit_chinese_resources
+		}
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_exploit_chinese_industry
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			OR = {
+				CHI = {
+					exists = no
+				}
+				CHI = {
+					is_puppet_of = JAP
+				}
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ECONOMIC_BUBBLE }
+		completion_reward = {
+
+		}
+	}
+	focus = {
 		id = SPT_JAP_utilize_collaborationists
 		icon = GFX_focus_generic_subjugation
 		prerequisite = { 
@@ -2498,6 +2546,17 @@ focus_tree = {
 		}
 
 		available = {
+			OR = {
+				CHI = {
+					exists = no
+				}
+				CHI = {
+					is_puppet_of = JAP
+				}
+			}
+			any_controlled_state = {
+				is_core_of = CHI
+			}
 		}
 
 		bypass = {
@@ -2517,55 +2576,6 @@ focus_tree = {
 				add_compliance = 10
 				add_resistance = 5
 			}
-		}
-	}
-
-	focus = {
-		id = SPT_JAP_grain_market
-		icon = GFX_focus_generic_price_controls
-		prerequisite = { 
-			focus = SPT_JAP_exploit_chinese_industry
-			focus = SPT_JAP_exploit_chinese_resources
-		}
-		x = 1
-		y = 1
-		relative_position_id = SPT_JAP_exploit_chinese_industry
-		# offset = {
-		# 	x = 0
-		# 	y = 0
-		# 	trigger = {
-		# 	#	NOT = { has_dlc = "Waking the Tiger" }
-		# 	}
-		# }
-
-		cost = 10
-
-		ai_will_do = {
-			factor = 4
-		}
-
-		available = {
-			OR = {
-				CHI = {
-					exists = no
-				}
-				CHI = {
-					is_puppet_of = JAP
-				}
-			}
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
-		completion_reward = {
-
 		}
 	}
 
@@ -2762,7 +2772,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ECONOMIC_BUBBLE }
 
 		completion_reward = {
 			random_owned_controlled_state = {
@@ -3055,6 +3065,8 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
 		completion_reward = {
 			custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
 			add_to_variable = {
@@ -3167,6 +3179,8 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_ECONOMIC_BUBBLE }
+
 		completion_reward = {
 			random_owned_controlled_state = {
 				limit = {
@@ -3223,7 +3237,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -3435,6 +3449,85 @@ focus_tree = {
 					type = arms_factory
 					level = 2
 					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_full_eco_control
+		icon = GFX_focus_GER_customs_union
+		prerequisite = {
+			focus = SPT_JAP_industry_reorg
+		}
+		prerequisite = {
+			focus = SPT_JAP_exploit_the_southern_resource_area
+		}
+		prerequisite = {
+			focus = SPT_JAP_utilize_collaborationists
+		}
+		x = 0
+		y = 5
+		relative_position_id = SPT_JAP_marco_polo
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+			AND = {
+				OR = {
+					controls_state = 333
+					controls_state = 672
+					controls_state = 334
+				}
+				controls_state = 336
+				OR = {
+					controls_state = 671 
+					SIA = {
+						controls_state = 671
+					}
+				}
+			}
+			AND = {
+				OR = {
+					CHI = {
+						exists = no
+					}
+					CHI = {
+						is_puppet_of = JAP
+					}
+				}
+				any_controlled_state = {
+					is_core_of = CHI
+				}
+			}
+			has_government = fascism
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_ECONOMIC_BUBBLE }
+
+		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_eco_pressure_end
+			hidden_effect = {
+				set_variable = {
+					SPT_JAP_eco_pressure_consumer_goods_expected_value = 0.0
+				}
+				JAP = {
+					set_variable = { 
+						var = spt_jap_cg_increase_tracker
+						value = 0.0
+					}
+					
 				}
 			}
 		}
