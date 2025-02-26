@@ -1,3 +1,11 @@
+# CONSTANT FOR SHINTAISEI TIMES (This is Focus cost so x7 to get the days) - THE CONSTANTS USED IN THE EVENT FILE need to be these values x7
+@shintaisei_time_tier_0 = 5
+@shintaisei_time_tier_1 = 10
+@shintaisei_time_tier_2 = 15
+@shintaisei_time_tier_3 = 20
+@shintaisei_time_tier_4 = 25
+@shintaisei_time_tier_5 = 40
+
 focus_tree = {
 	id = SPT_jap_tree
 	
@@ -17,11 +25,16 @@ focus_tree = {
 	shortcut = {
 		name = SPT_JAP_shortcut_politics
 		target = SPT_JAP_planned_eco
-		scroll_wheel_factor = 0.5
+		scroll_wheel_factor = 0.7
 	}
 	shortcut = {
 		name = SPT_JAP_shortcut_wartime_measures
 		target = SPT_JAP_strike_south
+		scroll_wheel_factor = 1
+	}
+	shortcut = {
+		name = SPT_JAP_shortcut_shintaisei
+		target = SPT_JAP_shintaisei
 		scroll_wheel_factor = 1
 	}
 
@@ -4266,6 +4279,109 @@ focus = {
 # .................................................
 # .................................................
 # .................................................
+
+	# focus = {
+	# 	id = SPT_JAP_
+	# 	icon = GFX_focus_jap_showa_restoration
+	##  prerequisite = { focus = SPT_JAP_ }
+	# 	#mutually_exclusive = {  }
+	# 	x = 0
+	# 	y = 0
+	# 	relative_position_id = SPT_JAP_
+	# 	# offset = {
+	# 	# 	x = 0
+	# 	# 	y = 0
+	# 	# 	trigger = {
+	# 	# 	#	NOT = { has_dlc = "Waking the Tiger" }
+	# 	# 	}
+	# 	# }
+
+	# 	cost = 10
+
+	# 	ai_will_do = {
+	# 		factor = 4
+	# 	}
+
+	# 	available = {
+
+	# 	}
+
+	# 	bypass = {
+
+	# 	}
+
+	# 	cancel_if_invalid = yes
+	# 	continue_if_invalid = no
+	# 	available_if_capitulated = no
+
+	# 	search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+	# 	completion_reward = {
+	# 		#add_stability = 0.1
+	# 	}
+	# }
+
+
+
+# ....................................................................
+# ....................................................................
+# ....................................................................
+# ....................................................................
+# ███████╗██╗..██╗██╗███╗...██╗████████╗.█████╗.██╗███████╗███████╗██╗
+# ██╔════╝██║..██║██║████╗..██║╚══██╔══╝██╔══██╗██║██╔════╝██╔════╝██║
+# ███████╗███████║██║██╔██╗.██║...██║...███████║██║███████╗█████╗..██║
+# ╚════██║██╔══██║██║██║╚██╗██║...██║...██╔══██║██║╚════██║██╔══╝..██║
+# ███████║██║..██║██║██║.╚████║...██║...██║..██║██║███████║███████╗██║
+# ╚══════╝╚═╝..╚═╝╚═╝╚═╝..╚═══╝...╚═╝...╚═╝..╚═╝╚═╝╚══════╝╚══════╝╚═╝
+# ....................................................................
+# ....................................................................
+# ....................................................................
+
+	focus = {
+		id = SPT_JAP_shintaisei
+		icon = GFX_focus_AST_war_japan
+		#prerequisite = { focus = SPT_JAP_ }
+		#mutually_exclusive = {  }
+		x = -15
+		y = 0
+		relative_position_id = SPT_JAP_purge_kodoha
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = @shintaisei_time_tier_1
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			OR = {
+				has_completed_focus = SPT_JAP_purge_kodoha
+				has_completed_focus = SPT_JAP_support_kodoha
+			}
+			custom_override_tooltip = {
+				tooltip = SPT_JAP_shintaisei_tt
+				always = no
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
 
 }
 
