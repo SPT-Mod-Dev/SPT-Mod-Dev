@@ -307,7 +307,7 @@ focus_tree = {
 				JAP = {
 					set_variable = { #this tracks the amount of expected cg that increases each iteration for the eco bubble mechanic
 						var = spt_jap_cg_increase_tracker
-						value = 0.01
+						value = 0.005
 					}
 					#see the SPT_JAP decisions file for a cool explanation of why this is here
 				}
@@ -406,10 +406,6 @@ focus_tree = {
 			add_to_variable = {
 				SPT_JAP_zai_industrial_capacity_factory = 0.05
 				tooltip = industrial_capacity_factory_tt
-			}
-			add_to_variable = {
-				SPT_JAP_zai_political_power_gain = -0.05
-				tooltip = political_power_gain_tt
 			}
 		}
 	}
@@ -1056,10 +1052,6 @@ focus_tree = {
 			add_to_variable = {
 				SPT_JAP_zai_production_speed_dockyard_factor = 0.1
 				tooltip = production_speed_dockyard_factor_tt
-			}
-			add_to_variable = {
-				SPT_JAP_zai_stability_factor = -0.05
-				tooltip = stability_factor_tt
 			}
 			add_to_variable = {
 				SPT_JAP_zai_political_power_gain = 0.1
@@ -2527,6 +2519,10 @@ focus_tree = {
 					is_puppet_of = JAP
 				}
 			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_JAP_grain_market_inflation_active_tt
+				has_idea =  SPT_JAP_grain_market_inflation_active
+			}
 		}
 
 		bypass = {
@@ -2539,7 +2535,9 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ECONOMIC_BUBBLE }
 		completion_reward = {
-
+			country_event = {
+				id = spt_jap.5
+			}	
 		}
 	}
 	focus = {
@@ -3232,14 +3230,14 @@ focus_tree = {
 				SPT_JAP_zai_factory_max_efficiency_factor = 0.05
 				tooltip = production_factory_max_efficiency_factor_tt
 			}
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
-			custom_effect_tooltip = SPT_JAP_cg_expected_timed_increase_down_tt
-			hidden_effect = {
-				add_to_variable = {
-					var = JAP.spt_jap_cg_increase_tracker
-					value = -0.005
-				}
-			}
+			#custom_effect_tooltip = SPT_JAP_whitespace_tt
+			# custom_effect_tooltip = SPT_JAP_cg_expected_timed_increase_down_tt
+			# hidden_effect = {
+			# 	add_to_variable = {
+			# 		var = JAP.spt_jap_cg_increase_tracker
+			# 		value = -0.005
+			# 	}
+			# }
 		}
 	}
 	focus = {
