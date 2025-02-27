@@ -166,17 +166,7 @@ focus_tree = {
 		}
 
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				not = {
-					has_completed_focus = SPT_JAP_support_kodoha
-				}
-			}
+
 		}
 
 		cancel_if_invalid = yes
@@ -185,7 +175,6 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_HISTORICAL  }
 		completion_reward = {
-			mark_focus_tree_layout_dirty = yes
 			custom_effect_tooltip = SPT_JAP_pol_showa_state_add_tt
 			hidden_effect = {
 				add_dynamic_modifier ={
@@ -236,17 +225,7 @@ focus_tree = {
 		}
 
 		allow_branch = {
-			if = {
-				limit = {
-					has_game_rule = {
-						rule = obsolete_focus_branches_visibility
-						option = HIDE
-					}
-				}
-				not = {
-					has_completed_focus = SPT_JAP_purge_kodoha
-				}
-			}
+
 		}
 
 		cancel_if_invalid = yes
@@ -255,7 +234,6 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL FOCUS_FILTER_POLITICAL_CHARACTER }
 		completion_reward = {	
-			mark_focus_tree_layout_dirty = yes
 			set_party_name = {
 				ideology = fascism
 				long_name = "Kōdōha Faction"
@@ -1087,7 +1065,7 @@ focus_tree = {
 				tooltip = production_speed_dockyard_factor_tt
 			}
 			add_to_variable = {
-				SPT_JAP_zai_political_power_gain = 0.1
+				SPT_JAP_zai_political_power_gain = 0.05
 				tooltip = political_power_gain_tt
 			}
 		}
@@ -1779,7 +1757,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = SPT_JAP_marco_polo
 
-		cost = 2 #SPT change 10 -> 2
+		cost = 2 
 
 		ai_will_do = {
 			factor = 3
@@ -1849,6 +1827,46 @@ focus_tree = {
 			}
 		}
 	}
+	focus = {
+		id = SPT_JAP_prepare_malay_invasion
+		icon = GFX_focus_generic_reinforcing_the_supply_network
+		prerequisite = { focus = SPT_JAP_alliance_with_siam }
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_alliance_with_siam
+
+		cost = 5 
+
+		ai_will_do = {
+			factor = 3
+		}
+
+		available = {
+			has_war = no
+			724 = {
+				OR = {
+					is_controlled_by = JAP
+					is_controlled_by = SIA
+				}
+			}
+		}
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ANNEXATION  }
+		completion_reward = {
+			724 = {
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_state_supply_build_up_navy
+					days = 180
+				}
+			}
+		}
+	}
+
 	focus = {
 		id = SPT_JAP_coal_liquification
 		icon = GFX_goal_generic_oil_refinery
@@ -2005,6 +2023,57 @@ focus_tree = {
 		}
 	}
 	focus = {
+		id = SPT_JAP_solidify_hold_on_south
+		icon = GFX_focus_generic_coastal_fort
+		prerequisite = { focus = SPT_JAP_exploit_the_southern_resource_area }
+		x = -1
+		y = 1
+		relative_position_id = SPT_JAP_exploit_the_southern_resource_area
+
+		cost = 5 
+
+		ai_will_do = {
+			factor = 3
+		}
+
+		available = {
+			OR = {
+				controls_state = 333
+				controls_state = 672
+				controls_state = 671
+			}
+		}
+
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ANNEXATION  }
+		completion_reward = {
+			333 = {
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_state_supply_build_up_navy
+					days = 180
+				}
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			672 = {
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_state_supply_build_up_navy
+					days = 180
+				}
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			671 = {
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_state_supply_build_up_navy
+					days = 180
+				}
+			}
+		}
+	}
+	focus = {
 		id = SPT_JAP_exploit_chinese_industry
 		icon = GFX_spt_exploit_chi_factories
 		prerequisite = { 
@@ -2013,7 +2082,7 @@ focus_tree = {
 		mutually_exclusive = {
 			focus = SPT_JAP_exploit_chinese_resources
 		}
-		x = 4
+		x = 5
 		y = 1
 		relative_position_id = SPT_JAP_marco_polo
 		# offset = {
@@ -3095,6 +3164,12 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+			add_to_variable = {
+				SPT_JAP_zai_production_factory_efficiency_gain_factor = 0.05
+				tooltip = production_factory_efficiency_gain_factor_tt
+			}
 		}
 	}
 	focus = {
@@ -3607,13 +3682,7 @@ focus = {
 	x = 24
 	y = 0
 	relative_position_id = SPT_JAP_purge_kodoha
-	offset = {
-		x = -6
-		y = 0
-		trigger = {
-			has_completed_focus = SPT_JAP_purge_kodoha
-		}
-	}
+
 
 	cost = 1000
 
