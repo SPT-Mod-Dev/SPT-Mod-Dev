@@ -90,6 +90,71 @@ country_event = {
 	}
 }
 
+#Grain markets in china cause inflation
+country_event = { 
+	id = spt_jap.4
+	title = spt_jap.4.t
+	desc = spt_jap.4.desc
+	is_triggered_only = yes #this is triggered by china capitulating
+	timeout_days = 14
+	picture = GFX_report_event_japanese_parade
+
+	immediate = { #effect applied immediately to avoid cheese
+		add_to_variable = {
+			var = JAP.spt_jap_cg_increase_tracker
+			value = 0.005
+		}
+		hidden_effect = {
+			add_ideas = SPT_JAP_grain_market_inflation_active
+		}
+	}
+
+	option = { #Warns the player that shit sucks now
+		name = spt_jap.4.a
+		custom_effect_tooltip = SPT_JAP_cg_expected_timed_increase_up_tt
+	}
+}
+
+#Solving the chinese grain market problem
+country_event = { 
+	id = spt_jap.5
+	title = spt_jap.5.t
+	desc = spt_jap.5.desc
+	is_triggered_only = yes
+	timeout_days = 14
+	picture = GFX_report_event_japanese_parade
+
+	immediate = { 
+		
+	}
+
+	option = { #Ignore it and let the situation continue
+		name = spt_jap.5.a
+		custom_effect_tooltip = SPT_JAP_grain_market_do_nothing_tt
+		add_stability = -0.05
+	}
+
+	option = { #Eat a debuff now but stop getting the increased cg
+		name = spt_jap.5.b
+		custom_effect_tooltip = SPT_JAP_cg_expected_timed_increase_down_tt
+		hidden_effect = {
+			add_to_variable = {
+				var = JAP.spt_jap_cg_increase_tracker
+				value = -0.005
+			}
+			remove_ideas = SPT_JAP_grain_market_inflation_active
+
+		}
+		custom_effect_tooltip = SPT_JAP_whitespace_tt
+		custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+		add_to_variable = {
+			var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+			value = 0.015
+			tooltip = SPT_JAP_cg_expected_tt
+		}
+	}
+}
+
 # NEWS EVENTS
 
 #kodoha dudes fumble the coup, just like me with the goth girl
