@@ -165,12 +165,27 @@ focus_tree = {
 
 		}
 
+		allow_branch = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				not = {
+					has_completed_focus = SPT_JAP_support_kodoha
+				}
+			}
+		}
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_HISTORICAL  }
 		completion_reward = {
+			mark_focus_tree_layout_dirty = yes
 			custom_effect_tooltip = SPT_JAP_pol_showa_state_add_tt
 			hidden_effect = {
 				add_dynamic_modifier ={
@@ -181,6 +196,7 @@ focus_tree = {
 				SPT_JAP_pol_stability_factor = 0.1 tooltip = stability_factor_tt
 			}
 			hidden_effect = {
+
 				every_country = {
 					ROOT = {
 						news_event = spt_jap_news.1
@@ -219,12 +235,27 @@ focus_tree = {
 
 		}
 
+		allow_branch = {
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
+				not = {
+					has_completed_focus = SPT_JAP_purge_kodoha
+				}
+			}
+		}
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
 
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL FOCUS_FILTER_POLITICAL_CHARACTER }
 		completion_reward = {	
+			mark_focus_tree_layout_dirty = yes
 			set_party_name = {
 				ideology = fascism
 				long_name = "Kōdōha Faction"
@@ -237,12 +268,14 @@ focus_tree = {
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			custom_effect_tooltip = SPT_JAP_pol_showa_state_add_tt
 			hidden_effect = {
+				
 				add_dynamic_modifier ={
 					modifier = SPT_JAP_pol_showa_state
 				}
 			}
 			add_to_variable = { SPT_JAP_pol_fascism_drift = 0.1 tooltip = fascism_drift_tt }
 			hidden_effect = {
+
 				every_country = {
 					ROOT = {
 						news_event = {
@@ -3185,7 +3218,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = SPT_JAP_stockpile_strats
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 2
@@ -3574,13 +3607,13 @@ focus = {
 	x = 24
 	y = 0
 	relative_position_id = SPT_JAP_purge_kodoha
-	# offset = {
-	# 	x = 0
-	# 	y = 0
-	# 	trigger = {
-	# 	#	NOT = { has_dlc = "Waking the Tiger" }
-	# 	}
-	# }
+	offset = {
+		x = -6
+		y = 0
+		trigger = {
+			has_completed_focus = SPT_JAP_purge_kodoha
+		}
+	}
 
 	cost = 1000
 
