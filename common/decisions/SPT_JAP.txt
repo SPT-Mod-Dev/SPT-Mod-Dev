@@ -242,12 +242,26 @@ SPT_JAP_eco_pressure = {
 				tooltip = SPT_JAP_cg_expected_tt
 			}
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
-			MAN = {
+			if = {
+				limit = {
+					MAN = {
+						exists = yes
+					}
+				}
+				MAN = {
+					add_timed_idea = {
+						idea = SPT_JAP_exploit_manchu_grain
+						days = 180
+					}
+				}
+			}
+			else = {
 				add_timed_idea = {
 					idea = SPT_JAP_exploit_manchu_grain
 					days = 180
 				}
 			}
+
 		}
 	}
 
@@ -283,7 +297,7 @@ SPT_JAP_eco_pressure = {
 		days_remove = 70
 		cost = 25
 		modifier = {
-			civilian_factory_use = 2
+			civilian_factory_use = 3
 		}
 		icon = GFX_decision_POL_looming_peasants_strike
 		remove_effect = {
@@ -294,6 +308,365 @@ SPT_JAP_eco_pressure = {
 				tooltip = SPT_JAP_cg_expected_tt
 			}
 		}
+	}
+
+	SPT_JAP_allow_exports = {
+		allowed = {
+			original_tag = JAP
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		available = {
+		}
+		visible = {
+			not = {
+				has_completed_focus = SPT_JAP_full_eco_control
+			}
+		}
+		fire_only_once = yes
+		days_remove = 120
+		cost = 25
+		modifier = {
+			min_export = 0.2
+		}
+		icon = GFX_decision_eng_trade_unions_support
+		remove_effect = {
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = -0.02
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+		}
+	}
+	SPT_JAP_distribute_luxuries = {
+		allowed = {
+			original_tag = JAP
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		available = {
+		}
+		visible = {
+			not = {
+				has_completed_focus = SPT_JAP_full_eco_control
+			}
+		}
+		fire_only_once = yes
+		days_remove = 120
+		cost = 25
+		modifier = {
+			consumer_goods_factor = -0.3
+		}
+		icon = GFX_decision_hol_attract_foreign_investors
+		remove_effect = {
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.02
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+		}
+	}
+	SPT_JAP_ration_foodstuff = {
+		allowed = {
+			original_tag = JAP
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SPT_JAP_cg_threshold_5_or_higher_tt
+				check_variable = {
+					var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+					value = 0.05
+					compare = greater_than_or_equals
+				}
+			}
+
+		}
+		visible = {
+			not = {
+				has_completed_focus = SPT_JAP_full_eco_control
+			}
+		}
+		fire_only_once = yes
+		days_remove = 360
+		cost = 25
+		# modifier = {
+		# 	consumer_goods_factor = -0.3
+		# }
+		complete_effect = {
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = -0.05
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+		}
+		icon = GFX_decision_generic_consumer_goods
+		remove_effect = {
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.07
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+		}
+	}
+	SPT_JAP_price_controls = {
+		allowed = {
+			original_tag = JAP
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SPT_JAP_cg_threshold_3_or_higher_tt
+				check_variable = {
+					var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+					value = 0.03
+					compare = greater_than_or_equals
+				}
+			}
+
+		}
+		visible = {
+			not = {
+				has_completed_focus = SPT_JAP_full_eco_control
+			}
+		}
+		fire_only_once = yes
+		days_remove = 360
+		cost = 25
+		# modifier = {
+		# 	consumer_goods_factor = -0.3
+		# }
+		complete_effect = {
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = -0.03
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+		}
+		icon = GFX_decision_eng_trade_unions_demand
+		remove_effect = {
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.05
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+		}
+	}
+	SPT_JAP_improve_countryside_infra = {
+		allowed = {
+			original_tag = JAP
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		available = {
+			has_completed_focus = SPT_JAP_seize_wealth
+		}
+		visible = {
+			not = {
+				has_completed_focus = SPT_JAP_full_eco_control
+			}
+		}
+		fire_only_once = yes
+		#days_remove = 240
+		cost = 25
+		# modifier = {
+		# 	consumer_goods_factor = -0.3
+		# }
+		complete_effect = {
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.02
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			533 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			534 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 2
+
+			}
+			535 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			530 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+		icon = GFX_decision_generic_construction
+		# remove_effect = {
+
+		# }
+	}
+	SPT_JAP_improve_urban_infra = {
+		allowed = {
+			original_tag = JAP
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		available = {
+			has_completed_focus = SPT_JAP_invest_in_urban_centers
+			NOT = {
+				OR = {
+					282 = {
+						has_dynamic_modifier = {
+							modifier = SPT_JAP_investing_in_urban
+						}
+					}
+					531 = {
+						has_dynamic_modifier = {
+							modifier = SPT_JAP_investing_in_urban
+						}
+					}
+					528 = {
+						has_dynamic_modifier = {
+							modifier = SPT_JAP_investing_in_urban
+						}
+					}
+				}
+			}
+		}
+		visible = {
+			not = {
+				has_completed_focus = SPT_JAP_full_eco_control
+			}
+		}
+		fire_only_once = yes
+		#days_remove = 240
+		cost = 25
+		# modifier = {
+		# 	consumer_goods_factor = -0.3
+		# }
+		complete_effect = {
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.02
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			282 = {
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_investing_in_urban
+					days = 150
+				}
+			}
+			531 = {
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_investing_in_urban
+					days = 150
+				}
+			}
+			528 = {
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_investing_in_urban
+					days = 150
+				}
+			}
+		}
+		icon = GFX_decision_generic_construction
+		# remove_effect = {
+
+		# }
+	}
+	SPT_JAP_improve_electric_infra = {
+		allowed = {
+			original_tag = JAP
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		available = {
+			has_completed_focus = SPT_JAP_japan_elec_co
+			NOT = {
+				OR = {
+					529 = {
+						has_dynamic_modifier = {
+							modifier = SPT_JAP_investing_in_urban
+						}
+					}
+					532 = {
+						has_dynamic_modifier = {
+							modifier = SPT_JAP_investing_in_urban
+						}
+					}
+				}
+			}
+		}
+		visible = {
+			not = {
+				has_completed_focus = SPT_JAP_full_eco_control
+			}
+		}
+		fire_only_once = yes
+		#days_remove = 240
+		cost = 25
+		# modifier = {
+		# 	consumer_goods_factor = -0.3
+		# }
+		complete_effect = {
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.02
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			529 = {
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_investing_in_urban
+					days = 200
+				}
+			}
+			532 = {
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_investing_in_urban
+					days = 200
+				}
+			}
+		}
+		icon = GFX_decision_generic_construction
+		# remove_effect = {
+
+		# }
 	}
 }
 

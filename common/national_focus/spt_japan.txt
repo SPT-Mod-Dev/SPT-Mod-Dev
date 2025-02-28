@@ -25,7 +25,7 @@ focus_tree = {
 	shortcut = {
 		name = SPT_JAP_shortcut_politics
 		target = SPT_JAP_planned_eco
-		scroll_wheel_factor = 0.7
+		scroll_wheel_factor = 0.5
 	}
 	shortcut = {
 		name = SPT_JAP_shortcut_wartime_measures
@@ -321,6 +321,10 @@ focus_tree = {
 						value = 0.005
 					}
 					#see the SPT_JAP decisions file for a cool explanation of why this is here
+					set_variable = {
+						var = spt_jap_cg_increase_tracker_secondary #this one is use in situations where the first one is set to zero temporarily due to decision or focus being taken, used to restore the cg increase value afterwards
+						value = spt_jap_cg_increase_tracker
+					}
 				}
 
 			}
@@ -1008,7 +1012,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
 			random_owned_controlled_state = {
 				limit = {
@@ -1856,7 +1860,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ANNEXATION  }
+		search_filters = {   }
 		completion_reward = {
 			724 = {
 				add_dynamic_modifier = {
@@ -2049,7 +2053,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ANNEXATION  }
+		search_filters = {   }
 		completion_reward = {
 			333 = {
 				add_dynamic_modifier = {
@@ -2635,7 +2639,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ECONOMIC_BUBBLE }
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ECONOMIC_BUBBLE }
 		completion_reward = {
 			country_event = {
 				id = spt_jap.5
@@ -3179,7 +3183,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SPT_JAP_long_term_dev
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 2
@@ -3203,6 +3207,11 @@ focus_tree = {
 				SPT_JAP_zai_local_resources_factor = 0.1
 				tooltip = local_resources_factor_tt
 			}
+			add_to_variable = {
+				SPT_JAP_zai_resource_trade_cost_bonus_per_factory = 2
+				tooltip = resource_trade_cost_bonus_per_factory_tt
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT
@@ -3309,7 +3318,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_ECONOMIC_BUBBLE }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
 			random_owned_controlled_state = {
@@ -3437,7 +3446,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			add_relation_modifier = {
 				target = GER
@@ -3657,7 +3666,10 @@ focus_tree = {
 						var = spt_jap_cg_increase_tracker
 						value = 0.0
 					}
-					
+					set_variable = {
+						var = spt_jap_cg_increase_tracker_secondary
+						value = 0.0
+					}
 				}
 			}
 		}
