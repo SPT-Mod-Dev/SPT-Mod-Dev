@@ -124,10 +124,30 @@ country_event = {
 		
 	}
 
-	option = { #Ignore it and let the situation continue
+	option = { #Seize the grain
 		name = spt_jap.5.a
-		custom_effect_tooltip = SPT_JAP_grain_market_do_nothing_tt
 		add_stability = -0.05
+
+		add_to_variable = {
+			var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+			value = -0.03
+			tooltip = SPT_JAP_cg_expected_tt
+		}
+		hidden_effect = {
+			if = { 
+				limit = {
+					check_variable = {
+						var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+						value = 0.0
+						compare = less_than
+					}
+				}
+				set_variable = {
+					var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+					value = 0.0
+				}
+			}
+		}
 	}
 
 	option = { #Eat a debuff now but stop getting the increased cg
@@ -147,6 +167,58 @@ country_event = {
 			var = SPT_JAP_eco_pressure_consumer_goods_expected_value
 			value = 0.015
 			tooltip = SPT_JAP_cg_expected_tt
+		}
+	}
+}
+
+#Hidden event to trigger an increase in eco pressure later
+country_event = { 
+	id = spt_jap.6
+	title = spt_jap.6.t
+	desc = spt_jap.6.desc
+	hidden = yes
+	is_triggered_only = yes #this is triggered by war with china
+	timeout_days = 1
+	picture = GFX_report_event_japanese_parade
+
+	immediate = { #effect applied immediately to avoid cheese
+		country_event = {
+			id = spt_jap.7
+			days = 30
+			random_days = 90
+		}
+	}
+
+	option = { #Warns the player that shit sucks now
+		name = spt_jap.6.a
+	}
+}
+#War with china causes increase in eco pressure
+country_event = { 
+	id = spt_jap.7
+	title = spt_jap.7.t
+	desc = spt_jap.7.desc
+	is_triggered_only = yes #this is triggered by spt_jap.6
+	timeout_days = 1
+	picture = GFX_report_event_japanese_soldiers_02
+
+	immediate = { #effect applied immediately to avoid cheese
+		add_to_variable = {
+			var = JAP.spt_jap_cg_increase_tracker
+			value = 0.005
+		}
+		
+	}
+
+	option = { #Warns the player that shit sucks now
+		name = spt_jap.7.a
+		
+		custom_effect_tooltip = SPT_JAP_cg_expected_timed_increase_up_tt
+		custom_effect_tooltip = SPT_JAP_whitespace_tt
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_industrial_capacity_factory = 0.05
+			tooltip = industrial_capacity_factory_tt
 		}
 	}
 }

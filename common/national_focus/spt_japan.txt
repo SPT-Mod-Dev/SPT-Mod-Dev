@@ -1689,56 +1689,9 @@ focus_tree = {
 		completion_reward = {
 			complete_national_focus = SPT_JAP_liaison_conference
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
-			hidden_effect = {
-				CHI = {
-					add_ai_strategy = {
-						type = befriend
-						id = SOV
-						value = 1000
-					}
-				}
-			}
-			if = {
-				limit = {
-					CHI = { #if CHI owns one of these states, they get the event
-						OR = {
-							controls_state = 608
-							controls_state = 597
-							controls_state = 614
-						}
-					}
-				}
-				CHI = {
-					country_event = china.1
-				}
-			}
-			if = {
-				limit = {
-					PRC = { #only fires the event for PRC if they control ALL of the states (to ensure that only one of them gets it, to avoid issues when one selects to turn over the states and the other doesn't)
-						AND = {
-							controls_state = 608
-							controls_state = 597
-							controls_state = 614
-						}
-					}
-				}
-				PRC = {
-					country_event = china.1
-				}
-			}
-			if = {
-				limit = {
-					SHX = { #only fires the event for SHX if they control ALL of the states (to ensure that only one of them gets it, to avoid issues when one selects to turn over the states and the other doesn't)
-						AND = {
-							controls_state = 608
-							controls_state = 597
-							controls_state = 614
-						}
-					}
-				}
-				SHX = {
-					country_event = china.1
-				}
+			country_event = {
+				id = japan.1
+				days = 2
 			}
 			add_named_threat = { threat = 1 name = JAP_intervene_in_china }
 			add_ideas = JAP_intervene_in_china_5
@@ -1888,7 +1841,6 @@ focus_tree = {
 		available = {
 			any_controlled_state = {
 				is_core_of = ROOT
-				synthetic_refinery < 3
 			}
 		}
 
