@@ -406,3 +406,104 @@ SPT_ITA_bop_spirits = {
 	}
 
 }
+
+SPT_USA_spin_the_wheel = {
+	USA = {
+		random_list = {
+			1 = {
+				add_to_variable = {
+					var = representatives_support
+					value = 8
+				}
+				add_to_variable = {
+					var = senators_support
+					value = 4
+				}
+			}
+			1 = {
+				add_to_variable = {
+					var = representatives_support
+					value = 7
+				}
+				add_to_variable = {
+					var = senators_support
+					value = 4
+				}
+			}
+			1 = {
+				add_to_variable = {
+					var = representatives_support
+					value = 6
+				}
+				add_to_variable = {
+					var = senators_support
+					value = 3
+				}
+			}
+			1 = {
+				add_to_variable = {
+					var = representatives_support
+					value = -12
+				}
+				add_to_variable = {
+					var = senators_support
+					value = -6
+				}
+			}
+			1 = {
+				add_to_variable = {
+					var = representatives_support
+					value = -14
+				}
+				add_to_variable = {
+					var = senators_support
+					value = -7
+				}
+			}
+			1 = {
+				add_to_variable = {
+					var = representatives_support
+					value = -20
+				}
+				add_to_variable = {
+					var = senators_support
+					value = -10
+				}
+			}
+		}
+		USA_congress_small_opposition = yes
+		USA_congress_small_opposition = yes
+		USA_recalc_congress_icon_frames = yes
+		set_variable = { election_factor = random }
+		multiply_variable = {
+			var = election_factor
+			value = 2
+		}
+		if = {
+			limit = {
+				check_variable = {
+					var = election_factor
+					value = 1.0
+					compare = greater_than_or_equals
+				}
+			}
+			set_variable = {
+				var = election_factor
+				value = 0.9
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					var = election_factor
+					value = -1.0
+					compare = less_than_or_equals
+				}
+			}
+			set_variable = {
+				var = election_factor
+				value = -0.9
+			}
+		}
+	}
+}
