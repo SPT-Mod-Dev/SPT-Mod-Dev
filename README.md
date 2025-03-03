@@ -9,6 +9,7 @@
  - Focus 'Demand Burgenland' now available
  - Focus 'Demand Southern Slovakia' removed
  - Focus 'Claim Overlordship of Slovakia' Days 70 -> 35
+ - Now can core the Second Vienna Award states via decision 
 
 #### Denmark
  - Focus 'Reclaim Norway' compliance should now be working (?)
