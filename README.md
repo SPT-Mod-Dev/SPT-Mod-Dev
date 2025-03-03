@@ -5,6 +5,9 @@
 #### Germany
 - 'Second Vienna Award' Days 35 -> 14
 
+#### Italy
+ - 'Trade Vojvodina for Guarantees' now includes West Banat and cost 75 -> 10
+
 #### Hungary
  - Focus 'Demand Burgenland' now available
  - Focus 'Demand Southern Slovakia' removed
