@@ -11120,6 +11120,32 @@ country_event = {
 				transfer_state = 45
 			}
 		}
+		IF = { # SPTChange add West Banat
+			limit = {
+				OR = {
+					764 = {
+						is_controlled_by = ITA
+					}
+					any_country = {
+						is_subject_of = ITA
+						controls_state = 764
+					}
+				}
+			}
+			HUN = {
+				transfer_state = 764
+			}
+		}
+		IF = {
+			limit = {
+				764 = {
+					is_claimed_by = ITA
+				}
+			}
+			764 = {
+				remove_claim_by = ITA
+			}
+		}
 		IF = {
 			limit = {
 				any_country = {
