@@ -1,5 +1,12 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+###  3.14.0 
+
+#### USA
+ - Focus 'Soviet Aid' Soviet Union capitulation progress reduced to 35%, from 40%
+ - Focus 'Soviet Aid' now grants 20k guns, 2k artillery, and 2k support equipment, from 10k, 1k, and 1k respectively
+ - National spirit 'American Aid' now grants +10% surrender cap for the Soviet Union
+
 ###  3.13.8
 
 #### Germany
