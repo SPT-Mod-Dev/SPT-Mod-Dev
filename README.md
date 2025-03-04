@@ -14,6 +14,9 @@
  - Focus 'Claim Overlordship of Slovakia' Days 70 -> 35
  - Now can core the Second Vienna Award states via decision 
 
+#### USA
+ - 'Escort Fighters' cost 70 days -> 35 days bonus 100% -> 150%
+
 #### Denmark
  - Focus 'Reclaim Norway' compliance should now be working (?)
 
