@@ -3,6 +3,33 @@
 ###  3.14.0 
 
 #### Germany
+- 'Second Vienna Award' Days 35 -> 14
+
+#### Italy
+- 'Trade Vojvodina for Guarantees' now includes West Banat and cost 75 -> 10
+
+#### Hungary
+- Focus 'Demand Burgenland' now available
+- Focus 'Demand Southern Slovakia' removed
+- Focus 'Claim Overlordship of Slovakia' Days 70 -> 35
+- Now can core the Second Vienna Award states via decision 
+
+#### USA
+- 'Escort Fighters' cost 70 days -> 35 days bonus 100% -> 150%
+- 'Neutrality Act' war support reduction removed
+- Focus 'Soviet Aid' Soviet Union capitulation progress reduced to 35%, from 40%
+- Focus 'Soviet Aid' now grants 20k guns, 2k artillery, and 2k support equipment, from 10k, 1k, and 1k respectively
+- National spirit 'American Aid' now grants +10% surrender cap for the Soviet Union
+ 
+#### Denmark
+- Focus 'Reclaim Norway' compliance should now be working (?)
+
+#### Brazil
+ - Removed ability to have Lindolfo Collor and Minervino de Oliveira as both leader and advisor (again)
+
+###  3.13.8
+
+#### Germany
  - 'Second Vienna Award' Days 35 -> 14
 
 #### Italy
