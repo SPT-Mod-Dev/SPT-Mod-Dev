@@ -3,7 +3,7 @@
 ###  3.14.0 
 
 #### Germany
-- 'Second Vienna Award' Days 35 -> 14
+ - 'Second Vienna Award' Days 35 -> 14
 
 #### Italy
  - 'Trade Vojvodina for Guarantees' now includes West Banat and cost 75 -> 10
