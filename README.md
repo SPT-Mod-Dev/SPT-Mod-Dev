@@ -23,6 +23,7 @@
 
 #### USA
  - 'Escort Fighters' cost 70 days -> 35 days bonus 100% -> 150%
+ - 'Neutrality Act' war support reduction removed
 
 #### Denmark
  - Focus 'Reclaim Norway' compliance should now be working (?)
