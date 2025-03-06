@@ -17,7 +17,7 @@
 #### USA
  - 'Escort Fighters' cost 70 days -> 35 days bonus 100% -> 150%
  - 'Neutrality Act' war support reduction removed
-  - Focus 'Soviet Aid' Soviet Union capitulation progress reduced to 35%, from 40%
+ - Focus 'Soviet Aid' Soviet Union capitulation progress reduced to 35%, from 40%
  - Focus 'Soviet Aid' now grants 20k guns, 2k artillery, and 2k support equipment, from 10k, 1k, and 1k respectively
  - National spirit 'American Aid' now grants +10% surrender cap for the Soviet Union
 
