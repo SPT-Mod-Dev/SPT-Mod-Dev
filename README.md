@@ -27,6 +27,9 @@
 #### Brazil
  - Removed ability to have Lindolfo Collor and Minervino de Oliveira as both leader and advisor (again)
 
+#### South Africa
+ - Historical flavor event on the replacement of Prime Minister Hertzog with Smuts now fires immediately upon declaration of war
+
 ###  3.13.8
 
 #### Germany

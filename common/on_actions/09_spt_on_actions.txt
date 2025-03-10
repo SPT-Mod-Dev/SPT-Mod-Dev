@@ -885,6 +885,18 @@ on_actions = {
 					add_to_faction = HOL
 				}
 			}
+			# Check if SAF is at war with GER and change leader
+			if = {
+				limit = {
+					SAF = {
+						has_war_with = GER
+						has_country_leader = { ruling_only = yes name = "J. B. M. Hertzog" } 
+					}
+				}
+				SAF = {
+					country_event = {id = spt.113 hours = 0}
+				}
+			}
 		}
 		 
 		effect = { # Fascist Attacks Norway, prep for Civil War
