@@ -2,6 +2,9 @@
 
 ###  3.14.0 
 
+#### General
+- Added decision to add/remove a convoy to force convoy recalculations
+
 #### Germany
 - 'Second Vienna Award' Days 35 -> 14
 
