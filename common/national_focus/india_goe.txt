@@ -14049,6 +14049,10 @@ focus_tree = {
         available = {
 
         }
+
+        allow_branch = {
+            always = no #SPT change
+        }
         
         bypass = {
             any_other_country = {
@@ -14771,10 +14775,12 @@ focus_tree = {
     focus = {
         id = RAJ_fight_malnutrition
         icon = GFX_focus_generic_field_hostpital
-        prerequisite = { focus = RAJ_import_substitution_industrialisation }
+        # prerequisite = { focus = RAJ_import_substitution_industrialisation } # SPTchange healthcare
+        prerequisite = { focus = RAJ_expand_healthcare_facilities }
         x = 0
         y = 1
-        relative_position_id = RAJ_import_substitution_industrialisation 
+        # relative_position_id = RAJ_import_substitution_industrialisation # SPTchange Healthcare
+        relative_position_id = RAJ_expand_healthcare_facilities
         
         cost = 5
 
@@ -15173,10 +15179,12 @@ focus_tree = {
     focus = {
         id = RAJ_education_efforts
         icon = GFX_focus_research
-        prerequisite = { focus = RAJ_fight_malnutrition }
+        # prerequisite = { focus = RAJ_fight_malnutrition } # SPTchange after tryst instead
+        prerequisite = { focus = RAJ_tryst_with_destiny }
         x = 0
         y = 1
-        relative_position_id = RAJ_fight_malnutrition
+        # relative_position_id = RAJ_fight_malnutrition # SPTchange after tryst
+        relative_position_id = RAJ_tryst_with_destiny
         
         cost = 10
 
