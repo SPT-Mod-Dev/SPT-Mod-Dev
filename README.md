@@ -15,6 +15,7 @@
 
 #### Germany
  - 'Second Vienna Award' Days 35 -> 14
+ - No longer guarantees Finland 
 
 #### Hungary
  - Focus 'Demand Burgenland' now available
@@ -24,6 +25,9 @@
 
 #### Italy
  - 'Trade Vojvodina for Guarantees' now includes West Banat and cost 75 -> 10
+
+#### Spain
+ - Now can manually complete 'Unify the Nationalist Front' in case of a skill issue
 
 #### South Africa
  - Historical flavor event on the replacement of Prime Minister Hertzog with Smuts now fires immediately upon declaration of war
