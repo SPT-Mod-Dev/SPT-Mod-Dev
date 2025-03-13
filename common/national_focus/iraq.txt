@@ -5223,7 +5223,6 @@ focus_tree = {
 				855 = { NOT = { is_owned_by = ROOT } }
 				856 = { NOT = { is_owned_by = ROOT } }
 			}
-			#NOT = { is_in_faction_with = SAU }
 		}
 
 		bypass = {
@@ -5262,13 +5261,12 @@ focus_tree = {
 						state = 856
 					}
 				}
-				add_claim_by = ROOT
-				#add_core_of = ROOT
+				add_core_of = ROOT
 				OWNER = {
 					ROOT = {
 						create_wargoal = {
 							target = PREV
-							type = take_core_state
+							type = take_core_state #This requires cores
 						}
 					}
 				}

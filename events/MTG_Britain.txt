@@ -4551,13 +4551,37 @@ country_event = {
 	# We will leave
 	option = {
 		name = mtg_britain.66.b
-		leave_faction = yes
-		ENG = {
-			set_autonomy = {
-			    target = ROOT
-			    autonomy_state = autonomy_free
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						NOT = { original_tag = RAJ }
+						has_dlc = "Graveyard of Empires"
+					}
+					NOT = { has_dlc = "Graveyard of Empires" }
+				}
+			}
+			leave_faction = yes
+		}
+		
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						NOT = { original_tag = RAJ }
+						has_dlc = "Graveyard of Empires"
+					}
+					NOT = { has_dlc = "Graveyard of Empires" }
+				}
+			}
+			ENG = {
+				set_autonomy = {
+			    	target = ROOT
+			    	autonomy_state = autonomy_free
+				}
 			}
 		}
+
 		if = {
 			limit = {
 				has_idea = ENG_guided_by_britain_1
@@ -4585,13 +4609,37 @@ country_event = {
 		if = {
 			limit = {
 				tag = RAJ
+				NOT = {
+					has_dlc = "Graveyard of Empires"
+				}
 			}
 			drop_cosmetic_tag = yes
 			retire_country_leader = yes
 		}
+
+		if = {
+			limit = {
+				tag = RAJ
+				has_dlc = "Graveyard of Empires"
+				
+			}
+			country_event = { id = GOE_RAJ.30 hours = 2 }
+		}
+
 		remove_from_tech_sharing_group = commonwealth_research
 		set_country_flag = ENG_already_left_faction_flag
-		ENG = { country_event = { id = mtg_britain.67 } }
+		
+		if = {
+			limit = {
+				OR = {
+					NOT = { has_dlc = "Graveyard of Empires" }
+					NOT = { tag = RAJ }
+				}
+			}
+			ENG = { country_event = { id = mtg_britain.67 } }
+		}
+		
+		
 		hidden_effect = { news_event = { id = mtg_news.63 days = 1 } }
 	}
 }
