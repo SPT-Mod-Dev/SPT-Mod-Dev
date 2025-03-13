@@ -108,7 +108,7 @@ SPT_transfer_ships_FRA_to_HTF = {
 }
 
 #give Finland military access
-FIN_pact_for_continuation_war_start = {
+SPT_FIN_pact_for_continuation_war_start = {
 	every_country = {
 		limit = {
 			original_tag = FIN
@@ -143,60 +143,18 @@ FIN_pact_for_continuation_war_start = {
 	}
 }
 
-FIN_continuation_war_start = { #To be used on FIN's scope - Used immediately upon signing agreement
+SPT_FIN_continuation_war_start = { #To be used on FIN's scope - Used immediately upon signing agreement
 	every_country = {
 		limit = {
 			original_tag = FIN
 		}
-		if = {
-			limit = {
-				NOT = { has_military_access_to = GER }
-				NOT = { gives_military_access_to = GER }
-			}
-			give_military_access = GER
-		}
-		if = {
-			limit = {
-				NOT = { has_military_access_to = ITA }
-				NOT = { gives_military_access_to = ITA }
-			}
-			give_military_access = ITA
-		}
-		if = {
-			limit = {
-				NOT = { has_military_access_to = HUN }
-				NOT = { gives_military_access_to = HUN }
-			}
-			give_military_access = HUN
-		}
-		if = {
-			limit = {
-				NOT = { has_military_access_to = ROM }
-				NOT = { gives_military_access_to = ROM }
-			}
-			give_military_access = ROM
-		}
-		if = {
-			limit = {
-				NOT = { has_military_access_to = BUL }
-				NOT = { gives_military_access_to = BUL }
-			}
-			give_military_access = BUL
-		}
-		if = {
-			limit = {
-				NOT = { has_military_access_to = DEN }
-				NOT = { gives_military_access_to = DEN }
-			}
-			give_military_access = DEN
-		}
-		if = {
-			limit = {
-				NOT = { has_military_access_to = DEN }
-				NOT = { gives_military_access_to = DEN }
-			}
-			give_military_access = SPR
-		}
+		give_military_access = GER
+		give_military_access = ITA
+		give_military_access = HUN
+		give_military_access = ROM
+		give_military_access = BUL
+		give_military_access = DEN
+		give_military_access = SPR
 	}
 	every_country = {
 		limit = {
@@ -209,8 +167,6 @@ FIN_continuation_war_start = { #To be used on FIN's scope - Used immediately upo
 				tag = DEN
 				tag = SPR
 			}
-			NOT = { gives_military_access_to = FIN }
-			NOT = { has_military_access_to = FIN }
 		}
 		give_military_access = FIN
 	}
