@@ -1949,9 +1949,10 @@ country_event = {
 				last_election = "1939.1.1"
 				election_frequency = 48
 			}
-			set_rule = { can_declare_war_on_same_ideology = yes }
-			set_rule = {  can_only_justify_war_on_threat_country = no }
-			set_rule = { can_join_factions = no }
+			# SPTchange
+			# set_rule = { can_declare_war_on_same_ideology = yes }
+			# set_rule = {  can_only_justify_war_on_threat_country = no }
+			# set_rule = { can_join_factions = no }
 		}
 		set_country_flag = stop_unrest_events
 		if = {
@@ -1962,20 +1963,21 @@ country_event = {
 			ENG = { set_autonomy = { target = RAJ autonomy_state = autonomy_free } }
 		}
 
-		if = {
-			limit = {
-				is_in_faction_with = ENG
-			}
-			leave_faction = yes
-		}
+		# SPTchange paradox put this in to prevent pakistan exploits or something
+		# if = {
+		# 	limit = {
+		# 		is_in_faction_with = ENG
+		# 	}
+		# 	leave_faction = yes
+		# }
 
-		if = {
-			limit = {
-				has_war = yes
-				is_in_faction = no
-			}
-			set_major = yes
-		}
+		# if = {
+		# 	limit = {
+		# 		has_war = yes
+		# 		is_in_faction = no
+		# 	}
+		# 	set_major = yes
+		# }
 
 		#setup pressure
 		PAK = { 
@@ -3371,10 +3373,11 @@ country_event = {
 		RAJ = {
 			add_ideas = idea_RAJ_remaining_paramilitary_organizations
 		}
-		add_timed_idea = {
-			idea = idea_RAJ_partition_india_united
-			days = 1080
-		}
+		# SPTchange reduce the ticking murder bomb
+		# add_timed_idea = {
+		# 	idea = idea_RAJ_partition_india_united
+		# 	days = 1080
+		# }
 		country_event = {
 			id = GOE_RAJ_partition.7
 			hours = 4
