@@ -3,7 +3,7 @@
 ###  3.14.0 Graveyard of DLC
 
 #### General
- - Implemented Graveyard of Empires (as of v1.16.0)
+ - Implemented Graveyard of Empires (as of v1.16.1)
  - Annexed new GoE puppets back into colonial overlords
  - Added decision to add/remove a convoy to force convoy recalculations
 
