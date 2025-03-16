@@ -6897,7 +6897,8 @@ focus_tree = {
         }
 
         available = {
-
+            # SPTchange
+            is_subject = yes
         }
         
         bypass = {
@@ -7478,7 +7479,8 @@ focus_tree = {
         }
 
         available = {
-
+            # SPTchange
+            is_subject = yes
         }
         
         bypass = {
@@ -7567,8 +7569,16 @@ focus_tree = {
         completion_reward = {
             custom_effect_tooltip = idea_RAJ_independence_movement_tt
             add_to_variable = { RAJ_autonomy_gain_independence_movement = 0.02 tooltip = autonomy_gain_tt }
-            add_to_variable = { RAJ_resistance_activity_independence_movement = 0.15 tooltip =  resistance_activity_tt }
+            # SPTchange make this a little more interesting - if your government represents the Indian people and not the Raj, why would this raise resistance target?
+            if = {
+                limit = {
+                    has_government = neutrality
+                }
+                add_to_variable = { RAJ_resistance_activity_independence_movement = 0.15 tooltip =  resistance_activity_tt }
             add_to_variable = { RAJ_resistance_target_independence_movement = 0.15 tooltip =  resistance_target_tt }
+            }
+            # add_to_variable = { RAJ_resistance_activity_independence_movement = 0.15 tooltip =  resistance_activity_tt }
+            # add_to_variable = { RAJ_resistance_target_independence_movement = 0.15 tooltip =  resistance_target_tt }
             custom_effect_tooltip = generic_skip_one_line_tt
             custom_effect_tooltip = available_political_advisor
             show_ideas_tooltip = RAJ_bhimrao_ramji_ambedkar
@@ -7627,7 +7637,8 @@ focus_tree = {
         }
 
         available = {
-
+            # SPTchange
+            is_subject = yes
         }
         
         bypass = {
@@ -7901,7 +7912,8 @@ focus_tree = {
         }
 
         available = {
-
+            # SPTchange
+            is_subject = yes
         }
         
         bypass = {
