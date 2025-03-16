@@ -1409,112 +1409,113 @@ country_event = {
 	}
 }
 
-country_event = {  #Warn about garrison not being set, hidden event
-	id = GOE_RAJ.36
-	is_triggered_only = yes
-	hidden = yes
-	immediate = {
-		if = {
-			limit = {
-				has_country_flag = RAJ_only_send_one_event
-			}
-			clr_country_flag = RAJ_only_send_one_event
-		}
+# SPTChange we removed "no garrison" in the mod anyway
+# country_event = {  #Warn about garrison not being set, hidden event
+# 	id = GOE_RAJ.36
+# 	is_triggered_only = yes
+# 	hidden = yes
+# 	immediate = {
+# 		if = {
+# 			limit = {
+# 				has_country_flag = RAJ_only_send_one_event
+# 			}
+# 			clr_country_flag = RAJ_only_send_one_event
+# 		}
 		
-		every_owned_state = {
-			limit = { has_resistance = yes }
-			if = {
-				limit = { 
-					RAJ = { NOT = { has_country_flag = RAJ_only_send_one_event } } 
-				}
+# 		every_owned_state = {
+# 			limit = { has_resistance = yes }
+# 			if = {
+# 				limit = { 
+# 					RAJ = { NOT = { has_country_flag = RAJ_only_send_one_event } } 
+# 				}
 
-				if = {
-					limit = { occupation_law = no_garrison }
-					RAJ = { set_country_flag = RAJ_only_send_one_event }
-					if = {
-						limit = {
-							RAJ = { NOT = { has_country_flag = RAJ_has_been_warned_about_garrison } }
-						}
-						RAJ = { 
-							set_country_flag = RAJ_has_been_warned_about_garrison 
-							country_event = {
-								id = GOE_RAJ.37
-								hours = 2
-							}
-						} 
-					}
-					else = {
-						RAJ = { 
-							country_event = {
-								id = GOE_RAJ.38
-								hours = 2
-							}
-						} 
-					}
-				}
-			}
-		}
+# 				if = {
+# 					limit = { occupation_law = no_garrison }
+# 					RAJ = { set_country_flag = RAJ_only_send_one_event }
+# 					if = {
+# 						limit = {
+# 							RAJ = { NOT = { has_country_flag = RAJ_has_been_warned_about_garrison } }
+# 						}
+# 						RAJ = { 
+# 							set_country_flag = RAJ_has_been_warned_about_garrison 
+# 							country_event = {
+# 								id = GOE_RAJ.37
+# 								hours = 2
+# 							}
+# 						} 
+# 					}
+# 					else = {
+# 						RAJ = { 
+# 							country_event = {
+# 								id = GOE_RAJ.38
+# 								hours = 2
+# 							}
+# 						} 
+# 					}
+# 				}
+# 			}
+# 		}
 
-		if = {
-			limit = {
-				NOT = { has_completed_focus = RAJ_give_me_blood_and_i_will_grant_you_freedom } #Invoke itself
-			}
+# 		if = {
+# 			limit = {
+# 				NOT = { has_completed_focus = RAJ_give_me_blood_and_i_will_grant_you_freedom } #Invoke itself
+# 			}
 
-			country_event = {
-				id = GOE_RAJ.36
-				days = 22
-				random_days = 15 
-			}
-		}
+# 			country_event = {
+# 				id = GOE_RAJ.36
+# 				days = 22
+# 				random_days = 15 
+# 			}
+# 		}
 
-		if = {
-			limit = {
-				has_country_flag = RAJ_only_send_one_event
-			}
-			clr_country_flag = RAJ_only_send_one_event
-		}
-	}
-}
+# 		if = {
+# 			limit = {
+# 				has_country_flag = RAJ_only_send_one_event
+# 			}
+# 			clr_country_flag = RAJ_only_send_one_event
+# 		}
+# 	}
+# }
 
-country_event = { #Warn once about garrison not being set 
-	id = GOE_RAJ.37
-	is_triggered_only = yes
-	title =  GOE_RAJ.37.t
-	desc =  GOE_RAJ.37.desc
-	option = {
-		name = GOE_RAJ.37.a
-        every_owned_state = {
-            limit = { 
-            	has_resistance = yes
-            	occupation_law = no_garrison 
+# country_event = { #Warn once about garrison not being set 
+# 	id = GOE_RAJ.37
+# 	is_triggered_only = yes
+# 	title =  GOE_RAJ.37.t
+# 	desc =  GOE_RAJ.37.desc
+# 	option = {
+# 		name = GOE_RAJ.37.a
+#         every_owned_state = {
+#             limit = { 
+#             	has_resistance = yes
+#             	occupation_law = no_garrison 
             	
-            }
-        	set_occupation_law = local_police_force_garrison
+#             }
+#         	set_occupation_law = local_police_force_garrison
 
-        }
-	}
-}
+#         }
+# 	}
+# }
 
-country_event = { #No more warning 
-	id = GOE_RAJ.38
-	is_triggered_only = yes
-	title =  GOE_RAJ.38.t
-	desc =  GOE_RAJ.38.desc
-	option = {
-		name = GOE_RAJ.38.a
+# country_event = { #No more warning 
+# 	id = GOE_RAJ.38
+# 	is_triggered_only = yes
+# 	title =  GOE_RAJ.38.t
+# 	desc =  GOE_RAJ.38.desc
+# 	option = {
+# 		name = GOE_RAJ.38.a
 
-        every_owned_state = {
-        	limit = {
-        		has_resistance = yes
-        		occupation_law = no_garrison 
-        	}
-            set_occupation_law = local_police_force_garrison
-            set_resistance = 0
+#         every_owned_state = {
+#         	limit = {
+#         		has_resistance = yes
+#         		occupation_law = no_garrison 
+#         	}
+#             set_occupation_law = local_police_force_garrison
+#             set_resistance = 0
 
-        }
-        add_stability = -0.1
-	}
-}
+#         }
+#         add_stability = -0.1
+# 	}
+# }
 
 ##########
 #Partition
