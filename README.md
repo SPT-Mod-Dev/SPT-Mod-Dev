@@ -10,6 +10,9 @@
 #### Brazil
  - Removed ability to have Lindolfo Collor and Minervino de Oliveira as both leader and advisor (again)
 
+#### Bulgaria
+ - Focus 'Illusions of a Non-Partisan System" no longer cancels if Democracy support falls below 20%
+
 #### Denmark
  - Focus 'Reclaim Norway' compliance should now be working (?)
 
