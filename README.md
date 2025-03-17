@@ -3,12 +3,15 @@
 ###  3.14.0 Graveyard of DLC
 
 #### General
- - Implemented Graveyard of Empires (as of v1.16.0)
+ - Implemented Graveyard of Empires (as of v1.16.1)
  - Annexed new GoE puppets back into colonial overlords
  - Added decision to add/remove a convoy to force convoy recalculations
 
 #### Brazil
  - Removed ability to have Lindolfo Collor and Minervino de Oliveira as both leader and advisor (again)
+
+#### Bulgaria
+ - Focus 'Illusions of a Non-Partisan System" no longer cancels if Democracy support falls below 20%
 
 #### Denmark
  - Focus 'Reclaim Norway' compliance should now be working (?)

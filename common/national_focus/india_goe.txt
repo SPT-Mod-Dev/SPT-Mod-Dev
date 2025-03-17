@@ -8,6 +8,8 @@
 
 focus_tree = {
     id = indian_focus_goe
+
+    shared_focus = SPT_CW_Together_for_victory #SPT change, added shared focus tree
     
     country = {
         factor = 0
@@ -6895,7 +6897,8 @@ focus_tree = {
         }
 
         available = {
-
+            # SPTchange
+            is_subject = yes
         }
         
         bypass = {
@@ -7476,7 +7479,8 @@ focus_tree = {
         }
 
         available = {
-
+            # SPTchange
+            is_subject = yes
         }
         
         bypass = {
@@ -7565,8 +7569,16 @@ focus_tree = {
         completion_reward = {
             custom_effect_tooltip = idea_RAJ_independence_movement_tt
             add_to_variable = { RAJ_autonomy_gain_independence_movement = 0.02 tooltip = autonomy_gain_tt }
-            add_to_variable = { RAJ_resistance_activity_independence_movement = 0.15 tooltip =  resistance_activity_tt }
+            # SPTchange make this a little more interesting - if your government represents the Indian people and not the Raj, why would this raise resistance target?
+            if = {
+                limit = {
+                    has_government = neutrality
+                }
+                add_to_variable = { RAJ_resistance_activity_independence_movement = 0.15 tooltip =  resistance_activity_tt }
             add_to_variable = { RAJ_resistance_target_independence_movement = 0.15 tooltip =  resistance_target_tt }
+            }
+            # add_to_variable = { RAJ_resistance_activity_independence_movement = 0.15 tooltip =  resistance_activity_tt }
+            # add_to_variable = { RAJ_resistance_target_independence_movement = 0.15 tooltip =  resistance_target_tt }
             custom_effect_tooltip = generic_skip_one_line_tt
             custom_effect_tooltip = available_political_advisor
             show_ideas_tooltip = RAJ_bhimrao_ramji_ambedkar
@@ -7625,7 +7637,8 @@ focus_tree = {
         }
 
         available = {
-
+            # SPTchange
+            is_subject = yes
         }
         
         bypass = {
@@ -7899,7 +7912,8 @@ focus_tree = {
         }
 
         available = {
-
+            # SPTchange
+            is_subject = yes
         }
         
         bypass = {
@@ -8694,21 +8708,22 @@ focus_tree = {
                     mark_focus_tree_layout_dirty = yes
                 }
 
-                every_owned_state = {
-                    if = {
-                        limit = { 
-                            has_resistance = yes
-                            occupation_law = no_garrison 
-                        }
-                        set_occupation_law = local_police_force_garrison
-                    }
-                }
-                set_country_flag = RAJ_hide_no_garrison
-                country_event = {
-                    id = GOE_RAJ.36
-                    days = 22
-                    random_days = 15
-                }
+                # SPTchange checks for occupation law we removed
+                # every_owned_state = {
+                #     if = {
+                #         limit = { 
+                #             has_resistance = yes
+                #             occupation_law = no_garrison 
+                #         }
+                #         set_occupation_law = local_police_force_garrison
+                #     }
+                # }
+                # set_country_flag = RAJ_hide_no_garrison
+                # country_event = {
+                #     id = GOE_RAJ.36
+                #     days = 22
+                #     random_days = 15
+                # }
             }
         }
     }
