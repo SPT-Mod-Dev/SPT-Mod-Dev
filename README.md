@@ -25,6 +25,7 @@
  - Focus 'Demand Southern Slovakia' removed
  - Focus 'Claim Overlordship of Slovakia' Days 70 -> 35
  - Now can core the Second Vienna Award states via decision 
+ - Focus 'Fighter Competition' Days 70 -> 35 and no longer fires the event
 
 #### Italy
  - 'Trade Vojvodina for Guarantees' now includes West Banat and cost 75 -> 10
