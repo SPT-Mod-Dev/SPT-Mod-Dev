@@ -18,11 +18,13 @@ focus_tree = {
 			add = 10
 			tag = RAJ
 			has_dlc = "Together for Victory"
+			NOT = {
+				has_dlc = "Graveyard of Empires"
+			}
 		}
 	}
 	
 	default = no
-
 
 
 #	focus = {
@@ -3386,7 +3388,22 @@ focus_tree = {
 		}
 
 		bypass = {
-
+			NOT = {
+				AND = {
+					OR = {
+						controls_state = 640
+						BRM = { controls_state = 640 }
+					}
+					OR = {
+						controls_state = 288
+						BRM = { controls_state = 288 }
+					}
+					OR = {
+						controls_state = 430
+						BRM = { controls_state = 430 }
+					}
+				}
+			}
 		}
 
 		cancel_if_invalid = yes

@@ -1,5 +1,48 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+###  3.14.0 Graveyard of DLC
+
+#### General
+ - Implemented Graveyard of Empires (as of v1.16.1)
+ - Annexed new GoE puppets back into colonial overlords
+ - Added decision to add/remove a convoy to force convoy recalculations
+
+#### Brazil
+ - Removed ability to have Lindolfo Collor and Minervino de Oliveira as both leader and advisor (again)
+
+#### Bulgaria
+ - Focus 'Illusions of a Non-Partisan System" no longer cancels if Democracy support falls below 20%
+
+#### Denmark
+ - Focus 'Reclaim Norway' compliance should now be working (?)
+
+#### Germany
+ - 'Second Vienna Award' Days 35 -> 14
+ - No longer guarantees Finland 
+
+#### Hungary
+ - Focus 'Demand Burgenland' now available
+ - Focus 'Demand Southern Slovakia' removed
+ - Focus 'Claim Overlordship of Slovakia' Days 70 -> 35
+ - Now can core the Second Vienna Award states via decision 
+ - Focus 'Fighter Competition' Days 70 -> 35 and no longer fires the event
+
+#### Italy
+ - 'Trade Vojvodina for Guarantees' now includes West Banat and cost 75 -> 10
+
+#### Spain
+ - Now can manually complete 'Unify the Nationalist Front' in case of a skill issue
+
+#### South Africa
+ - Historical flavor event on the replacement of Prime Minister Hertzog with Smuts now fires immediately upon declaration of war
+
+#### USA
+ - 'Escort Fighters' cost 70 days -> 35 days bonus 100% -> 150%
+ - 'Neutrality Act' war support reduction removed
+ - Focus 'Soviet Aid' Soviet Union capitulation progress reduced to 35%, from 40%
+ - Focus 'Soviet Aid' now grants 20k guns, 2k artillery, and 2k support equipment, from 10k, 1k, and 1k respectively
+ - National spirit 'American Aid' now grants +10% surrender cap for the Soviet Union
+
 ###  3.13.7 Another Week another minor UpdatE
 
 #### General

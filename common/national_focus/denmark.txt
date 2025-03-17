@@ -5519,7 +5519,7 @@ focus_tree = {
 			}
 			add_to_variable = {
 				DEN_industrial_capability_resources_to_market = -0.1
-				tooltip = min_export_factor_tt
+				tooltip = min_export_tt
 			}
 		}
 	}
@@ -5669,7 +5669,7 @@ focus_tree = {
 			}
 			add_to_variable = {
 				DEN_industrial_capability_resources_to_market = 0.1
-				tooltip = min_export_factor_tt
+				tooltip = min_export_tt
 			}
 
 			hidden_effect = { #This is done for tooltip purposes so that the research bonus is shown in the dynamic modifier
@@ -8485,7 +8485,7 @@ focus_tree = {
 			DEN_improve_industrial_capabilities_NS = yes
 			add_to_variable = {
 				DEN_industrial_capability_resources_to_market = -0.15
-				tooltip = min_export_factor_tt
+				tooltip = min_export_tt
 			}
 		}
 	}
@@ -8761,14 +8761,6 @@ focus_tree = {
 				tooltip = air_weather_penalty_tt
 			}
 
-			# SPTchange		
-			every_state = {
-				limit = {
-					is_core_of = NOR
-				}
-				add_compliance = 80
-			}
-
 			if = {
 				limit = {
 					NOR = {
@@ -8836,7 +8828,8 @@ focus_tree = {
 					    days = 365
 					}
 				}
-			} 
+			}
+			# SPT-relevant one.
 			else_if = {
 				limit = {
 					has_government = fascism

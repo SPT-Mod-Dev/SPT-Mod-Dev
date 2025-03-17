@@ -86,43 +86,43 @@ country_event = {
 		}
 	}
 
-	# Popular Front
-	option = {
-		name = lar_spain.1.a
-		trigger = {
-			NOT = {
-				has_completed_focus = SPA_a_great_spain
-			}
-		}
-		add_popularity = {
-			ideology = communism
-			popularity = 0.1
-		}
-		add_political_power = 5
-		if = {
-			limit = {
-				NOT = {
-					has_completed_focus = SPR_the_popular_front
-				}
-			}
-			complete_national_focus = SPR_the_popular_front
-			add_political_power = -35
-			activate_mission = SPR_military_plot_republicans
-			hidden_effect = {
-				country_event = { id = lar_spain.4 days = 4 } # Nationalists working against the government
-				country_event = { id = lar_spain.5 }
-				activate_mission = SPR_military_plot_republicans
-				if = {
-					limit = {
-						NOT = { has_active_mission = SPA_hand_over_the_ceda_campaign_chest_mission }
-					}
-					activate_mission = SPA_hand_over_the_ceda_campaign_chest_mission
-				}
-			}
-		}
-		effect_tooltip = { add_ideas = SPR_government_power_struggle }
-		custom_effect_tooltip = SPR_republican_garrison_control_decisions_tt
-	}
+	# Popular Front # SPTChange no commies
+	# option = {
+	# 	name = lar_spain.1.a
+	# 	trigger = {
+	# 		NOT = {
+	# 			has_completed_focus = SPA_a_great_spain
+	# 		}
+	# 	}
+	# 	add_popularity = {
+	# 		ideology = communism
+	# 		popularity = 0.1
+	# 	}
+	# 	add_political_power = 5
+	# 	if = {
+	# 		limit = {
+	# 			NOT = {
+	# 				has_completed_focus = SPR_the_popular_front
+	# 			}
+	# 		}
+	# 		complete_national_focus = SPR_the_popular_front
+	# 		add_political_power = -35
+	# 		activate_mission = SPR_military_plot_republicans
+	# 		hidden_effect = {
+	# 			country_event = { id = lar_spain.4 days = 4 } # Nationalists working against the government
+	# 			country_event = { id = lar_spain.5 }
+	# 			activate_mission = SPR_military_plot_republicans
+	# 			if = {
+	# 				limit = {
+	# 					NOT = { has_active_mission = SPA_hand_over_the_ceda_campaign_chest_mission }
+	# 				}
+	# 				activate_mission = SPA_hand_over_the_ceda_campaign_chest_mission
+	# 			}
+	# 		}
+	# 	}
+	# 	effect_tooltip = { add_ideas = SPR_government_power_struggle }
+	# 	custom_effect_tooltip = SPR_republican_garrison_control_decisions_tt
+	# }
 
 	# Falange
 	option = {

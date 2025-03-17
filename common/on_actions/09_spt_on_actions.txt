@@ -1,15 +1,22 @@
 on_actions = {
 	on_startup = {
 		effect = {
-
+			USA = {
+				SPT_USA_spin_the_wheel = yes
+			}
 			# LAT = { activate_decision = form_baltic_federation }
 
 			#le funneh happens
-			# CHI = {
-			# 	#SPT_randomize_china_color = yes
-			# 	SPT_will_it_blend = yes
-			# } 
-			# stopped the funneh from happening for a bit (sorry china)
+			CHI = {
+				#SPT_randomize_china_color = yes
+				SPT_will_it_blend = yes
+			} 
+
+			#i hate the concept of self-determination of peoples, they all should be integrated into megacountries and slowly italianized for the return of Rome
+			every_country = {
+				SPT_remove_useless_cores = yes
+			}
+
 
 			#Suck it sticky #it didnt work too well ginger, theyve joined factions
 			#Prevent countries joining faction
@@ -256,40 +263,6 @@ on_actions = {
 					country = POL
 					relation = guarantee
 					active = yes
-				}
-			}
-			#Remove Pakistan cores
-			RAJ = {
-				443 = {
-					remove_core_of = PAK
-				}
-				444 = {
-					remove_core_of = PAK
-				}
-				445 = {
-					remove_core_of = PAK
-				}
-				440 = {
-					remove_core_of = PAK
-				}
-				442 = {
-					remove_core_of = PAK
-				}
-				430 = {
-					remove_core_of = PAK
-					remove_core_of = BAN
-				}
-				787 = {
-					remove_core_of = PAK
-				}
-				441 = {
-					remove_claim_by = PAK
-				}
-				640 = {
-					remove_core_of = BRM
-				}
-				288 = {
-					remove_core_of = BRM
 				}
 			}
 			#Remove yugos anti german idea
@@ -881,6 +854,18 @@ on_actions = {
 				}
 				ENG = {
 					add_to_faction = HOL
+				}
+			}
+			# Check if SAF is at war with GER and change leader
+			if = {
+				limit = {
+					SAF = {
+						has_war_with = GER
+						has_country_leader = { ruling_only = yes name = "J. B. M. Hertzog" } 
+					}
+				}
+				SAF = {
+					country_event = {id = spt.113 hours = 0}
 				}
 			}
 		}
