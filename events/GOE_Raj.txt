@@ -881,6 +881,19 @@ country_event = {
 			656 = { set_state_flag = azad_hind_move_to_raj }
 		}
 
+		for_each_scope_loop = {
+			array = RAJ.owned_states_at_game_start
+			if = {
+				limit = {
+					owner = {
+						is_subject_of = ENG
+						has_war_with = RAJ
+					}
+				}
+				set_state_flag = azad_hind_move_to_raj
+			}
+		}
+
 		white_peace = {
 			tag = FROM
 		}
@@ -937,6 +950,40 @@ country_event = {
 				}
 			}
 			RAJ = { transfer_state =  656 }
+		}
+		RAJ = {
+			if = {
+				limit = {
+					has_variable = revolter_tag
+					var:revolter_tag = {
+						exists = yes
+						is_subject_of = ENG
+					}
+				}
+				var:revolter_tag = {
+
+					PREV = {
+						annex_country = {	
+							target = PREV
+							transfer_troops = yes
+						}
+					}
+				}
+
+			}
+
+			for_each_scope_loop = {
+				array = RAJ.owned_states_at_game_start
+				if = {
+					limit = {
+						has_state_flag = azad_hind_move_to_raj
+						owner = {
+							NOT = { tag = ROOT }
+						}
+					}
+					ROOT = { transfer_state = PREV }
+				}
+			}
 		}
 
 		if = {
@@ -1116,20 +1163,26 @@ country_event = {
 		ai_chance = {
 			base = 1
 		}
+		was_raj_a_subject = yes
 		add_ideas = idea_RAJ_the_long_goodbye
 		if = {
 			limit = {
+				is_subject = yes
+				OVERLORD = { has_government = fascism }
 				NOT = {
-					has_autonomy_state = autonomy_dominion
+					has_autonomy_state = autonomy_satellite
 				}
 			}
-			set_autonomy = {
-				target=RAJ
-				autonomy_state = autonomy_dominion
-				freedom_level = 0 # 0-1 
-				end_wars  = no # default yes. will not cancel non civil wars if set to no
-				end_civil_wars = no # default yes. will not cancel civil wars if set to no
+			OVERLORD = {
+				set_autonomy = {
+					target=RAJ
+					autonomy_state = autonomy_satellite
+					freedom_level = 0 # 0-1 
+					end_wars  = no # default yes. will not cancel non civil wars if set to no
+					end_civil_wars = no # default yes. will not cancel civil wars if set to no
+				}
 			}
+			raj_was_a_subject_reset_party_ideology_after_independence = yes
 		}
 	}
 
@@ -2478,6 +2531,11 @@ country_event = {
 
 			RAJ = {
 				add_ideas = idea_RAJ_remaining_paramilitary_organizations
+				remove_ideas = {
+					RAJ_marginalized_muslim_community
+					RAJ_marginalized_muslim_community_angry
+
+				}
 			}
 
 			#Hyderabad
@@ -3098,29 +3156,29 @@ country_event = {
 			BAN = { overlord = { set_autonomy = { target = BAN autonomy_state = autonomy_free } } } 
 			log = "Error: Somehow BAN is a subject after partition. Please Check"
 		}
-
-		PAK = {
-			set_rule = {  can_declare_war_on_same_ideology = yes }
-			set_rule = {  can_only_justify_war_on_threat_country = no }
-			set_rule = { can_join_factions = no }
-			if = {
-				limit = { is_in_faction = yes }
-				leave_faction = yes
+		hidden_effect = {
+			PAK = {
+				set_rule = {  can_declare_war_on_same_ideology = yes }
+				set_rule = {  can_only_justify_war_on_threat_country = no }
+				set_rule = { can_join_factions = no }
+				if = {
+					limit = { is_in_faction = yes }
+					leave_faction = yes
+				}
+				add_ideas = neutrality_idea
 			}
-			add_ideas = neutrality_idea
-		}
 
-		BAN = {
-			set_rule = {  can_declare_war_on_same_ideology = yes }
-			set_rule = {  can_only_justify_war_on_threat_country = no }
-			set_rule = { can_join_factions = no }
-			if = {
-				limit = { is_in_faction = yes }
-				leave_faction = yes
+			BAN = {
+				set_rule = {  can_declare_war_on_same_ideology = yes }
+				set_rule = {  can_only_justify_war_on_threat_country = no }
+				set_rule = { can_join_factions = no }
+				if = {
+					limit = { is_in_faction = yes }
+					leave_faction = yes
+				}
+				add_ideas = neutrality_idea
 			}
-			add_ideas = neutrality_idea
 		}
-
 		for_each_scope_loop = {
 			array = RAJ.raj_releasables
 		
@@ -4697,9 +4755,7 @@ country_event = {
 		RAJ = {  
 			transfer_state = event_target:RAJ_i_want_to_buy_this_land 
 			country_event = { id = GOE_RAJ_eic.9 hours = 2 }
-			hidden_effect = {
-				clr_country_flag = is_trying_to_buy_land 
-			}
+
 		}
 		hidden_effect = {
 
@@ -4722,6 +4778,9 @@ country_event = {
 
 	option = {
 		name = GOE_RAJ_eic.7.a
+		hidden_effect = {
+			clr_country_flag = is_trying_to_buy_land 
+		}
 	}
 }
 
@@ -4734,11 +4793,13 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = GOE_RAJ_eic.8.a
+		hidden_effect = {
+			clr_country_flag = is_trying_to_buy_land 
+		}
 	}
 }
 
 #RAJ wants to buy some land
-# i actually want to cry. this is the worst system in the entire game. why did we not just make a centralized variable from the start this took me so many hours to fix -lily
 country_event = {
 	id = GOE_RAJ_eic.9
 	title = GOE_RAJ_eic.9.t	
@@ -4748,6 +4809,9 @@ country_event = {
 
 	option = {
 		name = GOE_RAJ_eic.9.a
+		hidden_effect = {
+			clr_country_flag = is_trying_to_buy_land 
+		}
 		if = {
 			limit = {
 				RAJ = { has_country_flag = use_rebate }

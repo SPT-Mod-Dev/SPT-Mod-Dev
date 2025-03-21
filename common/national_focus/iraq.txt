@@ -814,7 +814,7 @@ focus_tree = {
 
 		}
 
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY }
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -1340,14 +1340,14 @@ focus_tree = {
 
 		available = {
 			#is_in_faction = no  # Should not require this
+			is_subject = no #This however should be required
 		}
 
 		bypass = {
 
 		}
 
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL FOCUS_FILTER_POLITICAL_CHARACTER }
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -1604,7 +1604,7 @@ focus_tree = {
 
 		}
 
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_MANPOWER FOCUS_FILTER_HISTORICAL }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_MANPOWER FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ARMY_XP }
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -2307,11 +2307,8 @@ focus_tree = {
 					naval_facility < 1
 				}
 				prioritize = { 1011 }
-				add_building_construction = {
-					type = land_facility
-					level = 1
-					instant_build = yes
-					province = 2004 
+				construct_building_in_random_province = {
+					land_facility = 1
 				}
 			}
 
@@ -2445,7 +2442,7 @@ focus_tree = {
 			}
 		}
 
-		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL FOCUS_FILTER_AIR_XP }
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -2784,7 +2781,7 @@ focus_tree = {
 
 		}
 
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -2878,6 +2875,8 @@ focus_tree = {
 
 		}
 
+		search_filters = { FOCUS_FILTER_AIR_XP }
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
@@ -2943,7 +2942,7 @@ focus_tree = {
 
 		}
 
-		search_filters = { FOCUS_FILTER_RESEARCH }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_AIR_XP }
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -3281,7 +3280,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = IRQ_royal_iraqi_army
 
-		search_filters = { FOCUS_FILTER_HISTORICAL }
+		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_NAVY_XP }
 
 		cost = 10
 
@@ -3772,7 +3771,7 @@ focus_tree = {
 
 		cost = 10
 
-		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_MANPOWER }
+		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_MANPOWER FOCUS_FILTER_AIR_XP }
 
 		ai_will_do = {
 			base = 1
@@ -4585,7 +4584,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = IRQ_support_the_allied_war_effort
 
-		search_filters = { FOCUS_FILTER_MILITARY_CHARACTER FOCUS_FILTER_HISTORICAL }
+		search_filters = { FOCUS_FILTER_MILITARY_CHARACTER FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ARMY_XP	FOCUS_FILTER_AIR_XP FOCUS_FILTER_NAVY_XP }
 
 		cost = 5
 
@@ -4775,14 +4774,13 @@ focus_tree = {
 		}
 
 		available = {
-			
 		}
 
 		bypass = {
 
 		}
 
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_ARMY_XP }
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -4804,7 +4802,17 @@ focus_tree = {
 						JOR = { is_subject_of = ROOT }
 					}
 				}
-				ETH_add_random_mil_factory_effect = yes
+				455 = {
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			ELSE = {
+				custom_effect_tooltip = IRQ_regional_military_integration_tt
 			}	
 					
 		}
@@ -5789,7 +5797,7 @@ focus_tree = {
 
 		}
 
-		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_HISTORICAL }
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_HISTORICAL FOCUS_FILTER_POLITICAL_CHARACTER }
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -6083,7 +6091,7 @@ focus_tree = {
 
 		}
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL_CHARACTER FOCUS_FILTER_MANPOWER FOCUS_FILTER_MILITARY_CHARACTER }
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_MANPOWER FOCUS_FILTER_MILITARY_CHARACTER }
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -6577,7 +6585,7 @@ focus_tree = {
 
 		}
 
-		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL FOCUS_FILTER_MANPOWER FOCUS_FILTER_MILITARY_CHARACTER }
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -6806,7 +6814,7 @@ focus_tree = {
 
 		}
 
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL FOCUS_FILTER_MILITARY_CHARACTER }
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -6954,7 +6962,7 @@ focus_tree = {
 
 		}
 
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -7204,6 +7212,7 @@ focus_tree = {
 				has_government = fascism
 			}
 			is_in_faction = no
+			is_subject = no
 		}
 
 		bypass = {
@@ -7287,7 +7296,7 @@ focus_tree = {
 
 		cost = 10
 
-		search_filters = { FOCUS_FILTER_HISTORICAL }
+		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ARMY_XP FOCUS_FILTER_AIR_XP }
 
 		ai_will_do = {
 			base = 1
@@ -7372,7 +7381,7 @@ focus_tree = {
 
 		}
 
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_HISTORICAL FOCUS_FILTER_POLITICAL_CHARACTER }
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no

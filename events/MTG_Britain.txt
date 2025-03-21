@@ -1510,37 +1510,39 @@ country_event = {
 				}
 				retire_country_leader = yes
 			}
-			else = { 
+		}
+		if = {
+			limit = {
+				has_dlc = "Graveyard of Empires"
+			}
 
-				if = {
-					limit = {
-						has_country_leader = {
-							character = RAJ_lord_linlithgow
-						}
-
-						has_country_leader_with_trait = aloof_authority
+			if = {
+				limit = {
+					has_country_leader = {
+						character = RAJ_lord_linlithgow
 					}
 
-					remove_country_leader_trait = {
-						 trait = aloof_authority 
-					}
+					has_country_leader_with_trait = aloof_authority
 				}
 
-				if = {
-					limit = {
-						has_country_leader = {
-							character = RAJ_freeman_freeman_thomas
-						}
-
-						has_country_leader_with_trait = staunch_imperialist
-					}
-
-					remove_country_leader_trait = {
-						 trait = staunch_imperialist 
-					}
+				remove_country_leader_trait = {
+					 trait = aloof_authority 
 				}
 			}
-		}
+			else_if = {
+				limit = {
+					has_country_leader = {
+						character = RAJ_freeman_freeman_thomas
+					}
+
+					has_country_leader_with_trait = staunch_imperialist
+				}
+				remove_country_leader_trait = {
+					trait = staunch_imperialist 
+				}
+
+			}
+		}	
 	}
 }
 
@@ -1923,45 +1925,7 @@ country_event = {
 
 	immediate = {
 		hidden_effect = {
-			if = {
-				limit = {
-					RAJ = {
-						is_subject = yes
-						has_dlc = "Graveyard of Empires"
-					}
-				}
-
-				RAJ = {
-					set_variable = { saved_autonomy_ratio = autonomy_ratio }
-
-					set_variable = { saved_democratic_support = party_popularity_100@democratic }
-					set_variable = { saved_neutrality_support = party_popularity_100@neutrality }
-					set_variable = { saved_communism_support = party_popularity_100@communism }
-					set_variable = { saved_fascism_support = party_popularity_100@fascism }
-
-					if = {
-						limit = { has_government = communism }
-						set_country_flag = was_communist
-					}
-					else_if = {
-						limit = { has_government = fascism }
-						set_country_flag = was_fascist
-					}
-					else_if = {
-						limit = { has_government = neutrality }
-						set_country_flag = was_unaligned
-					}
-					else = {
-						set_country_flag = was_democratic
-					}
-
-
-
-				}
-					
-				
-				set_global_flag = RAJ_was_a_subject_pre_cw_of_uk
-			}
+			was_raj_a_subject = yes  
 			add_stability = 30
 			every_state = {
 				limit = {
@@ -2191,70 +2155,7 @@ country_event = {
 						hours = 2
 					}
 				}
-				if = {
-					limit = {
-
-						has_global_flag = RAJ_was_a_subject_pre_cw_of_uk
-					}
-					RAJ = {
-						ROOT = {
-							set_autonomy = {
-								target=RAJ
-								autonomy_state = autonomy_dominion
-								freedom_level = var:saved_autonomy_ratio # 0-1 
-								end_wars  = no # default yes. will not cancel non civil wars if set to no
-								end_civil_wars = no # default yes. will not cancel civil wars if set to no
-							}
-						}
-
-						if = {
-							limit = {
-								has_country_flag = was_communist
-								NOT = { has_government = communism }
-							}
-
-							set_politics = {
-								ruling_party = communism
-								elections_allowed = no
-							}
-						}
-						else_if = {
-							limit = {
-								has_country_flag = was_fascist
-								NOT = { has_government = fascism }
-							}
-
-							set_politics = {
-								ruling_party = fascism
-								elections_allowed = no
-							}
-						}
-						else_if = {
-							limit = {
-								has_country_flag = was_unaligned
-								NOT = { has_government = neutrality }
-							}
-
-							set_politics = {
-								ruling_party = neutrality
-								elections_allowed = yes
-							}
-						}
-						else = {
-							set_politics = {
-								ruling_party = democratic
-								elections_allowed = yes
-							}
-						}
-
-						set_popularities = {
-							democratic= var:saved_democratic_support 
-							neutrality = var:saved_neutrality_support 
-							fascism = var:saved_fascism_support 
-							communism = var:saved_communism_support 
-						}
-					}
-				}
+				raj_was_a_subject_reset_party_ideology_after_independence = yes #Resets the status of the political parties 
 			}
 			else = {
 				RAJ = {
