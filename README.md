@@ -1,6 +1,16 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-###  3.13.7 Another Week another minor UpdatE
+###  3.13.8 Python does some work
+
+### Romania
+ - 1x 2 Yr ahead of time bonus removed from ... and added a 2x 100% bonus
+ - Sentinel of the motherland no longer requires surrender progress
+ - Invite foreign mototr companies now gives 2 military factories and 2 building slots
+ - 
+
+
+
+###  3.13.7 Another Week another minor Update
 
 #### General
  - Infantry Tank MIO speed fixed
