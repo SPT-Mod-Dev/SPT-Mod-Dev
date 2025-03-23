@@ -6661,32 +6661,22 @@ ITA_diplomacy_balkan_decision_category = {
 
 		available = {
 			is_subject = no
-			45 = {
-				NOT = {
-					OR = {
-						is_owned_by = HUN
-						is_controlled_by = HUN
+			AND = {
+				45 = {
+					NOT = {
+						OR = {
+							is_owned_by = HUN
+							is_controlled_by = HUN
+						}
 					}
 				}
-			}
-			IF = {
-				limit = {
-					ITA = {
-						has_government = fascism
+				764 = { # SPTChange add West Banat
+					NOT = {
+						OR = {
+							is_owned_by = HUN
+							is_controlled_by = HUN
+						}
 					}
-				}
-				HUN = {
-					has_government = fascism
-				}
-			}
-			IF = {
-				limit = {
-					ITA = {
-						has_government = neutrality
-					}
-				}
-				HUN = {
-					has_government = neutrality
 				}
 			}
 		}
@@ -6703,7 +6693,7 @@ ITA_diplomacy_balkan_decision_category = {
 			}
 		}
 
-		cost = 75
+		cost = 10 # SPTChange 75 -> 10
 
 		complete_effect = {
 

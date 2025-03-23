@@ -99,6 +99,9 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 150
 			custom_effect_tooltip = SPT_USA_continue_the_new_deal_tt
+			hidden_effect = {
+				set_variable = { election_factor = random }
+			}
 		}
 	}
 	focus = {
@@ -1302,6 +1305,9 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_political_power = 150
+			hidden_effect = {
+				set_variable = { election_factor = random }
+			}
 		}
 	}
 	focus = {
@@ -1703,7 +1709,7 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 200
 			add_ideas = USA_neutrality_act
-			add_war_support = -0.05
+			# add_war_support = -0.05 # SPTChange
 			if = {
 				limit = {
 					has_war_support < 0.4
@@ -1717,6 +1723,7 @@ focus_tree = {
 					days = 3
 					random_days = 5
 				}
+				set_variable = { election_factor = random }
 			}
 		}
 	}
@@ -3098,7 +3105,7 @@ focus_tree = {
 			has_equipment = { infantry_equipment > 9999 }
 			has_equipment = { artillery_equipment > 999 }
 			has_equipment = { support_equipment > 999 }
-			SOV = { surrender_progress > 0.4 }
+			SOV = { surrender_progress > 0.35 }
 		}
 		completion_reward = {
 			add_timed_idea = { 
@@ -3118,18 +3125,18 @@ focus_tree = {
 				amount = -1000
 			}
 			SOV = {
-				add_ideas = SPT_USA_allied_aid
+				add_ideas = SPT_USA_allied_aid_soviet
 				add_equipment_to_stockpile = {
 					type = infantry_equipment
-					amount = 10000
+					amount = 20000
 				}
 				add_equipment_to_stockpile = {
 					type = artillery_equipment
-					amount = 1000
+					amount = 2000
 				}
 				add_equipment_to_stockpile = {
 					type = support_equipment
-					amount = 1000
+					amount = 2000
 				}
 			}
 		}
@@ -3262,6 +3269,9 @@ focus_tree = {
 			unlock_decision_tooltip = {
 				decision = USA_pay_farm_subsidies
 				show_effect_tooltip = yes
+			}
+			hidden_effect = {
+				set_variable = { election_factor = random }
 			}
 		}
 	}
@@ -3971,6 +3981,9 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 150
 			custom_effect_tooltip = SPT_USA_towards_landon_tt
+			hidden_effect = {
+				set_variable = { election_factor = random }
+			}
 		}
 	}
 	focus = {
@@ -3999,6 +4012,7 @@ focus_tree = {
 			}
 			hidden_effect = {
 				remove_ideas = SPT_USA_form_cabinet
+				set_variable = { election_factor = random }
 			}
 		}
 	}
@@ -4033,6 +4047,9 @@ focus_tree = {
 				bonus = 0.5
 				uses = 2
 				category = industry
+			}
+			hidden_effect = {
+				set_variable = { election_factor = random }
 			}
 		}
 	}
@@ -8755,7 +8772,7 @@ focus_tree = {
 			focus = USA_strategic_bombing
 		}
 		relative_position_id = USA_air_war_plans_division
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -8772,7 +8789,7 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = USA_escort_fighters
-				bonus = 1
+				bonus = 1.5
 				uses = 1
 				category = cat_heavy_fighter
 			}
