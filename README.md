@@ -1,5 +1,10 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+###  3.14.1
+
+### British Raj
+ - Focus 'Defense of India Act' no longer cancels if War Support falls below 50%
+
 ###  3.14.0 Graveyard of DLC
 
 #### General
