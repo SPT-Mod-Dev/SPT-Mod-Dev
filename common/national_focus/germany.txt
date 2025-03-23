@@ -1025,7 +1025,7 @@ focus_tree = {
 		icon = GFX_focus_generic_road_investment
 		prerequisite = { focus = GER_prioritize_economic_growth focus = GER_the_four_year_plan }
 
-		x = 3
+		x = 2
 		y = 1
 		relative_position_id = GER_prioritize_economic_growth
 		cost = 5
@@ -1690,7 +1690,7 @@ focus_tree = {
 		icon = GFX_focus_GER_autarky_ambitions
 		prerequisite = { focus = GER_the_four_year_plan  }
 
-		x = 2
+		x = 1
 		y = 1
 		relative_position_id = GER_the_four_year_plan
 		cost = 5
@@ -1734,8 +1734,19 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			custom_effect_tooltip = GER_gain_autarkic_economy_lock_free_trade_tt
-			add_ideas = autarkic_economy
+			# SPTchange don't use autarkic economy, just ban Free Trade
+			# custom_effect_tooltip = GER_gain_autarkic_economy_lock_free_trade_tt
+			# add_ideas = autarkic_economy
+			custom_effect_tooltip = SPT_GER_gain_autarkic_economy_lock_free_trade_tt
+			if = {
+				limit = {
+					has_idea = free_trade
+				}
+				swap_ideas = {
+					remove_idea = free_trade
+					add_idea = export_focus
+				}
+			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -1766,7 +1777,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = GER_autarky_efforts
-		cost = 5
+		cost = 3
 		available = {
 		}
 
@@ -1807,12 +1818,55 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = SPT_GER_end_the_charade
+		icon = GFX_focus_generic_subjugation
+		prerequisite = { focus = GER_institute_price_controls }
+
+		x = 0
+		y = 1
+		relative_position_id = GER_institute_price_controls
+		cost = 2
+		available = {
+			date > 1938.6.1
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+
+		completion_reward = {
+			GER_modify_industrial_modifier = yes
+			add_to_variable = { 
+				GER_industrial_consumer_goods_factor = -0.15
+				tooltip = consumer_goods_factor_tt
+			}
+			custom_effect_tooltip =  GER_increase_increasing_consumer_goods_tt
+			add_to_variable = { GER_monthly_consumer_goods_increase = GER_change_monthly_CG_price_controls }
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			if = {
+				limit = {
+					GER_hjalmar_schacht = {
+						is_political_advisor = yes
+					}
+				}
+				deactivate_advisor = hjalmar_schacht
+				activate_advisor = walther_funk
+
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
+
+			custom_effect_tooltip = generic_remove_as_political_advisor_tt
+			show_ideas_tooltip = hjalmar_schacht
+		}
+	}
+	
+	focus = {
 		id = GER_establish_the_reichswerke
 		icon = GFX_goal_generic_construct_civ_factory
 		prerequisite = { focus = GER_autarky_efforts }
 
-		x = -1
-		y = 2
+		x = -2
+		y = 1
 		relative_position_id = GER_autarky_efforts
 		cost = 5
 		available = {
@@ -1866,7 +1920,9 @@ focus_tree = {
 
 			GER_modify_industrial_modifier = yes
 			add_to_variable = { 
-				GER_industrial_consumer_goods_factor = 0.1
+				# SPtchange
+				# GER_industrial_consumer_goods_factor = 0.1
+				GER_industrial_consumer_goods_factor = 0.05
 				tooltip = consumer_goods_factor_tt
 			}
 			if = {
@@ -1895,15 +1951,15 @@ focus_tree = {
 		icon = GFX_focus_DEN_heavy_regulations
 		prerequisite = { focus = GER_establish_the_reichswerke }
 
-		x = -1
+		x = 0
 		y = 1
 		relative_position_id = GER_establish_the_reichswerke
-		cost = 5
+		cost = 3
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = GER_industrial_consumer_goods_factor_limit_tt
-				check_variable = { GER_industrial_consumer_goods_factor < 0.9 }
-			}
+			# custom_trigger_tooltip = {
+			# 	tooltip = GER_industrial_consumer_goods_factor_limit_tt
+			# 	check_variable = { GER_industrial_consumer_goods_factor < 0.9 }
+			# }
 			any_controlled_state = {
 				NOT = { is_core_of = ROOT }
 				is_fully_controlled_by = ROOT
@@ -1932,64 +1988,65 @@ focus_tree = {
 			}
 		}
 
-		bypass = {
-			OR = {
-				has_resources_in_country = {
-					resource = steel
-					amount > 799
-					extracted = yes
-				}
-				any_allied_country = {
-					has_resources_in_country = {
-						resource = steel
-						amount > 799
-						extracted = yes
-					}
-				}
-			}
-			OR = {
-				has_resources_in_country = {
-					resource = aluminium
-					amount > 499
-					extracted = yes
-				}
-				any_allied_country = {
-					has_resources_in_country = {
-						resource = aluminium
-						amount > 499
-						extracted = yes
-					}
-				}
-			}
-			OR = {
-				has_resources_in_country = {
-					resource = tungsten
-					amount > 99
-					extracted = yes
-				}
-				SPR = {
-					has_resources_in_country = {
-						resource = tungsten
-						amount > 99
-						extracted = yes
-					}
-				}	
-			}
-			OR = {
-				has_resources_in_country = {
-					resource = chromium
-					amount > 99
-					extracted = yes
-				}
-				any_allied_country = {
-					has_resources_in_country = {
-						resource = chromium
-						amount > 99
-						extracted = yes
-					}
-				}
-			}
-		}
+		# SPTchange
+		# bypass = {
+		# 	OR = {
+		# 		has_resources_in_country = {
+		# 			resource = steel
+		# 			amount > 799
+		# 			extracted = yes
+		# 		}
+		# 		any_allied_country = {
+		# 			has_resources_in_country = {
+		# 				resource = steel
+		# 				amount > 799
+		# 				extracted = yes
+		# 			}
+		# 		}
+		# 	}
+		# 	OR = {
+		# 		has_resources_in_country = {
+		# 			resource = aluminium
+		# 			amount > 499
+		# 			extracted = yes
+		# 		}
+		# 		any_allied_country = {
+		# 			has_resources_in_country = {
+		# 				resource = aluminium
+		# 				amount > 499
+		# 				extracted = yes
+		# 			}
+		# 		}
+		# 	}
+		# 	OR = {
+		# 		has_resources_in_country = {
+		# 			resource = tungsten
+		# 			amount > 99
+		# 			extracted = yes
+		# 		}
+		# 		SPR = {
+		# 			has_resources_in_country = {
+		# 				resource = tungsten
+		# 				amount > 99
+		# 				extracted = yes
+		# 			}
+		# 		}	
+		# 	}
+		# 	OR = {
+		# 		has_resources_in_country = {
+		# 			resource = chromium
+		# 			amount > 99
+		# 			extracted = yes
+		# 		}
+		# 		any_allied_country = {
+		# 			has_resources_in_country = {
+		# 				resource = chromium
+		# 				amount > 99
+		# 				extracted = yes
+		# 			}
+		# 		}
+		# 	}
+		# }
 
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
 
@@ -2102,15 +2159,15 @@ focus_tree = {
 		icon = GFX_goal_generic_oil_refinery
 		prerequisite = { focus = GER_autarky_efforts }
 
-		x = 1
+		x = 2
 		y = 2
 		relative_position_id = GER_autarky_efforts
 		cost = 5
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = GER_industrial_consumer_goods_factor_limit_tt
-				check_variable = { GER_industrial_consumer_goods_factor < 0.9 }
-			}
+			# custom_trigger_tooltip = {
+			# 	tooltip = GER_industrial_consumer_goods_factor_limit_tt
+			# 	check_variable = { GER_industrial_consumer_goods_factor < 0.9 }
+			# }
 		}
 
 		continue_if_invalid = yes
@@ -2204,10 +2261,10 @@ focus_tree = {
 		relative_position_id = GER_coal_liquefaction
 		cost = 5
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = GER_industrial_consumer_goods_factor_limit_tt
-				check_variable = { GER_industrial_consumer_goods_factor < 0.9 }
-			}
+			# custom_trigger_tooltip = {
+			# 	tooltip = GER_industrial_consumer_goods_factor_limit_tt
+			# 	check_variable = { GER_industrial_consumer_goods_factor < 0.9 }
+			# }
 			has_tech = oil_processing
 		}
 
@@ -2299,10 +2356,10 @@ focus_tree = {
 		relative_position_id = GER_coal_liquefaction
 		cost = 5
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = GER_industrial_consumer_goods_factor_limit_tt
-				check_variable = { GER_industrial_consumer_goods_factor < 0.9 }
-			}
+			# custom_trigger_tooltip = {
+			# 	tooltip = GER_industrial_consumer_goods_factor_limit_tt
+			# 	check_variable = { GER_industrial_consumer_goods_factor < 0.9 }
+			# }
 			has_tech = rubber_processing
 		}
 
@@ -2381,6 +2438,89 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = {
+		id = SPT_GER_grossraumwirtschaft
+		icon = GFX_focus_GER_integrated_economies
+		prerequisite = { focus = GER_seize_foreign_industries }
+		prerequisite = { focus = SPT_GER_end_the_charade } 
+
+		x = 1
+		y = 1
+		relative_position_id = GER_seize_foreign_industries
+		cost = 2
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+
+		available = {
+			FRA = { 
+				has_capitulated = yes
+			}
+			BEL = { 
+				has_capitulated = yes
+			}
+		}
+
+		completion_reward = {
+			GER_modify_industrial_modifier = yes
+			add_to_variable = { 
+				GER_industrial_consumer_goods_factor = -0.125
+				tooltip = consumer_goods_factor_tt
+			}
+			custom_effect_tooltip =  GER_increase_increasing_consumer_goods_tt
+			add_to_variable = { GER_monthly_consumer_goods_increase = GER_change_monthly_CG_price_controls }
+		}
+	}
+
+	focus = {
+		id = SPT_GER_kriegsfinanzierung
+		icon = GFX_focus_generic_welfare
+		prerequisite = { focus = SPT_GER_grossraumwirtschaft }
+		# prerequisite = { focus = SPT_GER_end_the_charade }
+		prerequisite = { focus = GER_subsidize_hoesch_benzin }
+		prerequisite = { focus = GER_establish_buna_werke }
+
+		x = 0
+		y = 4
+		relative_position_id = GER_autarky_efforts
+		cost = 5
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SPT_GER_gegenmassnahmen_minimum_tt
+				check_variable = { GER_industrial_consumer_goods_factor > 0.5 }
+			}
+		}
+
+		completion_reward = {			
+			custom_effect_tooltip = SPT_GER_unlock_gegenmassnahmen_decision_tt
+		}
+
+	}
+	
+	focus = {
+		id = SPT_GER_raubkrieg
+		# icon = GFX_focus_generic_welfare
+		icon = GFX_focus_RAJ_trickle_down_economics
+		prerequisite = { focus = SPT_GER_grossraumwirtschaft }
+
+		x = 0
+		y = 1
+		relative_position_id = SPT_GER_kriegsfinanzierung
+		cost = 5
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		available = {
+			GER = {
+				has_war_with = SOV
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = SPT_GER_unlock_feed_the_beast_decisions_tt
+		}
+	}
 	
 	focus = {
 		id = GER_autarky_achieved
@@ -2389,6 +2529,10 @@ focus_tree = {
 		prerequisite = { focus = GER_subsidize_hoesch_benzin }
 		prerequisite = { focus = GER_establish_buna_werke }
 
+		# relative_position_id = SPT_GER_raubkrieg
+		# x = 0
+		# y = 1
+		# cost = 5
 		x = 2
 		y = 1
 		relative_position_id = GER_seize_foreign_industries
@@ -2481,6 +2625,11 @@ focus_tree = {
 					}
 				}
 			}
+		}
+
+		# SPTchange replaced with Forever War
+		allow_branch = {
+			always = no
 		}
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
