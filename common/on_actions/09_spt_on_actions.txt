@@ -692,6 +692,14 @@ on_actions = {
 					add_ideas = PAC_total_victory
 				}
 			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = ITA
+					}
+				}
+				play_song = "bella_ciao"
+			}
 			# Hid obsolete on actions
 			# #Get compliance when ger takes france
 			# if = {
@@ -960,6 +968,13 @@ on_actions = {
 					days = 1
 				}
 			}
+		}
+	}
+	
+	on_nuke_drop = {
+		if = {
+			limit = { NOT = { has_global_flag = first_nuke_dropped } }
+			play_song = "apocalyptic_weapons"
 		}
 	}
 
