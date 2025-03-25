@@ -1,0 +1,31 @@
+spt_debug_category = {
+	force_convoy_recalculation_decision = {
+		available = {
+			is_ai = no
+		}
+
+		days_remove = 28
+		
+		complete_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = SPT_recalculated_convoys
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = convoy_1
+					amount = 1
+				}
+				set_country_flag = SPT_recalculated_convoys
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					type = convoy_1
+					amount = -1
+				}
+				clr_country_flag = SPT_recalculated_convoys
+			}
+		}
+	}
+}
