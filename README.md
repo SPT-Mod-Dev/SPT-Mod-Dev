@@ -2,8 +2,17 @@
 
 ###  3.14.1
 
-### British Raj
+#### Australia
+ - Focus 'Introduce Unconventional Warfare' no longer grants a Special Forces Branch Specialism. Time reduced from 70 -> 35 days.
+ - Australia now has access to the 'Diversify Special Forces' decision
+
+#### British Raj
  - Focus 'Defense of India Act' no longer cancels if War Support falls below 50%
+
+#### France
+ - Focuses 'Levee en masse' and 'Fortification Focus' now accept either of 'Firepower Kills' or 'Methodical Battle' as prerequisite
+ - Focus 'Special Forces' now accepts 'Levee en masse' as prerequisite
+ - Focus 'Fusiliers Marins' now accepts 'Grande Batterie' as prerequisite
 
 ###  3.14.0 Graveyard of DLC
 
