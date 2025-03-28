@@ -1373,13 +1373,37 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = {FOCUS_FILTER_RESEARCH}
 		completion_reward = {
-			air_experience = 25
-			add_tech_bonus = {
-				name = bomber_command_focus
-				bonus = 1.0
-				uses = 2
-				category = cat_strategic_bomber
-				category = tactical_bomber
+			if = {
+				limit = {
+					NOT = { has_dlc = "By Blood Alone" }
+				}
+				air_experience = 25
+				add_tech_bonus = {
+					name = bomber_command_focus
+					bonus = 1.0
+					uses = 2
+					category = cat_strategic_bomber
+					category = tactical_bomber
+				}
+			}
+			else_if = {
+				limit = {
+					has_dlc = "By Blood Alone"
+				}
+				air_experience = 25
+				add_tech_bonus = {
+					name = bomber_command_focus
+					bonus = 1.0
+					uses = 1
+					category = cat_strategic_bomber
+					category = tactical_bomber
+				}
+				add_doctrine_cost_reduction = {
+					name = bomber_command_focus #land_doc_bonus
+					cost_reduction = 0.5
+					uses = 1
+					category = air_doctrine
+				}
 			}
 		}
 	}
@@ -4785,6 +4809,10 @@ focus_tree = {
 							every_enemy_country = {
 								limit = {
 									has_war_with = PREV
+									NOT = {
+										original_tag = RAJ
+										RAJ = { NOT = { has_country_flag = RAJ_mughal_uprising } }
+									}
 								}
 								white_peace = PREV
 							}
@@ -4826,6 +4854,10 @@ focus_tree = {
 							every_enemy_country = {
 								limit = {
 									has_war_with = PREV
+									NOT = {
+										original_tag = RAJ
+										RAJ = { NOT = { has_country_flag = RAJ_mughal_uprising } }
+									}
 								}
 								white_peace = PREV
 							}
@@ -4886,6 +4918,10 @@ focus_tree = {
 						every_enemy_country = {
 							limit = {
 								has_war_with = PREV
+								NOT = {
+									original_tag = RAJ
+									RAJ = { NOT = { has_country_flag = RAJ_mughal_uprising } }
+								}
 							}
 							white_peace = PREV
 						}
@@ -4931,6 +4967,10 @@ focus_tree = {
 						every_enemy_country = {
 							limit = {
 								has_war_with = PREV
+								NOT = {
+									original_tag = RAJ
+									RAJ = { NOT = { has_country_flag = RAJ_mughal_uprising } }
+								}
 							}
 							white_peace = PREV
 						}

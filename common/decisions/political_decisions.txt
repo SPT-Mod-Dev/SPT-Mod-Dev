@@ -2069,6 +2069,17 @@ political_actions = {
 		
 		ai_will_do = {
 			base = 0
+			modifier = { # If they have nothing else big to spend pp on, and this is avaiable, Monarchist Germany should start work on removing communist support. 
+				add = 10
+				original_tag = GER
+				OR = {
+					has_country_flag = GER_AI_RANDOM_KAISER
+					has_game_rule = {
+						rule = GER_ai_behavior
+						option = KAISER
+					}
+				}
+			}
 		}
     }
 

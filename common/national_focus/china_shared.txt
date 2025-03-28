@@ -362,6 +362,44 @@ shared_focus = {
 
 	completion_reward = {
 		custom_effect_tooltip = CHI_purchase_tanks_tt
+		if = {
+			limit = {
+				has_dlc = "Arms Against Tyranny"
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = CHI_closer_ties_with_germany
+						has_completed_focus = CHI_rapprochement_with_soviet_union
+					}
+				}
+				add_equipment_subsidy = {
+					cic = 500
+					equipment_type = light_tank_chassis
+					seller_trigger = CHI_tank_seller_for_subsidy
+				}
+			}
+			else_if = {
+				limit = {
+					has_completed_focus = CHI_closer_ties_with_germany
+				}
+				add_equipment_subsidy = {
+					cic = 500
+					equipment_type = light_tank_chassis
+					seller_tags = { GER } 
+				}
+			}
+			else_if = {
+				limit = {
+					has_completed_focus = CHI_rapprochement_with_soviet_union
+				}
+				add_equipment_subsidy = {
+					cic = 500
+					equipment_type = light_tank_chassis
+					seller_tags = { SOV } 
+				}
+			}
+		}
 		hidden_effect = { 
 			if = {
 				limit = {
@@ -578,6 +616,46 @@ shared_focus = {
 
 	completion_reward = {
 		custom_effect_tooltip = CHI_experimental_mechanised_unit_effect
+
+		IF = {
+			limit = {
+				has_dlc = "Arms Against Tyranny"
+			}
+			IF = {
+				limit = {
+					NOT = {
+						has_completed_focus = CHI_closer_ties_with_germany
+						has_completed_focus = CHI_rapprochement_with_soviet_union
+					}
+				}
+				add_equipment_subsidy = {
+					cic = 500
+					equipment_type = motorized_equipment
+					seller_trigger = CHI_tank_seller_for_subsidy
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_completed_focus = CHI_closer_ties_with_germany
+				}
+				add_equipment_subsidy = {
+					cic = 500
+					equipment_type = motorized_equipment
+					seller_tags = { GER } 
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_completed_focus = CHI_rapprochement_with_soviet_union
+				}
+				add_equipment_subsidy = {
+					cic = 500
+					equipment_type = motorized_equipment
+					seller_tags = { SOV } 
+				}
+			}
+		}
+
 		hidden_effect = {
 			if = {
 				limit = {
