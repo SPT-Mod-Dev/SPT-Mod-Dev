@@ -50,7 +50,19 @@ ITA_power_balance = {
 				war_support_factor = -0.05
 			}
 			on_activate = {
-				
+				custom_effect_tooltip = ITA_bop_cap_for_colonies_impact_tt
+				hidden_effect = {
+					IF = {
+						limit = {
+							OR = {
+								has_completed_focus = ITA_culto_del_duce
+								has_completed_focus = ITA_dino_grandi_focus
+								has_completed_focus = ITA_italo_balbo_focus
+							}
+						}
+						country_event = BBA_italy_council_deposes_duce.2
+					}
+				}				
 			}
 			on_deactivate = {
 				

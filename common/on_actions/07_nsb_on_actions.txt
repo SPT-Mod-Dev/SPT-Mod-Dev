@@ -86,11 +86,19 @@ on_actions = {
 				limit = {
 					divisions_in_state = { state = FROM.FROM size > 0 }
 					FROM.FROM = { 
-						NOT = { has_state_flag = already_sabotaged_flag }
+						NOT = { 
+							AND = { 
+								has_state_flag = already_sabotaged_flag
+								is_core_of = controller # Should solve most instances of peaceful annexation
+							}
+						}
 					}
 					FROM = {
 						original_tag = POL
 						has_completed_focus = POL_sabotage_polish_industry
+						NOT = { 
+							has_country_flag = GER_sent_annex_proposal_flag # To solve GER European Confederation
+						}
 					}
 				}
 				FROM.FROM = { 

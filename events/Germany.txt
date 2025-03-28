@@ -3896,7 +3896,7 @@ country_event = {
 		GER_czechoslovakia_modify_mefo_bills_or_economy_of_conquest = yes
 		GER_seize_gold_reserves_in_europe_peacefully = yes
 
-		add_to_variable = { var = GER_mefo_bill_counter value = -5 }
+		add_to_variable = { var = GER_mefo_bill_counter value = -10 }
 
 		hidden_effect = {
 			country_event = { hours = 6 id = news.60 }
@@ -3907,8 +3907,16 @@ country_event = {
 				add_core_of = SLO
 			}
 			SLO = {
-				load_oob = SLO_1939
 				add_manpower = 9876
+				if = {
+					limit = {
+						has_dlc = "No Step Back"
+					}
+					load_oob = "SLO_1939_nsb"
+				}
+				else = {
+					load_oob = "SLO_1939"
+				}
 			}
 		}
 	}
@@ -10471,7 +10479,13 @@ country_event = { #Germany wants resource rights for Sweden
 
 			modifier = {
 				FROM = {
-					surrender_progress > 0.2
+					surrender_progress > 0.1
+				}
+				factor = 2
+			}
+			modifier = {
+				FROM = {
+					surrender_progress > 0.25
 				}
 				factor = 10
 			}

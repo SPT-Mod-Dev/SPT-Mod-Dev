@@ -154,16 +154,19 @@
 		completion_reward = {
 			add_stability = 0.1
 			MAN = {
-				country_event = wtt_japan.21
-				custom_effect_tooltip = JAP_if_man_accepts
-				effect_tooltip = {
-					global_every_army_leader = {
-						limit = {
-							OWNER = { tag = ROOT }
-							has_trait = JAP_samurai_lineage
-						}
-						set_nationality = PREV
+				country_event = {
+					id = wtt_japan.21
+					hours = 6
+				}
+			}
+			custom_effect_tooltip = JAP_if_man_accepts
+			effect_tooltip = {
+				every_army_leader = {
+					limit = {
+						OWNER = { tag = JAP }
+						has_trait = JAP_samurai_lineage
 					}
+					set_nationality = MAN
 				}
 			}
 		}

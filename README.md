@@ -2,6 +2,10 @@
 
 ###  3.14.1
 
+#### General
+ - Implemented most of 1.16.2 and 1.16.3
+    - Tank cost and attack changes are not implemented
+
 #### Australia
  - Focus 'Introduce Unconventional Warfare' no longer grants a Special Forces Branch Specialism. Time reduced from 70 -> 35 days.
  - Australia now has access to the 'Diversify Special Forces' decision

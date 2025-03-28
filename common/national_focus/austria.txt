@@ -847,10 +847,6 @@ focus_tree = {
 
 				custom_effect_tooltip = generic_skip_one_line_tt
 
-				show_unit_leaders_tooltip = AUS_julius_deutsch
-
-				custom_effect_tooltip = generic_skip_one_line_tt
-
 				random_owned_controlled_state = {
 					limit = { is_fully_controlled_by = ROOT } 
 					create_unit = {
@@ -1993,7 +1989,7 @@ focus_tree = {
 		}
 
 		available = {
-
+			is_subject = no
 		}
 		
 		bypass = {
@@ -4127,8 +4123,8 @@ focus_tree = {
 	}
 
 	focus = { # DEMOCRATIC
-		id = AUS_form_dsn # dsn is agency called Direktion Staatsschutz und Nachrichtendienst
-		icon = GFX_focus_AUS_form_dsn
+		id = AUS_form_evidenzburo
+		icon = GFX_focus_AUS_the_evidenzburo_democratic
 		prerequisite = { focus = AUS_at_the_ready focus = AUS_the_political_front }
 		mutually_exclusive = { }
 		x = -1
@@ -4157,9 +4153,9 @@ focus_tree = {
 					has_dlc = "La Resistance" 
 					has_intelligence_agency = no
 				}
-				create_intelligence_agency = { 
-					name = "Direktion Staatsschutz und Nachrichtendienst"
-					icon = GFX_intelligence_agency_logo_AUS_dsn
+				create_intelligence_agency = {
+					name = "Evidenzbureau"
+					icon = GFX_intelligence_agency_logo_AUS_evidenzbureau_democratic
 				}
 			}
 			IF = {
@@ -4177,7 +4173,7 @@ focus_tree = {
 					IF = {
 						limit = {
 							NOT = {
-								has_done_agency_upgrade =upgrade_economy_civilian 
+								has_done_agency_upgrade = upgrade_economy_civilian 
 							}
 						}
 						upgrade_intelligence_agency = upgrade_economy_civilian 
@@ -4217,7 +4213,7 @@ focus_tree = {
 					}
 				}
 				ELSE = {
-					custom_effect_tooltip = AUS_form_dsn_tt
+					custom_effect_tooltip = AUS_form_evidenzburo_tt
 				}
 			}
 			
@@ -4649,6 +4645,7 @@ focus_tree = {
 		}
 
 		available = {
+			is_subject = no
 			IF = {
 				limit = {
 					has_government = neutrality
@@ -6620,6 +6617,7 @@ focus_tree = {
 
 		available = {
 			is_in_faction = no
+			is_subject = no
 			has_government = neutrality
 		}
 		
@@ -15829,4 +15827,5 @@ focus_tree = {
 			add_ideas = AUS_naval_efficiency_idea
 		}
 	}
+
 }

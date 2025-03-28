@@ -972,9 +972,11 @@ on_actions = {
 	}
 	
 	on_nuke_drop = {
-		if = {
-			limit = { NOT = { has_global_flag = first_nuke_dropped } }
-			play_song = "apocalyptic_weapons"
+		effect = {
+			if = {
+				limit = { NOT = { has_global_flag = first_nuke_dropped } }
+				play_song = "apocalyptic_weapons"
+			}			
 		}
 	}
 

@@ -1689,33 +1689,45 @@ GER_setup_faction_wide_aoe_effects_root = {
 }
 
 GER_one_more_member_increase_rnd_program_strength = {
-		
+	add_to_variable = { #always add a faction member
+		GER_rnd_programs_modifier_allies_count = 1
+	}
 	IF = {
 		limit = {
-			check_variable = {
+			check_variable = { #only add RnD bonus if you haven't reached 10 faction member yet
 				var = GER_rnd_programs_modifier_allies_count
 				value = 10
 				compare = less_than
 			}	
 		}
-
 		add_to_variable = { 
 			GER_rnd_programs_modifier_research_speed_factor = 0.01
 		}
-
-		add_to_variable = { 
-			GER_rnd_programs_modifier_allies_count = 1
-		}
 	}
-
 }
 
 GER_one_less_member_decrease_rnd_program_strength = {
-		
-	add_to_variable = { 
-		GER_rnd_programs_modifier_research_speed_factor = -0.01
+	subtract_from_variable = { #always remove faction members
+		GER_rnd_programs_modifier_allies_count = 1
 	}
+	if = {
+		limit = {
+			check_variable = { #Gotta have at least one ally
+				var = GER_rnd_programs_modifier_allies_count
+				value = 1
+				compare = greater_than
+			}	
+			check_variable = { #Only start reducing RnD bonus if you go below 10 allies
+				var = GER_rnd_programs_modifier_allies_count
+				value = 10
+				compare = less_than
+			}	
+		}
+		add_to_variable = { 
+			GER_rnd_programs_modifier_research_speed_factor = -0.01
+		}
 
+	}
 }
 
 
