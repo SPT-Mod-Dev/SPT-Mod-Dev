@@ -14575,11 +14575,15 @@ focus_tree = {
     focus = {
         id = RAJ_india_indivisible
         icon = GFX_focus_RAJ_all_india_forward_bloc
-        prerequisite = { focus = RAJ_preamble_to_the_constitution_of_india }
-        x = 0
+        #prerequisite = { focus = RAJ_preamble_to_the_constitution_of_india }
+        prerequisite = {
+            focus = RAJ_tryst_with_destiny #spt change, swapped focus requirement
+        }
+        x = 1 #spt change
         y = 1
-        relative_position_id = RAJ_preamble_to_the_constitution_of_india
-        
+        #relative_position_id = RAJ_preamble_to_the_constitution_of_india
+        relative_position_id = RAJ_tryst_with_destiny #SPT change, adjusted relative position
+
         cost = 10
 
         ai_will_do = {
@@ -14628,6 +14632,10 @@ focus_tree = {
                 controls_province = 1330
             }
             controls_province = 4245
+        }
+
+        allow_branch = {
+            always = no #spt change
         }
         
         bypass = {
@@ -14764,6 +14772,10 @@ focus_tree = {
             factor = 1
         }
         
+        allow_branch = {
+            always = no #spt change
+        }
+
         bypass = {
             321 = {
                 is_owned_by = RAJ
@@ -14809,6 +14821,9 @@ focus_tree = {
         bypass = {
 
         }
+        allow_branch = {
+            always = no #spt change
+        }
 
         cancel_if_invalid = yes
         continue_if_invalid = no
@@ -14841,7 +14856,7 @@ focus_tree = {
         id = RAJ_suppress_paramilitary_organizations
         icon = GFX_focus_PAR_neuter_the_guion_rojo
         prerequisite = { focus = RAJ_india_indivisible }
-        x = 2
+        x = 1 #SPt change
         y = 0
         relative_position_id = RAJ_annex_goa
         
@@ -15399,7 +15414,7 @@ focus_tree = {
         icon = GFX_focus_research
         # prerequisite = { focus = RAJ_fight_malnutrition } # SPTchange after tryst instead
         prerequisite = { focus = RAJ_tryst_with_destiny }
-        x = 0
+        x = -1
         y = 1
         # relative_position_id = RAJ_fight_malnutrition # SPTchange after tryst
         relative_position_id = RAJ_tryst_with_destiny
