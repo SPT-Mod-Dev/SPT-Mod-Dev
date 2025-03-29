@@ -120,7 +120,12 @@ on_actions = { #Originally from Host Tool Updated
 				limit = {has_game_rule = {rule = select_host_country option = HOL}}
 				set_variable={host = HOL.id}
 			}
-		
+
+			# Default Germany
+			else = {
+				set_variable={host = GER.id}
+			}
+
 			var:host = {
 				set_variable = { host_marked_states = 0 }
 				set_country_flag = host

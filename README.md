@@ -4,7 +4,9 @@
 
 #### General
  - Implemented most of 1.16.2 and 1.16.3
+    - Armored Car cost changes only
     - Tank cost and attack changes are not implemented
+ - Set default host tool nation to Germany
 
 #### Australia
  - Focus 'Introduce Unconventional Warfare' no longer grants a Special Forces Branch Specialism. Time reduced from 70 -> 35 days.
