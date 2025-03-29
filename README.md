@@ -14,6 +14,7 @@
 
 #### British Raj
  - Focus 'Defense of India Act' no longer cancels if War Support falls below 50%
+ - Add Focus 'India Indivisible' under 'Tryst with Destiny'
 
 #### France
  - Focuses 'Levee en masse' and 'Fortification Focus' now accept either of 'Firepower Kills' or 'Methodical Battle' as prerequisite
