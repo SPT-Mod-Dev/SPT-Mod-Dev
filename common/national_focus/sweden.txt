@@ -10187,8 +10187,8 @@ focus_tree = {
 		cost = 10
 		available = {
 		}
-		search_filters = {
-		}
+		search_filters = {}
+
 		completion_reward = {
 			custom_effect_tooltip = SWE_specialized_equipment_tt
 			IF = {
@@ -10198,8 +10198,8 @@ focus_tree = {
 				navy_experience = 25
 				army_experience = 25
 				IF = {
-					limit = {
-						has_dlc = "Man the Guns"
+					limit = { 
+						has_dlc = "Man the Guns" 
 					}
 					IF = {
 						limit = {
@@ -10207,9 +10207,7 @@ focus_tree = {
 								has_tech = mtg_transport
 							}
 						}
-						set_technology = {
-							mtg_transport = 1
-						}
+						set_technology = { mtg_transport = 1 }
 					}
 					ELSE_IF = {
 						limit = {
@@ -10217,9 +10215,7 @@ focus_tree = {
 								has_tech = mtg_landing_craft
 							}
 						}
-						set_technology = {
-							mtg_landing_craft = 1
-						}
+						set_technology = { mtg_landing_craft = 1 }
 					}
 					ELSE_IF = {
 						limit = {
@@ -10227,30 +10223,39 @@ focus_tree = {
 								has_tech = mtg_tank_landing_craft
 							}
 						}
-						set_technology = {
-							mtg_tank_landing_craft = 1
-						}
+						set_technology = { mtg_tank_landing_craft = 1 }
 					}
 					IF = {
-						limit = {
-							NOT = {
-								has_tech = amphibious_tank_chassis
-							}
+						limit = { 
+							has_dlc = "No Step Back" 
 						}
-						set_technology = {
-							amphibious_tank_chassis = 1
+						IF = {
+							limit = {
+								NOT = { has_tech = amphibious_tank_chassis }
+							}
+						set_technology = { amphibious_tank_chassis = 1}
+						}
+						ELSE_IF = {
+							limit = {
+								NOT = { has_tech = amphibious_drive }
+							}
+							set_technology = { amphibious_drive = 1}
 						}
 					}
-					ELSE_IF = {
-						limit = {
-							NOT = {
-								has_tech = amphibious_drive
+					ELSE = {
+						IF = {
+							limit = {
+								NOT = { has_tech = amphibious_tank }
 							}
+							set_technology = { amphibious_tank = 1}
 						}
-						set_technology = {
-							amphibious_drive = 1
+						ELSE_IF = {
+							limit = {
+								NOT = { has_tech = amphibious_tank_2 }
+							}
+							set_technology = { amphibious_tank_2 = 1}
 						}
-					}
+					}	
 				}
 				ELSE = {
 					IF = {
@@ -10259,9 +10264,7 @@ focus_tree = {
 								has_tech = transport
 							}
 						}
-						set_technology = {
-							transport = 1
-						}
+						set_technology = { transport = 1 }
 					}
 					ELSE_IF = {
 						limit = {
@@ -10269,9 +10272,7 @@ focus_tree = {
 								has_tech = landing_craft
 							}
 						}
-						set_technology = {
-							landing_craft = 1
-						}
+						set_technology = { landing_craft = 1 }
 					}
 					ELSE_IF = {
 						limit = {
@@ -10279,9 +10280,7 @@ focus_tree = {
 								has_tech = tank_landing_craft
 							}
 						}
-						set_technology = {
-							tank_landing_craft = 1
-						}
+						set_technology = { tank_landing_craft = 1 }
 					}
 				}
 			}
@@ -10290,45 +10289,21 @@ focus_tree = {
 					has_country_flag = SWE_has_rangers
 				}
 				IF = {
-					limit = {
-						NOT = {
-							has_tech = infantry_at
-						}
-					}
-					set_technology = {
-						infantry_at = 1
-					}
+					limit = { NOT = { has_tech = infantry_at }}
+					set_technology = { infantry_at = 1 }
 				}
 				ELSE_IF = {
-					limit = {
-						NOT = {
-							has_tech = infantry_at2
-						}
-					}
-					set_technology = {
-						infantry_at2 = 1
-					}
-				}
+					limit = { NOT = { has_tech = infantry_at2 }}
+					set_technology = { infantry_at2 = 1 }
+				}		
 				IF = {
-					limit = {
-						NOT = {
-							has_tech = night_vision
-						}
-					}
-					set_technology = {
-						night_vision = 1
-					}
+					limit = { NOT = { has_tech = night_vision }}
+					set_technology = { night_vision = 1 }
 				}
 				ELSE_IF = {
-					limit = {
-						NOT = {
-							has_tech = night_vision2
-						}
-					}
-					set_technology = {
-						night_vision2 = 1
-					}
-				}
+					limit = { NOT = { has_tech = night_vision2 }}
+					set_technology = { night_vision2 = 1 }
+				}		
 				army_experience = 50
 			}
 			ELSE_IF = {
@@ -10337,18 +10312,14 @@ focus_tree = {
 				}
 				# Light tanks for air dropped variants
 				IF = {
-					limit = {
-						has_dlc = "No Step Back"
-					}
+					limit = { has_dlc = "No Step Back" }
 					IF = {
 						limit = {
 							NOT = {
 								has_tech = basic_light_tank_chassis
 							}
 						}
-						set_technology = {
-							basic_light_tank_chassis = 1
-						}
+						set_technology = { basic_light_tank_chassis = 1 }
 					}
 					ELSE_IF = {
 						limit = {
@@ -10356,9 +10327,7 @@ focus_tree = {
 								has_tech = improved_light_tank_chassis
 							}
 						}
-						set_technology = {
-							improved_light_tank_chassis = 1
-						}
+						set_technology = { improved_light_tank_chassis = 1 }
 					}
 					ELSE_IF = {
 						limit = {
@@ -10366,9 +10335,7 @@ focus_tree = {
 								has_tech = advanced_light_tank_chassis
 							}
 						}
-						set_technology = {
-							advanced_light_tank_chassis = 1
-						}
+						set_technology = { advanced_light_tank_chassis = 1 }
 					}
 				}
 				ELSE = {
@@ -10378,9 +10345,7 @@ focus_tree = {
 								has_tech = basic_light_tank
 							}
 						}
-						set_technology = {
-							basic_light_tank = 1
-						}
+						set_technology = { basic_light_tank = 1 }
 					}
 					ELSE_IF = {
 						limit = {
@@ -10388,9 +10353,7 @@ focus_tree = {
 								has_tech = improved_light_tank
 							}
 						}
-						set_technology = {
-							improved_light_tank = 1
-						}
+						set_technology = { improved_light_tank = 1 }
 					}
 					ELSE_IF = {
 						limit = {
@@ -10398,9 +10361,7 @@ focus_tree = {
 								has_tech = advanced_light_tank
 							}
 						}
-						set_technology = {
-							advanced_light_tank = 1
-						}
+						set_technology = { advanced_light_tank = 1 }
 					}
 				}
 				army_experience = 25

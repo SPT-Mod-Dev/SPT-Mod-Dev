@@ -6805,6 +6805,15 @@ focus_tree = {
 					add_idea = SOV_politicized_military_swap_humanism
 				}
 			}
+			else_if = {
+				limit = {
+					OR = {
+						has_government = neutrality
+						has_government = fascism
+					}
+				}
+				add_ideas = SOV_politicized_military_swap
+			}
 			else = { #To prevent the ugly "No current effects" tooltip if other focus taken
 				effect_tooltip = {
 					swap_ideas = {

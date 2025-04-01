@@ -1747,7 +1747,7 @@ focus_tree = {
 		y = 1
 	
 		cost = 10
-
+		available_if_capitulated = yes
 		available = {
 			6 = {
 				is_fully_controlled_by = ROOT
@@ -1757,6 +1757,14 @@ focus_tree = {
 		bypass = {
 			6 = {
 				NOT = { is_fully_controlled_by = ROOT }
+			}
+		}
+		
+		bypass_effect = {
+			custom_effect_tooltip = BEL_modify_economic_downturn_dynamic_modifier_tt
+			add_to_variable = { 
+				BEL_economic_downturn_industrial_capacity_factory = 0.05
+				tooltip = industrial_capacity_factory_tt				
 			}
 		}
 	
@@ -2481,6 +2489,7 @@ focus_tree = {
 		}
 
 		available = { 
+			is_subject = no
 			has_country_leader = { 
 				character = BEL_paul_henri_spaak
 				ruling_only = yes
@@ -2630,6 +2639,7 @@ focus_tree = {
 		cost = 10
 
 		available = {
+			is_subject = no
 		}
 
 	
@@ -6019,6 +6029,7 @@ focus = {
 		cost = 10
 
 		available = {
+			is_subject = no
 		}
 	
 		completion_reward = {

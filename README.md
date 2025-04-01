@@ -1,5 +1,27 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+###  3.14.1
+
+#### General
+ - Implemented most of 1.16.2 and 1.16.3
+    - Armored Car cost changes only
+    - Tank cost and attack changes are not implemented
+ - Set default host tool nation to Germany
+ - King Tut's tomb has been properly unsealed
+
+#### Australia
+ - Focus 'Introduce Unconventional Warfare' no longer grants a Special Forces Branch Specialism. Time reduced from 70 -> 35 days.
+ - Australia now has access to the 'Diversify Special Forces' decision
+
+#### British Raj
+ - Focus 'Defense of India Act' no longer cancels if War Support falls below 50%
+ - Add Focus 'India Indivisible' under 'Tryst with Destiny'
+
+#### France
+ - Focuses 'Levee en masse' and 'Fortification Focus' now accept either of 'Firepower Kills' or 'Methodical Battle' as prerequisite
+ - Focus 'Special Forces' now accepts 'Levee en masse' as prerequisite
+ - Focus 'Fusiliers Marins' now accepts 'Grande Batterie' as prerequisite
+
 ###  3.14.0 Graveyard of DLC
 
 #### General

@@ -6442,7 +6442,13 @@ focus_tree = {
 					puppet = LIT
 				}
 			}
-			else = {
+			else_if = {
+				limit = {
+					LIT = {
+						exists = yes
+						NOT = { is_ally_with = ROOT }
+					}
+				}
 				create_wargoal = {
 					type = topple_government
 					target = LIT
@@ -6461,7 +6467,13 @@ focus_tree = {
 					puppet = LAT
 				}
 			}
-			else = {
+			else_if = {
+				limit = {
+					LAT = {
+						exists = yes
+						NOT = { is_ally_with = ROOT }
+					}
+				}
 				create_wargoal = {
 					type = topple_government
 					target = LAT
@@ -6480,7 +6492,13 @@ focus_tree = {
 					puppet = EST
 				}
 			}
-			else = {
+			else_if = {
+				limit = {
+					EST = {
+						exists = yes
+						NOT = { is_ally_with = ROOT }
+					}
+				}
 				create_wargoal = {
 					type = topple_government
 					target = EST
