@@ -7,6 +7,7 @@
     - Armored Car cost changes only
     - Tank cost and attack changes are not implemented
  - Set default host tool nation to Germany
+ - King Tut's tomb has been properly unsealed
 
 #### Australia
  - Focus 'Introduce Unconventional Warfare' no longer grants a Special Forces Branch Specialism. Time reduced from 70 -> 35 days.
