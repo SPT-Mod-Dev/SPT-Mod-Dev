@@ -1,5 +1,16 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+###  3.14.2
+
+#### British Raj
+ - Reduced focus times on independence path
+    - 'A Congress Resurgent': 70 -> 35 days
+    - 'India United': 70 -> 35 days
+    - 'Cabinet Mission Plan': 70 -> 35 days
+    - 'A Permanent Muslim Governmental Seat': 70 -> 35 days
+    - 'Inclusive Nationalism': 70 -> 35 days
+    - 'A Secular State': 70 -> 35 days
+
 ###  3.14.1
 
 #### General
