@@ -2,6 +2,9 @@
 
 ###  3.14.2
 
+#### General
+ - Hurriedly resealed King Tut's tomb due to unforeseen consequences
+
 #### British Raj
  - Reduced focus times on independence path
     - 'A Congress Resurgent': 70 -> 35 days
