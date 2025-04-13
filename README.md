@@ -3,6 +3,7 @@
 ###  3.14.2
 
 #### General
+ - Added event notifying Axis powers when Britain takes focus 'Secure Iraq'
  - Hurriedly resealed King Tut's tomb due to unforeseen consequences
 
 #### British Raj
