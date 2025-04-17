@@ -258,6 +258,63 @@ JAP_osaka_army_arsenal_artillery_organization = {
 		tag = JAP
 		has_dlc = "Arms Against Tyranny"
 	}
+	add_trait = { 
+		#for the poor fucker who attempts to deal with MIO localization, please name the token and name
+		#differently so it becomes easier to actually get the damn tooltip to work.
+		#whatever black magic pdx uses to make their stuff work has been lost to humankind
+		token = SPT_JAP_anti_tank_arty_trait_tk
+		name = SPT_JAP_anti_tank_arty_trait_nm
+		icon = GFX_generic_mio_trait_icon_ap_attack
+		special_trait_background = yes
+
+		position = { x=9 y=0 }
+		
+		available = { #temp shit really, add focus requirement later
+			FROM = {
+				has_completed_focus = SPT_JAP_anti_tank_effort
+			}
+		}
+
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.1
+		}
+
+		limit_to_equipment_type = { anti_tank_equipment }
+		
+		equipment_bonus = {
+			build_cost_ic = -0.1
+			ap_attack = 0.15
+			hard_attack = 0.15
+		}
+	}
+	add_trait = { 
+		#for the poor fucker who attempts to deal with MIO localization, please name the token and name
+		#differently so it becomes easier to actually get the damn tooltip to work.
+		#whatever black magic pdx uses to make their stuff work has been lost to humankind
+		token = SPT_JAP_anti_air_arty_trait_tk
+		name = SPT_JAP_anti_air_arty_trait_nm
+		icon = GFX_generic_mio_trait_icon_anti_air_attack
+		special_trait_background = yes
+
+		position = { x=9 y=1 }
+		
+		available = { #temp shit really, add focus requirement later
+			FROM = {
+				has_completed_focus = SPT_JAP_anti_air_effort
+			}
+		}
+
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.1
+		}
+
+		limit_to_equipment_type = { anti_air_equipment }
+		
+		equipment_bonus = {
+			build_cost_ic = -0.1
+			air_attack = 0.15
+		}
+	}
 } 
 
 JAP_nissan_organization = {
