@@ -202,6 +202,7 @@ ideas = {
 			modifier = {
 				army_armor_attack_factor = 0.05
 				army_armor_defence_factor = 0.05
+				trait_panzer_leader_xp_gain_factor = 0.5
 				custom_modifier_tooltip = SPT_JAP_whitespace_tt
 				custom_modifier_tooltip = SPT_JAP_china_war_spirits_tt
 			}
@@ -226,6 +227,7 @@ ideas = {
 			modifier = {
 				army_infantry_attack_factor = 0.1
 				army_infantry_defence_factor = 0.1
+				terrain_trait_xp_gain_factor = 0.5
 				custom_modifier_tooltip = SPT_JAP_whitespace_tt
 				custom_modifier_tooltip = SPT_JAP_china_war_spirits_tt
 			}
@@ -250,6 +252,8 @@ ideas = {
 			modifier = {
 				army_morale_factor = 0.1
 				army_speed_factor = 0.1
+				trait_naval_invader_xp_gain_factor = 0.5
+				trait_commando_xp_gain_factor = 0.5
 				custom_modifier_tooltip = SPT_JAP_whitespace_tt
 				custom_modifier_tooltip = SPT_JAP_china_war_spirits_tt
 			}
@@ -364,6 +368,49 @@ ideas = {
 				local_resources_factor = 0.15
 				production_speed_dockyard_factor = -0.2
 				industrial_capacity_dockyard = -0.1
+			}
+		}
+
+		SPT_JAP_supremacy_of_technology_armor = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+
+			picture = jap_supremacy_of_technology
+			
+			research_bonus = {
+				infantry_weapons = 0.05 
+				armor = 0.15
+			}
+			modifier = {
+				military_industrial_organization_funds_gain = 0.05
+			}
+		}
+		SPT_JAP_supremacy_of_technology_inf = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+
+			picture = jap_supremacy_of_technology
+			
+			research_bonus = {
+				infantry_weapons = 0.15
+				armor = 0.05
+			}
+			modifier = {
+				military_industrial_organization_funds_gain = 0.05
 			}
 		}
 
@@ -1137,6 +1184,9 @@ ideas = {
 				infantry_weapons = 0.1 #SPTChange 0.05 -> 0.1
 				armor = 0.1 #SPTChange 0.05 -> 0.1
 			}
+			modifier = { #SPT change, added modifiers
+				military_industrial_organization_funds_gain = 0.05
+			}
 		}
 
 		JAP_superior_will = {
@@ -1155,12 +1205,12 @@ ideas = {
 			modifier = {
 				#SPT change reduced all effects by half
 				#army_defence_factor = 0.05
-				land_reinforce_rate = 0.04 #added reinforce rate buff
+				land_reinforce_rate = 0.02 #added reinforce rate buff
 				army_org_Factor = 0.05 #added org buff
 				#army_attack_factor = 0.05
 				army_morale_factor = 0.05
 				#SPT change added land doctrine cost reduction
-				land_doctrine_cost_factor = -0.05
+				#land_doctrine_cost_factor = -0.05
 			}
 		}
 
@@ -2061,11 +2111,11 @@ ideas = {
 			
 			modifier = {
 				#army_defence_factor = 0.05
-				land_reinforce_rate = 0.04
+				land_reinforce_rate = 0.03
 				army_org_Factor = 0.05
 				army_morale_factor = 0.1
 				weekly_casualties_war_support = 0.001
-				land_doctrine_cost_factor = -0.05
+				#land_doctrine_cost_factor = -0.05
 			}
 		}
 
@@ -2221,6 +2271,7 @@ ideas = {
 
 			modifier = {
 				industrial_capacity_factory = 0.4
+				conscription_factor = -0.25
 			}
 		}
 		
@@ -2427,7 +2478,10 @@ ideas = {
 				original_tag = JAP
 			}
 			available = {
-				has_completed_focus = SPT_JAP_national_companies
+				OR = {	
+					has_completed_focus = SPT_JAP_national_companies
+					has_idea = SPT_JAP_mori_hideoto
+				}
 			}
 						
 			research_bonus = {

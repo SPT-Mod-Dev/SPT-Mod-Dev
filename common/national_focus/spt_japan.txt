@@ -37,6 +37,11 @@ focus_tree = {
 		target = SPT_JAP_shintaisei
 		scroll_wheel_factor = 1
 	}
+	shortcut = {
+		name = SPT_JAP_shortcut_army
+		target = SPT_JAP_army_expansion
+		scroll_wheel_factor = 1
+	}
 
 	# focus = {
 	# 	id = SPT_JAP_
@@ -318,7 +323,7 @@ focus_tree = {
 				JAP = {
 					set_variable = { #this tracks the amount of expected cg that increases each iteration for the eco bubble mechanic
 						var = spt_jap_cg_increase_tracker
-						value = 0.005
+						value = 0.01
 					}
 					#see the SPT_JAP decisions file for a cool explanation of why this is here
 					set_variable = {
@@ -1057,12 +1062,12 @@ focus_tree = {
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
 			add_to_variable = {
-				SPT_JAP_zai_production_speed_arms_factory_factor = 0.1
-				tooltip = production_speed_arms_factory_factor_tt
+				SPT_JAP_zai_production_speed_industrial_complex_factor = -0.05
+				tooltip = production_speed_industrial_complex_factor_tt
 			}
 			add_to_variable = {
-				SPT_JAP_zai_production_speed_industrial_complex_factor = 0.1
-				tooltip = production_speed_industrial_complex_factor_tt
+				SPT_JAP_zai_production_speed_arms_factory_factor = 0.1
+				tooltip = production_speed_arms_factory_factor_tt
 			}
 			add_to_variable = {
 				SPT_JAP_zai_production_speed_dockyard_factor = 0.1
@@ -1615,7 +1620,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
 		
 		completion_reward = {
 			add_political_power = 25
@@ -1695,7 +1700,15 @@ focus_tree = {
 			add_ideas = JAP_intervene_in_china_5
 			unlock_decision_tooltip = JAP_china_step_up_war_effort
 
-			hidden_effect = { scoped_play_song = "domineer" } 
+			hidden_effect = { 
+				scoped_play_song = "domineer" 
+				if = {
+					limit = {
+						has_completed_focus = SPT_JAP_new_cabinet
+					}
+					remove_country_leader_trait = imperial_sanction
+				}
+			} 
 			SIA = {
 				hidden_effect = { scoped_play_song = "domineer" } 
 			}
@@ -1816,6 +1829,7 @@ focus_tree = {
 			724 = {
 				add_dynamic_modifier = {
 					modifier = SPT_JAP_state_supply_build_up_navy
+					scope = JAP
 					days = 180
 				}
 			}
@@ -2008,6 +2022,7 @@ focus_tree = {
 			333 = {
 				add_dynamic_modifier = {
 					modifier = SPT_JAP_state_supply_build_up_navy
+					scope = JAP
 					days = 180
 				}
 			}
@@ -2015,6 +2030,7 @@ focus_tree = {
 			672 = {
 				add_dynamic_modifier = {
 					modifier = SPT_JAP_state_supply_build_up_navy
+					scope = JAP
 					days = 180
 				}
 			}
@@ -2022,6 +2038,7 @@ focus_tree = {
 			671 = {
 				add_dynamic_modifier = {
 					modifier = SPT_JAP_state_supply_build_up_navy
+					scope = JAP
 					days = 180
 				}
 			}
@@ -2083,6 +2100,7 @@ focus_tree = {
 				}
 				add_dynamic_modifier = {
 					modifier = SPT_JAP_exploit_chinese_industry_modifier
+					scope = JAP
 				}
 			}
 		}
@@ -2338,6 +2356,9 @@ focus_tree = {
 				every_state = {
 					limit = {
 						is_core_of = CHI
+						NOT = {
+							is_core_of = MAN
+						}
 						has_resources_amount = {
 							resource = aluminium
 							amount > 0
@@ -2349,12 +2370,16 @@ focus_tree = {
 					}
 					add_dynamic_modifier = {
 						modifier = SPT_JAP_exploit_chinese_resources_modifier
+						scope = JAP
 					}
 					custom_effect_tooltip = SPT_JAP_whitespace_tt
 				}
 				every_state = {
 					limit = {
 						is_core_of = CHI
+						NOT = {
+							is_core_of = MAN
+						}
 						has_resources_amount = {
 							resource = chromium
 							amount > 0
@@ -2366,12 +2391,16 @@ focus_tree = {
 					}
 					add_dynamic_modifier = {
 						modifier = SPT_JAP_exploit_chinese_resources_modifier
+						scope = JAP
 					}
 					custom_effect_tooltip = SPT_JAP_whitespace_tt
 				}
 				every_state = {
 					limit = {
 						is_core_of = CHI
+						NOT = {
+							is_core_of = MAN
+						}
 						has_resources_amount = {
 							resource = tungsten
 							amount > 0
@@ -2383,12 +2412,16 @@ focus_tree = {
 					}
 					add_dynamic_modifier = {
 						modifier = SPT_JAP_exploit_chinese_resources_modifier
+						scope = JAP
 					}
 					custom_effect_tooltip = SPT_JAP_whitespace_tt
 				}
 				every_state = {
 					limit = {
 						is_core_of = CHI
+						NOT = {
+							is_core_of = MAN
+						}
 						has_resources_amount = {
 							resource = steel
 							amount > 0
@@ -2400,6 +2433,7 @@ focus_tree = {
 					}
 					add_dynamic_modifier = {
 						modifier = SPT_JAP_exploit_chinese_resources_modifier
+						scope = JAP
 					}
 					custom_effect_tooltip = SPT_JAP_whitespace_tt
 				}
@@ -2408,6 +2442,9 @@ focus_tree = {
 				every_controlled_state = {
 					limit = {
 						is_core_of = CHI
+						NOT = {
+							is_core_of = MAN
+						}
 						has_resources_amount = {
 							resource = aluminium
 							amount > 0
@@ -2419,12 +2456,16 @@ focus_tree = {
 					}
 					add_dynamic_modifier = {
 						modifier = SPT_JAP_exploit_chinese_resources_modifier
+						scope = JAP
 					}
 					custom_effect_tooltip = SPT_JAP_whitespace_tt
 				}
 				every_controlled_state = {
 					limit = {
 						is_core_of = CHI
+						NOT = {
+							is_core_of = MAN
+						}
 						has_resources_amount = {
 							resource = chromium
 							amount > 0
@@ -2436,12 +2477,16 @@ focus_tree = {
 					}
 					add_dynamic_modifier = {
 						modifier = SPT_JAP_exploit_chinese_resources_modifier
+						scope = JAP
 					}
 					custom_effect_tooltip = SPT_JAP_whitespace_tt
 				}
 				every_controlled_state = {
 					limit = {
 						is_core_of = CHI
+						NOT = {
+							is_core_of = MAN
+						}
 						has_resources_amount = {
 							resource = tungsten
 							amount > 0
@@ -2453,12 +2498,16 @@ focus_tree = {
 					}
 					add_dynamic_modifier = {
 						modifier = SPT_JAP_exploit_chinese_resources_modifier
+						scope = JAP
 					}
 					custom_effect_tooltip = SPT_JAP_whitespace_tt
 				}
 				every_owned_state = {
 					limit = {
 						is_core_of = CHI
+						NOT = {
+							is_core_of = MAN
+						}
 						has_resources_amount = {
 							resource = steel
 							amount > 0
@@ -2470,6 +2519,7 @@ focus_tree = {
 					}
 					add_dynamic_modifier = {
 						modifier = SPT_JAP_exploit_chinese_resources_modifier
+						scope = JAP
 					}
 					custom_effect_tooltip = SPT_JAP_whitespace_tt
 				}
@@ -2567,14 +2617,14 @@ focus_tree = {
 		}
 
 		available = {
-			OR = {
-				CHI = {
-					exists = no
-				}
-				CHI = {
-					is_puppet_of = JAP
-				}
-			}
+			# OR = {
+			# 	CHI = {
+			# 		exists = no
+			# 	}
+			# 	CHI = {
+			# 		is_puppet_of = JAP
+			# 	}
+			# }
 			custom_trigger_tooltip = {
 				tooltip = SPT_JAP_grain_market_inflation_active_tt
 				has_idea =  SPT_JAP_grain_market_inflation_active
@@ -2980,7 +3030,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_factory_mobilize
-		icon = GFX_focus_generic_full_employment
+		icon = GFX_focus_AFG_scavenging
 		prerequisite = { focus = SPT_JAP_quick_production }
 		x = 0
 		y = 1
@@ -3128,7 +3178,7 @@ focus_tree = {
 	}
 	focus = {
 		id = SPT_JAP_stockpile_strats
-		icon = GFX_focus_generic_stockpile_fuel
+		icon = GFX_focus_PER_increase_oil_sales
 		prerequisite = { focus = SPT_JAP_long_term_dev }
 		x = 1
 		y = 1
@@ -3268,7 +3318,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_ECONOMIC_BUBBLE }
 
 		completion_reward = {
 			random_owned_controlled_state = {
@@ -3297,19 +3347,19 @@ focus_tree = {
 				SPT_JAP_zai_factory_max_efficiency_factor = 0.05
 				tooltip = production_factory_max_efficiency_factor_tt
 			}
-			#custom_effect_tooltip = SPT_JAP_whitespace_tt
-			# custom_effect_tooltip = SPT_JAP_cg_expected_timed_increase_down_tt
-			# hidden_effect = {
-			# 	add_to_variable = {
-			# 		var = JAP.spt_jap_cg_increase_tracker
-			# 		value = -0.005
-			# 	}
-			# }
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_cg_expected_timed_increase_down_tt
+			hidden_effect = {
+				add_to_variable = {
+					var = JAP.spt_jap_cg_increase_tracker
+					value = -0.005
+				}
+			}
 		}
 	}
 	focus = {
 		id = SPT_JAP_invite_german_experts
-		icon = GFX_focus_GER_prioritize_the_four_year_plan
+		icon = GFX_focus_AFG_work_with_german_inteligence
 		prerequisite = {
 			focus = SPT_JAP_rapid_dev
 			focus = SPT_JAP_long_term_dev
@@ -3670,7 +3720,7 @@ focus = {
 		}
 	}
 
-	will_lead_to_war_with = CHI
+	#will_lead_to_war_with = CHI
 
 	cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -4341,6 +4391,359 @@ focus = {
 # .................................................
 # .................................................
 # .................................................
+
+	# focus = {
+	# 	id = SPT_JAP_
+	# 	icon = GFX_focus_jap_showa_restoration
+	##  prerequisite = { focus = SPT_JAP_ }
+	# 	#mutually_exclusive = {  }
+	# 	x = 0
+	# 	y = 0
+	# 	relative_position_id = SPT_JAP_
+	# 	# offset = {
+	# 	# 	x = 0
+	# 	# 	y = 0
+	# 	# 	trigger = {
+	# 	# 	#	NOT = { has_dlc = "Waking the Tiger" }
+	# 	# 	}
+	# 	# }
+
+	# 	cost = 10
+
+	# 	ai_will_do = {
+	# 		factor = 4
+	# 	}
+
+	# 	available = {
+
+	# 	}
+
+	# 	bypass = {
+
+	# 	}
+
+	# 	cancel_if_invalid = yes
+	# 	continue_if_invalid = no
+	# 	available_if_capitulated = no
+
+	# 	search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+	# 	completion_reward = {
+	# 		#add_stability = 0.1
+	# 	}
+	# }
+
+
+	focus = {
+		id = SPT_JAP_army_expansion
+		icon = GFX_focus_chi_army_reform
+		# prerequisite = { focus = SPT_JAP_ }
+		#mutually_exclusive = {  }
+		x = 10
+		y = 0
+		relative_position_id = SPT_JAP_liaison_conference
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_completed_focus = SPT_JAP_planned_eco
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_ARMY_XP }
+		completion_reward = {
+			army_experience = 45
+			custom_effect_tooltip = available_chief_of_army
+			show_ideas_tooltip = hajime_sugiyama
+		}
+	}	
+
+	focus = {
+		id = SPT_JAP_modernizing_effort
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = SPT_JAP_army_expansion }
+		#mutually_exclusive = {  }
+		x = -2
+		y = 1
+		relative_position_id = SPT_JAP_army_expansion
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_tech_bonus = {
+				name = "Modernizing Efforts"
+				bonus = 1.0
+				uses = 1
+				category = infantry_weapons	
+			}
+		}
+	}	
+	focus = {
+		id = SPT_JAP_doctrinal_advancements
+		icon = GFX_focus_generic_full_social_mobilization
+		prerequisite = { focus = SPT_JAP_army_expansion }
+		#mutually_exclusive = {  }
+		x = 2
+		y = 1
+		relative_position_id = SPT_JAP_army_expansion
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = "Doctrine Studies"
+				cost_reduction = 0.25
+				uses = 2
+				category = land_doctrine
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_supremacy_of_tech
+		icon = GFX_focus_ARG_develop_the_electricity_sector
+		prerequisite = { focus = SPT_JAP_modernizing_effort }
+		mutually_exclusive = { focus = SPT_JAP_supremacy_of_will }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_modernizing_effort
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_ideas = JAP_supremacy_of_technology
+		}
+	}
+	focus = {
+		id = SPT_JAP_primacy_of_armor
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = SPT_JAP_supremacy_of_tech }
+		mutually_exclusive = { focus = SPT_JAP_primacy_of_infantry }
+		x = -2
+		y = 1
+		relative_position_id = SPT_JAP_supremacy_of_tech
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {  FOCUS_FILTER_RESEARCH  }
+		completion_reward = {
+			if = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}	
+				mio:JAP_osaka_army_arsenal_organization = {
+					add_mio_size = 1
+				}
+				custom_effect_tooltip = SPT_JAP_whitespace_tt
+			}
+			swap_ideas = {
+				remove_idea = JAP_supremacy_of_technology
+				add_idea = SPT_JAP_supremacy_of_technology_armor
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_primacy_of_infantry
+		icon = GFX_focus_generic_manpower
+		prerequisite = { focus = SPT_JAP_supremacy_of_tech }
+		mutually_exclusive = { focus = SPT_JAP_primacy_of_armor }
+		x = 2
+		y = 1
+		relative_position_id = SPT_JAP_supremacy_of_tech
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {  FOCUS_FILTER_RESEARCH  }
+		completion_reward = {
+			if = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}	
+				mio:JAP_tokyo_arsenal_organization = {
+					add_mio_size = 1
+				}
+				custom_effect_tooltip = SPT_JAP_whitespace_tt
+			}
+			swap_ideas = {
+				remove_idea = JAP_supremacy_of_technology
+				add_idea = SPT_JAP_supremacy_of_technology_inf
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_supremacy_of_will
+		icon = GFX_focus_generic_japanese_imperial_glory
+		prerequisite = { focus = SPT_JAP_doctrinal_advancements }
+		mutually_exclusive = { focus = SPT_JAP_supremacy_of_tech  }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_doctrinal_advancements
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_ideas = JAP_superior_will
+		}
+	}
 
 	# focus = {
 	# 	id = SPT_JAP_
