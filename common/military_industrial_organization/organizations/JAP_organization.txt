@@ -25,11 +25,11 @@ JAP_osaka_army_arsenal_organization = {
 		icon = GFX_generic_mio_department_icon_tank_general_production
 		special_trait_background = yes
 
-		position = { x=3 y=0 }
+		position = { x=9 y=0 }
 		
 		available = { #temp shit really, add focus requirement later
 			FROM = {
-				#has_completed_focus = SPT_JAP_armored_divs
+				has_completed_focus = SPT_JAP_indigenous_designs
 			}
 		}
 
@@ -249,6 +249,62 @@ JAP_tokyo_arsenal_organization = {
 		tag = JAP
 		has_dlc = "Arms Against Tyranny"
 	}
+	add_trait = { 
+		#for the poor fucker who attempts to deal with MIO localization, please name the token and name
+		#differently so it becomes easier to actually get the damn tooltip to work.
+		#whatever black magic pdx uses to make their stuff work has been lost to humankind
+		token = SPT_JAP_cheap_guns_trait_tk
+		name = SPT_JAP_cheap_guns_trait_nm
+		icon = GFX_generic_mio_trait_icon_resources
+		special_trait_background = yes
+
+		position = { x=0 y=0 }
+		
+		available = { #temp shit really, add focus requirement later
+			FROM = {
+				OR = {
+					has_completed_focus = SPT_JAP_modern_katana
+					has_completed_focus = SPT_JAP_new_weapons
+				}
+			}
+		}
+
+		limit_to_equipment_type = {
+			infantry_equipment
+		}
+		
+		production_bonus = {
+			production_resource_need_factor = -0.1
+			production_cost_factor = -0.1		
+		}
+	}
+	add_trait = { 
+		#for the poor fucker who attempts to deal with MIO localization, please name the token and name
+		#differently so it becomes easier to actually get the damn tooltip to work.
+		#whatever black magic pdx uses to make their stuff work has been lost to humankind
+		token = SPT_JAP_lunge_mines_trait_tk
+		name = SPT_JAP_lunge_mines_trait_nm
+		icon = GFX_generic_mio_trait_icon_hard_attack
+		special_trait_background = yes
+
+		position = { x=0 y=1 }
+		
+		available = { #temp shit really, add focus requirement later
+			FROM = {
+				has_completed_focus = SPT_JAP_lunge_mines
+			}
+		}
+
+		limit_to_equipment_type = {
+			infantry_equipment
+		}
+		
+		equipment_bonus = {
+			ap_attack = 0.5
+			hard_attack = 0.25
+			reliability = -0.3
+		}
+	}
 }
 
 JAP_osaka_army_arsenal_artillery_organization = {
@@ -313,6 +369,32 @@ JAP_osaka_army_arsenal_artillery_organization = {
 		equipment_bonus = {
 			build_cost_ic = -0.1
 			air_attack = 0.15
+		}
+	}
+	add_trait = { 
+		#for the poor fucker who attempts to deal with MIO localization, please name the token and name
+		#differently so it becomes easier to actually get the damn tooltip to work.
+		#whatever black magic pdx uses to make their stuff work has been lost to humankind
+		token = SPT_JAP_arty_trait_tk
+		name = SPT_JAP_arty_trait_nm
+		icon = GFX_generic_mio_trait_icon_production_capacity
+		special_trait_background = yes
+
+		position = { x=9 y=2 }
+		
+		available = { #temp shit really, add focus requirement later
+			FROM = {
+				has_completed_focus = SPT_JAP_develop_new_artillery
+			}
+		}
+
+		limit_to_equipment_type = {
+			artillery_equipment
+			rocket_artillery_equipment 
+		}
+		
+		equipment_bonus = {
+			build_cost_ic = -0.1
 		}
 	}
 } 

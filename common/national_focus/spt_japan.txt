@@ -32,11 +32,11 @@ focus_tree = {
 		target = SPT_JAP_strike_south
 		scroll_wheel_factor = 1
 	}
-	shortcut = {
-		name = SPT_JAP_shortcut_shintaisei
-		target = SPT_JAP_shintaisei
-		scroll_wheel_factor = 1
-	}
+	# shortcut = {
+	# 	name = SPT_JAP_shortcut_shintaisei
+	# 	target = SPT_JAP_shintaisei
+	# 	scroll_wheel_factor = 1
+	# }
 	shortcut = {
 		name = SPT_JAP_shortcut_army
 		target = SPT_JAP_army_expansion
@@ -3446,7 +3446,7 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH FOCUS_FILTER_INTERNATIONAL_TRADE}
 		completion_reward = {
 			if = {
 				limit = {
@@ -3512,7 +3512,7 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = "Japanese Engineering Studies"
-				bonus = 0.5
+				bonus = 0.4
 				uses = 2
 				category = industry
 			}
@@ -4448,7 +4448,7 @@ focus = {
 		icon = GFX_focus_chi_army_reform
 		# prerequisite = { focus = SPT_JAP_ }
 		#mutually_exclusive = {  }
-		x = 12
+		x = 15
 		y = 0
 		relative_position_id = SPT_JAP_liaison_conference
 		# offset = {
@@ -4490,7 +4490,7 @@ focus = {
 		icon = GFX_goal_generic_small_arms
 		prerequisite = { focus = SPT_JAP_army_expansion }
 		#mutually_exclusive = {  }
-		x = -2
+		x = -3
 		y = 1
 		relative_position_id = SPT_JAP_army_expansion
 		# offset = {
@@ -4531,10 +4531,10 @@ focus = {
 	}	
 	focus = {
 		id = SPT_JAP_doctrinal_advancements
-		icon = GFX_focus_generic_full_social_mobilization
+		icon = GFX_goal_generic_occupy_states_ongoing_war
 		prerequisite = { focus = SPT_JAP_army_expansion }
 		#mutually_exclusive = {  }
-		x = 2
+		x = 3
 		y = 1
 		relative_position_id = SPT_JAP_army_expansion
 		# offset = {
@@ -4574,11 +4574,56 @@ focus = {
 		}
 	}
 	focus = {
+		id = SPT_JAP_support_eq_effort
+		icon = GFX_focus_generic_radio_communication
+		prerequisite = { focus = SPT_JAP_army_expansion }
+		#mutually_exclusive = {  }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_army_expansion
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_tech_bonus = {
+				name = "Battlefield Support Studies"
+				bonus = 0.5
+				uses = 2
+				category = support_tech
+				category = electronics
+			}
+		}
+	}	
+	focus = {
 		id = SPT_JAP_supremacy_of_tech
 		icon = GFX_focus_ARG_develop_the_electricity_sector
 		prerequisite = { focus = SPT_JAP_modernizing_effort }
 		mutually_exclusive = { focus = SPT_JAP_supremacy_of_will }
-		x = 0
+		x = -2
 		y = 1
 		relative_position_id = SPT_JAP_modernizing_effort
 		# offset = {
@@ -4696,7 +4741,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = {  FOCUS_FILTER_RESEARCH  }
+		search_filters = {  FOCUS_FILTER_RESEARCH FOCUS_FILTER_ECONOMIC_BUBBLE  }
 		completion_reward = {
 			if = {
 				limit = {
@@ -4723,7 +4768,7 @@ focus = {
 			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
 			add_to_variable = {
 				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
-				value = 0.01
+				value = 0.005
 				tooltip = SPT_JAP_cg_expected_tt
 			}
 		}
@@ -4744,7 +4789,7 @@ focus = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -4785,7 +4830,7 @@ focus = {
 	}
 	focus = {
 		id = SPT_JAP_innovative_doctrines
-		icon = GFX_focus_generic_tank_assault
+		icon = GFX_focus_generic_army_tanks2
 		prerequisite = { focus = SPT_JAP_indigenous_designs }
 		#mutually_exclusive = { focus = SPT_JAP_license_from_germany }
 		x = 0
@@ -4836,7 +4881,7 @@ focus = {
 	}
 	focus = {
 		id = SPT_JAP_license_from_germany
-		icon = GFX_focus_generic_naval_invasion_tank
+		icon = GFX_focus_generic_tank_assembly
 		prerequisite = { focus = SPT_JAP_primacy_of_armor }
 		prerequisite = {
 			focus = SPT_JAP_german_advisors
@@ -4874,7 +4919,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = {  FOCUS_FILTER_RESEARCH  }
+		search_filters = {  FOCUS_FILTER_RESEARCH FOCUS_FILTER_INTERNATIONAL_TRADE }
 		completion_reward = {
 			if = {
 				limit = {
@@ -4945,6 +4990,164 @@ focus = {
 		}
 	}
 	focus = {
+		id = SPT_JAP_bike_battalions
+		icon = GFX_focus_SWE_bicycle
+		prerequisite = { focus = SPT_JAP_primacy_of_infantry }
+		#mutually_exclusive = { focus = SPT_JAP_primacy_of_armor }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_primacy_of_infantry
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {  FOCUS_FILTER_RESEARCH  }
+		completion_reward = {
+			army_experience = 15
+			set_technology = { bicycle_infantry = 1 }
+		}
+	}
+	focus = {
+		id = SPT_JAP_new_weapons
+		icon = GFX_focus_IRQ_attempted_assasination_of_sidqi
+		prerequisite = { focus = SPT_JAP_primacy_of_infantry }
+		#mutually_exclusive = { focus = SPT_JAP_primacy_of_armor }
+		x = 2
+		y = 1
+		relative_position_id = SPT_JAP_primacy_of_infantry
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {  FOCUS_FILTER_RESEARCH FOCUS_FILTER_ECONOMIC_BUBBLE }
+		completion_reward = {
+			if = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				mio:JAP_tokyo_arsenal_organization = {
+					complete_mio_trait = {
+						trait = SPT_JAP_cheap_guns_trait_tk
+					}
+				}
+				custom_effect_tooltip = SPT_JAP_whitespace_tt
+			}
+			add_tech_bonus = {
+				name = "New Weapons"
+				bonus = 0.5
+				uses = 2
+				category = infantry_weapons
+			}
+			add_tech_bonus = {
+				name = "New Weapons"
+				ahead_reduction = 1
+				uses = 1
+				category = infantry_weapons
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.005
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_special_forces_effort
+		icon = GFX_goal_generic_special_forces
+		prerequisite = { focus = SPT_JAP_new_weapons }
+		#mutually_exclusive = { focus = SPT_JAP_primacy_of_armor }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_new_weapons
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {  FOCUS_FILTER_RESEARCH  }
+		completion_reward = {
+			add_tech_bonus = {
+				name = "New Units"
+				bonus = 0.5
+				uses = 2
+				category = cat_special_forces_generic
+			}
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.25
+				name = "New Units"
+				uses = 2
+				category = special_forces_doctrine
+			}
+		}
+	}
+	focus = {
 		id = SPT_JAP_develop_new_artillery
 		icon = GFX_goal_generic_army_artillery2
 		prerequisite = { focus = SPT_JAP_primacy_of_armor focus = SPT_JAP_primacy_of_infantry }
@@ -4978,7 +5181,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = {  FOCUS_FILTER_RESEARCH  }
+		search_filters = {  FOCUS_FILTER_RESEARCH FOCUS_FILTER_ECONOMIC_BUBBLE }
 		completion_reward = {
 			if = {
 				limit = {
@@ -4986,6 +5189,10 @@ focus = {
 				}	
 				mio:JAP_osaka_army_arsenal_artillery_organization = {
 					add_mio_size = 1
+					complete_mio_trait = {
+						trait = SPT_JAP_arty_trait_tk
+						show_modifiers = yes
+					}
 				}
 				custom_effect_tooltip = SPT_JAP_whitespace_tt
 			}
@@ -4995,6 +5202,37 @@ focus = {
 				uses = 2
 				category = artillery
 			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_land_facility_tt
+			if = {
+				limit = {
+					all_controlled_state = {
+						land_facility < 1
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = JAP
+						land_facility < 1
+						air_facility < 1
+						nuclear_facility < 1
+						naval_facility < 1
+						NOT = {
+							OR = {
+								state = 646
+								state = 645
+								state = 555
+								state = 537
+								state = 526
+							}
+						}
+					}
+					construct_building_in_random_province = {
+						land_facility = 1
+					}
+				}
+			}
+
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
 			add_to_variable = {
@@ -5149,7 +5387,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = {  FOCUS_FILTER_RESEARCH  }
+		search_filters = {  FOCUS_FILTER_RESEARCH FOCUS_FILTER_ECONOMIC_BUBBLE }
 		completion_reward = {
 			if = {
 				limit = {
@@ -5176,10 +5414,10 @@ focus = {
 
 	focus = {
 		id = SPT_JAP_supremacy_of_will
-		icon = GFX_focus_generic_japanese_imperial_glory
+		icon = GFX_focus_AFG_against_kabul	
 		prerequisite = { focus = SPT_JAP_doctrinal_advancements }
 		mutually_exclusive = { focus = SPT_JAP_supremacy_of_tech  }
-		x = 0
+		x = 2
 		y = 1
 		relative_position_id = SPT_JAP_doctrinal_advancements
 		# offset = {
@@ -5211,6 +5449,530 @@ focus = {
 		search_filters = {  }
 		completion_reward = {
 			add_ideas = JAP_superior_will
+		}
+	}
+	focus = {
+		id = SPT_JAP_methodical_war
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = SPT_JAP_supremacy_of_will }
+		mutually_exclusive = { focus = SPT_JAP_fast_war }
+		x = -1
+		y = 1
+		relative_position_id = SPT_JAP_supremacy_of_will
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {  }
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				name = "Methodical War"
+				uses = 2
+				category = cat_grand_battle_plan
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_fast_war
+		icon = GFX_focus_FIN_strengthen_military_administration
+		prerequisite = { focus = SPT_JAP_supremacy_of_will }
+		mutually_exclusive = { focus = SPT_JAP_methodical_war }
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_supremacy_of_will
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {  }
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				name = "Methodical War"
+				uses = 2
+				category = cat_superior_firepower
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_samurai_legacy
+		icon = GFX_focus_ITA_moschettieri_del_duce
+		prerequisite = { focus = SPT_JAP_fast_war focus = SPT_JAP_methodical_war }
+		#mutually_exclusive = { focus = SPT_JAP_methodical_war }
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_methodical_war
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {  }
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = JAP_superior_will
+				add_idea = JAP_superior_will2
+			}
+		}
+	}
+	
+	focus = {
+		id = SPT_JAP_revive_bushido
+		icon = GFX_spt_focus_bushido_spirit
+		prerequisite = { focus = SPT_JAP_methodical_war }
+		prerequisite = {
+			focus = SPT_JAP_samurai_legacy
+		}
+		#mutually_exclusive = { focus = SPT_JAP_methodical_war }
+		x = -2
+		y = 1
+		relative_position_id = SPT_JAP_samurai_legacy
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {  }
+		completion_reward = {
+			custom_effect_tooltip = JAP_revive_bushido_tt
+			if = { #done like this to preserve the display of the tooltip after focuses are done
+				limit = {
+					has_completed_focus = SPT_JAP_heirs_of_nobunaga
+				}
+				every_army_leader = {
+					limit = { has_trait = JAP_nobunaga_spirit }
+					hidden_effect = {
+						remove_trait = {
+							trait = JAP_samurai_lineage
+						}
+					}
+					add_unit_leader_trait = JAP_bushido_spirit
+				}
+			}
+			else = {
+				every_army_leader = {
+					limit = {
+						OR = {
+							has_trait = JAP_samurai_lineage
+							has_trait = JAP_bushido_spirit
+						}
+					}
+					hidden_effect = {
+						remove_trait = {
+							trait = JAP_samurai_lineage
+						}
+					}
+					add_unit_leader_trait = JAP_bushido_spirit
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_new_samurai
+		icon = GFX_focus_generic_full_social_mobilization
+		prerequisite = { focus = SPT_JAP_revive_bushido }
+		#mutually_exclusive = { focus = SPT_JAP_methodical_war }
+		x = -1
+		y = 1
+		relative_position_id = SPT_JAP_revive_bushido
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {  }
+		completion_reward = {
+			add_tech_bonus = {
+				name = "New Samurai"
+				bonus = 0.25
+				uses = 2
+				category = cat_special_forces_generic
+			}
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.25
+				name = "New Samurai"
+				uses = 2
+				category = special_forces_doctrine
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_heirs_of_nobunaga
+		icon = GFX_focus_generic_japanese_imperial_glory
+		prerequisite = { focus = SPT_JAP_fast_war }
+		prerequisite = {
+			focus = SPT_JAP_samurai_legacy
+		}
+		#mutually_exclusive = { focus = SPT_JAP_methodical_war }
+		x = 2
+		y = 1
+		relative_position_id = SPT_JAP_samurai_legacy
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {  }
+		completion_reward = {
+			custom_effect_tooltip = JAP_revive_bushido_tt
+			if = { #done like this to preserve the display of the tooltip after focuses are done
+				limit = {
+					has_completed_focus = SPT_JAP_revive_bushido
+				}
+				every_army_leader = {
+					limit = { has_trait = JAP_bushido_spirit }
+					hidden_effect = {
+						remove_trait = {
+							trait = JAP_samurai_lineage
+						}
+					}
+					add_unit_leader_trait = JAP_nobunaga_spirit
+				}
+			}
+			else = {
+				every_army_leader = {
+					limit = {
+						OR = {
+							has_trait = JAP_samurai_lineage
+							has_trait = JAP_nobunaga_spirit
+						}
+					}
+					hidden_effect = {
+						remove_trait = {
+							trait = JAP_samurai_lineage
+						}
+					}
+					add_unit_leader_trait = JAP_nobunaga_spirit
+				}
+			}
+
+		}
+	}
+	focus = {
+		id = SPT_JAP_logistical_focus
+		icon = GFX_focus_generic_reinforcing_the_supply_network
+		prerequisite = { focus = SPT_JAP_fast_war }
+		#mutually_exclusive = { focus = SPT_JAP_methodical_war }
+		x = 3
+		y = 1
+		relative_position_id = SPT_JAP_fast_war
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {  }
+		completion_reward = {
+			add_tech_bonus = {
+				name = "Improved Logistics"
+				ahead_reduction = 1
+				bonus = 1
+				uses = 2
+				category = logistics_tech
+				category = engineers_tech
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_recon_focus
+		icon = GFX_goal_generic_radar
+		prerequisite = { focus = SPT_JAP_logistical_focus}
+		prerequisite = { focus = SPT_JAP_heirs_of_nobunaga }
+		#mutually_exclusive = { focus = SPT_JAP_methodical_war }
+		x = 0
+		y = 2
+		relative_position_id = SPT_JAP_logistical_focus
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {  }
+		completion_reward = {
+			add_tech_bonus = {
+				name = "Improved Logistics"
+				ahead_reduction = 1
+				bonus = 1
+				uses = 2
+				category = signal_company_tech
+				category = recon_tech
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_modern_katana
+		icon = GFX_focus_AFG_scavenging
+		prerequisite = { focus = SPT_JAP_revive_bushido focus = SPT_JAP_heirs_of_nobunaga }
+		#mutually_exclusive = { focus = SPT_JAP_methodical_war }
+		x = 2
+		y = 1
+		relative_position_id = SPT_JAP_revive_bushido
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {  }
+		completion_reward = {
+			if = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				mio:JAP_tokyo_arsenal_organization = {
+					complete_mio_trait = {
+						trait = SPT_JAP_cheap_guns_trait_tk
+					}
+				}
+				custom_effect_tooltip = SPT_JAP_whitespace_tt
+			}
+			add_tech_bonus = {
+				name = "New Weapons"
+				bonus = 0.5
+				uses = 2
+				category = infantry_weapons
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_lunge_mines
+		icon = GFX_focus_RAJ_a_private_military
+		prerequisite = { focus = SPT_JAP_fast_war focus = SPT_JAP_methodical_war focus = SPT_JAP_primacy_of_infantry }
+		#mutually_exclusive = { focus = SPT_JAP_primacy_of_armor }
+		x = 4
+		y = 1
+		relative_position_id = SPT_JAP_primacy_of_infantry
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {  FOCUS_FILTER_RESEARCH  }
+		completion_reward = {
+			if = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				mio:JAP_tokyo_arsenal_organization = {
+					complete_mio_trait = {
+						trait = SPT_JAP_lunge_mines_trait_tk
+					}
+				}
+				custom_effect_tooltip = SPT_JAP_whitespace_tt
+			}
 		}
 	}
 
@@ -5270,52 +6032,52 @@ focus = {
 # ....................................................................
 # ....................................................................
 
-	focus = {
-		id = SPT_JAP_shintaisei
-		icon = GFX_focus_AST_war_japan
-		#prerequisite = { focus = SPT_JAP_ }
-		#mutually_exclusive = {  }
-		x = -15
-		y = 0
-		relative_position_id = SPT_JAP_purge_kodoha
-		# offset = {
-		# 	x = 0
-		# 	y = 0
-		# 	trigger = {
-		# 	#	NOT = { has_dlc = "Waking the Tiger" }
-		# 	}
-		# }
+	# focus = {
+	# 	id = SPT_JAP_shintaisei
+	# 	icon = GFX_focus_AST_war_japan
+	# 	prerequisite = { focus = SPT_JAP_ }
+	# 	mutually_exclusive = {  }
+	# 	x = -15
+	# 	y = 0
+	# 	relative_position_id = SPT_JAP_purge_kodoha
+	# 	offset = {
+	# 		x = 0
+	# 		y = 0
+	# 		trigger = {
+	# 		#	NOT = { has_dlc = "Waking the Tiger" }
+	# 		}
+	# 	}
 
-		cost = @shintaisei_time_tier_1
+	# 	cost = @shintaisei_time_tier_1
 
-		ai_will_do = {
-			factor = 4
-		}
+	# 	ai_will_do = {
+	# 		factor = 4
+	# 	}
 
-		available = {
-			OR = {
-				has_completed_focus = SPT_JAP_purge_kodoha
-				has_completed_focus = SPT_JAP_support_kodoha
-			}
-			custom_override_tooltip = {
-				tooltip = SPT_JAP_shintaisei_tt
-				always = no
-			}
-		}
+	# 	available = {
+	# 		OR = {
+	# 			has_completed_focus = SPT_JAP_purge_kodoha
+	# 			has_completed_focus = SPT_JAP_support_kodoha
+	# 		}
+	# 		custom_override_tooltip = {
+	# 			tooltip = SPT_JAP_shintaisei_tt
+	# 			always = no
+	# 		}
+	# 	}
 
-		bypass = {
+	# 	bypass = {
 
-		}
+	# 	}
 
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
+	# 	cancel_if_invalid = yes
+	# 	continue_if_invalid = no
+	# 	available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
-		completion_reward = {
-			add_political_power = 25
-		}
-	}
+	# 	search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+	# 	completion_reward = {
+	# 		add_political_power = 25
+	# 	}
+	# }
 
 }
 
