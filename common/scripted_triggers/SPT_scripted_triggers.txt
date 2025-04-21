@@ -33,3 +33,32 @@ capped_by_axis = {
 	}
 }
 
+controls_all_relevant_chinese_cores = { #holy shit this fucking sucks, why doesnt pdx add an easy way to iterate through all the cores of a nation without said nation being active
+	#hidden_trigger = {
+	NOT = {
+		any_country = {
+			NOT = {
+				OR = {
+					TAG = JAP
+					TAG = MAN
+				}
+			}
+			any_controlled_state = {
+				is_core_of = CHI
+				NOT = {
+					OR = {
+						state = 618
+						state = 760
+						state = 617
+						state = 759
+						state = 287
+						state = 619
+					}
+				}
+			}
+		}
+	}
+
+	#}
+}
+

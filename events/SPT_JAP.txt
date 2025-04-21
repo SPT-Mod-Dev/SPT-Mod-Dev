@@ -185,7 +185,7 @@ country_event = {
 		country_event = {
 			id = spt_jap.7
 			days = 30
-			random_days = 90
+			random_days = 210
 		}
 	}
 
@@ -239,6 +239,9 @@ news_event = {
 	option = {
 		name = spt_jap_news.1.a
 		trigger = {
+			NOT = {
+				TAG = JAP
+			}
 			OR = { 
 				TAG = ENG
 				TAG = USA
@@ -260,6 +263,9 @@ news_event = {
 		name = spt_jap_news.1.b
 		trigger = {
 			NOT = {
+				TAG = JAP
+			}
+			NOT = {
 				OR = { 
 					TAG = ENG
 					TAG = USA
@@ -278,6 +284,12 @@ news_event = {
 			}
 		}
 	}
+	option = {
+		name = spt_jap_news.1.c
+		trigger = {
+			TAG = JAP
+		}
+	}
 }
 
 #kodoha dudes succeed the coup
@@ -294,6 +306,9 @@ news_event = {
 	option = {
 		name = spt_jap_news.2.a
 		trigger = {
+			NOT = {
+				TAG = JAP
+			}
 			OR = { 
 				TAG = ENG
 				TAG = USA
@@ -315,6 +330,9 @@ news_event = {
 		name = spt_jap_news.2.b
 		trigger = {
 			NOT = {
+				TAG = JAP
+			}
+			NOT = {
 				OR = { 
 					TAG = ENG
 					TAG = USA
@@ -331,6 +349,12 @@ news_event = {
 					TAG = MON
 				}
 			}
+		}
+	}
+	option = {
+		name = spt_jap_news.2.c
+		trigger = {
+			TAG = JAP
 		}
 	}
 }

@@ -195,11 +195,8 @@ focus_tree = {
 				SPT_JAP_pol_stability_factor = 0.1 tooltip = stability_factor_tt
 			}
 			hidden_effect = {
-
-				every_country = {
-					ROOT = {
-						news_event = spt_jap_news.1
-					}
+				news_event = {
+					id = spt_jap_news.1
 				}
 			}
 		}
@@ -263,15 +260,9 @@ focus_tree = {
 			}
 			add_to_variable = { SPT_JAP_pol_fascism_drift = 0.1 tooltip = fascism_drift_tt }
 			hidden_effect = {
-
-				every_country = {
-					ROOT = {
-						news_event = {
-							id = spt_jap_news.2
-							days = 22
-						}
-					
-					}
+				news_event = {
+					id = spt_jap_news.2
+					days = 22
 				}
 			}
 		}
@@ -1678,9 +1669,6 @@ focus_tree = {
 				CHI = {
 					exists = no
 				}
-				CHI = {
-					is_puppet_of = JAP
-				}
 				has_war_with = CHI
 			}
 		}
@@ -2072,13 +2060,8 @@ focus_tree = {
 		}
 
 		available = {
-			OR = {
-				CHI = {
-					exists = no
-				}
-				CHI = {
-					is_puppet_of = JAP
-				}
+			CHI = {
+				exists = no
 			}
 			any_controlled_state = {
 				is_core_of = CHI
@@ -2131,13 +2114,8 @@ focus_tree = {
 		}
 
 		available = {
-			OR = {
-				CHI = {
-					exists = no
-				}
-				CHI = {
-					is_puppet_of = JAP
-				}
+			CHI = {
+				exists = no
 			}
 			any_controlled_state = {
 				is_core_of = CHI
@@ -2188,13 +2166,8 @@ focus_tree = {
 		}
 
 		available = {
-			OR = {
-				CHI = {
-					exists = no
-				}
-				CHI = {
-					is_puppet_of = JAP
-				}
+			CHI = {
+				exists = no
 			}
 			any_controlled_state = {
 				is_core_of = CHI
@@ -2248,13 +2221,8 @@ focus_tree = {
 		}
 
 		available = {
-			OR = {
-				CHI = {
-					exists = no
-				}
-				CHI = {
-					is_puppet_of = JAP
-				}
+			CHI = {
+				exists = no
 			}
 		}
 
@@ -2321,13 +2289,8 @@ focus_tree = {
 		}
 
 		available = {
-			OR = {
-				CHI = {
-					exists = no
-				}
-				CHI = {
-					is_puppet_of = JAP
-				}
+			CHI = {
+				exists = no
 			}
 		}
 
@@ -3675,13 +3638,15 @@ focus_tree = {
 					CHI = {
 						exists = no
 					}
-					CHI = {
-						is_puppet_of = JAP
-					}
 				}
-				any_controlled_state = {
-					is_core_of = CHI
+			 	# any_controlled_state = {
+				# 	is_core_of = CHI
+				# }
+				custom_trigger_tooltip = {
+					tooltip = SPT_JAP_has_control_of_china_tt
+					controls_all_relevant_chinese_cores = yes
 				}
+
 			}
 			has_government = fascism
 		}
@@ -3755,15 +3720,10 @@ focus = {
 		}
 	}
 	bypass = {
-		OR = {
-			CHI = {
-				exists = no
-			}
-			CHI = {
-				is_puppet_of = JAP
-			}
-			has_war_with = CHI
+		CHI = {
+			exists = no
 		}
+			
 	}
 
 	#will_lead_to_war_with = CHI
@@ -3862,13 +3822,8 @@ focus = {
 		}
 
 		bypass = {
-			OR = {
-				CHI = {
-					exists = no
-				}
-				CHI = {
-					is_puppet_of = JAP
-				}
+			CHI = {
+				exists = no
 			}
 
 		}
@@ -3922,13 +3877,8 @@ focus = {
 		}
 
 		bypass = {
-			OR = {
-				CHI = {
-					exists = no
-				}
-				CHI = {
-					is_puppet_of = JAP
-				}
+			CHI = {
+				exists = no
 			}
 
 		}
@@ -3992,13 +3942,8 @@ focus = {
 		}
 
 		bypass = {
-			OR = {
-				CHI = {
-					exists = no
-				}
-				CHI = {
-					is_puppet_of = JAP
-				}
+			CHI = {
+				exists = no
 			}
 
 		}
@@ -4051,13 +3996,8 @@ focus = {
 		}
 
 		bypass = {
-			OR = {
-				CHI = {
-					exists = no
-				}
-				CHI = {
-					is_puppet_of = JAP
-				}
+			CHI = {
+				exists = no
 			}
 
 		}
@@ -4118,13 +4058,8 @@ focus = {
 		}
 
 		bypass = {
-			OR = {
-				CHI = {
-					exists = no
-				}
-				CHI = {
-					is_puppet_of = JAP
-				}
+			CHI = {
+				exists = no
 			}
 
 		}
@@ -4178,13 +4113,8 @@ focus = {
 		}
 
 		bypass = {
-			OR = {
-				CHI = {
-					exists = no
-				}
-				CHI = {
-					is_puppet_of = JAP
-				}
+			CHI = {
+				exists = no
 			}
 
 		}
@@ -4248,13 +4178,8 @@ focus = {
 		}
 
 		bypass = {
-			OR = {
-				CHI = {
-					exists = no
-				}
-				CHI = {
-					is_puppet_of = JAP
-				}
+			CHI = {
+				exists = no
 			}
 
 		}
@@ -4307,13 +4232,8 @@ focus = {
 		}
 
 		bypass = {
-			OR = {
-				CHI = {
-					exists = no
-				}
-				CHI = {
-					is_puppet_of = JAP
-				}
+			CHI = {
+				exists = no
 			}
 
 		}
@@ -4383,10 +4303,7 @@ focus = {
 				CHI = {
 					exists = no
 				}
-				CHI = {
-					is_puppet_of = JAP
-				}
-				date > 1941.11.1
+				date > 1941.1.1
 			}
 		}
 
@@ -6206,7 +6123,7 @@ focus = {
 		prerequisite = { focus = SPT_JAP_finish_circle_two }
 		mutually_exclusive = { focus = SPT_JAP_carrier_fleet }
 		mutually_exclusive = { focus = SPT_JAP_wolfpack_fleet }
-		x = -7
+		x = -2
 		y = 1
 		relative_position_id = SPT_JAP_finish_circle_two
 		# offset = {
@@ -6237,18 +6154,170 @@ focus = {
 
 		search_filters = { FOCUS_FILTER_HISTORICAL }
 		completion_reward = {
-			#add_stability = 0.1
+			add_ideas = JAP_supremacy_of_the_battlefleet
+			add_tech_bonus = {
+				name = JAP_supremacy_of_the_battlefleet
+				bonus = 1.0
+				uses = 1
+				category = bb_tech
+			}
+			#SPT change, focus now awards 3 dockyards
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}	
+				#custom_effect_tooltip = available_mio_tt
+				#show_mio_tooltip = JAP_kure_naval_arsenal_organization
+				mio:JAP_kure_naval_arsenal_organization = {
+					add_mio_size = 1
+				}
+			}
+			ELSE = {
+				custom_effect_tooltip = available_designer
+				show_ideas_tooltip = kure_naval_arsenal
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_the_ultimate_battleship
+		icon = GFX_focus_ETH_an_ethiopian_navy_in_exile
+		prerequisite = { focus = SPT_JAP_battleship_fleet }
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_battleship_fleet
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			#is_special_project_completed = sp:sp_naval_super_heavy_battleship
+		}
+
+		bypass = {
+			is_special_project_completed = sp:sp_naval_super_heavy_battleship
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+
+			add_breakthrough_progress = {
+				specialization = specialization_naval
+				value = 0.5
+			}
+
+			if = {
+				limit = {
+					not = { has_dlc = "Man the Guns" }
+				}
+				add_tech_bonus = {
+					name = JAP_the_ultimate_battleship
+					bonus = 2.0
+					uses = 1
+					category = shbb_tech	
+				}
+			}
+			else = {
+				#if = {
+					#limit = {
+						#not = { has_tech = ship_hull_super_heavy }
+					#}
+					#set_technology = {
+						#ship_hull_super_heavy = 1
+					#}
+				#}
+				create_equipment_variant = {
+					name = "Yamato Class"
+					type = ship_hull_super_heavy_1
+					name_group = JAP_BB_HISTORICAL
+					parent_version = 0
+					modules = {
+						fixed_ship_battery_slot = ship_super_heavy_battery_1
+						fixed_ship_anti_air_slot = ship_anti_air_2
+						fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+						fixed_ship_radar_slot = empty
+						fixed_ship_engine_slot = heavy_ship_engine_2
+						fixed_ship_secondaries_slot = ship_secondaries_2
+						fixed_ship_armor_slot = ship_armor_shbb
+						front_1_custom_slot = ship_anti_air_1
+						front_2_custom_slot = empty
+						mid_1_custom_slot = empty
+						mid_2_custom_slot = ship_secondaries_2
+						mid_3_custom_slot = ship_secondaries_2
+						rear_1_custom_slot = ship_super_heavy_battery_1
+						rear_2_custom_slot = ship_airplane_launcher_1
+					}
+				}
+				
+				custom_effect_tooltip = SPT_JAP_yamato_tt
+				hidden_effect = {
+					complete_special_project = sp:sp_naval_super_heavy_battleship
+					add_equipment_production = {
+						equipment = {
+							type = ship_hull_super_heavy_1
+							creator = "JAP" 
+							version_name = "Yamato Class"
+						}
+						name = "Yamato" 
+						requested_factories = 1
+						progress = 0.7
+						amount = 1
+					}
+					add_equipment_production = {
+						equipment = {
+							type = ship_hull_super_heavy_1
+							creator = "JAP" 
+							version_name = "Yamato Class"
+						}
+						name = "Musashi" 
+						requested_factories = 1
+						progress = 0.7
+						amount = 1
+					}
+				}
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.01
+				tooltip = SPT_JAP_cg_expected_tt
+			}
 		}
 	}
 	focus = {
 		id = SPT_JAP_carrier_fleet
-		icon = GFX_goal_generic_navy_carrier
+		icon = GFX_focus_generic_air_carrier
 		prerequisite = { focus = SPT_JAP_finish_circle_two }
 		mutually_exclusive = { focus = SPT_JAP_battleship_fleet }
 		mutually_exclusive = { focus = SPT_JAP_wolfpack_fleet }
-		x = 4
-		y = 0
-		relative_position_id = SPT_JAP_battleship_fleet
+		x = -6
+		y = 1
+		relative_position_id = SPT_JAP_finish_circle_two
 		# offset = {
 		# 	x = 0
 		# 	y = 0
@@ -6277,7 +6346,86 @@ focus = {
 
 		search_filters = { FOCUS_FILTER_HISTORICAL }
 		completion_reward = {
-			#add_stability = 0.1
+			add_doctrine_cost_reduction = {
+				name = JAP_carrier_warfare_experiments
+				cost_reduction = 0.25
+				uses = 2
+				category = cat_base_strike
+			}
+
+			#SPT change, focus now awards 3 dockyards
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				mio:JAP_yokosuka_naval_arsenal_organization = {
+					add_mio_size = 1
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_first_air_fleet
+		icon = GFX_goal_generic_navy_carrier
+		prerequisite = { focus = SPT_JAP_carrier_fleet }
+		x = -1
+		y = 1
+		relative_position_id = SPT_JAP_carrier_fleet
+
+		cost = 5
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			add_ideas = JAP_first_air_fleet
+			#SPT change, focus now awards 2 dockyards
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 	focus = {
@@ -6286,7 +6434,7 @@ focus = {
 		prerequisite = { focus = SPT_JAP_battleship_fleet focus = SPT_JAP_carrier_fleet }
 		x = 2
 		y = 1
-		relative_position_id = SPT_JAP_battleship_fleet
+		relative_position_id = SPT_JAP_carrier_fleet
 
 		cost = 10
 
@@ -6406,7 +6554,7 @@ focus = {
 		prerequisite = { focus = SPT_JAP_finish_circle_two }
 		mutually_exclusive = { focus = SPT_JAP_carrier_fleet }
 		mutually_exclusive = { focus = SPT_JAP_battleship_fleet }
-		x = 3
+		x = 2
 		y = 1
 		relative_position_id = SPT_JAP_finish_circle_two
 		# offset = {
@@ -6461,16 +6609,69 @@ focus = {
 					instant_build = yes
 				}
 			}
+			if = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				mio:JAP_sasebo_naval_arsenal_organization = {
+					add_mio_size = 1
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_JAP_destroyer_modernization
+		icon = GFX_focus_generic_coastal_fort
+		prerequisite = { focus = SPT_JAP_finish_circle_two }
+		#mutually_exclusive = {  }
+		x = 5
+		y = 1
+		relative_position_id = SPT_JAP_finish_circle_two
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_tech_bonus = {
+				name = "Destroyer Modernization"
+				bonus = 2.0
+				uses = 1
+				category = dd_tech
+			}
 		}
 	}
 	focus = {
 		id = SPT_JAP_expand_snlf
 		icon = GFX_goal_generic_amphibious_assault
-		prerequisite = { focus = SPT_JAP_battleship_fleet focus = SPT_JAP_carrier_fleet focus = SPT_JAP_wolfpack_fleet }
+		prerequisite = { focus = SPT_JAP_destroyer_modernization }
 		#mutually_exclusive = { focus = SPT_JAP_wolfpack_fleet }
 		x = -1
-		y = 2
-		relative_position_id = SPT_JAP_finish_circle_two
+		y = 1
+		relative_position_id = SPT_JAP_destroyer_modernization
 		# offset = {
 		# 	x = 0
 		# 	y = 0
@@ -6532,57 +6733,12 @@ focus = {
 			}
 		}
 	}
-
-	focus = {
-		id = SPT_JAP_destroyer_modernization
-		icon = GFX_focus_generic_coastal_fort
-		prerequisite = { focus = SPT_JAP_wolfpack_fleet focus = SPT_JAP_carrier_fleet }
-		#mutually_exclusive = {  }
-		x = 4
-		y = 1
-		relative_position_id = SPT_JAP_carrier_fleet
-		# offset = {
-		# 	x = 0
-		# 	y = 0
-		# 	trigger = {
-		# 	#	NOT = { has_dlc = "Waking the Tiger" }
-		# 	}
-		# }
-
-		cost = 5
-
-		ai_will_do = {
-			factor = 4
-		}
-
-		available = {
-
-		}
-
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
-		completion_reward = {
-			add_tech_bonus = {
-				name = "Destroyer Modernization"
-				bonus = 2.0
-				uses = 1
-				category = dd_tech
-			}
-		}
-	}
 	focus = {
 		id = SPT_JAP_module_development
 		icon = GFX_focus_generic_navy_research_bonus
 		prerequisite = { focus = SPT_JAP_destroyer_modernization }
 		#mutually_exclusive = {  }
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = SPT_JAP_destroyer_modernization
 		# offset = {
@@ -6623,6 +6779,50 @@ focus = {
 				uses = 3
 				category = ship_modules_tech
 			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_long_range_navy
+		icon = GFX_focus_generic_merchant_fleet
+		prerequisite = { focus = SPT_JAP_expand_snlf }
+		prerequisite = { focus = SPT_JAP_module_development }
+		#mutually_exclusive = {  }
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_expand_snlf
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_breakthrough_progress = {
+				specialization = specialization_naval
+				value = 0.5
+			}
+			complete_special_project = sp:sp_naval_underway_replenishment
 		}
 	}
 
