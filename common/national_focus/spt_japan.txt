@@ -28,6 +28,11 @@ focus_tree = {
 		scroll_wheel_factor = 0.75
 	}
 	shortcut = {
+		name = SPT_JAP_shortcut_air
+		target = SPT_JAP_fighter_modernization
+		scroll_wheel_factor = 0.9
+	}
+	shortcut = {
 		name = SPT_JAP_shortcut_army
 		target = SPT_JAP_army_expansion
 		scroll_wheel_factor = 0.75
@@ -5960,7 +5965,7 @@ focus = {
 		icon = GFX_focus_POL_develop_polish_shipbuilding
 		# prerequisite = { focus = SPT_JAP_ }
 		#mutually_exclusive = {  }
-		x = 35
+		x = 50
 		y = 0
 		relative_position_id = SPT_JAP_liaison_conference
 		# offset = {
@@ -5989,7 +5994,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL FOCUS_FILTER_NAVY_XP }
 		complete_tooltip = {
 			add_timed_idea = {
 				idea = SPT_JAP_finish_circle_two_idea
@@ -6119,10 +6124,10 @@ focus = {
 	}	
 	focus = {
 		id = SPT_JAP_battleship_fleet
-		icon = GFX_goal_generic_navy_battleship
+		icon = GFX_focus_ARG_study_the_battle_of_the_river_plate
 		prerequisite = { focus = SPT_JAP_finish_circle_two }
 		mutually_exclusive = { focus = SPT_JAP_carrier_fleet }
-		mutually_exclusive = { focus = SPT_JAP_wolfpack_fleet }
+		mutually_exclusive = { focus = SPT_JAP_raiding_fleet }
 		x = -2
 		y = 1
 		relative_position_id = SPT_JAP_finish_circle_two
@@ -6152,7 +6157,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_HISTORICAL }
+		search_filters = { FOCUS_FILTER_HISTORICAL  }
 		completion_reward = {
 			add_ideas = JAP_supremacy_of_the_battlefleet
 			add_tech_bonus = {
@@ -6173,10 +6178,10 @@ focus = {
 						}
 					}
 				}
-				add_extra_state_shared_building_slots = 3
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = dockyard
-					level = 3
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -6222,14 +6227,14 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_RESEARCH }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_HISTORICAL }
 		completion_reward = {
 
 			add_breakthrough_progress = {
 				specialization = specialization_naval
 				value = 0.5
 			}
-
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			if = {
 				limit = {
 					not = { has_dlc = "Man the Guns" }
@@ -6242,39 +6247,31 @@ focus = {
 				}
 			}
 			else = {
-				#if = {
-					#limit = {
-						#not = { has_tech = ship_hull_super_heavy }
-					#}
-					#set_technology = {
-						#ship_hull_super_heavy = 1
-					#}
-				#}
-				create_equipment_variant = {
-					name = "Yamato Class"
-					type = ship_hull_super_heavy_1
-					name_group = JAP_BB_HISTORICAL
-					parent_version = 0
-					modules = {
-						fixed_ship_battery_slot = ship_super_heavy_battery_1
-						fixed_ship_anti_air_slot = ship_anti_air_2
-						fixed_ship_fire_control_system_slot = ship_fire_control_system_1
-						fixed_ship_radar_slot = empty
-						fixed_ship_engine_slot = heavy_ship_engine_2
-						fixed_ship_secondaries_slot = ship_secondaries_2
-						fixed_ship_armor_slot = ship_armor_shbb
-						front_1_custom_slot = ship_anti_air_1
-						front_2_custom_slot = empty
-						mid_1_custom_slot = empty
-						mid_2_custom_slot = ship_secondaries_2
-						mid_3_custom_slot = ship_secondaries_2
-						rear_1_custom_slot = ship_super_heavy_battery_1
-						rear_2_custom_slot = ship_airplane_launcher_1
-					}
-				}
 				
 				custom_effect_tooltip = SPT_JAP_yamato_tt
 				hidden_effect = {
+					create_equipment_variant = {
+						name = "Yamato Class"
+						type = ship_hull_super_heavy_1
+						name_group = JAP_BB_HISTORICAL
+						parent_version = 0
+						modules = {
+							fixed_ship_battery_slot = ship_super_heavy_battery_1
+							fixed_ship_anti_air_slot = ship_anti_air_2
+							fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+							fixed_ship_radar_slot = empty
+							fixed_ship_engine_slot = heavy_ship_engine_2
+							fixed_ship_secondaries_slot = ship_secondaries_2
+							fixed_ship_armor_slot = ship_armor_shbb
+							front_1_custom_slot = ship_anti_air_1
+							front_2_custom_slot = empty
+							mid_1_custom_slot = empty
+							mid_2_custom_slot = ship_secondaries_2
+							mid_3_custom_slot = ship_secondaries_2
+							rear_1_custom_slot = ship_super_heavy_battery_1
+							rear_2_custom_slot = ship_airplane_launcher_1
+						}
+					}
 					complete_special_project = sp:sp_naval_super_heavy_battleship
 					add_equipment_production = {
 						equipment = {
@@ -6314,7 +6311,7 @@ focus = {
 		icon = GFX_focus_generic_air_carrier
 		prerequisite = { focus = SPT_JAP_finish_circle_two }
 		mutually_exclusive = { focus = SPT_JAP_battleship_fleet }
-		mutually_exclusive = { focus = SPT_JAP_wolfpack_fleet }
+		mutually_exclusive = { focus = SPT_JAP_raiding_fleet }
 		x = -6
 		y = 1
 		relative_position_id = SPT_JAP_finish_circle_two
@@ -6344,7 +6341,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_HISTORICAL }
+		search_filters = {  }
 		completion_reward = {
 			add_doctrine_cost_reduction = {
 				name = JAP_carrier_warfare_experiments
@@ -6365,10 +6362,10 @@ focus = {
 						}
 					}
 				}
-				add_extra_state_shared_building_slots = 3
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = dockyard
-					level = 3
+					level = 2
 					instant_build = yes
 				}
 			}
@@ -6549,8 +6546,8 @@ focus = {
 		}
 	}
 	focus = {
-		id = SPT_JAP_wolfpack_fleet
-		icon = GFX_goal_generic_navy_submarine
+		id = SPT_JAP_raiding_fleet 
+		icon = GFX_focus_generic_trade_interdiction
 		prerequisite = { focus = SPT_JAP_finish_circle_two }
 		mutually_exclusive = { focus = SPT_JAP_carrier_fleet }
 		mutually_exclusive = { focus = SPT_JAP_battleship_fleet }
@@ -6565,7 +6562,7 @@ focus = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -6588,7 +6585,7 @@ focus = {
 			add_doctrine_cost_reduction = {
 				cost_reduction = 0.5
 				uses = 2
-				name = "Wolfpack Tactics"
+				name = "Raiding Tactics"
 				category = trade_interdiction_tree
 			}
 			random_owned_controlled_state = {
@@ -6654,7 +6651,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_RESEARCH}
 		completion_reward = {
 			add_tech_bonus = {
 				name = "Destroyer Modernization"
@@ -6662,13 +6659,16 @@ focus = {
 				uses = 1
 				category = dd_tech
 			}
+			mio:JAP_maizuru_naval_arsenal_organization = {
+				add_mio_size = 1
+			}
 		}
 	}
 	focus = {
 		id = SPT_JAP_expand_snlf
 		icon = GFX_goal_generic_amphibious_assault
 		prerequisite = { focus = SPT_JAP_destroyer_modernization }
-		#mutually_exclusive = { focus = SPT_JAP_wolfpack_fleet }
+		#mutually_exclusive = { focus = SPT_JAP_raiding_fleet }
 		x = -1
 		y = 1
 		relative_position_id = SPT_JAP_destroyer_modernization
@@ -6767,7 +6767,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			add_breakthrough_progress = {
 				specialization = specialization_naval
@@ -6816,7 +6816,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			add_breakthrough_progress = {
 				specialization = specialization_naval
@@ -6826,6 +6826,1022 @@ focus = {
 		}
 	}
 
+	focus = {
+		id = SPT_JAP_fighter_modernization
+		icon = GFX_focus_generic_copy_plane_designs
+		prerequisite = { focus = SPT_JAP_army_expansion focus = SPT_JAP_finish_circle_two }
+		#mutually_exclusive = {  }
+		x = 18
+		y = 1
+		relative_position_id = SPT_JAP_army_expansion
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_tech_bonus = {
+				name = JAP_fighter_modernization
+				bonus = 1.0
+				uses = 1
+				category = light_fighter		
+			}
+			add_tech_bonus = {
+				name = JAP_fighter_modernization
+				bonus = 1.0
+				uses = 1
+				category = cat_heavy_fighter	
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_range_focus
+		icon = GFX_focus_generic_long_range_aircraft
+		prerequisite = { focus = SPT_JAP_fighter_modernization }
+		mutually_exclusive = { focus = SPT_JAP_agility_focus }
+		x = -4
+		y = 1
+		relative_position_id = SPT_JAP_fighter_modernization
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {  }
+		completion_reward = {
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				mio:JAP_aichi_organization = {
+					add_mio_funds = 1000
+				}
+				mio:JAP_nakajima_organization = {
+					add_mio_funds = 1000
+				}
+			}
+			ELSE = {
+				custom_effect_tooltip = available_designer
+				show_ideas_tooltip = aichi
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_improved_bombs
+		icon = GFX_goal_generic_air_naval_bomber
+		prerequisite = { focus = SPT_JAP_range_focus }
+		# mutually_exclusive = { focus = SPT_JAP_agility_focus }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_range_focus
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_tech_bonus = {
+				name = "Improved Bombs"
+				uses = 1
+				bonus = 1
+				ahead_reduction = 1
+				category = cat_air_bombs
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_strat_bomber_focus
+		icon = GFX_goal_generic_air_bomber
+		prerequisite = { focus = SPT_JAP_range_focus }
+		#mutually_exclusive = { focus = SPT_JAP_agility_focus }
+		x = 2
+		y = 1
+		relative_position_id = SPT_JAP_range_focus
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {  }
+		completion_reward = {
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				mio:JAP_nakajima_organization = {
+					complete_mio_trait = SPT_JAP_heavy_plane_research_trait_tk
+				}
+			}
+			ELSE = {
+				air_experience = 50
+			}
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				name = "Specialized Bombing Training"
+				uses = 2
+				category = strategic_destruction_tree
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_cas_focus
+		icon = GFX_focus_generic_cas_aircraft
+		prerequisite = { focus = SPT_JAP_range_focus }
+		#mutually_exclusive = { focus = SPT_JAP_agility_focus }
+		x = -2
+		y = 1
+		relative_position_id = SPT_JAP_range_focus
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {  }
+		completion_reward = {
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				mio:JAP_aichi_organization = {
+					complete_mio_trait = SPT_JAP_heavy_plane_research_trait_tk
+				}
+			}
+			ELSE = {
+				air_experience = 50
+			}
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				name = "Support Bombing Training"
+				uses = 2
+				category = battlefield_support_tree
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_medium_frame_research_focus
+		icon = GFX_focus_generic_tank_air_support
+		prerequisite = { focus = SPT_JAP_cas_focus }
+		mutually_exclusive = { focus = SPT_JAP_large_frame_research_focus }
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_cas_focus
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_tech = basic_medium_airframe
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "By Blood Alone"
+					}
+				}
+				set_technology = { improved_medium_airframe = 1 } 
+			}
+			else = {
+				set_technology = {  improved_medium_airframe = 1 } 
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				mio:JAP_aichi_organization = {
+					complete_mio_trait = SPT_JAP_cas_bomber_trait_tk
+				}
+			}
+			ELSE = {
+				air_experience = 50 #go buy the dlc broke boy
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.01
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_large_frame_research_focus
+		icon = GFX_focus_SWE_marauder_bombers
+		prerequisite = { focus = SPT_JAP_strat_bomber_focus }
+		mutually_exclusive = { focus = SPT_JAP_medium_frame_research_focus }
+		x = -1
+		y = 1
+		relative_position_id = SPT_JAP_strat_bomber_focus
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_tech = basic_large_airframe
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "By Blood Alone"
+					}
+				}
+				set_technology = { improved_large_airframe = 1 } 
+			}
+			else = {
+				set_technology = {  improved_large_airframe = 1 } 
+			}
+
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				mio:JAP_nakajima_organization = {
+					complete_mio_trait = SPT_JAP_strat_bomber_trait_tk
+				}
+			}
+			ELSE = {
+				air_experience = 50 #go buy the dlc broke boy
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.01
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_agility_focus
+		icon = GFX_goal_generic_air_fighter2
+		prerequisite = { focus = SPT_JAP_fighter_modernization }
+		mutually_exclusive = { focus = SPT_JAP_range_focus }
+		x = 4
+		y = 1
+		relative_position_id = SPT_JAP_fighter_modernization
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				mio:JAP_mitsubishi_organization = {
+					add_mio_funds = 1000
+				}
+				mio:JAP_yokosuka_organization = {
+					add_mio_funds = 1000
+				}
+			}
+			ELSE = {
+				custom_effect_tooltip = available_designer
+				show_ideas_tooltip = mitsubishi
+			}
+
+			custom_effect_tooltip = {
+				localization_key = available_scientist_one_line_tt
+				CHARACTER = JAP_jiro_horikoshi
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_small_land_fighter_focus
+		icon = GFX_focus_generic_air_bases
+		prerequisite = { focus = SPT_JAP_agility_focus }
+		mutually_exclusive = { focus = SPT_JAP_small_carrier_fighter_focus }
+		x = -1
+		y = 1
+		relative_position_id = SPT_JAP_agility_focus
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {  }
+		completion_reward = {
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				mio:JAP_mitsubishi_organization = {
+					complete_mio_trait = SPT_JAP_small_land_research_trait_tk
+				}
+			}
+			ELSE = {
+				air_experience = 50 #go buy the dlc broke boy
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_small_carrier_fighter_focus
+		icon = GFX_focus_generic_multi_role_aircraft
+		prerequisite = { focus = SPT_JAP_agility_focus }
+		mutually_exclusive = { focus = SPT_JAP_small_land_fighter_focus }
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_agility_focus
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {  }
+		completion_reward = {
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				mio:JAP_yokosuka_organization = {
+					complete_mio_trait = SPT_JAP_carrier_research_trait_tk
+				}
+			}
+			ELSE = {
+				air_experience = 50 #go buy the dlc broke boy
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_fighter_doctrine_focus
+		icon = GFX_goal_generic_air_doctrine
+		prerequisite = {  focus = SPT_JAP_small_land_fighter_focus focus = SPT_JAP_small_carrier_fighter_focus }
+		#mutually_exclusive = { focus = SPT_JAP_small_land_fighter_focus }
+		x = -1
+		y = 1
+		relative_position_id = SPT_JAP_small_carrier_fighter_focus
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {  }
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				name = "Improved Pilot Training"
+				uses = 2
+				category = operational_integrity_tree
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_the_zero
+		icon = GFX_focus_jap_zero
+		prerequisite = { focus = SPT_JAP_fighter_doctrine_focus }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_fighter_doctrine_focus
+
+		cost = 10
+
+		ai_will_do = {
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+			has_tech = cv_fighter2
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "By Blood Alone"
+					}
+				}
+				set_technology = { cv_fighter2 = 1 } 
+			}
+			else = {
+				set_technology = { improved_small_airframe = 1 } 
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				if = {
+					limit = {
+						has_completed_focus = SPT_JAP_small_land_fighter_focus
+					}
+					mio:JAP_mitsubishi_organization = {
+						complete_mio_trait = SPT_JAP_zero_trait_tk
+					}
+				}
+				else_if = {
+					limit = {
+						has_completed_focus = SPT_JAP_small_carrier_fighter_focus
+					}
+					mio:JAP_yokosuka_organization = {
+						complete_mio_trait = SPT_JAP_zero_trait_tk
+					}
+				}
+				else = {
+					custom_effect_tooltip = SPT_JAP_zero_choice_a_tt
+					mio:JAP_mitsubishi_organization = {
+						complete_mio_trait = SPT_JAP_zero_trait_tk
+					}
+					custom_effect_tooltip = SPT_JAP_whitespace_tt
+					custom_effect_tooltip = SPT_JAP_zero_choice_b_tt
+					mio:JAP_yokosuka_organization = {
+						complete_mio_trait = SPT_JAP_zero_trait_tk
+					}
+				}
+
+			}
+			else = {
+				add_ideas = JAP_the_zero_spirit #made obsolete by new mio trait	
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.01
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_air_module_research
+		icon = GFX_focus_generic_air_research_boost
+		prerequisite = { focus = SPT_JAP_range_focus focus = SPT_JAP_agility_focus }
+		#mutually_exclusive = {  }
+		x = 4
+		y = 1
+		relative_position_id = SPT_JAP_range_focus
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_tech_bonus = {
+				name = "Air Module Research"
+				uses = 3
+				bonus = 0.25
+				category = plane_modules_tech
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_italian_exchange
+		icon = GFX_focus_BRA_italian_aircraft_development
+		prerequisite = { focus = SPT_JAP_air_module_research }
+		mutually_exclusive = { focus = SPT_JAP_increased_local_research }
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_air_module_research
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			ITA = {
+				has_war_with = ENG
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_relation_modifier = {
+				target = ITA
+				modifier = ITA_military_agreements
+			}
+			add_to_tech_sharing_group = SPT_JAP_jap_ita_plane_sharing
+			ITA = {
+				add_to_tech_sharing_group = SPT_JAP_jap_ita_plane_sharing
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_increased_local_research
+		icon = GFX_focus_SMB_purchase_aircraft
+		prerequisite = { focus = SPT_JAP_air_module_research }
+		mutually_exclusive = { focus = SPT_JAP_italian_exchange }
+		x = -1
+		y = 1
+		relative_position_id = SPT_JAP_air_module_research
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			all_controlled_state = {
+				air_facility < 1
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_breakthrough_progress = {
+				value = 0.75
+				specialization = specialization_air
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = JAP
+					land_facility < 1
+					air_facility < 1
+					nuclear_facility < 1
+					naval_facility < 1
+					NOT = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+							state = 537
+							state = 526
+						}
+					}
+				}
+				construct_building_in_random_province = {
+					air_facility = 1
+				}
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.01
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_nuclear_research
+		icon = GFX_focus_generic_nuclear_development
+		prerequisite = { focus = SPT_JAP_large_frame_research_focus }
+		prerequisite = {
+			focus = SPT_JAP_increased_local_research
+		}
+		#mutually_exclusive = { focus = SPT_JAP_italian_exchange }
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_large_frame_research_focus
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+			has_tech = atomic_research
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_tech_bonus = {
+				name = "Nuclear Experiments"
+				uses = 1
+				ahead_reduction = 0.5
+				bonus = 0.5
+				category = nuclear
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_nuclear_facility_funding
+		icon = GFX_focus_GER_wunderwaffe_inner_circle
+		prerequisite = { focus = SPT_JAP_nuclear_research }
+		#mutually_exclusive = { focus = SPT_JAP_italian_exchange }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_nuclear_research
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_tech = atomic_research
+			all_controlled_state = {
+				nuclear_facility < 1
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_breakthrough_progress = {
+				value = 0.5
+				specialization = specialization_nuclear
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = JAP
+					land_facility < 1
+					air_facility < 1
+					nuclear_facility < 1
+					naval_facility < 1
+					NOT = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+							state = 537
+							state = 526
+						}
+					}
+				}
+				construct_building_in_random_province = {
+					nuclear_facility = 1
+				}
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.02
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_rocket_research
+		icon = GFX_focus_rocketry
+		prerequisite = { focus = SPT_JAP_the_zero }
+		prerequisite = {
+			focus = SPT_JAP_italian_exchange
+		}
+		#mutually_exclusive = { focus = SPT_JAP_italian_exchange }
+		x = -2
+		y = 1
+		relative_position_id = SPT_JAP_the_zero
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			GER = {
+				has_tech = experimental_rockets
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_tech_bonus = {
+				name = JAP_german_rocketry
+				bonus = 1.0
+				uses = 1
+				category = rocketry	
+			}
+			add_ideas = JAP_german_rocketry
+		}
+	}
 
 	# focus = {
 	# 	id = SPT_JAP_
