@@ -358,3 +358,43 @@ news_event = {
 		}
 	}
 }
+
+
+# Japan declares war by bombing a navy
+news_event = {
+	id = spt_jap_news.3
+	title = spt_jap_news.3.t
+	desc = spt_jap_news.3.d
+	picture = GFX_news_event_usa_japan_at_war
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = spt_jap_news.3.a
+		trigger = {
+			NOT = {
+				OR = {
+					TAG = JAP
+					TAG = RAJ
+				}
+			}
+		}
+	}
+	option = {
+		name = spt_jap_news.3.b
+		trigger = {
+			TAG = JAP
+			not = {
+				TAG = RAJ
+			}
+		}
+	}
+	option = {
+		name = spt_jap_news.3.c
+		trigger = {
+			TAG = RAJ
+		}
+	}
+}

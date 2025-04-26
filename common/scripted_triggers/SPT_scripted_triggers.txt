@@ -62,3 +62,79 @@ controls_all_relevant_chinese_cores = { #holy shit this fucking sucks, why doesn
 	#}
 }
 
+is_part_of_allies = {
+	OR = {
+		TAG = ENG
+		TAG = USA
+		TAG = FRA
+		TAG = BRA
+		TAG = CAN
+		TAG = RAJ
+		TAG = AST
+		TAG = NZL
+		TAG = SAF
+		TAG = HOL
+		TAG = MEX
+	}
+}
+
+state_is_in_pacific_islands = {#if any dlc adds states in the pacific, you gotta add to this list for the trigger to work
+		OR = {
+			#american states
+			state = 642
+			state = 638
+			state = 727
+			state = 630
+			state = 631
+			state = 629
+			state = 632
+			state = 650
+			#filipino states
+			state = 327
+			state = 623
+			state = 624
+			state = 625
+			state = 628
+			state = 627
+			state = 626
+			#malaya states
+			state = 333
+			state = 336
+			#indonesia states
+			state = 334
+			state = 627
+			state = 673
+			state = 668
+			state = 669
+			#austrlian states
+			state = 979
+			state = 737
+			state = 634
+			#french states
+			state = 635
+			state = 734
+			#english states
+			state = 636
+			state = 643
+			state = 639
+			state = 725
+			state = 326
+	}
+}
+
+state_is_in_pearl_harbor_range_and_has_ships = { 
+	any_country = {
+		is_part_of_allies = yes
+		any_state = {
+			state_is_in_pacific_islands = yes
+			PREV = {
+				ships_in_state_ports = {
+					type = capital_ship
+					size > 0
+					state = PREV
+				}
+			}
+		}
+	}
+	
+}

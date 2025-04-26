@@ -326,7 +326,7 @@ ideas = {
 			#picture = GFX_idea_emperor_yasuhito
 
 			modifier = {
-				party_popularity_stability_factor = 0.6
+				party_popularity_stability_factor = 0.5
 				army_attack_factor = 0.05
 			}
 		}
@@ -345,6 +345,25 @@ ideas = {
 			
 			modifier = {
 				stability_factor = 0.4
+			}
+		}
+		SPT_JAP_hirohito_figurehead = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+			
+			removal_cost = -1
+
+			picture = jap_hirohito
+			
+			modifier = {
+				stability_factor = 0.6
+				democratic_drift = 0.02
+				neutrality_drift = 0.02
 			}
 		}
 		SPT_JAP_wealth_redistribution = {
@@ -440,6 +459,30 @@ ideas = {
 
 			modifier = {
 				industrial_capacity_dockyard = 0.15
+			}
+		}
+		SPT_JAP_tora_tora_tora_idea_improved = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+
+			picture = generic_navy_carrier_bonus
+			
+			modifier = {
+				port_strike = 1
+				naval_speed_factor = 0.1
+				navy_max_range_factor = 0.2
+				sortie_efficiency = 0.5
+				naval_strike_attack_factor = 0.35
+				naval_strike_targetting_factor = 0.35
+				naval_strike_agility_factor = 0.25
 			}
 		}
 
