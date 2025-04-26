@@ -15,6 +15,9 @@
     - 'Inclusive Nationalism': 70 -> 35 days
     - 'A Secular State': 70 -> 35 days
 
+#### Germany
+ - Removed focus 'Demand Slovenia'
+
 ###  3.14.1
 
 #### General
