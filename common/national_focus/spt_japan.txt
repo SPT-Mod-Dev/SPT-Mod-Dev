@@ -30,7 +30,7 @@ focus_tree = {
 	shortcut = {
 		name = SPT_JAP_shortcut_air
 		target = SPT_JAP_fighter_modernization
-		scroll_wheel_factor = 0.9
+		scroll_wheel_factor = 0.95
 	}
 	shortcut = {
 		name = SPT_JAP_shortcut_army
@@ -40,7 +40,7 @@ focus_tree = {
 	shortcut = {
 		name = SPT_JAP_shortcut_wartime_measures
 		target = SPT_JAP_strike_south_completed
-		scroll_wheel_factor = 0.75
+		scroll_wheel_factor = 0.85
 	}
 	shortcut = {
 		name = SPT_JAP_shortcut_politics
@@ -1957,17 +1957,19 @@ focus_tree = {
 		}
 
 		available = {
-			OR = {
-				controls_state = 333
-				controls_state = 672
-				controls_state = 334
+			336 = {
+				OR = {
+					is_controlled_by = JAP
+					is_controlled_by = MAN
+					is_controlled_by = SIA
+				}
 			}
-			controls_state = 336
-			OR = {
-				controls_state = 671 
-			SIA = {
-				controls_state = 671
-			}
+			671 = {
+				OR = {
+					is_controlled_by = JAP
+					is_controlled_by = MAN
+					is_controlled_by = SIA
+				}
 			}
 		}
 
@@ -2050,10 +2052,10 @@ focus_tree = {
 		}
 
 		available = {
-			OR = {
+			AND = {
 				controls_state = 333
 				controls_state = 672
-				controls_state = 671
+				controls_state = 336
 			}
 		}
 
@@ -2080,7 +2082,7 @@ focus_tree = {
 				}
 			}
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
-			671 = {
+			336 = {
 				add_dynamic_modifier = {
 					modifier = SPT_JAP_state_supply_build_up_navy
 					scope = JAP
@@ -4359,6 +4361,9 @@ focus = {
 				CHI = {
 					exists = no
 				}
+				CHI = {
+					is_puppet_of = JAP
+				}
 				date > 1941.1.1
 			}
 		}
@@ -5016,18 +5021,11 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_ECONOMIC_BUBBLE }
+		search_filters = {  }
 		completion_reward = {
 			add_timed_idea = {
 				idea = SPT_JAP_submarine_building
 				days = 120
-			}
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
-			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
-			add_to_variable = {
-				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
-				value = 0.01
-				tooltip = SPT_JAP_cg_expected_tt
 			}
 		}
 	}
@@ -5675,6 +5673,7 @@ focus = {
 		available_if_capitulated = no
 
 		search_filters = {
+			FOCUS_FILTER_ANNEXATION
 		}
 
 		completion_reward = {
@@ -5770,6 +5769,7 @@ focus = {
 		available_if_capitulated = no
 
 		search_filters = {
+			FOCUS_FILTER_ECONOMIC_BUBBLE
 		}
 
 		completion_reward = {
@@ -5798,6 +5798,20 @@ focus = {
 				}
 				409 = {
 					add_compliance = 80
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = SPT_JAP_full_eco_control
+					}
+				}
+				custom_effect_tooltip = SPT_JAP_whitespace_tt
+				custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+				add_to_variable = {
+					var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+					value = -0.03
+					tooltip = SPT_JAP_cg_expected_tt
 				}
 			}
 		}
@@ -5862,6 +5876,7 @@ focus = {
 		available_if_capitulated = no
 
 		search_filters = {
+			FOCUS_FILTER_ECONOMIC_BUBBLE
 		}
 
 		completion_reward = {
@@ -5879,6 +5894,20 @@ focus = {
 			}
 			564 = {
 				add_compliance = 50
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = SPT_JAP_full_eco_control
+					}
+				}
+				custom_effect_tooltip = SPT_JAP_whitespace_tt
+				custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+				add_to_variable = {
+					var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+					value = -0.03
+					tooltip = SPT_JAP_cg_expected_tt
+				}
 			}
 		}
 	}
@@ -7579,7 +7608,7 @@ focus = {
 		icon = GFX_focus_POL_develop_polish_shipbuilding
 		# prerequisite = { focus = SPT_JAP_ }
 		#mutually_exclusive = {  }
-		x = 30
+		x = 33
 		y = 0
 		relative_position_id = SPT_JAP_army_expansion
 		# offset = {

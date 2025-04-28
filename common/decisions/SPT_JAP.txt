@@ -309,7 +309,143 @@ SPT_JAP_eco_pressure = {
 			}
 		}
 	}
+	SPT_JAP_malaya_grain = {
+		allowed = {
+			original_tag = JAP
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		available = {
+			has_completed_focus = SPT_JAP_exploit_the_southern_resource_area
+			336 = {
+				OR = {
+					is_controlled_by = JAP
+					is_controlled_by = MAN
+					is_controlled_by = SIA
+				}
+			}
+			333 = {
+				OR = {
+					is_controlled_by = JAP
+					is_controlled_by = MAN
+					is_controlled_by = SIA
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_JAP_cg_threshold_3_or_higher_tt
+				check_variable = {
+					var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+					value = 0.03
+					compare = greater_than_or_equals
+				}
+			}
 
+		}
+		visible = {
+			not = {
+				has_completed_focus = SPT_JAP_full_eco_control
+			}
+		}
+		fire_only_once = yes
+		days_remove = 70
+		cost = 20
+		modifier = {
+			#consumer_goods_factor = 0.2
+			political_power_gain = -0.15
+		}
+		icon = GFX_decision_POL_looming_peasants_strike
+		remove_effect = {
+			333 = {
+				add_resistance = 40
+				add_compliance = -50
+			}
+			336 = {
+				add_resistance = 40
+				add_compliance = -50
+			}
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = -0.03
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+		}
+	}
+	SPT_JAP_indonesia_grain = {
+		allowed = {
+			original_tag = JAP
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		available = {
+			has_completed_focus = SPT_JAP_exploit_the_southern_resource_area
+			334 = {
+				OR = {
+					is_controlled_by = JAP
+					is_controlled_by = MAN
+					is_controlled_by = SIA
+				}
+			}
+			672 = {
+				OR = {
+					is_controlled_by = JAP
+					is_controlled_by = MAN
+					is_controlled_by = SIA
+				}
+			}
+			335 = {
+				OR = {
+					is_controlled_by = JAP
+					is_controlled_by = MAN
+					is_controlled_by = SIA
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_JAP_cg_threshold_3_or_higher_tt
+				check_variable = {
+					var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+					value = 0.03
+					compare = greater_than_or_equals
+				}
+			}
+
+		}
+		visible = {
+			not = {
+				has_completed_focus = SPT_JAP_full_eco_control
+			}
+		}
+		fire_only_once = yes
+		days_remove = 70
+		cost = 20
+		modifier = {
+			#consumer_goods_factor = 0.2
+			political_power_gain = -0.15
+		}
+		icon = GFX_decision_POL_looming_peasants_strike
+		remove_effect = {
+			335 = {
+				add_resistance = 40
+				add_compliance = -50
+			}
+			672 = {
+				add_resistance = 40
+				add_compliance = -50
+			}
+			334 = {
+				add_resistance = 40
+				add_compliance = -50
+			}
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = -0.03
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+		}
+	}
 	SPT_JAP_allow_exports = {
 		allowed = {
 			original_tag = JAP
