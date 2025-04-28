@@ -4,7 +4,8 @@
 
 #### General
  - Added event notifying Axis powers when Britain takes focus 'Secure Iraq'
- - Hurriedly resealed King Tut's tomb due to unforeseen consequences
+ - Resealed King Tut's tomb due to unforeseen consequences
+ - Paratrooper doctrine 'Combat Insertion' now available
 
 #### British Raj
  - Reduced focus times on independence path
