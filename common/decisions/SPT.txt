@@ -211,7 +211,7 @@ spt_category = {
 				}
 				add_dynamic_modifier = {
 					modifier = SPT_JAP_war_with_allies_defensive_buff
-					days = 180
+					days = 365
 					scope = JAP
 				}
 			}
@@ -235,104 +235,108 @@ spt_category = {
 					}
 					add_dynamic_modifier = {
 						modifier = SPT_JAP_war_with_allies_defensive_buff
+						days = 365
+						scope = JAP
 					}
 				}
 				SIA = {
 					every_controlled_state = {
 						add_dynamic_modifier = {
 							modifier = SPT_JAP_war_with_allies_defensive_buff
+							days = 365
+							scope = JAP
 						}
 					}
 				}
 			}
 		}
 	}
-	JAP_declare_war_on_allies_pearl_harbor_edition = {
-		icon = GFX_decision_generic_human_torpedo
+	# JAP_declare_war_on_allies_pearl_harbor_edition = {
+	# 	icon = GFX_decision_generic_human_torpedo
 
-		allowed = {
-			always = no
-		}
+	# 	allowed = {
+	# 		always = no
+	# 	}
 
-		visible = {
-			#has_completed_focus = SPT_JAP_aggressive_pacific
-			NOT = { 
-				JAP = {
-					has_war_with = USA
-				}	
-			}
-		}
+	# 	visible = {
+	# 		#has_completed_focus = SPT_JAP_aggressive_pacific
+	# 		NOT = { 
+	# 			JAP = {
+	# 				has_war_with = USA
+	# 			}	
+	# 		}
+	# 	}
 
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = SPT_JAP_state_in_pacific_to_pearl_harbor_tt
-				state_is_in_pearl_harbor_range_and_has_ships = yes
-			}
-		}
+	# 	available = {
+	# 		custom_trigger_tooltip = {
+	# 			tooltip = SPT_JAP_state_in_pacific_to_pearl_harbor_tt
+	# 			state_is_in_pearl_harbor_range_and_has_ships = yes
+	# 		}
+	# 	}
 
-		cost = 0
+	# 	cost = 0
 
-		fire_only_once = yes
+	# 	fire_only_once = yes
 
-		complete_effect = {
-			custom_effect_tooltip = SPT_JAP_pearl_harbor_tt
-			hidden_effect = {
-				random_country = {
-					limit = {
-						is_major = yes
-						is_part_of_allies = yes
-						any_state = {
-							state_is_in_pacific_islands = yes
-							PREV = {
-								ships_in_state_ports = {
-									type = capital_ship
-									size > 0
-									state = PREV
-								}
-							}
-						}
-					}
-					random_state = {
-						limit = {
-							state_is_in_pacific_islands = yes
-							PREV = {
-								ships_in_state_ports = {
-									type = capital_ship
-									size > 0
-									state = PREV
-								}
-							}
-						}
-						prioritize = { 629 } #hawaii
-						damage_units = {
-							state = THIS # optional
-							damage = 0.2
-							army = no
-							navy = yes
-						}
-						set_variable = { JAP.JAP_raided_state_var = THIS }
-						set_variable = {
-							JAP.JAP_raided_country_var = PREV
-						}
-					}
-					custom_effect_tooltip = ITA_human_torpedo_effect_tt
-					hidden_effect = {
-						country_event = { id = BBA_italy_human_torpedo_raid.1 hours = 4}
-					}
-					activate_decision = JAP_declare_war_on_allies
-				}
+	# 	complete_effect = {
+	# 		custom_effect_tooltip = SPT_JAP_pearl_harbor_tt
+	# 		hidden_effect = {
+	# 			random_country = {
+	# 				limit = {
+	# 					is_major = yes
+	# 					is_part_of_allies = yes
+	# 					any_state = {
+	# 						state_is_in_pacific_islands = yes
+	# 						PREV = {
+	# 							ships_in_state_ports = {
+	# 								type = capital_ship
+	# 								size > 0
+	# 								state = PREV
+	# 							}
+	# 						}
+	# 					}
+	# 				}
+	# 				random_state = {
+	# 					limit = {
+	# 						state_is_in_pacific_islands = yes
+	# 						PREV = {
+	# 							ships_in_state_ports = {
+	# 								type = capital_ship
+	# 								size > 0
+	# 								state = PREV
+	# 							}
+	# 						}
+	# 					}
+	# 					prioritize = { 629 } #hawaii
+	# 					damage_units = {
+	# 						state = THIS # optional
+	# 						damage = 0.2
+	# 						army = no
+	# 						navy = yes
+	# 					}
+	# 					set_variable = { JAP.JAP_raided_state_var = THIS }
+	# 					set_variable = {
+	# 						JAP.JAP_raided_country_var = PREV
+	# 					}
+	# 				}
+	# 				custom_effect_tooltip = ITA_human_torpedo_effect_tt
+	# 				hidden_effect = {
+	# 					country_event = { id = BBA_italy_human_torpedo_raid.1 hours = 4}
+	# 				}
+	# 				activate_decision = JAP_declare_war_on_allies
+	# 			}
 				
-				news_event = {
-					id = spt_jap_news.3
-				}
-			}
+	# 			news_event = {
+	# 				id = spt_jap_news.3
+	# 			}
+	# 		}
 
-		}
+	# 	}
 
-		ai_will_do = {
-			base = 0
-		}
-	}
+	# 	ai_will_do = {
+	# 		base = 0
+	# 	}
+	# }
 	FRA_push_into_italy = {
 		allowed = {
 			OR = {
