@@ -215,6 +215,36 @@ spt_category = {
 					scope = JAP
 				}
 			}
+			if = {
+				limit = {
+					has_completed_focus = SPT_JAP_defensive_continent
+				}
+				every_controlled_state = {
+					limit = {
+						OR = {
+							is_core_of = SIA
+							is_core_of = VIN
+							is_core_of = CAM
+							is_core_of = LAO
+							state = 325
+							state = 747
+							state = 601
+							state = 591
+							state = 594
+						}
+					}
+					add_dynamic_modifier = {
+						modifier = SPT_JAP_war_with_allies_defensive_buff
+					}
+				}
+				SIA = {
+					every_controlled_state = {
+						add_dynamic_modifier = {
+							modifier = SPT_JAP_war_with_allies_defensive_buff
+						}
+					}
+				}
+			}
 		}
 	}
 	JAP_declare_war_on_allies_pearl_harbor_edition = {

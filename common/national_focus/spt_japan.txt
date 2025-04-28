@@ -39,8 +39,8 @@ focus_tree = {
 	}
 	shortcut = {
 		name = SPT_JAP_shortcut_wartime_measures
-		target = SPT_JAP_strike_south
-		scroll_wheel_factor = 1
+		target = SPT_JAP_strike_south_completed
+		scroll_wheel_factor = 0.75
 	}
 	shortcut = {
 		name = SPT_JAP_shortcut_politics
@@ -4428,9 +4428,61 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_HISTORICAL }
+		search_filters = {  }
 		completion_reward = {
-
+			custom_effect_tooltip = SPT_JAP_defensive_pacific_tt
+			every_controlled_state = {
+				limit = {
+					OR = {
+						is_core_of = SIA
+						is_core_of = VIN
+						is_core_of = CAM
+						is_core_of = LAO
+						state = 325
+						state = 747
+						state = 601
+						state = 591
+						state = 594
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_war_with_allies_defensive_buff
+				}
+			}
+			SIA = {
+				every_controlled_state = {
+					add_dynamic_modifier = {
+						modifier = SPT_JAP_war_with_allies_defensive_buff
+					}
+				}
+			}
+			hidden_effect = {
+				every_controlled_state = {
+					limit = {
+						OR = {
+							is_core_of = SIA
+							is_core_of = VIN
+							is_core_of = CAM
+							is_core_of = LAO
+							state = 325
+							state = 747
+							state = 601
+							state = 591
+							state = 594
+						}
+					}
+					remove_dynamic_modifier = {
+						modifier = SPT_JAP_war_with_allies_defensive_buff
+					}
+				}
+				SIA = {
+					every_controlled_state = {
+						remove_dynamic_modifier = {
+							modifier = SPT_JAP_war_with_allies_defensive_buff
+						}
+					}
+				}
+			}
 		}
 	}
 	focus = {
@@ -4473,7 +4525,197 @@ focus = {
 
 		search_filters = { FOCUS_FILTER_HISTORICAL }
 		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_continental_operations_tt
+			add_dynamic_modifier = {
+				modifier = SPT_JAP_war_with_allies_offensive_buff
+			}
+			hidden_effect = {
+				remove_dynamic_modifier = {
+					modifier = SPT_JAP_war_with_allies_offensive_buff
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_nap_with_sov
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		prerequisite = { 
+			focus = SPT_JAP_aggressive_continent
+			focus = SPT_JAP_defensive_continent
+		}
+		#mutually_exclusive = { focus = SPT_JAP_defensive_continent  }
+		x = -1
+		y = 1
+		relative_position_id = SPT_JAP_defensive_continent
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
 
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			not = {
+				has_completed_focus = SPT_JAP_strike_south_completed
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			add_political_power = 50
+			add_command_power = 50
+			SOV = { country_event = { id = wtt_japan.11 } }
+		}
+	}
+	focus = {
+		id = SPT_JAP_prepare_the_border
+		icon = GFX_goal_generic_construction2
+		prerequisite = { 
+			focus = SPT_JAP_nap_with_sov
+		}
+		#mutually_exclusive = { focus = SPT_JAP_defensive_continent  }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_nap_with_sov
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			not = {
+				has_completed_focus = SPT_JAP_strike_south_completed
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {  }
+		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_pol_showa_state_header_tt
+			add_to_variable = {
+				SPT_JAP_pol_max_planning = 0.05
+				tooltip = max_planning_factor_tt
+			}
+			add_to_variable = {
+				SPT_JAP_pol_max_dig_in_factor = 0.1
+				tooltip = max_dig_in_factor_tt
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			if = {
+				limit = {
+					747 = {
+						OR = {
+							is_controlled_by = MAN
+							is_controlled_by = JAP
+						}
+					}
+				}
+				747 = {
+					add_building_construction = {
+						type = supply_node
+						level = 1
+						instant_build = yes
+						province = 10863
+					}
+				}
+			}
+			if = {
+				limit = {
+					670 = {
+						OR = {
+							is_controlled_by = SIA
+							is_controlled_by = JAP
+						}
+					}
+				}
+				670 = {
+					add_building_construction = {
+						type = supply_node
+						level = 1
+						instant_build = yes
+						province = 4568
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_tripartite_pact
+		icon = GFX_goal_molotov_ribbentrop_pact
+		prerequisite = { 
+			focus = SPT_JAP_nap_with_sov
+		}
+		#mutually_exclusive = { focus = SPT_JAP_defensive_continent  }
+		x = 2
+		y = 1
+		relative_position_id = SPT_JAP_nap_with_sov
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+		}
+
+		available = {
+			not = {
+				has_completed_focus = SPT_JAP_strike_south_completed
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			random_country = {
+				limit = {
+					original_tag = GER
+					has_government = fascism
+				}
+				country_event = { id = wtt_japan.109 days = 1 }
+			}
 		}
 	}
 
@@ -4515,9 +4757,17 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_HISTORICAL }
+		search_filters = { }
 		completion_reward = {
-
+			custom_effect_tooltip = SPT_JAP_pol_showa_state_header_tt
+			add_to_variable = {
+				SPT_JAP_pol_convoy_raiding_efficiency_factor = 0.1
+				tooltip = convoy_raiding_efficiency_factor_tt
+			}
+			add_to_variable = {
+				SPT_JAP_pol_naval_speed_factor = 0.1
+				tooltip = SPT_JAP_naval_speed_factor_tt
+			}
 		}
 	}
 	focus = {
@@ -4558,9 +4808,219 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_HISTORICAL }
+		search_filters = {}
 		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_pol_showa_state_header_tt
+			add_to_variable = {
+				SPT_JAP_naval_invasion_planning_bonus_speed = 0.1
+				tooltip = SPT_JAP_naval_invasion_planning_bonus_speed_tt
+			}
+			add_to_variable = {
+				SPT_JAP_pol_naval_invasion_capacity = 10
+				tooltip = naval_invasion_capacity_tt
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_supply_procurement
+		icon = GFX_focus_generic_reinforcing_the_supply_network
+		prerequisite = { 
+			focus = SPT_JAP_aggressive_archipelago
+		}
+		#mutually_exclusive = { focus = SPT_JAP_defensive_archipelago  }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_aggressive_archipelago
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
 
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			not = {
+				has_completed_focus = SPT_JAP_strike_south_completed
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {}
+		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_pol_showa_state_header_tt
+			add_to_variable = {
+				SPT_JAP_pol_supply_node_range = 0.15
+				tooltip = supply_node_range_tt
+			}
+			add_to_variable = {
+				SPT_JAP_pol_supply_consumption_factor = -0.1
+				tooltip = supply_consumption_factor_tt
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_hit_the_colonies
+		icon = GFX_focus_AST_never_gallipoli
+		prerequisite = { 
+			focus = SPT_JAP_supply_procurement
+		}
+		#mutually_exclusive = { focus = SPT_JAP_defensive_archipelago  }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_supply_procurement
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			not = {
+				has_completed_focus = SPT_JAP_strike_south_completed
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {}
+		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_archipelago_operations_tt
+			add_dynamic_modifier = {
+				modifier = SPT_JAP_war_with_allies_offensive_buff
+			}
+			hidden_effect = {
+				remove_dynamic_modifier = {
+					modifier = SPT_JAP_war_with_allies_offensive_buff
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_seize_hong_kong
+		icon = GFX_focus_usa_focus_on_asia
+		prerequisite = { 
+			focus = SPT_JAP_defensive_archipelago
+		}
+		#mutually_exclusive = { focus = SPT_JAP_aggressive_archipelago }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_defensive_archipelago
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			not = {
+				has_completed_focus = SPT_JAP_strike_south_completed
+			}
+		}
+
+		bypass = {
+			326 = {
+				OR = {
+					is_fully_controlled_by = JAP
+					is_fully_controlled_by = MAN
+				}
+			}
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { }
+		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_hong_kong_border_tt
+		}
+	}
+	focus = {
+		id = SPT_JAP_build_a_raiding_fleet
+		icon = GFX_focus_generic_cruiser_submarines
+		prerequisite = { 
+			focus = SPT_JAP_seize_hong_kong
+		}
+		#mutually_exclusive = { focus = SPT_JAP_aggressive_archipelago }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_seize_hong_kong
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			not = {
+				has_completed_focus = SPT_JAP_strike_south_completed
+			}
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_ECONOMIC_BUBBLE }
+		completion_reward = {
+			add_timed_idea = {
+				idea = SPT_JAP_submarine_building
+				days = 120
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.01
+				tooltip = SPT_JAP_cg_expected_tt
+			}
 		}
 	}
 
@@ -4986,6 +5446,9 @@ focus = {
 		prerequisite = {
 			focus = SPT_JAP_island_airports
 			focus = SPT_JAP_island_forts
+			focus = SPT_JAP_prepare_the_border
+			focus = SPT_JAP_hit_the_colonies
+			focus = SPT_JAP_build_a_raiding_fleet
 		}
 		x = 0
 		y = 4
@@ -5007,6 +5470,7 @@ focus = {
 
 		search_filters = {
 			FOCUS_FILTER_HISTORICAL
+			FOCUS_FILTER_ANNEXATION
 		}
 
 		completion_reward = {	
@@ -5095,7 +5559,7 @@ focus = {
 		icon = GFX_focus_chi_army_reform
 		# prerequisite = { focus = SPT_JAP_ }
 		#mutually_exclusive = {  }
-		x = 25
+		x = 18
 		y = 0
 		relative_position_id = SPT_JAP_liaison_conference
 		# offset = {
@@ -5583,6 +6047,78 @@ focus = {
 			GER = {
 				add_to_tech_sharing_group = SPT_JAP_jap_ger_tank_sharing
 			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_deeper_cooperation
+		icon = GFX_focus_GER_expand_gestapo
+		prerequisite = { focus = SPT_JAP_tripartite_pact }
+		prerequisite = {
+			focus = SPT_JAP_license_from_germany
+		}
+		#mutually_exclusive = { focus = SPT_JAP_indigenous_designs }
+		x = 0
+		y = 3
+		relative_position_id = SPT_JAP_license_from_germany
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {  FOCUS_FILTER_RESEARCH FOCUS_FILTER_INTERNATIONAL_TRADE }
+		completion_reward = {
+			if = {
+				limit = {
+					AND = {
+						NOT = {
+							has_completed_focus = SPT_JAP_license_from_germany
+						}
+						NOT = {
+							has_completed_focus = SPT_JAP_western_ideas
+						}
+						NOT = {
+							has_completed_focus = SPT_JAP_italian_exchange
+						}
+					}
+				}
+				custom_effect_tooltip = SPT_JAP_deeper_coop_tt
+			}
+			else = {
+				modify_tech_sharing_bonus = {
+					id = SPT_JAP_jap_ger_tank_sharing
+					bonus = 0.05
+				}
+				modify_tech_sharing_bonus = {
+					id = SPT_JAP_jap_ger_industry_sharing
+					bonus = 0.05
+				}
+				modify_tech_sharing_bonus = {
+					id = SPT_JAP_jap_ita_plane_sharing
+					bonus = 0.05
+				}
+			}
+
 		}
 	}
 	focus = {
@@ -6682,7 +7218,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL FOCUS_FILTER_NAVY_XP }
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL FOCUS_FILTER_NAVY_XP FOCUS_FILTER_ECONOMIC_BUBBLE}
 		complete_tooltip = {
 			add_timed_idea = {
 				idea = SPT_JAP_finish_circle_two_idea
@@ -6915,7 +7451,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_HISTORICAL }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ECONOMIC_BUBBLE }
 		completion_reward = {
 
 			add_breakthrough_progress = {
@@ -7069,7 +7605,7 @@ focus = {
 	}
 	focus = {
 		id = SPT_JAP_first_air_fleet
-		icon = GFX_goal_generic_navy_carrier
+		icon = GFX_focus_GER_graf_zeppelin
 		prerequisite = { focus = SPT_JAP_carrier_fleet }
 		x = -1
 		y = 1
@@ -7386,7 +7922,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_RESEARCH }
+		search_filters = {  }
 		completion_reward = {
 			if = {
 				limit = {
@@ -7807,7 +8343,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_RESEARCH }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_ECONOMIC_BUBBLE }
 		completion_reward = {
 			if = {
 				limit = {
@@ -7877,7 +8413,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_RESEARCH }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_ECONOMIC_BUBBLE }
 		completion_reward = {
 			if = {
 				limit = {
@@ -8138,7 +8674,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_HISTORICAL }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ECONOMIC_BUBBLE}
 		completion_reward = {
 			if = {
 				limit = {
@@ -8299,7 +8835,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_RESEARCH }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INTERNATIONAL_TRADE }
 		completion_reward = {
 			add_relation_modifier = {
 				target = ITA
@@ -8347,7 +8883,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_RESEARCH }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_ECONOMIC_BUBBLE }
 		completion_reward = {
 			add_breakthrough_progress = {
 				value = 0.5
@@ -8467,7 +9003,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_RESEARCH }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_ECONOMIC_BUBBLE }
 		completion_reward = {
 			add_breakthrough_progress = {
 				value = 0.5

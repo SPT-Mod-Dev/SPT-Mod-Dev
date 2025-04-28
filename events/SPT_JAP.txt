@@ -223,6 +223,118 @@ country_event = {
 	}
 }
 
+#Event for ENG indicating that a border conflict for Hong Kong will take place
+country_event = { 
+	id = spt_jap.8
+	title = spt_jap.8.t
+	desc = spt_jap.8.desc
+	is_triggered_only = yes
+	timeout_days = 14
+	picture = GFX_report_event_japanese_army_parade
+
+	immediate = {
+
+	}
+
+	option = { #holy shit we gotta do something
+		name = spt_jap.8.a
+		custom_effect_tooltip = SPT_JAP_border_war_incoming_tt
+	}
+	option = { #fuck this, that rock aint worth it
+		name = spt_jap.8.b
+		JAP = {
+			transfer_state = 326
+		}
+		add_stability = -0.05
+		add_war_support = -0.05
+	}	
+}
+
+#Japanese victory in hong kong
+country_event = { 
+	id = spt_jap.9
+	title = spt_jap.9.t
+	desc = spt_jap.9.desc
+	is_triggered_only = yes
+	timeout_days = 7
+	picture = GFX_report_event_japanese_army_parade
+
+	immediate = {
+	}
+
+	option = { #england has to suck it
+		name = spt_jap.9.a
+
+		trigger = {
+			TAG = ENG
+		}
+
+		add_stability = -0.05
+		add_war_support = -0.05
+	}
+	option = { #japan rules, england drools
+		name = spt_jap.9.b
+
+		trigger = {
+			TAG = JAP
+		}
+
+		JAP = {
+			transfer_state = 326
+		}
+		army_experience = 25
+		add_war_support = 0.1
+	}
+}
+#Japanese loss in Hong Kong
+country_event = { 
+	id = spt_jap.10
+	title = spt_jap.10.t
+	desc = spt_jap.10.desc
+	is_triggered_only = yes
+	timeout_days = 7
+	picture = GFX_report_event_japanese_army_parade
+
+	immediate = {
+	}
+
+	option = { #perfidious albion does it again
+		name = spt_jap.10.a
+
+		trigger = {
+			TAG = ENG
+		}
+		army_experience = 50
+		add_political_power = 50
+		add_command_power = 50
+	}
+	option = { #so much for superior will
+		name = spt_jap.10.b
+
+		trigger = {
+			TAG = JAP
+		}
+		add_war_support = -0.05
+		add_political_power = -25
+	}
+}
+#stalemate in hong kong
+country_event = { 
+	id = spt_jap.11
+	title = spt_jap.11.t
+	desc = spt_jap.11.desc
+	is_triggered_only = yes
+	timeout_days = 7
+	picture = GFX_report_event_japanese_army_parade
+
+	immediate = {
+	}
+
+	option = { #cool waste of time
+		name = spt_jap.11.a
+	}
+}
+
 # NEWS EVENTS
 
 #kodoha dudes fumble the coup, just like me with the goth girl
@@ -395,6 +507,72 @@ news_event = {
 		name = spt_jap_news.3.c
 		trigger = {
 			TAG = RAJ
+		}
+	}
+}
+
+news_event = {
+	id = spt_jap_news.4
+	title = spt_jap_news.4.t
+	desc = spt_jap_news.4.d
+	picture = GFX_news_event_japanese_parade
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = spt_jap_news.4.a
+		trigger = {
+			NOT = {
+				TAG = JAP
+			}
+			OR = { 
+				TAG = ENG
+				TAG = USA
+				TAG = FRA
+				TAG = BRA
+				TAG = CAN
+				TAG = RAJ
+				TAG = AST
+				TAG = NZL
+				TAG = SAF
+				TAG = HOL
+				TAG = MEX
+				TAG = SOV
+				TAG = MON
+			}
+		}
+	}
+	option = {
+		name = spt_jap_news.4.b
+		trigger = {
+			NOT = {
+				TAG = JAP
+			}
+			NOT = {
+				OR = { 
+					TAG = ENG
+					TAG = USA
+					TAG = FRA
+					TAG = BRA
+					TAG = CAN
+					TAG = RAJ
+					TAG = AST
+					TAG = NZL
+					TAG = SAF
+					TAG = HOL
+					TAG = MEX
+					TAG = SOV
+					TAG = MON
+				}
+			}
+		}
+	}
+	option = {
+		name = spt_jap_news.4.c
+		trigger = {
+			TAG = JAP
 		}
 	}
 }
