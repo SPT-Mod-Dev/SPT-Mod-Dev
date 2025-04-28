@@ -960,7 +960,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -1273,7 +1273,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -5501,37 +5501,387 @@ focus = {
 		}
 	}
 
-	# focus = {
-	# 	id = SPT_JAP_hokushin_ron
-	# 	icon = GFX_focus_GER_strike_at_the_rising_sun
-	# 	prerequisite = {
-	# 		focus = SPT_JAP_strike_south_completed
-	# 	}
-	# 	x = 0
-	# 	y = 2
-	# 	relative_position_id = SPT_JAP_strike_south_completed
-	# 	cost = 5
+	focus = {
+		id = SPT_JAP_hokushin_ron
+		icon = GFX_focus_GER_end_european_communism
+		prerequisite = {
+			focus = SPT_JAP_strike_south_completed
+			focus = SPT_JAP_fake_focus_for_aligning_tree
+		}
+		x = 0
+		y = 3
+		relative_position_id = SPT_JAP_strike_south_completed
+		cost = 2
 
-	# 	ai_will_do = {
-	# 	}
+		ai_will_do = {
+		}
 
-	# 	available = {
-	# 	}
+		available = {
+			RAJ = {
+				has_capitulated = yes
+				all_owned_state = {
+					NOT = {
+						is_controlled_by = RAJ
+					}
+				}
+			}
+			336 = {
+				OR = {
+					is_controlled_by = JAP
+					is_controlled_by = MAN
+					is_controlled_by = SIA
+				}
+			}
+		}
 
-	# 	bypass = {
-	# 	}
+		bypass = {
+		}
 
-	# 	cancel_if_invalid = yes
-	# 	continue_if_invalid = no
-	# 	available_if_capitulated = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
 
-	# 	search_filters = {
-	# 	}
+		search_filters = {
+		}
 
-	# 	completion_reward = {
+		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_soviet_operations_tt
+			add_dynamic_modifier = {
+				modifier = SPT_JAP_war_with_allies_offensive_buff
+				days = 30
+				scope = JAP
+			}
+			hidden_effect = {
+				remove_dynamic_modifier = {
+					modifier = SPT_JAP_war_with_allies_offensive_buff
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_prepare_supply
+		icon = GFX_goal_generic_construct_infrastructure
+		prerequisite = {
+			focus = SPT_JAP_hokushin_ron
+		}
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_hokushin_ron
+		cost = 2
 
-	# 	}
-	# }
+		ai_will_do = {
+		}
+
+		available = {
+			RAJ = {
+				has_capitulated = yes
+				all_owned_state = {
+					NOT = {
+						is_controlled_by = RAJ
+					}
+				}
+			}
+			336 = {
+				OR = {
+					is_controlled_by = JAP
+					is_controlled_by = MAN
+					is_controlled_by = SIA
+				}
+			}
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {
+		}
+
+		completion_reward = {
+			756 = { #Jiuquan
+				add_building_construction = {
+					type = supply_node
+					level = 1
+					instant_build = yes
+					province = 7727
+				}
+			}
+			621 = { #Suiyuan
+				add_building_construction = {
+					type = supply_node
+					level = 1
+					instant_build = yes
+					province = 10629
+				}
+			}
+			761 = { #hulunbuir
+				add_building_construction = {
+					type = supply_node
+					level = 1
+					instant_build = yes
+					province = 7743
+				}
+			}
+			714 = { #heilungkiang
+				add_building_construction = {
+					type = supply_node
+					level = 1
+					instant_build = yes
+					province = 7832
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_hokushin_ron_completed
+		icon = GFX_focus_GER_strike_at_the_rising_sun
+		prerequisite = {
+			focus = SPT_JAP_prepare_supply
+		}
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_prepare_supply
+		cost = 2
+
+		ai_will_do = {
+		}
+
+		available = {
+			RAJ = {
+				has_capitulated = yes
+				all_owned_state = {
+					NOT = {
+						is_controlled_by = RAJ
+					}
+				}
+			}
+			336 = {
+				OR = {
+					is_controlled_by = JAP
+					is_controlled_by = MAN
+					is_controlled_by = SIA
+				}
+			}
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {
+		}
+
+		completion_reward = {
+			if = {
+				limit = {
+					JAP = {
+						has_non_aggression_pact_with = SOV
+					}
+				}
+				diplomatic_relation = {
+					country = JAP
+					relation = non_aggression_pact
+					active = no
+				}
+			}
+			JAP = {
+				declare_war_on = {
+					target = SOV
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = MON
+					type = annex_everything
+				}
+				add_timed_idea = {
+					idea = SPT_JAP_hokushin_ron_idea
+					days = 180
+				}
+				add_timed_idea = {
+					idea = SPT_JAP_hokushin_ron_idea
+					days = 180
+				}
+			}
+			every_allied_country = {
+				add_timed_idea = {
+					idea = SPT_JAP_hokushin_ron_idea
+					days = 180
+				}
+				declare_war_on = {
+					target = SOV
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = MON
+					type = annex_everything
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_give_manchu_cores
+		icon = GFX_focus_jap_manchurian_project
+		prerequisite = {
+			focus = SPT_JAP_hokushin_ron_completed
+		}
+		x = -1
+		y = 1
+		relative_position_id = SPT_JAP_hokushin_ron_completed
+		cost = 5
+
+		ai_will_do = {
+		}
+
+		available = {
+			657 = {
+				OR = {
+					is_fully_controlled_by = JAP
+					is_fully_controlled_by = MAN
+					is_fully_controlled_by = SIA
+				}
+			}
+			408 = {
+				OR = {
+					is_fully_controlled_by = JAP
+					is_fully_controlled_by = MAN
+					is_fully_controlled_by = SIA
+				}
+			}
+			409 = {
+				OR = {
+					is_fully_controlled_by = JAP
+					is_fully_controlled_by = MAN
+					is_fully_controlled_by = SIA
+				}
+			}
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {
+		}
+
+		completion_reward = {
+			if = {
+				limit = {
+					MAN = {
+						exists = yes
+					}
+				}
+				657 = {
+					add_core_of = MAN
+				}
+				408 = {
+					add_core_of = MAN
+				}
+				409 = {
+					add_core_of = MAN
+				}
+			}
+			else = {
+				657 = {
+					add_compliance = 80
+				}
+				408 = {
+					add_compliance = 80
+				}
+				409 = {
+					add_compliance = 80
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_incorporate_northern_resource_area
+		icon = GFX_focus_PER_fascist_reach_out_to_japan
+		prerequisite = {
+			focus = SPT_JAP_hokushin_ron_completed
+		}
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_hokushin_ron_completed
+		cost = 5
+
+		ai_will_do = {
+		}
+
+		available = {
+			655 = {
+				OR = {
+					is_fully_controlled_by = JAP
+					is_fully_controlled_by = MAN
+					is_fully_controlled_by = SIA
+				}
+			}
+			560 = {
+				OR = {
+					is_fully_controlled_by = JAP
+					is_fully_controlled_by = MAN
+					is_fully_controlled_by = SIA
+				}
+			}
+			561 = {
+				OR = {
+					is_fully_controlled_by = JAP
+					is_fully_controlled_by = MAN
+					is_fully_controlled_by = SIA
+				}
+			}
+			563 = {
+				OR = {
+					is_fully_controlled_by = JAP
+					is_fully_controlled_by = MAN
+					is_fully_controlled_by = SIA
+				}
+			}
+			564 = {
+				OR = {
+					is_fully_controlled_by = JAP
+					is_fully_controlled_by = MAN
+					is_fully_controlled_by = SIA
+				}
+			}
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {
+		}
+
+		completion_reward = {
+			655 = {
+				add_core_of = JAP
+			}
+			560 = {
+				add_compliance = 50
+			}
+			561 = {
+				add_compliance = 50
+			}
+			563 = {
+				add_compliance = 50
+			}
+			564 = {
+				add_compliance = 50
+			}
+		}
+	}
 
 # .................................................
 # .................................................
