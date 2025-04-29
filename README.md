@@ -3,18 +3,18 @@
 ###  3.14.2
 
 #### General
+ - Implemented 1.16.5
  - Added event notifying Axis powers when Britain takes focus 'Secure Iraq'
- - Resealed King Tut's tomb due to unforeseen consequences
  - Paratrooper doctrine 'Combat Insertion' now available
+ - Resealed King Tut's tomb due to unforeseen consequences
 
 #### British Raj
- - Reduced focus times on independence path
+ - Reduced focus times on independence path (on top of 1.16.5 reductions)
     - 'A Congress Resurgent': 70 -> 35 days
     - 'India United': 70 -> 35 days
     - 'Cabinet Mission Plan': 70 -> 35 days
     - 'A Permanent Muslim Governmental Seat': 70 -> 35 days
     - 'Inclusive Nationalism': 70 -> 35 days
-    - 'A Secular State': 70 -> 35 days
 
 #### Germany
  - Removed focus 'Demand Slovenia'

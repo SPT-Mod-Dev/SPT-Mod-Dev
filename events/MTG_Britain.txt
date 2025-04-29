@@ -1481,10 +1481,21 @@ country_event = {
 				limit = {
 					tag = RAJ
 					NOT = { is_subject = no }
-					NOT = { has_autonomy_state = autonomy_dominion }
 					has_dlc = "Together for Victory"
 				}
-				set_autonomy = { target = RAJ autonomy_state = autonomy_dominion }
+				ENG = {
+					if = {
+						limit = {
+							NOT = {
+								has_government = fascism
+							}
+						}
+						set_autonomy = { target = RAJ autonomy_state = autonomy_dominion }
+					}
+					else = {
+						set_autonomy = { target = RAJ autonomy_state = autonomy_satellite }
+					}
+				}
 			}	
 			if = {
 				limit = {
@@ -1493,7 +1504,9 @@ country_event = {
 					NOT = { has_autonomy_state = autonomy_dominion }
 					has_dlc = "Together for Victory"
 				}
-				set_autonomy = { target = RAJ autonomy_state = autonomy_dominion }
+				ENG = {
+					set_autonomy = { target = PAK autonomy_state = autonomy_dominion }
+				}
 			}
 			if = {
 				limit = {
@@ -1502,7 +1515,9 @@ country_event = {
 					NOT = { has_autonomy_state = autonomy_dominion }
 					has_dlc = "Together for Victory"
 				}
-				set_autonomy = { target = RAJ autonomy_state = autonomy_dominion }
+				ENG = {
+					set_autonomy = { target = BAN autonomy_state = autonomy_dominion }
+				}
 			}
 			if = {
 				limit = {

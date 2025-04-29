@@ -3232,22 +3232,22 @@ focus_tree = {
 					}
 				}
 			}
-			bypass = {
-				OR = {
-					RAJ = { is_subject = no }
-					has_completed_focus = ENG_reclaim_the_jewel_in_the_crown
-				}
-				if = {
-						limit = {
-							has_dlc = "Graveyard of Empires"
-							has_event_target = UK_INDIA
-						}
-						event_target:UK_INDIA = {
-							exists = no
-							NOT = { is_subject_of = ROOT }
-						}
+		bypass = {
+			OR = {
+				RAJ = { is_subject = no }
+				has_completed_focus = ENG_reclaim_the_jewel_in_the_crown
+			}
+			if = {
+					limit = {
+						has_dlc = "Graveyard of Empires"
+						has_event_target = UK_INDIA
+					}
+					event_target:UK_INDIA = {
+						exists = no
+						NOT = { is_subject_of = ROOT }
 					}
 				}
+			}
 
 		continue_if_invalid = yes
 
@@ -3263,13 +3263,48 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 150
 			add_manpower = 150000
-			RAJ = {
-				swap_ideas = {
-					remove_idea = ENG_guided_by_britain_RAJ_1
-					add_idea = ENG_guided_by_britain_RAJ_2
+
+			IF = {
+				limit = {
+					has_dlc = "Graveyard of Empires"
+					has_event_target = UK_INDIA
+					event_target:UK_INDIA = {
+						exists = yes
+					}
 				}
-				hidden_effect = { country_event = { id = mtg_britain.21  hours = 6 } }
+				event_target:UK_INDIA = { 
+					swap_ideas = {
+						remove_idea = ENG_guided_by_britain_RAJ_1
+						add_idea = ENG_guided_by_britain_RAJ_2
+					}
+					drop_cosmetic_tag = yes
+					retire_country_leader = yes
+					hidden_effect = { country_event = { id = mtg_britain.21 hours = 6 } }
+				}
 			}
+
+			IF = {
+				limit = {
+					has_event_target = UK_INDIA
+					event_target:UK_INDIA = {
+						exists = yes
+					}
+				}
+				RAJ = {
+				remove_ideas = ENG_guided_by_britain_RAJ_1
+			}
+		}
+
+			ELSE = {
+				RAJ = {
+					swap_ideas = {
+						remove_idea = ENG_guided_by_britain_RAJ_1
+						add_idea = ENG_guided_by_britain_RAJ_2
+					}
+					hidden_effect = { country_event = { id = mtg_britain.21  hours = 6 	} }
+				}
+			}
+
 			if = {
 				limit = {
 					country_exists = PAK
@@ -3299,11 +3334,28 @@ focus_tree = {
 					has_dlc = "Together for Victory"
 					RAJ = {
 						is_subject = yes
-						NOT = { has_autonomy_state = autonomy_dominion }
+						NOT = {
+							has_autonomy_state = autonomy_dominion
+							has_autonomy_state = autonomy_satellite
+						}
 					}
 				}
-				set_autonomy = { target = RAJ autonomy_state = autonomy_dominion }
+				if = {
+					limit = {
+						NOT = {
+							has_completed_focus = ENG_organize_the_blackshirts
+							has_government = fascism
+						}
+					}
+					set_autonomy = { target = RAJ autonomy_state = autonomy_dominion }
+				}
+				else = {
+					set_autonomy = { target = RAJ autonomy_state = autonomy_satellite }
+				}
 			}
+
+
+
 			if = {
 				limit = {
 					has_dlc = "Together for Victory"
@@ -3324,10 +3376,16 @@ focus_tree = {
 				}
 				set_autonomy = { target = PAK autonomy_state = autonomy_dominion }
 			}
-			RAJ = {
-				drop_cosmetic_tag = yes
-				retire_country_leader = yes
+			if = {
+				limit = {
+					NOT = { has_dlc = "Graveyard of Empires" }
+				}
+				RAJ = {
+					drop_cosmetic_tag = yes
+					retire_country_leader = yes
+				}
 			}
+
 		}
 	}
 
@@ -7873,6 +7931,7 @@ focus_tree = {
 					name = "Lord Edward Halifax"
 					ruling_only = yes
 				}
+				NOT = {	has_character = ENG_winston_churchill } #MM: GoE content if he is transferred to India via event chain triggered by focus RAJ_the_jewel_becomes_the_crown
 			}
 		}
 
@@ -10077,7 +10136,16 @@ focus_tree = {
 		prerequisite = { focus = ENG_god_save_the_king }
 		available = {
 			has_full_control_of_state = 422
-		}
+			hidden_trigger = {
+					if = {
+						limit = {
+							has_dlc = "Graveyard of Empires"
+							has_event_target = UK_INDIA
+						}
+						event_target:UK_INDIA = { is_subject_of = ENG }
+					}
+				}
+			}
 		bypass = {
 			OR = {
 				RAJ = {
@@ -10088,8 +10156,20 @@ focus_tree = {
 					}
 				}
 				has_completed_focus = ENG_towards_indian_independence
+				if = {
+					limit = {
+						has_dlc = "Graveyard of Empires"
+						has_event_target = UK_INDIA
+					}
+					
+					event_target:UK_INDIA = {
+						exists = no
+						NOT = { is_subject_of = ROOT }
+					}
+				}
 			}
 		}
+
 		icon = GFX_goal_generic_position_armies
 		x = -1
 		y = 1
@@ -10130,9 +10210,26 @@ focus_tree = {
 
 	focus = {
 		id = ENG_reclaim_the_jewel_in_the_crown
-		prerequisite = { focus = ENG_ceylon_forward_operating_base }	
+		prerequisite = { focus = ENG_imperial_conscription }	
 		available = {
 			is_subject = no
+			if = {
+				limit = {
+					has_dlc = "Graveyard of Empires"
+				}
+				RAJ = {
+					NOT = { is_subject_of = ENG }
+				}
+				hidden_trigger = {
+					if = {
+						limit = {
+							has_dlc = "Graveyard of Empires"
+							has_event_target = UK_INDIA
+						}
+						event_target:UK_INDIA = { NOT = {is_subject_of = ENG} }
+					}
+				}
+			}
 		}
 		bypass = {
 			OR = {
@@ -10146,7 +10243,17 @@ focus_tree = {
 				}
 				has_completed_focus = ENG_towards_indian_independence
 			}
-		}
+			if = {
+					limit = {
+						has_dlc = "Graveyard of Empires"
+						has_event_target = UK_INDIA
+					}
+					NOT = { country_exists = event_target:UK_INDIA }
+					event_target:UK_INDIA = {
+						is_in_faction_with = ENG
+					}
+				}	
+			}
 		icon = GFX_focus_RAJ_british_investors
 		will_lead_to_war_with = RAJ
 		will_lead_to_war_with = PAK
