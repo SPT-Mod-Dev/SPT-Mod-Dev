@@ -15,6 +15,9 @@
     - 'Cabinet Mission Plan': 70 -> 35 days
     - 'A Permanent Muslim Governmental Seat': 70 -> 35 days
     - 'Inclusive Nationalism': 70 -> 35 days
+ - Focuses 'Holding the gates of india', 'Defense of burma', 'Fortify el alamein', 'The defense of hong kong', 'Defense of malaya', 'fortify aden', the aden protectorate':
+    - Halved number of forts and anti-air given
+    - Halved the duration of the state modifiers applied
 
 #### Germany
  - Removed focus 'Demand Slovenia'

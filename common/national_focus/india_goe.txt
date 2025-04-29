@@ -7420,14 +7420,14 @@ focus_tree = {
             992 ={
                 add_building_construction = {
                     type = bunker
-                    level = 4
+                    level = 2 #spt change 4 -> 2
                     instant_build = yes
                     province = 5074
                 }
 
                 add_building_construction = {
                     type = coastal_bunker   
-                    level = 4
+                    level = 2 #spt change 4 -> 2
                     instant_build = yes
                     province = 5074
                 }
@@ -18217,32 +18217,33 @@ focus = {
 		
 		custom_effect_tooltip = generic_skip_one_line_tt
 
-		if = {
-			limit = {
-				has_dlc = "Arms Against Tyranny"
-			}
-			add_equipment_subsidy = {
-				cic = 1000
-				equipment_type = infantry_equipment
-				seller_tags = { ENG } 
-			}
-			add_equipment_subsidy = {
-				cic = 1000
-				equipment_type = motorized_equipment
-				seller_tags = { ENG } 
-			}
-			add_equipment_subsidy = {
-				cic = 1000
-				equipment_type = artillery_equipment
-				seller_tags = { ENG } 
-			}
-			add_equipment_subsidy = {
-				cic = 1000
-				equipment_type = light_tank_chassis
-				seller_tags = { ENG } 
-			}
-			custom_effect_tooltip = generic_skip_one_line_tt
-		}
+        #spt change, hid subsidy bs
+		# if = {
+		# 	limit = {
+		# 		has_dlc = "Arms Against Tyranny"
+		# 	}
+		# 	add_equipment_subsidy = {
+		# 		cic = 1000
+		# 		equipment_type = infantry_equipment
+		# 		seller_tags = { ENG } 
+		# 	}
+		# 	add_equipment_subsidy = {
+		# 		cic = 1000
+		# 		equipment_type = motorized_equipment
+		# 		seller_tags = { ENG } 
+		# 	}
+		# 	add_equipment_subsidy = {
+		# 		cic = 1000
+		# 		equipment_type = artillery_equipment
+		# 		seller_tags = { ENG } 
+		# 	}
+		# 	add_equipment_subsidy = {
+		# 		cic = 1000
+		# 		equipment_type = light_tank_chassis
+		# 		seller_tags = { ENG } 
+		# 	}
+		# 	custom_effect_tooltip = generic_skip_one_line_tt
+		# }
 
 		every_owned_state = {
 			limit = {
@@ -18865,7 +18866,7 @@ focus = {
 			#Forts
 			add_building_construction = {
 				type = bunker
-				level = 4
+				level = 2 #spt change 4 -> 2
 				instant_build = yes
 				province = 5074
 			}
@@ -18873,7 +18874,7 @@ focus = {
 			#Naval Forts
 			add_building_construction = {
 				type = coastal_bunker
-				level = 4
+				level = 2 #spt change 4 -> 2
 				instant_build = yes
 				province = 5074
 			}
@@ -19788,7 +19789,7 @@ focus = {
 				}
 				add_building_construction = {
 					type = anti_air_building
-					level = 4
+					level = 2 #spt change 4 -> 2
 					instant_build = yes
 				}
 			}
@@ -19796,7 +19797,7 @@ focus = {
 			#Forts - El-Alamein
 			add_building_construction = {
 				type = bunker
-				level = 4
+				level = 2 #spt change 4 -> 2
 				instant_build = yes
 				province = 1071
 			}
@@ -19804,7 +19805,7 @@ focus = {
 			#Forts - Alexandria
 			add_building_construction = {
 				type = bunker
-				level = 4
+				level = 2 #spt change 4 -> 2
 				instant_build = yes
 				province = 4076
 			}
@@ -19812,14 +19813,14 @@ focus = {
 			#Naval Forts - Alexandria
 			add_building_construction = {
 				type = coastal_bunker
-				level = 4
+				level = 2 #spt change 4 -> 2
 				instant_build = yes
 				province = 4076
 			}
 
 			add_dynamic_modifier = {
 				modifier = RAJ_fortified_position
-				days = 365
+				days = 180 #spt change 365 -> 180
 			}
 		}
 	}
@@ -19927,7 +19928,7 @@ focus = {
 				}
 				add_building_construction = {
 					type = anti_air_building
-					level = 2
+					level = 1 #spt change 2 -> 1
 					instant_build = yes
 				}
 			}
@@ -19935,7 +19936,7 @@ focus = {
 			#Forts - Singapore
 			add_building_construction = {
 				type = bunker
-				level = 4
+				level = 2 #spt change 4 -> 2
 				instant_build = yes
 				province = 12299
 			}
@@ -19943,7 +19944,7 @@ focus = {
 			#Forts - Kuala Lumpur
 			add_building_construction = {
 				type = bunker
-				level = 4
+				level = 2 #spt change 4 -> 2
 				instant_build = yes
 				province = 10297
 			}
@@ -19951,7 +19952,7 @@ focus = {
 			#Naval Forts - Singapore
 			add_building_construction = {
 				type = coastal_bunker
-				level = 4
+				level = 2 #spt change 4 -> 2
 				instant_build = yes
 				province = 12299
 			}
@@ -19959,14 +19960,14 @@ focus = {
 			#Naval Forts - Kuala Lumpur
 			add_building_construction = {
 				type = coastal_bunker
-				level = 4
+				level = 2 #spt change 4 -> 2
 				instant_build = yes
 				province = 10297
 			}
 
 			add_dynamic_modifier = {
 				modifier = RAJ_fortified_position
-				days = 365
+				days = 180 #spt change 365 -> 180
 			}
 		}
 
@@ -20175,7 +20176,7 @@ focus = {
 			#Forts - PEGU (Rangoon)
 			add_building_construction = {
 				type = bunker
-				level = 2
+				level = 1 #spt change 2 -> 1
 				instant_build = yes
 				province = 1330
 			}
@@ -20183,7 +20184,7 @@ focus = {
 			#Forts - PEGU
 			add_building_construction = {
 				type = bunker
-				level = 2
+				level = 1 #spt change 2 -> 1
 				instant_build = yes
 				province = 12127
 			}
@@ -20222,7 +20223,7 @@ focus = {
 					#Forts - TENASSERIM (Southern province)
 					add_building_construction = {
 						type = bunker
-						level = 2
+						level = 1 #spt change 2 -> 1
 						instant_build = yes
 						province = 4336
 					}
@@ -20236,7 +20237,7 @@ focus = {
 					#Forts - TENASSERIM (Southern province)
 					add_building_construction = {
 						type = bunker
-						level = 2
+						level = 1 #spt change 2 -> 1
 						instant_build = yes
 						province = 4293
 					}
@@ -20272,21 +20273,21 @@ focus = {
 			#Forts - SAGAING I (Border with Yunnan)
 			add_building_construction = {
 				type = bunker
-				level = 2
+				level = 1 #spt change 2 -> 1
 				instant_build = yes
 				province = 4318
 			}
 			#Forts - SAGAING II (Border with Yunnan)
 			add_building_construction = {
 				type = bunker
-				level = 2
+				level = 1 #spt change 2 -> 1
 				instant_build = yes
 				province = 4996
 			}
 			#Forts - SAGAING III (Border with Yunnan)
 			add_building_construction = {
 				type = bunker
-				level = 2
+				level = 1 #spt change 2 -> 1
 				instant_build = yes
 				province = 4425
 			}
@@ -20319,7 +20320,7 @@ focus = {
 					#Forts - FEDERATES SHAN STATES I (Border with Yunnan)
 					add_building_construction = {
 						type = bunker
-						level = 2
+						level = 1 #spt change 2 -> 1
 						instant_build = yes
 						province = 10920
 					}
@@ -20333,7 +20334,7 @@ focus = {
 					#Forts - FEDERATES SHAN STATES II (Border with Yunnan)
 					add_building_construction = {
 						type = bunker
-						level = 2
+						level = 1 #spt change 2 -> 1
 						instant_build = yes
 						province = 12363
 					}
@@ -20347,7 +20348,7 @@ focus = {
 					#Forts - FEDERATES SHAN STATES III (Border with Yunnan)
 					add_building_construction = {
 						type = bunker
-						level = 2
+						level = 1 #spt change 2 -> 1
 						instant_build = yes
 						province = 4210
 					}
@@ -20382,7 +20383,7 @@ focus = {
 					#Forts - FEDERATES SHAN STATES I (Border with Yunnan & Vietnam)
 					add_building_construction = {
 						type = bunker
-						level = 2
+						level = 1 #spt change 2 -> 1
 						instant_build = yes
 						province = 7400
 					}
@@ -20396,7 +20397,7 @@ focus = {
 					#Forts - FEDERATES SHAN STATES II (Border with Yunnan)
 					add_building_construction = {
 						type = bunker
-						level = 2
+						level = 1 #spt change 2 -> 1
 						instant_build = yes
 						province = 7909
 					}
@@ -20410,7 +20411,7 @@ focus = {
 					#Forts - FEDERATES SHAN STATES III (Border with Yunnan)
 					add_building_construction = {
 						type = bunker
-						level = 2
+						level = 1 #spt change 2 -> 1
 						instant_build = yes
 						province = 7974
 					}
@@ -20446,7 +20447,7 @@ focus = {
 			}
 			add_dynamic_modifier = {
 				modifier = RAJ_fortified_position
-				days = 365
+				days = 180 #spt change 365 -> 180
 			}
 		}
 
@@ -20533,7 +20534,7 @@ focus = {
 				}
 				add_building_construction = {
 					type = anti_air_building
-					level = 2
+					level = 1 #spt change 2 -> 1
 					instant_build = yes
 				}
 			}
@@ -20541,7 +20542,7 @@ focus = {
 			#Forts - Imphal
 			add_building_construction = {
 				type = bunker
-				level = 4
+				level = 2 #spt change, 4 -> 2
 				instant_build = yes
 				province =  {
 					all_provinces = yes
@@ -20550,7 +20551,7 @@ focus = {
 
 			add_dynamic_modifier = {
 				modifier = RAJ_fortified_position
-				days = 365
+				days = 180 #spt change 365 -> 180
 			}
 		}
 
@@ -20570,14 +20571,14 @@ focus = {
 			434 = {
 				add_building_construction = {
 					type = bunker
-					level = 4
+					level = 2 #SPT change 4 -> 2
 					instant_build = yes
 					province = 1996
 				}
 
 				add_dynamic_modifier = {
 					modifier = RAJ_fortified_position
-					days = 365
+					days = 180 #spt change 365 -> 180
 				}
 			}
 		}
@@ -20608,7 +20609,7 @@ focus = {
 					}
 					add_building_construction = {
 						type = bunker
-						level = 4
+						level = 2 #spt change 4 ->2
 						instant_build = yes
 						province = 1581
 					}
@@ -20622,7 +20623,7 @@ focus = {
 					}
 					add_building_construction = {
 						type = bunker
-						level = 4
+						level = 2 #spt change 4 -> 2
 						instant_build = yes
 						province = 10090
 					}
@@ -20636,7 +20637,7 @@ focus = {
 					}
 					add_building_construction = {
 						type = bunker
-						level = 4
+						level = 2 #spt change 4 -> 2
 						instant_build = yes
 						province = 997
 					}
@@ -20644,7 +20645,7 @@ focus = {
 
 				add_dynamic_modifier = {
 					modifier = RAJ_fortified_position
-					days = 365
+					days = 180 #spt change 365 -> 180
 				}
 			}
 		}
@@ -20665,14 +20666,14 @@ focus = {
 			430 = {
 				add_building_construction = {
 					type = bunker
-					level = 4
+					level = 2 #spt change 4 -> 2 
 					instant_build = yes
 					province = 9991
 				}
 
 				add_dynamic_modifier = {
 					modifier = RAJ_fortified_position
-					days = 365
+					days = 180 #spt change 365 -> 180
 				}
 			}
 		}
@@ -20887,7 +20888,7 @@ focus = {
 				}
 				add_building_construction = {
 					type = anti_air_building
-					level = 2
+					level = 1 #spt change 2 -> 1
 					instant_build = yes
 				}
 			}
@@ -20895,7 +20896,7 @@ focus = {
 			#Forts - Hong Kong
 			add_building_construction = {
 				type = bunker
-				level = 4
+				level = 2 #spt change 4 -> 2
 				instant_build = yes
 				province = 10062
 			}
@@ -20903,7 +20904,7 @@ focus = {
 			#Naval Forts - Hong Kong
 			add_building_construction = {
 				type = coastal_bunker
-				level = 4
+				level = 2 #spt change 4 -> 2
 				instant_build = yes
 				province = 10062
 			}
@@ -20918,7 +20919,7 @@ focus = {
 		
 			add_dynamic_modifier = {
 				modifier = RAJ_fortified_position
-				days = 365
+				days = 180 #spt change 365 -> 180
 			}
 		}
 	}
