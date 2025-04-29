@@ -138,6 +138,93 @@ JAP_sasebo_naval_arsenal_organization = {
 		tag = JAP
 		has_dlc = "Arms Against Tyranny"
 	}
+	add_trait = { 
+		#for the poor fucker who attempts to deal with MIO localization, please name the token and name
+		#differently so it becomes easier to actually get the damn tooltip to work.
+		#whatever black magic pdx uses to make their stuff work has been lost to humankind
+		token = SPT_JAP_sub_raider_trait_tk
+		name = SPT_JAP_sub_raider_trait_nm
+		icon = GFX_generic_mio_trait_icon_sub_visibility
+		special_trait_background = yes
+
+		position = { x=8 y=2 }
+		
+		available = { #temp shit really, add focus requirement later
+			FROM = {
+				has_completed_focus = SPT_JAP_sub_raiders
+			}
+		}
+
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.05
+		}
+
+		limit_to_equipment_type = { submarine }
+		
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
+	}
+	add_trait = { 
+		#for the poor fucker who attempts to deal with MIO localization, please name the token and name
+		#differently so it becomes easier to actually get the damn tooltip to work.
+		#whatever black magic pdx uses to make their stuff work has been lost to humankind
+		token = SPT_JAP_surface_raider_trait_tk
+		name = SPT_JAP_surface_raider_trait_nm
+		icon = GFX_generic_mio_trait_icon_surface_visibility
+		special_trait_background = yes
+
+		position = { x=9 y=2 }
+		
+		available = { #temp shit really, add focus requirement later
+			FROM = {
+				has_completed_focus = SPT_JAP_surface_raiders
+			}
+		}
+
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.05
+		}
+
+		limit_to_equipment_type = { screen_ship }
+		
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
+	}
+	add_trait = { 
+		#for the poor fucker who attempts to deal with MIO localization, please name the token and name
+		#differently so it becomes easier to actually get the damn tooltip to work.
+		#whatever black magic pdx uses to make their stuff work has been lost to humankind
+		token = SPT_JAP_torp_attack_trait_tk
+		name = SPT_JAP_torp_attack_trait_nm
+		icon = GFX_generic_mio_trait_icon_torpedo_attack
+		special_trait_background = yes
+
+		position = { x=9 y=3 }
+		
+		available = { #temp shit really, add focus requirement later
+			FROM = {
+				has_completed_focus = SPT_JAP_torpedo_tactics
+			}
+		}
+
+		any_parent = {
+			SPT_JAP_sub_raider_trait_tk
+			SPT_JAP_surface_raider_trait_tk
+		}
+
+		organization_modifier = {
+			#military_industrial_organization_research_bonus = 0.05
+		}
+
+		limit_to_equipment_type = { screen_ship submarine }
+		
+		equipment_bonus = {
+			torpedo_attack = 0.1
+			naval_range = 0.1
+		}
+	}
 }
 
 ###########################

@@ -7771,7 +7771,7 @@ focus = {
 		prerequisite = { focus = SPT_JAP_finish_circle_two }
 		mutually_exclusive = { focus = SPT_JAP_carrier_fleet }
 		mutually_exclusive = { focus = SPT_JAP_raiding_fleet }
-		x = -2
+		x = -1
 		y = 1
 		relative_position_id = SPT_JAP_finish_circle_two
 		# offset = {
@@ -7955,7 +7955,7 @@ focus = {
 		prerequisite = { focus = SPT_JAP_finish_circle_two }
 		mutually_exclusive = { focus = SPT_JAP_battleship_fleet }
 		mutually_exclusive = { focus = SPT_JAP_raiding_fleet }
-		x = -6
+		x = -7
 		y = 1
 		relative_position_id = SPT_JAP_finish_circle_two
 		# offset = {
@@ -8072,7 +8072,7 @@ focus = {
 		id = SPT_JAP_cruiser_modernization
 		icon = GFX_focus_generic_cruiser2
 		prerequisite = { focus = SPT_JAP_battleship_fleet focus = SPT_JAP_carrier_fleet }
-		x = 2
+		x = 3
 		y = 1
 		relative_position_id = SPT_JAP_carrier_fleet
 
@@ -8134,6 +8134,7 @@ focus = {
 
 		completion_reward = {
 			add_ideas = the_long_lance
+			navy_experience = 25
 		}
 
 	}
@@ -8194,7 +8195,7 @@ focus = {
 		prerequisite = { focus = SPT_JAP_finish_circle_two }
 		mutually_exclusive = { focus = SPT_JAP_carrier_fleet }
 		mutually_exclusive = { focus = SPT_JAP_battleship_fleet }
-		x = 2
+		x = 5
 		y = 1
 		relative_position_id = SPT_JAP_finish_circle_two
 		# offset = {
@@ -8225,12 +8226,6 @@ focus = {
 
 		search_filters = {  }
 		completion_reward = {
-			add_doctrine_cost_reduction = {
-				cost_reduction = 0.5
-				uses = 2
-				name = "Raiding Tactics"
-				category = trade_interdiction_tree
-			}
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT
@@ -8254,8 +8249,339 @@ focus = {
 					has_dlc = "Arms Against Tyranny"
 				}
 				mio:JAP_sasebo_naval_arsenal_organization = {
-					add_mio_size = 1
+					add_mio_funds = 500
 				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_surface_raiders
+		icon = GFX_focus_generic_destroyer
+		prerequisite = { focus = SPT_JAP_raiding_fleet }
+		mutually_exclusive = { focus = SPT_JAP_sub_raiders }
+		x = -2
+		y = 1
+		relative_position_id = SPT_JAP_raiding_fleet
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {  }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				mio:JAP_sasebo_naval_arsenal_organization = {
+					complete_mio_trait = SPT_JAP_surface_raider_trait_tk
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_sub_raiders
+		icon = GFX_goal_generic_navy_anti_submarine
+		prerequisite = { focus = SPT_JAP_raiding_fleet }
+		mutually_exclusive = { focus = SPT_JAP_surface_raiders}
+		x = 2
+		y = 1
+		relative_position_id = SPT_JAP_raiding_fleet
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {  }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				mio:JAP_sasebo_naval_arsenal_organization = {
+					complete_mio_trait = SPT_JAP_sub_raider_trait_tk
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_sub_doctrine
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = SPT_JAP_surface_raiders focus = SPT_JAP_sub_raiders }
+		#mutually_exclusive = { focus = SPT_JAP_surface_raiders}
+		x = 2
+		y = 1
+		relative_position_id = SPT_JAP_surface_raiders
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_NAVY_XP }
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 2
+				name = "Raiding Tactics"
+				category = trade_interdiction_tree
+			}
+			navy_experience = 50
+		}	
+	}
+	focus = {
+		id = SPT_JAP_torpedo_tactics
+		icon = GFX_focus_generic_torpedo_production
+		prerequisite = { focus = SPT_JAP_sub_doctrine }
+		#mutually_exclusive = { focus = SPT_JAP_surface_raiders}
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_sub_doctrine
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH  }
+		completion_reward = {
+			mio:JAP_sasebo_naval_arsenal_organization = {
+				unlock_mio_trait_tooltip = SPT_JAP_torp_attack_trait_tk
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			add_ideas = the_long_lance
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			add_tech_bonus = {
+				name = "Torpedo Development"
+				bonus = 0.5
+				uses = 2
+				ahead_reduction = 1.0
+				category = cat_torpedoes
+			}
+		}	
+	}
+
+	focus = {
+		id = SPT_JAP_cruiser_subs
+		icon = GFX_focus_generic_cruiser_submarines
+		prerequisite = { focus = SPT_JAP_torpedo_tactics }
+		prerequisite = {
+			focus = SPT_JAP_sub_raiders
+		}
+		#mutually_exclusive = { focus = SPT_JAP_surface_raiders}
+		x = 0
+		y = 3
+		relative_position_id = SPT_JAP_sub_raiders
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_ECONOMIC_BUBBLE }
+		completion_reward = {
+			add_breakthrough_progress = {
+				specialization = specialization_naval
+				value = 0.5
+			}
+			complete_special_project = sp:sp_naval_cruiser_submarine
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.005
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_panzershiff
+		icon = GFX_focus_generic_navy_battleship2
+		prerequisite = { focus = SPT_JAP_torpedo_tactics }
+		prerequisite = {
+			focus = SPT_JAP_surface_raiders
+		}
+		#mutually_exclusive = { focus = SPT_JAP_surface_raiders}
+		x = 0
+		y = 3
+		relative_position_id = SPT_JAP_surface_raiders
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_ECONOMIC_BUBBLE }
+		completion_reward = {
+			add_breakthrough_progress = {
+				specialization = specialization_naval
+				value = 0.5
+			}
+			complete_special_project = sp:sp_naval_panzerschiff
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.005
+				tooltip = SPT_JAP_cg_expected_tt
 			}
 		}
 	}
@@ -8265,7 +8591,7 @@ focus = {
 		icon = GFX_focus_generic_coastal_fort
 		prerequisite = { focus = SPT_JAP_finish_circle_two }
 		#mutually_exclusive = {  }
-		x = 5
+		x = 10
 		y = 1
 		relative_position_id = SPT_JAP_finish_circle_two
 		# offset = {
