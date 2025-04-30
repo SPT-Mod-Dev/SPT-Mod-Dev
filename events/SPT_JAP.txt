@@ -359,6 +359,28 @@ country_event = {
 	}
 }
 
+#War with the allies makes the inflation go up
+country_event = { 
+	id = spt_jap.13
+	title = spt_jap.13.t
+	desc = spt_jap.13.desc
+	is_triggered_only = yes #triggered by declaring war on the allies via decision
+	timeout_days = 14
+	picture = GFX_report_event_japanese_soldiers_03
+
+	immediate = { #effect applied immediately to avoid cheese
+		add_to_variable = {
+			var = JAP.spt_jap_cg_increase_tracker
+			value = 0.005
+		}
+	}
+
+	option = { #Warns the player that shit sucks now
+		name = spt_jap.13.a
+		custom_effect_tooltip = SPT_JAP_cg_expected_timed_increase_up_tt
+	}
+}
+
 # NEWS EVENTS
 
 #kodoha dudes fumble the coup, just like me with the goth girl

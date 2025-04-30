@@ -331,3 +331,76 @@ SPT_JAP_spawn_militia = {
 		}
 	}
 }
+
+SPT_CHI_set_up_militia = { #set up chinese spawn in divs
+	division_template = {
+		name = "Nationalist Volunteers"
+		#division_names_group = 
+		is_locked = yes
+		force_allow_recruiting = no
+		priority = 0
+		#override_model = BRA_militia_entity
+		#division_cap = 6
+		template_counter = 03
+		regiments = {
+			infantry = { x = 0 y = 0 }
+			infantry = { x = 0 y = 1 }
+			infantry = { x = 0 y = 2 }
+			infantry = { x = 0 y = 3 }
+			infantry = { x = 1 y = 0 }
+			infantry = { x = 1 y = 1 }
+			infantry = { x = 1 y = 2 }
+			infantry = { x = 1 y = 3 }
+			infantry = { x = 2 y = 0 }
+		}
+	}
+	division_template = {
+		name = "Communist Volunteers"
+		#division_names_group = 
+		is_locked = yes
+		force_allow_recruiting = no
+		priority = 0
+		#override_model = BRA_militia_entity
+		#division_cap = 6
+		template_counter = 14
+		regiments = {
+			infantry = { x = 0 y = 0 }
+			infantry = { x = 0 y = 1 }
+			infantry = { x = 0 y = 2 }
+			infantry = { x = 0 y = 3 }
+			infantry = { x = 1 y = 0 }
+			infantry = { x = 1 y = 1 }
+			infantry = { x = 1 y = 2 }
+		}
+	}
+}
+SPT_CHI_spawn_militia = { #spawn a bunch of divs in random states
+	hidden_effect = {
+		for_loop_effect = {
+			value = chi_div_spawn_counter
+			start = 0
+			end = 10
+			compare = less_than
+			add = 1
+			
+			random_owned_state = {
+				limit = {
+					is_core_of = CHI
+					is_fully_controlled_by = CHI
+				}
+				create_unit = {
+					division = "division_template = \"Nationalist Volunteers\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
+					OWNER = CHI
+				}
+				create_unit = {
+					division = "division_template = \"Nationalist Volunteers\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
+					OWNER = CHI
+				}
+				create_unit = {
+					division = "division_template = \"Communist Volunteers\" start_experience_factor = 0.1 start_equipment_factor = 1.0"
+					OWNER = CHI
+				}
+			}
+		}
+	}
+}
