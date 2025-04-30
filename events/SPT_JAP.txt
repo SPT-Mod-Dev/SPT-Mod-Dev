@@ -1,4 +1,5 @@
 add_namespace = spt_jap
+add_namespace = spt_jap_election
 add_namespace = spt_jap_news
 
 #country_event = {
@@ -12,7 +13,7 @@ add_namespace = spt_jap_news
 #}
 
 
-country_event = { #hidden event to spawn militia units periodically
+country_event = { #hidden event to spawn militia units periodically (for japan)
 	id = spt_jap.2
 	title = spt_jap.2.t
 	desc = spt_jap.2.desc
@@ -102,6 +103,20 @@ country_event = {
 		}
 		hidden_effect = {
 			add_ideas = SPT_JAP_grain_market_inflation_active
+
+			#this is to prevent forever wars on the ai side, a small convenience thing for test builds
+			#it happens here just to give some variation on when exactly it fires
+			if = {
+				limit = {
+					JAP = {
+						is_ai = yes
+					}
+				}
+				country_event = {
+					id = spt_jap.999
+					days = 800
+				}
+			}
 		}
 	}
 
@@ -359,6 +374,34 @@ country_event = {
 	}
 }
 
+
+
+
+
+
+country_event = { 
+	id = spt_jap.999
+	title = spt_jap.999.t
+	desc = spt_jap.999.desc
+	is_triggered_only = yes
+	hidden = yes
+	timeout_days = 7
+	picture = GFX_report_event_japanese_army_parade
+
+	immediate = {
+		JAP = {
+			annex_country = {
+				target = CHI
+			}
+		}
+		add_threat = 50
+	}
+
+	option = { # :)
+		name = spt_jap.999.a
+	}
+}
+
 #War with the allies makes the inflation go up
 country_event = { 
 	id = spt_jap.13
@@ -378,6 +421,26 @@ country_event = {
 	option = { #Warns the player that shit sucks now
 		name = spt_jap.13.a
 		custom_effect_tooltip = SPT_JAP_cg_expected_timed_increase_up_tt
+	}
+}
+
+#as a reminder to myself, election events are a scam and you need to calc how many days between 2 dates to fake the election cycle
+country_event = { 
+	id = spt_jap_election.1
+	title = spt_jap_election.1.t
+	desc = spt_jap_election.1.desc
+	is_triggered_only = yes
+	timeout_days = 14
+	picture = GFX_report_event_japanese_soldiers_03
+
+	trigger = {
+		always = no
+	}
+
+	immediate = {
+	}
+
+	option = {
 	}
 }
 

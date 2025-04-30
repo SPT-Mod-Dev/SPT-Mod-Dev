@@ -1650,13 +1650,17 @@ SPT_JAP_military_operations = {
 
 
 #china spawn-in divs to make things a little more spicy
+#this only happens if japan is a player
 SPT_JAP_China_exclusive_spawn_divs = { 
-	set_up_and_spawn_first_wave = {
+	set_up_and_spawn_wave_1 = {
 		cost = 0
 		fire_only_once = yes
 		icon = GFX_decision_revolt
 
 		available = {
+			JAP = {
+				is_ai = no
+			}
 		}
 		visible = {
 		}
@@ -1682,6 +1686,9 @@ SPT_JAP_China_exclusive_spawn_divs = {
 
 		available = {
 			has_war_with = JAP
+			JAP = {
+				is_ai = no
+			}
 		}
 		visible = {
 		}
@@ -1697,6 +1704,8 @@ SPT_JAP_China_exclusive_spawn_divs = {
 
 		complete_effect = {
 			SPT_CHI_spawn_militia = yes
+			army_experience = -50
+			#wave 2 is instant on war start, so no point in applying state debuffs
 		}
 	}
 	spawn_wave_3 = {
@@ -1706,7 +1715,10 @@ SPT_JAP_China_exclusive_spawn_divs = {
 
 		available = {
 			has_war_with = JAP
-			surrender_progress = 0.15
+			surrender_progress > 0.20
+			JAP = {
+				is_ai = no
+			}
 		}
 		visible = {
 		}
@@ -1721,7 +1733,27 @@ SPT_JAP_China_exclusive_spawn_divs = {
 		# }
 
 		complete_effect = {
+			SPT_CHI_spawn_militia = yes #yeah, this wave does spawn 2 batches, it's intentional
 			SPT_CHI_spawn_militia = yes
+			army_experience = -50
+			every_owned_state = {
+				limit = {
+					NOT = {
+						is_fully_controlled_by = CHI
+					}
+					OR = {
+						NOT = {
+							is_fully_controlled_by = JAP
+							is_fully_controlled_by = MAN
+							is_fully_controlled_by = SIA
+						}
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = SPT_CHI_war_of_resistance
+					days = 15
+				}
+			}
 		}
 	}
 	spawn_wave_4 = {
@@ -1731,7 +1763,10 @@ SPT_JAP_China_exclusive_spawn_divs = {
 
 		available = {
 			has_war_with = JAP
-			surrender_progress = 0.40
+			surrender_progress > 0.45
+			JAP = {
+				is_ai = no
+			}
 		}
 		visible = {
 		}
@@ -1747,6 +1782,25 @@ SPT_JAP_China_exclusive_spawn_divs = {
 
 		complete_effect = {
 			SPT_CHI_spawn_militia = yes
+			army_experience = -50
+			every_owned_state = {
+				limit = {
+					NOT = {
+						is_fully_controlled_by = CHI
+					}
+					OR = {
+						NOT = {
+							is_fully_controlled_by = JAP
+							is_fully_controlled_by = MAN
+							is_fully_controlled_by = SIA
+						}
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = SPT_CHI_war_of_resistance
+					days = 15
+				}
+			}
 		}
 	}
 	spawn_wave_5 = {
@@ -1756,7 +1810,10 @@ SPT_JAP_China_exclusive_spawn_divs = {
 
 		available = {
 			has_war_with = JAP
-			surrender_progress = 0.75
+			surrender_progress > 0.75
+			JAP = {
+				is_ai = no
+			}
 		}
 		visible = {
 		}
@@ -1772,6 +1829,25 @@ SPT_JAP_China_exclusive_spawn_divs = {
 
 		complete_effect = {
 			SPT_CHI_spawn_militia = yes
+			army_experience = -50
+			every_owned_state = {
+				limit = {
+					NOT = {
+						is_fully_controlled_by = CHI
+					}
+					OR = {
+						NOT = {
+							is_fully_controlled_by = JAP
+							is_fully_controlled_by = MAN
+							is_fully_controlled_by = SIA
+						}
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = SPT_CHI_war_of_resistance
+					days = 15
+				}
+			}
 		}
 	}
 }
