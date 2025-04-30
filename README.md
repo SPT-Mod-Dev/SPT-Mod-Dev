@@ -8,6 +8,10 @@
  - Paratrooper doctrine 'Combat Insertion' now available
  - Resealed King Tut's tomb due to unforeseen consequences
 
+#### Brazil
+ - Focus 'Secure our Borders' now sends a faction join request to the UK
+ - Focus 'The Washington Accords' no longer bypasses if already in faction with US
+
 #### British Raj
  - Reduced focus times on independence path (on top of 1.16.5 reductions)
     - 'A Congress Resurgent': 70 -> 35 days
