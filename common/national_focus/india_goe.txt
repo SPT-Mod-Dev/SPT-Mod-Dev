@@ -31,7 +31,9 @@ focus_tree = {
         }
     }
     default = no
-    continuous_focus_position = { x = 200 y = 3800 }
+    # SPTchange
+    # continuous_focus_position = { x = 200 y = 3800 }
+    continuous_focus_position = { x = 200 y = 1800 }
 
     focus = {
         id = RAJ_indianize_the_army
@@ -7099,10 +7101,25 @@ focus_tree = {
     focus = {
         id = RAJ_princely_states_policy
         icon = GFX_focus_rom_handle_king # 
-        prerequisite = { focus = RAJ_provincial_autonomy }
+        # SPTchange
+        # prerequisite = { focus = RAJ_provincial_autonomy }
+        prerequisite = { focus = RAJ_provincial_autonomy focus = RAJ_his_majestys_loyal_government }
         x = -2
         y = 1
         relative_position_id = RAJ_provincial_autonomy 
+
+        # SPTchange
+        offset = {
+        	x = 16 
+        	y = 0
+        	trigger = {
+        		has_game_rule = {
+        			rule = obsolete_focus_branches_visibility
+        			option = HIDE
+        		}
+        		has_completed_focus = RAJ_his_majestys_loyal_government
+        	}
+        }
 
         cost = 5
 
