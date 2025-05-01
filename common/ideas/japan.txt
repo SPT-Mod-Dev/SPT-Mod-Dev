@@ -531,8 +531,42 @@ ideas = {
 				org_loss_when_moving = -0.25
 			}
 		}
+		SPT_JAP_first_air_fleet_weak = {
 
+			allowed = {
+				always = no
+			}
 
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+
+			picture = generic_navy_carrier_bonus
+			
+			modifier = {
+				sortie_efficiency = 0.1
+			}
+		}
+		SPT_JAP_wonder_weapons = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+
+			picture = generic_research_bonus
+			
+			modifier = {
+				special_project_speed_factor = 0.1
+			}
+		}
 
 		#SPT new ideas end
 		###############
@@ -768,6 +802,9 @@ ideas = {
 			
 			modifier = {
 				sortie_efficiency = 0.2
+				#spt change, buffed it
+				navy_carrier_air_attack_factor = 0.1
+				navy_carrier_air_agility_factor = 0.1
 			}
 		}
 
@@ -1805,8 +1842,8 @@ ideas = {
 			
 			modifier = {
 				#SPT change, rebalanced to make it about rockets and wonderweapons
-				#research_speed_factor = 0.07
-				special_project_speed_factor = 0.1
+				research_speed_factor = 0.05
+				special_project_speed_factor = 0.05
 				production_speed_rocket_site_factor = 0.1
 			}
 		}
@@ -2566,7 +2603,8 @@ ideas = {
 			}
 			
 			modifier = {
-				production_lack_of_resource_penalty_factor = -0.1
+				production_lack_of_resource_penalty_factor = -0.05
+				production_speed_buildings_factor = 0.05
 			}
 
 			traits = { industrial_concern }
@@ -2586,6 +2624,7 @@ ideas = {
 			modifier = {
 				production_speed_radar_station_factor = 0.25
 				production_speed_anti_air_building_factor = 0.25
+				land_reinforce_rate = 0.01
 			}
 
 			traits = { electronics_concern }
@@ -2607,6 +2646,7 @@ ideas = {
 			modifier = {
 				production_speed_rail_way_factor = 0.25
 				production_speed_supply_node_factor = 0.15
+				fuel_gain_factor = 0.1
 			}
 
 			traits = { refinery_concern }

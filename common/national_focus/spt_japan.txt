@@ -30,7 +30,7 @@ focus_tree = {
 	shortcut = {
 		name = SPT_JAP_shortcut_air
 		target = SPT_JAP_fighter_modernization
-		scroll_wheel_factor = 0.95
+		scroll_wheel_factor = 0.85
 	}
 	shortcut = {
 		name = SPT_JAP_shortcut_army
@@ -3739,6 +3739,9 @@ focus_tree = {
 						value = 0.0
 					}
 				}
+				remove_dynamic_modifier = {
+					modifier = SPT_JAP_eco_pressure_modifier
+				}
 			}
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			swap_ideas = {
@@ -6978,7 +6981,10 @@ focus = {
 		}
 
 		available = {
-
+			OR = {
+				has_idea = JAP_interservice_rivalry_army_dominant
+				has_idea = JAP_interservice_rivalry_army_strengthened
+			}
 		}
 
 		bypass = {
@@ -7651,7 +7657,7 @@ focus = {
 				}
 				add_building_construction = {
 					type = dockyard
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 			}
@@ -7702,6 +7708,8 @@ focus = {
 							state = 646
 							state = 645
 							state = 555
+							state = 537
+							state = 526
 						}
 					}
 					free_building_slots = {
@@ -7710,10 +7718,10 @@ focus = {
 						include_locked = yes
 					}
 				}
-				add_extra_state_shared_building_slots = 2
+				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = dockyard
-					level = 2
+					level = 3
 					instant_build = yes
 				}
 				set_state_flag = JAP_new_naval_estimates_DY1
@@ -7727,6 +7735,8 @@ focus = {
 							state = 646
 							state = 645
 							state = 555
+							state = 537
+							state = 526
 						}
 					}				
 					free_building_slots = {
@@ -7805,6 +7815,8 @@ focus = {
 							state = 646
 							state = 645
 							state = 555
+							state = 537
+							state = 526
 						}
 					}
 				}
@@ -7973,14 +7985,8 @@ focus = {
 
 		search_filters = {  }
 		completion_reward = {
-			add_doctrine_cost_reduction = {
-				name = JAP_carrier_warfare_experiments
-				cost_reduction = 0.25
-				uses = 2
-				category = cat_base_strike
-			}
+			add_ideas = SPT_JAP_first_air_fleet_weak
 
-			#SPT change, focus now awards 3 dockyards
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT
@@ -7989,6 +7995,8 @@ focus = {
 							state = 646
 							state = 645
 							state = 555
+							state = 537
+							state = 526
 						}
 					}
 				}
@@ -8006,6 +8014,65 @@ focus = {
 				mio:JAP_yokosuka_naval_arsenal_organization = {
 					add_mio_size = 1
 				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_carrier_research
+		icon = GFX_focus_BRA_converted_carriers
+		prerequisite = { focus = SPT_JAP_carrier_fleet }
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_carrier_fleet
+
+		cost = 10
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = "Carrier Research"
+				bonus = 1.0
+				uses = 1
+				ahead_reduction = 2.0
+				category = cv_tech
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+							state = 537
+							state = 526
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			mio:JAP_yokosuka_naval_arsenal_organization = {
+				complete_mio_trait = SPT_JAP_carrier_ship_research_trait_tk
 			}
 		}
 	}
@@ -8033,7 +8100,10 @@ focus = {
 
 
 		completion_reward = {
-			add_ideas = JAP_first_air_fleet
+			swap_ideas = {
+				remove_idea = SPT_JAP_first_air_fleet_weak
+				add_idea = JAP_first_air_fleet
+			}
 			#SPT change, focus now awards 2 dockyards
 			random_owned_controlled_state = {
 				limit = {
@@ -8043,6 +8113,135 @@ focus = {
 							state = 646
 							state = 645
 							state = 555
+							state = 537
+							state = 526
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_carrier_doctrine
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = SPT_JAP_first_air_fleet }
+		prerequisite = {
+			focus = SPT_JAP_carrier_research
+		}
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_first_air_fleet
+
+		cost = 5
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {
+			FOCUS_FILTER_NAVY_XP
+		}
+		completion_reward = {
+			navy_experience = 50
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.25
+				name = "Aircraft Carrier Doctrine Studies"
+				uses = 3
+				category = cat_base_strike
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_radar_detection
+		icon = GFX_goal_generic_radar
+		prerequisite = { focus = SPT_JAP_carrier_doctrine }
+		x = 1
+		y = 1
+		relative_position_id = SPT_JAP_carrier_doctrine
+
+		cost = 5
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {
+			FOCUS_FILTER_RESEARCH
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = "Radar Improvements"
+				bonus = 0.5
+				uses = 2
+				ahead_reduction = 1.0
+				category = radar_tech
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_carrier_specialists
+		icon = GFX_goal_generic_navy_carrier
+		prerequisite = { focus = SPT_JAP_carrier_doctrine }
+		prerequisite = {
+			focus = SPT_JAP_small_carrier_fighter_focus
+		}
+		x = -2
+		y = 1
+		relative_position_id = SPT_JAP_carrier_doctrine
+
+		cost = 10
+
+		available = {
+			has_tech = improved_ship_hull_carrier
+			has_tech = improved_small_airframe
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			mio:JAP_yokosuka_naval_arsenal_organization = {
+				complete_mio_trait = SPT_JAP_improved_carrier_trait_tk
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+							state = 537
+							state = 526
 						}
 					}
 				}
@@ -8177,6 +8376,78 @@ focus = {
 		}
 	}
 	focus = {
+		id = SPT_JAP_more_research_funding
+		icon = GFX_focus_RAJ_institutional_money_laundering
+		prerequisite = { focus = SPT_JAP_torpedo_cruisers }
+		prerequisite = {
+			focus = SPT_JAP_carrier_specialists
+			focus = SPT_JAP_radar_detection
+		}
+		x = 0
+		y = 2
+		relative_position_id = SPT_JAP_torpedo_cruisers
+
+		cost = 5
+
+		available = {
+			any_owned_state = {
+				is_fully_controlled_by = JAP
+				AND = {
+					land_facility < 1
+					air_facility < 1
+					naval_facility < 1
+					nuclear_facility < 1
+				}
+			}
+			OR = {
+				has_idea = JAP_interservice_rivalry_navy_dominant
+				has_idea = JAP_interservice_rivalry_navy_strengthened
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {
+			FOCUS_FILTER_ECONOMIC_BUBBLE
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = JAP
+					land_facility < 1
+					air_facility < 1
+					nuclear_facility < 1
+					naval_facility < 1
+					NOT = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+							state = 537
+							state = 526
+						}
+					}
+				}
+				construct_building_in_random_province = {
+					naval_facility = 1
+				}
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.015
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+		}
+	}
+	focus = {
 		id = SPT_JAP_raiding_fleet 
 		icon = GFX_focus_generic_trade_interdiction
 		prerequisite = { focus = SPT_JAP_finish_circle_two }
@@ -8221,6 +8492,8 @@ focus = {
 							state = 646
 							state = 645
 							state = 555
+							state = 537
+							state = 526
 						}
 					}
 				}
@@ -8285,6 +8558,8 @@ focus = {
 							state = 646
 							state = 645
 							state = 555
+							state = 537
+							state = 526
 						}
 					}
 				}
@@ -8349,6 +8624,8 @@ focus = {
 							state = 646
 							state = 645
 							state = 555
+							state = 537
+							state = 526
 						}
 					}
 				}
@@ -9495,6 +9772,52 @@ focus = {
 		}
 	}
 	focus = {
+		id = SPT_JAP_jet_research
+		icon = GFX_focus_NORDIC_com_airforce
+		prerequisite = { focus = SPT_JAP_the_zero }
+		#mutually_exclusive = {  }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_the_zero
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		completion_reward = {
+			add_breakthrough_progress = {
+				value = 0.5
+				specialization = specialization_air
+			}
+			add_ideas = SPT_JAP_wonder_weapons
+			mio:JAP_nakajima_organization = {
+				add_mio_size = 1
+			}
+		}
+	}
+	focus = {
 		id = SPT_JAP_air_module_research
 		icon = GFX_focus_generic_air_research_boost
 		prerequisite = { focus = SPT_JAP_range_focus focus = SPT_JAP_agility_focus }
@@ -9826,6 +10149,91 @@ focus = {
 				category = rocketry	
 			}
 			add_ideas = JAP_german_rocketry
+		}
+	}
+	focus = {
+		id = SPT_JAP_close_the_gap
+		icon = GFX_goal_generic_air_production
+		prerequisite = { focus = SPT_JAP_rocket_research focus = SPT_JAP_nuclear_facility_funding }
+		#mutually_exclusive = { focus = SPT_JAP_italian_exchange }
+		x = -2
+		y = 1
+		relative_position_id = SPT_JAP_rocket_research
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			remove_ideas = JAP_duplicate_research_efforts
+			add_tech_bonus = {
+				name = "Bridge The Gap"
+				uses = 2
+				bonus = 1
+				category = light_fighter
+				category = cat_heavy_fighter
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_jet_cv_fighters
+		icon = GFX_focus_generic_jet_planes
+		prerequisite = { focus = SPT_JAP_carrier_specialists }
+		prerequisite = {
+			focus = SPT_JAP_jet_research
+		}
+		x = 0
+		y = 3
+		relative_position_id = SPT_JAP_carrier_specialists
+
+		cost = 5
+
+		available = {
+			OR = {
+				has_tech = jet_engines
+				is_special_project_completed = sp:sp_air_supersonic_jet
+				is_special_project_completed = sp:sp_air_axial_jet_engine
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+
+		completion_reward = {
+			mio:JAP_yokosuka_organization = {
+				complete_mio_trait = SPT_JAP_jet_cv_fighter_trait_tk
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			mio:JAP_yokosuka_naval_arsenal_organization = {
+				complete_mio_trait = SPT_JAP_space_efficient_carrier_trait_tk
+			}
 		}
 	}
 
