@@ -1,5 +1,31 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+###  3.14.2
+
+#### General
+ - Implemented 1.16.5
+ - Added event notifying Axis powers when Britain takes focus 'Secure Iraq'
+ - Paratrooper doctrine 'Combat Insertion' now available
+ - Resealed King Tut's tomb due to unforeseen consequences
+
+#### Brazil
+ - Focus 'Secure our Borders' now sends a faction join request to the UK
+ - Focus 'The Washington Accords' no longer bypasses if already in faction with US
+
+#### British Raj
+ - Reduced focus times on independence path (on top of 1.16.5 reductions)
+    - 'A Congress Resurgent': 70 -> 35 days
+    - 'India United': 70 -> 35 days
+    - 'Cabinet Mission Plan': 70 -> 35 days
+    - 'A Permanent Muslim Governmental Seat': 70 -> 35 days
+    - 'Inclusive Nationalism': 70 -> 35 days
+ - Focuses 'Holding the gates of india', 'Defense of burma', 'Fortify el alamein', 'The defense of hong kong', 'Defense of malaya', 'fortify aden', the aden protectorate':
+    - Halved number of forts and anti-air given
+    - Halved the duration of the state modifiers applied
+
+#### Germany
+ - Removed focus 'Demand Slovenia'
+
 ###  3.14.1
 
 #### General

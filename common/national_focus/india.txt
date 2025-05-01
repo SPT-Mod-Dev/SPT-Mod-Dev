@@ -2919,8 +2919,22 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			custom_effect_tooltip = available_theorist
-			show_ideas_tooltip = RAJ_homi_j_bhabha
+			if = {
+				limit = {
+					RAJ_homi_j_bhabha = {
+						has_scientist_level = {
+							specialization = specialization_nuclear
+							level < 5
+						}
+					}
+				}
+				RAJ_homi_j_bhabha = {
+					add_scientist_level = {
+						specialization = specialization_nuclear
+						level = 1
+					}
+				}
+			}
 		}
 	}
 
