@@ -5521,11 +5521,6 @@ focus = {
 		available = {
 			RAJ = {
 				has_capitulated = yes
-				all_owned_state = {
-					NOT = {
-						is_controlled_by = RAJ
-					}
-				}
 			}
 			336 = {
 				OR = {
@@ -5577,11 +5572,6 @@ focus = {
 		available = {
 			RAJ = {
 				has_capitulated = yes
-				all_owned_state = {
-					NOT = {
-						is_controlled_by = RAJ
-					}
-				}
 			}
 			336 = {
 				OR = {
@@ -5654,11 +5644,6 @@ focus = {
 		available = {
 			RAJ = {
 				has_capitulated = yes
-				all_owned_state = {
-					NOT = {
-						is_controlled_by = RAJ
-					}
-				}
 			}
 			336 = {
 				OR = {
@@ -5702,15 +5687,13 @@ focus = {
 					target = MON
 					type = annex_everything
 				}
-				add_timed_idea = {
-					idea = SPT_JAP_hokushin_ron_idea
-					days = 180
-				}
+				custom_effect_tooltip = SPT_JAP_whitespace_tt
 				add_timed_idea = {
 					idea = SPT_JAP_hokushin_ron_idea
 					days = 180
 				}
 			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			every_allied_country = {
 				add_timed_idea = {
 					idea = SPT_JAP_hokushin_ron_idea
@@ -8080,7 +8063,7 @@ focus = {
 		y = 1
 		relative_position_id = SPT_JAP_carrier_fleet
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -8102,7 +8085,7 @@ focus = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = JAP_cruiser_modernization
-				bonus = 3.0
+				bonus = 2.0
 				uses = 1
 				category = cl_tech	
 				category = ca_tech	
@@ -8964,7 +8947,7 @@ focus = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -9019,7 +9002,7 @@ focus = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -9062,6 +9045,9 @@ focus = {
 		id = SPT_JAP_medium_frame_research_focus
 		icon = GFX_focus_generic_tank_air_support
 		prerequisite = { focus = SPT_JAP_cas_focus }
+		prerequisite = {
+			focus = SPT_JAP_improved_bombs
+		}
 		mutually_exclusive = { focus = SPT_JAP_large_frame_research_focus }
 		x = 1
 		y = 1
@@ -9132,6 +9118,9 @@ focus = {
 		id = SPT_JAP_large_frame_research_focus
 		icon = GFX_focus_SWE_marauder_bombers
 		prerequisite = { focus = SPT_JAP_strat_bomber_focus }
+		prerequisite = {
+			focus = SPT_JAP_improved_bombs
+		}
 		mutually_exclusive = { focus = SPT_JAP_medium_frame_research_focus }
 		x = -1
 		y = 1
@@ -9388,7 +9377,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = {  FOCUS_FILTER_HISTORICAL }
+		search_filters = {  FOCUS_FILTER_HISTORICAL FOCUS_FILTER_AIR_XP }
 		completion_reward = {
 			add_doctrine_cost_reduction = {
 				cost_reduction = 0.5
@@ -9396,6 +9385,7 @@ focus = {
 				uses = 2
 				category = operational_integrity_tree
 			}
+			air_experience = 50
 		}
 	}
 	focus = {
