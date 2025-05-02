@@ -5534,7 +5534,7 @@ focus = {
 		prerequisite = {
 			focus = SPT_JAP_strike_south_completed
 		}
-		x = -3
+		x = -4
 		y = 1
 		relative_position_id = SPT_JAP_strike_south_completed
 		cost = 5
@@ -5581,7 +5581,7 @@ focus = {
 		prerequisite = {
 			focus = SPT_JAP_strike_south_completed
 		}
-		x = 3
+		x = 4
 		y = 1
 		relative_position_id = SPT_JAP_strike_south_completed
 		cost = 5
@@ -5636,7 +5636,7 @@ focus = {
 		prerequisite = {
 			focus = SPT_JAP_maintain_pressure
 		}
-		x = -2
+		x = -1
 		y = 1
 		relative_position_id = SPT_JAP_maintain_pressure
 		cost = 5
@@ -5678,7 +5678,7 @@ focus = {
 		prerequisite = {
 			focus = SPT_JAP_maintain_pressure
 		}
-		x = 2
+		x = 1
 		y = 1
 		relative_position_id = SPT_JAP_maintain_pressure
 		cost = 5
@@ -5723,7 +5723,7 @@ focus = {
 		prerequisite = {
 			focus = SPT_JAP_retake_our_islands
 		}
-		x = 2
+		x = 1
 		y = 1
 		relative_position_id = SPT_JAP_target_islands
 		cost = 5
@@ -5813,7 +5813,7 @@ focus = {
 		id = SPT_JAP_kamikaze
 		icon = GFX_goal_continuous_air_production
 		prerequisite = { focus = SPT_JAP_defense_of_the_homeland }
-		x = -4
+		x = -2
 		y = 1
 		relative_position_id = SPT_JAP_defense_of_the_homeland
 
@@ -5849,6 +5849,57 @@ focus = {
 			custom_effect_tooltip = kamikaze_focus_tooltip
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			add_ideas = JAP_desperate_measures
+		}
+	}
+	focus = {
+		id = SPT_JAP_form_militias
+		icon = GFX_focus_AUS_frontmiliz_focus
+		prerequisite = { focus = SPT_JAP_defense_of_the_homeland }
+		x = 2
+		y = 1
+		relative_position_id = SPT_JAP_defense_of_the_homeland
+
+		cost = 5
+
+		ai_will_do = {
+		}
+
+		available = {
+			power_balance_value = {
+				id = JAP_PAC_pacific_front
+				value < -0.15
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { }
+		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_militia_focus_tt
+			hidden_effect = {
+				SPT_JAP_set_up_militia = yes
+				country_event = {
+					id = spt_jap.2
+					hours = 6
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_tech = tech_military_police 
+					}
+				}
+				custom_effect_tooltip = SPT_JAP_whitespace_tt
+				set_technology = {
+					tech_military_police = 1
+				}
+			}
 		}
 	}
 	focus = {
@@ -6006,8 +6057,8 @@ focus = {
 		prerequisite = {
 			focus = SPT_JAP_defense_of_the_homeland
 		}
-		x = -2
-		y = 1
+		x = -1
+		y = 2
 		relative_position_id = SPT_JAP_defense_of_the_homeland
 		cost = 5
 
@@ -6110,8 +6161,8 @@ focus = {
 		prerequisite = {
 			focus = SPT_JAP_defense_of_the_homeland
 		}
-		x = 2
-		y = 1
+		x = 1
+		y = 2
 		relative_position_id = SPT_JAP_defense_of_the_homeland
 		cost = 5
 
@@ -6217,9 +6268,9 @@ focus = {
 			focus = SPT_JAP_internal_lines
 		}
 		x = 0
-		y = 1
+		y = 2
 		relative_position_id = SPT_JAP_internal_lines
-		cost = 5
+		cost = 2
 
 		ai_will_do = {
 		}
@@ -6240,6 +6291,18 @@ focus = {
 						has_completed_focus = SPT_JAP_defend_the_south
 						has_completed_focus = SPT_JAP_internal_lines
 					}
+				}
+			}
+			any_owned_state = {
+				is_core_of = JAP
+				NOT = {
+					is_fully_controlled_by = JAP
+				}
+				NOT = {
+					state = 645
+					state = 646
+					state = 526
+					state = 537
 				}
 			}
 		}
@@ -6275,7 +6338,7 @@ focus = {
 			focus = SPT_JAP_fake_focus_for_aligning_tree
 		}
 		x = 0
-		y = 4
+		y = 1
 		relative_position_id = SPT_JAP_strike_south_completed
 		cost = 2
 
