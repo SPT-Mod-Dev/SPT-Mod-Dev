@@ -7445,7 +7445,7 @@ focus = {
 	}
 	focus = {
 		id = SPT_JAP_recon_focus
-		icon = GFX_goal_generic_radar
+		icon = GFX_focus_AFG_telegraph
 		prerequisite = { focus = SPT_JAP_logistical_focus}
 		prerequisite = { focus = SPT_JAP_heirs_of_nobunaga }
 		#mutually_exclusive = { focus = SPT_JAP_methodical_war }
@@ -7460,7 +7460,7 @@ focus = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -7800,12 +7800,6 @@ focus = {
 		search_filters = { FOCUS_FILTER_HISTORICAL  }
 		completion_reward = {
 			add_ideas = JAP_supremacy_of_the_battlefleet
-			add_tech_bonus = {
-				name = JAP_supremacy_of_the_battlefleet
-				bonus = 1.0
-				uses = 1
-				category = bb_tech
-			}
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT
@@ -7876,7 +7870,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_HISTORICAL }
+		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			add_tech_bonus = {
 				name = "Battleship Development"
@@ -7941,12 +7935,11 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_HISTORICAL }
+		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			add_tech_bonus = {
 				name = "Naval Gunnery Development"
 				uses = 2
-				ahead_reduction = 1.0
 				bonus = 1.0
 				category = cat_ship_heavy_battery
 				category = cat_ship_medium_battery
@@ -7973,7 +7966,7 @@ focus = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -8325,7 +8318,7 @@ focus = {
 	}
 	focus = {
 		id = SPT_JAP_first_air_fleet
-		icon = GFX_focus_GER_graf_zeppelin
+		icon = GFX_focus_SMB_blue_water_fleet
 		prerequisite = { focus = SPT_JAP_carrier_fleet }
 		x = -1
 		y = 1
@@ -8449,7 +8442,7 @@ focus = {
 	}
 	focus = {
 		id = SPT_JAP_carrier_specialists
-		icon = GFX_focus_SMB_blue_water_fleet
+		icon = GFX_focus_GER_graf_zeppelin
 		prerequisite = { focus = SPT_JAP_carrier_doctrine }
 		prerequisite = {
 			focus = SPT_JAP_small_carrier_fighter_focus
@@ -8605,7 +8598,7 @@ focus = {
 
 			add_breakthrough_progress = {
 				specialization = specialization_naval
-				value = 0.75
+				value = 0.5
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -9103,7 +9096,7 @@ focus = {
 		icon = GFX_focus_generic_coastal_fort
 		prerequisite = { focus = SPT_JAP_finish_circle_two }
 		#mutually_exclusive = {  }
-		x = 10
+		x = 9
 		y = 1
 		relative_position_id = SPT_JAP_finish_circle_two
 		# offset = {
@@ -9636,6 +9629,53 @@ focus = {
 				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
 				value = 0.01
 				tooltip = SPT_JAP_cg_expected_tt
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_develop_army_radar
+		icon = GFX_goal_generic_radar
+		prerequisite = { focus = SPT_JAP_recon_focus }
+		prerequisite = {
+			focus = SPT_JAP_medium_frame_research_focus
+		}
+		#mutually_exclusive = { focus = SPT_JAP_large_frame_research_focus }
+		x = 0
+		y = 3
+		relative_position_id = SPT_JAP_medium_frame_research_focus
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_RESEARCH }
+		completion_reward = {
+			add_tech_bonus = {
+				name = "Radar Improvements"
+				bonus = 0.5
+				uses = 2
+				ahead_reduction = 1.0
+				category = radar_tech
 			}
 		}
 	}
