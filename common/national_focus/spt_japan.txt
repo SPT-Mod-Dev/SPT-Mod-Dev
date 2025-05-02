@@ -7806,7 +7806,6 @@ focus = {
 				uses = 1
 				category = bb_tech
 			}
-			#SPT change, focus now awards 3 dockyards
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT
@@ -7844,12 +7843,260 @@ focus = {
 		}
 	}
 	focus = {
-		id = SPT_JAP_the_ultimate_battleship
-		icon = GFX_focus_ETH_an_ethiopian_navy_in_exile
+		id = SPT_JAP_battleship_research
+		icon = GFX_goal_generic_navy_battleship
 		prerequisite = { focus = SPT_JAP_battleship_fleet }
+		#mutually_exclusive = { focus = SPT_JAP_carrier_fleet }
+		x = -1
+		y = 1
+		relative_position_id = SPT_JAP_battleship_fleet
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		completion_reward = {
+			add_tech_bonus = {
+				name = "Battleship Development"
+				bonus = 1
+				uses = 1
+				ahead_reduction = 1.0
+				category = bb_tech
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+							state = 537
+							state = 526
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_improved_ship_guns
+		icon = GFX_focus_SWE_let_fly_all_guns
+		prerequisite = { focus = SPT_JAP_battleship_research }
+		#mutually_exclusive = { focus = SPT_JAP_carrier_fleet }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_battleship_research
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		completion_reward = {
+			add_tech_bonus = {
+				name = "Naval Gunnery Development"
+				uses = 2
+				ahead_reduction = 1.0
+				bonus = 1.0
+				category = cat_ship_heavy_battery
+				category = cat_ship_medium_battery
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			mio:JAP_kure_naval_arsenal_organization = {
+				complete_mio_trait = SPT_JAP_battle_ship_research_trait_tk
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_dockyard_expansion
+		icon = 	GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = SPT_JAP_battleship_fleet }
+		#mutually_exclusive = { focus = SPT_JAP_carrier_fleet }
 		x = 1
 		y = 1
 		relative_position_id = SPT_JAP_battleship_fleet
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_HISTORICAL }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+							state = 537
+							state = 526
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					not = {
+						OR = {
+							state = 646
+							state = 645
+							state = 555
+							state = 537
+							state = 526
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.01
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_fleet_exercises
+		icon = GFX_goal_generic_army_doctrines
+		prerequisite = { focus = SPT_JAP_battleship_fleet }
+		#mutually_exclusive = { focus = SPT_JAP_carrier_fleet }
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_dockyard_expansion
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_NAVY_XP }
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				name = "Battlefleet Training"
+				uses = 3
+				category = fleet_in_being_tree
+			}
+			navy_experience = 50
+		}
+	}
+	focus = {
+		id = SPT_JAP_the_ultimate_battleship
+		icon = GFX_focus_ETH_an_ethiopian_navy_in_exile
+		prerequisite = { focus = SPT_JAP_fleet_exercises }
+		prerequisite = {
+			focus = SPT_JAP_improved_ship_guns
+		}
+		x = -1
+		y = 1
+		relative_position_id = SPT_JAP_fleet_exercises
 
 		cost = 10
 
@@ -8202,7 +8449,7 @@ focus = {
 	}
 	focus = {
 		id = SPT_JAP_carrier_specialists
-		icon = GFX_goal_generic_navy_carrier
+		icon = GFX_focus_SMB_blue_water_fleet
 		prerequisite = { focus = SPT_JAP_carrier_doctrine }
 		prerequisite = {
 			focus = SPT_JAP_small_carrier_fighter_focus
@@ -8377,11 +8624,12 @@ focus = {
 	}
 	focus = {
 		id = SPT_JAP_more_research_funding
-		icon = GFX_focus_RAJ_institutional_money_laundering
+		icon = GFX_focus_ITA_devaluate_the_lire
 		prerequisite = { focus = SPT_JAP_torpedo_cruisers }
 		prerequisite = {
 			focus = SPT_JAP_carrier_specialists
 			focus = SPT_JAP_radar_detection
+			focus = SPT_JAP_the_ultimate_battleship
 		}
 		x = 0
 		y = 2
@@ -8453,7 +8701,7 @@ focus = {
 		prerequisite = { focus = SPT_JAP_finish_circle_two }
 		mutually_exclusive = { focus = SPT_JAP_carrier_fleet }
 		mutually_exclusive = { focus = SPT_JAP_battleship_fleet }
-		x = 5
+		x = 4
 		y = 1
 		relative_position_id = SPT_JAP_finish_circle_two
 		# offset = {
@@ -9106,7 +9354,7 @@ focus = {
 				name = JAP_fighter_modernization
 				bonus = 1.0
 				uses = 1
-				category = cat_heavy_fighter	
+				category = tactical_bomber
 			}
 		}
 	}
@@ -9984,7 +10232,10 @@ focus = {
 	focus = {
 		id = SPT_JAP_nuclear_research
 		icon = GFX_focus_generic_nuclear_development
-		prerequisite = { focus = SPT_JAP_large_frame_research_focus }
+		prerequisite = {
+			focus = SPT_JAP_large_frame_research_focus
+			focus = SPT_JAP_medium_frame_research_focus
+		}
 		prerequisite = {
 			focus = SPT_JAP_increased_local_research
 		}
@@ -10192,7 +10443,7 @@ focus = {
 				uses = 2
 				bonus = 1
 				category = light_fighter
-				category = cat_heavy_fighter
+				category = tactical_bomber
 			}
 		}
 	}

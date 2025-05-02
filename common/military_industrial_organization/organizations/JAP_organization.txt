@@ -100,13 +100,116 @@ JAP_kure_naval_arsenal_organization = {
 		tag = JAP
 		has_dlc = "Arms Against Tyranny"
 	}
-	available = { #TEMP available to deal with errors
+	available = { #spt change, always available now
 		# FROM = {
 		# 	OR = {
 		# 		has_completed_focus = SPT_JAP_supremacy_of_the_battlefleet #SPT change, swapped unlock focus
 		# 		has_completed_focus = SPT_JAP_the_ultimate_battleship #SPT change, swapped unlock focus
 		# 	}
 		# }
+	}
+	add_trait = { 
+		#for the poor fucker who attempts to deal with MIO localization, please name the token and name
+		#differently so it becomes easier to actually get the damn tooltip to work.
+		#whatever black magic pdx uses to make their stuff work has been lost to humankind
+		token = SPT_JAP_battle_ship_research_trait_tk
+		name = SPT_JAP_battle_ship_research_trait_nm
+		icon = GFX_generic_mio_trait_icon_unique
+		special_trait_background = yes
+
+		position = { x=8 y=3 }
+		
+		available = { #temp shit really, add focus requirement later
+			FROM = {
+				has_completed_focus = SPT_JAP_improved_ship_guns
+			}
+		}
+
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.1
+			military_industrial_organization_funds_gain = 0.1
+		}
+
+		limit_to_equipment_type = { mio_cat_eq_all_battleship mio_cat_tech_all_capital_ship_and_modules }
+		
+		# equipment_bonus = {
+
+		# }
+	}
+	add_trait = { 
+		#for the poor fucker who attempts to deal with MIO localization, please name the token and name
+		#differently so it becomes easier to actually get the damn tooltip to work.
+		#whatever black magic pdx uses to make their stuff work has been lost to humankind
+		token = SPT_JAP_battle_ship_cheap_trait_tk
+		name = SPT_JAP_battle_ship_cheap_trait_nm
+		icon = GFX_generic_mio_trait_icon_resources
+		special_trait_background = yes
+
+		position = { x=9 y=4 }
+		
+		available = { #temp shit really, add focus requirement later
+
+		}
+		any_parent = {
+			SPT_JAP_battle_ship_research_trait_tk
+		}
+		mutually_exclusive = {
+			SPT_JAP_battle_ship_high_caliber_trait_tk
+		}
+
+		# organization_modifier = {
+		# 	military_industrial_organization_research_bonus = 0.1
+		# 	military_industrial_organization_funds_gain = 0.1
+		# }
+
+		limit_to_equipment_type = { mio_cat_eq_all_battleship mio_cat_tech_all_capital_ship_and_modules }
+		
+		equipment_bonus = {
+			build_cost_ic = -0.15
+			max_strength = -0.1
+			armor_value = -0.1
+		}
+	}
+	add_trait = { 
+		#for the poor fucker who attempts to deal with MIO localization, please name the token and name
+		#differently so it becomes easier to actually get the damn tooltip to work.
+		#whatever black magic pdx uses to make their stuff work has been lost to humankind
+		token = SPT_JAP_battle_ship_high_caliber_trait_tk
+		name = SPT_JAP_battle_ship_high_caliber_trait_nm
+		icon = GFX_generic_mio_trait_icon_hardness
+		special_trait_background = yes
+
+		position = { x=7 y=4 }
+		
+		available = { #temp shit really, add focus requirement later
+			JAP = {
+				AND = {
+					has_tech = improved_medium_battery
+					has_tech = improved_heavy_battery
+					has_tech = improved_fire_control_system
+				}
+			}
+		}
+		any_parent = {
+			SPT_JAP_battle_ship_research_trait_tk
+		}
+		mutually_exclusive = {
+			SPT_JAP_battle_ship_cheap_trait_tk
+		}
+
+		# organization_modifier = {
+		# 	military_industrial_organization_research_bonus = 0.1
+		# 	military_industrial_organization_funds_gain = 0.1
+		# }
+
+		limit_to_equipment_type = { mio_cat_eq_all_battleship mio_cat_tech_all_capital_ship_and_modules }
+		
+		equipment_bonus = {
+			build_cost_ic = 0.05
+			lg_armor_piercing = 0.1
+			hg_armor_piercing = 0.1
+			hg_attack = 0.1
+		}
 	}
 }
 
