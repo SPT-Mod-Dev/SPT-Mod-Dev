@@ -1096,6 +1096,106 @@ SPT_JAP_korea_dev = {
 
 SPT_JAP_military_operations = {
 
+	SPT_JAP_border_conflict_for_hong_kong = {
+
+		icon = border_war
+
+		available = {
+			JAP = {
+				NOT = {
+					has_war_with = ENG
+				}
+			}
+			ENG = {
+				has_war_with = ITA
+			}
+			593 = {
+				OR = {
+					is_fully_controlled_by = JAP
+					is_fully_controlled_by = MAN
+				}
+			}
+			divisions_in_border_state = {
+				state = 593
+				border_state = 326
+				size > 0
+			}
+			326 = {
+				is_fully_controlled_by = ENG
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 593
+				state = 326	
+			} 
+		}
+
+		visible = {
+			has_completed_focus = SPT_JAP_seize_hong_kong
+		}
+
+		ai_will_do = {
+
+		}
+
+		fire_only_once = yes
+		custom_cost_trigger = {
+			command_power > 25
+		}
+		custom_cost_text = SPT_USA_recession_decision_cp_25
+
+		days_remove = 15
+
+		complete_effect = {
+			ENG = {
+				country_event = {
+					id = spt_jap.8
+					days = 3
+				}
+			}
+		}
+
+		remove_effect = {
+			if = {
+				limit = {
+					326 = {
+						NOT = {
+							OR = {
+								is_controlled_by = JAP
+								is_controlled_by = MAN
+							}
+						}
+					}
+				}
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 593
+						num_provinces = 4
+						on_win = spt_jap.9
+						on_lose = spt_jap.10
+						on_cancel = japan_border_conflict.4
+					}
+					
+					defender = {
+						state = 326
+						num_provinces = 4
+						on_win = spt_jap.10
+						on_lose =  spt_jap.9
+						on_cancel = japan_border_conflict.4
+					}
+				}
+			}
+			else = {
+				army_experience = 25
+				navy_experience = 25
+				air_experience = 25
+			}
+		}
+	}
+
 	SPT_JAP_operation_india = {
 		
 		icon = GFX_decision_generic_operation
@@ -1123,7 +1223,7 @@ SPT_JAP_military_operations = {
 			RAJ = {
 				country_event = {
 					id = spt_jap.12
-					days = 2
+					days = 7
 				}
 				every_owned_state = {
 					limit = {
@@ -1248,7 +1348,7 @@ SPT_JAP_military_operations = {
 			AST = {
 				country_event = {
 					id = spt_jap.12
-					days = 2
+					days = 7
 				}
 				every_owned_state = {
 					limit = {
@@ -1267,7 +1367,7 @@ SPT_JAP_military_operations = {
 			NZL = {
 				country_event = {
 					id = spt_jap.12
-					days = 2
+					days = 7
 				}
 				every_owned_state = {
 					limit = {
@@ -1314,7 +1414,7 @@ SPT_JAP_military_operations = {
 			INS = {
 				country_event = {
 					id = spt_jap.12
-					days = 2
+					days = 7
 				}
 				every_owned_state = {
 					limit = {
@@ -1333,7 +1433,7 @@ SPT_JAP_military_operations = {
 			HOL = {
 				country_event = {
 					id = spt_jap.12
-					days = 2
+					days = 7
 				}
 				every_owned_state = {
 					limit = {
@@ -1380,7 +1480,7 @@ SPT_JAP_military_operations = {
 			PHI = {
 				country_event = {
 					id = spt_jap.12
-					days = 2
+					days = 7
 				}
 				every_owned_state = {
 					limit = {
@@ -1399,7 +1499,7 @@ SPT_JAP_military_operations = {
 			USA = {
 				country_event = {
 					id = spt_jap.12
-					days = 2
+					days = 7
 				}
 				every_owned_state = {
 					limit = {
@@ -1447,7 +1547,7 @@ SPT_JAP_military_operations = {
 			SOV = {
 				country_event = {
 					id = spt_jap.12
-					days = 2
+					days = 7
 				}
 				every_owned_state = {
 					limit = {
@@ -1546,103 +1646,327 @@ SPT_JAP_military_operations = {
 		remove_effect = {
 		}
 	}
-	SPT_JAP_border_conflict_for_hong_kong = {
 
-		icon = border_war
-
+	SPT_JAP_operation_islands_enemy = {
+		
+		icon = GFX_decision_generic_operation
 		available = {
 			JAP = {
-				NOT = {
-					has_war_with = ENG
-				}
-			}
-			ENG = {
-				has_war_with = ITA
-			}
-			593 = {
-				OR = {
-					is_fully_controlled_by = JAP
-					is_fully_controlled_by = MAN
-				}
-			}
-			divisions_in_border_state = {
-				state = 593
-				border_state = 326
-				size > 0
-			}
-			326 = {
-				is_fully_controlled_by = ENG
+				has_war_with = USA
 			}
 		}
-
-		highlight_states = {
-			highlight_state_targets = {
-				state = 593
-				state = 326	
-			} 
-		}
-
 		visible = {
-			has_completed_focus = SPT_JAP_seize_hong_kong
+			has_completed_focus = SPT_JAP_target_islands
 		}
 
-		ai_will_do = {
-
-		}
-
-		fire_only_once = yes
+		fire_only_once = no
 		custom_cost_trigger = {
 			command_power > 25
 		}
 		custom_cost_text = SPT_USA_recession_decision_cp_25
 
-		days_remove = 15
+		days_remove = 240
 
 		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+			USA = {
+				country_event = {
+					id = spt_jap.12
+					days = 7
+				}
+				every_owned_state = {
+					limit = {
+						NOT = {
+							is_fully_controlled_by = JAP
+						}
+						OR = {
+							state = 638
+							state = 632
+							state = 642
+							state = 727
+							state = 630
+							state = 629
+							state = 631
+							state = 650
+						}
+					}
+					add_dynamic_modifier = {
+						modifier = SPT_JAP_war_with_allies_offensive_buff
+						days = 30
+						scope = JAP
+					}
+				}
+			}
 			ENG = {
 				country_event = {
-					id = spt_jap.8
-					days = 3
+					id = spt_jap.12
+					days = 7
+				}
+				every_owned_state = {
+					limit = {
+						NOT = {
+							is_fully_controlled_by = JAP
+						}
+						OR = {
+							state = 639
+							state = 725
+							state = 643
+						}
+					}
+					add_dynamic_modifier = {
+						modifier = SPT_JAP_war_with_allies_offensive_buff
+						days = 30
+						scope = JAP
+					}
 				}
 			}
 		}
-
 		remove_effect = {
-			if = {
+		}
+	}
+	SPT_JAP_operation_islands_retake = {
+		
+		icon = GFX_decision_generic_operation
+		available = {
+			JAP = {
+				has_war_with = USA
+				any_owned_state = {
+					NOT = {
+						is_fully_controlled_by = JAP
+					}
+					OR = {
+						state = 648
+						state = 646
+						state = 645
+						state = 526
+						state = 524
+						state = 647
+						state = 684
+						state = 633
+					}
+				}
+				power_balance_value = {
+					id = JAP_PAC_pacific_front
+					value < -0.15
+				}
+			}
+		}
+		visible = {
+			has_completed_focus = SPT_JAP_retake_our_islands
+		}
+
+		fire_only_once = no
+		custom_cost_trigger = {
+			command_power > 25
+		}
+		custom_cost_text = SPT_USA_recession_decision_cp_25
+
+		days_remove = 240
+
+		complete_effect = {
+			USA = {
+				country_event = {
+					id = spt_jap.12
+					days = 7
+				}
+			}
+			hidden_effect = {
+				add_command_power = -25
+			}
+			every_owned_state = {
 				limit = {
-					326 = {
+					NOT = {
+						is_fully_controlled_by = JAP
+					}
+					OR = {
+						state = 648
+						state = 646
+						state = 645
+						state = 526
+						state = 524
+						state = 647
+						state = 684
+						state = 633
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_war_with_allies_offensive_buff
+					days = 30
+					scope = JAP
+				}
+			}
+		}
+		remove_effect = {
+		}
+	}
+	SPT_JAP_operation_aim_for_continent = {
+		
+		icon = GFX_decision_generic_operation
+		available = {
+			JAP = {
+				has_war_with = USA
+			}
+		}
+		visible = {
+			has_completed_focus = SPT_JAP_aim_for_the_continent
+		}
+
+		fire_only_once = no
+		custom_cost_trigger = {
+			command_power > 25
+		}
+		custom_cost_text = SPT_USA_recession_decision_cp_25
+
+		days_remove = 240
+
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+			USA = {
+				country_event = {
+					id = spt_jap.12
+					days = 7
+				}
+				every_owned_state = {
+					limit = {
 						NOT = {
-							OR = {
-								is_controlled_by = JAP
-								is_controlled_by = MAN
-							}
+							is_fully_controlled_by = JAP
+						}
+						OR = {
+							state = 463
+							state = 386
+							state = 385
+							state = 378
+						}
+					}
+					add_dynamic_modifier = {
+						modifier = SPT_JAP_war_with_allies_offensive_buff
+						days = 30
+						scope = JAP
+					}
+				}
+			}
+			CAN = {
+				country_event = {
+					id = spt_jap.12
+					days = 7
+				}
+				every_owned_state = {
+					limit = {
+						NOT = {
+							is_fully_controlled_by = JAP
+						}
+						OR = {
+							state = 740
+							state = 739
+							state = 471
+							state = 473
+						}
+					}
+					add_dynamic_modifier = {
+						modifier = SPT_JAP_war_with_allies_offensive_buff
+						days = 30
+						scope = JAP
+					}
+				}
+			}
+			MEX = {
+				country_event = {
+					id = spt_jap.12
+					days = 7
+				}
+				every_owned_state = {
+					limit = {
+						NOT = {
+							is_fully_controlled_by = JAP
+						}
+						OR = {
+							state = 484
+							state = 483
+							state = 481
+							state = 478
+							state = 485
+							state = 476
+							state = 475
+						}
+					}
+					add_dynamic_modifier = {
+						modifier = SPT_JAP_war_with_allies_offensive_buff
+						days = 30
+						scope = JAP
+					}
+				}
+			}
+		}
+		remove_effect = {
+		}
+	}
+	SPT_JAP_kill_usa = { #kill jester
+		
+		icon = GFX_decision_generic_operation
+		available = {
+			JAP = {
+				has_war_with = USA
+				any_controlled_state = {
+					is_core_of = USA
+					NOT = {
+						OR = {
+							state = 650
+							state = 629
 						}
 					}
 				}
-				start_border_war = {
-					change_state_after_war = no
-					attacker = {
-						state = 593
-						num_provinces = 4
-						on_win = spt_jap.9
-						on_lose = spt_jap.10
-						on_cancel = japan_border_conflict.4
+			}
+		}
+		visible = {
+			has_completed_focus = SPT_JAP_push_for_washington
+		}
+
+		fire_only_once = no
+		custom_cost_trigger = {
+			command_power > 25
+		}
+		custom_cost_text = SPT_USA_recession_decision_cp_25
+
+		days_remove = 240
+
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+			USA = {
+				country_event = {
+					id = spt_jap.12
+					days = 7
+				}
+				every_owned_state = {
+					limit = {
+						is_core_of = USA
+						NOT = {
+							is_fully_controlled_by = JAP
+						}
+						NOT = {
+							OR = {
+								state = 463
+								state = 386
+								state = 385
+								state = 378
+							}
+						}
+
 					}
-					
-					defender = {
-						state = 326
-						num_provinces = 4
-						on_win = spt_jap.10
-						on_lose =  spt_jap.9
-						on_cancel = japan_border_conflict.4
+					add_dynamic_modifier = {
+						modifier = SPT_JAP_war_with_allies_offensive_buff
+						days = 30
+						scope = JAP
 					}
 				}
 			}
-			else = {
-				army_experience = 25
-				navy_experience = 25
-				air_experience = 25
-			}
+		}
+		remove_effect = {
 		}
 	}
 }

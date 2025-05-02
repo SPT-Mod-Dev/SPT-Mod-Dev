@@ -1,10 +1,10 @@
 # CONSTANT FOR SHINTAISEI TIMES (This is Focus cost so x7 to get the days) - THE CONSTANTS USED IN THE EVENT FILE need to be these values x7
-@shintaisei_time_tier_0 = 5
-@shintaisei_time_tier_1 = 10
-@shintaisei_time_tier_2 = 15
-@shintaisei_time_tier_3 = 20
-@shintaisei_time_tier_4 = 25
-@shintaisei_time_tier_5 = 40
+# @shintaisei_time_tier_0 = 5
+# @shintaisei_time_tier_1 = 10
+# @shintaisei_time_tier_2 = 15
+# @shintaisei_time_tier_3 = 20
+# @shintaisei_time_tier_4 = 25
+# @shintaisei_time_tier_5 = 40
 
 focus_tree = {
 	id = SPT_jap_tree
@@ -2797,6 +2797,12 @@ focus_tree = {
 				trait = kita_ikki_strong
 			}
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_pol_showa_state_header_tt
+			add_to_variable = { 
+				SPT_JAP_pol_political_power_factor = 0.05 
+				tooltip = political_power_factor_tt
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			set_cosmetic_tag = JAP_pan_asia_empire
 		}
 	}
@@ -2898,6 +2904,23 @@ focus_tree = {
 			}
 			add_ideas = JAP_hirohito
 			
+			hidden_effect = {
+				set_party_name = {
+					ideology = democratic
+					long_name = "Taisei Yokusankai"
+					name = "Taisei Yokusankai"
+				}
+				set_party_name = {
+					ideology = communism
+					long_name = "Taisei Yokusankai"
+					name = "Taisei Yokusankai"
+				}
+				set_party_name = {
+					ideology = neutrality
+					long_name = "Taisei Yokusankai"
+					name = "Taisei Yokusankai"
+				}
+			}
 		}
 	}
 	focus = {
@@ -3767,7 +3790,7 @@ focus = {
 	icon = GFX_focus_eng_concessions_to_the_trade_unions
 	#  prerequisite = { focus = SPT_JAP_ }
 	#mutually_exclusive = {  }
-	x = 24
+	x = 28
 	y = 0
 	relative_position_id = SPT_JAP_purge_kodoha
 
@@ -5505,7 +5528,745 @@ focus = {
 			}
 		}
 	}
+	focus = {
+		id = SPT_JAP_defense_of_the_homeland
+		icon = GFX_goal_fortify_the_westwall
+		prerequisite = {
+			focus = SPT_JAP_strike_south_completed
+		}
+		x = -3
+		y = 1
+		relative_position_id = SPT_JAP_strike_south_completed
+		cost = 5
 
+		ai_will_do = {
+		}
+
+		available = {
+			has_war_with = USA
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {
+		}
+
+		completion_reward = {	
+			every_owned_state = {
+				limit = {
+					is_fully_controlled_by = JAP
+					naval_base > 0
+					is_core_of = JAP
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 3
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_naval_base = yes
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_maintain_pressure
+		icon = GFX_focus_prc_infiltration
+		prerequisite = {
+			focus = SPT_JAP_strike_south_completed
+		}
+		x = 3
+		y = 1
+		relative_position_id = SPT_JAP_strike_south_completed
+		cost = 5
+
+		ai_will_do = {
+		}
+
+		available = {
+			has_war_with = USA
+			NOT = {
+				OR = {
+					has_idea = SPT_JAP_tora_tora_tora_idea_improved
+					has_idea = JAP_tora_tora_tora_idea
+				}
+			}
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {
+		}
+
+		completion_reward = {	
+			every_owned_state = {
+				limit = {
+					is_fully_controlled_by = JAP
+					naval_base > 0
+					NOT = {
+						is_core_of = JAP
+					}
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_naval_base = yes
+					}
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_target_islands
+		icon = GFX_focus_generic_naval_invasion
+		prerequisite = {
+			focus = SPT_JAP_maintain_pressure
+		}
+		x = -2
+		y = 1
+		relative_position_id = SPT_JAP_maintain_pressure
+		cost = 5
+
+		ai_will_do = {
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {
+		}
+
+		completion_reward = {	
+			custom_effect_tooltip = SPT_JAP_enemy_island_operations_tt
+			add_dynamic_modifier = {
+				modifier = SPT_JAP_war_with_allies_offensive_buff
+				days = 30
+				scope = JAP
+			}
+			hidden_effect = {
+				remove_dynamic_modifier = {
+					modifier = SPT_JAP_war_with_allies_offensive_buff
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_retake_our_islands
+		icon = GFX_focus_PER_wether_the_storm
+		prerequisite = {
+			focus = SPT_JAP_maintain_pressure
+		}
+		x = 2
+		y = 1
+		relative_position_id = SPT_JAP_maintain_pressure
+		cost = 5
+
+		ai_will_do = {
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {
+		}
+
+		completion_reward = {	
+			custom_effect_tooltip = SPT_JAP_retake_island_operations_tt
+			add_dynamic_modifier = {
+				modifier = SPT_JAP_war_with_allies_offensive_buff
+				days = 30
+				scope = JAP
+			}
+			hidden_effect = {
+				remove_dynamic_modifier = {
+					modifier = SPT_JAP_war_with_allies_offensive_buff
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_aim_for_the_continent
+		icon = GFX_focus_spa_the_war_of_vengeance
+		prerequisite = {
+			focus = SPT_JAP_target_islands
+		}
+		prerequisite = {
+			focus = SPT_JAP_retake_our_islands
+		}
+		x = 2
+		y = 1
+		relative_position_id = SPT_JAP_target_islands
+		cost = 5
+
+		ai_will_do = {
+		}
+
+		available = {
+			all_owned_state = {
+				is_controlled_by = JAP
+			}
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {
+		}
+
+		completion_reward = {	
+			custom_effect_tooltip = SPT_JAP_america_pacific_operations_tt
+			add_dynamic_modifier = {
+				modifier = SPT_JAP_war_with_allies_offensive_buff
+				days = 30
+				scope = JAP
+			}
+			hidden_effect = {
+				remove_dynamic_modifier = {
+					modifier = SPT_JAP_war_with_allies_offensive_buff
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_push_for_washington
+		icon = GFX_focus_ARG_anti_american_propaganda
+		prerequisite = {
+			focus = SPT_JAP_aim_for_the_continent
+		}
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_aim_for_the_continent
+		cost = 5
+
+		ai_will_do = {
+		}
+
+		available = {
+			any_controlled_state = {
+				OR = {
+					state = 386
+					state = 385
+					state = 378
+				}
+			}
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {
+		}
+
+		completion_reward = {	
+			custom_effect_tooltip = SPT_JAP_america_kill_operations_tt
+			add_dynamic_modifier = {
+				modifier = SPT_JAP_war_with_allies_offensive_buff
+				days = 30
+				scope = JAP
+			}
+			hidden_effect = {
+				remove_dynamic_modifier = {
+					modifier = SPT_JAP_war_with_allies_offensive_buff
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_kamikaze
+		icon = GFX_goal_continuous_air_production
+		prerequisite = { focus = SPT_JAP_defense_of_the_homeland }
+		x = -4
+		y = 1
+		relative_position_id = SPT_JAP_defense_of_the_homeland
+
+		cost = 1
+
+		ai_will_do = {
+		}
+
+		available = {
+			power_balance_value = {
+				id = JAP_PAC_pacific_front
+				value < -0.49
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { }
+		completion_reward = {
+			hidden_effect = {
+				set_rule = {
+					can_use_kamikaze_pilots = yes
+				}
+				set_technology = { suicide_charge = 1 popup = no}
+			}
+			custom_effect_tooltip = JAP_strengthen_the_divine_wind_effect_bba
+			custom_effect_tooltip = kamikaze_focus_tooltip
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			add_ideas = JAP_desperate_measures
+		}
+	}
+	focus = {
+		id = SPT_JAP_internal_lines
+		icon = GFX_focus_SWE_hedgehog_defense
+		prerequisite = {
+			focus = SPT_JAP_defense_of_the_homeland
+		}
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_defense_of_the_homeland
+		cost = 5
+
+		ai_will_do = {
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {
+		}
+
+		completion_reward = {	
+			282 = {
+				if = {
+					limit = {
+						is_fully_controlled_by = JAP
+					}
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 9998
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 1182
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 1097
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 11908
+				}
+			}
+			534 = {
+				if = {
+					limit = {
+						is_fully_controlled_by = JAP
+					}
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 11989
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 1117
+				}
+			}
+			532 = {
+				if = {
+					limit = {
+						is_fully_controlled_by = JAP
+					}
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 7087
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 4069
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 10125
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 4172
+				}
+			}
+			535 = {
+				if = {
+					limit = {
+						is_fully_controlled_by = JAP
+					}
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 7102
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 10032
+				}
+			}
+			531 = {
+				if = {
+					limit = {
+						is_fully_controlled_by = JAP
+					}
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 11960
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 4142
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_defend_the_south
+		icon = GFX_goal_generic_fortify_city
+		prerequisite = {
+			focus = SPT_JAP_defense_of_the_homeland
+		}
+		x = -2
+		y = 1
+		relative_position_id = SPT_JAP_defense_of_the_homeland
+		cost = 5
+
+		ai_will_do = {
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {
+		}
+
+		completion_reward = {	
+			528 = {
+				if = {
+					limit = {
+						is_fully_controlled_by = JAP
+					}
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 1025
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 10020
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 10092
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 4164
+				}
+			}
+			529 = {
+				if = {
+					limit = {
+						is_fully_controlled_by = JAP
+					}
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 1092
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 11985
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 9968
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 4197
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 7212
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 1167
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_defend_the_north
+		icon = GFX_focus_generic_mountain_fortification
+		prerequisite = {
+			focus = SPT_JAP_defense_of_the_homeland
+		}
+		x = 2
+		y = 1
+		relative_position_id = SPT_JAP_defense_of_the_homeland
+		cost = 5
+
+		ai_will_do = {
+		}
+
+		available = {
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {
+		}
+
+		completion_reward = {	
+			533 = {
+				if = {
+					limit = {
+						is_fully_controlled_by = JAP
+					}
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 4153
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 7169
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 12056
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 3848
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 6994
+				}
+			}
+			536 = {
+				if = {
+					limit = {
+						is_fully_controlled_by = JAP
+					}
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 12421
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 10512
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 10444
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 7532
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = 3962
+				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_death_to_invaders
+		icon = GFX_focus_AFG_against_kabul
+		prerequisite = {
+			focus = SPT_JAP_defend_the_south
+			focus = SPT_JAP_defend_the_north
+			focus = SPT_JAP_internal_lines
+		}
+		x = 0
+		y = 1
+		relative_position_id = SPT_JAP_internal_lines
+		cost = 5
+
+		ai_will_do = {
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SPT_JAP_death_to_invaders_tt
+				OR = {
+					AND = {
+						has_completed_focus = SPT_JAP_defend_the_north
+						has_completed_focus = SPT_JAP_defend_the_south
+					}
+					AND = {
+						has_completed_focus = SPT_JAP_defend_the_north
+						has_completed_focus = SPT_JAP_internal_lines
+					}
+					AND = {
+						has_completed_focus = SPT_JAP_defend_the_south
+						has_completed_focus = SPT_JAP_internal_lines
+					}
+				}
+			}
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = {
+		}
+
+		completion_reward = {	
+			every_owned_state = {
+				limit = {
+					is_core_of = JAP
+				}
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_anti_invasion_buff
+					scope = JAP
+					days = 365
+				}
+			}
+		}
+	}
 	focus = {
 		id = SPT_JAP_hokushin_ron
 		icon = GFX_focus_GER_end_european_communism
@@ -5514,7 +6275,7 @@ focus = {
 			focus = SPT_JAP_fake_focus_for_aligning_tree
 		}
 		x = 0
-		y = 3
+		y = 4
 		relative_position_id = SPT_JAP_strike_south_completed
 		cost = 2
 
@@ -10583,6 +11344,8 @@ focus = {
 # ....................................................................
 # ....................................................................
 # ....................................................................
+
+	#for now this is unused, if things seem like japan needs a bump then this is gonna make a comeback
 
 	# focus = {
 	# 	id = SPT_JAP_shintaisei
