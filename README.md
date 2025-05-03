@@ -1,5 +1,9 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+###  3.14.3
+
+ - Focus 'Princely State Donations' no longer triggers 'Fight Funds' event
+
 ###  3.14.2
 
 #### General
