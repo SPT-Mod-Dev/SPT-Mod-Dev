@@ -12,6 +12,10 @@
  - Occupation law 'Princely Subjugation' Resistance target 60% -> 20%
                                          Local factories 60% -> 20%
  - Add tooltip warning to focus 'The Indian Parliament'
+ - Focus 'South East Asia Command' Special Forces Capacity Multiplier +25%->0%
+ - Focus 'Free Abyssinia" Special Forces Capacity Multiplier +10%->0%
+ - Focus 'Lions of the Great War' now adds idea 'Indian Special Forces': Special Forces Capacity Multiplier 15%
+    - Army Experience 30->0
 
 #### Denmark
  - Removed Burmeister & Wain trait 'Efficient Scrap Recycling' (the second one)
