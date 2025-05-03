@@ -12,6 +12,8 @@
 
 #### Denmark
  - Removed Burmeister & Wain trait 'Efficient Scrap Recycling' (the second one)
+ - Reduced Focus 'Reclaim Norway' compliance 80%->60%
+ - Reduced Focus 'Administrate Norway' compaliance 60%->40%
 
 #### Germany
  - Focus 'Panzerschiff Raiders' Screening without Screens 10% -> 0%
