@@ -8,6 +8,7 @@
 #### British Raj
  - Occupation law 'Princely Subjugation' Resistance target 60% -> 20%
                                          Local factories 60% -> 20%
+ - Add tooltip warning to focus 'The Indian Parliament'
 
 #### Germany
  - Focus 'Panzerschiff Raiders' Screening without Screens 10% -> 0%
