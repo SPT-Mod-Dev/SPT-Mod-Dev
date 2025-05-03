@@ -5,6 +5,9 @@
 #### Brazil
  - Focus 'The Washington Accords' is now available when in faction
 
+#### Germany
+ - Focus 'Panzerschiff Raiders' Screening without Screens 10% -> 0%
+
 ###  3.14.3
 
  - Focus 'Princely State Donations' no longer triggers 'Fight Funds' event
