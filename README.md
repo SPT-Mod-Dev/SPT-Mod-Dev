@@ -1,9 +1,14 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.14.4
+
+#### Brazil
+ - Focus 'The Washington Accords' is now available when in faction
+
 ###  3.14.3
 
-
  - Focus 'Princely State Donations' no longer triggers 'Fight Funds' event
+ - Fixed button bug
 
 ###  3.14.2
 
