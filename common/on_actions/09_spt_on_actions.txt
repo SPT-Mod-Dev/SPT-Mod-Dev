@@ -850,7 +850,19 @@ on_actions = {
 					complete_national_focus = SPT_JAP_liaison_conference
 					JAP = {
 						country_event = {
-							id = spt_jap.6
+							id = spt_jap.6 #grain market inflation pre-event
+						}
+						#this is to prevent forever wars on the ai side, a small convenience thing for test builds
+						if = {
+							limit = {
+								JAP = {
+									is_ai = yes
+								}
+							}
+							country_event = {
+								id = spt_jap.999
+								days = 800
+							}
 						}
 					}
 				}

@@ -5811,7 +5811,7 @@ focus = {
 	}
 	focus = {
 		id = SPT_JAP_kamikaze
-		icon = GFX_goal_continuous_air_production
+		icon = GFX_goal_generic_CAS
 		prerequisite = { focus = SPT_JAP_defense_of_the_homeland }
 		x = -2
 		y = 1
@@ -5879,7 +5879,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { }
+		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			custom_effect_tooltip = SPT_JAP_militia_focus_tt
 			hidden_effect = {
@@ -8619,7 +8619,7 @@ focus = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -8824,7 +8824,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_HISTORICAL }
+		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_ECONOMIC_BUBBLE }
 		completion_reward = {
 			random_owned_controlled_state = {
 				limit = {
@@ -9045,7 +9045,7 @@ focus = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
