@@ -2,6 +2,9 @@
 
 ### 3.14.4
 
+#### General
+ - 'Surface Raiders' Screening without screening 25%->12.5%
+
 #### Brazil
  - Focus 'The Washington Accords' is now available when in faction
 
