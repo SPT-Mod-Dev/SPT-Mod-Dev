@@ -10,6 +10,9 @@
                                          Local factories 60% -> 20%
  - Add tooltip warning to focus 'The Indian Parliament'
 
+#### Denmark
+ - Removed Burmeister & Wain trait 'Efficient Scrap Recycling' (the second one)
+
 #### Germany
  - Focus 'Panzerschiff Raiders' Screening without Screens 10% -> 0%
 
