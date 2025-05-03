@@ -5,6 +5,10 @@
 #### Brazil
  - Focus 'The Washington Accords' is now available when in faction
 
+#### British Raj
+ - Occupation law 'Princely Subjugation' Resistance target 60% -> 20%
+                                         Local factories 60% -> 20%
+
 #### Germany
  - Focus 'Panzerschiff Raiders' Screening without Screens 10% -> 0%
 
