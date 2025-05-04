@@ -4,6 +4,11 @@
 
 #### General
  - 'Surface Raiders' Screening without screening 25%->12.5%
+ - General tooltip update. These are NOT balancing changes!
+    - State infrastructure construction speed modifiers should now say 'Infrastructure construction speed' instead of 'construction speed'
+    - Soviet focus 'The Modern War in the Skies' now correctly displays night operations penalty reduction
+    - Modifiers that affect the Air Superiority land battle bonus now state 'Air Superiority in-battle effect' for clarity
+    - Reworded Army, Navy, and Military Leader Cost effects
 
 #### Brazil
  - Focus 'The Washington Accords' is now available when in faction
