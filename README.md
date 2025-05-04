@@ -1,5 +1,40 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.14.4
+
+#### General
+ - 'Surface Raiders' Screening without screening 25%->12.5%
+ - General tooltip update. These are NOT balancing changes!
+    - State infrastructure construction speed modifiers should now say 'Infrastructure construction speed' instead of 'construction speed'
+    - Soviet focus 'The Modern War in the Skies' now correctly displays night operations penalty reduction
+    - Modifiers that affect the Air Superiority land battle bonus now state 'Air Superiority in-battle effect' for clarity
+    - Reworded Army, Navy, and Military Leader Cost effects
+
+#### Brazil
+ - Focus 'The Washington Accords' is now available when in faction
+
+#### British Raj
+ - Occupation law 'Princely Subjugation' Resistance target 60% -> 20%
+                                         Local factories 60% -> 20%
+ - Add tooltip warning to focus 'The Indian Parliament'
+ - Focus 'South East Asia Command' Special Forces Capacity Multiplier +25%->0%
+ - Focus 'Free Abyssinia" Special Forces Capacity Multiplier +10%->0%
+ - Focus 'Lions of the Great War' now adds idea 'Indian Special Forces': Special Forces Capacity Multiplier 15%
+    - Army Experience 30->0
+
+#### Denmark
+ - Removed Burmeister & Wain trait 'Efficient Scrap Recycling' (the second one)
+ - Reduced Focus 'Reclaim Norway' compliance 80%->60%
+ - Reduced Focus 'Administrate Norway' compaliance 60%->40%
+
+#### Germany
+ - Focus 'Panzerschiff Raiders' Screening without Screens 10% -> 0%
+
+###  3.14.3
+
+ - Focus 'Princely State Donations' no longer triggers 'Fight Funds' event
+ - Fixed button bug
+
 ###  3.14.2
 
 #### General
