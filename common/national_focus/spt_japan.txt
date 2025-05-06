@@ -288,7 +288,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -1668,10 +1668,9 @@ focus_tree = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
+		search_filters = { FOCUS_FILTER_INDUSTRY }
 		
 		completion_reward = {
-			add_political_power = 25
 			custom_effect_tooltip = SPT_JAP_korean_project_tt
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			add_victory_points = {
@@ -1712,7 +1711,7 @@ focus_tree = {
 		# 	}
 		# }
 
-		cost = 2
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -4904,11 +4903,11 @@ focus = {
 		completion_reward = {
 			custom_effect_tooltip = SPT_JAP_pol_showa_state_header_tt
 			add_to_variable = {
-				SPT_JAP_pol_supply_node_range = 0.15
+				SPT_JAP_pol_supply_node_range = 0.1
 				tooltip = supply_node_range_tt
 			}
 			add_to_variable = {
-				SPT_JAP_pol_supply_consumption_factor = -0.1
+				SPT_JAP_pol_supply_consumption_factor = -0.05
 				tooltip = supply_consumption_factor_tt
 			}
 		}
@@ -5544,6 +5543,10 @@ focus = {
 
 		available = {
 			has_war_with = USA
+			power_balance_value = {
+				id = JAP_PAC_pacific_front
+				value < -0.05
+			}
 		}
 
 		bypass = {
@@ -5554,6 +5557,7 @@ focus = {
 		available_if_capitulated = no
 
 		search_filters = {
+			FOCUS_FILTER_HISTORICAL
 		}
 
 		completion_reward = {	
@@ -5591,10 +5595,13 @@ focus = {
 
 		available = {
 			has_war_with = USA
-			NOT = {
-				OR = {
-					has_idea = SPT_JAP_tora_tora_tora_idea_improved
-					has_idea = JAP_tora_tora_tora_idea
+			custom_trigger_tooltip = {
+				tooltip = SPT_JAP_tora_tora_tora_over_tt
+				NOT = {
+					OR = {
+						has_idea = SPT_JAP_tora_tora_tora_idea_improved
+						has_idea = JAP_tora_tora_tora_idea
+					}
 				}
 			}
 		}
@@ -5735,6 +5742,10 @@ focus = {
 			all_owned_state = {
 				is_controlled_by = JAP
 			}
+			power_balance_value = {
+				id = JAP_PAC_pacific_front
+				value > 0.25
+			}
 		}
 
 		bypass = {
@@ -5817,7 +5828,7 @@ focus = {
 		y = 1
 		relative_position_id = SPT_JAP_defense_of_the_homeland
 
-		cost = 1
+		cost = 5
 
 		ai_will_do = {
 		}
@@ -5837,7 +5848,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_HISTORICAL }
 		completion_reward = {
 			hidden_effect = {
 				set_rule = {
@@ -5879,7 +5890,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_RESEARCH }
+		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_POLITICAL_CHARACTER }
 		completion_reward = {
 			custom_effect_tooltip = SPT_JAP_militia_focus_tt
 			hidden_effect = {
@@ -5890,6 +5901,10 @@ focus = {
 					hours = 6
 				}
 			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = kingoro_hashimoto
+
 			if = {
 				limit = {
 					NOT = {
@@ -8021,8 +8036,10 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = {  }
+		search_filters = { FOCUS_FILTER_ARMY_XP }
 		completion_reward = {
+			army_experience = 25
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			swap_ideas = {
 				remove_idea = JAP_superior_will
 				add_idea = JAP_superior_will2
@@ -8757,7 +8774,7 @@ focus = {
 		# 	}
 		# }
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 4
@@ -9164,7 +9181,7 @@ focus = {
 		y = 1
 		relative_position_id = SPT_JAP_carrier_fleet
 
-		cost = 5
+		cost = 10
 
 		available = {
 
@@ -9400,7 +9417,6 @@ focus = {
 
 		completion_reward = {
 			add_ideas = the_long_lance
-			navy_experience = 25
 		}
 
 	}
@@ -9473,6 +9489,7 @@ focus = {
 		available = {
 			any_owned_state = {
 				is_fully_controlled_by = JAP
+				is_core_of = JAP
 				AND = {
 					land_facility < 1
 					air_facility < 1
@@ -10933,7 +10950,7 @@ focus = {
 		continue_if_invalid = no
 		available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_HISTORICAL }
+		search_filters = {  }
 		completion_reward = {
 			add_breakthrough_progress = {
 				value = 0.5
