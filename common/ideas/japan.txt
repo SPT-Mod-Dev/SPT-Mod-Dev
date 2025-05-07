@@ -188,8 +188,8 @@ ideas = {
 			picture = SWE_radiotjanst_corrupted
 
 			modifier = {
-				stability_weekly = 0.05
-				fascism_drift = 0.1
+				stability_weekly = 0.005
+				fascism_drift = 0.2
 				mobilization_speed = 0.15
 				conscription = 0.005
 			}
@@ -607,6 +607,31 @@ ideas = {
 			modifier = {
 				conscription = 0.1
 				mobilization_speed = 0.5
+			}
+		}
+		SPT_JAP_tonarigumi = { 
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			available = { 
+				#has_stability < 0.5 
+			}
+		
+			removal_cost = -1
+
+			picture = RAJ_tenancy_reforms
+
+			modifier = {
+				civilian_intel_to_others = -5
+				army_intel_to_others = -5
+				navy_intel_to_others = -5
+				airforce_intel_to_others = -5
+				enemy_operative_detection_chance_factor = 0.1
 			}
 		}
 
@@ -2218,6 +2243,7 @@ ideas = {
 			modifier = {
 				conscription_factor = 0.1
 				production_speed_buildings_factor = 0.05
+				industry_repair_factor = 0.15
 			}
 		}
 

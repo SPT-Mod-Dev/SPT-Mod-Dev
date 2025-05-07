@@ -633,7 +633,7 @@ focus_tree = {
 			hidden_effect = {
 				country_event = {
 					id = spt_jap.14
-					days = 180
+					days = 235
 				}
 			}
 			if = {
@@ -694,7 +694,7 @@ focus_tree = {
 			hidden_effect = {
 				country_event = {
 					id = spt_jap.14
-					days = 180
+					days = 235
 				}
 			}
 			#custom_effect_tooltip = available_political_advisor
@@ -1038,7 +1038,7 @@ focus_tree = {
 			hidden_effect = {
 				country_event = {
 					id = spt_jap.14
-					days = 180
+					days = 270
 				}
 			}
 			random_owned_controlled_state = {
@@ -1092,7 +1092,7 @@ focus_tree = {
 				tooltip = production_speed_dockyard_factor_tt
 			}
 			add_to_variable = {
-				SPT_JAP_zai_political_power_gain = 0.1
+				SPT_JAP_zai_political_power_gain = 0.15
 				tooltip = political_power_gain_tt
 			}
 		}
@@ -2833,7 +2833,7 @@ focus_tree = {
 		prerequisite = {
 			focus = SPT_JAP_marco_polo
 		}
-		x = -1
+		x = -3
 		y = 3
 		relative_position_id = SPT_JAP_konoe_government
 		# offset = {
@@ -2875,12 +2875,102 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = SPT_JAP_taisei_yokusankai
-		icon = GFX_spt_taisei_yokusan
+		id = SPT_JAP_national_polity
+		icon = GFX_focus_generic_military_academy
 		prerequisite = { focus = SPT_JAP_showa_think_tank }
-		x = 0
+		x = -2
 		y = 1
 		relative_position_id = SPT_JAP_showa_think_tank
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			add_timed_idea = {
+				idea = SPT_JAP_education_campaign
+				days = 180
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_industrial_patriotic_associations
+		icon = GFX_focus_generic_full_employment
+		prerequisite = { focus = SPT_JAP_showa_think_tank }
+		x = 2
+		y = 1
+		relative_position_id = SPT_JAP_showa_think_tank
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_pol_showa_state_header_tt
+			add_to_variable = {
+				SPT_JAP_pol_offensive_war_stability_factor = 0.15
+				tooltip = offensive_war_stability_factor_tt
+			}
+			add_to_variable = {
+				SPT_JAP_pol_war_support_factor = 0.05
+				tooltip = war_support_factor_tt
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_taisei_yokusankai
+		icon = GFX_spt_taisei_yokusan
+		prerequisite = { focus = SPT_JAP_national_polity }
+		prerequisite = {
+			focus = SPT_JAP_industrial_patriotic_associations
+		}
+		x = 2
+		y = 1
+		relative_position_id = SPT_JAP_national_polity
 		# offset = {
 		# 	x = 0
 		# 	y = 0
@@ -2896,9 +2986,6 @@ focus_tree = {
 		}
 
 		available = {
-			NOT = {
-				has_idea = SPT_JAP_koyata_iwasaki
-			}
 		}
 
 		bypass = {
@@ -2940,6 +3027,283 @@ focus_tree = {
 					long_name = "Taisei Yokusankai"
 					name = "Taisei Yokusankai"
 				}
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_neighborhood_associations
+		icon = GFX_focus_ITA_generic_fascist_workers
+		prerequisite = { focus = SPT_JAP_national_polity }
+		# prerequisite = {
+		# 	focus = SPT_JAP_taisei_yokusankai
+		# }
+		x = 0
+		y = 2
+		relative_position_id = SPT_JAP_national_polity
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			NOT = {
+				has_idea = SPT_JAP_education_campaign
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_HISTORICAL  }
+		completion_reward = {
+			add_ideas = SPT_JAP_tonarigumi
+		}
+	}
+	focus = {
+		id = SPT_JAP_volunteer_corps
+		icon = GFX_goal_generic_construction
+		prerequisite = { focus = SPT_JAP_national_polity }
+		# prerequisite = {
+		# 	focus = SPT_JAP_taisei_yokusankai
+		# }
+		x = -2
+		y = 2
+		relative_position_id = SPT_JAP_national_polity
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			NOT = {
+				has_idea = SPT_JAP_education_campaign
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_HISTORICAL  }
+		completion_reward = {
+			add_ideas = JAP_volunteer_corps
+		}
+	}
+	focus = {
+		id = SPT_JAP_new_economic_order
+		icon = GFX_focus_GER_integration_of_puppet_economies
+		prerequisite = { focus = SPT_JAP_industrial_patriotic_associations }
+		prerequisite = {
+			focus = SPT_JAP_taisei_yokusankai
+		}
+		x = 2
+		y = 1
+		relative_position_id = SPT_JAP_taisei_yokusankai
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			has_completed_focus = SPT_JAP_industry_reorg
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_HISTORICAL  }
+		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_pol_showa_state_header_tt
+			add_to_variable = {
+				SPT_JAP_pol_stability_factor = -0.1
+				tooltip = stability_factor_tt
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+			add_to_variable = {
+				SPT_JAP_zai_industrial_capacity_dockyard = 0.1
+				tooltip = industrial_capacity_dockyard_tt
+			}
+			add_to_variable = {
+				SPT_JAP_zai_industrial_capacity_factory = 0.1
+				tooltip = industrial_capacity_factory_tt
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_plunder_asia
+		icon = GFX_focus_RAJ_war_taxes
+		prerequisite = {
+			focus = SPT_JAP_new_economic_order
+		}
+		x = 2
+		y = 1
+		relative_position_id = SPT_JAP_new_economic_order
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			NOT = {
+				has_completed_focus = SPT_JAP_full_eco_control
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_JAP_cg_threshold_7_or_higher_tt
+				check_variable = {
+					var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+					value = 0.07
+					compare = greater_than_or_equals
+				}
+			}
+			any_controlled_state = {
+				NOT = {
+					is_core_of = JAP
+				}
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_ECONOMIC_BUBBLE FOCUS_FILTER_STABILITY }
+		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_pol_showa_state_header_tt
+			add_to_variable = {
+				SPT_JAP_pol_stability_factor = -0.05
+				tooltip = stability_factor_tt
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = -0.07
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_cg_expected_timed_increase_up_tt
+			hidden_effect = {
+				add_to_variable = {
+					var = JAP.spt_jap_cg_increase_tracker
+					value = 0.005
+				}
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			every_controlled_state = {
+				limit = {
+					NOT = {
+						is_core_of = JAP
+					}
+				}
+				add_resistance = 10
+			}
+		}
+	}
+	focus = {
+		id = SPT_JAP_asia_development_board
+		icon = GFX_focus_GER_create_asian_reichskommissariat
+		prerequisite = { focus = SPT_JAP_new_economic_order }
+		prerequisite = {
+			focus = SPT_JAP_taisei_yokusankai
+		}
+		x = 0
+		y = 2
+		relative_position_id = SPT_JAP_taisei_yokusankai
+		# offset = {
+		# 	x = 0
+		# 	y = 0
+		# 	trigger = {
+		# 	#	NOT = { has_dlc = "Waking the Tiger" }
+		# 	}
+		# }
+
+		cost = 5
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			OR = {
+				SIA = {
+					exists = yes
+				}
+				MAN = {
+					exists = yes
+				}
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		search_filters = { FOCUS_FILTER_HISTORICAL  }
+		completion_reward = {
+			SIA = {
+				add_ideas = JAP_militarism
+			}
+			MAN = {
+				add_ideas = JAP_militarism
 			}
 		}
 	}
@@ -5532,7 +5896,7 @@ focus = {
 		completion_reward = {	
 			custom_effect_tooltip = SPT_JAP_pol_showa_state_header_tt
 			add_to_variable = {
-				SPT_JAP_pol_war_support_factor = 0.1
+				SPT_JAP_pol_war_support_factor = 0.05
 				tooltip = war_support_factor_tt
 			}
 			add_to_variable = {
