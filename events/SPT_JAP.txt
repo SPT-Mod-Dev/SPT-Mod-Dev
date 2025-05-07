@@ -382,6 +382,491 @@ country_event = {
 	}
 }
 
+#Zaibatsu management event chain
+#part 1: getting sloppy silly-style
+#mobilization of materials
+country_event = { 
+	id = spt_jap.14
+	title = spt_jap.14.t
+	desc = spt_jap.14.desc
+	is_triggered_only = yes #triggered by focus
+	timeout_days = 14
+	picture = GFX_report_event_FIN_petsamo_mine
+
+	immediate = {
+		hidden_effect = {
+			JAP = {
+				country_event = {
+					id = spt_jap.15
+					days = 180
+					random_days = 90
+				}
+			}
+		}
+	}
+
+	option = { #zaibatsu neutral
+		name = spt_jap.14.a
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_industrial_capacity_factory = 0.05
+			tooltip = industrial_capacity_factory_tt
+		}
+	}
+	
+	option = { #zaibatsu guided
+		name = spt_jap.14.b
+		trigger = {
+			has_completed_focus = SPT_JAP_state_control
+		}
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_production_lack_of_resource_penalty_factor = -0.05
+			tooltip = production_lack_of_resource_penalty_factor_tt
+		}
+	}
+
+	option = { #zaibatsu empowered
+		name = spt_jap.14.c
+		trigger = {
+			has_completed_focus = SPT_JAP_zaibatsu_in_gov
+		}
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_resource_trade_cost_bonus_per_factory = 1
+			tooltip = resource_trade_cost_bonus_per_factory_tt
+		}
+		add_to_variable = {
+			SPT_JAP_zai_political_power_gain = -0.05
+			tooltip = political_power_gain_tt
+		}
+	}
+
+	option = { #zaibatsu challenged
+		name = spt_jap.14.d
+		trigger = {
+			has_completed_focus = SPT_JAP_challenge_zaibatsu
+		}
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_min_export = -0.05
+			tooltip = min_export_tt
+		}
+	}
+}
+
+#Zaibatsu management event chain
+#part 2: slurping that good good
+#cartel management
+country_event = { 
+	id = spt_jap.15
+	title = spt_jap.15.t
+	desc = spt_jap.15.desc
+	is_triggered_only = yes #triggered by another event
+	timeout_days = 14
+	picture = GFX_report_event_generic_handshake
+
+	immediate = {
+		hidden_effect = {
+			JAP = {
+				country_event = {
+					id = spt_jap.16
+					days = 180
+					random_days = 90
+				}
+			}
+		}
+	}
+
+	option = { #zaibatsu neutral
+		name = spt_jap.15.a
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_fuel_gain_factor = 0.1
+			tooltip = fuel_gain_factor_tt
+		}
+	}
+	option = { #zaibatsu guided
+		name = spt_jap.15.b
+		trigger = {
+			has_completed_focus = SPT_JAP_state_control
+		}
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_production_speed_arms_factory_factor = 0.05
+			tooltip = production_speed_arms_factory_factor_tt
+		}
+	}
+	option = { #zaibatsu empowered
+		name = spt_jap.15.c
+		trigger = {
+			has_completed_focus = SPT_JAP_zaibatsu_in_gov
+		}
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_industrial_capacity_dockyard = 0.05
+			tooltip = industrial_capacity_factory_tt
+		}
+		add_to_variable = {
+			SPT_JAP_zai_min_export = 0.05
+			tooltip = min_export_tt
+		}
+	}
+	option = { #zaibatsu challenged
+		name = spt_jap.15.d
+		trigger = {
+			has_completed_focus = SPT_JAP_challenge_zaibatsu
+		}
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_consumer_goods_factor = -0.1
+			tooltip = consumer_goods_factor_tt
+		}
+	}
+}
+
+#Zaibatsu management event chain
+#part 3: climax of the industrialists
+#production quotas
+country_event = { 
+	id = spt_jap.16
+	title = spt_jap.16.t
+	desc = spt_jap.16.desc
+	is_triggered_only = yes #triggered by another event
+	timeout_days = 14
+	picture = GFX_report_event_airplane_factory
+
+	immediate = {
+		hidden_effect = {
+			JAP = {
+				country_event = {
+					id = spt_jap.17
+					days = 180
+					random_days = 90
+				}
+			}
+		}
+	}
+
+	option = { #zaibatsu neutral
+		name = spt_jap.16.a
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_production_speed_infrastructure_factor = 0.1
+			tooltip = production_speed_infrastructure_factor_tt
+		}
+		
+	}
+	option = { #zaibatsu guided
+		name = spt_jap.16.b
+		trigger = {
+			has_completed_focus = SPT_JAP_state_control
+		}
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_production_factory_efficiency_gain_factor = 0.05
+			tooltip = production_factory_efficiency_gain_factor_tt
+		}
+	}
+	option = { #zaibatsu empowered
+		name = spt_jap.16.c
+		trigger = {
+			has_completed_focus = SPT_JAP_zaibatsu_in_gov
+		}
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_global_building_slots_factor = 0.1
+			tooltip = global_building_slots_factor_tt
+		}
+		add_to_variable = {
+			SPT_JAP_zai_production_speed_buidlings_factor = 0.05
+			tooltip = production_speed_buildings_factor_tt
+		}
+	}
+	option = { #zaibatsu challenged
+		name = spt_jap.16.d
+		trigger = {
+			has_completed_focus = SPT_JAP_challenge_zaibatsu
+		}
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_factory_max_efficiency_factor = 0.1
+			tooltip = production_factory_max_efficiency_factor_tt
+		}
+		add_to_variable = {
+			SPT_JAP_zai_production_factory_efficiency_gain_factor = -0.05
+			tooltip = production_factory_efficiency_gain_factor_tt
+		}
+	}
+}
+
+#Zaibatsu management event chain
+#part 4: wowie zowie
+#fate of the planning board
+country_event = { 
+	id = spt_jap.17
+	title = spt_jap.17.t
+	desc = spt_jap.17.desc
+	is_triggered_only = yes #triggered by another event
+	timeout_days = 14
+	picture = GFX_report_event_generic_conference
+
+	immediate = {
+	}
+
+	option = { #zaibatsu neutral
+		name = spt_jap.17.a
+		#stay as is
+		add_political_power = 50
+	}
+	option = { #zaibatsu guided
+		name = spt_jap.17.b
+		trigger = {
+			has_completed_focus = SPT_JAP_state_control
+		}
+		#make the planning board slightly better
+		set_country_flag = SPT_JAP_guided_planning_board
+
+		#things get a bit wild here but this is done this way to produce a nice readable tooltip
+		if = {
+			limit = {
+				has_idea = SPT_JAP_national_company
+			}
+			swap_ideas = {
+				remove_idea = SPT_JAP_national_company
+				add_idea = SPT_JAP_national_company_guided
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = kawasaki
+			}
+			hidden_effect = {
+				add_ideas = SPT_JAP_national_company
+			}
+			swap_ideas = {
+				remove_idea = SPT_JAP_national_company
+				add_idea = SPT_JAP_national_company_guided
+			}
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = SPT_JAP_national_company_guided
+					add_idea = kawasaki
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = JAP_idemitsu_kosan
+			}
+			hidden_effect = {
+				add_ideas = SPT_JAP_national_company
+			}
+			swap_ideas = {
+				remove_idea = SPT_JAP_national_company
+				add_idea = SPT_JAP_national_company_guided
+			}
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = SPT_JAP_national_company_guided
+					add_idea = JAP_idemitsu_kosan
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = sumitomo
+			}
+			hidden_effect = {
+				add_ideas = SPT_JAP_national_company
+			}
+			swap_ideas = {
+				remove_idea = SPT_JAP_national_company
+				add_idea = SPT_JAP_national_company_guided
+			}
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = SPT_JAP_national_company_guided
+					add_idea = sumitomo
+				}
+			}
+		}
+		else = {
+			hidden_effect = {
+				add_ideas = SPT_JAP_national_company
+			}
+			swap_ideas = {
+				remove_idea = SPT_JAP_national_company
+				add_idea = SPT_JAP_national_company_guided
+			}
+			hidden_effect = {
+				remove_ideas = SPT_JAP_national_company_guided
+			}
+		}
+		
+	}
+	option = { #zaibatsu empowered
+		name = spt_jap.17.c
+		trigger = {
+			has_completed_focus = SPT_JAP_zaibatsu_in_gov
+		}
+		#improve the industrial concerns
+		set_country_flag = SPT_JAP_empowered_zaibatsu_flag
+
+		#first check what concern the player has active
+		if = {
+			limit = {
+				has_idea = kawasaki
+			}
+			set_country_flag = SPT_JAP_had_kawasaki
+		}
+		else_if = {
+			limit = { 
+				has_idea = sumitomo
+			}
+			set_country_flag = SPT_JAP_had_sumitomo
+		}
+		else_if = {
+			limit = {
+				has_idea = JAP_idemitsu_kosan
+			}	
+			set_country_flag = SPT_JAP_had_idemitsu
+		}
+
+		#repeatedly swap ideas to generate a readable tooltip
+		swap_ideas = {
+			remove_idea = kawasaki
+			add_idea = SPT_kawasaki
+		}
+		swap_ideas = {
+			remove_idea = sumitomo
+			add_idea = SPT_sumitomo
+		}
+		swap_ideas = {
+			remove_idea = JAP_idemitsu_kosan
+			add_idea = SPT_JAP_idemitsu_kosan
+		}
+
+		#apply the correct idea based on what concern the player had before the tooltip was produced
+		hidden_effect = {
+			if = {
+				limit = {
+					has_country_flag = SPT_JAP_had_kawasaki
+				}
+				swap_ideas = {
+					remove_idea = SPT_JAP_idemitsu_kosan
+					add_idea = SPT_kawasaki
+				}
+			}
+			else_if = {
+				limit = {
+					has_country_flag = SPT_JAP_had_sumitomo
+				}
+				swap_ideas = {
+					remove_idea = SPT_JAP_idemitsu_kosan
+					add_idea = SPT_sumitomo
+				}
+			}
+			else_if = {
+				limit = { 
+					has_country_flag = SPT_JAP_had_idemitsu
+				}
+				add_ideas = SPT_JAP_idemitsu_kosan
+			}
+			else = {
+				remove_ideas = SPT_JAP_idemitsu_kosan
+			}
+		}
+	}
+
+	option = { #zaibatsu challenged
+		name = spt_jap.17.d
+		trigger = {
+			has_completed_focus = SPT_JAP_challenge_zaibatsu
+		}
+		#nationalize the industrial concerns and buff the planning board with their traits
+		set_country_flag = SPT_JAP_nationalized_planning_board
+		custom_effect_tooltip = SPT_JAP_industrial_concern_disabled_tt
+
+		#things get a bit wild here but this is done this way to produce a nice readable tooltip
+		if = {
+			limit = {
+				has_idea = SPT_JAP_national_company
+			}
+			swap_ideas = {
+				remove_idea = SPT_JAP_national_company
+				add_idea = SPT_JAP_national_company_nationalized
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = kawasaki
+			}
+			hidden_effect = {
+				add_ideas = SPT_JAP_national_company
+			}
+			swap_ideas = {
+				remove_idea = SPT_JAP_national_company
+				add_idea = SPT_JAP_national_company_nationalized
+			}
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = SPT_JAP_national_company_nationalized
+					add_idea = kawasaki
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = JAP_idemitsu_kosan
+			}
+			hidden_effect = {
+				add_ideas = SPT_JAP_national_company
+			}
+			swap_ideas = {
+				remove_idea = SPT_JAP_national_company
+				add_idea = SPT_JAP_national_company_nationalized
+			}
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = SPT_JAP_national_company_nationalized
+					add_idea = JAP_idemitsu_kosan
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = sumitomo
+			}
+			hidden_effect = {
+				add_ideas = SPT_JAP_national_company
+			}
+			swap_ideas = {
+				remove_idea = SPT_JAP_national_company
+				add_idea = SPT_JAP_national_company_nationalized
+			}
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = SPT_JAP_national_company_nationalized
+					add_idea = sumitomo
+				}
+			}
+		}
+		else = {
+			hidden_effect = {
+				add_ideas = SPT_JAP_national_company
+			}
+			swap_ideas = {
+				remove_idea = SPT_JAP_national_company
+				add_idea = SPT_JAP_national_company_nationalized
+			}
+			hidden_effect = {
+				remove_ideas = SPT_JAP_national_company_nationalized
+			}
+		}
+	}
+}
+
 country_event = { 
 	id = spt_jap.999
 	title = spt_jap.999.t

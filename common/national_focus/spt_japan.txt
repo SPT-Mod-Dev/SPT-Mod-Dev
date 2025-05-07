@@ -629,6 +629,13 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL_CHARACTER  }
 		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_managing_zaibatsu_tt
+			hidden_effect = {
+				country_event = {
+					id = spt_jap.14
+					days = 180
+				}
+			}
 			if = {
 				limit = {
 					amount_taken_ideas = {
@@ -683,6 +690,13 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_POLITICAL_CHARACTER  }
 		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_managing_zaibatsu_tt
+			hidden_effect = {
+				country_event = {
+					id = spt_jap.14
+					days = 180
+				}
+			}
 			#custom_effect_tooltip = available_political_advisor
 			#show_ideas_tooltip = SPT_JAP_mori_hideoto
 			if = {
@@ -1020,6 +1034,13 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			custom_effect_tooltip = SPT_JAP_managing_zaibatsu_tt
+			hidden_effect = {
+				country_event = {
+					id = spt_jap.14
+					days = 180
+				}
+			}
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = JAP
@@ -3268,7 +3289,7 @@ focus_tree = {
 				tooltip = local_resources_factor_tt
 			}
 			add_to_variable = {
-				SPT_JAP_zai_resource_trade_cost_bonus_per_factory = 2
+				SPT_JAP_zai_resource_trade_cost_bonus_per_factory = 1
 				tooltip = resource_trade_cost_bonus_per_factory_tt
 			}
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
@@ -6286,7 +6307,7 @@ focus = {
 		x = 0
 		y = 2
 		relative_position_id = SPT_JAP_internal_lines
-		cost = 2
+		cost = 1
 
 		ai_will_do = {
 		}
@@ -6334,6 +6355,11 @@ focus = {
 		}
 
 		completion_reward = {	
+			add_timed_idea = {
+				idea = SPT_JAP_death_to_invaders_idea
+				days = 180
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			every_owned_state = {
 				limit = {
 					is_core_of = JAP

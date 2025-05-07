@@ -590,6 +590,26 @@ ideas = {
 			}
 		}
 
+		SPT_JAP_death_to_invaders_idea = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+
+			picture = RAJ_private_military_complex
+			
+			modifier = {
+				conscription = 0.1
+				mobilization_speed = 0.5
+			}
+		}
+
 		#SPT new ideas end
 		###############
 
@@ -2624,14 +2644,26 @@ ideas = {
 			allowed = {
 				original_tag = JAP
 			}
+
+			#SPT change, added a visible check for nationalization/empowering
+			visible = {
+				NOT = {
+					OR = {
+						has_country_flag = SPT_JAP_nationalized_planning_board
+						has_country_flag = SPT_JAP_empowered_zaibatsu_flag
+					}
+				}
+			}
 			
 			research_bonus = {
 				industry = 0.15
 			}
 			
-			modifier = {
-				production_lack_of_resource_penalty_factor = -0.05
+			modifier = { #spt change, added modifiers
+				production_lack_of_resource_penalty_factor = -0.025
 				production_speed_buildings_factor = 0.05
+
+				custom_modifier_tooltip = SPT_JAP_industrial_concern_upgrade_possible_tt
 			}
 
 			traits = { industrial_concern }
@@ -2643,15 +2675,27 @@ ideas = {
 			allowed = {
 				original_tag = JAP
 			}
+
+			#SPT change, added a visible check for nationalization/empowering
+			visible = {
+				NOT = {
+					OR = {
+						has_country_flag = SPT_JAP_nationalized_planning_board
+						has_country_flag = SPT_JAP_empowered_zaibatsu_flag
+					}
+				}
+			}
 						
 			research_bonus = {
 				electronics = 0.15
 			}
 			
-			modifier = {
+			modifier = { #spt change, added modifiers
 				production_speed_radar_station_factor = 0.25
 				production_speed_anti_air_building_factor = 0.25
 				land_reinforce_rate = 0.01
+
+				custom_modifier_tooltip = SPT_JAP_industrial_concern_upgrade_possible_tt
 			}
 
 			traits = { electronics_concern }
@@ -2664,17 +2708,115 @@ ideas = {
 			allowed = {
 				original_tag = JAP
 			}
+			
+			#SPT change, added a visible check for nationalization/empowering
+			visible = {
+				NOT = {
+					OR = {
+						has_country_flag = SPT_JAP_nationalized_planning_board
+						has_country_flag = SPT_JAP_empowered_zaibatsu_flag
+					}
+				}
+			}
 						
 			research_bonus = {
 				industry = 0.05
 				synth_resources = 0.1
 			}
 			
-			modifier = {
+			modifier = { #spt change, added modifiers
 				production_speed_rail_way_factor = 0.25
 				production_speed_supply_node_factor = 0.15
 				fuel_gain_factor = 0.1
+
+				custom_modifier_tooltip = SPT_JAP_industrial_concern_upgrade_possible_tt
 			}
+
+			traits = { refinery_concern }
+		}
+
+		SPT_kawasaki = {
+			
+			allowed = {
+				original_tag = JAP
+			}
+
+			picture = kawasaki
+
+			visible = {
+				has_country_flag = SPT_JAP_empowered_zaibatsu_flag
+			}
+			
+			research_bonus = {
+				industry = 0.15
+			}
+			
+			modifier = { 
+				production_lack_of_resource_penalty_factor = -0.075
+				production_speed_buildings_factor = 0.075
+				country_resource_steel = 10
+				country_resource_aluminium = 10
+				country_resource_tungsten = 10
+			}
+
+			traits = { industrial_concern }
+		}
+		
+		
+		SPT_sumitomo = {
+						
+			allowed = {
+				original_tag = JAP
+			}
+
+			picture = sumitomo
+
+			visible = {
+				has_country_flag = SPT_JAP_empowered_zaibatsu_flag
+			}
+						
+			research_bonus = {
+				electronics = 0.15
+			}
+			
+			modifier = { 
+				production_speed_radar_station_factor = 0.35
+				production_speed_anti_air_building_factor = 0.35
+				land_reinforce_rate = 0.02
+				military_industrial_organization_funds_gain = 0.05
+				tank_manufacturer_cost_factor = -0.25
+				aircraft_manufacturer_cost_factor = -0.25
+				naval_manufacturer_cost_factor = -0.25
+				materiel_manufacturer_cost_factor = -0.25
+			}
+
+			traits = { electronics_concern }
+		}
+
+		SPT_JAP_idemitsu_kosan = {
+						
+			picture = generic_industrial_concern_2
+			
+			allowed = {
+				original_tag = JAP
+			}
+			
+			visible = {
+				has_country_flag = SPT_JAP_empowered_zaibatsu_flag
+			}
+						
+			research_bonus = {
+				industry = 0.1
+				synth_resources = 0.15
+			}
+			
+			modifier = {
+				production_speed_rail_way_factor = 0.40
+				production_speed_supply_node_factor = 0.25
+				fuel_gain_factor = 0.15
+				country_resource_oil = 10
+			}
+
 
 			traits = { refinery_concern }
 		}
@@ -2693,6 +2835,15 @@ ideas = {
 					has_idea = SPT_JAP_mori_hideoto
 				}
 			}
+
+			visible = {
+				NOT ={
+					OR = {
+						has_country_flag =  SPT_JAP_nationalized_planning_board
+						has_country_flag = SPT_JAP_guided_planning_board
+					}
+				}
+			}
 						
 			research_bonus = {
 				industry = 0.1
@@ -2706,7 +2857,72 @@ ideas = {
 			
 			traits = { national_company_trait }
 		}
+		SPT_JAP_national_company_guided = {
+			picture = fascist_company
+
+			cost = 50
+			
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				has_idea = SPT_JAP_mori_hideoto
+			}
+			visible = {
+				JAP = {
+					has_country_flag = SPT_JAP_guided_planning_board
+				}
+			}
+						
+			research_bonus = {
+				industry = 0.05
+				electronics = 0.05
+				synth_resources = 0.05
+				excavation_tech = 0.05
+			}
+			modifier = {
+				political_power_gain = -0.15
+				research_speed_factor = 0.05
+			}
+			
+			traits = { national_company_trait }
+		}
+
+		SPT_JAP_national_company_nationalized = {
+			picture = fascist_company
+
+			cost = 50
+			
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				has_completed_focus = SPT_JAP_national_companies
+			}
+
+			visible = {
+				has_country_flag = SPT_JAP_nationalized_planning_board
+			}
+						
+			research_bonus = {
+				#this thing loses the bonuses once it absorbs the zaibatsu
+			}
+			modifier = {
+				production_lack_of_resource_penalty_factor = -0.025
+				production_speed_buildings_factor = 0.05
+				production_speed_radar_station_factor = 0.25
+				production_speed_anti_air_building_factor = 0.25
+				land_reinforce_rate = 0.01
+				production_speed_rail_way_factor = 0.25
+				production_speed_supply_node_factor = 0.15
+				fuel_gain_factor = 0.1
+				political_power_gain = -0.15
+			}
+			
+			traits = { national_company_trait }
+		}
 	}
+	
 	
 	materiel_manufacturer = {
 			
