@@ -132,6 +132,9 @@ characters = {
 			}
 			available = {
 				has_completed_focus = SPT_JAP_support_kodoha
+				NOT = {
+					has_completed_focus = SPT_JAP_return_to_parliamentary_politics
+				}
 			}
 			traits = {
 				army_philosopher
@@ -230,7 +233,10 @@ characters = {
 				original_tag = JAP
 			}
 			available = {
-				has_completed_focus = SPT_JAP_state_control
+				OR = {
+					has_completed_focus = SPT_JAP_state_control
+					has_completed_focus = SPT_JAP_control_profits
+				}
 			}
 			can_be_fired = yes
 			slot = political_advisor
@@ -253,6 +259,36 @@ characters = {
 			traits={ 
 				kodoha_leader_trait
 				imperial_sanction
+			}
+		}
+	}
+	SPT_JAP_military_gov = {
+		name = "Kōdōha Gunbatsu"
+		portraits = {
+			civilian = {
+				large = "GFX_spt_kodoha_cabinet"
+				small = "GFX_idea_JAP_generic_land_2"
+			}
+		}
+		country_leader={
+			ideology=fascism_ideology
+			traits={ 
+				military_gov_trait
+			}
+		}
+	}
+	SPT_JAP_kodoha_diet = {
+		name = "Kōdōha Diet"
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_SWE_fallen_riksdag"
+				small = "GFX_idea_JAP_generic_land_2"
+			}
+		}
+		country_leader={
+			ideology=fascism_ideology
+			traits={ 
+				kodoha_diet_trait
 			}
 		}
 	}

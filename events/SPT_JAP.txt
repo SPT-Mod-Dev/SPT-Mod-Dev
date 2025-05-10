@@ -1,5 +1,4 @@
 add_namespace = spt_jap
-add_namespace = spt_jap_election
 add_namespace = spt_jap_news
 
 #country_event = {
@@ -214,7 +213,33 @@ country_event = {
 	option = { #Warns the player that shit sucks now
 		name = spt_jap.7.a
 		
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_production_speed_arms_factory_factor = 0.025
+			tooltip = production_speed_arms_factory_factor_tt
+		}
+		custom_effect_tooltip = SPT_JAP_whitespace_tt
 		custom_effect_tooltip = SPT_JAP_cg_expected_timed_increase_up_tt
+	}
+	option = {
+		name = spt_jap.7.b
+
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_production_speed_arms_factory_factor = 0.05
+			tooltip = production_speed_arms_factory_factor_tt
+		}
+		add_to_variable = {
+			SPT_JAP_zai_production_speed_dockyard_factor = 0.05
+			tooltip = production_speed_dockyard_factor_tt
+		}
+		custom_effect_tooltip = SPT_JAP_whitespace_tt
+		add_to_variable = {
+			var = JAP.spt_jap_cg_increase_tracker
+			value = 0.005
+		}
+
+		custom_effect_tooltip = SPT_JAP_cg_expected_timed_increase_up_double_tt
 	}
 }
 
@@ -366,13 +391,13 @@ country_event = {
 	immediate = { #effect applied immediately to avoid cheese
 		add_to_variable = {
 			var = JAP.spt_jap_cg_increase_tracker
-			value = 0.005
+			value = 0.01
 		}
 	}
 
 	option = { #Warns the player that shit sucks now
 		name = spt_jap.13.a
-		custom_effect_tooltip = SPT_JAP_cg_expected_timed_increase_up_tt
+		custom_effect_tooltip = SPT_JAP_cg_expected_timed_increase_up_double_tt
 	}
 }
 
@@ -392,7 +417,7 @@ country_event = {
 			JAP = {
 				country_event = {
 					id = spt_jap.15
-					days = 180
+					days = 270
 					random_days = 90
 				}
 			}
@@ -465,7 +490,7 @@ country_event = {
 			JAP = {
 				country_event = {
 					id = spt_jap.16
-					days = 180
+					days = 270
 					random_days = 90
 				}
 			}
@@ -861,6 +886,124 @@ country_event = {
 	}
 }
 
+
+country_event = { 
+	id = spt_jap.18
+	title = spt_jap.18.t
+	desc = spt_jap.18.desc
+	is_triggered_only = yes
+	#hidden = no
+	timeout_days = 14
+	picture = GFX_report_event_ITA_democratic_parlament
+
+	immediate = {
+		hidden_effect = {
+			country_event = {
+				id = spt_jap.18
+				days = 120
+				random_days = 120
+			}
+		}
+	}
+
+	option = { 
+		name = spt_jap.18.a
+		trigger = {
+			has_country_flag = diet_option_a_available
+		}
+
+		SPT_JAP_diet_flags_clear = yes
+		SPT_JAP_diet_flag_taken_clear = yes
+		hidden_effect = {
+			SPT_JAP_diet_remove_trait = yes
+		}
+
+		set_country_flag = diet_option_a_taken
+		add_country_leader_trait = kodoha_diet_research_trait
+		SPT_JAP_diet_flags_set = yes
+	}
+	option = { 
+		name = spt_jap.18.b
+		trigger = {
+			has_country_flag = diet_option_b_available
+		}
+
+		SPT_JAP_diet_flags_clear = yes
+		SPT_JAP_diet_flag_taken_clear = yes
+		hidden_effect = {
+			SPT_JAP_diet_remove_trait = yes
+		}
+
+		set_country_flag = diet_option_b_taken
+		add_country_leader_trait = kodoha_diet_stockpile_bolster_trait
+		SPT_JAP_diet_flags_set = yes
+	}
+	option = { 
+		name = spt_jap.18.c
+		trigger = {
+			has_country_flag = diet_option_c_available
+		}
+
+		SPT_JAP_diet_flags_clear = yes
+		SPT_JAP_diet_flag_taken_clear = yes
+		hidden_effect = {
+			SPT_JAP_diet_remove_trait = yes
+		}
+
+		set_country_flag = diet_option_f_taken
+		add_country_leader_trait = kodoha_diet_army_bolster_trait
+		SPT_JAP_diet_flags_set = yes
+	}
+	option = { 
+		name = spt_jap.18.d
+		trigger = {
+			has_country_flag = diet_option_d_available
+		}
+
+		SPT_JAP_diet_flags_clear = yes
+		SPT_JAP_diet_flag_taken_clear = yes
+		hidden_effect = {
+			SPT_JAP_diet_remove_trait = yes
+		}
+
+		set_country_flag = diet_option_d_taken
+		add_country_leader_trait = kodoha_diet_navy_bolster_trait
+		SPT_JAP_diet_flags_set = yes
+	}
+	option = { 
+		name = spt_jap.18.e
+		trigger = {
+			has_country_flag = diet_option_e_available
+		}
+
+		SPT_JAP_diet_flags_clear = yes
+		SPT_JAP_diet_flag_taken_clear = yes
+		hidden_effect = {
+			SPT_JAP_diet_remove_trait = yes
+		}
+
+		set_country_flag = diet_option_e_taken
+		add_country_leader_trait = kodoha_diet_stab_trait
+		SPT_JAP_diet_flags_set = yes
+	}
+	option = { 
+		name = spt_jap.18.f
+		trigger = {
+			has_country_flag = diet_option_f_available
+		}
+		SPT_JAP_diet_flags_clear = yes
+		SPT_JAP_diet_flag_taken_clear = yes
+		hidden_effect = {
+			SPT_JAP_diet_remove_trait = yes
+		}
+
+		set_country_flag = diet_option_f_taken
+		add_country_leader_trait = kodoha_diet_war_trait
+		SPT_JAP_diet_flags_set = yes
+	}
+}
+
+
 country_event = { 
 	id = spt_jap.999
 	title = spt_jap.999.t
@@ -881,27 +1024,6 @@ country_event = {
 
 	option = { # :)
 		name = spt_jap.999.a
-	}
-}
-
-
-#as a reminder to myself, election events are a scam and you need to calc how many days between 2 dates to fake the election cycle
-country_event = { 
-	id = spt_jap_election.1
-	title = spt_jap_election.1.t
-	desc = spt_jap_election.1.desc
-	is_triggered_only = yes
-	timeout_days = 14
-	picture = GFX_report_event_japanese_soldiers_03
-
-	trigger = {
-		always = no
-	}
-
-	immediate = {
-	}
-
-	option = {
 	}
 }
 

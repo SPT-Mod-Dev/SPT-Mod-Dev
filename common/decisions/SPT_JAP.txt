@@ -226,6 +226,19 @@ SPT_JAP_eco_pressure = {
 				has_completed_focus = SPT_JAP_full_eco_control
 			}
 		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 611
+				state = 612
+				state = 610
+				state = 715
+				state = 716
+				state = 328
+				state = 761
+				state = 714
+				state = 717
+			}
+		}
 		fire_only_once = yes
 		#days_remove = 70
 		cost = 20
@@ -292,6 +305,13 @@ SPT_JAP_eco_pressure = {
 			not = {
 				has_completed_focus = SPT_JAP_full_eco_control
 			}
+			has_completed_focus = SPT_JAP_korean_project
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 527
+				state = 525
+			}
 		}
 		fire_only_once = yes
 		days_remove = 70
@@ -346,6 +366,13 @@ SPT_JAP_eco_pressure = {
 			not = {
 				has_completed_focus = SPT_JAP_full_eco_control
 			}
+			has_completed_focus = SPT_JAP_exploit_the_southern_resource_area
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 333
+				state = 336
+			}
 		}
 		fire_only_once = yes
 		days_remove = 70
@@ -357,11 +384,11 @@ SPT_JAP_eco_pressure = {
 		icon = GFX_decision_generic_belgian_colonial_helmet
 		remove_effect = {
 			333 = {
-				add_resistance = 40
+				add_resistance = 30
 				add_compliance = -50
 			}
 			336 = {
-				add_resistance = 40
+				add_resistance = 30
 				add_compliance = -50
 			}
 			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
@@ -416,6 +443,14 @@ SPT_JAP_eco_pressure = {
 			not = {
 				has_completed_focus = SPT_JAP_full_eco_control
 			}
+			has_completed_focus = SPT_JAP_exploit_the_southern_resource_area
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 334
+				state = 335
+				state = 672
+			}
 		}
 		fire_only_once = yes
 		days_remove = 70
@@ -424,18 +459,18 @@ SPT_JAP_eco_pressure = {
 			#consumer_goods_factor = 0.2
 			political_power_gain = -0.15
 		}
-		icon = GFX_decision_RAJ_famine
+		icon = GFX_decision_generic_forestry
 		remove_effect = {
 			335 = {
-				add_resistance = 40
+				add_resistance = 30
 				add_compliance = -50
 			}
 			672 = {
-				add_resistance = 40
+				add_resistance = 30
 				add_compliance = -50
 			}
 			334 = {
-				add_resistance = 40
+				add_resistance = 30
 				add_compliance = -50
 			}
 			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
@@ -455,10 +490,10 @@ SPT_JAP_eco_pressure = {
 		}
 		available = {
 			custom_trigger_tooltip = {
-				tooltip = SPT_JAP_cg_threshold_2_or_higher_tt
+				tooltip = SPT_JAP_cg_threshold_3_or_higher_tt
 				check_variable = {
 					var = SPT_JAP_eco_pressure_consumer_goods_expected_value
-					value = 0.02
+					value = 0.03
 					compare = greater_than_or_equals
 				}
 			}
@@ -479,7 +514,7 @@ SPT_JAP_eco_pressure = {
 			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
 			add_to_variable = {
 				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
-				value = -0.02
+				value = -0.03
 				tooltip = SPT_JAP_cg_expected_tt
 			}
 		}
@@ -515,6 +550,50 @@ SPT_JAP_eco_pressure = {
 			}
 		}
 	}
+
+	SPT_JAP_rice_substitutes = {
+		allowed = {
+			original_tag = JAP
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SPT_JAP_cg_threshold_6_or_higher_tt
+				check_variable = {
+					var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+					value = 0.06
+					compare = greater_than_or_equals
+				}
+			}
+		}
+		visible = {
+			not = {
+				has_completed_focus = SPT_JAP_full_eco_control
+			}
+		}
+
+		fire_only_once = yes
+		#days_remove = 120
+		cost = 20
+		icon = GFX_decision_RAJ_famine
+		remove_effect = {
+			custom_effect_tooltip = SPT_JAP_pol_showa_state_header_tt
+			add_to_variable = {
+				SPT_JAP_pol_stability_factor = -0.05
+				tooltip = stability_factor_tt
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = -0.03
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+		}
+	}
+
 	SPT_JAP_ration_foodstuff = {
 		allowed = {
 			original_tag = JAP

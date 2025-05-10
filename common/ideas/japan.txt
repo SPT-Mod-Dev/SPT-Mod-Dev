@@ -352,6 +352,27 @@ ideas = {
 				army_attack_factor = 0.05
 			}
 		}
+		SPT_JAP_emperor_yasuhito_pan_asia = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+			
+			removal_cost = -1
+		
+			picture = idea_SPT_JAP_emperor_yasuhito
+
+			modifier = {
+				party_popularity_stability_factor = 0.5
+				army_attack_factor = 0.05
+				local_resources_factor = 0.05
+				army_attack_against_major_factor = 0.05
+				resistance_target = 0.05
+			}
+		}
 		SPT_JAP_hirohito_weak = {
 			allowed = {
 				always = no
@@ -386,6 +407,27 @@ ideas = {
 				stability_factor = 0.6
 				democratic_drift = 0.05
 				neutrality_drift = 0.05
+			}
+		}
+		SPT_JAP_hirohito_figurehead_pan_asia = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+			
+			removal_cost = -1
+
+			picture = jap_hirohito
+			
+			modifier = {
+				stability_factor = 0.6
+				democratic_drift = 0.08
+				neutrality_drift = 0.08
+				compliance_growth = 0.1
+				army_defence_against_major_factor = 0.05
 			}
 		}
 		SPT_JAP_wealth_redistribution = {
@@ -634,6 +676,119 @@ ideas = {
 				enemy_operative_detection_chance_factor = 0.1
 			}
 		}
+
+		SPT_JAP_fake_yen_bloc_law_1 = { #dont use this as an actual spirit, it's only for tooltips
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			available = { 
+				#has_stability < 0.5 
+			}
+		
+			removal_cost = -1
+
+			picture = RAJ_tenancy_reforms
+
+			modifier = {
+				resistance_target 				= -0.15
+				compliance_gain 				= -0.08
+				required_garrison_factor 		= -0.10
+				resistance_damage_to_garrison 	= -0.10
+				local_factories 				= 0.10
+				local_resources 				= 0.10
+				production_speed_buildings_factor = 0.025
+			}
+		}
+		
+		SPT_JAP_fake_yen_bloc_law_2 = { #dont use this as an actual spirit, it's only for tooltips
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			available = { 
+				#has_stability < 0.5 
+			}
+		
+			removal_cost = -1
+
+			picture = RAJ_tenancy_reforms
+
+			modifier = {
+				resistance_target 				= -0.15
+				compliance_gain 				= -0.06
+				required_garrison_factor 		= -0.15
+				resistance_damage_to_garrison 	= -0.15
+				local_factories 				= 0.15
+				local_resources 				= 0.15
+				production_speed_buildings_factor = 0.05
+			}
+		}
+		
+		SPT_JAP_fake_yen_bloc_law_3 = { #dont use this as an actual spirit, it's only for tooltips
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			available = { 
+				#has_stability < 0.5 
+			}
+		
+			removal_cost = -1
+
+			picture = RAJ_tenancy_reforms
+
+			modifier = {
+				resistance_target 				= -0.20
+				compliance_gain 				= -0.04
+				required_garrison_factor 		= -0.20
+				resistance_damage_to_garrison 	= -0.20
+				local_factories 				= 0.15
+				local_resources 				= 0.15
+				production_speed_buildings_factor = 0.075
+			}
+		}
+
+		SPT_JAP_fake_pan_asia_law = { #dont use this as an actual spirit, it's only for tooltips
+		allowed = {
+			always = no
+		}
+
+		allowed_civil_war = {
+			always = no
+		}
+
+		available = { 
+			#has_stability < 0.5 
+		}
+	
+		removal_cost = -1
+
+		picture = RAJ_tenancy_reforms
+
+		modifier = {
+			resistance_target 				= -0.20
+			compliance_gain 				= 0.02
+			required_garrison_factor 		= 0.15
+			resistance_damage_to_garrison	= -0.35
+			local_factories 				= 0.05
+			local_resources 				= 0.05
+			non_core_manpower 				= -0.1
+		}
+	}
+		
 
 		#SPT new ideas end
 		###############
@@ -1052,7 +1207,7 @@ ideas = {
 				mobilization_laws_cost_factor = -0.25
 				justify_war_goal_time = -0.2
 				research_speed_factor = -0.05
-				production_speed_industrial_complex_factor = -0.1
+				production_speed_industrial_complex_factor = -0.15 #spt change, -0.1 -> -0.15
 				ai_desired_divisions_factor = 0.25
 				#SPTChange
 				production_speed_arms_factory_factor = 0.15
@@ -2687,7 +2842,7 @@ ideas = {
 			
 			modifier = { #spt change, added modifiers
 				production_lack_of_resource_penalty_factor = -0.025
-				production_speed_buildings_factor = 0.05
+				production_speed_buildings_factor = 0.025
 
 				custom_modifier_tooltip = SPT_JAP_industrial_concern_upgrade_possible_tt
 			}
@@ -2753,7 +2908,7 @@ ideas = {
 			modifier = { #spt change, added modifiers
 				production_speed_rail_way_factor = 0.25
 				production_speed_supply_node_factor = 0.15
-				fuel_gain_factor = 0.1
+				fuel_gain_factor = 0.05
 
 				custom_modifier_tooltip = SPT_JAP_industrial_concern_upgrade_possible_tt
 			}
@@ -2839,7 +2994,7 @@ ideas = {
 			modifier = {
 				production_speed_rail_way_factor = 0.40
 				production_speed_supply_node_factor = 0.25
-				fuel_gain_factor = 0.15
+				fuel_gain_factor = 0.1
 				country_resource_oil = 10
 			}
 
@@ -2879,6 +3034,7 @@ ideas = {
 			}
 			modifier = {
 				political_power_gain = -0.1
+				custom_modifier_tooltip = SPT_JAP_planning_board_upgrade_possible_tt
 			}
 			
 			traits = { national_company_trait }

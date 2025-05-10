@@ -405,3 +405,144 @@ SPT_CHI_spawn_militia = { #spawn a bunch of divs in random states
 		}
 	}
 }
+
+SPT_JAP_diet_flags_set = {
+	for_loop_effect = {
+		start = 0
+		end = 3
+		compare = less_than
+		add = 1
+		value = flags_selected
+
+		random_list = {
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_country_flag = diet_option_a_taken
+						has_country_flag = diet_option_a_available
+					}
+				}
+				set_country_flag = diet_option_a_available
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_country_flag = diet_option_b_taken
+						has_country_flag = diet_option_b_available
+					}
+				}
+				set_country_flag = diet_option_b_available
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_country_flag = diet_option_c_taken
+						has_country_flag = diet_option_c_available
+					}
+				}
+				set_country_flag = diet_option_c_available
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_country_flag = diet_option_d_taken
+						has_country_flag = diet_option_d_available
+					}
+				}
+				set_country_flag = diet_option_d_available
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_country_flag = diet_option_e_taken
+						has_country_flag = diet_option_e_available
+					}
+				}
+				set_country_flag = diet_option_e_available
+			}
+			1 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_country_flag = diet_option_f_taken
+						has_country_flag = diet_option_f_available
+					}
+				}
+				set_country_flag = diet_option_f_available
+			}
+		}
+	}
+}
+
+SPT_JAP_diet_flags_clear = {
+	clr_country_flag = diet_option_a_available
+	clr_country_flag = diet_option_b_available
+	clr_country_flag = diet_option_c_available
+	clr_country_flag = diet_option_d_available
+	clr_country_flag = diet_option_e_available
+	clr_country_flag = diet_option_f_available
+}
+SPT_JAP_diet_flag_taken_clear = {
+	clr_country_flag = diet_option_a_taken
+	clr_country_flag = diet_option_b_taken
+	clr_country_flag = diet_option_c_taken
+	clr_country_flag = diet_option_d_taken
+	clr_country_flag = diet_option_e_taken
+	clr_country_flag = diet_option_f_taken
+}
+
+SPT_JAP_diet_remove_trait = {
+	if = {
+		limit = {
+			SPT_JAP_kodoha_diet = {
+				has_trait = kodoha_diet_research_trait
+			}
+		}
+		remove_country_leader_trait = kodoha_diet_research_trait
+	}
+	if = {
+		limit = {
+			SPT_JAP_kodoha_diet = {
+				has_trait = kodoha_diet_army_bolster_trait
+			}
+		}
+		remove_country_leader_trait = kodoha_diet_army_bolster_trait
+	}
+	if = {
+		limit = {
+			SPT_JAP_kodoha_diet = {
+				has_trait = kodoha_diet_stockpile_bolster_trait
+			}
+		}
+		remove_country_leader_trait = kodoha_diet_stockpile_bolster_trait
+	}
+	if = {
+		limit = {
+			SPT_JAP_kodoha_diet = {
+				has_trait = kodoha_diet_navy_bolster_trait
+			}
+		}
+		remove_country_leader_trait = kodoha_diet_navy_bolster_trait
+	}
+	if = {
+		limit = {
+			SPT_JAP_kodoha_diet = {
+				has_trait = kodoha_diet_stab_trait
+			}
+		}
+		remove_country_leader_trait = kodoha_diet_stab_trait
+	}
+	if = {
+		limit = {
+			SPT_JAP_kodoha_diet = {
+				has_trait = kodoha_diet_war_trait
+			}
+		}
+		remove_country_leader_trait = kodoha_diet_war_trait
+	}
+}
