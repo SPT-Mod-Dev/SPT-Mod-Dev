@@ -40,7 +40,7 @@ leader_traits = {
 		random = no
 		sprite = 15
 		#things go here
-		operative_slot = 1
+		#operative_slot = 1
 		compliance_gain = 0.05
 		resistance_target = -0.05
 		resistance_growth = -0.1
@@ -78,6 +78,19 @@ leader_traits = {
 			factor = 1
 		}
 	}
+	jap_planning_board_leader_improved = {
+		random = no
+		sprite = 10
+
+		#things go here
+		#political_power_factor = -0.1
+		consumer_goods_factor = -0.2
+		military_industrial_organization_funds_gain = 0.1
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
 	army_philosopher = {
 		random = no
 		sprite = 5
@@ -110,7 +123,6 @@ leader_traits = {
 		sprite = 10
 
 		political_advisor_cost_factor = -0.15
-		stability_factor = -0.1
 		army_core_defence_factor = 0.05
 		max_dig_in = 5
 		resistance_target = 0.05
@@ -144,7 +156,7 @@ leader_traits = {
 		sprite = 13
 
 		fascism_drift = 0.1
-		offensive_war_stability_factor = 0.05
+		modifier_army_sub_unit_militia_defence_factor = 0.15
 		weekly_casualties_war_support = 0.003
 	}
 
@@ -152,5 +164,73 @@ leader_traits = {
 		random = no
 
 		#empty, this is only for localization purposes
+	}
+
+	military_gov_trait = {
+		random = no
+		sprite = 10
+
+		fascism_drift = 0.15
+		mobilization_speed = 0.15
+		high_command_cost_factor = -0.15	
+		war_stability_factor = 0.2
+		stability_factor = -0.1
+	}
+
+	kodoha_diet_trait = {
+		random = no
+		sprite = 10
+
+		party_popularity_stability_factor = 0.1
+		political_power_factor = 0.1
+		command_power_gain_mult = 0.15
+		political_advisor_cost_factor = -0.25
+	}
+
+	kodoha_diet_research_trait = {
+		random = no
+		sprite = 10
+
+		research_speed_factor = 0.05
+		special_project_speed_factor = 0.05
+	}
+	kodoha_diet_army_bolster_trait = {
+		random = no
+		sprite = 10
+
+		mobilization_speed = 0.25
+		conscription_factor = 0.25
+		mobilization_laws_cost_factor = -0.1
+	}
+	kodoha_diet_stockpile_bolster_trait = {
+		random = no
+		sprite = 10
+
+		production_factory_efficiency_gain_factor = 0.1
+		production_speed_arms_factory_factor = 0.1
+	}
+	kodoha_diet_navy_bolster_trait = {
+		random = no
+		sprite = 10
+
+		production_speed_dockyard_factor = 0.1
+		industrial_capacity_dockyard = 0.1
+	}
+	kodoha_diet_stab_trait = {
+		random = no
+		sprite = 10
+
+		fascism_drift = 0.15
+		party_popularity_stability_factor = 0.1
+		production_speed_infrastructure_factor = 0.1
+	}
+	kodoha_diet_war_trait = {
+		random = no
+		sprite = 10
+
+		weekly_bombing_war_support = 0.003
+		weekly_casualties_war_support = 0.003
+		weekly_convoys_war_support = 0.003
+		war_support_factor = 0.1
 	}
 }

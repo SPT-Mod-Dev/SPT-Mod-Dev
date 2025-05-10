@@ -172,6 +172,8 @@ JAP_interservice_rivalry = {
 			NOT = {
 				has_country_flag = JAP_steel_for_ships
 			}
+			#spt change, added a check
+			has_completed_focus = SPT_JAP_planned_eco
 		}
 
 		cost = 20 #SPT change, 30 -> 20
@@ -222,6 +224,15 @@ JAP_interservice_rivalry = {
 			set_country_flag = { flag = JAP_war_conferences_cd value = 1 days = 180 }
 			JAP_interservice_rivalry_towards_army = yes
 			set_country_flag = JAP_steel_for_guns
+
+			#spt change, made it cost something for real this time
+			#custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.005
+				tooltip = SPT_JAP_cg_expected_tt
+			}
 		}
 	}
 
@@ -242,6 +253,8 @@ JAP_interservice_rivalry = {
 			NOT = {
 				has_country_flag = JAP_steel_for_guns
 			}
+			#spt change, added a check
+			has_completed_focus = SPT_JAP_planned_eco
 		}
 
 		cost = 20 #SPT change, 30 -> 20
@@ -292,6 +305,15 @@ JAP_interservice_rivalry = {
 			set_country_flag = { flag = JAP_war_conferences_cd value = 1 days = 180 }
 			JAP_interservice_rivalry_towards_navy = yes
 			set_country_flag = JAP_steel_for_ships
+
+			#spt change, made it cost something for real this time
+			#custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.005
+				tooltip = SPT_JAP_cg_expected_tt
+			}
 		}
 	}
 

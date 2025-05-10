@@ -770,6 +770,26 @@ on_actions = {
 						is_in_faction_with = ENG
 					}
 				}
+			}
+
+			if = {
+				limit = {
+					tag = CHI
+					AND = {
+						OR = {
+							JAP = {
+								NOT = {
+									has_completed_focus = SPT_JAP_grain_market
+								}
+							}
+							JAP = {
+								NOT = {
+									has_idea = SPT_JAP_grain_market_inflation_active
+								}
+							}
+						}
+					}
+				}
 				JAP = {
 					#add_ideas = JAP_tora_tora_tora_idea
 					add_timed_idea = {
@@ -799,6 +819,37 @@ on_actions = {
 					country_event = {
 						id = spt_mongolia.15
 						days = 35
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = JAP
+					}
+					FROM = {
+						tag = CHI
+					}
+					#triggers hidden event for a future increase in eco pressure
+				}
+				hidden_effect = {
+					complete_national_focus = SPT_JAP_liaison_conference
+					JAP = {
+						country_event = {
+							id = spt_jap.6 #war with china causes increase in eco pressure
+						}
+						#this is to prevent forever wars on the ai side, a small convenience thing for test builds
+						if = {
+							limit = {
+								JAP = {
+									is_ai = yes
+								}
+							}
+							country_event = {
+								id = spt_jap.999
+								days = 800
+							}
+						}
 					}
 				}
 			}
@@ -1268,6 +1319,28 @@ on_actions = {
 				ITA = {
 					diplomatic_relation = { country = GER relation = guarantee active = no } 
 					diplomatic_relation = { country = JAP relation = guarantee active = no } 
+				}
+			}
+
+			if = {	#check to prevent cheesing grain market event by holding china hostage
+				limit = { 
+					date > 1939.6.30
+					JAP = {
+						has_war_with = CHI
+					}
+					CHI = {
+						surrender_progress > 0.2
+					}
+				}
+				random_list = {
+					10 = {
+						JAP = {
+							country_event = spt_jap.4
+						}
+					}
+					20 = {
+						#nothing happens
+					}
 				}
 			}
 		}

@@ -13,7 +13,7 @@ JAP_pan_asian_integration = {
 }
 
 #Strike South National Spirit modifier
-SPT_JAP_nanshin_ron = { #NATIONAL SPIRIT
+SPT_JAP_nanshin_ron = { #NATIONAL SPIRIT #made obsolete by Zaibatsu and Showa Statism modiers
 	enable = { always = yes }
 
 	icon = GFX_idea_generic_japanese_conflict
@@ -68,6 +68,7 @@ SPT_JAP_pol_showa_state = { #NATIONAL SPIRIT
 
 	icon = GFX_idea_imperial_glory_idea
 	
+
 	war_support_factor = SPT_JAP_pol_war_support_factor
 	resistance_target = SPT_JAP_pol_resistance_target
 	political_power_gain = SPT_JAP_pol_political_power_gain
@@ -106,6 +107,9 @@ SPT_JAP_pol_showa_state = { #NATIONAL SPIRIT
 	convoy_raiding_efficiency_factor = SPT_JAP_pol_convoy_raiding_efficiency_factor
 	supply_node_range = SPT_JAP_pol_supply_node_range
 	supply_consumption_factor = SPT_JAP_pol_supply_consumption_factor
+	offensive_war_stability_factor = SPT_JAP_pol_offensive_war_stability_factor
+	consumer_goods_factor = SPT_JAP_pol_consumer_goods_factor
+	production_factory_efficiency_gain_factor = SPT_JAP_pol_production_factory_efficiency_gain_factor
 }
 
 #naval fort and port construction speed state modifier
@@ -212,7 +216,7 @@ SPT_JAP_eco_pressure_modifier = {
 	consumer_goods_expected_value = SPT_JAP_eco_pressure_consumer_goods_expected_value
 }
 
-SPT_JAP_zaibatsu_modifier = {
+SPT_JAP_zaibatsu_modifier = { #NATIONAL SPIRIT
 	enable = {
 		always = yes
 	}
@@ -237,7 +241,7 @@ SPT_JAP_zaibatsu_modifier = {
 	production_speed_dockyard_factor = SPT_JAP_zai_production_speed_dockyard_factor
 	production_factory_start_efficiency_factor = SPT_JAP_zai_production_factory_start_efficiency_factor	
 	industrial_capacity_factory = SPT_JAP_zai_industrial_capacity_factory
-	industrial_capacity_dockyard = SPT_JAP_zai_capacity_dockyard
+	industrial_capacity_dockyard = SPT_JAP_zai_industrial_capacity_dockyard
 	
 	production_lack_of_resource_penalty_factor = SPT_JAP_zai_production_lack_of_resource_penalty_factor
 	production_speed_buildings_factor = SPT_JAP_zai_production_speed_buidlings_factor
@@ -245,6 +249,8 @@ SPT_JAP_zaibatsu_modifier = {
 	resource_trade_cost_bonus_per_factory = SPT_JAP_zai_resource_trade_cost_bonus_per_factory
 	
 	global_building_slots_factor = SPT_JAP_zai_global_building_slots_factor
+
+	fuel_gain_factor = SPT_JAP_zai_fuel_gain_factor
 
 }
 
@@ -260,4 +266,5 @@ SPT_CHI_war_of_resistance = {
 	icon = GFX_modifiers_SOV_civilian_labor_in_defense
 
 	army_speed_factor = -0.5
+	disable_strategic_redeployment = 1
 }
