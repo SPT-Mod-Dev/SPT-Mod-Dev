@@ -480,6 +480,7 @@
 				limit = {
 					not = { is_core_of = ROOT }
 					not = { is_on_continent = europe }
+					has_resistance = yes # SPTChange remove errors
 				}
 				add_compliance = 10
 			}
@@ -945,7 +946,12 @@
 	focus = {
 		id = FRA_fortification_focus
 		icon = GFX_goal_generic_construction2
-		prerequisite = { focus = FRA_methodical_battle }
+		# SPTchange alternate path
+		# prerequisite = { focus = FRA_methodical_battle }
+		prerequisite = {
+			focus = FRA_firepower_kills
+			focus = FRA_methodical_battle
+		}
 		x = 0
 		y = 1
 		relative_position_id = FRA_methodical_battle
@@ -1012,7 +1018,12 @@
 	focus = {
 		id = FRA_infantry_focus
 		icon = GFX_goal_generic_allies_build_infantry
-		prerequisite = { focus = FRA_firepower_kills }
+		# SPTchange alternate path
+		# prerequisite = { focus = FRA_firepower_kills }
+		prerequisite = {
+			focus = FRA_firepower_kills
+			focus = FRA_methodical_battle
+		}
 		x = 0
 		y = 1
 		relative_position_id = FRA_firepower_kills
@@ -1205,7 +1216,9 @@
 		x = 0
 		y = 1
 		
-		prerequisite = { focus = FRA_infantry_tanks }
+		# SPTchange additional path
+		# prerequisite = { focus = FRA_infantry_tanks }
+		prerequisite = { focus = FRA_infantry_tanks focus = FRA_infantry_focus }
 		mutually_exclusive = { }
 		relative_position_id = FRA_infantry_tanks
 		cost = 10
@@ -1240,7 +1253,12 @@
 		x = 0
 		y = 2
 		
-		prerequisite = { focus = FRA_special_forces }
+		# SPTchange alternate path
+		# prerequisite = { focus = FRA_special_forces }
+		prerequisite = {
+			focus = FRA_special_forces
+			focus = FRA_artillery_focus
+		}
 		mutually_exclusive = { }
 		relative_position_id = FRA_infantry_tanks
 		cost = 10
@@ -1527,6 +1545,7 @@
 			focus = FRA_heavy_armor_focus 
 			focus = FRA_extend_the_maginot_line
 			focus = FRA_flying_artillery
+			focus = FRA_fusiliers_marine # SPTchange
 		}
 		x = -1
 		y = 1
@@ -3433,6 +3452,7 @@
 					NOT = {
 						is_on_continent = europe
 					}
+					has_resistance = yes # SPTChange remove errors
 				}
 				add_compliance = 10
 			}

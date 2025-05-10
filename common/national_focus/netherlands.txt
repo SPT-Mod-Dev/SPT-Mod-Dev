@@ -1654,13 +1654,20 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = {FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY}
 		completion_reward = {
+
+			add_breakthrough_progress = {
+				specialization = specialization_air
+				value = 0.5
+			}
+
 			add_tech_bonus = {
 				name = HOL_domestic_jet_engine_designs
-				bonus = 1.0
-				uses = 2
+				bonus = 0.75 # was 0.5
+				uses = 1 # was 2
 				category = jet_technology
 			}
 			HOL_domestic_jet_engine_designs_level_up = yes
+
 		}
 	}
 
@@ -1973,12 +1980,19 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = {FOCUS_FILTER_RESEARCH}
 		completion_reward = {
+
+			add_breakthrough_progress = {
+				specialization = specialization_nuclear
+				value = 0.5
+			}
+
 			add_tech_bonus = {
 				name = HOL_the_ultimate_deterrent
-				bonus = 1.0
+				bonus = 0.8 # was 1
 				uses = 1
 				category = nuclear
 			}
+
 		}
 	}
 
@@ -3202,7 +3216,7 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = HOL_rely_on_submarines
-				bonus = 1
+				bonus = 0.75
 				uses = 2
 				category = ss_tech
 			}
@@ -4352,6 +4366,8 @@ focus_tree = {
 		bypass = {
 			has_full_control_of_state = 6
 			has_full_control_of_state = 34
+			has_full_control_of_state = 977
+			has_full_control_of_state = 980
 			has_full_control_of_state = 8
 		}
 		prerequisite = { focus = HOL_join_germany focus = HOL_the_netherlands_first }
@@ -4376,6 +4392,15 @@ focus_tree = {
 			    target = LUX
 			    expire = 0
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			6 = { add_claim_by = ROOT }
+			34 = { add_claim_by = ROOT }
+			977 = { add_claim_by = ROOT }
+			980 = { add_claim_by = ROOT }
+			8 = { add_claim_by = ROOT }
+
 		}
 	}
 
@@ -5200,6 +5225,8 @@ focus_tree = {
 		bypass = {
 			has_full_control_of_state = 6
 			has_full_control_of_state = 34
+			has_full_control_of_state = 977
+			has_full_control_of_state = 980
 			has_full_control_of_state = 8
 		}
 		prerequisite = { focus = HOL_bastion_of_true_communism focus = HOL_join_the_french focus = HOL_affirm_loyalty_to_moscow }
@@ -5640,6 +5667,8 @@ focus_tree = {
 		available = {
 			has_full_control_of_state = 6
 			has_full_control_of_state = 34
+			has_full_control_of_state = 977
+			has_full_control_of_state = 980
 			has_full_control_of_state = 8
 		}
 		cancel_if_invalid = yes
@@ -5653,10 +5682,10 @@ focus_tree = {
 		available_if_capitulated = no
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 		completion_reward = {
-			6 = {
+			977 = {
 				if = {
 					limit = {
-						6 = {
+						977 = {
 							free_building_slots = {
 								building = industrial_complex
 								size > 1
@@ -6027,7 +6056,7 @@ focus_tree = {
 			has_government = democratic
 			is_in_faction_with = ENG
 			is_in_faction_with = AST
-			is_in_faction_with = MAL
+			# is_in_faction_with = MAL # SPTchange
 			NOT = { has_war_with = USA }
 			OR = {
 				MAL = { has_full_control_of_state = 336 }
@@ -6477,19 +6506,35 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			set_faction_name = european_union
-			every_other_country = {
+			IF = {
 				limit = {
-					capital_scope = {
-						is_on_continent = europe
-					}
-					is_subject = no
-					is_major = no
-					has_government = democratic
-					NOT = { is_in_faction_with = ROOT }
+					is_faction_leader = yes
 				}
-				country_event = { id = generic.5 hours = 6 }
+				set_faction_name = BEL_european_union
 			}
+
+			ELSE_IF = {
+				limit = {
+					is_in_faction = yes
+					is_faction_leader = no
+				}
+
+				leave_faction = yes
+
+				custom_effect_tooltip = generic_skip_one_line_tt
+
+				create_faction = BEL_european_union
+			}
+
+			ELSE = {
+				create_faction = BEL_european_union
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = BEL_the_council_of_europe_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = BEL_european_community_tt
+
 			hidden_effect = { news_event = { id = mtg_news.54 days = 1 } }
 		}
 	}

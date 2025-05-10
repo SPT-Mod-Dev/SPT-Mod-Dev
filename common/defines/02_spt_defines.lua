@@ -26,8 +26,19 @@ NDefines.NMilitary.EXPERIENCE_COMBAT_FACTOR = 0.2
 
 NDefines.NIndustrialOrganisation.DESIGN_TEAM_CHANGE_XP_COST = 1
 
+NDefines.NBuildings.ANTI_AIR_SUPERIORITY_MULT = 25
+
 NDefines.NMilitary.ARMOR_VS_AVERAGE = 0.25
 NDefines.NMilitary.PEN_VS_AVERAGE = 0.3
+
+
+NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_IMPACT = 0.25
+NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE = 0.5
+NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE_STEEPNESS = 80
+NDefines.NMilitary.AIR_SUPPORT_BASE = 0.2
+NDefines.NAir.ANTI_AIR_ATTACK_TO_DAMAGE_REDUCTION_FACTOR = 0.4  --aa counts for 40% the DR vs CAS
+NDefines.NAir.ANTI_AIR_MAXIMUM_DAMAGE_REDUCTION_FACTOR = 0.9 --but now reduces cas DMG up to 90% (53% aa1, 70% aa2, 89% aa3 at base stats from 75% with aa1,2,3 (10.8 aa averaged over all divs in battle))
+
 
 NDefines.NNavy.CARRIER_STACK_PENALTY 									        = 4         --The most efficient is 4 carriers in combat. 5+ brings the penalty to the amount of wings in battle.
 NDefines.NNavy.CARRIER_STACK_PENALTY_EFFECT 									= 0.15      --Each carrier above the optimal amount decreases the amount of airplanes being able to takeoff by such %.
@@ -43,8 +54,14 @@ NDefines.NNavy.GUN_HIT_PROFILES = { -- hit profiles for guns, if target ih profi
     110.0,	-- torpedoes
     45.0,	-- small guns
 }
-NDefines.NNavy.CONVOY_HIT_PROFILE                                            = 105
+NDefines.NNavy.CONVOY_HIT_PROFILE                                               = 105
+NDefines.NNavy.CONVOY_RAID_MAX_REGION_TO_TASKFORCE_RATIO                        = 1
 
 NDefines.NDiplomacy.EMBARGO_THREAT_THRESHOLD = 50
 
 NDefines.NDiplomacy.PEACE_SCORE_DISTRIBUTION = { 1, 1, 1, 1, 1 }
+
+NDefines.NProject.BREAKTHROUGH_DAILY_TECHNOLOGY_GAIN = 9
+
+-- SPTChange add manpower increase
+NDefines.NProduction.MIN_POSSIBLE_TRAINING_MANPOWER = 1000000

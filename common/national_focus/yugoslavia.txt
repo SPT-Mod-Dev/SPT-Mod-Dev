@@ -153,7 +153,6 @@ focus_tree = {
 		relative_position_id = YUG_western_focus
 
 		cost = 10
-		
 
 		ai_will_do = {
 			factor = 40
@@ -654,6 +653,7 @@ focus_tree = {
 						PREV = {
 							puppet = PREV
 							set_autonomy = { target = PREV autonomy_state = autonomy_integrated_puppet }
+
 						}
 						set_country_flag = yug_croatia_flag
 					}
@@ -994,12 +994,14 @@ focus_tree = {
 			OR = {
 				controls_state = 108
 				controls_state = 106
+				controls_state = 970
 			}
 		}
 
 		bypass = {
 			NOT = { controls_state = 108 }
 			NOT = { controls_state = 106 }
+			NOT = { controls_state = 970 }
 		}
 
 		cancel_if_invalid = yes
@@ -1169,16 +1171,18 @@ focus_tree = {
 					controls_state = 764
 				}
 				ROM = {
-					add_opinion_modifier = { 
+					transfer_state = 764
+
+					add_opinion_modifier = {
 						target = ROOT
 						modifier = huge_increase
 					}
-					transfer_state = 764
-				}
-				diplomatic_relation = {
+
+					diplomatic_relation = {
 						country = YUG
 						relation = non_aggression_pact
 						active = yes
+					}
 				}
 				764 = {
 					remove_core_of = ROOT
@@ -1190,7 +1194,9 @@ focus_tree = {
 					controls_state = 45
 				}
 				HUN = {
-					add_opinion_modifier = { 
+					transfer_state = 45
+
+					add_opinion_modifier = {
 						target = ROOT
 						modifier = huge_increase
 					}
@@ -1199,11 +1205,10 @@ focus_tree = {
 						relation = non_aggression_pact
 						active = yes
 					}
-					transfer_state = 45
 				}
 				45 = {
 					remove_core_of = ROOT
-					add_core_of = ROM
+					add_core_of = HUN
 				}
 			}
 			hidden_effect = { 
@@ -1953,7 +1958,13 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			remove_ideas = anti_german_military
+			IF = {
+				limit = {
+					has_idea = anti_german_military
+				}
+				remove_ideas = anti_german_military
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
 			add_tech_bonus = {
 				name = YUG_german_military_mission
 				bonus = 1.0
@@ -2060,7 +2071,7 @@ focus_tree = {
 					country_leader = {
 						expire = "1965.1.1"
 						ideology = fascism_ideology
-						traits = {}
+						traits = { collaborator_king }
 					}
 					promote_leader = yes
 				}
@@ -2378,13 +2389,14 @@ focus_tree = {
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = { FOCUS_FILTER_MANPOWER }
+		search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_MILITARY_CHARACTER }
 
 		complete_tooltip = {
 
 		}
 
 		completion_reward = {
+
 			add_ideas = YUG_idea_all_yugoslavian_regiments
 		}
 	}

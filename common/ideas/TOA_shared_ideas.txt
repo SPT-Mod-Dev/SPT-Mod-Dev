@@ -1,6 +1,25 @@
 ideas = {
 	country = {
 
+		SMB_dreadnought_debt_fake_for_tooltip = { #The purpose of this NS is to display a generic name in the tooltip when used in the scripted effect SMB_dreadnought_debt_fake_for_tooltip
+			
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			picture = ger_mefo_bills_payment
+			
+			modifier = {
+				consumer_goods_factor = 0.05
+			}
+		}
+
 		SMB_dreadnought_debt_usa = {
 			
 			allowed = {
@@ -140,6 +159,72 @@ ideas = {
 			allowed = {
 				always = no
 			}
+			# SPTchange sorry, do the focus
+			# cancel = {
+			# 	IF = {
+			# 		limit = {
+			# 			tag = BRA
+			# 		}
+			# 		AND = {
+			# 			ARG = {
+			# 				OR = {
+			# 					has_capitulated = yes
+            #         			exists = no
+            #         			is_subject_of = ROOT
+			# 				}
+			# 			}
+			# 			CHL = {
+			# 				OR = {
+			# 					has_capitulated = yes
+            #         			exists = no
+            #         			is_subject_of = ROOT
+			# 				}
+			# 			}
+			# 		}
+			# 	}
+			# 	IF = {
+			# 		limit = {
+			# 			tag = ARG
+			# 		}
+			# 		AND = {
+			# 			BRA = {
+			# 				OR = {
+			# 					has_capitulated = yes
+            #         			exists = no
+            #         			is_subject_of = ROOT
+			# 				}
+			# 			}
+			# 			CHL = {
+			# 				OR = {
+			# 					has_capitulated = yes
+            #         			exists = no
+            #         			is_subject_of = ROOT
+			# 				}
+			# 			}
+			# 		}
+			# 	}
+			# 	IF = {
+			# 		limit = {
+			# 			tag = CHL
+			# 		}
+			# 		AND = {
+			# 			BRA = {
+			# 				OR = {
+			# 					has_capitulated = yes
+            #         			exists = no
+            #         			is_subject_of = ROOT
+			# 				}
+			# 			}
+			# 			ARG = {
+			# 				OR = {
+			# 					has_capitulated = yes
+            #         			exists = no
+            #         			is_subject_of = ROOT
+			# 				}
+			# 			}
+			# 		}
+			# 	}
+			# }
 
 			allowed_civil_war = {
 				always = no

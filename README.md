@@ -1,11 +1,618 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.14.4
+
+#### General
+ - 'Surface Raiders' Screening without screening 25%->12.5%
+ - General tooltip update. These are NOT balancing changes!
+    - State infrastructure construction speed modifiers should now say 'Infrastructure construction speed' instead of 'construction speed'
+    - Soviet focus 'The Modern War in the Skies' now correctly displays night operations penalty reduction
+    - Modifiers that affect the Air Superiority land battle bonus now state 'Air Superiority in-battle effect' for clarity
+    - Reworded Army, Navy, and Military Leader Cost effects
+
+#### Brazil
+ - Focus 'The Washington Accords' is now available when in faction
+
+#### British Raj
+ - Occupation law 'Princely Subjugation' Resistance target 60% -> 20%
+                                         Local factories 60% -> 20%
+ - Add tooltip warning to focus 'The Indian Parliament'
+ - Focus 'South East Asia Command' Special Forces Capacity Multiplier +25%->0%
+ - Focus 'Free Abyssinia" Special Forces Capacity Multiplier +10%->0%
+ - Focus 'Lions of the Great War' now adds idea 'Indian Special Forces': Special Forces Capacity Multiplier 15%
+    - Army Experience 30->0
+
+#### Denmark
+ - Removed Burmeister & Wain trait 'Efficient Scrap Recycling' (the second one)
+ - Reduced Focus 'Reclaim Norway' compliance 80%->60%
+ - Reduced Focus 'Administrate Norway' compaliance 60%->40%
+
+#### Germany
+ - Focus 'Panzerschiff Raiders' Screening without Screens 10% -> 0%
+
+###  3.14.3
+
+ - Focus 'Princely State Donations' no longer triggers 'Fight Funds' event
+ - Fixed button bug
+
+###  3.14.2
+
+#### General
+ - Implemented 1.16.5
+ - Added event notifying Axis powers when Britain takes focus 'Secure Iraq'
+ - Paratrooper doctrine 'Combat Insertion' now available
+ - Resealed King Tut's tomb due to unforeseen consequences
+
+#### Brazil
+ - Focus 'Secure our Borders' now sends a faction join request to the UK
+ - Focus 'The Washington Accords' no longer bypasses if already in faction with US
+
+#### British Raj
+ - Reduced focus times on independence path (on top of 1.16.5 reductions)
+    - 'A Congress Resurgent': 70 -> 35 days
+    - 'India United': 70 -> 35 days
+    - 'Cabinet Mission Plan': 70 -> 35 days
+    - 'A Permanent Muslim Governmental Seat': 70 -> 35 days
+    - 'Inclusive Nationalism': 70 -> 35 days
+ - Focuses 'Holding the gates of india', 'Defense of burma', 'Fortify el alamein', 'The defense of hong kong', 'Defense of malaya', 'fortify aden', the aden protectorate':
+    - Halved number of forts and anti-air given
+    - Halved the duration of the state modifiers applied
+
+#### Germany
+ - Removed focus 'Demand Slovenia'
+
+###  3.14.1
+
+#### General
+ - Implemented most of 1.16.2 and 1.16.3
+    - Armored Car cost changes only
+    - Tank cost and attack changes are not implemented
+ - Set default host tool nation to Germany
+ - King Tut's tomb has been properly unsealed
+
+#### Australia
+ - Focus 'Introduce Unconventional Warfare' no longer grants a Special Forces Branch Specialism. Time reduced from 70 -> 35 days.
+ - Australia now has access to the 'Diversify Special Forces' decision
+
+#### British Raj
+ - Focus 'Defense of India Act' no longer cancels if War Support falls below 50%
+ - Add Focus 'India Indivisible' under 'Tryst with Destiny'
+
+#### France
+ - Focuses 'Levee en masse' and 'Fortification Focus' now accept either of 'Firepower Kills' or 'Methodical Battle' as prerequisite
+ - Focus 'Special Forces' now accepts 'Levee en masse' as prerequisite
+ - Focus 'Fusiliers Marins' now accepts 'Grande Batterie' as prerequisite
+
+###  3.14.0 Graveyard of DLC
+
+#### General
+ - Implemented Graveyard of Empires (as of v1.16.1)
+ - Annexed new GoE puppets back into colonial overlords
+ - Added decision to add/remove a convoy to force convoy recalculations
+
+#### Brazil
+ - Removed ability to have Lindolfo Collor and Minervino de Oliveira as both leader and advisor (again)
+
+#### Bulgaria
+ - Focus 'Illusions of a Non-Partisan System" no longer cancels if Democracy support falls below 20%
+
+#### Denmark
+ - Focus 'Reclaim Norway' compliance should now be working (?)
+
+#### Germany
+ - 'Second Vienna Award' Days 35 -> 14
+ - No longer guarantees Finland 
+
+#### Hungary
+ - Focus 'Demand Burgenland' now available
+ - Focus 'Demand Southern Slovakia' removed
+ - Focus 'Claim Overlordship of Slovakia' Days 70 -> 35
+ - Now can core the Second Vienna Award states via decision 
+ - Focus 'Fighter Competition' Days 70 -> 35 and no longer fires the event
+
+#### Italy
+ - 'Trade Vojvodina for Guarantees' now includes West Banat and cost 75 -> 10
+
+#### Spain
+ - Now can manually complete 'Unify the Nationalist Front' in case of a skill issue
+
+#### South Africa
+ - Historical flavor event on the replacement of Prime Minister Hertzog with Smuts now fires immediately upon declaration of war
+
+#### USA
+ - 'Escort Fighters' cost 70 days -> 35 days bonus 100% -> 150%
+ - 'Neutrality Act' war support reduction removed
+ - Focus 'Soviet Aid' Soviet Union capitulation progress reduced to 35%, from 40%
+ - Focus 'Soviet Aid' now grants 20k guns, 2k artillery, and 2k support equipment, from 10k, 1k, and 1k respectively
+ - National spirit 'American Aid' now grants +10% surrender cap for the Soviet Union
+
+###  3.13.7 Another Week another minor UpdatE
+
+#### General
+ - Infantry Tank MIO speed fixed
+ - Make Static AA Air superiority reduction per level 25 (was 5). Still requires at least 1 active wing in airzone to apply properly.
+ - Land/Navy/Air Facility: -2000 IC base Cost, +2000 IC incremental cost
+ - Base bonus to attack from CAS in battles now 20% (was 25%)
+ - Air superiority bonus base now 25% (was 35)
+ - Reduction by AA increase, base 25% now cancelled out at 80 Division AA (was at 112)
+
+#### Germany 
+ - Focus 'Ruhr Dam' now accessible from Autarky
+ - Advisor 'Ludwig Erhard' added 10% civ construction speed
+ - Focus 'Totaler Krieg' now requires total mobilisation
+
+#### Soviets
+ - Focus 'Superior War Machines' no longer requires improved medium chassis
+
+#### South Africa
+ - Removed Barotziland and Northeast Rhodesian cores on formable
+ - Added decision to take control of Mozambique
+
+#### Naval designer
+ - Added "Helicopter Facilities" module. Uses catapult slotting rules. Better sub detection, worse surface detection, built in depth charge attack instead of air attack compared to catapults. Gained from helicopter special project.
+
+#### Air designer
+ - 1924 Airframe IC cost reduced from 4 to 1
+ - 1936 Airframe IC cost reduced from 5 to 2
+ - 1936 Airframe gains additional support module slot (was 2, now 3)
+ - Turret Modules now give 2 Air Attack and 1 Air Defense per weight, and -2.5% Speed per turret (was 1/1/-3,75%)
+ - Armor Plates Unified at 1.5 Air defense per Weight (was 2/1/0.8 for light/medium/heavy airframe)
+ - AP Bomb Locks: Renamed to Multipurpose bomb locks. Ground attack damage increased to 8 (was 2). Still less weight-efficient than regular locks and equal to bomb bays.
+ - Heavy Bomb Locks: Ground attack damage increased to 10 (was 8). For being a later tech now actually more weight efficient for CAS damage/weight than small bombs.
+ - Bomb Locks & Multipurpose Bomb Locks: added 1 strat bombing when on strat bombing mission
+ - Heavy Bomb Locks / Small Bomb Bay: added 2 strat bombing when on strat bombing mission
+ - Heavy Bomb Locks now allow for strat bombing
+ - Medium Bomb Bay: Increased strat bombing from 6 to 7
+ - Bomb Sights / Air to ground radar: decreased flat strat bombing buff in exchange for % modifier
+
+
+#### Tank designer
+ - Tank destroyer combat width increased to 3 from 2
+ - Standardized Buffs and Debuffs with Self-Propelled Artillery (Supply Consumption, Recovery Rate, HP, Breakthrough, Stats Multipliers)
+ - High Velocity Cannon: Soft Attack Reduced to 8 from 10
+                         Hard Attack Increased to 25.5 from 22.5
+ - High Velocity Cannon II: Soft Attack Reduced to 10 from 12
+                            Hard Attack Increased to 32 from 28
+ - High Velocity Cannon III: Soft Attack Reduced to 14 from 17
+                             Hard Attack Increased to 35 from 30
+- Super Heavy Cannon: Soft Attack Reduced to 49.5 from 51
+                      Hard Attack Reduced to 44 from 45
+
+#### Air Technologies
+ - Survivability Studies now 1937 technology
+ - Aircraft Cannons 1 now 1938 technology
+
+#### Artillery Technologies
+ - Improved Artillery II: Increased Self-Propelled Artillery Soft Attack to +10% from +5%
+ - Anti-Tank Upgrade: Increased Tank Destroyer Piercing to +5% from 0
+ - 1940 Anti-Tank: Added Tank Destroyer Hard Attack +10% from 0
+
+#### Army Command
+ - Inventive Leadership: Planning Speed Increased to +15% from +10%
+
+ - Bayonet Strength: Infantry Attack Reduced to +10% from +15%
+                     Infantry Defence Reduced to 0 from +15%
+                     Recovery Rate Increased to +10% from 0%
+
+ - Professional Officer Corps: Daily Command Power Gain Reduced to 0 from +0.25
+
+ - Elevated Engineering Corps: Entrenchment Speed Reduced to 0 from +10%
+                               Railway Gun Bombardment Reduced to 50% from 100%
+
+ - Quick Improvisation: Planning Speed Reduced to 0 from +50%
+
+ - Proper Heritage: Recon Reduced to 0 from 25%
+                    Cavalry Attack Bonus Reduced to +15% from +25%
+                    Cavalry Defence Bonus Reduced to +15% from +25%
+
+ - Ideological Loyalty: Weekly Manpower Reduced to 0 from +500
+                        Encirclement Penalty Reduction Reduced To +7.5% from +10%
+
+ - State Serves The Military: Political Power Gain Increased to 0% from 10%
+
+ - Motorization Drive: Motorized Attack Reduced to 10% from 15%
+                       Motorized Defence Reduced to 10% from 15%
+                       Supply Truck Attrition Reduced to 0 from +20%
+
+ - Overwhelming Firepower: Supply Consumption Penalty Reduced to 0 from 5%
+
+ - Tip Of The Spear: Paratrooper Supply Grace Reduced to 0 hrs from 72 hrs
+                     Marine Supply Grace Reduced to 0 hrs from 72 hrs
+
+ - Static Warfare: Org Loss When Moving Penalty Reduced to 0 from +15%
+                   Entrenchment Speed Reduced to +15% from +25%
+                   Max Entrenchment Reduced to +15% from +25%
+                   Land Fort Effectivness Added +10%
+
+ - Flexible Organisation: Org Loss When Moving Reduced to -15% from -10%
+                          Max Planning Penalty Reduced to 0 from -5%
+                          Planning Speed Increased to +15% from +10%
+                          Prefered Tactic Selection Cost Bonus Reduced to 0 from -20
+                          Army Speed Reduced to 0 from +5%
+
+ - Aggresive Recon: Infiltration Assult Tactic Selection Bonus Reduced to 0 from +200%
+                    Supply Consumption Penalty Reduced to 0 from +5%
+                    Reconnaisance Redued to 0% from +50%
+
+ - Victory or Death: Encirclement Penalty Reduction Increased To +7.5% from +0%
+                     Attack Bonus Reduced to 0 from +10%
+                     Defence Penalty Reduced to 0 from -20%
+
+ - Maneuver Warafare: Supply Truck Attrition Reduced to 0% from +15%
+                      Non-Combat Out of Supply Penalties Reduced to 0% from +10%
+                      Coordination Reduced to +10% from +20%
+                      Supply Consumption Reduced to 0 from +10%
+                      Army Speed Increased to +7.5% from 0
+                      Coordination Reduced from +20% from +7.5%
+
+ - Smoke and Fire: Supply Consumption Reduced to 0 from +15%
+                   Division Defence Reduced to 0 from +5%
+                   Artillery Attack Reduced to +25% from +30%
+
+ - Logistical Focus: Navy Fuel Consumption Reduction Reduced to -10% from -20%
+                     Air Fuel Consumption Reduction Reduced to -10% from -20%
+                     Army Fuel Consumption Reduction Incresed to -10% from 0%
+                     Supply Consumption Recuction Reduced to 0 from -20%
+                     Supply Combat Penalties on Core Territory Reduction Reduced to 0 from -10%
+
+ - Operational Reserves: Reduced HP bonus to +10% from +15%
+                         Reinforce Rate Penalty Removed
+
+#### Superior Firepower Doctrine
+ - Integrated Support: Self-Propelled Artillery Added Recovery Rate +0.2 from 0
+                                                Added Organisation +3.0 from 0
+
+ - Regimental Combat Teams: Self-Propelled Artillery Added Soft Attack +10%
+                                                     Added HP +5
+
+ - Dispersed Support: Tank Destroyer Added Recovery Rate +0.2 from 0
+                                     Added Organisation +3.0 from 0
+                      Support Companies Added Recovery Rate +0.1
+                                        Added Organisation +5
+                                        Added Hard Attack +25%
+
+ - Regimental Combat Teams: Tank Destroyer Added Hard Attack +10%
+                                           Added HP +5%
+ - Mechanized Offensive: Stats bonuses now equal with mechanized offensive in GBP/MW. Removed 10% Armor Breaktrough.
+ - Concentrated Fire Plans & Centralized Fire Control: Modifiers swapped
+ - Centralized Fire Control: Added +2% reinforce rate
+ - Forward Observers/Combined Arms: Swapped Sides.
+ - Forward Observers: Added 10% Army Breakthrough.
+ - Combined Arms: Added 10% Armor breakthrough
+ - Advanced Firebases/Tactical Control: Swapped Sides.
+ - Tactical Control: Now has modifiers of old Advanced Firebases
+ - Advanced Firebases: Now has 5% soft/hard on inf/mot/mech & artillery (Tactical Control in its position was +2% reinforce rate)
+ - Shock and Awe: Removed 5% soft/hard on inf/mot/mech & artillery
+
+#### Mass Assault Doctrine 
+ - Large Front Operations: Tanks Added +2 HP
+                           Added Max Planning +5%
+
+ - Operational Concentration: Reinforce Rate Decreased to 4 from 5
+
+ - Mechanized Wave: Armoured Car Recon Removed Organisation to Infantry
+                    Light Tank Recon Added 1+ Organisation to Tanks
+                    Tanks and Armor Variants Increased Organisation to 3 from 2
+
+ - Continous Offensieve: Reinforce Rate reduced to 0 from 5
+
+ - Infantry Offensive: Reinforce Rate reduced to 0 from 5
+
+ - Human Wave Offensive: Reinforce Rate reduced to 5 from 8
+
+#### Battlefield Support Doctrine
+ - Direct Ground Support: Decreased ground support modifier from +20% to +15%
+
+### 3.13.6
+
+#### Soviets
+ - Fixed Iran focus
+
+#### Germany
+ - Limited convoy to cruiser decision to 5 clicks
+ - 'Trade with Sweden' removed
+ - 'Operation Weserbung' civilian factory shipping mechanic now works
+ - 'Demand Sweden' now provides resource rights for both states
+                   35 -> 70 days
+
+### 3.13.5a
+
+#### UK
+ - 'Home Defence' time 70 -> 35
+ - 'Prepare for the Inevitable' time 35 -> 70
+ - 'Global Defence' time 70 -> 35
+                    war support 0 -> 2.5
+ - 'Naval Rearmament' dockyards 8 -> 3
+                      xp 50 -> 30
+ - New focus 'Focus on Naval Rearmament' Added
+ - 'Britannia Rules the Waves' time 70 -> 35
+
+### Infantry Tank MIO
+ - Traits moved to unhide Merge Plant Trait
+ - Speed -5% -> -10%
+ - Adaptable Turret Ring 5% piercing -> -5% speed
+ - Anti-Tank Role hard attack 10% -> 5%
+
+### 3.13.5 'Twilight of the Game Stability'
+
+#### General
+ - Axis Armour Pack warning added
+ - United the Baltics
+ - Iran and Afghanistan annexed in to Middle Eastern Trade Federation
+ - Added additional automation to Japanese decision "Hakkō Ichiu"
+ - If in the Allies, Mexico and/or Brazil joins all British wars, namely the war against the European Axis
+ - Add Pacific Front tutorial tips to Brazil and Mexico
+ - Training limit increased to 1M
+ - Updated Infantry Tank MIO to vanilla
+
+#### Navy
+ - Reduced all Concentrated Industry dockyard output 15% -> 12.5%
+ - Increased all Dispersed Industry dockyard output 10% -> 12.5%
+ - Reduced convoy cost from 70 -> 65 IC
+ - +25% to sub Hull costs
+ - Reduced raiding area capability per taskforce by 33%
+ - Added Destroyer Escort special project, cheaper shittier destroyers
+ - Destroyers can now carry 2 sets of Hydrophones
+ - +2 Sub detection to both tiers of Sonar. Second sonar tech made 1939 tech.
+ - Radio Navigation: Surface, Sub Detection moved from mission to general stats
+ - Radio Navigation II: Surface, Sub Detection moved from mission to general stats
+
+#### Special Projects
+ - Proximity fuse is now completeable in land or navy facility
+ - Radar project can only be done once
+ - Panzerschiffe are now Special Project
+
+### Allies
+ - 'Disrupted Shipping Routes' national spirit air and navy fuel consumption buffed to -10%, from -15%
+ - Africa front allies debuff: Tier 2 Attack modifier against Germany/Italy -5% -> 0%
+                                      Defence modifier against Germany/Italy -5% -> 0%
+                                      Army attrition rate 0% -> 3%
+                               Tier 3 Attack modifier against Germany/Italy -10% -> -5%
+                                      Defence modifier against Germany/Italy -10% -> -5%
+                                      Army attrition rate 0% -> 3%
+
+#### Germany
+ - Anschluss army strength requirement now starts ticking down after January 1st 1937 instead of November 5th 1937
+ 
+#### Soviets
+ - Focus 'Preemptive Invasion of Iran' Time 35 -> 14
+                                       No longer makes Iran a Puppet
+                                       Now directly transfers states 'Tibriz', 'Gilan', 'Tehran', 'Khorasan' to Soviets and 'Khuzestan', 'Fars' to UK 
+ - Removed recurring Stalin Admiral decision due to lag
+ - Intelligence Angency operation 'Prepare Collaboration Government' Increased Cost by 100% to compensate for single nation baltic
+ - Decision 'Send Ultimatum to Latvia' Political Power cost 75 -> 175 (Compensate for single nation baltic)
+
+#### Finland
+ - Added decision to allow sending volunteers after the Soviets are near capitulation
+
+#### Netherlands
+ - Removed faction check for Malaysia in focus 'The Singapore Conference'
+
+#### UK
+ - Focus "Naval Rearmament" grants 5 more dockyards.
+
+#### Denmark
+ - Nerf Danish naval tree
+ - Focus 'Administer Norway' compliance should now be working
+
+#### Hungary
+ - Focus 'Join the Axis' is now available even if fucked over by German deals
+ - 'Restrict Voting Rights' time 35 -> 70
+ - 'Act of Defence' time 70 -> 35
+ - 'Wherever the Cross Points' time 70 -> 35
+ - Made Slovakia always accept annexation 
+
+#### South Africa
+ - Added historical flavor event on the replacement of Prime Minister Hertzog with Smuts
+
+#### Mongolia
+ - Added Super-Heavy Railway Gun production cost decrease to idea 'Streamlined Artillery Production'
+
+#### Romania
+ - Added Super-Heavy Railway Gun production cost decrease to idea 'Karl Manufacturing Plant'
+
+#### Mexico
+ - Added new decision 'Support the Republicans' in the Spanish Civil War from vanilla, as a source of early Army and Navy XP
+
+#### Transport Planes
+ - 1940 
+    IC 50 -> 40
+    Range 1400 -> 1500
+ - 1945
+    IC 50 -> 30
+    Range 1800 -> 2000
+    Speed 480 -> 500
+
+### 3.13.4 "Python"
+
+#### General
+ - Topbar Resources updated (thanks Lennard)
+
+#### Germany
+ - Trade deal with Sweden returned to old mechanics
+
+#### Japan
+ - Cleaned up tooltip for Focus 'The Zero'
+
+#### USA
+- 'Air Support' localisation cas -> fighter 
+
+#### Hungary
+- 'Legacy of the Black Army':
+    Org 10% -> 5% 
+    Cavalry attack 5% -> 2.5%
+    Cavalry defence 10% -> 5%
+- 'Heirs of the Huns' reductions: 
+    Supply consumption 5% -> 2.5%
+    Cavalry attack 5% -> 2.5%
+- 'Expand the Honvedseg' pop 1% -> 1.5%
+- 'Make the Magyar Légierö Known' 
+    Doctrine 50% -> 30% 
+    Air XP now 15 -> 50
+- 'Develop the Weiss WM-21 Sólyom' 3x15% -> 2x50% 
+- 'Quantity over Quality' research 25% -> 50%
+- 'Anounce the Györi Program' production bonus uses 2 -> 1
+- 'Restrict Voting Rights' time 70 -> 35
+- 'Promote Hungarianism' time 70 -> 35
+
+#### Romania
+- 'Demand Transnistria' time 7 -> 35
+- 'Expand the Galati Shipyards' dockyards 2 -> 3 and prioritises Northern Dobruja
+
+### 3.13.3 "Where were you when mod was fix?"
+
+#### General
+ - Added Land and Naval Warfare facility variants of the "Radar" special project, so that countries are not railroaded into building the Air Warfare facility
+ - Fixed early truck tooltip
+ - Performance and stability improvements (confirm)
+ - Armoured maintenance III recovery made vanilla
+
+#### Germany
+ - Autarky requirements now can be met by Germany, subject or allied countries
+
+#### Soviets 
+ - 'PC of Mechanical Engineering' Cap 0% -> 2.5% and tooltip fixed 
+ - Added a decision to annex AI Mongolia 
+
+#### Siam
+ - Focus 'Train Development' train research bonus reduced from 300% to 100%
+ - 'Infantry Equipment Development'  tech boost now works for infantry equipment
+
+#### Manchu
+ - 'Develop Manchukan shipyards' now adds 'Overworking dockyard workers' spirit
+ - 'Embrace the Opium Trade' stability -10% -> -5%
+ - 'New Chinese Economic Policy TM' recruitable population -30% -> -10% 
+ - Happier Baba noises 
+
+#### AI
+ - Siam should no longer join Axis
+
+### 3.13.2 "Projects as special as PDX balance"
+
+#### General
+ - Fixed Austria and Germany Historical AI focus orders
+ - Disabled ahistorical Spanish Civil War event options
+ - Made some focus trees look better
+ - Performance and stability improvements?
+ - Reduced breakthrough gain from tech to 75% of Vanilla
+ - Incorporated naval module balance changes from 1.15.2
+ - Improved the Fast Tank Designer MIO
+    - "Improved Boogies" speed +2% -> +5%
+    - "Improved Ventillation" breakthrough +5%
+    - "Improved Tracks and Suspension" speed +5% -> +10% 
+    - "Sloping Armor" armor +5%
+    - "Lighter Materials" Production Resource Penalty Factor -10% -> Reliability +5%
+    - "Enlarged Breech" hard attack +5%
+    - "Quality Assurance Routines" reliability +5% -> Production Resource Need Factor -10%
+    - "Streamlined Production" Production Efficiency Gain Factor +5%
+
+#### Special Projects
+ - Land cruiser: Base Hull IC cost x2, Module IC cost x5
+ - Superheavy Railway Gun: -25% Damage, +50% IC cost.
+ - Mothership Aircraft: 190/60/44 ATK/DEF/AGI to 100/45/40 ATK/DEF/AGI
+ - Some project unlocks moved from start of game/1924 tech level to 1936 techs
+
+#### UK
+ - 'Operation Fork' is now available if Norway does not exist
+
+#### Germany, Main Character of WW2
+ - Removed "Diversify Special Forces" decision
+ - Fixed 'Recovering Economy' not receiving the +75% consumer goods modifier it should have
+ - No longer capable of removing 'MEFO bills' spirit through decision
+ - Trait 'Der Fuhrer' no longer grants production efficiency cap
+ - Trait 'Der Fuhrer' no longer grants construction speed
+ - National Spirit 'Recovering Economy' now grants 5% expected consumer goods
+ - Returned 'Second Vienna Award'
+
+#### France
+ - Removed "Diversify Special Forces" decision
+
+#### Hungary
+ - Removed army and manpower requirements from focus 'Claim Overlordship Over Slovakia'
+ - Reverted reward of focus 'Reaffirm Territorial Claims' to Death or Dishonor version (cores + 1 claim on Banat)
+ - Removed the demands branch while events are worked on
+
+#### South Africa
+ - Focus 'Secure Interests in Africa' now grants benefits immediately instead of requiring event decisions
+ - Focus 'Secure Interests in Africa' now has anti-exploit checks for state control
+
+#### Manchukuo
+ - States transfered by 'Return of The Qing' focus/events no longer retain Pan-Asian Integration state modifiers
+
+
+### 3.13.1 "Holy crap lois, that's a dlc"
+
+#### General
+ - Updated the mod to work with the new Götterdämmerung DLC
+ - Several Nuclear Special Project focus rewards reduced and/or rebalanced
+ - 'Assault Gun Manufacturer' MIO type now has access to multiple tank-focused policies it previously lacked
+
+#### Japan
+ - 'Bushido Spirit' trait infantry attack bonus reduced to 10%, from 20%
+ - 'Bushido Spirit' trait breakthrough bonus reduced to 20%, from 25%
+
+#### USA
+ - Focus 'Tank Experiments' time to complete reduced to 35 days, from 70
+ - Focus 'Tank Destroyer Board' time to complete reduced to 35 days, from 70
+ - Focus 'Main Battle Tanks' time to complete reduced to 35 days, from 70
+
+#### UK
+ - Focus 'Every Man Will Do His Duty' time to complete increased to 70 days, from 35
+ - Focus 'Every Man Will Do His Duty' spawn-in division count doubled
+ - Focus 'Every Man Will Do His Duty' spawn-in division template changed to 12 width, from 14
+ - Focus 'Every Man Will Do His Duty' spawn-in division template changed to irregular infantry, previously infantry
+
+#### Navy
+ - included PDX balance changes with buffs to Sonar detection, Depth charge module damage and reduction in Range for sub 1/2
+ - brought new Sub Hull Slots inline with existing changes
+
+### 3.12.11 "The Not Biased Update"
+
+#### AI
+ - Added Manchukuo AI to complete all industry focuses
+
+#### Army
+ - Nerfed armoured cars stats
+ - Added a modifier to hills and desert for armoured cars 
+
+#### Navy
+ - Reduced dd tankiness
+
+#### Mexico
+ - 'Army Expansion Program' now gives two mils per state
+
+#### Hungary
+ - Removed division requirements for 'Claim Overlordship of Slovakia'
+ - Can no longer refuse the Molotov-Ribbentrop Pact if called upon
+
+#### Bulgaria
+ - Fixed Foreign Company decisions availability when becoming Germany's subject
+
+#### Finland
+ - Remove advisors that can never be bought 
+
+#### Japan
+ - Triparte Pact guarantees now removed in January 1942
+ 
+#### Manchu
+ - Made focus positions make more sense
+ - Fixed Early Destroyer localisation
+
 ### 3.12.10 "Twilight of the Mod Devs"
 
 #### General
  - Added additional automation to Japanese decision "Hakkō Ichiu"
-   - USA joins the Allies immediately upon Japanese DoW
-   - USA joins all British wars, namely the war against the European Axis
+ - USA joins the Allies immediately upon Japanese DoW
+ - USA joins all British wars, namely the war against the European Axis
+
+#### Navy
+ - Converted carrier can now retain modules of source ships, allowing for Hybrid designs, wich will behave as Carriers.
+ - Added two AA/Secondary only slots to dedicated Carriers.
+ - Naval Spirit: Night fighting: returned 5% visibility reduction. when other spirits were rebalanced, it was left at original nerfed state. now thatother spirits are stronger, this should return it into consideration.
+ - Naval Spirit: Suprise Attacks: Removed 30% Naval coordination Boost, added automatic opportunity to disengage after initial combat, as a chance to take advantage of a spotting advantage with smaller fleets.
+ - Naval Spirit: Inclement Weather experience: Removed weather effect modifiers (possibly not applying). Added +10% Naval Hit chance.
+ - Removed visibility/availability of minelaying techs
+ - Added Naval Doctrine "Tech": CAG night operations. Independent of doctrine tree, costs air XP. Allows for carrier play without blocking slot for air spirits.
 
 #### Tanks
  - Amphibious Tank Chassis IC cost increased to 6, from 4.5
@@ -13,17 +620,27 @@
  - Amphibious Drive added IC cost multiplier of +10%
  - Dozer Blades entrenchment reduced to 1, from 1.5
  - Dozer Blades defense reduced to 8, from 10
+
+#### Air
+ - ~~Made Medium Navs classified as naval patrol bombers, possible~~ Reverted, causes crash without defineable error
+ - All-Weather AIr advsor now gives 2/4/6% Buff to air mission efficiency instead of possibly not applying -10/-20/-30 weather% penalty
+ - CAG Night Fighting spirit removed
  - Made Medium Navs, classified as naval patrol bombers, possible
  - Guided ASM +5 Naval Targeting
+   
+#### Army
  - Pioneers now get affected by engineers research
  - Pioneers: Jungle specialists defense boost brought inline with regular engineers
  - Support Rocket artillery now counts as support artillery for purposes of special forces doctrine modifiers
+ - Armored cars stats increased to ~equal those of equal ic light tanks
+ - Armored car tech levels moved to 1914/1936/1940 (was 1914/1940/1942)
 
 #### Japan
  - "Alliance with Siam" grants 100% compliance when annexing AI Siam, instead of cores
 
 #### Bulgaria
  - Focus "The Path Towards a Greater Bulgaria" no longer increases your economy law past Partial Mobilization, rewarding 150 political power instead if you already have reached it
+ - Fixed Italian MIO availability when becoming Germany's subject
 
 #### UK
  - Removed decisions "Invade Ireland", "The MacDonald Proposal", and "Invoke the Alliance of 1373"

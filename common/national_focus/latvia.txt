@@ -68,7 +68,7 @@ focus_tree = {
 		id = LAT_suspend_the_constitution
 		icon = GFX_focus_LAT_suspend_constitution_of_latvia
 		mutually_exclusive = { focus = BALTIC_restore_workers_republic }
-		x = 34
+		x = 22 # SPTChange
 		y = 0
 
 		cost = 10
@@ -137,6 +137,10 @@ focus_tree = {
 		relative_position_id = LAT_appease_democrats
 
 		cost = 10
+
+		allow_branch = { # SPTChange
+			always = no
+		}
 
 		ai_will_do = {
 			factor = 1
@@ -562,6 +566,18 @@ focus_tree = {
 		completion_reward = {
 			upgrade_economy_law = yes
 			add_ideas = LAT_nationalised_industry_idea
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				prioritize = { 11 12 13 }
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
 		}
 	}
 
@@ -742,6 +758,10 @@ focus_tree = {
 
 		cost = 10
 
+		allow_branch = { # SPTChange
+			always = no
+		}
+
 		ai_will_do = {
 			factor = 1
 			modifier = {
@@ -864,6 +884,7 @@ focus_tree = {
 		}
 
 		available = {
+			is_subject = no
 			any_other_country = {
 				NOT = { has_war_with = ROOT }
 				is_faction_leader = yes
@@ -929,7 +950,7 @@ focus_tree = {
 		relative_position_id = LAT_merge_presidential_titles
 
 		cost = 10
-		allow_branch = {always = no}
+		allow_branch = {always = no} # SPTChange
 
 		ai_will_do = {
 			factor = 1
@@ -970,6 +991,7 @@ focus_tree = {
 		}
 
 		available = {
+			is_subject = no
 			is_in_faction = no
 			OR = {
 				EST = { exists = yes }
@@ -1300,7 +1322,7 @@ focus_tree = {
 
 		cost = 10
 
-		allow_branch = {always = no}
+		allow_branch = {always = no} # SPTChange
 
 		ai_will_do = {
 			factor = 1
@@ -2115,6 +2137,7 @@ focus_tree = {
 		}
 
 		available = {
+			is_subject = no
 			OR = {
 				ROOT = { is_in_faction = no }	
 				ROOT = { is_faction_leader = yes }
@@ -2828,6 +2851,10 @@ focus_tree = {
 		relative_position_id = LAT_threat_on_our_border
 
 		cost = 10
+
+		allow_branch = { # SPTChange
+			always = no
+		}
 
 		ai_will_do = {
 			factor = 1

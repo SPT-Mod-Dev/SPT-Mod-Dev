@@ -25,7 +25,15 @@ technologies = {
 		}
 		mines_planting_by_fleets_factor = 0.1
 		#####
-
+		on_research_complete = {
+			if = {
+				limit = { has_dlc = "Gotterdammerung"}
+				custom_effect_tooltip = {
+					localization_key = SP_UNLOCK_PROJECT
+					PROJECT = sp_naval_underway_replenishment
+				}
+			}
+		}
 
 		xor = { trade_interdiction base_strike } 
 		
@@ -40,10 +48,10 @@ technologies = {
 		}
 		
 		path = {
-			leads_to_tech = submarine_operations 
+			leads_to_tech = submarine_operations
 			research_cost_coeff = 1
 		}
-		
+
 		xp_research_type = navy
 		xp_unlock_cost = 0 #SPTChange set to 0
 		doctrine = yes	
@@ -1751,7 +1759,15 @@ technologies = {
 			leads_to_tech =  convoy_escorts_bs
 			research_cost_coeff = 1
 		}
-		
+		on_research_complete = {
+			if = {
+				limit = { has_dlc = "Gotterdammerung"}
+				custom_effect_tooltip = {
+					localization_key = SP_UNLOCK_PROJECT
+					PROJECT = sp_naval_underway_replenishment
+				}
+			}
+		}
 		xp_research_type = navy
 		xp_unlock_cost = 0 #SPTChange set to 0
 		doctrine = yes	
@@ -2691,5 +2707,51 @@ technologies = {
 			battleship = 1.0
 		}
 	}
+	cag_night_fighting = { #SPTaddition
+
+		carrier_night_traffic = 0.5 #SPTChanges
+		air_carrier_night_penalty_reduction_factor = 0.33
+
+		xp_research_type = air
+		xp_unlock_cost = 50
+		doctrine = yes
+		research_cost = 0
+
+		categories = {
+			naval_doctrine
+		}
+
+		folder = {
+			name = naval_doctrine_folder
+			position = { x = -2 y = 0 }
+		}
+
+		ai_will_do = {
+			factor = 1.25
+
+			modifier = {
+				has_war = yes
+				factor = 2
+			}
+			modifier = {
+				OR = {
+					tag = ENG
+				}
+				factor = 2.5
+			}
+			modifier = {
+				OR = {
+					has_war_with = JAP
+					has_war_with = USA
+				}
+				factor = 2
+			}
+			modifier = {
+				has_navy_experience > 120
+				factor = 2
+			}
+		}
+	}
+
 	
 }

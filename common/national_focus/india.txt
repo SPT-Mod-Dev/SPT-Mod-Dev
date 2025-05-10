@@ -18,11 +18,13 @@ focus_tree = {
 			add = 10
 			tag = RAJ
 			has_dlc = "Together for Victory"
+			NOT = {
+				has_dlc = "Graveyard of Empires"
+			}
 		}
 	}
 	
 	default = no
-
 
 
 #	focus = {
@@ -1055,6 +1057,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {	
 			air_experience = 25
+			add_breakthrough_progress = {
+				specialization = specialization_air
+				value = 0.5
+			}
 			add_tech_bonus = {
 				name = RAJ_japanese_army_air_force_academy
 				bonus = 3.0
@@ -2222,6 +2228,10 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
+			add_breakthrough_progress = {
+				specialization = specialization_land
+				value = 0.5
+			}
 			add_tech_bonus = {
 				name = RAJ_indian_armor
 				bonus = 1.0
@@ -2548,6 +2558,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
 			air_experience = 25
+			add_breakthrough_progress = {
+				specialization = specialization_air
+				value = 0.25
+			}
 			add_doctrine_cost_reduction = {
 				name = RAJ_royal_indian_air_force
 				cost_reduction = 0.5
@@ -2593,12 +2607,31 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
-			add_tech_bonus = {
-				name = RAJ_the_smiling_buddha
-				bonus = 3.0
-				uses = 1
-				category = nuclear
+
+			if = {
+				limit = {
+					NOT = {
+						has_tech = atomic_research
+					}
+				}
+				add_tech_bonus = {
+					name = RAJ_the_smiling_buddha
+					bonus = 0.5 #SPT change 3 -> 0.5
+					uses = 1
+					category = nuclear
+				}
+				add_breakthrough_progress = {
+					specialization = specialization_nuclear
+					value = 0.25 #SPT change 0.5 -> -0.25
+				}
 			}
+			else = {
+				add_breakthrough_progress = {
+					specialization = specialization_nuclear
+					value = 1
+				}
+			}
+
 		}
 	}
 
@@ -2859,13 +2892,48 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
-			custom_effect_tooltip = available_theorist
-			show_ideas_tooltip = RAJ_homi_j_bhabha
-			add_tech_bonus = {
-				name = RAJ_institute_of_fundamental_research
-				bonus = 1.0
-				uses = 1
-				category = nuclear
+
+			if = {
+				limit = {
+					NOT = {
+						has_tech = atomic_research
+					}
+				}
+				add_tech_bonus = {
+					name = RAJ_institute_of_fundamental_research
+					bonus = 1.0
+					uses = 1
+					category = nuclear
+				}
+				add_breakthrough_progress = {
+					specialization = specialization_nuclear
+					value = 0.25
+				}
+			}
+			else = {
+				add_breakthrough_progress = {
+					specialization = specialization_nuclear
+					value = 0.75
+				}
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			if = {
+				limit = {
+					RAJ_homi_j_bhabha = {
+						has_scientist_level = {
+							specialization = specialization_nuclear
+							level < 5
+						}
+					}
+				}
+				RAJ_homi_j_bhabha = {
+					add_scientist_level = {
+						specialization = specialization_nuclear
+						level = 1
+					}
+				}
 			}
 		}
 	}
@@ -3002,7 +3070,7 @@ focus_tree = {
 
 	focus = {
 		id = RAJ_found_scindia_shipyard
-		icon = GFX_focus_POL_develop_polish_shipbuilding
+		icon = GFX_goal_generic_construct_naval_dockyard
 		prerequisite = { focus = RAJ_east_india_railways }
 		x = 2
 		y = 0
@@ -3162,7 +3230,7 @@ focus_tree = {
 
 	focus = {
 		id = RAJ_cruiser_effort
-		icon = GFX_focus_generic_cruiser2
+		icon = GFX_goal_generic_navy_battleship
 		prerequisite = { focus = RAJ_royal_indian_navy }
 		x = 2
 		y = 2
@@ -3317,7 +3385,7 @@ focus_tree = {
 
 	focus = {
 		id = RAJ_east_india_railways
-		icon = GFX_focus_generic_railroad
+		icon = GFX_goal_generic_construct_infrastructure
 		prerequisite = { focus = RAJ_great_indian_peninsula_railway }
 		x = 4
 		y = 1
@@ -3334,7 +3402,22 @@ focus_tree = {
 		}
 
 		bypass = {
-
+			NOT = {
+				AND = {
+					OR = {
+						controls_state = 640
+						BRM = { controls_state = 640 }
+					}
+					OR = {
+						controls_state = 288
+						BRM = { controls_state = 288 }
+					}
+					OR = {
+						controls_state = 430
+						BRM = { controls_state = 430 }
+					}
+				}
+			}
 		}
 
 		cancel_if_invalid = yes

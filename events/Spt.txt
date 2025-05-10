@@ -1,40 +1,40 @@
 add_namespace = spt
 
-#Ger gain control of Oslo
-country_event = {
-	id = spt.1
-	title = spt.1.t
-	desc = spt.1.desc
-	is_triggered_only = yes
-	picture = GFX_report_event_hitler_handshake
+# #Ger gain control of Oslo
+# country_event = {
+# 	id = spt.1
+# 	title = spt.1.t
+# 	desc = spt.1.desc
+# 	is_triggered_only = yes
+# 	picture = GFX_report_event_hitler_handshake
 
-	option = {
-		name = spt.1.a
-		SWE = {
-			give_resource_rights = {
-				receiver = GER
-				state = 666
-			}
-		}
-	}
-}
+# 	option = {
+# 		name = spt.1.a
+# 		SWE = {
+# 			give_resource_rights = {
+# 				receiver = GER
+# 				state = 666
+# 			}
+# 		}
+# 	}
+# }
 
-#Ger lose control of Oslo
-country_event = {
-	id = spt.2
-	title = spt.2.t
-	desc = spt.2.desc
-	is_triggered_only = yes
-	picture = GFX_report_event_generic_rally
+# #Ger lose control of Oslo
+# country_event = {
+# 	id = spt.2
+# 	title = spt.2.t
+# 	desc = spt.2.desc
+# 	is_triggered_only = yes
+# 	picture = GFX_report_event_generic_rally
 
 
-	option = {
-		name = spt.2.a
-		GER = {
-			remove_resource_rights = 666
-		}
-	}
-}
+# 	option = {
+# 		name = spt.2.a
+# 		GER = {
+# 			remove_resource_rights = 666
+# 		}
+# 	}
+# }
 
 #USA gets control of greenland
 # DEPRECATED BY GREENLAND PATROL
@@ -201,7 +201,7 @@ country_event = {
 
 #Hungary demands Slovakia
 country_event = {
-	id = spt.10
+	id = spt.30
 	title = DOD_hungary.107.t
 	picture = GFX_report_event_lithuania_army
 	desc = DOD_hungary.107.desc_SLO_puppet
@@ -209,33 +209,42 @@ country_event = {
 	is_triggered_only = yes
 
 	option = {# transfer Slovakia
-		name = spt.10.a
+		name = spt.30.a
 		ai_chance = {
-			base = 50
+			base = 100
 		}
-		HUN = { country_event = spt.11 }
+
+		HUN = {
+			country_event = {
+				# FROM folds
+				id = spt.31
+				days = 1
+			}
+		}
+
 		hidden_effect = {
 			news_event = { id = news.310 days = 1 }
 		}
 	}
 
 	option = {# refuse
-		name = spt.10.b
+		name = spt.35.a
 		ai_chance = {
 			base = 0
-			modifier = {
-				is_in_faction = yes
-				HUN = { is_in_faction = no }
-				factor = 5
+		}
+		HUN = {
+			country_event = {
+				# FROM folds
+				id = spt.35
+				days = 1
 			}
 		}
-		HUN = { country_event = DOD_hungary.109 }
 	}
 }
 
 #Germany gives Slovakia
 country_event = {
-	id = spt.11
+	id = spt.31
 	title = DOD_hungary.108.t
 	desc = DOD_hungary.108.desc 
 	picture = GFX_report_event_generic_read_write
@@ -266,11 +275,88 @@ country_event = {
 				73 = {
 					transfer_state_to = HUN
 				}
+				664 = {
+					transfer_state_to = HUN
+				}
 			}
 		}
 	}
 }
-#Mexico protests anschluss
+
+# Hungary demands Burgenland
+country_event = {
+	id = spt.32
+	title = WW_hungary.23.t
+	picture = GFX_report_event_vienna_award_hungary
+	desc = WW_hungary.23.desc
+	
+	is_triggered_only = yes
+
+	option = {# transfer Burgenland
+		name = spt.32.a
+		ai_chance = {
+			base = 100
+		}
+
+		HUN = {
+			country_event = {
+				# FROM folds
+				id = spt.33
+				days = 1
+			}
+		}
+	}
+
+	option = {# refuse
+		name = spt.35.a
+		ai_chance = {
+			base = 0
+		}
+		HUN = {
+			country_event = {
+				# FROM folds
+				id = spt.35
+				days = 1
+			}
+		}
+	}
+}
+
+#Germany gives Burgenland
+country_event = {
+	id = spt.33
+	title = WW_hungary.24.t
+	desc = WW_hungary.24.desc
+	picture = GFX_report_event_hungary_gains_transylvania
+	
+	is_triggered_only = yes
+
+	option = {# good
+		name = WW_hungary.24.a
+		HUN = {
+			975 = {
+				transfer_state_to = HUN
+			}
+		}
+	}
+}
+
+#Fuck off Horthy
+country_event = {
+	id = spt.35
+	title = WW_hungary.25.t
+	desc = spt.35.desc 
+	picture = GFX_report_event_hungary_refused
+	
+	is_triggered_only = yes
+
+	option = {
+		name = WW_hungary.25.b
+	}
+}
+
+
+#Mexico protests Anschluss
 country_event = {
 	id = spt.12
 	title = spt.12.t
@@ -488,24 +574,72 @@ country_event = { # Puyi demands East Hebei and Dalian
 					615 = { is_controlled_by = JAP }
 				}
 				transfer_state = 615
+				if = {
+					limit = {
+						JAP = {
+							has_completed_focus = JAP_pan_asia_movement
+						}
+					}
+					615 = {
+						remove_dynamic_modifier = {
+							modifier = JAP_pan_asian_integration
+						}
+					}
+				}
 			}
 			if = {
 				limit = {
 					621 = { is_controlled_by = JAP }
 				}
 				transfer_state = 621
+				if = {
+					limit = {
+						JAP = {
+							has_completed_focus = JAP_pan_asia_movement
+						}
+					}
+					621 = {
+						remove_dynamic_modifier = {
+							modifier = JAP_pan_asian_integration
+						}
+					}
+				}
 			}
 			if = {
 				limit = {
 					745 = { is_controlled_by = JAP }
 				}
 				transfer_state = 745
+				if = {
+					limit = {
+						JAP = {
+							has_completed_focus = JAP_pan_asia_movement
+						}
+					}
+					745 = {
+						remove_dynamic_modifier = {
+							modifier = JAP_pan_asian_integration
+						}
+					}
+				}
 			}
 			if = {
 				limit = {
 					609 = { is_controlled_by = JAP }
 				}
 				transfer_state = 609
+				if = {
+					limit = {
+						JAP = {
+							has_completed_focus = JAP_pan_asia_movement
+						}
+					}
+					609 = {
+						remove_dynamic_modifier = {
+							modifier = JAP_pan_asian_integration
+						}
+					}
+				}
 			}
 		}
 	}
@@ -539,6 +673,33 @@ country_event = { #lmao
 			add_state_core = 615
 			transfer_state = 745
 			add_state_core = 745
+			if = {
+				limit = {
+					JAP = {
+						has_completed_focus = JAP_pan_asia_movement
+					}
+				}
+				609 = {
+					remove_dynamic_modifier = {
+						modifier = JAP_pan_asian_integration
+					}
+				}
+				621 = {
+					remove_dynamic_modifier = {
+						modifier = JAP_pan_asian_integration
+					}
+				}
+				615 = {
+					remove_dynamic_modifier = {
+						modifier = JAP_pan_asian_integration
+					}
+				}
+				745 = {
+					remove_dynamic_modifier = {
+						modifier = JAP_pan_asian_integration
+					}
+				}
+			}
 			MAN_low_legitimacy_level_down = yes
 			add_country_leader_trait = popular_figurehead
 			add_country_leader_trait = nationalist_symbol
@@ -802,6 +963,73 @@ news_event = { #Ahistorical is on
 	}
 }
 
+# SAF's Nazi sympathizer PM replaced with a better racist
+country_event = {
+	id = spt.113
+	title = spt.113.t
+	desc = spt.113.desc
+	picture = GFX_report_event_saf_coup
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		tag = SAF
+		SAF = { has_war_with = GER }
+		SAF = { has_government = democratic } 
+		has_country_leader = { ruling_only = yes name = "J. B. M. Hertzog" } 
+	}
+	
+	option = {
+		name = spt.113.a
+		create_country_leader = {
+			name = "Jan Smuts"
+			desc = "POLITICS_JAN_SMUTS_DESC"
+			picture = "Portrait_SouthAfrica_Jan_Smuts.dds"
+			expire = "1950.1.1"
+			ideology = conservatism
+			traits = {
+				dealbroker
+			}
+		}
+		party_leader = {
+			limit = {
+				has_ideology = conservatism
+			}
+			add_field_marshal_role = {
+				skill = 1
+				attack_skill = 1
+				defense_skill = 1
+				planning_skill = 1
+				logistics_skill = 1
+			}
+		}
+		retire_character = SAF_j_b_m_hertzog
+	}
+}
+
+news_event = { #Axis Armour Pack is on
+	id = spt.114
+	title = spt.114.t
+	desc = spt.114.desc
+	picture = GFX_news_event_panay_incident
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = spt.114.a
+	}
+}
+
+country_event = { # UK swipes Iraq
+	id = spt.115
+	title = spt.115.t
+	desc = spt.115.desc
+	picture = GFX_report_event_generic_troops_in_iraq
+	is_triggered_only = yes
+	option = {
+		name = spt.115.a
+	}
+}
 
 add_namespace = spt_man
 country_event = { 
@@ -1026,15 +1254,14 @@ country_event = {
 				}
 			}
 		}
-		add_collaboration = {
-			target = NOR
-			value = 0.8
-		}		
-		every_state = {
-			limit = {
-				is_core_of = NOR
+		DEN = {			
+			every_state = {
+				limit = {
+					is_core_of = NOR
+				}
+				add_resistance = 30
+				add_compliance = 60
 			}
-			add_resistance = 30
 		}
 		# every_state = {
 		# 	limit = {

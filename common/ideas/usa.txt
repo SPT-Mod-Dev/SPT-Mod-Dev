@@ -365,7 +365,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				consumer_goods_factor = 0.10	
+				consumer_goods_factor = 0.10
 			}
 		}
 		USA_the_pentagon = {
@@ -597,7 +597,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				consumer_goods_factor = 0.1
+				consumer_goods_factor = 0.10
 				stability_factor = 0.1
 			}
 		}
@@ -776,7 +776,7 @@ ideas = {
 			picture = generic_production_bonus
 
 			modifier = {
-				conversion_cost_civ_to_mil_factor= -0.5
+				conversion_cost_civ_to_mil_factor = -0.5
 			}
 		}
 	
@@ -968,6 +968,25 @@ ideas = {
 			}
 		}
 
+		USA_manhattan_project_ns = {
+			name = USA_manhattan_project
+
+			picture = generic_research_bonus
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				specialization_nuclear_speed_factor = 0.05
+			}
+		}
+
 		war_bonds_focus = {
 			allowed = {
 				always = no
@@ -1059,10 +1078,10 @@ ideas = {
 			removal_cost = -1
 			
 			equipment_bonus = {
-				small_plane_cas_airframe = {
+				small_plane_airframe = {
 					build_cost_ic = -0.1 instant = yes
 				}
-				medium_plane_airframe = {
+				medium_plane_fighter_airframe = {
 					build_cost_ic = -0.1 instant = yes
 				}
 			}
@@ -1107,6 +1126,7 @@ ideas = {
 		}
 		
 		home_of_the_free = {
+
 			allowed = {
 				always = no
 			}
@@ -1457,6 +1477,7 @@ ideas = {
 			modifier = {
 				weekly_manpower = 500
 				research_speed_factor = 0.05
+				special_project_speed_factor = 0.05
 			}
 		}
 		SPT_USA_lend_lease_expanded = {
@@ -1498,6 +1519,26 @@ ideas = {
 				consumer_goods_factor = -0.1
 				production_factory_max_efficiency_factor = 0.1
 				production_factory_efficiency_gain_factor = 0.1
+			}
+		}
+		SPT_USA_allied_aid_soviet = {
+			picture = generic_economic_increase
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_buildings_factor = 0.075
+				consumer_goods_factor = -0.1
+				production_factory_max_efficiency_factor = 0.1
+				production_factory_efficiency_gain_factor = 0.1
+				surrender_limit = 0.1
 			}
 		}
 		SPT_USA_aid_payment_brit = { #ginger i swear to god if you complain about the aid payment spirits, you wont ever again see the light of day
@@ -2651,6 +2692,23 @@ ideas = {
 			modifier = {
 				industrial_capacity_factory = 0.05
 			}
+		}
+		USA_union_pacific_railway = {
+
+			picture = idea_USA_union_pacific_railway
+
+			allowed = {
+				original_tag = USA
+			}
+
+			available = {
+			}
+
+			research_bonus = {
+				industry = 0.05
+			}
+
+			traits = { railway_company }
 		}
 	}
 }
