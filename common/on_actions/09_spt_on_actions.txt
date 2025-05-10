@@ -757,6 +757,31 @@ on_actions = {
 			# 		}
 			# 	}
 			# }
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = CHI
+					}
+					NOT = {
+						OR = {
+							JAP = {
+								has_completed_focus = SPT_JAP_grain_market
+							}
+							JAP = {
+								has_idea = SPT_JAP_grain_market_inflation_active
+							}
+						}
+					}
+					#grain market inflation activation
+				}
+				JAP = {
+					country_event = {
+						id = spt_jap.4
+						days = 30
+						random_days = 90
+					}
+				}
+			}
 		}
 	}
 	on_declare_war = {
@@ -768,33 +793,6 @@ on_actions = {
 					}
 					FROM = {
 						is_in_faction_with = ENG
-					}
-				}
-			}
-
-			if = {
-				limit = {
-					tag = CHI
-					AND = {
-						OR = {
-							JAP = {
-								NOT = {
-									has_completed_focus = SPT_JAP_grain_market
-								}
-							}
-							JAP = {
-								NOT = {
-									has_idea = SPT_JAP_grain_market_inflation_active
-								}
-							}
-						}
-					}
-				}
-				JAP = {
-					country_event = {
-						id = spt_jap.4
-						days = 30
-						random_days = 90
 					}
 				}
 			}
