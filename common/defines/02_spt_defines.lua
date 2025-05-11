@@ -35,8 +35,8 @@ NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE = 0.5
 NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE_STEEPNESS = 80
 NDefines.NMilitary.AIR_SUPPORT_BASE = 0.2
 
-NDefines.NNavy.CARRIER_STACK_PENALTY 									        = 4         --The most efficient is 4 carriers in combat. 5+ brings the penalty to the amount of wings in battle.
-NDefines.NNavy.CARRIER_STACK_PENALTY_EFFECT 									= 0.1      --Each carrier above the optimal amount decreases the amount of airplanes being able to takeoff by such %.
+NDefines.NNavy.CARRIER_STACK_PENALTY 									        = 6         --The most efficient is 4 carriers in combat. 5+ brings the penalty to the amount of wings in battle.
+NDefines.NNavy.CARRIER_STACK_PENALTY_EFFECT 									= 1     --Each carrier above the optimal amount decreases the amount of airplanes being able to takeoff by such %.
 NDefines.NNavy.MIN_GUN_COOLDOWN                                                 = 1
 NDefines.NNavy.DEPTH_CHARGES_HIT_CHANCE_MULT 									= 1.1       --"multiplies hit chance of small guns" says the comment, tf does i actually do
 NDefines.NNavy.DEPTH_CHARGES_DAMAGE_MULT 										= 0.7       --multiplies damage of depth charges
