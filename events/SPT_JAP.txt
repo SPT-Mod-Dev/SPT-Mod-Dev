@@ -98,7 +98,7 @@ country_event = {
 	immediate = { #effect applied immediately to avoid cheese
 		add_to_variable = {
 			var = JAP.spt_jap_cg_increase_tracker
-			value = 0.005
+			value = 0.01
 		}
 		hidden_effect = {
 			add_ideas = SPT_JAP_grain_market_inflation_active
@@ -107,7 +107,7 @@ country_event = {
 
 	option = { #Warns the player that shit sucks now
 		name = spt_jap.4.a
-		custom_effect_tooltip = SPT_JAP_cg_expected_timed_increase_up_tt
+		custom_effect_tooltip = SPT_JAP_cg_expected_timed_increase_up_double_tt
 	}
 }
 
@@ -132,7 +132,7 @@ country_event = {
 
 		add_to_variable = {
 			var = SPT_JAP_eco_pressure_consumer_goods_expected_value
-			value = -0.03
+			value = -0.04
 			tooltip = SPT_JAP_cg_expected_tt
 		}
 		hidden_effect = {
@@ -154,11 +154,11 @@ country_event = {
 
 	option = { #Eat a debuff now but stop getting the increased cg
 		name = spt_jap.5.b
-		custom_effect_tooltip = SPT_JAP_cg_expected_timed_increase_down_tt
+		custom_effect_tooltip = SPT_JAP_cg_expected_timed_increase_down_double_tt
 		hidden_effect = {
 			add_to_variable = {
 				var = JAP.spt_jap_cg_increase_tracker
-				value = -0.005
+				value = -0.01
 			}
 			remove_ideas = SPT_JAP_grain_market_inflation_active
 
