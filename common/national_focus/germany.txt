@@ -1790,26 +1790,27 @@ focus_tree = {
 			    popularity = -0.05
 			}
 
-			custom_effect_tooltip = generic_skip_one_line_tt
+			# SPTchange
+			# custom_effect_tooltip = generic_skip_one_line_tt
 
-			if = {
-				limit = {
-					OR = {
-						has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
-						has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
-					}
-				}
-				GER_modify_industrial_modifier = yes
-				custom_effect_tooltip = GER_reduce_increasing_consumer_goods_tt
-				subtract_from_variable = { GER_monthly_consumer_goods_increase = GER_change_monthly_CG_price_controls }
-			}
-			else = {
-				GER_modify_industrial_modifier = yes
-				add_to_variable = { 
-					GER_industrial_consumer_goods_factor = -0.1
-					tooltip = consumer_goods_factor_tt
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		OR = {
+			# 			has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
+			# 			has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
+			# 		}
+			# 	}
+			# 	GER_modify_industrial_modifier = yes
+			# 	custom_effect_tooltip = GER_reduce_increasing_consumer_goods_tt
+			# 	subtract_from_variable = { GER_monthly_consumer_goods_increase = GER_change_monthly_CG_price_controls }
+			# }
+			# else = {
+			# 	GER_modify_industrial_modifier = yes
+			# 	add_to_variable = { 
+			# 		GER_industrial_consumer_goods_factor = -0.1
+			# 		tooltip = consumer_goods_factor_tt
+			# 	}
+			# }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -2464,7 +2465,7 @@ focus_tree = {
 		completion_reward = {
 			GER_modify_industrial_modifier = yes
 			add_to_variable = { 
-				GER_industrial_consumer_goods_factor = -0.125
+				GER_industrial_consumer_goods_factor = -0.10
 				tooltip = consumer_goods_factor_tt
 			}
 			custom_effect_tooltip =  GER_increase_increasing_consumer_goods_tt
