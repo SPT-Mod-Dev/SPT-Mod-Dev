@@ -1,9 +1,12 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.14.5
+### 3.14.5 'The smallest changelog for the biggest update'
 
 #### General
  - Added Tutorial Info click overview of Balance changes
+
+#### Japan
+ - Minor rework
 
 #### Navy
  - Changed Carrier limit to 6 before 50% per extra CV penalty
