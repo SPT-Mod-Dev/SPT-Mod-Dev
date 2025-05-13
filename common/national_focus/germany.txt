@@ -2503,9 +2503,10 @@ focus_tree = {
 		id = SPT_GER_raubkrieg
 		# icon = GFX_focus_generic_welfare
 		icon = GFX_focus_RAJ_trickle_down_economics
-		prerequisite = { focus = SPT_GER_grossraumwirtschaft }
+		prerequisite = { focus = SPT_GER_kriegsfinanzierung }
 
-		x = 0
+		# x = 0
+		x = 2
 		y = 1
 		relative_position_id = SPT_GER_kriegsfinanzierung
 		cost = 5
@@ -2877,14 +2878,23 @@ focus_tree = {
 	focus = {
 		id = GER_zentrale_planung
 		icon = GFX_focus_generic_central_planning
-		prerequisite = { focus = GER_concentrated_armament_program focus = GER_establish_production_targets}
+		# SPTchange
+		# prerequisite = { focus = GER_concentrated_armament_program focus = GER_establish_production_targets}
 
-		x = 1
-		y = 2
-		relative_position_id = GER_concentrated_armament_program
-		cost = 10
+		# x = 1
+		# y = 2
+		# relative_position_id = GER_concentrated_armament_program
+		# SPTchange
+		prerequisite = { focus = SPT_GER_kriegsfinanzierung }
+		x = -2
+		y = 1
+		relative_position_id = SPT_GER_kriegsfinanzierung
+		cost = 5 # SPTchange 10->5
 		available = {
-			has_war_with_major = yes
+			# has_war_with_major = yes
+			GER = { # SPTchange
+				has_war_with = SOV
+			}
 			has_civil_war = no
 		}
 
@@ -2893,30 +2903,31 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
 
 		completion_reward = {
-			if = {
-				limit = { #Must be one economy law away from the next one and fulfill the next law's criterias
-					has_idea = partial_economic_mobilisation
-					has_war_support > 0.5
-					OR = {
-						has_government = fascism
-						has_government = communism
-						custom_trigger_tooltip = { tooltip = or_clarification_tooltip always = no }
-						AND = {
-							has_war = yes
-							any_enemy_country = {
-								ic_ratio = {
-									tag = ROOT
-									ratio > 0.4
-								}
-							}
-						}
-					}
-				}
-				add_ideas = war_economy
-			}
-			else = {
-				custom_effect_tooltip = GER_criteria_for_economy_laws_tt
-			}
+			# SPTchange kinda useless in MP meta
+			# if = {
+			# 	limit = { #Must be one economy law away from the next one and fulfill the next law's criterias
+			# 		has_idea = partial_economic_mobilisation
+			# 		has_war_support > 0.5
+			# 		OR = {
+			# 			has_government = fascism
+			# 			has_government = communism
+			# 			custom_trigger_tooltip = { tooltip = or_clarification_tooltip always = no }
+			# 			AND = {
+			# 				has_war = yes
+			# 				any_enemy_country = {
+			# 					ic_ratio = {
+			# 						tag = ROOT
+			# 						ratio > 0.4
+			# 					}
+			# 				}
+			# 			}
+			# 		}
+			# 	}
+			# 	add_ideas = war_economy
+			# }
+			# else = {
+			# 	custom_effect_tooltip = GER_criteria_for_economy_laws_tt
+			# }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			
@@ -2926,13 +2937,14 @@ focus_tree = {
 				tooltip = production_lack_of_resource_penalty_factor_tt
 			}
 			add_to_variable = { 
-				GER_industrial_industrial_capacity_factory = 0.05
+				GER_industrial_industrial_capacity_factory = 0.10 # SPTchange 0.05->0.10
 				tooltip = industrial_capacity_factory_tt
 			}
-			add_to_variable = { 
-				GER_industrial_industrial_capacity_dockyard = 0.05
-				tooltip = industrial_capacity_dockyard_tt
-			}
+			# SPTchange
+			# add_to_variable = { 
+			# 	GER_industrial_industrial_capacity_dockyard = 0.05
+			# 	tooltip = industrial_capacity_dockyard_tt
+			# }
 			add_to_variable = { 
 				GER_industrial_conversion_cost_civ_to_mil_factor = -0.2
 				tooltip = conversion_cost_civ_to_mil_factor_tt
@@ -2977,13 +2989,14 @@ focus_tree = {
 
 			GER_modify_industrial_modifier = yes
 			add_to_variable = { 
-				GER_industrial_production_speed_arms_factory_factor = 0.05
+				GER_industrial_production_speed_arms_factory_factor = 0.10 # SPTChange 0.5->0.10
 				tooltip = production_speed_arms_factory_factor_tt
 			}
-			add_to_variable = { 
-				GER_industrial_production_speed_dockyard_factor = 0.05
-				tooltip = production_speed_dockyard_factor_tt
-			}
+			# SPTchange
+			# add_to_variable = { 
+			# 	GER_industrial_production_speed_dockyard_factor = 0.05
+			# 	tooltip = production_speed_dockyard_factor_tt
+			# }
 			add_to_variable = { 
 				GER_industrial_industry_air_damage_factor = -0.1
 				tooltip = industry_air_damage_factor_tt
@@ -3012,10 +3025,11 @@ focus_tree = {
 				GER_industrial_industrial_capacity_factory = 0.05
 				tooltip = industrial_capacity_factory_tt
 			}
-			add_to_variable = { 
-				GER_industrial_industrial_capacity_dockyard = 0.05
-				tooltip = industrial_capacity_dockyard_tt
-			}
+			# SPTchange
+			# add_to_variable = { 
+			# 	GER_industrial_industrial_capacity_dockyard = 0.05
+			# 	tooltip = industrial_capacity_dockyard_tt
+			# }
 			add_to_variable = { 
 				GER_industrial_production_factory_max_efficiency_factor = 0.05
 				tooltip = production_factory_max_efficiency_factor_tt
@@ -3046,7 +3060,17 @@ focus_tree = {
 		relative_position_id = GER_armament_rationalization
 		cost = 5
 		available = {
-			has_idea = tot_economic_mobilisation
+			has_war_with_major = yes
+			OR = {
+				has_war_support > 0.89
+				surrender_progress > 0
+			}
+			any_enemy_country = {
+				ic_ratio = {
+					tag = ROOT
+					ratio > 0.5
+				}
+			}
 		}
 
 		continue_if_invalid = yes
