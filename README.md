@@ -1,23 +1,18 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.14.5
-
-#### General
- - Added Tutorial Info click overview of Balance changes
-
-#### Navy
- - Changed Carrier limit to 6 before 50% per extra CV penalty
-
-
 ### 3.14.4
 
 #### General
+ - Added Tutorial Info click broad overview of Balance changes
  - 'Surface Raiders' Screening without screening 25%->12.5%
  - General tooltip update. These are NOT balancing changes!
     - State infrastructure construction speed modifiers should now say 'Infrastructure construction speed' instead of 'construction speed'
     - Soviet focus 'The Modern War in the Skies' now correctly displays night operations penalty reduction
     - Modifiers that affect the Air Superiority land battle bonus now state 'Air Superiority in-battle effect' for clarity
     - Reworded Army, Navy, and Military Leader Cost effects
+  
+#### Navy
+- Changed Carrier limit to 6 before 50% per extra CV penalty
 
 #### Brazil
  - Focus 'The Washington Accords' is now available when in faction
