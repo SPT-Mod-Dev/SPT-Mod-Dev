@@ -1,5 +1,14 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.14.5
+
+#### General
+ - Added Tutorial Info click overview of Balance changes
+
+#### Navy
+ - Changed Carrier limit to 6 before 50% per extra CV penalty
+
+
 ### 3.14.4
 
 #### General
