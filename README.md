@@ -1,18 +1,21 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.14.4
+### 3.14.4 'The smallest changelog for the biggest update'
 
 #### General
- - Added Tutorial Info click broad overview of Balance changes
  - 'Surface Raiders' Screening without screening 25%->12.5%
  - General tooltip update. These are NOT balancing changes!
     - State infrastructure construction speed modifiers should now say 'Infrastructure construction speed' instead of 'construction speed'
     - Soviet focus 'The Modern War in the Skies' now correctly displays night operations penalty reduction
     - Modifiers that affect the Air Superiority land battle bonus now state 'Air Superiority in-battle effect' for clarity
     - Reworded Army, Navy, and Military Leader Cost effects
-  
+ - Added Tutorial Info click overview of Balance changes
+
 #### Navy
-- Changed Carrier limit to 6 before 50% per extra CV penalty
+ - Changed Carrier limit to 6 before 50% per extra CV penalty
+
+#### Japan
+ - Minor rework
 
 #### Brazil
  - Focus 'The Washington Accords' is now available when in faction
@@ -25,6 +28,7 @@
  - Focus 'Free Abyssinia" Special Forces Capacity Multiplier +10%->0%
  - Focus 'Lions of the Great War' now adds idea 'Indian Special Forces': Special Forces Capacity Multiplier 15%
     - Army Experience 30->0
+ - Going independent under 'His Majesty's Loyal Government' no longer partitions India
 
 #### Denmark
  - Removed Burmeister & Wain trait 'Efficient Scrap Recycling' (the second one)
