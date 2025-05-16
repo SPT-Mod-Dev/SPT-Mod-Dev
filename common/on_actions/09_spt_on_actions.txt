@@ -2,9 +2,15 @@ on_actions = {
 	on_startup = {
 		effect = {
 
-			ATF = { #dont ask me why it needs to be triggered inside a country
-				# SPT_april_fools_roll_the_dice = yes #april fools
+			MAN = {
+				annex_country = {
+					target = MEN
+				}
 			}
+
+			# ATF = { #dont ask me why it needs to be triggered inside a country
+			# 	SPT_april_fools_roll_the_dice = yes #april fools
+			# } bye bye april fools
 
 			USA = {
 				SPT_USA_spin_the_wheel = yes
@@ -12,10 +18,10 @@ on_actions = {
 			# LAT = { activate_decision = form_baltic_federation }
 
 			#le funneh happens
-			CHI = {
-				#SPT_randomize_china_color = yes
-				SPT_will_it_blend = yes
-			} 
+			# CHI = {
+			# 	#SPT_randomize_china_color = yes
+			# 	SPT_will_it_blend = yes
+			# }
 
 			#i hate the concept of self-determination of peoples, they all should be integrated into megacountries and slowly italianized for the return of Rome
 			every_country = {
@@ -751,6 +757,31 @@ on_actions = {
 			# 		}
 			# 	}
 			# }
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = CHI
+					}
+					NOT = {
+						OR = {
+							JAP = {
+								has_completed_focus = SPT_JAP_grain_market
+							}
+							JAP = {
+								has_idea = SPT_JAP_grain_market_inflation_active
+							}
+						}
+					}
+					#grain market inflation activation
+				}
+				JAP = {
+					country_event = {
+						id = spt_jap.4
+						days = 30
+						random_days = 90
+					}
+				}
+			}
 		}
 	}
 	on_declare_war = {
@@ -762,13 +793,6 @@ on_actions = {
 					}
 					FROM = {
 						is_in_faction_with = ENG
-					}
-				}
-				JAP = {
-					#add_ideas = JAP_tora_tora_tora_idea
-					add_timed_idea = {
-						idea = JAP_tora_tora_tora_idea
-						days = 180
 					}
 				}
 			}
@@ -793,6 +817,37 @@ on_actions = {
 					country_event = {
 						id = spt_mongolia.15
 						days = 35
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = JAP
+					}
+					FROM = {
+						tag = CHI
+					}
+					#triggers hidden event for a future increase in eco pressure
+				}
+				hidden_effect = {
+					complete_national_focus = SPT_JAP_liaison_conference
+					JAP = {
+						country_event = {
+							id = spt_jap.6 #war with china causes increase in eco pressure
+						}
+						#this is to prevent forever wars on the ai side, a small convenience thing for test builds
+						if = {
+							limit = {
+								JAP = {
+									is_ai = yes
+								}
+							}
+							country_event = {
+								id = spt_jap.999
+								days = 800
+							}
+						}
 					}
 				}
 			}
@@ -1262,6 +1317,28 @@ on_actions = {
 				ITA = {
 					diplomatic_relation = { country = GER relation = guarantee active = no } 
 					diplomatic_relation = { country = JAP relation = guarantee active = no } 
+				}
+			}
+
+			if = {	#check to prevent cheesing grain market event by holding china hostage
+				limit = { 
+					date > 1939.6.30
+					JAP = {
+						has_war_with = CHI
+					}
+					CHI = {
+						surrender_progress > 0.2
+					}
+				}
+				random_list = {
+					10 = {
+						JAP = {
+							country_event = spt_jap.4
+						}
+					}
+					20 = {
+						#nothing happens
+					}
 				}
 			}
 		}

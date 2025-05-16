@@ -24,25 +24,18 @@ NDefines.NSupply.RAILWAY_CONVERSION_COOLDOWN = 5
 
 NDefines.NMilitary.EXPERIENCE_COMBAT_FACTOR = 0.2
 
-NDefines.NIndustrialOrganisation.DESIGN_TEAM_CHANGE_XP_COST = 1
-
 NDefines.NBuildings.ANTI_AIR_SUPERIORITY_MULT = 25
 
 NDefines.NMilitary.ARMOR_VS_AVERAGE = 0.25
 NDefines.NMilitary.PEN_VS_AVERAGE = 0.3
-
-
 NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_IMPACT = 0.25
 NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE = 0.5
 NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE_STEEPNESS = 80
 NDefines.NMilitary.AIR_SUPPORT_BASE = 0.2
-NDefines.NAir.ANTI_AIR_ATTACK_TO_DAMAGE_REDUCTION_FACTOR = 0.4  --aa counts for 40% the DR vs CAS
-NDefines.NAir.ANTI_AIR_MAXIMUM_DAMAGE_REDUCTION_FACTOR = 0.9 --but now reduces cas DMG up to 90% (53% aa1, 70% aa2, 89% aa3 at base stats from 75% with aa1,2,3 (10.8 aa averaged over all divs in battle))
 
-
-NDefines.NNavy.CARRIER_STACK_PENALTY 									        = 4         --The most efficient is 4 carriers in combat. 5+ brings the penalty to the amount of wings in battle.
-NDefines.NNavy.CARRIER_STACK_PENALTY_EFFECT 									= 0.15      --Each carrier above the optimal amount decreases the amount of airplanes being able to takeoff by such %.
-NDefines.NNavy.MIN_GUN_COOLDOWN = 1
+NDefines.NNavy.CARRIER_STACK_PENALTY 									        = 6         --The most efficient is 4 carriers in combat. 5+ brings the penalty to the amount of wings in battle.
+NDefines.NNavy.CARRIER_STACK_PENALTY_EFFECT 									= 0.5      --Each carrier above the optimal amount decreases the amount of airplanes being able to takeoff by such %.
+NDefines.NNavy.MIN_GUN_COOLDOWN                                                 = 1
 NDefines.NNavy.DEPTH_CHARGES_HIT_CHANCE_MULT 									= 1.1       --"multiplies hit chance of small guns" says the comment, tf does i actually do
 NDefines.NNavy.DEPTH_CHARGES_DAMAGE_MULT 										= 0.7       --multiplies damage of depth charges
 NDefines.NNavy.DEPTH_CHARGES_HIT_PROFILE 										= 100.0     --hit profile for depth charges

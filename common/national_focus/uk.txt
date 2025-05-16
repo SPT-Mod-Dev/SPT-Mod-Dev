@@ -1413,38 +1413,34 @@ focus_tree = {
 			}
 		}
 	}
-	#focus = {
-	#	id = coastal_command_focus
-	#	prerequisite = { focus = air_rearmament_focus }
-	#	icon = GFX_goal_generic_air_naval_bomber
-	#	x = 1
-	#	y = 2
-	#	relative_position_id = air_rearmament_focus
-	#	cost = 10
-	#	ai_will_do = {
-	#		factor = 1
-	#	}
+	focus = {
+		id = coastal_command_focus
+		prerequisite = { focus = air_rearmament_focus }
+		icon = GFX_goal_generic_air_naval_bomber
+		x = 1
+		y = 2
+		relative_position_id = air_rearmament_focus
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
 
-	#	available_if_capitulated = yes
-	#	search_filters = {FOCUS_FILTER_RESEARCH}
-	#	completion_reward = {
-	#		air_experience = 25
-	#		add_tech_bonus = {
-	#			name = coastal_command_focus
-	#			bonus = 1.0
-	#			uses = 2
-	#			category = naval_bomber
-	#			category = cas_bomber
-	#		}
-	#	}
-	#}
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_RESEARCH}
+		completion_reward = {
+			air_experience = 25
+			add_tech_bonus = {
+				name = coastal_command_focus
+				bonus = 1.0
+				uses = 2
+				category = naval_bomber
+				category = cas_bomber
+			}
+		}
+	}
 	focus = {
 		id = aircraft_production_focus
-		prerequisite = {
-			focus = fighter_command_focus
-			focus = bomber_command_focus
-			#focus = coastal_command_focus
-		}
+		prerequisite = { focus = fighter_command_focus focus = bomber_command_focus focus = coastal_command_focus }
 		icon = GFX_goal_generic_air_production
 		x = 1
 		y = 1
