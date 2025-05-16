@@ -14,6 +14,10 @@
 #### Navy
  - Changed Carrier limit to 6 before 50% per extra CV penalty
 
+#### Special Forces
+ - Reworked Paratrooper Doctrine tree
+ - Paratroopers can no longer paradrop
+
 #### Japan
  - Minor rework
 
