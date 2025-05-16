@@ -1,0 +1,295 @@
+characters = {
+    # my_character_1 = {
+    # }
+    # my_character_2 = {
+    # }
+
+	SPT_JAP_kita_ikki ={
+
+		advisor={
+			
+			# slot = high_command
+			# slot = theorist
+			# slot = navy_chief
+			# slot = army_chief
+			# slot = air_chief
+			slot = political_advisor
+			idea_token = SPT_JAP_kita_ikki
+
+			
+
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				has_completed_focus = SPT_JAP_new_theories
+				NOT = {
+					has_idea_with_trait = head_of_intelligence 
+				}
+			}
+			traits = {
+				kita_ikki_weak 
+			}
+			cost = 100
+			# ai_will_do = {
+			# 	factor = 1.000
+			# }
+		}
+		name = "Kita Ikki"
+		portraits = {
+			civilian = {
+				small = GFX_idea_JAP_generic_3
+			}
+		}
+	}
+	SPT_JAP_fumimaru_konoe ={
+
+		advisor={
+			
+			# slot = high_command
+			# slot = theorist
+			# slot = navy_chief
+			# slot = army_chief
+			# slot = air_chief
+			slot = political_advisor
+			idea_token = SPT_JAP_fumimaru_konoe
+
+			
+
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				has_completed_focus = SPT_JAP_konoe_government
+			}
+			traits = {
+				konoe_prime_minister
+			}
+			cost = 100
+			# ai_will_do = {
+			# 	factor = 1.000
+			# }
+		}
+		name = "Prince Konoe Fumimaru"
+		portraits = {
+			civilian = {
+				small = GFX_idea_fushimi_hiroyasu
+			}
+		}
+	}
+	SPT_JAP_koyata_iwasaki ={
+
+		advisor={
+			
+			# slot = high_command
+			# slot = theorist
+			# slot = navy_chief
+			# slot = army_chief
+			# slot = air_chief
+			slot = political_advisor
+			idea_token = SPT_JAP_koyata_iwasaki
+
+			
+
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				has_completed_focus = SPT_JAP_zaibatsu_in_gov
+			}
+			can_be_fired = yes
+			traits = {
+				zaibatsu_corporatist
+			}
+			cost = 100
+			# ai_will_do = {
+			# 	factor = 1.000
+			# }
+		}
+		name = "Koyata Iwasaki"
+		portraits = {
+			civilian = {
+				small = "GFX_idea_JAP_tetsu_katayama"
+			}
+		}
+	}
+	SPT_JAP_sadao_araki ={
+
+		advisor={
+			
+			# slot = high_command
+			# slot = theorist
+			# slot = navy_chief
+			# slot = army_chief
+			# slot = air_chief
+			slot = political_advisor
+			idea_token = SPT_JAP_sadao_araki
+
+			
+
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				has_completed_focus = SPT_JAP_support_kodoha
+				NOT = {
+					has_completed_focus = SPT_JAP_return_to_parliamentary_politics
+				}
+			}
+			traits = {
+				army_philosopher
+			}
+			cost = 150
+			# ai_will_do = {
+			# 	factor = 1.000
+			# }
+		}
+		name = "Sadao Araki"
+		portraits = {
+			civilian = {
+				small = GFX_idea_JAP_sadao_araki
+			}
+		}
+	}
+	SPT_JAP_osami_nagano_advisor={
+
+		name = "Osami Nagano"
+		portraits={
+			civilian={
+				small="GFX_idea_osami_nagano"
+			}
+		}
+
+		advisor={
+			slot = political_advisor
+			idea_token = SPT_JAP_osami_nagano_advisor
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				#has_completed_focus = SPT_JAP_initial_support_navy
+				NOT = {
+					has_idea = takuo_godo
+				}
+				OR = {
+					has_idea = JAP_interservice_rivalry_navy_dominant
+					has_idea = JAP_interservice_rivalry_navy_strengthened
+				}
+			}
+			traits = {
+				navy_philosopher
+			}
+			cost =  150
+			ai_will_do = {
+				factor = 0.200
+			}
+		}
+	}
+	SPT_JAP_hideki_tojo_leader = {
+		name = "Hideki Tojo"
+		portraits = {
+			civilian = {
+				large = "GFX_Portrait_Japan_Generic_navy_3"
+				small = "GFX_idea_JAP_generic_navy_3"
+			}
+		}
+		country_leader={
+			ideology=fascism_ideology
+			traits={ 
+				# hawk
+				# hardened_officer
+				# #fascist_orchestrator
+				# master_of_politics
+				tojo_trait
+			}
+		}
+	}
+	SPT_JAP_zaibatsu_leader = {
+		name = "Zaibatsu Conglomerates"
+		portraits = {
+			civilian = {
+				large = "GFX_spt_zaibatsu_leader"
+				small = "GFX_idea_JAP_generic_land_2"
+			}
+		}
+		country_leader={
+			ideology=fascism_ideology
+			traits={ 
+				zaibatsu_leader_trait
+			}
+		}
+	}
+	SPT_JAP_mori_hideoto = {
+		name = "Mori Hideoto"
+		portraits = {
+			civilian = {
+				small = "GFX_idea_JAP_kyuichi_tokuda"
+			}
+		}
+		
+		advisor = {
+			idea_token = SPT_JAP_mori_hideoto
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				OR = {
+					has_completed_focus = SPT_JAP_state_control
+					has_completed_focus = SPT_JAP_control_profits
+				}
+			}
+			can_be_fired = yes
+			slot = political_advisor
+			traits = { 
+				jap_planning_board_leader
+			}
+			cost = 100
+		}
+	}
+	SPT_JAP_kodoha_cabinet = {
+		name = "Kōdōha Cabinet"
+		portraits = {
+			civilian = {
+				large = "GFX_spt_kodoha_cabinet"
+				small = "GFX_idea_JAP_generic_land_2"
+			}
+		}
+		country_leader={
+			ideology=fascism_ideology
+			traits={ 
+				kodoha_leader_trait
+				imperial_sanction
+			}
+		}
+	}
+	SPT_JAP_military_gov = {
+		name = "Kōdōha Gunbatsu"
+		portraits = {
+			civilian = {
+				large = "GFX_spt_kodoha_cabinet"
+				small = "GFX_idea_JAP_generic_land_2"
+			}
+		}
+		country_leader={
+			ideology=fascism_ideology
+			traits={ 
+				military_gov_trait
+			}
+		}
+	}
+	SPT_JAP_kodoha_diet = {
+		name = "Kōdōha Diet"
+		portraits = {
+			civilian = {
+				large = "GFX_portrait_SWE_fallen_riksdag"
+				small = "GFX_idea_JAP_generic_land_2"
+			}
+		}
+		country_leader={
+			ideology=fascism_ideology
+			traits={ 
+				kodoha_diet_trait
+			}
+		}
+	}
+}

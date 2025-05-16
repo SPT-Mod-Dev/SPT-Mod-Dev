@@ -172,9 +172,11 @@ JAP_interservice_rivalry = {
 			NOT = {
 				has_country_flag = JAP_steel_for_ships
 			}
+			#spt change, added a check
+			has_completed_focus = SPT_JAP_planned_eco
 		}
 
-		cost = 30
+		cost = 25 #SPT change, 30 -> 25
 
 		fire_only_once = yes
 
@@ -222,6 +224,15 @@ JAP_interservice_rivalry = {
 			set_country_flag = { flag = JAP_war_conferences_cd value = 1 days = 180 }
 			JAP_interservice_rivalry_towards_army = yes
 			set_country_flag = JAP_steel_for_guns
+
+			#spt change, made it cost something for real this time
+			#custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.005
+				tooltip = SPT_JAP_cg_expected_tt
+			}
 		}
 	}
 
@@ -242,9 +253,11 @@ JAP_interservice_rivalry = {
 			NOT = {
 				has_country_flag = JAP_steel_for_guns
 			}
+			#spt change, added a check
+			has_completed_focus = SPT_JAP_planned_eco
 		}
 
-		cost = 30
+		cost =  25 #SPT change, 30 -> 25
 
 		fire_only_once = yes
 
@@ -292,6 +305,15 @@ JAP_interservice_rivalry = {
 			set_country_flag = { flag = JAP_war_conferences_cd value = 1 days = 180 }
 			JAP_interservice_rivalry_towards_navy = yes
 			set_country_flag = JAP_steel_for_ships
+
+			#spt change, made it cost something for real this time
+			#custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.005
+				tooltip = SPT_JAP_cg_expected_tt
+			}
 		}
 	}
 
@@ -312,7 +334,7 @@ JAP_interservice_rivalry = {
 				has_country_flag = JAP_prioritize_naval_aircraft_construction
 			}
 		}
-		cost = 30
+		cost =  25 #SPT change, 30 -> 25
 		fire_only_once = yes
 		days_remove = -1
 		ai_will_do = {
@@ -346,7 +368,7 @@ JAP_interservice_rivalry = {
 				has_country_flag = JAP_prioritize_army_aircraft_construction
 			}
 		}
-		cost = 30
+		cost =  25 #SPT change, 30 -> 25
 		fire_only_once = yes
 		days_remove = -1
 		ai_will_do = {
@@ -380,7 +402,7 @@ JAP_interservice_rivalry = {
 				has_country_flag = JAP_draft_exemptions
 			}
 		}
-		cost = 30
+		cost =  25 #SPT change, 30 -> 25
 		fire_only_once = yes
 		days_remove = -1
 		ai_will_do = {
@@ -416,7 +438,7 @@ JAP_interservice_rivalry = {
 				has_country_flag = JAP_everybody_serves
 			}
 		}
-		cost = 30
+		cost =  25 #SPT change, 30 -> 25
 		days_remove = -1
 		fire_only_once = yes
 		ai_will_do = {
@@ -429,6 +451,8 @@ JAP_interservice_rivalry = {
 		modifier = {
 			industrial_capacity_factory = 0.05
 			industrial_capacity_dockyard = 0.05
+			#spt change, added drawback
+			conscription = -0.005
 		}
 		complete_effect = {
 			set_country_flag = { flag = JAP_war_conferences_cd value = 1 days = 180 }
@@ -453,7 +477,7 @@ JAP_interservice_rivalry = {
 				has_country_flag = JAP_special_air_landing_force
 			}
 		}
-		cost = 30
+		cost = 25 #SPT change, 30 -> 25
 		fire_only_once = yes
 		days_remove = -1
 		ai_will_do = {
@@ -465,6 +489,8 @@ JAP_interservice_rivalry = {
 		}
 		modifier = {
 			special_forces_cap = 0.02
+			#spt change, both special forces decisions now give cap, moved special forces defense here
+			special_forces_defence_factor = 0.05
 		}
 		complete_effect = {
 			set_country_flag = { flag = JAP_war_conferences_cd value = 1 days = 180 }
@@ -489,7 +515,7 @@ JAP_interservice_rivalry = {
 				has_country_flag = JAP_raiding_regiments
 			}
 		}
-		cost = 30
+		cost =  25 #SPT change, 30 -> 25
 		fire_only_once = yes
 		days_remove = -1
 		ai_will_do = {
@@ -501,7 +527,9 @@ JAP_interservice_rivalry = {
 		}
 		modifier = {
 			special_forces_attack_factor = 0.05 
-			special_forces_defence_factor = 0.05
+			special_forces_cap = 0.02
+			#spt change, both special forces decisions now give cap, moved special forces defense out
+			#special_forces_defence_factor = 0.05
 		}
 		complete_effect = {
 			set_country_flag = { flag = JAP_war_conferences_cd value = 1 days = 180 }
@@ -557,7 +585,7 @@ JAP_interservice_rivalry = {
 				}
 			}
 		}
-		cost = 30
+		cost =  25 #SPT change, 30 -> 25
 		fire_only_once = yes
 		ai_will_do = {
 			factor = 1
@@ -616,7 +644,7 @@ JAP_interservice_rivalry = {
 				}
 			}
 		}
-		cost = 30
+		cost =  25 #SPT change, 30 -> 25
 		fire_only_once = yes
 		ai_will_do = {
 			factor = 1
@@ -995,7 +1023,7 @@ JAP_southern_expansion = {
 		}
 
 		visible = {
-			has_completed_focus = JAP_strike_south_doctrine
+			has_completed_focus = SPT_JAP_strike_south #SPT change, swapped unlock focus
 		}
 
 		fire_only_once = yes
@@ -1526,8 +1554,8 @@ operations = {
 
 		available = {
 			OR = {
-				has_completed_focus = JAP_purge_the_kodoha_faction
-				has_completed_focus = JAP_support_the_kodoha_faction
+				has_completed_focus = SPT_JAP_support_kodoha #SPT change, swapped unlock focus
+				has_completed_focus = SPT_JAP_purge_kodoha #SPT change, swapped unlock focus
 			}
 			NOT = {
 				has_war_with = SOV
@@ -2533,7 +2561,7 @@ prospect_for_resources = {
 		}
 
 		visible = {
-			has_completed_focus = JAP_develop_chinese_resources
+			has_completed_focus = SPT_JAP_exploit_chinese_resources #SPT change, swapped which focus unlocks the decision
 			597 = {
 				NOT = {
 					has_state_flag = shandong_aluminium_developed_2
@@ -2585,7 +2613,7 @@ prospect_for_resources = {
 		}
 
 		visible = {
-			has_completed_focus = JAP_develop_chinese_resources
+			has_completed_focus = SPT_JAP_exploit_chinese_resources #SPT change, swapped which focus unlocks the decision
 			621 = {
 				NOT = {
 					has_state_flag = suiyuan_steel_developed_2
@@ -2631,7 +2659,7 @@ prospect_for_resources = {
 		}
 
 		visible = {
-			has_completed_focus = JAP_develop_chinese_resources
+			has_completed_focus = SPT_JAP_exploit_chinese_resources #SPT change, swapped which focus unlocks the decision
 			325 = {
 				NOT = {
 					has_state_flag = yunnan_aluminium_developed_2
@@ -2676,7 +2704,7 @@ prospect_for_resources = {
 		}
 
 		visible = {
-			has_completed_focus = JAP_develop_chinese_resources
+			has_completed_focus = SPT_JAP_exploit_chinese_resources #SPT change, swapped which focus unlocks the decision
 			605 = {
 				NOT = {
 					has_state_flag = sichuan_aluminium_developed_2

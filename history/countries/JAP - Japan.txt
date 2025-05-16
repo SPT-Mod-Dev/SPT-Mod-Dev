@@ -17,10 +17,57 @@ add_ideas = {
 
 	# National Spirits
 	state_shintoism
-	JAP_zaibatsus
+	#JAP_zaibatsus #SPT change, zaibatsu are now a dynamic modifier
 	JAP_duplicate_research_efforts
 	JAP_militarism
 
+}
+
+CHI = { #spt change, i know it's a bit insane to put this here but it avoids adding a whole extra vanilla file into the mod
+	add_ideas = SPT_JAP_china_low_xp_gain
+}
+
+create_faction = "Dai Toua Kyoueiken"
+add_to_faction = JAP
+add_to_faction = MAN
+
+add_dynamic_modifier = { #SPT change to add zaibatsu dynamic modifier at game start
+	modifier = SPT_JAP_zaibatsu_modifier
+}
+# add_to_variable = {
+# 	SPT_JAP_zai_consumer_goods_factor = 0.05
+# }
+add_to_variable = {
+	SPT_JAP_zai_political_power_gain = -0.25
+}
+add_to_variable = {
+	SPT_JAP_zai_trade_laws_cost_factor = 0.25
+}
+add_to_variable = {
+	SPT_JAP_zai_economy_cost_factor = 0.25
+}
+add_to_variable = {
+	SPT_JAP_zai_production_speed_arms_factory_factor = 0.05
+}
+add_to_variable = {
+	SPT_JAP_zai_production_speed_industrial_complex_factor = 0.05
+}
+add_to_variable = {
+	SPT_JAP_zai_production_speed_dockyard_factor = 0.05
+}
+add_to_variable = {
+	SPT_JAP_zai_production_factory_efficiency_gain_factor = -0.1
+}
+
+set_party_name = {
+	ideology = fascism
+	long_name = "Okada Cabinet"
+	name = "Okada Cabinet"
+}
+set_party_name = {
+	ideology = neutrality
+	name = "Seiyūkai"
+	long_name = "Association of Friends of Constitutional Government"
 }
 
 IF = {
@@ -264,11 +311,13 @@ IF = {
 	}
 }
 
-create_import = {
-	resource = oil
-	factories = 2
-	exporter = USA
-}
+#SPT change, none of this starting trade with the USA bs
+#sorry luce, historical accuracy in the pacific was actually all a ruse to make you help me research a stupid logo
+# create_import = {
+# 	resource = oil
+# 	factories = 2
+# 	exporter = USA
+# }
 
 if = { # SPTChange
 	limit = { has_dlc = "Together for Victory" }
@@ -485,8 +534,11 @@ set_politics = {
 	election_frequency = 48
 	elections_allowed = no
 }
-set_popularities = {
-	fascism = 100
+set_popularities = { #SPT change, adjusted starting popularities (fascism has to be built up a bit, you know)
+	fascism = 70
+	neutrality = 15
+	democratic = 10
+	communism = 5
 }
 
 # Recruiting Characters
@@ -563,6 +615,19 @@ recruit_character = JAP_keiji_fukuda
 recruit_character = JAP_jiro_horikoshi
 recruit_character = JAP_hideki_yukawa
 recruit_character = JAP_yoji_ito
+
+#SPT change, added custom characters
+recruit_character = SPT_JAP_kita_ikki
+recruit_character = SPT_JAP_fumimaru_konoe
+recruit_character = SPT_JAP_koyata_iwasaki
+recruit_character = SPT_JAP_sadao_araki
+recruit_character = SPT_JAP_osami_nagano_advisor
+recruit_character = SPT_JAP_hideki_tojo_leader
+recruit_character = SPT_JAP_zaibatsu_leader
+recruit_character = SPT_JAP_mori_hideoto
+recruit_character = SPT_JAP_kodoha_cabinet 
+recruit_character = SPT_JAP_military_gov
+recruit_character = SPT_JAP_kodoha_diet
 
 
 

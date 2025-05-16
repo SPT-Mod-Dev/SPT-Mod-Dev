@@ -824,3 +824,348 @@ princely_subjugation= {
 		}
 	}
 }
+
+
+
+#SPT LAW
+
+spt_yen_bloc_law_1 = {
+	icon = "GFX_occupation_law_spt_yen_bloc" 
+	sound_effect = "Martial_Law_Interface_Harsh_Quotas_Occupation"
+
+	fallback_law = spt_yen_bloc_law_2
+
+	state_modifier = {
+		resistance_target 				= -0.15
+		compliance_gain 				= -0.08
+		required_garrison_factor 		= -0.10
+		resistance_damage_to_garrison 	= -0.10
+		local_factories 				= 0.10
+		local_resources 				= 0.10
+		production_speed_buildings_factor = 0.025
+	}
+
+	visible = {
+		original_tag = JAP
+		has_completed_focus = SPT_JAP_integrate_yen_bloc_economies
+		NOT = {
+			has_country_flag = SPT_JAP_upgraded_occ_law_once
+		}
+		NOT = {
+			has_country_flag = SPT_JAP_upgraded_occ_law_twice
+		}
+		FROM = {
+			OR = {
+				original_tag = KOR
+				original_tag = CHI
+				AND = {
+					JAP = {
+						has_completed_focus = SPT_JAP_integrate_south_resource_area
+					}
+					original_tag = PHI
+					OR = {
+						has_capitulated = yes
+						exists = no
+					}
+				}
+				AND = {
+					JAP = {
+						has_completed_focus = SPT_JAP_integrate_south_resource_area
+					}
+					original_tag = MAL
+					OR = {
+						has_capitulated = yes
+						exists = no
+					}
+				}
+				AND = {
+					JAP = {
+						has_completed_focus = SPT_JAP_integrate_south_resource_area
+					}
+					original_tag = INS
+					OR = {
+						has_capitulated = yes
+						exists = no
+					}
+				}
+				AND = {
+					JAP = {
+						has_completed_focus = SPT_JAP_integrate_india
+					}
+					original_tag = RAJ
+					OR = {
+						has_capitulated = yes
+						exists = no
+					}
+				}
+				# AND = {
+				# 	JAP = {
+				# 		has_completed_focus = SPT_JAP_integrate_oceania
+				# 	}
+				# 	original_tag = NZL
+				# 	OR = {
+				# 		has_capitulated = yes
+				# 		exists = no
+				# 	}
+				# }
+				# AND = {
+				# 	JAP = {
+				# 		has_completed_focus = SPT_JAP_integrate_oceania
+				# 	}
+				# 	original_tag = AST
+				# 	OR = {
+				# 		has_capitulated = yes
+				# 		exists = no
+				# 	}
+				# }
+			}
+		}
+	}
+
+	ai_will_do = {
+		base = 20
+	}
+}
+spt_yen_bloc_law_2 = {
+	icon = "GFX_occupation_law_spt_yen_bloc" 
+	sound_effect = "Martial_Law_Interface_Harsh_Quotas_Occupation"
+
+	fallback_law = spt_yen_bloc_law_3
+
+	state_modifier = {
+		resistance_target 				= -0.15
+		compliance_gain 				= -0.06
+		required_garrison_factor 		= -0.15
+		resistance_damage_to_garrison 	= -0.15
+		local_factories 				= 0.15
+		local_resources 				= 0.15
+		production_speed_buildings_factor = 0.05
+	}
+
+	visible = {
+		original_tag = JAP
+		has_completed_focus = SPT_JAP_integrate_yen_bloc_economies
+		has_country_flag = SPT_JAP_upgraded_occ_law_once
+		NOT = {
+			has_country_flag = SPT_JAP_upgraded_occ_law_twice
+		}
+		FROM = {
+			OR = {
+				original_tag = KOR
+				original_tag = CHI
+				AND = {
+					JAP = {
+						has_completed_focus = SPT_JAP_integrate_south_resource_area
+					}
+					original_tag = PHI
+					OR = {
+						has_capitulated = yes
+						exists = no
+					}
+				}
+				AND = {
+					JAP = {
+						has_completed_focus = SPT_JAP_integrate_south_resource_area
+					}
+					original_tag = MAL
+					OR = {
+						has_capitulated = yes
+						exists = no
+					}
+				}
+				AND = {
+					JAP = {
+						has_completed_focus = SPT_JAP_integrate_south_resource_area
+					}
+					original_tag = INS
+					OR = {
+						has_capitulated = yes
+						exists = no
+					}
+				}
+				AND = {
+					JAP = {
+						has_completed_focus = SPT_JAP_integrate_india
+					}
+					original_tag = RAJ
+					OR = {
+						has_capitulated = yes
+						exists = no
+					}
+				}
+				# AND = {
+				# 	JAP = {
+				# 		has_completed_focus = SPT_JAP_integrate_oceania
+				# 	}
+				# 	original_tag = NZL
+				# 	OR = {
+				# 		has_capitulated = yes
+				# 		exists = no
+				# 	}
+				# }
+				# AND = {
+				# 	JAP = {
+				# 		has_completed_focus = SPT_JAP_integrate_oceania
+				# 	}
+				# 	original_tag = AST
+				# 	OR = {
+				# 		has_capitulated = yes
+				# 		exists = no
+				# 	}
+				# }
+			}
+		}
+	}
+
+	ai_will_do = {
+		base = 20
+	}
+}
+spt_yen_bloc_law_3 = {
+	icon = "GFX_occupation_law_spt_yen_bloc" 
+	sound_effect = "Martial_Law_Interface_Harsh_Quotas_Occupation"
+
+	fallback_law = secret_police_oversight
+
+	state_modifier = {
+		resistance_target 				= -0.20
+		compliance_gain 				= -0.04
+		required_garrison_factor 		= -0.20
+		resistance_damage_to_garrison 	= -0.20
+		local_factories 				= 0.15
+		local_resources 				= 0.15
+		production_speed_buildings_factor = 0.075
+	}
+
+	visible = {
+		original_tag = JAP
+		has_completed_focus = SPT_JAP_integrate_yen_bloc_economies
+		AND = {
+			has_country_flag = SPT_JAP_upgraded_occ_law_once
+			has_country_flag = SPT_JAP_upgraded_occ_law_twice
+		}
+		FROM = {
+			OR = {
+				original_tag = KOR
+				original_tag = CHI
+				AND = {
+					JAP = {
+						has_completed_focus = SPT_JAP_integrate_south_resource_area
+					}
+					original_tag = PHI
+					OR = {
+						has_capitulated = yes
+						exists = no
+					}
+				}
+				AND = {
+					JAP = {
+						has_completed_focus = SPT_JAP_integrate_south_resource_area
+					}
+					original_tag = MAL
+					OR = {
+						has_capitulated = yes
+						exists = no
+					}
+				}
+				AND = {
+					JAP = {
+						has_completed_focus = SPT_JAP_integrate_south_resource_area
+					}
+					original_tag = INS
+					OR = {
+						has_capitulated = yes
+						exists = no
+					}
+				}
+				AND = {
+					JAP = {
+						has_completed_focus = SPT_JAP_integrate_india
+					}
+					original_tag = RAJ
+					OR = {
+						has_capitulated = yes
+						exists = no
+					}
+				}
+				# AND = {
+				# 	JAP = {
+				# 		has_completed_focus = SPT_JAP_integrate_oceania
+				# 	}
+				# 	original_tag = NZL
+				# 	OR = {
+				# 		has_capitulated = yes
+				# 		exists = no
+				# 	}
+				# }
+				# AND = {
+				# 	JAP = {
+				# 		has_completed_focus = SPT_JAP_integrate_oceania
+				# 	}
+				# 	original_tag = AST
+				# 	OR = {
+				# 		has_capitulated = yes
+				# 		exists = no
+				# 	}
+				# }
+			}
+		}
+	}
+
+	ai_will_do = {
+		base = 20
+	}
+}
+
+pan_asia_law = {
+	icon = "GFX_occupation_law_spt_pan_asia"
+	sound_effect = "Martial_Law_Interface_Local_Police_Force_Garrison"
+	fallback_law = local_police_force_garrison
+	
+	state_modifier = {
+		resistance_target 				= -0.20
+		compliance_gain 				= 0.02
+		required_garrison_factor 		= 0.15
+		resistance_damage_to_garrison	= -0.35
+		local_factories 				= 0.05
+		local_resources 				= 0.05
+		non_core_manpower 				= -0.1
+	}
+
+	visible = {
+		original_tag = JAP
+		has_completed_focus = SPT_JAP_pan_asia_sentiment
+		FROM = {
+			OR = {
+				original_tag = VIN
+				original_tag = LAO
+				original_tag = CAM
+				original_tag = CHI
+				original_tag = KOR
+				original_tag = RAJ
+				original_tag = MYS
+				original_tag = HYD
+				original_tag = MYS
+				original_tag = RJP
+				original_tag = CIP
+				original_tag = WIS
+				original_tag = SIN
+				original_tag = KAS
+				original_tag = KOL
+				original_tag = KAS
+				original_tag = WIS
+				original_tag = NWF
+				original_tag = MPU
+				original_tag = KHL
+				original_tag = FSS
+				original_tag = SKK
+				original_tag = RAS
+				original_tag = KLT
+				original_tag = MAL
+				original_tag = PHI
+				original_tag = HAW
+				original_tag = BRM
+			}
+		}
+	}
+}
