@@ -6,6 +6,7 @@
  - Misc 1.16.6 changes
    - Tank Destroyer brigades now have a +15% baseline piercing modifier
    - Easy Maintenance reliability 20%->10%, IC cost reduction 0%->7.5%
+ - Ship Sonar 2 1939->1937
 
 ### 3.14.4 'The smallest changelog for the biggest update'
 
