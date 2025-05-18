@@ -1,5 +1,12 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.14.5
+
+#### General
+ - Misc 1.16.6 changes
+   - Tank Destroyer brigades now have a +15% baseline piercing modifier
+   - Easy Maintenance reliability 20%->10%, IC cost reduction 0%->7.5%
+
 ### 3.14.4 'The smallest changelog for the biggest update'
 
 #### General
