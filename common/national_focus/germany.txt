@@ -6759,8 +6759,17 @@ focus_tree = {
 		relative_position_id = GER_expand_kriegsmarinewerft
 		cost = 5
 		available = {
-			NOT = { has_completed_focus = GER_high_seas_fleet }
-			has_tech = early_ship_hull_carrier
+			IF = {
+				limit = {
+					has_dlc = "Man the Guns"
+				}
+				NOT = { has_completed_focus = GER_high_seas_fleet }
+				has_tech = early_ship_hull_carrier
+			}
+			ELSE = {
+				NOT = { has_completed_focus = GER_high_seas_fleet }
+				has_tech = early_carrier
+			}
 		}
 
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_MILITARY_CHARACTER }
@@ -6967,8 +6976,17 @@ focus_tree = {
 		relative_position_id = GER_expand_kriegsmarinewerft
 		cost = 10
 		available = {
-			NOT = { has_completed_focus = GER_high_seas_fleet }
-			has_tech = improved_ship_hull_heavy
+			IF = {
+				limit = {
+					has_dlc = "Man the Guns"
+				}
+				NOT = { has_completed_focus = GER_high_seas_fleet }
+				has_tech = improved_ship_hull_heavy
+			}
+			ELSE = {
+				NOT = { has_completed_focus = GER_high_seas_fleet }
+				has_tech = improved_battleship
+			}
 		}
 
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_MILITARY_CHARACTER FOCUS_FILTER_INDUSTRY }

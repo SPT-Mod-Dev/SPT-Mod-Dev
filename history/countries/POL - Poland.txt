@@ -511,15 +511,35 @@ if = {
 			special_type_slot_1 = empty
 		}
 	}
-	create_equipment_variant = {
-		name = "PZL P.23"
-		type = small_plane_cas_airframe_1
-		modules = {
-			fixed_main_weapon_slot = bomb_locks
-			engine_type_slot = engine_1_1x
-			special_type_slot_1 = lmg_defense_turret
+	if = {
+		limit = {
+			has_dlc = "Poland: United and Ready"
 		}
+		create_equipment_variant = {
+			name = "PZL P.23"
+			type = small_plane_cas_airframe_1
+			modules = {
+				fixed_main_weapon_slot = bomb_locks
+				engine_type_slot = engine_1_1x
+				special_type_slot_1 = lmg_defense_turret
+			}
+			icon = "GFX_POL_CAS1_medium"
+		}		
 	}
+	if = {
+		limit = {
+			NOT = { has_dlc = "Poland: United and Ready" }
+		}
+		create_equipment_variant = {
+			name = "PZL P.23"
+			type = small_plane_cas_airframe_1
+			modules = {
+				fixed_main_weapon_slot = bomb_locks
+				engine_type_slot = engine_1_1x
+				special_type_slot_1 = lmg_defense_turret
+			}
+		}		
+	}	
 }
 
 ### VARIANTS ###
