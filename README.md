@@ -1,6 +1,12 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.14.6
+### 3.14.5 
+
+#### General
+ - Misc 1.16.6 changes
+   - Tank Destroyer brigades now have a +15% baseline piercing modifier
+   - Easy Maintenance reliability 20%->10%, IC cost reduction 0%->7.5%
+ - Ship Sonar 2 1939->1937
 
 #### Spain
  - Automated Portuguese peace conference
@@ -9,15 +15,7 @@
  - 'Grain Market Inflation' should fire an appropriate number of times (1)
  - 'Controlled Economy' now correctly grants +10% resource gain when upgraded
 
-### 3.14.5
-
-#### General
- - Misc 1.16.6 changes
-   - Tank Destroyer brigades now have a +15% baseline piercing modifier
-   - Easy Maintenance reliability 20%->10%, IC cost reduction 0%->7.5%
- - Ship Sonar 2 1939->1937
-
-### 3.14.4 'The smallest changelog for the biggest update'
+### 3.14.4 'The Smallest Changelog for the Biggest Update'
 
 #### General
  - 'Surface Raiders' Screening without screening 25%->12.5%
