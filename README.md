@@ -1,5 +1,10 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.14.6
+
+#### Spain
+ - Automated Portuguese peace conference
+
 ### 3.14.5
 
 #### General
