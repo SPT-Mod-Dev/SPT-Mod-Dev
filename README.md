@@ -7,6 +7,14 @@
    - Tank Destroyer brigades now have a +15% baseline piercing modifier
    - Easy Maintenance reliability 20%->10%, IC cost reduction 0%->7.5%
  - Ship Sonar 2 1939->1937
+ - Changed AA CAS Damage reduction scaling. now linear to 90% reduction at 26.7 aa attack (was 75% at 10.8)
+ - Research Years for Large/MK2 Air Cannons moved to 41/43 (-2 Years)
+ - Jet Engines: Reduced Breakthrough point need by 1
+ - Jet Engines: reduced Range Malus by 20% each
+
+#### UK
+ - Removed Focus "Coastal Command"
+ - Focus "Fighter Command": Research Bonuses changed from 2x100 Light Airframe to 1x100 Light Airframe, 1x75 Aircraft
 
 #### Spain
  - Automated Portuguese peace conference
@@ -25,10 +33,6 @@
     - Modifiers that affect the Air Superiority land battle bonus now state 'Air Superiority in-battle effect' for clarity
     - Reworded Army, Navy, and Military Leader Cost effects
  - Added Tutorial Info click overview of Balance changes
- - Changed AA CAS Damage reduction scaling. now linear to 90% reduction at 26.7 aa attack (was 75% at 10.8)
- - Research Years for Large/MK2 Air Cannons moved to 41/43 (-2 Years)
- - Jet Engines: Reduced Breakthrough point need by 1
- - Jet Engines: reduced Range Malus by 20% each
 
 #### Navy
  - Changed Carrier limit to 6 before 50% per extra CV penalty
@@ -39,10 +43,6 @@
 
 #### Japan
  - Minor rework
-
-#### UK
- - Removed Focus "Coastal Command"
- - Focus "Fighter Command": Research Bonuses changed from 2x100 Light Airframe to 1x100 Light Airframe, 1x75 Aircraft
 
 #### Brazil
  - Focus 'The Washington Accords' is now available when in faction
