@@ -3994,7 +3994,7 @@ focus_tree = {
 		prerequisite = {
 			focus = SPT_USA_towards_landon
 		}
-		x = 3
+		x = 4
 		y = 1
 		relative_position_id = SPT_USA_towards_landon
 		cost = 10
@@ -4005,7 +4005,7 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
-			add_political_power = 50
+			add_political_power = 150
 			
 			custom_effect_tooltip = SPT_USA_campaign_for_votes_tt
 			add_timed_idea = {
@@ -4017,6 +4017,26 @@ focus_tree = {
 				set_variable = { election_factor = random }
 			}
 		}
+	}
+	
+	focus = {
+		id = SPT_USA_adopt_fireside_chats
+
+		x = 2
+		y = 1
+		prerequisite = {
+			focus = SPT_USA_campaign_for_votes
+		}
+		relative_position_id = SPT_USA_campaign_for_votes
+		cost = 10
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+		bypass = {
+		}
+
 	}
 	focus = {
 		id = SPT_USA_industrial_rnd
@@ -4059,13 +4079,13 @@ focus_tree = {
 		id = SPT_USA_standard_oil
 		icon = GFX_goal_generic_oil_refinery
 		prerequisite = {
-			focus = SPT_USA_campaign_for_votes
+			focus = SPT_USA_industrial_rnd
 		}
 		available = {
 		}
-		x = 2
+		x = 0
 		y = 1
-		relative_position_id = SPT_USA_campaign_for_votes
+		relative_position_id = SPT_USA_industrial_rnd
 		cost = 10
 		#ai_will_do = {
 		#	factor = 1
