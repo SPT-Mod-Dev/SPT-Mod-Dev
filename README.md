@@ -5,6 +5,10 @@
 #### Spain
  - Automated Portuguese peace conference
 
+#### Japan
+ - 'Grain Market Inflation' should fire an appropriate number of times (1)
+ - 'Controlled Economy' now correctly grants +10% resource gain when upgraded
+
 ### 3.14.5
 
 #### General
