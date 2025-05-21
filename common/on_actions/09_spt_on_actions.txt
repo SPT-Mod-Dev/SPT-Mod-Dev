@@ -1345,11 +1345,13 @@ on_actions = {
 					JAP = {
 						has_war_with = CHI
 					}
-					JAP = {
-						NOT = {
-							OR = {
-								has_idea = SPT_JAP_grain_market_inflation_active
+					NOT = {
+						OR = {
+							JAP = {
 								has_completed_focus = SPT_JAP_grain_market
+							}
+							JAP = {
+								has_idea = SPT_JAP_grain_market_inflation_active
 							}
 						}
 					}
