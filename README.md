@@ -1,14 +1,29 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.14.5
+### 3.14.5 
 
 #### General
  - Misc 1.16.6 changes
    - Tank Destroyer brigades now have a +15% baseline piercing modifier
    - Easy Maintenance reliability 20%->10%, IC cost reduction 0%->7.5%
  - Ship Sonar 2 1939->1937
+ - Changed AA CAS Damage reduction scaling. now linear to 90% reduction at 26.7 aa attack (was 75% at 10.8)
+ - Research Years for Large/MK2 Air Cannons moved to 41/43 (-2 Years)
+ - Jet Engines: Reduced Breakthrough point need by 1
+ - Jet Engines: reduced Range Malus by 20% each
 
-### 3.14.4 'The smallest changelog for the biggest update'
+#### UK
+ - Removed Focus "Coastal Command"
+ - Focus "Fighter Command": Research Bonuses changed from 2x100 Light Airframe to 1x100 Light Airframe, 1x75 Aircraft
+
+#### Spain
+ - Automated Portuguese peace conference
+
+#### Japan
+ - 'Grain Market Inflation' should fire an appropriate number of times (1)
+ - 'Controlled Economy' now correctly grants +10% resource gain when upgraded
+
+### 3.14.4 'The Smallest Changelog for the Biggest Update'
 
 #### General
  - 'Surface Raiders' Screening without screening 25%->12.5%
@@ -49,6 +64,7 @@
 
 #### Germany
  - Focus 'Panzerschiff Raiders' Screening without Screens 10% -> 0%
+ - Focusses "Dive Bombers"/"Form the Jagdwaffe" now grant BF 109 E Variant with no modules
 
 ###  3.14.3
 

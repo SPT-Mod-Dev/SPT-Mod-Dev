@@ -782,6 +782,25 @@ on_actions = {
 					}
 				}
 			}
+			# Automatically peace conference mainland Portugal to end skill issues for all time
+			if = {
+				limit = {
+					ROOT = {
+						tag = POR
+					}
+					FROM = {
+						tag = SPA
+					}
+				}
+				SPA = {
+					white_peace = POR
+					transfer_state = 112
+					transfer_state = 179
+					transfer_state = 180
+					transfer_state = 181
+					transfer_state = 795
+				}
+			}
 		}
 	}
 	on_declare_war = {
@@ -1325,6 +1344,16 @@ on_actions = {
 					date > 1939.6.30
 					JAP = {
 						has_war_with = CHI
+					}
+					NOT = {
+						OR = {
+							JAP = {
+								has_completed_focus = SPT_JAP_grain_market
+							}
+							JAP = {
+								has_idea = SPT_JAP_grain_market_inflation_active
+							}
+						}
 					}
 					CHI = {
 						surrender_progress > 0.2
