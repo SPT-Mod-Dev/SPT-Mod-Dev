@@ -4020,7 +4020,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SPT_USA_adopt_fireside_chats
+		id = SPT_USA_electoral_promises
 
 		x = 2
 		y = 1
@@ -4028,7 +4028,7 @@ focus_tree = {
 			focus = SPT_USA_campaign_for_votes
 		}
 		relative_position_id = SPT_USA_campaign_for_votes
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -4041,7 +4041,8 @@ focus_tree = {
 	focus = {
 		id = SPT_USA_industrial_rnd
 		icon = GFX_focus_research
-		x = -2
+		x = -3
+
 		y = 1
 		prerequisite = {
 			focus = SPT_USA_campaign_for_votes
@@ -4165,8 +4166,9 @@ focus_tree = {
 		prerequisite = {
 			focus = SPT_USA_review_the_budget
 		}
-		x = 0
+		x = 5
 		y = 1
+
 		relative_position_id = SPT_USA_review_the_budget
 		cost = 5
 		ai_will_do = {
@@ -4188,18 +4190,83 @@ focus_tree = {
 			custom_effect_tooltip = SPT_USA_recession_30_remove_from_focus_tt
 		}
 	}
+
+	focus = {
+		id= SPT_USA_New_deal_for_the_free_market
+
+		prerequisite = {
+			focus = SPT_USA_review_the_budget
+		}
+		x = -1
+		y = 1
+		cost = 35
+		relative_position_id = SPT_USA_review_the_budget
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		available = {
+		}
+		completion_reward = {
+			add_to_variable = {
+				SPT_USA_consumer_goods_factor = -0.05
+			}
+		}
+	}
+	focus = {
+		id = SPT_USA_ease_restrictions_on_state_debt
+		prerequisite = {
+			focus = SPT_USA_review_the_budget
+		}
+		x = 2
+		y = 1
+		cost = 35
+		relative_position_id = SPT_USA_review_the_budget
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		available = {
+		}
+		completion_reward = {
+			custom_effect_tooltip = SPT_USA_recession_usace_help_decision_tt
+		}
+	}
+
+	focus = {
+		id = SPT_USA_repeal_emergency_banking_act
+		cost = 35
+		prerequisite = {
+			focus = SPT_USA_New_deal_for_the_free_market
+		}
+		relative_position_id = SPT_USA_New_deal_for_the_free_market
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		available = {
+		}
+
+	}
+
 	focus = {
 		id = SPT_USA_bigger_states
 		icon = GFX_focus_generic_improve_the_administration
 		prerequisite = {
-			focus = SPT_USA_rebuilding_america
+			focus = SPT_USA_New_deal_for_the_free_market
+			focus = SPT_USA_ease_restrictions_on_state_debt
 		}
 		mutually_exclusive = {
 			focus = SPT_USA_smaller_states
 		}
-		x = -2
+		x = 1
 		y = 1
-		relative_position_id = SPT_USA_rebuilding_america
+		relative_position_id = SPT_USA_New_deal_for_the_free_market
 		cost = 5
 		ai_will_do = {
 			factor = 1
@@ -4221,10 +4288,32 @@ focus_tree = {
 			custom_effect_tooltip = SPT_USA_bigger_states_tt
 		}
 	}
+
+	focus = {
+		id = SPT_USA_Patent_incentive_act
+		prerequisite = {
+			focus = SPT_USA_repeal_emergency_banking_act
+
+		}
+		relative_position_id = SPT_USA_repeal_emergency_banking_act
+		x = 0
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = yes
+		available = {
+		}
+		completion_reward = {
+			
+		}
+	}
 	focus = {
 		id = SPT_USA_smaller_states
 		icon = GFX_focus_spa_the_spanish_miracle
 		prerequisite = {
+			focus = SPT_USA_ease_restrictions_on_state_debt
 			focus = SPT_USA_rebuilding_america
 		}
 		mutually_exclusive = {
@@ -4263,8 +4352,8 @@ focus_tree = {
 		prerequisite = {
 			focus = SPT_USA_rebuilding_america
 		}
-		x = 0
-		y = 2
+		x = 1
+		y = 1
 		relative_position_id = SPT_USA_rebuilding_america
 		cost = 5
 		ai_will_do = {
@@ -4302,11 +4391,12 @@ focus_tree = {
 		id = SPT_USA_state_managed_farms
 		icon = GFX_focus_SOV_breadbasket_of_the_union
 		prerequisite = {
-			focus = SPT_USA_bigger_states
+			focus = SPT_USA_for_the_states
+			focus = SPT_USA_for_the_people 
 		}
-		x = 0
+		x = -2
 		y = 1
-		relative_position_id = SPT_USA_bigger_states
+		relative_position_id = SPT_USA_for_the_people
 		cost = 5
 		ai_will_do = {
 			factor = 1
@@ -4348,11 +4438,11 @@ focus_tree = {
 		id = SPT_USA_free_enterprise
 		icon = GFX_focus_SOV_merge_plants
 		prerequisite = {
-			focus = SPT_USA_smaller_states
+			focus = SPT_USA_Patent_incentive_act
 		}
 		x = 0
 		y = 1
-		relative_position_id = SPT_USA_smaller_states
+		relative_position_id = SPT_USA_Patent_incentive_act
 		cost = 5
 		ai_will_do = {
 			factor = 1
@@ -4514,12 +4604,11 @@ focus_tree = {
 	focus = {
 		id = SPT_USA_for_the_states
 		icon = GFX_focus_spr_torchbearers_of_tomorrow
-		prerequisite = {
-			focus = SPT_USA_state_managed_farms
-		}
+
+		prerequisite = { focus = SPT_USA_bigger_states }
 		x = 0
 		y = 1
-		relative_position_id = SPT_USA_state_managed_farms
+		relative_position_id = SPT_USA_bigger_states
 		cost = 10
 		ai_will_do = {
 			factor = 1
@@ -4559,11 +4648,11 @@ focus_tree = {
 		id = SPT_USA_for_the_people
 		icon = GFX_focus_usa_guarantee_the_american_dream
 		prerequisite = {
-			focus = SPT_USA_free_enterprise
+			focus = SPT_USA_smaller_states
 		}
 		x = 0
 		y = 1
-		relative_position_id = SPT_USA_free_enterprise
+		relative_position_id = SPT_USA_smaller_states
 		cost = 10
 		ai_will_do = {
 			factor = 1
@@ -4601,6 +4690,19 @@ focus_tree = {
 			}
 			custom_effect_tooltip = SPT_USA_for_the_people_tt
 		}
+	}
+
+	focus = {
+		id = SPT_USA_Post_depression_boom
+
+		prerequisite = { focus = SPT_USA_state_managed_farms}
+		prerequisite = { focus = SPT_USA_break_monopolies }
+		prerequisite = { focus = SPT_USA_free_enterprise }
+
+		relative_position_id = SPT_USA_state_managed_farms
+		x = 0
+		y = 1
+
 	}
 
 	focus = {
@@ -6823,7 +6925,7 @@ focus_tree = {
 		id = USA_war_plans_division
 		icon = GFX_goal_generic_position_armies
 
-		x = 30
+		x = 35
 
 		y = 0
 		offset = {
@@ -8130,7 +8232,7 @@ focus_tree = {
 		id = USA_war_department
 		icon = GFX_goal_generic_army_doctrines
 
-		x = 43
+		x = 48
 
 		y = 0
 		offset = {
