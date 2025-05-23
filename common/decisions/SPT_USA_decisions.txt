@@ -886,7 +886,8 @@ USA_congress = {
 		available = {
 			has_completed_focus = SPT_USA_campaign_for_votes
 			NOT = {
-				has_country_flag = SPT_USA_already_campaigning	
+				has_country_flag = SPT_USA_already_campaigning
+				check_variable = { var = SPT_USA_completed_campaign value < 2 }
 			}
 			has_country_leader = {
 				ruling_only = yes
@@ -908,12 +909,13 @@ USA_congress = {
 			}
 		}
 		fire_only_once = yes
-		days_remove = 30
+		days_remove = 3
 		modifier = {
 			political_power_cost = 0.1
 		}
 		complete_effect = {
 			set_country_flag = SPT_USA_already_campaigning
+			add_to_variable = { var = SPT_USA_completed_campaign value = 1 }
 		}
 		remove_effect = {
 			hidden_effect = {
@@ -948,6 +950,7 @@ USA_congress = {
 			has_completed_focus = SPT_USA_campaign_for_votes
 			NOT = {
 				has_country_flag = SPT_USA_already_campaigning
+				check_variable = { var = SPT_USA_completed_campaign value < 2 }
 			}
 			has_country_leader = {
 				ruling_only = yes
@@ -969,12 +972,13 @@ USA_congress = {
 			}
 		}
 		fire_only_once = yes
-		days_remove = 30
+		days_remove = 3
 		modifier = {
 			political_power_cost = 0.1
 		}
 		complete_effect = {
 			set_country_flag = SPT_USA_already_campaigning
+			add_to_variable = { var = SPT_USA_completed_campaign value = 1 }
 		}
 		remove_effect = {
 			hidden_effect = {
@@ -1009,6 +1013,7 @@ USA_congress = {
 			has_completed_focus = SPT_USA_campaign_for_votes
 			NOT = {
 				has_country_flag = SPT_USA_already_campaigning
+				check_variable = { var = SPT_USA_completed_campaign value < 2 }
 			}
 			has_country_leader = {
 				ruling_only = yes
@@ -1036,6 +1041,7 @@ USA_congress = {
 		}
 		complete_effect = {
 			set_country_flag = SPT_USA_already_campaigning
+			add_to_variable = { var = SPT_USA_completed_campaign value = 1 }
 		}
 		remove_effect = {
 			hidden_effect = {
@@ -1070,6 +1076,7 @@ USA_congress = {
 			has_completed_focus = SPT_USA_campaign_for_votes
 			NOT = {
 				has_country_flag = SPT_USA_already_campaigning
+				check_variable = { var = SPT_USA_completed_campaign value < 2 }
 			}
 			has_country_leader = {
 				ruling_only = yes
@@ -1097,6 +1104,7 @@ USA_congress = {
 		}
 		complete_effect = {
 			set_country_flag = SPT_USA_already_campaigning
+			add_to_variable = { var = SPT_USA_completed_campaign value = 1 }
 		}
 		remove_effect = {
 			hidden_effect = {
@@ -1131,6 +1139,7 @@ USA_congress = {
 			has_completed_focus = SPT_USA_campaign_for_votes
 			NOT = {
 				has_country_flag = SPT_USA_already_campaigning
+				check_variable = { var = SPT_USA_completed_campaign value < 2 }
 			}
 			has_country_leader = {
 				ruling_only = yes
@@ -1158,6 +1167,7 @@ USA_congress = {
 		}
 		complete_effect = {
 			set_country_flag = SPT_USA_already_campaigning
+			add_to_variable = { var = SPT_USA_completed_campaign value = 1 }
 		}
 		remove_effect = {
 			hidden_effect = {
@@ -1192,6 +1202,7 @@ USA_congress = {
 			has_completed_focus = SPT_USA_campaign_for_votes
 			NOT = {
 				has_country_flag = SPT_USA_already_campaigning
+				check_variable = { var = SPT_USA_completed_campaign value < 2 }
 			}
 			has_country_leader = {
 				ruling_only = yes
@@ -1219,6 +1230,7 @@ USA_congress = {
 		}
 		complete_effect = {
 			set_country_flag = SPT_USA_already_campaigning
+			add_to_variable = { var = SPT_USA_completed_campaign value = 1 }
 		}
 		remove_effect = {
 			hidden_effect = {
@@ -1281,13 +1293,6 @@ USA_congress = {
 		}
 		complete_effect = {
 			USA_congress_medium_support = yes
-			hidden_effect = {
-				add_to_variable = {
-				SPT_USA_election_promises_infra_bonus = 0.1
-				SPT_USA_election_promises_building_slots = 0.1
-				SPT_USA_election_promises_resource_bonus = 0.1
-				}
-			}
 		}
 	}
 }

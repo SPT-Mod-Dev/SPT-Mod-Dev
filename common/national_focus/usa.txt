@@ -4021,7 +4021,6 @@ focus_tree = {
 	
 	focus = {
 		id = SPT_USA_electoral_promises
-
 		x = 2
 		y = 1
 		prerequisite = {
@@ -4033,11 +4032,31 @@ focus_tree = {
 			factor = 1
 		}
 		available = {
+			NOT = {
+				has_country_leader = {
+					ruling_only = yes
+					character = USA_franklin_delano_roosevelt
+				}
+				check_variable = { var = SPT_USA_completed_campaign value = 0 }	
+			}
 		}
 		bypass = {
 		}
-
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					has_dynamic_modifier = SPT_USA_Election_promises
+				}
+				remove_dynamic_modifier = {
+					modifier = SPT_USA_Election_promises
+				}
+				add_dynamic_modifier = {
+					modifier = SPT_USA_Election_promises_1
+				}
+			}
+		}
 	}
+
 	focus = {
 		id = SPT_USA_industrial_rnd
 		icon = GFX_focus_research
