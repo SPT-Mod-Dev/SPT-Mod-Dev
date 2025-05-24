@@ -9,6 +9,10 @@
  - Ordnance Factory Board: PE Cap +10% -> +5%
  - Ordnance Factory Board: PE Gain +10% -> +5%
 
+#### Mongolia
+ - Reduced cavalry buff in Golden Corp
+ - Allow focus 'Annex Tannu Tuva' to be taken after focus 'End Isolation'
+
 ### 3.14.5 
 
 #### General
