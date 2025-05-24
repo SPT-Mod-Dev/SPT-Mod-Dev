@@ -15,6 +15,9 @@
  - Reduced cavalry buff in Golden Corp
  - Allow focus 'Annex Tannu Tuva' to be taken after focus 'End Isolation'
 
+#### Soviet Union
+ - Decision to annex AI Mongolia now includes Tannu Tuva
+
 ### 3.14.5 
 
 #### General
