@@ -1,5 +1,11 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.14.6
+
+#### British Raj
+ - Political power gain per famine state penalty: -1% -> -3%
+ - Stability per famine state penatly: -1% -> -3%
+
 ### 3.14.5 
 
 #### General
