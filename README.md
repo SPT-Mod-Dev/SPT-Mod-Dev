@@ -5,6 +5,7 @@
 #### British Raj
  - Political power gain per famine state penalty: -1% -> -3%
  - Stability per famine state penatly: -1% -> -3%
+ - Famine small aid package effect halved
  - Ordnance Factory Board: PE Cap +10% -> +5%
  - Ordnance Factory Board: PE Gain +10% -> +5%
 
