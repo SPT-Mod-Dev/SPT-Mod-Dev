@@ -8,6 +8,8 @@
  - Famine small aid package effect halved
  - Ordnance Factory Board: PE Cap +10% -> +5%
  - Ordnance Factory Board: PE Gain +10% -> +5%
+ - Focus 'Confer with the Congress' no longer gives Political Power
+ - Focus 'Favor the Muslim League', 'The Indian Parliament', and 'Court the Princes' political power gain: 10%->5%
 
 #### Mongolia
  - Reduced cavalry buff in Golden Corp
