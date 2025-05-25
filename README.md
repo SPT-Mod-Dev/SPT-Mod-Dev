@@ -30,6 +30,7 @@
  - Focus 'Pan Asia Movement' no longer requires being at peace to be taken
  - Base 'Economic Decline' cg increase per 120 days increased to 1.0%, from 0.5%
  - Event 'Solving The Grain Market Inflation' option B consumer goods added reduced to 1.0%, from 1.5%
+ - Economy law 'Controlled Economy' civilian intel to others reduce to -20, from -35
 
 ### 3.14.5 
 
