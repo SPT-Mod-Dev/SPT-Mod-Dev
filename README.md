@@ -18,6 +18,18 @@
 #### Soviet Union
  - Decision to annex AI Mongolia now includes Tannu Tuva
 
+#### Japan
+ - Focus 'Intensify Carrier Research' research and ahead of time penalty reduction tech bonuses reduced to 50% and 1.0 years AHoT respectively, from 100% and 2.0 years
+ - National Spirit 'Finishing Maru 2 Keikaku' dockyard output reduced to 10%, from 15%
+ - Focus 'Fighter Modernization' research bonus to fighters and heavy fighters reduced to 75%, from 100%
+ - Focus 'Samurai Legacy' time to complete reduced to 35 days, from 70
+ - State modifier 'Urban Development' construction speed bonus reduced to 5%, from 10%
+ - Focus 'Invest In Urban Centers' state modifier duration increased to 200 days, from 150
+ - Event 'Overseeing Production Quotas' efficiency cap (from challenging zaibatsus) reduced to 7.5%, from 10%
+ - Focus 'Pan Asia Movement' no longer requires being at peace to be taken
+ - Base 'Economic Decline' cg increase per 120 days increased to 1.0%, from 0.5%
+ - Event 'Solving The Grain Market Inflation' option B consumer goods added reduced to 1.0%, from 1.5%
+
 ### 3.14.5 
 
 #### General
