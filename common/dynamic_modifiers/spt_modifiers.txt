@@ -211,6 +211,7 @@ SPT_USA_landons_america = { #NATIONAL SPIRIT
 	army_attack_factor = SPT_USA_army_attack_factor
 	army_morale_factor = SPT_USA_army_morale_factor
 	army_org_factor = SPT_USA_army_org_factor
+	military_industrial_organization_research_bonus = SPT_USA_recession_mio_research
 }
 
 SPT_MAN_pan_asian_integration = {
@@ -253,11 +254,29 @@ SPT_CW_commonwealth_industry = {
 SPT_USA_Election_promises = {
 	enable = { always = yes }
 	icon = GFX_decision_generic_electricity
+	production_speed_infrastructure_factor = SPT_USA_Election_promise_infra
+	local_building_slots_factor = SPT_USA_Election_promise_building_slot
+	state_resources_factor = SPT_USA_Election_promise_resources
 }
-SPT_USA_Election_promises_1 = {
-	icon = GFX_decision_generic_electricity
+
+SPT_USA_Election_promises_2 = {
 	enable = { always = yes }
+	icon = GFX_decision_generic_electricity
 	production_speed_infrastructure_factor = 0.1
 	local_building_slots_factor = 0.1
 	local_resources_factor = 0.1
+}
+
+SPT_USA_recession = {
+	enable = {
+		always = yes
+	}
+	icon = chi_hyper_inflation5
+	stability_factor = SPT_USA_recession_stability
+	political_power_gain = SPT_USA_recession_pp_gain
+	production_speed_buildings_factor = SPT_USA_recession_construction_speed
+	industrial_capacity_factory = SPT_USA_recession_factory_output
+	industrial_capacity_dockyard = SPT_USA_recession_dockyard_output
+	consumer_goods_factor = SPT_USA_recession_consumer_goods
+	production_speed_industrial_complex_factor = SPT_USA_recession_civ_bonus
 }

@@ -3751,8 +3751,11 @@ focus_tree = {
 			}
 			not = {
 				OR = {
-					has_idea = SPT_USA_recession_hit
+
 					has_idea = SPT_USA_recession_looming
+					has_dynamic_modifier = {
+						modifier = SPT_USA_recession
+					}
 				}
 				
 			}
@@ -3877,7 +3880,9 @@ focus_tree = {
 			AND = {
 				NOT = {
 					has_idea = SPT_USA_recession_looming 
-					has_idea = SPT_USA_recession_hit
+					has_dynamic_modifier = {
+						modifier = SPT_USA_recession
+					}
 				}
 			}
 		}
@@ -3927,7 +3932,9 @@ focus_tree = {
 			AND = {
 				NOT = {
 					has_idea = SPT_USA_recession_looming 
-					has_idea = SPT_USA_recession_hit
+					has_dynamic_modifier = {
+						modifier = SPT_USA_recession
+					}
 				}
 			}
 		}
@@ -4037,7 +4044,11 @@ focus_tree = {
 					ruling_only = yes
 					character = USA_franklin_delano_roosevelt
 				}
-				check_variable = { var = SPT_USA_completed_campaign value = 0 }	
+			}
+			check_variable = {
+				var = SPT_USA_completed_campaign
+				value = 0
+				compare = greater_than
 			}
 		}
 		bypass = {
@@ -4045,15 +4056,15 @@ focus_tree = {
 		completion_reward = {
 			every_owned_state = {
 				limit = {
-					has_dynamic_modifier = { modifier = SPT_USA_Election_promises
-					scope = THIS
+					has_dynamic_modifier = {
+						modifier = SPT_USA_Election_promises
 					}
 				}
 				remove_dynamic_modifier = {
 					modifier = SPT_USA_Election_promises
 				}
 				add_dynamic_modifier = {
-					modifier = SPT_USA_Election_promises_1
+					modifier = SPT_USA_Election_promises_2
 				}
 			}
 		}
@@ -4213,8 +4224,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id= SPT_USA_New_deal_for_the_free_market
-
+		id = SPT_USA_New_deal_for_the_free_market
 		prerequisite = {
 			focus = SPT_USA_review_the_budget
 		}
@@ -4228,10 +4238,23 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		available = {
+			has_dynamic_modifier = {
+				modifier = SPT_USA_recession
+			}
+		}
+		bypass = {
+			NOT = {
+				has_dynamic_modifier = {
+					modifier = SPT_USA_recession
+				}
+			}
 		}
 		completion_reward = {
 			add_to_variable = {
-				SPT_USA_consumer_goods_factor = -0.05
+				SPT_USA_recession_consumer_goods = -0.1
+			}
+			add_to_variable = {
+				SPT_USA_recession_civ_bonus = 0.15
 			}
 		}
 	}
@@ -4269,10 +4292,31 @@ focus_tree = {
 		ai_will_do = {
 			factor = 1
 		}
+		
+		bypass = {
+			NOT = {
+				has_dynamic_modifier = {
+					modifier = SPT_USA_recession
+				}
+			}
+		}
 		available_if_capitulated = yes
 		available = {
+			has_dynamic_modifier = {
+				modifier = SPT_USA_recession
+			}
 		}
-
+		completion_reward = {
+			add_to_variable = {
+				SPT_USA_recession_consumer_goods = -0.15
+			}
+			add_to_variable = {
+				SPT_USA_recession_civ_bonus = 0.1
+			}
+			add_to_variable = {
+				SPT_USA_consumer_goods_factor = 0.05
+			}
+		}
 	}
 
 	focus = {
@@ -4325,9 +4369,33 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		available = {
+			has_dynamic_modifier = {
+				modifier = SPT_USA_recession
+			}
+		}
+		bypass = {
+			NOT = {
+				has_dynamic_modifier = {
+					modifier = SPT_USA_recession
+				}
+			}
 		}
 		completion_reward = {
-			
+			add_to_variable = {
+				SPT_USA_recession_civ_bonus = 0.05
+			}
+			add_tech_bonus = {
+				name = SPT_USA_patent_incentive
+				bonus = 0.4
+				uses = 2
+				category = computing_tech
+			}
+			set_variable = {
+				SPT_USA_recession_mio_research = 0.1
+			}
+			add_to_variable = {
+				SPT_USA_consumer_goods_factor = 0.05
+			}
 		}
 	}
 	focus = {
@@ -4424,13 +4492,23 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		available = {
+			AND = {
+				NOT = {
+					has_idea = SPT_USA_recession_looming 
+					has_dynamic_modifier = {
+						modifier = SPT_USA_recession
+					}
+				}
+			}
 			NOT = {
 				OR = {
 					has_idea = great_depression
 					has_idea = great_depression_2
+					has_idea = great_depression_3
 				}
 			}
 		}
+
 		completion_reward = {
 			hidden_effect = {
 				add_to_variable = {
@@ -4470,23 +4548,27 @@ focus_tree = {
 		}
 		available_if_capitulated = yes
 		available = {
+			has_dynamic_modifier = {
+				modifier = SPT_USA_recession
+			}
+		}
+		bypass = {
 			NOT = {
-				OR = {
-					has_idea = great_depression
-					has_idea = great_depression_2
+				has_dynamic_modifier = {
+					modifier = SPT_USA_recession
 				}
 			}
 		}
 		completion_reward = {
-			hidden_effect = {
-				add_to_variable = {
-					SPT_USA_production_speed_industrial_complex_factor = 0.05
-				}
-				add_to_variable = {
-					SPT_USA_stability_factor = -0.05
-				}
+			add_to_variable = {
+				SPT_USA_recession_civ_bonus = 0.1
 			}
-			custom_effect_tooltip = SPT_USA_free_enterprise_tt
+			add_to_variable = {
+				SPT_USA_recession_consumer_goods = -0.2
+			}
+			add_to_variable = {
+				SPT_USA_recession_construction_speed = 0.05
+			}
 		}
 	}
 	focus = {
@@ -4590,7 +4672,9 @@ focus_tree = {
 			}
 			not = {
 				OR = {
-					has_idea = SPT_USA_recession_hit
+					has_dynamic_modifier = {
+						modifier = SPT_USA_recession
+					}
 					has_idea = SPT_USA_recession_looming
 				}
 				
@@ -4639,14 +4723,15 @@ focus_tree = {
 			AND = {
 				NOT = {
 					has_idea = SPT_USA_recession_looming 
-					has_idea = SPT_USA_recession_hit
+					has_dynamic_modifier = {
+						modifier = SPT_USA_recession
+					}
 				}
 			}
 			NOT = {
 				OR = {
 					has_idea = great_depression
 					has_idea = great_depression_2
-					has_idea = great_depression_3
 				}
 			}
 		}
@@ -4683,14 +4768,15 @@ focus_tree = {
 			AND = {
 				NOT = {
 					has_idea = SPT_USA_recession_looming 
-					has_idea = SPT_USA_recession_hit
+					has_dynamic_modifier = {
+						modifier = SPT_USA_recession
+					}
 				}
 			}
 			NOT = {
 				OR = {
 					has_idea = great_depression
 					has_idea = great_depression_2
-					has_idea = great_depression_3
 				}
 			}
 		}
