@@ -212,6 +212,10 @@ SPT_USA_landons_america = { #NATIONAL SPIRIT
 	army_morale_factor = SPT_USA_army_morale_factor
 	army_org_factor = SPT_USA_army_org_factor
 	military_industrial_organization_research_bonus = SPT_USA_recession_mio_research
+	army_intel_to_others  = SPT_USA_army_intel_to_others
+	civilian_intel_to_others  = SPT_USA_civilian_intel_to_others 
+	navy_intel_to_others = SPT_USA_navy_intel_to_others
+	airforce_intel_to_others = SPT_USA_airforce_intel_to_others
 }
 
 SPT_MAN_pan_asian_integration = {
@@ -254,17 +258,14 @@ SPT_CW_commonwealth_industry = {
 SPT_USA_Election_promises = {
 	enable = { always = yes }
 	icon = GFX_decision_generic_electricity
-	production_speed_infrastructure_factor = SPT_USA_Election_promise_infra
-	local_building_slots_factor = SPT_USA_Election_promise_building_slot
-	state_resources_factor = SPT_USA_Election_promise_resources
 }
 
 SPT_USA_Election_promises_2 = {
 	enable = { always = yes }
 	icon = GFX_decision_generic_electricity
-	production_speed_infrastructure_factor = 0.1
+	state_production_speed_infrastructure_factor = 0.1
 	local_building_slots_factor = 0.1
-	local_resources_factor = 0.1
+	state_resources_factor = 0.1
 }
 
 SPT_USA_recession = {
@@ -279,4 +280,51 @@ SPT_USA_recession = {
 	industrial_capacity_dockyard = SPT_USA_recession_dockyard_output
 	consumer_goods_factor = SPT_USA_recession_consumer_goods
 	production_speed_industrial_complex_factor = SPT_USA_recession_civ_bonus
+}
+SPT_USA_post_depression_boom = {
+	enable = {
+		always = yes
+	}
+	icon = ARG_civilian_economy_boost
+
+	production_speed_buildings_factor = SPT_USA_post_depression_production_speed_buildings_factor
+	consumer_goods_factor = SPT_USA_post_depression_consumer_goods_factor
+
+	production_speed_arms_factory_factor = SPT_USA_post_depression_production_speed_arms_factory_factor
+	production_speed_dockyard_factor = SPT_USA_post_depression_production_speed_dockyard_factor
+
+	industrial_capacity_factory = SPT_USA_post_depression_industrial_capacity_factory
+	industrial_capacity_dockyard = SPT_USA_post_depression_industrial_capacity_dockyard
+
+	production_speed_synthetic_refinery_factor = SPT_USA_post_depression_production_speed_synthetic_refinery_factor
+	production_speed_naval_base_factor = SPT_USA_post_depression_production_speed_naval_base_factor
+	production_speed_air_base_factor = SPT_USA_post_depression_production_speed_air_base_factor
+	production_speed_fuel_silo_factor = SPT_USA_post_depression_production_speed_fuel_silo_factor
+	production_speed_nuclear_reactor_factor = SPT_USA_post_depression_production_speed_nuclear_reactor_factor
+
+	production_cost_max_convoy = SPT_USA_post_depression_production_cost_max_convoy
+	production_cost_max_ship_hull_light = SPT_USA_post_depression_production_cost_max_ship_hull_light
+} 
+SPT_USA_post_depression_boom_military = {
+	enable = {
+		always = yes
+	}
+	icon = GER_wirtschaftswunder
+
+	production_speed_buildings_factor = SPT_USA_post_depression_production_speed_buildings_factor
+	consumer_goods_factor = SPT_USA_post_depression_consumer_goods_factor
+
+	production_speed_arms_factory_factor = SPT_USA_post_depression_production_speed_arms_factory_factor
+	production_speed_dockyard_factor = SPT_USA_post_depression_production_speed_dockyard_factor
+
+	industrial_capacity_factory = SPT_USA_post_depression_industrial_capacity_factory
+	industrial_capacity_dockyard = SPT_USA_post_depression_industrial_capacity_dockyard
+	production_factory_efficiency_gain_factor = SPT_USA_post_depression_production_factory_efficiency_gain_factor
+	production_factory_max_efficiency_factor = SPT_USA_post_depression_production_factory_max_efficiency_factor
+
+	production_speed_air_base_factor = SPT_USA_post_depression_production_speed_air_base_factor
+	production_speed_naval_base_factor = SPT_USA_post_depression_production_speed_naval_base_factor
+
+	production_cost_max_convoy = SPT_USA_post_depression_production_cost_max_convoy
+	production_cost_max_ship_hull_light = SPT_USA_post_depression_production_cost_max_ship_hull_light
 }

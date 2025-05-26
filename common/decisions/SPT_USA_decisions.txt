@@ -258,6 +258,71 @@ SPT_USA_recession_decisions = {
 			}
 		}
 	}
+	SPT_USA_new_deal_for_free_market = {
+		allowed = { tag = USA }
+		icon = GFX_decision_generic_construction
+
+		available = { 
+			has_dynamic_modifier = {
+				modifier = SPT_USA_recession
+			} 
+			has_completed_focus = SPT_USA_new_deal_for_the_free_market
+		}
+
+		visible = { 
+			has_dynamic_modifier = {
+				modifier = SPT_USA_recession
+			}
+			has_completed_focus = SPT_USA_new_deal_for_the_free_market 
+		}
+
+		days_remove = 30
+		fire_only_once = yes
+		cost = 35
+		
+		remove_effect = {
+			add_days_mission_timeout = {
+				mission = SPT_USA_ongoing_recession
+				days = -30
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					
+					infrastructure < 3
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					
+					infrastructure < 3
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					
+					infrastructure < 3
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
 	SPT_USA_nya_help = {
 
 		allowed = { tag = USA }
@@ -1282,6 +1347,7 @@ USA_congress = {
 		}
 		fire_only_once = yes
 		days_remove = 30
+		cancel_if_not_visible = yes
 		modifier = {
 			political_power_cost = 0.1
 		}
