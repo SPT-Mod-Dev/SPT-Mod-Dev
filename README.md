@@ -11,6 +11,7 @@
  - Focus 'Confer with the Congress' no longer gives Political Power
  - Focus 'Favor the Muslim League', 'The Indian Parliament', and 'Court the Princes' political power gain: 10%->5%
  - Independence Branch no longer available
+ - Hid 'Burma Road' subbbranch due to it being impossible to take
  
 #### Mongolia
  - Reduced cavalry buff in Golden Corp
