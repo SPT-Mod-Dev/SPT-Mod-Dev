@@ -986,22 +986,34 @@ USA_congress = {
 		icon = GFX_decision_generic_USA_flag
 		available = {
 			has_completed_focus = SPT_USA_campaign_for_votes
-			NOT = {
+			hidden_trigger = {
+				NOT = {
 				has_country_flag = SPT_USA_already_campaigning
 				check_variable = { var = SPT_USA_completed_campaign value < 2 }
+				}
+				date < 1938.01.01
 			}
 			has_country_leader = {
 				ruling_only = yes
 				character = USA_franklin_delano_roosevelt
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_USA_Election_promises_decision_tt
+				NOT = {
+					has_country_flag = SPT_USA_already_campaigning
+					check_variable = { var = SPT_USA_completed_campaign value < 2 }
+				}
 			}
 		}
 		visible = {
-			has_completed_focus = SPT_USA_campaign_for_votes
+			hidden_trigger = {
+				has_completed_focus = SPT_USA_campaign_for_votes
+			}
 			has_country_leader = {
 				ruling_only = yes
 				character = USA_franklin_delano_roosevelt
 			}
-			
+			date < 1938.01.01
 		}
 		highlight_states = {
 			highlight_state_targets = {
@@ -1015,9 +1027,10 @@ USA_congress = {
 			}
 		}
 		fire_only_once = yes
-		days_remove = 3
+		days_remove = 30
+		cancel_if_not_visible = yes
 		modifier = {
-			political_power_cost = 0.1
+			political_power_cost = 0.4
 		}
 		complete_effect = {
 			set_country_flag = SPT_USA_already_campaigning
@@ -1048,27 +1061,41 @@ USA_congress = {
 			}
 			}
 			clr_country_flag = SPT_USA_already_campaigning
+			custom_effect_tooltip = SPT_USA_Election_promises_decision_1_remove_effect_tt
 		}
 	}
 		SPT_USA_Election_promises_2 = {
 		icon = GFX_decision_generic_USA_flag
 		available = {
 			has_completed_focus = SPT_USA_campaign_for_votes
-			NOT = {
+			hidden_trigger = {
+				NOT = {
 				has_country_flag = SPT_USA_already_campaigning
 				check_variable = { var = SPT_USA_completed_campaign value < 2 }
+				}
+				date < 1938.01.01
 			}
 			has_country_leader = {
 				ruling_only = yes
 				character = USA_franklin_delano_roosevelt
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_USA_Election_promises_decision_tt
+				NOT = {
+					has_country_flag = SPT_USA_already_campaigning
+					check_variable = { var = SPT_USA_completed_campaign value < 2 }
+				}
 			}
 		}
 		visible = {
-			has_completed_focus = SPT_USA_campaign_for_votes
+			hidden_trigger = {
+				has_completed_focus = SPT_USA_campaign_for_votes
+			}
 			has_country_leader = {
 				ruling_only = yes
 				character = USA_franklin_delano_roosevelt
 			}
+			date < 1938.01.01
 		}
 		highlight_states = {
 			highlight_state_targets = {
@@ -1082,9 +1109,10 @@ USA_congress = {
 			}
 		}
 		fire_only_once = yes
-		days_remove = 3
+		days_remove = 30
+		cancel_if_not_visible = yes
 		modifier = {
-			political_power_cost = 0.1
+			political_power_cost = 0.4
 		}
 		complete_effect = {
 			set_country_flag = SPT_USA_already_campaigning
@@ -1115,27 +1143,41 @@ USA_congress = {
 			}
 			}
 			clr_country_flag = SPT_USA_already_campaigning
+			custom_effect_tooltip = SPT_USA_Election_promises_decision_2_remove_effect_tt
 		}
 	}
 		SPT_USA_Election_promises_6 = {
 		icon = GFX_decision_generic_USA_flag
 		available = {
 			has_completed_focus = SPT_USA_campaign_for_votes
-			NOT = {
+			hidden_trigger = {
+				NOT = {
 				has_country_flag = SPT_USA_already_campaigning
 				check_variable = { var = SPT_USA_completed_campaign value < 2 }
+				}
+				date < 1938.01.01
 			}
 			has_country_leader = {
 				ruling_only = yes
 				character = USA_franklin_delano_roosevelt
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_USA_Election_promises_decision_tt
+				NOT = {
+					has_country_flag = SPT_USA_already_campaigning
+					check_variable = { var = SPT_USA_completed_campaign value < 2 }
+				}
 			}
 		}
 		visible = {
-			has_completed_focus = SPT_USA_campaign_for_votes
+			hidden_trigger = {
+				has_completed_focus = SPT_USA_campaign_for_votes
+			}
 			has_country_leader = {
 				ruling_only = yes
 				character = USA_franklin_delano_roosevelt
 			}
+			date < 1938.01.01
 		}
 		highlight_states = {
 			highlight_state_targets = {
@@ -1150,8 +1192,9 @@ USA_congress = {
 		}
 		fire_only_once = yes
 		days_remove = 30
+		cancel_if_not_visible = yes
 		modifier = {
-			political_power_cost = 0.1
+			political_power_cost = 0.4
 		}
 		complete_effect = {
 			set_country_flag = SPT_USA_already_campaigning
@@ -1182,27 +1225,41 @@ USA_congress = {
 			}
 			}
 			clr_country_flag = SPT_USA_already_campaigning
+			custom_effect_tooltip = SPT_USA_Election_promises_decision_6_remove_effect_tt
 		}
 	}
 		SPT_USA_Election_promises_3 = {
 		icon = GFX_decision_generic_USA_flag
 		available = {
 			has_completed_focus = SPT_USA_campaign_for_votes
-			NOT = {
+			hidden_trigger = {
+				NOT = {
 				has_country_flag = SPT_USA_already_campaigning
 				check_variable = { var = SPT_USA_completed_campaign value < 2 }
+				}
+				date < 1938.01.01
 			}
 			has_country_leader = {
 				ruling_only = yes
 				character = USA_franklin_delano_roosevelt
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_USA_Election_promises_decision_tt
+				NOT = {
+					has_country_flag = SPT_USA_already_campaigning
+					check_variable = { var = SPT_USA_completed_campaign value < 2 }
+				}
 			}
 		}
 		visible = {
-			has_completed_focus = SPT_USA_campaign_for_votes
+			hidden_trigger = {
+				has_completed_focus = SPT_USA_campaign_for_votes
+			}
 			has_country_leader = {
 				ruling_only = yes
 				character = USA_franklin_delano_roosevelt
 			}
+			date < 1938.01.01
 		}
 		highlight_states = {
 			highlight_state_targets = {
@@ -1217,8 +1274,9 @@ USA_congress = {
 		}
 		fire_only_once = yes
 		days_remove = 30
+		cancel_if_not_visible = yes
 		modifier = {
-			political_power_cost = 0.1
+			political_power_cost = 0.4
 		}
 		complete_effect = {
 			set_country_flag = SPT_USA_already_campaigning
@@ -1249,27 +1307,41 @@ USA_congress = {
 			}
 			}
 			clr_country_flag = SPT_USA_already_campaigning
+			custom_effect_tooltip = SPT_USA_Election_promises_decision_3_remove_effect_tt
 		}
 	}
 		SPT_USA_Election_promises_4 = {
 		icon = GFX_decision_generic_USA_flag
 		available = {
 			has_completed_focus = SPT_USA_campaign_for_votes
-			NOT = {
+			hidden_trigger = {
+				NOT = {
 				has_country_flag = SPT_USA_already_campaigning
 				check_variable = { var = SPT_USA_completed_campaign value < 2 }
+				}
+				date < 1938.01.01
 			}
 			has_country_leader = {
 				ruling_only = yes
 				character = USA_franklin_delano_roosevelt
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_USA_Election_promises_decision_tt
+				NOT = {
+					has_country_flag = SPT_USA_already_campaigning
+					check_variable = { var = SPT_USA_completed_campaign value < 2 }
+				}
 			}
 		}
 		visible = {
-			has_completed_focus = SPT_USA_campaign_for_votes
+			hidden_trigger = {
+				has_completed_focus = SPT_USA_campaign_for_votes
+			}
 			has_country_leader = {
 				ruling_only = yes
 				character = USA_franklin_delano_roosevelt
 			}
+			date < 1938.01.01
 		}
 		highlight_states = {
 			highlight_state_targets = {
@@ -1284,8 +1356,9 @@ USA_congress = {
 		}
 		fire_only_once = yes
 		days_remove = 30
+		cancel_if_not_visible = yes
 		modifier = {
-			political_power_cost = 0.1
+			political_power_cost = 0.4
 		}
 		complete_effect = {
 			set_country_flag = SPT_USA_already_campaigning
@@ -1316,27 +1389,41 @@ USA_congress = {
 				}
 			}
 			clr_country_flag = SPT_USA_already_campaigning
+			custom_effect_tooltip = SPT_USA_Election_promises_decision_4_remove_effect_tt
 		}
 	}
 	SPT_USA_Election_promises_5 = {
 		icon = GFX_decision_generic_USA_flag
 		available = {
 			has_completed_focus = SPT_USA_campaign_for_votes
-			NOT = {
+			hidden_trigger = {
+				NOT = {
 				has_country_flag = SPT_USA_already_campaigning
 				check_variable = { var = SPT_USA_completed_campaign value < 2 }
+				}
+				date < 1938.01.01
 			}
 			has_country_leader = {
 				ruling_only = yes
 				character = USA_franklin_delano_roosevelt
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_USA_Election_promises_decision_tt
+				NOT = {
+					has_country_flag = SPT_USA_already_campaigning
+					check_variable = { var = SPT_USA_completed_campaign value < 2 }
+				}
 			}
 		}
 		visible = {
-			has_completed_focus = SPT_USA_campaign_for_votes
+			hidden_trigger = {
+				has_completed_focus = SPT_USA_campaign_for_votes
+			}
 			has_country_leader = {
 				ruling_only = yes
 				character = USA_franklin_delano_roosevelt
 			}
+			date < 1938.01.01
 		}
 		highlight_states = {
 			highlight_state_targets = {
@@ -1353,7 +1440,7 @@ USA_congress = {
 		days_remove = 30
 		cancel_if_not_visible = yes
 		modifier = {
-			political_power_cost = 0.1
+			political_power_cost = 0.4
 		}
 		complete_effect = {
 			set_country_flag = SPT_USA_already_campaigning
@@ -1384,11 +1471,13 @@ USA_congress = {
 				}
 			}
 			clr_country_flag = SPT_USA_already_campaigning
+			custom_effect_tooltip = SPT_USA_Election_promises_decision_5_remove_effect_tt
 		}
 	}
 
 	SPT_USA_Landon_Electoral_promises_folow_up = {
 		icon = GFX_decision_generic_consumer_goods
+
 		visible = {
 			has_completed_focus = SPT_USA_campaign_for_votes
 		}
