@@ -1971,12 +1971,14 @@ focus_tree = {
 					uses = 1
 					category = nuclear
 				}
+				custom_effect_tooltip = SPT_JAP_whitespace_tt
 				add_breakthrough_progress = {
 					specialization = specialization_nuclear
 					value = 0.5
 				}
 				add_ideas = USA_manhattan_project_ns
 			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			ELSE = {
 				add_breakthrough_progress = {
 					specialization = specialization_nuclear
@@ -2282,6 +2284,7 @@ focus_tree = {
 		#}
 		complete_tooltip = {
 			army_experience = 10
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			every_state = {
 				limit = {
 					has_state_flag = USA_military_construction_5MF
@@ -2309,6 +2312,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			army_experience = 10
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			random_owned_controlled_state = {
 				limit = {
 					arms_factory > 0
@@ -2339,6 +2343,7 @@ focus_tree = {
 				}
 				set_state_flag = USA_military_construction_5MF
 			}
+			
 			if = {
 				limit = {
 					any_owned_state = {
@@ -2573,6 +2578,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_ideas = low_economic_mobilisation
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT
@@ -2611,7 +2617,11 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_ideas = wartime_industry_focus
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+
 			add_ideas = partial_economic_mobilisation
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT
@@ -2935,6 +2945,7 @@ focus_tree = {
 				idea = SPT_USA_aid_payment_brit
 				days = 365
 			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			ENG = {
 				add_ideas = SPT_USA_allied_aid
 			}
@@ -2942,6 +2953,7 @@ focus_tree = {
 				limit = {
 					336 = { is_fully_controlled_by = ENG }
 				}
+				custom_effect_tooltip = SPT_JAP_whitespace_tt
 				ENG = {
 					give_resource_rights = {
 						receiver = USA
@@ -2953,6 +2965,7 @@ focus_tree = {
 				limit = {
 					336 = { is_fully_controlled_by = MAL }
 				}
+				custom_effect_tooltip = SPT_JAP_whitespace_tt
 				MAL = {
 					give_resource_rights = {
 						receiver = USA
@@ -2984,9 +2997,11 @@ focus_tree = {
 				idea = SPT_USA_aid_payment_pacific
 				days = 365
 			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			AST = {
 				add_ideas = SPT_USA_allied_aid
 			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			NZL = {
 				add_ideas = SPT_USA_allied_aid
 			}
@@ -3014,6 +3029,7 @@ focus_tree = {
 				idea = SPT_USA_aid_payment_raj
 				days = 365
 			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			RAJ = {
 				add_ideas = SPT_USA_allied_aid
 			}
@@ -3041,12 +3057,15 @@ focus_tree = {
 				idea = SPT_USA_aid_payment_amex
 				days = 365
 			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			CAN = {
 				add_ideas = SPT_USA_allied_aid
 			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			MEX = {
 				add_ideas = SPT_USA_allied_aid
 			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			BRA = {
 				add_ideas = SPT_USA_allied_aid
 			}
@@ -3080,6 +3099,7 @@ focus_tree = {
 				idea = SPT_USA_aid_payment_africa
 				days = 365
 			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			SAF = {
 				add_ideas = SPT_USA_allied_aid
 			}
@@ -3109,11 +3129,13 @@ focus_tree = {
 			has_equipment = { support_equipment > 999 }
 			SOV = { surrender_progress > 0.35 }
 		}
+
 		completion_reward = {
 			add_timed_idea = { 
 				idea = SPT_USA_aid_payment_sov
 				days = 365
 			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			add_equipment_to_stockpile = {
 				type = infantry_equipment
 				amount = -10000
@@ -3126,8 +3148,10 @@ focus_tree = {
 				type = support_equipment
 				amount = -1000
 			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			SOV = {
 				add_ideas = SPT_USA_allied_aid_soviet
+				custom_effect_tooltip = SPT_JAP_whitespace_tt
 				add_equipment_to_stockpile = {
 					type = infantry_equipment
 					amount = 20000
@@ -3171,6 +3195,7 @@ focus_tree = {
 				idea = SPT_USA_aid_payment_fra
 				days = 365
 			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			add_equipment_to_stockpile = {
 				type = infantry_equipment
 				amount = -10000
@@ -3183,8 +3208,10 @@ focus_tree = {
 				type = support_equipment
 				amount = -1000
 			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			FRA = {
 				add_ideas = SPT_USA_allied_aid
+				custom_effect_tooltip = SPT_JAP_whitespace_tt
 				add_equipment_to_stockpile = {
 					type = infantry_equipment
 					amount = 10000
@@ -4050,27 +4077,56 @@ focus_tree = {
 				value = 0
 				compare = greater_than
 			}
-			
+			custom_trigger_tooltip = {
+				tooltip = SPT_USA_electoral_promises_available_tt
+				check_variable = {
+				var = SPT_USA_completed_campaign
+				value = 0
+				compare = greater_than
+				}
+			}
 		}
 		bypass = {
 		}
 		completion_reward = {
-			every_owned_state = {
+			if = {
 				limit = {
-					has_dynamic_modifier = {
-						modifier = SPT_USA_Election_promises
+					any_owned_state = {
+						has_dynamic_modifier = {
+							modifier = SPT_USA_Election_promises_modifier
+						}
 					}
 				}
-				remove_dynamic_modifier = {
-					modifier = SPT_USA_Election_promises
+				every_owned_state = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = SPT_USA_Election_promises_modifier
+						}
+					}
+					hidden_effect = {
+						remove_dynamic_modifier = {
+						modifier = SPT_USA_Election_promises_modifier
+					}
+					}
+					
+					add_dynamic_modifier = {
+						modifier = SPT_USA_Election_promises_modifier_2
+					}
 				}
+			}
+			else = {
+				custom_effect_tooltip = SPT_USA_electoral_promises_completion_tt
 				add_dynamic_modifier = {
-					modifier = SPT_USA_Election_promises_2
+					modifier = SPT_USA_Election_promises_modifier_2
+				}
+				hidden_effect = {
+					remove_dynamic_modifier = {
+						modifier = SPT_USA_Election_promises_modifier_2
+					}
 				}
 			}
 		}
 	}
-
 	focus = {
 		id = SPT_USA_industrial_rnd
 		icon = GFX_focus_research
@@ -4211,15 +4267,16 @@ focus_tree = {
 		available = {
 		}
 		completion_reward = {
-			hidden_effect = {
+				custom_effect_tooltip = SPT_USA_american_dream_tt
 				add_to_variable = {
 					SPT_USA_political_power_gain = -0.05
+					tooltip = political_power_gain_tt
 				}
 				add_to_variable = {
 					SPT_USA_production_speed_industrial_complex_factor = 0.1
+					tooltip = production_speed_industrial_complex_factor_tt
 				}
-			}
-			custom_effect_tooltip = SPT_USA_rebuilding_america_tt
+			
 			custom_effect_tooltip = SPT_USA_recession_30_remove_from_focus_tt
 		}
 	}
@@ -4245,6 +4302,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_ideas = wilkies_new_deal
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			custom_effect_tooltip = SPT_USA_recession_new_deal_for_free_market_decision_tt
 		}
 	}
@@ -4276,13 +4334,15 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			custom_effect_tooltip = SPT_USA_recession_tt
 			add_to_variable = {
 				SPT_USA_recession_consumer_goods = -0.1
+				tooltip = consumer_goods_factor_tt
 			}
 			add_to_variable = {
-				SPT_USA_recession_civ_bonus = 0.15
+				SPT_USA_recession_civ_bonus = 0.10
+				tooltip = production_speed_industrial_complex_factor_tt
 			}
-			custom_effect_tooltip = SPT_USA_ease_restrictions_on_state_debt_tt
 		}
 	}
 
@@ -4315,16 +4375,21 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			custom_effect_tooltip = SPT_USA_recession_tt
 			add_to_variable = {
 				SPT_USA_recession_consumer_goods = -0.15
+				tooltip = consumer_goods_factor_tt
 			}
 			add_to_variable = {
-				SPT_USA_recession_civ_bonus = 0.1
+				SPT_USA_recession_civ_bonus = 0.15
+				tooltip = production_speed_industrial_complex_factor_tt
 			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_USA_american_dream_tt
 			add_to_variable = {
 				SPT_USA_consumer_goods_factor = 0.05
+				tooltip = consumer_goods_factor_tt
 			}
-			custom_effect_tooltip = SPT_USA_repeal_emergency_banking_act_tt
 		}
 	}
 
@@ -4356,12 +4421,13 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			hidden_effect = {
+			custom_effect_tooltip = SPT_USA_american_dream_tt
+			
 				add_to_variable = {
 					SPT_USA_global_building_slots_factor = 0.1
+					tooltip = global_building_slots_factor_tt
 				}
-			}
-			custom_effect_tooltip = SPT_USA_bigger_states_tt
+			
 		}
 	}
 
@@ -4393,24 +4459,31 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			custom_effect_tooltip = SPT_USA_recession_tt
 			add_to_variable = {
 				SPT_USA_recession_civ_bonus = 0.05
+				tooltip = production_speed_industrial_complex_factor_tt
 			}
-			add_tech_bonus = {
-				name = SPT_USA_patent_incentive
-				bonus = 0.4
-				uses = 2
-				category = computing_tech
-			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_USA_american_dream_tt
 			set_variable = {
 				SPT_USA_recession_mio_research = 0.1
+				tooltip = military_industrial_organization_research_bonus_tt
 			}
 			add_to_variable = {
 				SPT_USA_consumer_goods_factor = 0.05
+				tooltip = consumer_goods_factor_tt
 			}
-			custom_effect_tooltip = SPT_USA_patent_incentive_act_tt
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			add_tech_bonus = {
+				name = SPT_USA_patent_incentive
+				bonus = 0.5
+				uses = 2
+				category = computing_tech
+			}
 		}
 	}
+
 	focus = {
 		id = SPT_USA_smaller_states
 		icon = GFX_focus_spa_the_spanish_miracle
@@ -4439,15 +4512,17 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			hidden_effect = {
+			custom_effect_tooltip = SPT_USA_american_dream_tt
+			
 				add_to_variable = {
 					SPT_USA_political_power_gain = -0.05
+					tooltip = political_power_gain_tt
 				}
 				add_to_variable = {
 					SPT_USA_production_speed_industrial_complex_factor = 0.05
+					tooltip = production_speed_industrial_complex_factor_tt
 				}
-			}
-			custom_effect_tooltip = SPT_USA_smaller_states_tt
+			
 		}
 	}
 	focus = {
@@ -4482,12 +4557,12 @@ focus_tree = {
 			}
 			custom_effect_tooltip = SPT_USA_great_depression_cooldown_tt
 			USA_congress_medium_opposition = yes
-			hidden_effect = {
-				add_to_variable = {
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_USA_american_dream_tt
+			add_to_variable = {
 					SPT_USA_consumer_goods_factor = 0.05
+					tooltip = consumer_goods_factor_tt
 				}
-			}
-			custom_effect_tooltip = SPT_USA_lower_taxes_tt
 			custom_effect_tooltip = SPT_USA_recession_30_remove_from_focus_tt
 		}
 	}
@@ -4520,16 +4595,19 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
+			custom_effect_tooltip = SPT_USA_recession_tt
 			add_to_variable = {
-				SPT_USA_recession_civ_bonus = 0.1
+				SPT_USA_recession_civ_bonus = 0.2
+				tooltip = production_speed_industrial_complex_factor_tt
 			}
 			add_to_variable = {
 				SPT_USA_recession_consumer_goods = -0.2
+				tooltip = consumer_goods_factor_tt
 			}
 			add_to_variable = {
 				SPT_USA_recession_construction_speed = 0.05
+				tooltip = production_speed_buildings_factor_tt
 			}
-			custom_effect_tooltip = SPT_USA_free_enterprise_tt
 		}
 	}
 	focus = {
@@ -4643,6 +4721,7 @@ focus_tree = {
 			
 		}
 		completion_reward = {
+			
 			USA_great_depression_level_down = yes
 			set_country_flag = {
 				flag = USA_great_depression_cooldown
@@ -4651,16 +4730,18 @@ focus_tree = {
 			}
 			custom_effect_tooltip = SPT_USA_great_depression_cooldown_tt
 			USA_congress_medium_opposition = yes
-			
-			hidden_effect = {
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_USA_american_dream_tt
+
 				add_to_variable = {
-					SPT_USA_consumer_goods_factor = 0.025
+					SPT_USA_consumer_goods_factor = 0.05
+					tooltip = consumer_goods_factor_tt
 				}
 				add_to_variable = {
 					SPT_USA_political_power_gain = -0.1
+					tooltip = political_power_gain_tt
 				}
-			}
-			custom_effect_tooltip = SPT_USA_break_monopolies_tt
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			every_military_industrial_organization = {
 				tooltip = every_mio_tt
 				add_mio_funds_gain_factor = 0.25
@@ -4692,18 +4773,20 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			hidden_effect = {
-				add_to_variable = {
-					SPT_USA_consumer_goods_factor = -0.05
-				}
-				add_to_variable = {
-					SPT_USA_global_building_slots_factor = 0.1
-				}
-				add_to_variable = {
-					SPT_USA_industrial_capacity_factory = 0.05
-				}
+			custom_effect_tooltip = SPT_USA_american_dream_tt
+			
+			add_to_variable = {
+				SPT_USA_consumer_goods_factor = -0.05
+				tooltip = consumer_goods_factor_tt
 			}
-			custom_effect_tooltip = SPT_USA_for_the_states_tt
+			add_to_variable = {
+				SPT_USA_global_building_slots_factor = 0.1
+				tooltip = global_building_slots_factor_tt
+			}
+			add_to_variable = {
+				SPT_USA_industrial_capacity_factory = 0.05
+					tooltip = industrial_capacity_factory_tt
+			}
 		}
 	}
 	focus = {
@@ -4732,21 +4815,25 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			hidden_effect = {
+			custom_effect_tooltip = SPT_USA_american_dream_tt
+
 				add_to_variable = {
 					SPT_USA_production_speed_industrial_complex_factor = -0.1
+					tooltip = production_speed_industrial_complex_factor_tt
 				}
 				add_to_variable = {
 					SPT_USA_production_speed_buidlings_factor = 0.05
+					tooltip = production_speed_buildings_factor_tt
 				}
 				add_to_variable = {
 					SPT_USA_factory_max_efficiency_factor = 0.05
+					tooltip = production_factory_max_efficiency_factor_tt
 				}
 				add_to_variable = {
 					SPT_USA_production_factory_efficiency_gain_factor = 0.05
+					tooltip = production_factory_efficiency_gain_factor_tt
 				}
-			}
-			custom_effect_tooltip = SPT_USA_for_the_people_tt
+			
 		}
 	}
 	focus = {
@@ -4777,15 +4864,18 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			hidden_effect = {
+			custom_effect_tooltip = SPT_USA_american_dream_tt
+
 				add_to_variable = {
 					SPT_USA_consumer_goods_factor = -0.05
+					tooltip = consumer_goods_factor_tt
 				}
 				add_to_variable = {
 					SPT_USA_stability_factor = 0.05
+					tooltip = stability_factor_tt
 				}
-			}
-			custom_effect_tooltip = SPT_USA_state_managed_farms_tt
+				custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT
@@ -4859,7 +4949,20 @@ focus_tree = {
 			has_idea = low_economic_mobilisation
 		}
 		completion_reward = {
-			custom_effect_tooltip = SPT_USA_state_led_investments_tt
+			custom_effect_tooltip = SPT_USA_post_depression_boom_tt
+			add_to_variable = {
+				SPT_USA_post_depression_production_speed_synthetic_refinery_factor = 0.15
+				tooltip = production_speed_synthetic_refinery_factor_tt
+			}
+			add_to_variable = {
+				SPT_USA_post_depression_production_speed_fuel_silo_factor = 0.15
+				tooltip = production_speed_fuel_silo_factor_tt
+			}
+			add_to_variable = {
+				SPT_USA_post_depression_industrial_capacity_factory = 0.05
+				tooltip = industrial_capacity_factory_tt
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT
@@ -4870,15 +4973,6 @@ focus_tree = {
 					level = 1
 					instant_build = yes
 				}
-			}
-			add_to_variable = {
-				SPT_USA_post_depression_production_speed_synthetic_refinery_factor = 0.15
-			}
-			add_to_variable = {
-				SPT_USA_post_depression_production_speed_fuel_silo_factor = 0.15
-			}
-			add_to_variable = {
-				SPT_USA_post_depression_industrial_capacity_factory = 0.05
 			}
 		}
 	}
@@ -4894,26 +4988,42 @@ focus_tree = {
 		y = 1
 
 		completion_reward = {
+			custom_effect_tooltip = SPT_USA_american_dream_tt
 			add_to_variable = {
 				SPT_USA_consumer_goods_factor = -0.05
+				tooltip = consumer_goods_factor_tt
 			}
 			add_to_variable = {
 				SPT_USA_stability_factor = 0.05
+				tooltip = stability_factor_tt
 			}
-			custom_effect_tooltip = SPT_USA_state_managed_farms_tt
-
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_USA_post_depression_boom_tt
 			add_to_variable = {
-				SPT_USA_post_depression_production_speed_air_base_factor = 0.2
+				SPT_USA_post_depression_production_speed_air_base_factor = 0.15
+				tooltip = production_speed_air_base_factor_tt
 			}
 			add_to_variable = {
-				SPT_USA_post_depression_production_speed_nuclear_reactor_factor = 0.2
+				SPT_USA_post_depression_production_speed_nuclear_reactor_factor = 0.15
+				tooltip = production_speed_nuclear_reactor_factor_tt
 			}
-			custom_effect_tooltip = SPT_USA_for_our_long_term_prosperity_tt
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
 					level = 1
@@ -4944,20 +5054,29 @@ focus_tree = {
 		y = 1
 
 		completion_reward = { 
-			remove_dynamic_modifier = {
+			hidden_effect = {
+				remove_dynamic_modifier = {
 				modifier = SPT_USA_post_depression_boom
-			}
-			add_dynamic_modifier = {
+				}
+				add_dynamic_modifier = {
 				modifier = SPT_USA_post_depression_boom_military
+				}
 			}
-			set_variable = {
+			custom_effect_tooltip = SPT_USA_post_depression_boom_tt
+			add_to_variable = {
+				SPT_USA_post_depression_production_factory_efficiency_gain_factor = 0.05
+				tooltip = production_factory_efficiency_gain_factor_tt
+			}
+			add_to_variable = {
 				SPT_USA_post_depression_production_speed_arms_factory_factor = 0.075
+				tooltip = production_speed_arms_factory_factor_tt
 			}
 			add_to_variable = {
 				SPT_USA_post_depression_consumer_goods_factor = 0.1
+				tooltip = consumer_goods_factor_tt
 			}
 
-			custom_effect_tooltip = SPT_USA_subsidise_military_build_up_tt
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT
@@ -4983,16 +5102,20 @@ focus_tree = {
 		y = 1
 		
 		completion_reward = { 
-			set_variable = {
+			custom_effect_tooltip = SPT_USA_post_depression_boom_tt
+			add_to_variable = {
 				SPT_USA_post_depression_production_factory_max_efficiency_factor = 0.025
+				tooltip = production_factory_max_efficiency_factor_tt
 			}
 			add_to_variable = {
-				SPT_USA_post_depression_production_speed_arms_factory_factor = 0.05
+				SPT_USA_post_depression_production_speed_arms_factory_factor = 0.025
+				tooltip = production_speed_arms_factory_factor_tt
 			}
-			set_variable = {
+			add_to_variable = {
 				SPT_USA_post_depression_industrial_capacity_factory = 0.05
+				tooltip = industrial_capacity_factory_tt
 			}
-			custom_effect_tooltip = SPT_USA_coordinate_with_military_industries_tt
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT
@@ -5051,6 +5174,7 @@ focus_tree = {
 					days =  200
 				}
 			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			FRA = {
 				add_timed_idea = {
 					idea = SPT_USA_allied_aid
@@ -5139,17 +5263,22 @@ focus_tree = {
 		}
 		completion_reward = { 
 
+			custom_effect_tooltip = SPT_USA_american_dream_tt
 			add_to_variable = {
-				SPT_USA_civilian_intel_to_others = -0.1
+				SPT_USA_civilian_intel_to_others = -5
+				tooltip = civilian_intel_to_others_tt
 			}
 			add_to_variable = {
-				SPT_USA_army_intel_to_others = -0.05
+				SPT_USA_army_intel_to_others = -5
+				tooltip = army_intel_to_others_tt
 			}
 			add_to_variable = {
-				SPT_USA_navy_intel_to_others = -0.05
+				SPT_USA_navy_intel_to_others = -5
+				tooltip = navy_intel_to_others_tt
 			}
 			add_to_variable = {
-				SPT_USA_airforce_intel_to_others = -0.05
+				SPT_USA_airforce_intel_to_others = -5
+				tooltip = airforce_intel_to_others_tt
 			}
 		}
 	}
@@ -5303,6 +5432,7 @@ focus_tree = {
 				type = infantry_equipment
 				amount = 10000
 			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			hidden_effect = {
 				add_to_variable = {
 					SPT_USA_war_support_factor = 0.05
@@ -5357,7 +5487,7 @@ focus_tree = {
 		relative_position_id = SPT_USA_recruitment_drive
 		x = 1
 		y = 1
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -5459,19 +5589,20 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_USA_post_depression_boom_tt
 			add_to_variable = {
-				SPT_USA_post_depression_production_speed_naval_base_factor = 0.3
+				SPT_USA_post_depression_production_speed_naval_base_factor = 0.25
+				tooltip = production_speed_naval_base_factor_tt
 			}
 			add_to_variable = {
 				SPT_USA_post_depression_production_speed_air_base_factor = 0.1
+				tooltip = production_speed_air_base_factor_tt
 			}
 			add_to_variable = {
-				SPT_USA_post_depression_production_cost_max_convoy = -0.05
+				SPT_USA_post_depression_production_speed_coastal_bunker_factor = 0.1
+				tooltip = production_speed_coastal_bunker_factor_tt
 			}
-			add_to_variable = {
-				SPT_USA_post_depression_production_cost_max_ship_hull_light = -0.05
-			}
-			custom_effect_tooltip = SPT_USA_defend_the_seas_tt
 		}
 	}
 
@@ -9464,14 +9595,16 @@ focus_tree = {
 				cost_reduction = 0.5
 				category = naval_doctrine
 			}
-			361 = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					is_coastal = yes
+				}
 				add_extra_state_shared_building_slots = 2
-				if = {
-					add_building_construction = {
-						type = dockyard
-						level = 2
-						instant_build = yes
-					}
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
 				}
 			}
 		}
@@ -9545,6 +9678,7 @@ focus_tree = {
 					id = spt.106
 				}
 			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			custom_effect_tooltip = USA_bureau_of_ships_tt
 		}
 	}
@@ -9832,11 +9966,11 @@ focus_tree = {
 				uses = 2
 				category = ss_tech
 			}
-
 			add_breakthrough_progress = {
 				specialization = specialization_naval
 				value = 0.25
 			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 
 			IF = {
 				limit = {
