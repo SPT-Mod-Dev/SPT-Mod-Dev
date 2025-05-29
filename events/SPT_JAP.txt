@@ -243,6 +243,28 @@ country_event = {
 
 		custom_effect_tooltip = SPT_JAP_cg_expected_timed_increase_up_double_tt
 	}
+	option = {
+		name = spt_jap.7.c
+
+		trigger = {
+			has_completed_focus = SPT_JAP_zaibatsu_in_gov
+		}
+		add_to_variable = { #immediately removes the increase
+			var = JAP.spt_jap_cg_increase_tracker
+			value = -0.005
+		}
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_political_power_gain = 0.1
+			tooltip = political_power_gain_tt
+		}
+		custom_effect_tooltip = SPT_JAP_whitespace_tt
+		custom_effect_tooltip = SPT_JAP_pol_showa_state_header_tt
+		add_to_variable = {
+			SPT_JAP_pol_war_support_factor = -0.05
+			tooltip = war_support_factor_tt
+		}
+	}
 }
 
 #Event for ENG indicating that a border conflict for Hong Kong will take place
