@@ -30,7 +30,7 @@
  - Event 'Overseeing Production Quotas' efficiency cap (from challenging zaibatsus) reduced to 7.5%, from 10%
  - Focus 'Pan Asia Movement' no longer requires being at peace to be taken
  - Base 'Economic Decline' cg increase per 120 days increased to 1.0%, from 0.5%
- - Event 'The Price of War' now has a new option allowing for a denial of the increase in cg per 120, available only when the focus 'Allow the Zaibatsu to Help' has been completed
+ - Event 'The Price of War' now has a new option allowing for a denial of the increase in cg per 120 days, available only when the focus 'Allow the Zaibatsu to Help' has been completed
  - Event 'Solving The Grain Market Inflation' option B consumer goods added reduced to 1.0%, from 1.5%
  - Economy law 'Controlled Economy' civilian intel to others reduce to -20, from -35
 
