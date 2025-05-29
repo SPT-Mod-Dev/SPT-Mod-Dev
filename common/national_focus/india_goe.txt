@@ -7040,6 +7040,7 @@ focus_tree = {
         }
 
         allow_branch = {
+            always = no #SPT change, made this hidden
         	if = {
 				limit = {
 					has_game_rule = {
@@ -7119,6 +7120,10 @@ focus_tree = {
         		}
         		has_completed_focus = RAJ_his_majestys_loyal_government
         	}
+        }
+
+        allow_branch = {
+            always = no #SPT change, made this hidden
         }
 
         cost = 5
@@ -7576,6 +7581,7 @@ focus_tree = {
         }
 
         allow_branch = {
+            always = no #SPT change, made this hidden
         	if = {
 				limit = {
 					has_game_rule = {
@@ -17233,7 +17239,7 @@ focus = {
 	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY FOCUS_FILTER_WAR_SUPPORT }
 
 	completion_reward = {
-		add_political_power = 100
+		# add_political_power = 100 # SPTchange
 
 		unlock_decision_category_tooltip = RAJ_concessions_to_the_congress_cat
 	}
@@ -17255,7 +17261,8 @@ focus = {
 
 	completion_reward = {
 		custom_effect_tooltip = RAJ_modify_a_loyal_government_tt
-		add_to_variable = { RAJ_a_loyal_government_political_power_factor = 0.1	tooltip = political_power_factor_tt }
+        # SPTChange 0.1->0.05
+		add_to_variable = { RAJ_a_loyal_government_political_power_factor = 0.05 tooltip = political_power_factor_tt }
 		
 		custom_effect_tooltip = generic_skip_one_line_tt
 		add_autonomy_score = {
@@ -17289,7 +17296,8 @@ focus = {
 
 	completion_reward = {
 		custom_effect_tooltip = RAJ_modify_a_loyal_government_tt
-		add_to_variable = { RAJ_a_loyal_government_political_power_factor = 0.1	tooltip = political_power_factor_tt }
+        # SPTChange 0.1->0.05
+		add_to_variable = { RAJ_a_loyal_government_political_power_factor = 0.05 tooltip = political_power_factor_tt }
 		add_to_variable = { RAJ_a_loyal_government_political_advisor_cost_factor = -0.5 tooltip = political_advisor_cost_factor_tt }
 		add_to_variable = { RAJ_a_loyal_government_party_popularity_stability_factor = 0.1 tooltip = party_popularity_stability_factor_tt }
 
@@ -17329,7 +17337,8 @@ focus = {
 
 	completion_reward = {
 		custom_effect_tooltip = RAJ_modify_a_loyal_government_tt
-		add_to_variable = { RAJ_a_loyal_government_political_power_factor = 0.1	tooltip = political_power_factor_tt }
+        # SPTChange 0.1->0.05
+		add_to_variable = { RAJ_a_loyal_government_political_power_factor = 0.05 tooltip = political_power_factor_tt }
 		add_to_variable = { RAJ_a_loyal_government_consumer_goods_factor = -0.1	tooltip = consumer_goods_factor_tt }
 
 		custom_effect_tooltip = generic_skip_one_line_tt
@@ -21536,7 +21545,7 @@ focus = {
         id = RAJ_east_india_railways_dlc
         icon = GFX_goal_generic_construct_infrastructure
         #prerequisite = { focus =  }
-        x = 7
+        x = 5 #spt change, 7 -> 5
         y = 0
         relative_position_id = RAJ_indianize_the_army
         
@@ -23461,7 +23470,7 @@ focus = {
         id = RAJ_assam_oil_dlc
         icon = GFX_goal_generic_oil_refinery
         prerequisite = { focus = RAJ_east_india_railways_dlc  }
-        x = -4
+        x = -2 #spt change, -4 -> -2
         y = 1
         relative_position_id = RAJ_east_india_railways_dlc
         
@@ -24179,6 +24188,10 @@ focus = {
 
         ai_will_do = {
             factor = 1
+        }
+
+        allow_branch = { #spt change, hid useless focuses
+            always = no
         }
 
         available = {

@@ -1,5 +1,39 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.14.6
+
+#### British Raj
+ - Political power gain per famine state penalty: -1% -> -3%
+ - Stability per famine state penatly: -1% -> -3%
+ - Famine small aid package effect halved
+ - Ordnance Factory Board: PE Cap +10% -> +5%
+ - Ordnance Factory Board: PE Gain +10% -> +5%
+ - Focus 'Confer with the Congress' no longer gives Political Power
+ - Focus 'Favor the Muslim League', 'The Indian Parliament', and 'Court the Princes' political power gain: 10%->5%
+ - Independence Branch no longer available
+ - Hid 'Burma Road' subbbranch due to it being impossible to take
+ 
+#### Mongolia
+ - Reduced cavalry buff in Golden Corp
+ - Allow focus 'Annex Tannu Tuva' to be taken after focus 'End Isolation'
+
+#### Soviet Union
+ - Decision to annex AI Mongolia now includes Tannu Tuva
+
+#### Japan
+ - Focus 'Intensify Carrier Research' research and ahead of time penalty reduction tech bonuses reduced to 50% and 1.0 years AHoT respectively, from 100% and 2.0 years
+ - National Spirit 'Finishing Maru 2 Keikaku' dockyard output reduced to 10%, from 15%
+ - Focus 'Fighter Modernization' research bonus to fighters and heavy fighters reduced to 75%, from 100%
+ - Focus 'Samurai Legacy' time to complete reduced to 35 days, from 70
+ - State modifier 'Urban Development' construction speed bonus reduced to 5%, from 10%
+ - Focus 'Invest In Urban Centers' state modifier duration increased to 200 days, from 150
+ - Event 'Overseeing Production Quotas' efficiency cap (from challenging zaibatsus) reduced to 7.5%, from 10%
+ - Focus 'Pan Asia Movement' no longer requires being at peace to be taken
+ - Base 'Economic Decline' cg increase per 120 days increased to 1.0%, from 0.5%
+ - Event 'The Price of War' now has a new option allowing for a denial of the increase in cg per 120 days, available only when the focus 'Allow the Zaibatsu to Help' has been completed
+ - Event 'Solving The Grain Market Inflation' option B consumer goods added reduced to 1.0%, from 1.5%
+ - Economy law 'Controlled Economy' civilian intel to others reduce to -20, from -35
+
 ### 3.14.5 
 
 #### General

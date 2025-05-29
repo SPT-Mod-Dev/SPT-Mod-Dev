@@ -325,7 +325,7 @@ focus_tree = {
 				JAP = {
 					set_variable = { #this tracks the amount of expected cg that increases each iteration for the eco bubble mechanic
 						var = spt_jap_cg_increase_tracker
-						value = 0.005
+						value = 0.01
 					}
 					#see the SPT_JAP decisions file for a cool explanation of why this is here
 					set_variable = {
@@ -934,7 +934,7 @@ focus_tree = {
 				}
 				add_dynamic_modifier = {
 					modifier = SPT_JAP_investing_in_urban
-					days = 150
+					days = 200
 				}
 			}
 			531 = {
@@ -944,7 +944,7 @@ focus_tree = {
 				}
 				add_dynamic_modifier = {
 					modifier = SPT_JAP_investing_in_urban
-					days = 150
+					days = 200
 				}
 			}
 			528 = {
@@ -954,7 +954,7 @@ focus_tree = {
 				}
 				add_dynamic_modifier = {
 					modifier = SPT_JAP_investing_in_urban
-					days = 150
+					days = 200
 				}
 			}
 		}
@@ -3092,7 +3092,7 @@ focus_tree = {
 					is_puppet_of = JAP
 				}
 			}
-			has_war = no
+			#has_war = no
 		}
 
 		bypass = {
@@ -5344,6 +5344,7 @@ focus = {
 	focus = {
 		id = SPT_JAP_learn_from_germany
 		icon = GFX_focus_chi_mission_to_germany
+		text_icon = GER_inner_circle_focus_style
 		prerequisite = { focus = SPT_JAP_liaison_conference }
 		#mutually_exclusive = {  }
 		x = 2
@@ -5399,6 +5400,7 @@ focus = {
 	focus = {
 		id = SPT_JAP_german_advisors
 		icon = GFX_focus_BRA_acquire_german_tanks
+		text_icon = GER_inner_circle_focus_style
 		prerequisite = { focus = SPT_JAP_learn_from_germany }
 		#mutually_exclusive = {  }
 		x = 0
@@ -5464,6 +5466,7 @@ focus = {
 	focus = {
 		id = SPT_JAP_learn_from_italy
 		icon = GFX_focus_befriend_italy
+		text_icon = GER_inner_circle_focus_style
 		prerequisite = { focus = SPT_JAP_liaison_conference }
 		#mutually_exclusive = {  }
 		x = 0
@@ -5518,6 +5521,7 @@ focus = {
 	focus = {
 		id = SPT_JAP_italian_advisors
 		icon = GFX_focus_ITA_a_colonial_empire
+		text_icon = GER_inner_circle_focus_style
 		prerequisite = { focus = SPT_JAP_learn_from_italy }
 		#mutually_exclusive = {  }
 		x = 0
@@ -5580,6 +5584,7 @@ focus = {
 	focus = {
 		id = SPT_JAP_learn_from_japan
 		icon = GFX_focus_chi_collaboration_with_the_japanese
+		text_icon = GER_inner_circle_focus_style
 		prerequisite = { focus = SPT_JAP_liaison_conference }
 		#mutually_exclusive = {  }
 		x = -2
@@ -5635,6 +5640,7 @@ focus = {
 	focus = {
 		id = SPT_JAP_japanese_advisors
 		icon = GFX_goal_generic_position_armies
+		text_icon = GER_inner_circle_focus_style
 		prerequisite = { focus = SPT_JAP_learn_from_japan }
 		#mutually_exclusive = {  }
 		x = 0
@@ -5697,6 +5703,7 @@ focus = {
 	focus = {
 		id = SPT_JAP_learn_from_china
 		icon = GFX_focus_attack_china
+		text_icon = GER_inner_circle_focus_style
 		prerequisite = { focus = SPT_JAP_liaison_conference }
 		prerequisite = {
 			focus = SPT_JAP_manchurian_project
@@ -5754,6 +5761,7 @@ focus = {
 	focus = {
 		id = SPT_JAP_manchu_advisors
 		icon = GFX_focus_generic_conspiracy
+		text_icon = GER_inner_circle_focus_style
 		prerequisite = { focus = SPT_JAP_learn_from_china }
 		#mutually_exclusive = {  }
 		x = 0
@@ -5820,6 +5828,7 @@ focus = {
 	focus = {
 		id = SPT_JAP_strike_south
 		icon = GFX_focus_GER_south_east_asian_natural_wealth
+		text_icon = NORDIC_focus_style
 		prerequisite = { 
 			focus = SPT_JAP_german_advisors
 			focus = SPT_JAP_italian_advisors
@@ -6937,6 +6946,7 @@ focus = {
 	focus = {
 		id = SPT_JAP_strike_south_completed
 		icon = GFX_focus_RAJ_the_sun_sets
+		text_icon = NORDIC_focus_style
 		prerequisite = {
 			focus = SPT_JAP_island_airports
 			focus = SPT_JAP_island_forts
@@ -9513,7 +9523,7 @@ focus = {
 		# 	}
 		# }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -10637,9 +10647,9 @@ focus = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = "Carrier Research"
-				bonus = 1.0
+				bonus = 0.5
 				uses = 1
-				ahead_reduction = 2.0
+				ahead_reduction = 1.0
 				category = cv_tech
 			}
 			random_owned_controlled_state = {
@@ -11691,13 +11701,13 @@ focus = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = JAP_fighter_modernization
-				bonus = 1.0
+				bonus = 0.75
 				uses = 1
 				category = light_fighter		
 			}
 			add_tech_bonus = {
 				name = JAP_fighter_modernization
-				bonus = 1.0
+				bonus = 0.75
 				uses = 1
 				category = tactical_bomber
 			}
