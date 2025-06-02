@@ -4945,7 +4945,12 @@ focus_tree = {
 		x = 2
 		y = 1
 		available = {
-			has_idea = low_economic_mobilisation
+			OR = {
+				has_idea = low_economic_mobilisation
+				has_idea = partial_economic_mobilisation
+				has_idea = war_economy
+				has_idea = tot_economic_mobilisation
+			}
 		}
 		completion_reward = {
 			custom_effect_tooltip = SPT_USA_post_depression_boom_tt
@@ -5207,7 +5212,7 @@ focus_tree = {
 			focus = SPT_USA_american_war_industry
 		}
 		relative_position_id = SPT_USA_monetary_aid_only
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
