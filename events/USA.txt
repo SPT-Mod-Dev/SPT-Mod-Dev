@@ -485,7 +485,10 @@ country_event = {
 	option = { 
 		name = usa.8.b
 		set_party_name = { ideology = democratic long_name = USA_democratic_party name = USA_democratic_party }
-		add_ideas = new_deal
+		swap_ideas = {
+			remove_idea = landons_new_deal #SPTchange swapps new deal if usa goes landon. No stacking new deals
+			add_idea = new_deal
+		}
 		retire_country_leader = yes
 		add_political_power = 120
 		set_variable = { election_factor = random }

@@ -1511,3 +1511,34 @@ country_event = {
 		}
 	}
 }
+add_namespace = spt_pan_america_conferance
+
+country_event = {
+	id = spt_pan_america_conferance.1
+	title = spt_pan_america_conferance.1.t
+	desc = spt_pan_america_conferance.1.desc
+	is_triggered_only = yes
+
+	option = { #accept american sponsored
+		name = spt_pan_america_conferance1.a
+		add_dynamic_modifier = {
+			modifier = SPT_USA_commit_the_homefront_mini
+		}
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = ROOT
+			}
+			add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+			}
+		}
+	}
+
+	option = { #reject american sponsored
+		name = spt_pan_america_conferance1.b
+	}
+
+}

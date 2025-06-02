@@ -1991,7 +1991,7 @@ focus_tree = {
 		id = USA_lend_lease_act
 		icon = GFX_focus_generic_treaty
 		x = -4
-		y = 2
+		y = 3
 		prerequisite = {
 			focus = USA_neutrality_act
 		}
@@ -2712,7 +2712,7 @@ focus_tree = {
 			focus = SPT_USA_expand_lend_lease
 		}
 		mutually_exclusive = {
-			focus = SPT_USA_enemy_within
+			focus = SPT_USA_monetary_aid_only
 		}
 		x = -1
 		y = 1
@@ -2877,7 +2877,7 @@ focus_tree = {
 			focus = SPT_USA_american_war_industry
 		}
 		x = 0
-		y = 4
+		y = 3
 		relative_position_id = USA_lend_lease_act
 		cost = 5
 		ai_will_do = {
@@ -5147,9 +5147,15 @@ focus_tree = {
 		id = SPT_USA_monetary_aid_only
 		icon = GFX_goal_generic_consumer_goods
 		x = 4
-		y = 4
+		y = 6
 		prerequisite = {
 			focus = SPT_USA_war_against_pacifism
+		}
+		prerequisite = {
+			focus = USA_the_giant_wakes
+		}
+		mutually_exclusive = {
+			focus = SPT_USA_american_war_industry
 		}
 		relative_position_id = USA_neutrality_act
 		cost = 5
@@ -5201,15 +5207,9 @@ focus_tree = {
 		id = SPT_USA_enemy_within
 		icon = GFX_focus_SWI_embrace_rote_drei
 		x = 0
-		y = 2
+		y = 1
 		prerequisite = {
 			focus = SPT_USA_monetary_aid_only
-		}
-		prerequisite = {
-			focus = USA_the_giant_wakes
-		}
-		mutually_exclusive = {
-			focus = SPT_USA_american_war_industry
 		}
 		relative_position_id = SPT_USA_monetary_aid_only
 		cost = 5
@@ -5227,22 +5227,33 @@ focus_tree = {
 		search_filters = {
 		}
 		completion_reward = {
-			hidden_effect = {
+
+			add_dynamic_modifier = {
+				modifier = SPT_USA_the_homefront_landon
+			}
 				add_to_variable = {
 					SPT_USA_democratic_drift = 0.05
+					tooltip = democratic_drift_tt
 				}
 				add_to_variable = {
 					SPT_USA_fascism_drift = -0.05
+					tooltip = fascism_drift_tt
 				}
 				add_to_variable = {
 					SPT_USA_communism_drift = -0.05
+					tooltip = communism_drift_tt
 				}
 				add_to_variable = {
-					SPT_USA_operative_slot = 1
+					SPT_USA_operative_slot = 2
+					tooltip = operative_slot_tt
 				}
-			}
+				hidden_effect = {
+					add_to_variable = {
+						SPT_USA_operative_slot_mini = 1
+					}
+				}
 			
-			custom_effect_tooltip = SPT_USA_enemy_within_tt
+			
 			if = {
 				limit = {
 					has_intelligence_agency = no
@@ -5276,22 +5287,25 @@ focus_tree = {
 		}
 		completion_reward = { 
 
-			custom_effect_tooltip = SPT_USA_american_dream_tt
 			add_to_variable = {
-				SPT_USA_civilian_intel_to_others = -5
+				SPT_USA_civilian_intel_to_others = -10
 				tooltip = civilian_intel_to_others_tt
 			}
 			add_to_variable = {
-				SPT_USA_army_intel_to_others = -5
+				SPT_USA_army_intel_to_others = -10
 				tooltip = army_intel_to_others_tt
 			}
 			add_to_variable = {
-				SPT_USA_navy_intel_to_others = -5
+				SPT_USA_navy_intel_to_others = -10
 				tooltip = navy_intel_to_others_tt
 			}
 			add_to_variable = {
-				SPT_USA_airforce_intel_to_others = -5
+				SPT_USA_airforce_intel_to_others = -10
 				tooltip = airforce_intel_to_others_tt
+			}
+			add_to_variable = {
+				SPT_USA_defensive_war_stability_factor = 0.05
+				tooltip = defensive_war_stability_factor_tt
 			}
 		}
 	}
@@ -5300,7 +5314,7 @@ focus_tree = {
 		id = SPT_USA_war_against_pacifism
 		icon = GFX_focus_hol_war_on_pacifism
 		x = 0
-		y = -2
+		y = -3
 		prerequisite = {
 			focus = USA_neutrality_act
 		}
@@ -5308,7 +5322,7 @@ focus_tree = {
 			focus = SPT_USA_towards_landon
 		}
 		relative_position_id = SPT_USA_monetary_aid_only
-		cost = 5
+		cost = 6
 		ai_will_do = {
 			factor = 1
 		}
@@ -5435,24 +5449,24 @@ focus_tree = {
 				amount = 10000
 			}
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
-			hidden_effect = {
 				add_to_variable = {
 					SPT_USA_war_support_factor = 0.05
+					tooltip = war_support_factor_tt
 				}
-			}
-			custom_effect_tooltip = SPT_USA_rally_the_population_tt
+				add_to_variable = {
+					SPT_USA_defensive_war_stability_factor = 0.05
+					tooltip = defensive_war_stability_factor_tt
+				}
+			
 		}
 	}
 	focus = {
 		id = SPT_USA_recruitment_drive
 		icon = GFX_spt_focus_recruitment_drive
-		x = 1
+		x = 0
 		y = 1
 		prerequisite = {
 			focus = SPT_USA_rally_the_population
-		}
-		prerequisite = {
-			focus = SPT_USA_improve_administration_security
 		}
 		relative_position_id = SPT_USA_rally_the_population
 		cost = 5
@@ -5469,53 +5483,27 @@ focus_tree = {
 		search_filters = {
 		}
 		completion_reward = {
-			hidden_effect = {
-				add_to_variable = {
-					SPT_USA_conscription_factor = 0.1
-				}
-				add_to_variable = {
-					SPT_USA_special_forces_cap = 0.05
-				}
+
+			add_to_variable = {
+				SPT_USA_conscription_factor = 0.1
+				tooltip = conscription_factor_tt
 			}
-			custom_effect_tooltip = SPT_USA_recruitment_drive_tt
+			add_to_variable = {
+				SPT_USA_special_forces_cap = 0.05
+				tooltip = special_forces_cap_tt
+			}
 		}
 	}
-	focus = {	
-		id = SPT_USA_pan_america_conferance
-		icon = GFX_focus_BRA_north_and_south_america
-		prerequisite = {
-			focus = SPT_USA_recruitment_drive
-		}
-		relative_position_id = SPT_USA_recruitment_drive
-		x = 1
-		y = 1
-		cost = 5
-		ai_will_do = {
-			factor = 1
-		}
-		available = {
-		}
-		bypass = {
-		}
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-		search_filters = {
-		}
-		completion_reward = { 
-			#Even 
-			#effects defensive_war_stability_factor guarantees
-		}
-	}
+	
 	focus = {
 		id = SPT_USA_boots_on_the_ground
 		icon = GFX_focus_focus_fra_fascist_threat
-		x = -1
+		x = 0
 		y = 1
 		prerequisite = {
-			focus = SPT_USA_recruitment_drive
+			focus = SPT_USA_improve_administration_security
 		}
-		relative_position_id = SPT_USA_recruitment_drive
+		relative_position_id = SPT_USA_improve_administration_security
 		cost = 10
 		ai_will_do = {
 			factor = 1
@@ -5530,18 +5518,29 @@ focus_tree = {
 		search_filters = {
 		}
 		completion_reward = {
-			hidden_effect = {
-				add_to_variable = {
+			add_to_variable = {
 					SPT_USA_army_attack_factor = 0.075
+					tooltip = army_attack_factor_tt
 				}
 				add_to_variable = {
 					SPT_USA_army_morale_factor = 0.075
+					tooltip = army_morale_factor_tt
 				}
 				add_to_variable = {
 					SPT_USA_army_org_factor = 0.075
+					tooltip = army_org_factor_tt
+			}
+			hidden_effect = {
+				add_to_variable = {
+					SPT_USA_army_attack_factor_mini = 0.05
+				}
+				add_to_variable = {
+					SPT_USA_army_morale_factor_mini = 0.05
+				}
+				add_to_variable = {
+					SPT_USA_army_org_factor_mini = 0.05
 				}
 			}
-			custom_effect_tooltip = SPT_USA_boots_on_the_ground_tt
 		}
 	}
 	focus = {
@@ -5609,6 +5608,49 @@ focus_tree = {
 			add_to_variable = {
 				SPT_USA_post_depression_production_speed_coastal_bunker_factor = 0.1
 				tooltip = production_speed_coastal_bunker_factor_tt
+			}
+			add_to_variable = {
+				SPT_USA_post_depression_industrial_capacity_dockyard = 0.05
+				tooltip = industrial_capacity_dockyard_tt
+			}
+		}
+	}
+	focus = {	
+		id = SPT_USA_sponsor_latin_american_war_entry
+		icon = GFX_focus_BRA_north_and_south_america
+		prerequisite = {
+			focus = SPT_USA_recruitment_drive
+			focus = SPT_USA_boots_on_the_ground
+		}
+		relative_position_id = SPT_USA_boots_on_the_ground
+		x = -1
+		y = 1
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		search_filters = {
+		}
+		completion_reward = { 
+			BRA = {
+				country_event = spt_pan_america_conferance.1
+			}
+			if = {
+				limit = {
+					MEX = {
+						exists = yes
+					}
+				}
+				MEX = {
+					country_event = spt_pan_america_conferance.1
+				}
 			}
 		}
 	}
