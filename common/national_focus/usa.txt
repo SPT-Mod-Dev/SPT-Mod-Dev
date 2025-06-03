@@ -4249,7 +4249,7 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = SPT_USA_rebuilding_america
+		id = SPT_USA_reemploying_america
 		icon = GFX_goal_continuous_non_factory_construct
 		prerequisite = {
 			focus = SPT_USA_review_the_budget
@@ -4281,7 +4281,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SPT_USA_new_deal_for_the_free_market
+		id = SPT_USA_clean_deal
 		icon = GFX_focus_generic_american_investments
 		prerequisite = {
 			focus = SPT_USA_review_the_budget
@@ -4300,13 +4300,13 @@ focus_tree = {
 		bypass = {
 		}
 		completion_reward = {
-			add_ideas = landons_new_deal
+			add_ideas = landons_clean_deal
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
-			custom_effect_tooltip = SPT_USA_recession_new_deal_for_free_market_decision_tt
+			custom_effect_tooltip = SPT_USA_recession_clean_deal_decision_tt
 		}
 	}
 	focus = {
-		id = SPT_USA_ease_restrictions_on_state_debt
+		id = SPT_USA_state_grants
 		icon = GFX_focus_generic_currency_reforms
 		prerequisite = {
 			focus = SPT_USA_review_the_budget
@@ -4350,9 +4350,9 @@ focus_tree = {
 		icon = GFX_focus_generic_monetary_union
 		cost = 35
 		prerequisite = {
-			focus = SPT_USA_ease_restrictions_on_state_debt
+			focus = SPT_USA_state_grants
 		}
-		relative_position_id = SPT_USA_ease_restrictions_on_state_debt
+		relative_position_id = SPT_USA_state_grants
 		x = 1
 		y = 1
 		cost = 4
@@ -4396,17 +4396,17 @@ focus_tree = {
 		id = SPT_USA_bigger_states
 		icon = GFX_focus_generic_improve_the_administration
 		prerequisite = {
-			focus = SPT_USA_new_deal_for_the_free_market
+			focus = SPT_USA_clean_deal
 		}
 		prerequisite = {
-			focus = SPT_USA_ease_restrictions_on_state_debt
+			focus = SPT_USA_state_grants
 		}
 		mutually_exclusive = {
 			focus = SPT_USA_smaller_states
 		}
 		x = 2
 		y = 1
-		relative_position_id = SPT_USA_new_deal_for_the_free_market
+		relative_position_id = SPT_USA_clean_deal
 		cost = 5
 		ai_will_do = {
 			factor = 1
@@ -4431,7 +4431,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SPT_USA_patent_incentive_act
+		id = SPT_USA_repeal_reciprocal_tariff_act
 		icon = GFX_focus_ARG_develop_the_electricity_sector
 		prerequisite = {
 			focus = SPT_USA_amend_glass-steagall
@@ -4487,10 +4487,10 @@ focus_tree = {
 		id = SPT_USA_smaller_states
 		icon = GFX_focus_spa_the_spanish_miracle
 		prerequisite = {
-			focus = SPT_USA_new_deal_for_the_free_market
+			focus = SPT_USA_clean_deal
 		}
 		prerequisite = {
-			focus = SPT_USA_rebuilding_america
+			focus = SPT_USA_reemploying_america
 		}
 		mutually_exclusive = {
 			focus = SPT_USA_bigger_states
@@ -4528,11 +4528,11 @@ focus_tree = {
 		id = SPT_USA_lower_taxes
 		icon = GFX_focus_ITA_devaluate_the_lire
 		prerequisite = {
-			focus = SPT_USA_rebuilding_america
+			focus = SPT_USA_reemploying_america
 		}
 		x = -1
 		y = 1
-		relative_position_id = SPT_USA_rebuilding_america
+		relative_position_id = SPT_USA_reemploying_america
 		cost = 5
 		ai_will_do = {
 			factor = 1
@@ -4567,15 +4567,15 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SPT_USA_free_enterprise
-		icon = GFX_focus_SOV_merge_plants
+		id = SPT_USA_amend_social_security
+		icon = GFX_focus_generic_full_employment
 		prerequisite = {
-			focus = SPT_USA_patent_incentive_act
+			focus = SPT_USA_repeal_reciprocal_tariff_act
 		}
 		
 		x = 0
 		y = 1
-		relative_position_id = SPT_USA_patent_incentive_act
+		relative_position_id = SPT_USA_repeal_reciprocal_tariff_act
 		cost = 4
 		ai_will_do = {
 			factor = 1
@@ -4836,7 +4836,7 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = SPT_USA_state_managed_farms
+		id = SPT_USA_new_farm_bill
 		icon = GFX_focus_SOV_breadbasket_of_the_union
 		prerequisite = {
 			focus = SPT_USA_for_the_states
@@ -4900,9 +4900,9 @@ focus_tree = {
 		id = SPT_USA_post_depression_boom
 		icon = GFX_focus_generic_economic_recovery
 
-		prerequisite = { focus = SPT_USA_state_managed_farms}
+		prerequisite = { focus = SPT_USA_new_farm_bill}
 		prerequisite = { focus = SPT_USA_break_monopolies }
-		prerequisite = { focus = SPT_USA_free_enterprise }
+		prerequisite = { focus = SPT_USA_amend_social_security }
 
 		relative_position_id = SPT_USA_break_monopolies
 		cost = 5
