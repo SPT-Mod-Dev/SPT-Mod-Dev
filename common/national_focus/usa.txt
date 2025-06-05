@@ -4027,7 +4027,7 @@ focus_tree = {
 		prerequisite = {
 			focus = SPT_USA_towards_landon
 		}
-		x = 4
+		x = 6
 		y = 1
 		relative_position_id = SPT_USA_towards_landon
 		cost = 10
@@ -4055,7 +4055,7 @@ focus_tree = {
 	focus = {
 		id = SPT_USA_electoral_promises
 		icon = GFX_focus_RAJ_seek_allies_with_the_muslim_league
-		x = 0
+		x = 3
 		y = 1
 		prerequisite = {
 			focus = SPT_USA_campaign_for_votes
@@ -4130,7 +4130,7 @@ focus_tree = {
 	focus = {
 		id = SPT_USA_industrial_rnd
 		icon = GFX_focus_research
-		x = -3
+		x = -5
 
 		y = 1
 		prerequisite = {
@@ -4203,7 +4203,7 @@ focus_tree = {
 		prerequisite = {
 			focus = SPT_USA_campaign_for_votes
 		}
-		x = 3
+		x = 0
 		y = 1
 		relative_position_id = SPT_USA_campaign_for_votes
 		cost = 10
@@ -4737,11 +4737,11 @@ focus_tree = {
 					SPT_USA_political_power_gain = -0.1
 					tooltip = political_power_gain_tt
 				}
+				add_to_variable = {
+					SPT_USA_military_industrial_organization_funds_gain = 0.2
+					tooltip = military_industrial_organization_funds_gain_tt
+				}
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
-			every_military_industrial_organization = {
-				tooltip = every_mio_tt
-				add_mio_funds_gain_factor = 0.25
-			}
 		}
 	}
 	focus = {
@@ -5073,7 +5073,7 @@ focus_tree = {
 				tooltip = production_speed_arms_factory_factor_tt
 			}
 			add_to_variable = {
-				SPT_USA_post_depression_consumer_goods_factor = 0.1
+				SPT_USA_post_depression_consumer_goods_factor = 0.15
 				tooltip = consumer_goods_factor_tt
 			}
 
@@ -5250,7 +5250,6 @@ focus_tree = {
 					}
 				}
 			
-			
 			if = {
 				limit = {
 					has_intelligence_agency = no
@@ -5371,17 +5370,6 @@ focus_tree = {
 		search_filters = {
 		}
 		completion_reward = {
-			random_owned_controlled_state = {
-				limit = {
-					is_core_of = ROOT
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT
@@ -5617,10 +5605,9 @@ focus_tree = {
 		icon = GFX_focus_BRA_north_and_south_america
 		prerequisite = {
 			focus = SPT_USA_recruitment_drive
-		}
-		prerequisite = {
 			focus = SPT_USA_boots_on_the_ground
 		}
+		
 		relative_position_id = SPT_USA_boots_on_the_ground
 		x = -1
 		y = 1
