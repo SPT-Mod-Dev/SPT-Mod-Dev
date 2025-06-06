@@ -4340,7 +4340,7 @@ focus_tree = {
 				tooltip = consumer_goods_factor_tt
 			}
 			add_to_variable = {
-				SPT_USA_recession_civ_bonus = 0.10
+				SPT_USA_recession_civ_bonus = 0.15
 				tooltip = production_speed_industrial_complex_factor_tt
 			}
 		}
@@ -4377,11 +4377,11 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = SPT_USA_recession_tt
 			add_to_variable = {
-				SPT_USA_recession_consumer_goods = -0.15
+				SPT_USA_recession_consumer_goods = -0.1
 				tooltip = consumer_goods_factor_tt
 			}
 			add_to_variable = {
-				SPT_USA_recession_civ_bonus = 0.15
+				SPT_USA_recession_civ_bonus = 0.2
 				tooltip = production_speed_industrial_complex_factor_tt
 			}
 			custom_effect_tooltip = SPT_JAP_whitespace_tt
@@ -4593,11 +4593,11 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = SPT_USA_recession_tt
 			add_to_variable = {
-				SPT_USA_recession_civ_bonus = 0.2
+				SPT_USA_recession_civ_bonus = 0.25
 				tooltip = production_speed_industrial_complex_factor_tt
 			}
 			add_to_variable = {
-				SPT_USA_recession_consumer_goods = -0.2
+				SPT_USA_recession_consumer_goods = -0.1
 				tooltip = consumer_goods_factor_tt
 			}
 			add_to_variable = {
@@ -5398,6 +5398,17 @@ focus_tree = {
 				}
 				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
 					type = arms_factory
 					level = 2
 					instant_build = yes
@@ -5605,6 +5616,8 @@ focus_tree = {
 		icon = GFX_focus_BRA_north_and_south_america
 		prerequisite = {
 			focus = SPT_USA_recruitment_drive
+		}
+		prerequisite = {
 			focus = SPT_USA_boots_on_the_ground
 		}
 		
@@ -5639,6 +5652,7 @@ focus_tree = {
 					country_event = spt_pan_america_conferance.1
 				}
 			}
+			custom_effect_tooltip = SPT_USA_sponsor_latin_american_war_entry_tt
 		}
 	}
 
