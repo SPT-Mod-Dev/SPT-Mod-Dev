@@ -1,5 +1,16 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.14.7 Mr President, I told you it would come to this. I was right! Landon is taking over!
+
+#### USA
+ - Rework Landon
+ - Focus "Build The Pentagon" now grants +5% max planning instead of +10% planning speed
+
+#### Germany
+- Spirit "MEFO bills" reduced civillian, army, airforce and navy intel reduction from -25% to -15%
+
+
+
 ### 3.14.6
 
 #### British Raj
