@@ -56,18 +56,24 @@ SPT_USA_recession_decisions = {
 		}
 		
 		activation = {
-			has_idea = SPT_USA_recession_hit
+			has_dynamic_modifier = {
+				modifier = SPT_USA_recession
+			}
 		}
 
 		visible = {
-			has_idea = SPT_USA_recession_hit
+			has_dynamic_modifier = {
+				modifier = SPT_USA_recession
+			}
 		}
 		
 		cancel_effect = {
 		}
 
 		timeout_effect = {
-			remove_ideas = SPT_USA_recession_hit
+			remove_dynamic_modifier = {
+				modifier = SPT_USA_recession
+			} 
 		}
 
 		ai_will_do = {
@@ -78,9 +84,17 @@ SPT_USA_recession_decisions = {
 		allowed = { tag = USA }
 		icon = GFX_decision_generic_factory
 
-		available = { has_idea = SPT_USA_recession_hit }
+		available = { 
+			has_dynamic_modifier = {
+			modifier = SPT_USA_recession
+			} 
+		}
 
-		visible = { has_idea = SPT_USA_recession_hit }
+		visible = { 
+			has_dynamic_modifier = {
+				modifier = SPT_USA_recession
+			}
+		}
 
 		days_remove = 15
 		
@@ -137,9 +151,21 @@ SPT_USA_recession_decisions = {
 		allowed = { tag = USA }
 		icon = GFX_decision_gre_investment_decisions
 
-		available = { has_idea = SPT_USA_recession_hit }
+		available = {
+			has_dynamic_modifier = {
+				modifier = SPT_USA_recession
+			} 
+		}
 
-		visible = { has_idea = SPT_USA_recession_hit }
+		visible = { 
+			has_dynamic_modifier = {
+				modifier = SPT_USA_recession
+			}
+			has_country_leader = {
+				ruling_only = yes
+				character = USA_franklin_delano_roosevelt
+			}	
+		}
 
 		days_remove = 60
 		cost = 50
@@ -161,9 +187,17 @@ SPT_USA_recession_decisions = {
 		allowed = { tag = USA }
 		icon = GFX_decision_gre_paying_ifc_debt
 
-		available = { has_idea = SPT_USA_recession_hit }
+		available = {
+			has_dynamic_modifier = {
+				modifier = SPT_USA_recession
+			} 
+		}
 
-		visible = { has_idea = SPT_USA_recession_hit }
+		visible = { 
+			has_dynamic_modifier = {
+				modifier = SPT_USA_recession
+			}
+		}
 
 		days_remove = 15
 		cost = 25
@@ -183,7 +217,9 @@ SPT_USA_recession_decisions = {
 		icon = GFX_decision_generic_construction
 
 		available = { 
-			has_idea = SPT_USA_recession_hit 
+			has_dynamic_modifier = {
+				modifier = SPT_USA_recession
+			} 
 			has_completed_focus = USA_USACE_projects
 		}
 
@@ -217,6 +253,71 @@ SPT_USA_recession_decisions = {
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	SPT_USA_clean_deal_decision = {
+		allowed = { tag = USA }
+		icon = GFX_decision_generic_construction
+
+		available = { 
+			has_dynamic_modifier = {
+				modifier = SPT_USA_recession
+			} 
+			has_completed_focus = SPT_USA_clean_deal
+		}
+
+		visible = { 
+			has_dynamic_modifier = {
+				modifier = SPT_USA_recession
+			}
+			has_completed_focus = SPT_USA_clean_deal 
+		}
+
+		days_remove = 30
+		fire_only_once = yes
+		cost = 35
+		
+		remove_effect = {
+			add_days_mission_timeout = {
+				mission = SPT_USA_ongoing_recession
+				days = -30
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					
+					infrastructure < 3
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					
+					infrastructure < 3
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					
+					infrastructure < 3
 				}
 				add_building_construction = {
 					type = infrastructure
@@ -502,7 +603,7 @@ SPT_USA_recession_decisions = {
 
 		available = {
 			not = {has_active_mission = SPT_USA_ongoing_recession}
-			has_completed_focus = SPT_USA_rebuilding_america
+			has_completed_focus = SPT_USA_reemploying_america
 		}
 
 		days_mission_timeout = 1
@@ -511,12 +612,12 @@ SPT_USA_recession_decisions = {
 		
 		activation = {
 			has_active_mission = SPT_USA_ongoing_recession
-			has_completed_focus = SPT_USA_rebuilding_america
+			has_completed_focus = SPT_USA_reemploying_america
 		}
 
 		visible = {
 			#has_active_mission = SPT_USA_ongoing_recession
-			has_completed_focus = SPT_USA_rebuilding_america
+			has_completed_focus = SPT_USA_reemploying_america
 		}
 		
 		cancel_effect = {
@@ -881,7 +982,544 @@ USA_congress = {
 			USA_congress_small_support = yes
 		}
 	}
+	SPT_USA_Election_promises_1 = {
+		icon = GFX_decision_generic_USA_flag
+		available = {
+			has_completed_focus = SPT_USA_campaign_for_votes
+			hidden_trigger = {
+				NOT = {
+				has_country_flag = SPT_USA_already_campaigning
+				check_variable = { var = SPT_USA_completed_campaign value < 2 }
+				}
+				date < 1938.01.01
+			}
+			has_country_leader = {
+				ruling_only = yes
+				character = USA_franklin_delano_roosevelt
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_USA_Election_promises_decision_tt
+				NOT = {
+					has_country_flag = SPT_USA_already_campaigning
+					check_variable = { var = SPT_USA_completed_campaign value < 2 }
+				}
+			}
+		}
+		visible = {
+			hidden_trigger = {
+				has_completed_focus = SPT_USA_campaign_for_votes
+				date < 1938.01.01
+			}
+			has_country_leader = {
+				ruling_only = yes
+				character = USA_franklin_delano_roosevelt
+			}
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 378
+				state = 379
+				state = 385
+				state = 386
+				state = 387
+				state = 380
+				state = 377
+			}
+		}
+		fire_only_once = yes
+		days_remove = 30
+		cancel_if_not_visible = yes
+		modifier = {
+			political_power_cost = 0.4
+		}
+		complete_effect = {
+			set_country_flag = SPT_USA_already_campaigning
+			add_to_variable = { var = SPT_USA_completed_campaign value = 1 }
+		}
+		remove_effect = {
+			hidden_effect = {
+				378 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier }
+			}
+				379 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier }
+			}
+				385 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier }
+			}
+				386 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier }
+			}
+				387 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier }
+			}
+				380 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier }
+			}
+				377 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier }
+			}
+			}
+			clr_country_flag = SPT_USA_already_campaigning
+			custom_effect_tooltip = SPT_USA_Election_promises_decision_1_remove_effect_tt
+		}
+	}
+		SPT_USA_Election_promises_2 = {
+		icon = GFX_decision_generic_USA_flag
+		available = {
+			has_completed_focus = SPT_USA_campaign_for_votes
+			hidden_trigger = {
+				NOT = {
+				has_country_flag = SPT_USA_already_campaigning
+				check_variable = { var = SPT_USA_completed_campaign value < 2 }
+				}
+				date < 1938.01.01
+			}
+			has_country_leader = {
+				ruling_only = yes
+				character = USA_franklin_delano_roosevelt
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_USA_Election_promises_decision_tt
+				NOT = {
+					has_country_flag = SPT_USA_already_campaigning
+					check_variable = { var = SPT_USA_completed_campaign value < 2 }
+				}
+			}
+		}
+		visible = {
+			hidden_trigger = {
+				has_completed_focus = SPT_USA_campaign_for_votes
+				date < 1938.01.01
+			}
+			has_country_leader = {
+				ruling_only = yes
+				character = USA_franklin_delano_roosevelt
+			}
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 388
+				state = 381
+				state = 384
+				state = 390
+				state = 389
+				state = 391
+				state = 392
+			}
+		}
+		fire_only_once = yes
+		days_remove = 30
+		cancel_if_not_visible = yes
+		modifier = {
+			political_power_cost = 0.4
+		}
+		complete_effect = {
+			set_country_flag = SPT_USA_already_campaigning
+			add_to_variable = { var = SPT_USA_completed_campaign value = 1 }
+		}
+		remove_effect = {
+			hidden_effect = {
+				388 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier}
+			}
+				381 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier}
+			}
+				384 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier}
+			}
+				390 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier}
+			}
+				389 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier}
+			}
+				391 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier}
+			}
+				392 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier}
+			}
+			}
+			clr_country_flag = SPT_USA_already_campaigning
+			custom_effect_tooltip = SPT_USA_Election_promises_decision_2_remove_effect_tt
+		}
+	}
+		SPT_USA_Election_promises_6 = {
+		icon = GFX_decision_generic_USA_flag
+		available = {
+			has_completed_focus = SPT_USA_campaign_for_votes
+			hidden_trigger = {
+				NOT = {
+				has_country_flag = SPT_USA_already_campaigning
+				check_variable = { var = SPT_USA_completed_campaign value < 2 }
+				}
+				date < 1938.01.01
+			}
+			has_country_leader = {
+				ruling_only = yes
+				character = USA_franklin_delano_roosevelt
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_USA_Election_promises_decision_tt
+				NOT = {
+					has_country_flag = SPT_USA_already_campaigning
+					check_variable = { var = SPT_USA_completed_campaign value < 2 }
+				}
+			}
+		}
+		visible = {
+			hidden_trigger = {
+				has_completed_focus = SPT_USA_campaign_for_votes
+				date < 1938.01.01
+			}
+			has_country_leader = {
+				ruling_only = yes
+				character = USA_franklin_delano_roosevelt
+			}
+			
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 375
+				state = 376
+				state = 374
+				state = 372
+				state = 371
+				state = 383
+				state = 382
+			}
+		}
+		fire_only_once = yes
+		days_remove = 30
+		cancel_if_not_visible = yes
+		modifier = {
+			political_power_cost = 0.4
+		}
+		complete_effect = {
+			set_country_flag = SPT_USA_already_campaigning
+			add_to_variable = { var = SPT_USA_completed_campaign value = 1 }
+		}
+		remove_effect = {
+			hidden_effect = {
+				375 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier}
+			}
+				376 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier}
+			}
+				374 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier}
+			}
+				372 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier}
+			}
+				371 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier}
+			}
+				383 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier}
+			}
+				382 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier}
+			}
+			}
+			clr_country_flag = SPT_USA_already_campaigning
+			custom_effect_tooltip = SPT_USA_Election_promises_decision_6_remove_effect_tt
+		}
+	}
+		SPT_USA_Election_promises_3 = {
+		icon = GFX_decision_generic_USA_flag
+		available = {
+			has_completed_focus = SPT_USA_campaign_for_votes
+			hidden_trigger = {
+				NOT = {
+				has_country_flag = SPT_USA_already_campaigning
+				check_variable = { var = SPT_USA_completed_campaign value < 2 }
+				}
+				date < 1938.01.01
+			}
+			has_country_leader = {
+				ruling_only = yes
+				character = USA_franklin_delano_roosevelt
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_USA_Election_promises_decision_tt
+				NOT = {
+					has_country_flag = SPT_USA_already_campaigning
+					check_variable = { var = SPT_USA_completed_campaign value < 2 }
+				}
+			}
+		}
+		visible = {
+			hidden_trigger = {
+				has_completed_focus = SPT_USA_campaign_for_votes
+				date < 1938.01.01
+			}
+			has_country_leader = {
+				ruling_only = yes
+				character = USA_franklin_delano_roosevelt
+			}
+			
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 394
+				state = 395
+				state = 393
+				state = 396
+				state = 369
+				state = 261
+				state = 373
+			}
+		}
+		fire_only_once = yes
+		days_remove = 30
+		cancel_if_not_visible = yes
+		modifier = {
+			political_power_cost = 0.4
+		}
+		complete_effect = {
+			set_country_flag = SPT_USA_already_campaigning
+			add_to_variable = { var = SPT_USA_completed_campaign value = 1 }
+		}
+		remove_effect = {
+			hidden_effect = {
+				394 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier}
+			}
+				395 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier}
+			}
+				393 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier}
+			}
+				396 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier}
+			}
+				369 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier}
+			}
+				261 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier}
+			}
+				373 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier}
+			}
+			}
+			clr_country_flag = SPT_USA_already_campaigning
+			custom_effect_tooltip = SPT_USA_Election_promises_decision_3_remove_effect_tt
+		}
+	}
+		SPT_USA_Election_promises_4 = {
+		icon = GFX_decision_generic_USA_flag
+		available = {
+			has_completed_focus = SPT_USA_campaign_for_votes
+			hidden_trigger = {
+				NOT = {
+				has_country_flag = SPT_USA_already_campaigning
+				check_variable = { var = SPT_USA_completed_campaign value < 2 }
+				}
+				date < 1938.01.01
+			}
+			has_country_leader = {
+				ruling_only = yes
+				character = USA_franklin_delano_roosevelt
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_USA_Election_promises_decision_tt
+				NOT = {
+					has_country_flag = SPT_USA_already_campaigning
+					check_variable = { var = SPT_USA_completed_campaign value < 2 }
+				}
+			}
+		}
+		visible = {
+			hidden_trigger = {
+				has_completed_focus = SPT_USA_campaign_for_votes
+				date < 1938.01.01
+			}
+			has_country_leader = {
+				ruling_only = yes
+				character = USA_franklin_delano_roosevelt
+			}
+			
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 363
+				state = 368
+				state = 370
+				state = 367
+				state = 365
+				state = 364
+				state = 366
+			}
+		}
+		fire_only_once = yes
+		days_remove = 30
+		cancel_if_not_visible = yes
+		modifier = {
+			political_power_cost = 0.4
+		}
+		complete_effect = {
+			set_country_flag = SPT_USA_already_campaigning
+			add_to_variable = { var = SPT_USA_completed_campaign value = 1 }
+		}
+		remove_effect = {
+			hidden_effect = {
+				363 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier }
+				}
+				368 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier }
+				}
+				370 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier }
+				}
+				367 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier }
+				}
+				365 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier }
+				}
+				364 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier }
+				}
+				366 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier }
+				}
+			}
+			clr_country_flag = SPT_USA_already_campaigning
+			custom_effect_tooltip = SPT_USA_Election_promises_decision_4_remove_effect_tt
+		}
+	}
+	SPT_USA_Election_promises_5 = {
+		icon = GFX_decision_generic_USA_flag
+		available = {
+			has_completed_focus = SPT_USA_campaign_for_votes
+			hidden_trigger = {
+				NOT = {
+				has_country_flag = SPT_USA_already_campaigning
+				check_variable = { var = SPT_USA_completed_campaign value < 2 }
+				}
+				date < 1938.01.01
+			}
+			has_country_leader = {
+				ruling_only = yes
+				character = USA_franklin_delano_roosevelt
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_USA_Election_promises_decision_tt
+				NOT = {
+					has_country_flag = SPT_USA_already_campaigning
+					check_variable = { var = SPT_USA_completed_campaign value < 2 }
+				}
+			}
+		}
+		visible = {
+			hidden_trigger = {
+				has_completed_focus = SPT_USA_campaign_for_votes
+				date < 1938.01.01
+			}
+			has_country_leader = {
+				ruling_only = yes
+				character = USA_franklin_delano_roosevelt
+			}
+			
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 362
+				state = 361
+				state = 360
+				state = 359
+				state = 358
+				state = 357
+				state = 816
+			}
+		}
+		fire_only_once = yes
+		days_remove = 30
+		cancel_if_not_visible = yes
+		modifier = {
+			political_power_cost = 0.4
+		}
+		complete_effect = {
+			set_country_flag = SPT_USA_already_campaigning
+			add_to_variable = { var = SPT_USA_completed_campaign value = 1 }
+		}
+		remove_effect = {
+			hidden_effect = {
+				362 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier}
+				}
+				361 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier}
+				}
+				360 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier}
+				}
+				359 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier}
+				}
+				358 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier}
+				}
+				357 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier}
+				}
+				816 = {
+					add_dynamic_modifier = { modifier = SPT_USA_Election_promises_modifier}
+				}
+			}
+			clr_country_flag = SPT_USA_already_campaigning
+			custom_effect_tooltip = SPT_USA_Election_promises_decision_5_remove_effect_tt
+		}
+	}
+
+	SPT_USA_Landon_Electoral_promises_folow_up = {
+		icon = GFX_decision_generic_consumer_goods
+
+		visible = {
+			has_completed_focus = SPT_USA_campaign_for_votes
+		}
+
+		available = {
+			has_completed_focus = SPT_USA_electoral_promises
+		}
+
+		highlight_states = {
+			highlight_states_trigger = {
+				has_dynamic_modifier = {
+					modifier = SPT_USA_Election_promises_modifier
+				}
+			}
+		}
+		is_good = no
+		days_mission_timeout = 360
+		fire_only_once = yes
+		activation = {
+			NOT = {
+				has_country_leader = {
+					ruling_only = yes
+					character = USA_franklin_delano_roosevelt
+				}	
+			}
+			has_completed_focus = SPT_USA_campaign_for_votes
+		}
+		timeout_effect = {
+			USA_congress_large_opposition = yes 
+		}
+		complete_effect = {
+			USA_congress_medium_support = yes
+		}
+	}
 }
+
+
+
 
 operations = {
 	# SPT version of USA_initiate_the_greenland_patrol

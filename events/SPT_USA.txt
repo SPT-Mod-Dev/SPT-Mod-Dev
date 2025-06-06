@@ -1,5 +1,4 @@
 add_namespace = spt_usa_recession
-
 country_event = {
 	id = spt_usa_recession.1
 	title = spt_usa_recession.1.t
@@ -11,11 +10,12 @@ country_event = {
 
 	immediate = {
 		hidden_effect = {
-			swap_ideas = {
-				remove_idea = SPT_USA_recession_looming
-				add_idea = SPT_USA_recession_hit
+			remove_ideas = SPT_USA_recession_looming
+			add_dynamic_modifier = {
+				modifier = SPT_USA_recession
 			}
 		}
+		
 	}
 
 	option = {
@@ -24,6 +24,8 @@ country_event = {
 
 		custom_effect_tooltip = SPT_USA_recession_event_tt
 	}
+
+	
 }
 
 #country_event = {
