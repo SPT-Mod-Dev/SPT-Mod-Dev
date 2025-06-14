@@ -1,5 +1,10 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.14.8
+
+#### Hungary
+ - Swapped Fiat MIO to current Italian version (Standardized Production, not Fast Tank)
+
 ### 3.14.7 Mr President, I told you it would come to this. I was right! Landon is taking over!
 
 #### USA
@@ -8,8 +13,6 @@
 
 #### Germany
 - Spirit "MEFO bills" reduced civillian, army, airforce and navy intel reduction from -25% to -15%
-
-
 
 ### 3.14.6
 
