@@ -5,6 +5,9 @@
 #### Hungary
  - Swapped Fiat MIO to current Italian version (Standardized Production, not Fast Tank)
 
+#### Japan
+ - Spirit "Tropedo Cruiser" removed +100% torpedo damage to torpedo cruisers
+
 ### 3.14.7 Mr President, I told you it would come to this. I was right! Landon is taking over!
 
 #### USA
