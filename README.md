@@ -6,7 +6,10 @@
  - Swapped Fiat MIO to current Italian version (Standardized Production, not Fast Tank)
 
 #### Japan
- - Spirit "Tropedo Cruiser" removed +100% torpedo damage to torpedo cruisers
+ - Spirit 'Tropedo Cruiser' removed +100% torpedo damage to torpedo cruisers
+ - MIO trait 'The Zero' for Mitsubishi and Yokosuka now properly checks what MIO upgrade path the player has chosen
+ - Focus 'Italian Exchange' now requires Italy being in faction with Germany to be taken, instead of requiring Italy to be at war with England
+ - Occupation law 'Pan-asian Integration' fixed to apply to a wider variety of asian and pacific islander tags to prevent any oddities with its usage
 
 ### 3.14.7 Mr President, I told you it would come to this. I was right! Landon is taking over!
 
