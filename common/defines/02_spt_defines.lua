@@ -106,7 +106,7 @@ NDefines = {
     },
 
     NDiplomacy = {
-        EMBARGO_THREAT_THRESHOLD = 50
+        EMBARGO_THREAT_THRESHOLD = 50,
         PEACE_SCORE_DISTRIBUTION = { 1, 1, 1, 1, 1 },
     },
 
