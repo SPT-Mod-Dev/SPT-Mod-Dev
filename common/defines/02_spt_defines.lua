@@ -1,9 +1,15 @@
 NDefines = {
+    NGame = {
+        LAG_DAYS_FOR_LOWER_SPEED = 30
+        LAG_DAYS_FOR_PAUSE = 18
+        GAME_SPEED_SECONDS = { 0.6, 0.3, 0.2, 0.08, 0.0 }
+    }
     NCountry = {
         NAVAL_EQUIPMENT_BASE_COST = 0,
         NAVAL_EQUIPMENT_RAMP_COST = 0,
         SPECIAL_FORCES_CAP_MIN = 64,
         AIR_SUPPLY_CONVERSION_SCALE = 0.03,
+        EVENT_PROCESS_OFFSET = 30,
     },
 
     NProduction = {
