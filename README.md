@@ -2,7 +2,7 @@
 ### 3.14.8
 
 #### Industry
- - Can now switch between dispersed and concentrated industry per level. 25% increase in research cost for switching.
+ - Can now switch between dispersed and concentrated industry per level. 20% increase in research cost for switching.
  - Adds 10% Ship Refit/Repair boosts to conversion techs
    
 #### Navy
