@@ -521,7 +521,20 @@ GER_seize_gold_reserves_cat = {
 
 				if = {
 					limit = {
-						FROM = { is_fully_controlled_by = ROOT }
+						FROM = {
+							# SPTchange allied control is cool.
+							# is_fully_controlled_by = ROOT 
+							is_fully_controlled_by = CONTROLLER
+							controller = {
+								OR = {
+									tag = GER
+									is_ally_with = GER
+									tag = FIN
+									tag = JAP
+									is_ally_with = JAP
+								}
+							}
+						}
 					}
 					custom_effect_tooltip = GER_modify_economy_of_conquest_modifier_tt
 					add_to_variable = {
