@@ -219,6 +219,8 @@ technologies = {
 	improved_equipment_conversion = {
 	
 		equipment_conversion_speed = 0.40
+		refit_speed = 0.1
+		repair_speed_factor = 0.1
 
 		allow_branch = {
 			has_dlc = "Death or Dishonor"
@@ -260,6 +262,8 @@ technologies = {
 	advanced_equipment_conversion = {
 		
 		equipment_conversion_speed = 0.40
+		refit_speed = 0.1
+		repair_speed_factor = 0.1
 
 		research_cost = 2
 		start_year = 1939
@@ -299,6 +303,11 @@ technologies = {
 		path = {
 			leads_to_tech = concentrated_industry2 
 			research_cost_coeff = 1
+		}
+
+		path = {
+			leads_to_tech = dispersed_industry2
+			research_cost_coeff = 1.2
 		}
 		
 		research_cost = 2
@@ -371,10 +380,19 @@ technologies = {
 			leads_to_tech = concentrated_industry3 
 			research_cost_coeff = 1
 		}
+
+		path = {
+			leads_to_tech = dispersed_industry3
+			research_cost_coeff = 1.2
+		}
 		
 		research_cost = 2
 		start_year = 1937
-		
+
+		XOR = {
+			dispersed_industry2
+		}
+
 		folder = {
 			name = industry_folder
 			position = { x = 4 y = 4 }
@@ -410,9 +428,18 @@ technologies = {
 			leads_to_tech = concentrated_industry4 
 			research_cost_coeff = 1
 		}
+
+		path = {
+			leads_to_tech = dispersed_industry4
+			research_cost_coeff = 1.2
+		}
 		
 		research_cost = 2
 		start_year = 1939
+
+		XOR = {
+			dispersed_industry3
+		}
 		
 		folder = {
 			name = industry_folder
@@ -448,9 +475,18 @@ technologies = {
 			leads_to_tech = concentrated_industry5
 			research_cost_coeff = 1
 		}
+
+		path = {
+			leads_to_tech = dispersed_industry5
+			research_cost_coeff = 1.2
+		}
 		
 		research_cost = 2
 		start_year = 1941
+
+		XOR = {
+			dispersed_industry4
+		}
 		
 		folder = {
 			name = industry_folder
@@ -484,6 +520,10 @@ technologies = {
 		
 		research_cost = 2
 		start_year = 1943
+
+		XOR = {
+			dispersed_industry5
+		}
 		
 		folder = {
 			name = industry_folder
@@ -526,6 +566,11 @@ technologies = {
 		path = {
 			leads_to_tech = dispersed_industry2 
 			research_cost_coeff = 1
+		}
+
+		path = {
+			leads_to_tech = concentrated_industry2
+			research_cost_coeff = 1.2
 		}
 		
 		research_cost = 2
@@ -601,9 +646,18 @@ technologies = {
 			leads_to_tech = dispersed_industry3 
 			research_cost_coeff = 1
 		}
+
+		path = {
+			leads_to_tech = concentrated_industry3
+			research_cost_coeff = 1.2
+		}
 		
 		research_cost = 2
 		start_year = 1937
+
+		XOR = {
+			concentrated_industry2
+		}
 		
 		folder = {
 			name = industry_folder
@@ -642,9 +696,18 @@ technologies = {
 			leads_to_tech = dispersed_industry4 
 			research_cost_coeff = 1
 		}
-		
+
+		path = {
+			leads_to_tech = concentrated_industry4
+			research_cost_coeff = 1.2
+		}
+
 		research_cost = 2
 		start_year = 1939
+
+		XOR = {
+			concentrated_industry3
+		}
 		
 		folder = {
 			name = industry_folder
@@ -683,9 +746,18 @@ technologies = {
 			leads_to_tech = dispersed_industry5 
 			research_cost_coeff = 1
 		}
-		
+
+		path = {
+			leads_to_tech = concentrated_industry5
+			research_cost_coeff = 1.2
+		}
+
 		research_cost = 2
 		start_year = 1941
+
+		XOR = {
+			concentrated_industry4
+		}
 		
 		folder = {
 			name = industry_folder
@@ -723,6 +795,10 @@ technologies = {
 		
 		research_cost = 2
 		start_year = 1943
+
+		XOR = {
+			concentrated_industry5
+		}
 		
 		folder = {
 			name = industry_folder

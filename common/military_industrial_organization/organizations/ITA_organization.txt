@@ -29,6 +29,7 @@ ITA_fiat_organization = {
 				has_dlc = "By Blood Alone"
 			}
 			tag = DEN # SPTchange
+			tag = HUN # SPTchange
 		}
 	}
 
@@ -86,6 +87,12 @@ ITA_fiat_organization = {
 				FROM = { tag = DEN }
 			}
 			FROM = { has_completed_focus = DEN_establish_domestic_tank_manufacturing }
+		}
+		ELSE_IF = { # SPTChange
+			limit = { 
+				FROM = { original_tag = HUN } 
+			}
+			FROM = { has_completed_focus = wuw_HUN_license_fiat_tankettes }
 		}
 	}
 	

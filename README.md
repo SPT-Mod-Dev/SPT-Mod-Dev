@@ -1,4 +1,27 @@
 # Saving Private Tryin' Historical MP Full Changelog
+### 3.14.8
+
+#### Industry
+ - Can now switch between dispersed and concentrated industry per level.
+ - Adds 10% Ship Refit/Repair boosts to conversion techs
+   
+#### Navy
+ - Unified core slot requirements across hull types. All Hulls now require Primary Armament, Engine and Armor (if applicable).
+ - Battleships require front slot filled in addition
+ - Carriers require all slots where a hangar dech can be fitted to be filled in addition
+ - Added cruiser armor 0 module to freely fulfill armor requirements. Free to fit, very cheap to dismount.
+ - Added 1 armor to cruiser armor 0/dds to circumvent divide by zero
+ - Fixed designs to comply with these construction rules in all relevant nations
+ - adjusted upper end of penetration damage curve to have more gradual drop between 50/10% pen. now with pen ratios of at least 2.00/1.00/0.75/0.50/0.33/0.20/0.10/0.00 you deal 1.00/1.00/0.70/0.40/0.30/0.20/0.10/0.05 times damage (added 0.33,0.2 thresholds with relevant damage mults)
+   
+#### Hungary
+ - Swapped Fiat MIO to current Italian version (Standardized Production, not Fast Tank)
+
+#### Japan
+ - Spirit 'Tropedo Cruiser' removed +100% torpedo damage to torpedo cruisers
+ - MIO trait 'The Zero' for Mitsubishi and Yokosuka now properly checks what MIO upgrade path the player has chosen
+ - Focus 'Italian Exchange' now requires Italy being in faction with Germany to be taken, instead of requiring Italy to be at war with England
+ - Occupation law 'Pan-asian Integration' fixed to apply to a wider variety of asian and pacific islander tags to prevent any oddities with its usage
 
 ### 3.14.7 Mr President, I told you it would come to this. I was right! Landon is taking over!
 
@@ -8,8 +31,6 @@
 
 #### Germany
 - Spirit "MEFO bills" reduced civillian, army, airforce and navy intel reduction from -25% to -15%
-
-
 
 ### 3.14.6
 
