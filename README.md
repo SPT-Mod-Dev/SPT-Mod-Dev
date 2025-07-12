@@ -1,5 +1,6 @@
 # Saving Private Tryin' Historical MP Full Changelog
-### 3.14.8
+
+### 3.14.9
 
 #### Industry
  - Can now switch between dispersed and concentrated industry per level.
@@ -13,7 +14,9 @@
  - Added 1 armor to cruiser armor 0/dds to circumvent divide by zero
  - Fixed designs to comply with these construction rules in all relevant nations
  - adjusted upper end of penetration damage curve to have more gradual drop between 50/10% pen. now with pen ratios of at least 2.00/1.00/0.75/0.50/0.33/0.20/0.10/0.00 you deal 1.00/1.00/0.70/0.40/0.30/0.20/0.10/0.05 times damage (added 0.33,0.2 thresholds with relevant damage mults)
-   
+
+### 3.14.8
+
 #### Hungary
  - Swapped Fiat MIO to current Italian version (Standardized Production, not Fast Tank)
 
