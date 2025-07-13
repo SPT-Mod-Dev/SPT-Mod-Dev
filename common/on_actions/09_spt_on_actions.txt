@@ -1409,6 +1409,30 @@ on_actions = {
 					add_to_variable = { GER_narvik_civs = 1 }
 				}
 			}
+
+			
+			# Handle MEFO increasing CG past 100% (otherwise it is handled by 00_on_actions)
+			if = {
+				limit = {
+					OR = {
+						has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
+						has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
+					}
+				}
+				if = {
+					limit = {
+						check_variable = { 
+							var = GER_industrial_consumer_goods_factor 
+							compare = greater_than_or_equals
+							value = 1 
+						}
+						check_variable = { GER_industrial_consumer_goods_factor < 3 }
+					}
+					add_to_variable = { GER_industrial_consumer_goods_factor = GER_monthly_consumer_goods_increase }
+					# GER_add_mefo_bills_penalty = yes #Clamps CGFF too 100% and adds penalties
+				}
+				# GER_reduce_mefo_bills_penalty = yes #This is a fail-safe, in case it wasn't lowered elsewhere but should have been
+			}
 		}
 	}
 }

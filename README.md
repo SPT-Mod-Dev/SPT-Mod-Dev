@@ -5,6 +5,17 @@
 #### Industry
  - Can now switch between dispersed and concentrated industry per level.
  - Adds 10% Ship Refit/Repair boosts to conversion techs
+
+#### Germany
+ - Reworked 'Autarky' and related focuses.
+   - Penalty for reaching 100% on MEFO Bills/Economy of Conquest removed (was: +10% Expected Consumer Goods, -20% Factory Output, -20% Dockyard Output)
+   - Limit for MEFO Bills/Economy of Conquest raised from +100% to approximately +300% Consumer Goods Factory factor (this is a cap, not a goal, but we'd all love to see it)
+   - Germany now starts with Hjalmar Schacht as advisor for free. He will be replaced with Walther Funk for free after mid-1938 by focus 'End the Charade', or removed by taking 'Prioritizing Economic Growth'
+   - Focus 'Autarky Efforts' no longer limits Germany to a special trade law. However, Free Trade is locked (and would be replaced by Export Focus)
+   - Focus 'Autarky Achieved' removed and replaced with new focuses to mitigate, but not eliminate, inflation
+   - Focus 'Geräuschlose Kriegsfinanzierung' allows additional, somewhat more expensive options than Price Controls to reduce CGF
+   - Subtree 'Form the Zentrale Planung' moved below 'Kriegsfinanzierung' and now requires war with the Soviet Union. All focus times reduced, and dockyard output bonuses transferred to factory output.
+   - Focus 'Wirtschaftlicher Raubkrieg' allows Germany to continue fighting inflation by seizing key cities and exploiting Reichskommissariats in the western Soviet Union (these RKs should be more stable than in Vanilla and can be formed from allied occupation)
    
 #### Navy
  - Unified core slot requirements across hull types. All Hulls now require Primary Armament, Engine and Armor (if applicable).
