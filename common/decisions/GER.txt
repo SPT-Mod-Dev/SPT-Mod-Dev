@@ -134,7 +134,9 @@ GER_mefo_bills_category = {
 				GER_pay_back_mefo_bills = yes
 			}
 			else = {
-				custom_effect_tooltip = GER_mefo_bills_mission_tt #TODO_Danne Re-write this to better fit the new circumstances!
+				# SPTChange Danne fucking never re-wrote this so I did
+				custom_effect_tooltip = SPT_GER_mefo_bills_mission_tt
+				# custom_effect_tooltip = GER_mefo_bills_mission_tt #TODO_Danne Re-write this to better fit the new circumstances!
 				custom_effect_tooltip = GER_mefo_bills_effect_in_days
 				hidden_effect = {
 					set_variable = { GER_extend_mefo_bills_days = days_mission_timeout@GER_mefo_bills_mission }
@@ -150,7 +152,14 @@ GER_mefo_bills_category = {
 				add_to_variable = { var = GER_mefo_bill_counter value = 10 }
 
 				hidden_effect = {
-					activate_mission = GER_mefo_bills_mission
+					# SPTchange do funny shit
+					if = {
+						limit = {
+							date < 1938.1.1
+						}
+						activate_mission = GER_mefo_bills_mission
+					} 
+					# activate_mission = GER_mefo_bills_mission
 				}
 			}
 		}
@@ -460,11 +469,27 @@ GER_seize_gold_reserves_cat = {
 
 		available = {
 			FROM = { #This is all for tooltip purposes
-				is_fully_controlled_by = ROOT
+				# SPTchange allied control is cool.
+				# is_fully_controlled_by = ROOT
+				is_fully_controlled_by = CONTROLLER
+				controller = {
+					OR = {
+						tag = GER
+						is_ally_with = GER
+						tag = FIN
+						tag = JAP
+						is_ally_with = JAP
+					}
+				}
 				owner = {
 					NOT = { has_country_flag = GER_has_capitulated_to_germany }
 				}
 			}
+		}
+
+		# SPTchange
+		visible = {
+			has_completed_focus = SPT_GER_raubkrieg
 		}
 
 		highlight_states = {
@@ -496,7 +521,20 @@ GER_seize_gold_reserves_cat = {
 
 				if = {
 					limit = {
-						FROM = { is_fully_controlled_by = ROOT }
+						FROM = {
+							# SPTchange allied control is cool.
+							# is_fully_controlled_by = ROOT 
+							is_fully_controlled_by = CONTROLLER
+							controller = {
+								OR = {
+									tag = GER
+									is_ally_with = GER
+									tag = FIN
+									tag = JAP
+									is_ally_with = JAP
+								}
+							}
+						}
 					}
 					custom_effect_tooltip = GER_modify_economy_of_conquest_modifier_tt
 					add_to_variable = {
@@ -3687,6 +3725,8 @@ GER_reichskommissariats = {
 					inherit_technology = GER
 					add_offsite_building = { type = arms_factory level = 3 }
 					load_oob = "RK_OOB"
+
+					country_lock_all_division_template = yes # SPTchange
 				}
 			}
 
@@ -3723,13 +3763,22 @@ GER_reichskommissariats = {
 			custom_trigger_tooltip = {
 				tooltip = GER_reichskommissariat_highlighted_required_states
 				7 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				35 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				36 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 			}
 		}
@@ -3844,6 +3893,8 @@ GER_reichskommissariats = {
 					inherit_technology = GER
 					add_offsite_building = { type = arms_factory level = 3 }
 					load_oob = "RK_OOB"
+
+					country_lock_all_division_template = yes # SPTchange
 				}
 			}
 
@@ -3880,19 +3931,34 @@ GER_reichskommissariats = {
 			custom_trigger_tooltip = {
 				tooltip = GER_reichskommissariat_highlighted_required_states
 				6 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				29 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				34 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				977 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				980 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 			}
 		}
@@ -4008,6 +4074,8 @@ GER_reichskommissariats = {
 					inherit_technology = GER
 					add_offsite_building = { type = arms_factory level = 3 }
 					load_oob = "RK_OOB"
+
+					country_lock_all_division_template = yes # SPTchange
 				}
 			}
 
@@ -4042,69 +4110,133 @@ GER_reichskommissariats = {
 				has_completed_focus = GER_reorganize_the_wehrmacht
 			}
 			custom_trigger_tooltip = {
-				tooltip = GER_reichskommissariat_highlighted_required_states
+				# tooltip = GER_reichskommissariat_highlighted_required_states
+				tooltip = SPT_GER_reichskommissariat_highlighted_required_states
 				94 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				95 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				96 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				194 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				204 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				206 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				11 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				784 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				189 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				12 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				190 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				13 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				191 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				814 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				815 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				809 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				808 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				810 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				813 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				812 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				811 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 			}
 		}
@@ -4257,6 +4389,9 @@ GER_reichskommissariats = {
 					inherit_technology = GER
 					add_offsite_building = { type = arms_factory level = 3 }
 					load_oob = "RK_OOB"
+
+					country_lock_all_division_template = yes # SPTchange
+					add_ideas = free_trade
 				}
 			}
 
@@ -4291,54 +4426,103 @@ GER_reichskommissariats = {
 				has_completed_focus = GER_reorganize_the_wehrmacht
 			}
 			custom_trigger_tooltip = {
-				tooltip = GER_reichskommissariat_highlighted_required_states
+				# tooltip = GER_reichskommissariat_highlighted_required_states
+				tooltip = SPT_GER_reichskommissariat_highlighted_required_states
 				93 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				199 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				201 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				202 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				193 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				203 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				197 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				225 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				259 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				226 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				196 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				200 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				221 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				228 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				227 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				137 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 			}
 		}
@@ -4473,6 +4657,9 @@ GER_reichskommissariats = {
 					inherit_technology = GER
 					add_offsite_building = { type = arms_factory level = 3 }
 					load_oob = "RK_OOB"
+
+					country_lock_all_division_template = yes # SPTchange
+					add_ideas = free_trade
 				}
 			}
 
@@ -4513,13 +4700,19 @@ GER_reichskommissariats = {
 			custom_trigger_tooltip = {
 				tooltip = GER_reichskommissariat_highlighted_required_states
 				192 = {
+					# SPTChange avoid encirclement and frontline fuckery
 					is_controlled_by_ROOT_or_subject = yes
+					is_fully_controlled_by = controller
 				}
 				834 = {
+					# SPTChange avoid encirclement and frontline fuckery
 					is_controlled_by_ROOT_or_subject = yes
+					is_fully_controlled_by = controller
 				}
 				198 = {
+					# SPTChange avoid encirclement and frontline fuckery
 					is_controlled_by_ROOT_or_subject = yes
+					is_fully_controlled_by = controller
 				}
 			}
 		}
@@ -4623,10 +4816,14 @@ GER_reichskommissariats = {
 			custom_trigger_tooltip = {
 				tooltip = GER_reichskommissariat_highlighted_required_states
 				766 = {
+					# SPTChange avoid encirclement and frontline fuckery
 					is_controlled_by_ROOT_or_subject = yes
+					is_fully_controlled_by = controller
 				}
 				78 = {
+					# SPTChange avoid encirclement and frontline fuckery
 					is_controlled_by_ROOT_or_subject = yes
+					is_fully_controlled_by = controller
 				}
 			}
 		}
@@ -4718,46 +4915,88 @@ GER_reichskommissariats = {
 			custom_trigger_tooltip = {
 				tooltip = GER_reichskommissariat_highlighted_required_states
 				231 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				230 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				229 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				826 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				232 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				821 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				828 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				827 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				233 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				234 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				235 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				237 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				236 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				238 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 			}
 		}
@@ -4875,6 +5114,9 @@ GER_reichskommissariats = {
 					inherit_technology = GER
 					add_offsite_building = { type = arms_factory level = 3 }
 					load_oob = "RK_OOB"
+
+					country_lock_all_division_template = yes # SPTchange
+					add_ideas = free_trade
 				}
 			}
 
@@ -5104,6 +5346,8 @@ GER_reichskommissariats = {
 					inherit_technology = GER
 					add_offsite_building = { type = arms_factory level = 3 }
 					load_oob = "RK_OOB"
+
+					country_lock_all_division_template = yes # SPTchange
 				}
 			}
 
@@ -5397,6 +5641,9 @@ GER_reichskommissariats = {
 					inherit_technology = GER
 					add_offsite_building = { type = arms_factory level = 3 }
 					load_oob = "RK_OOB"
+
+					country_lock_all_division_template = yes # SPTchange
+					add_ideas = free_trade
 				}
 			}
 
@@ -6264,6 +6511,8 @@ GER_reichskommissariats = {
 					inherit_technology = GER
 					add_offsite_building = { type = arms_factory level = 2 }
 					load_oob = "RK_OOB"
+
+					country_lock_all_division_template = yes # SPTchange
 				}
 			}
 
@@ -6512,6 +6761,8 @@ GER_reichskommissariats = {
 					inherit_technology = GER
 					add_offsite_building = { type = arms_factory level = 2 }
 					load_oob = "RK_OOB"
+
+					country_lock_all_division_template = yes # SPTchange
 				}
 			}
 
@@ -6765,6 +7016,8 @@ GER_reichskommissariats = {
 					inherit_technology = GER
 					add_offsite_building = { type = arms_factory level = 3 }
 					load_oob = "RK_OOB"
+
+					country_lock_all_division_template = yes # SPTchange
 				}
 			}
 
@@ -7044,6 +7297,8 @@ GER_reichskommissariats = {
 					inherit_technology = GER
 					add_offsite_building = { type = arms_factory level = 3 }
 					load_oob = "RK_OOB"
+
+					country_lock_all_division_template = yes # SPTchange
 				}
 			}
 
@@ -7173,54 +7428,103 @@ GER_reichskommissariats = {
 				has_completed_focus = GER_reorganize_the_wehrmacht
 			}
 			custom_trigger_tooltip = {
-				tooltip = GER_reichskommissariat_highlighted_required_states
+				# tooltip = GER_reichskommissariat_highlighted_required_states
+				tooltip = SPT_GER_reichskommissariat_highlighted_required_states
 				127 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				123 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				126 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				338 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				125 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				122 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				128 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				129 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				132 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				130 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				931 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				131 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				121 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				133 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				136 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 				120 = {
-					is_controlled_by_ROOT_or_subject = yes
+					# SPTChange avoid encirclement and frontline fuckery
+					# is_controlled_by_ROOT_or_subject = yes
+					is_controlled_by_ROOT_or_ally = yes 
+					is_fully_controlled_by = controller
 				}
 			}
 		}
@@ -7352,6 +7656,8 @@ GER_reichskommissariats = {
 					inherit_technology = GER
 					add_offsite_building = { type = arms_factory level = 3 }
 					load_oob = "RK_OOB"
+
+					country_lock_all_division_template = yes # SPTchange
 				}
 			}
 
@@ -8135,6 +8441,8 @@ GER_reichskommissariats = {
 					inherit_technology = GER
 					add_offsite_building = { type = arms_factory level = 3 }
 					load_oob = "RK_OOB"
+
+					country_lock_all_division_template = yes # SPTchange
 				}
 			}
 
@@ -8555,6 +8863,8 @@ GER_reichskommissariats = {
 					inherit_technology = GER
 					add_offsite_building = { type = arms_factory level = 3 }
 					load_oob = "RK_OOB"
+
+					country_lock_all_division_template = yes # SPTchange
 				}
 			}
 
@@ -8972,6 +9282,8 @@ GER_reichskommissariats = {
 					inherit_technology = GER
 					add_offsite_building = { type = arms_factory level = 3 }
 					load_oob = "RK_OOB"
+
+					country_lock_all_division_template = yes # SPTchange
 				}
 			}
 
@@ -9245,6 +9557,8 @@ GER_reichskommissariats = {
 					inherit_technology = GER
 					add_offsite_building = { type = arms_factory level = 3 }
 					load_oob = "RK_OOB"
+
+					country_lock_all_division_template = yes # SPTchange
 				}
 			}
 
@@ -9570,6 +9884,8 @@ GER_reichskommissariats = {
 					inherit_technology = GER
 					add_offsite_building = { type = arms_factory level = 3 }
 					load_oob = "RK_OOB"
+
+					country_lock_all_division_template = yes # SPTchange
 				}
 			}
 
@@ -9903,6 +10219,8 @@ GER_reichskommissariats = {
 					inherit_technology = GER
 					add_offsite_building = { type = arms_factory level = 3 }
 					load_oob = "RK_OOB"
+
+					country_lock_all_division_template = yes # SPTchange
 				}
 			}
 
@@ -10729,6 +11047,8 @@ GER_reichskommissariats = {
 					inherit_technology = GER
 					add_offsite_building = { type = arms_factory level = 3 }
 					load_oob = "RK_OOB"
+
+					country_lock_all_division_template = yes # SPTchange
 				}
 			}
 
@@ -11448,6 +11768,8 @@ GER_reichskommissariats = {
 					inherit_technology = GER
 					add_offsite_building = { type = arms_factory level = 3 }
 					load_oob = "RK_OOB"
+
+					country_lock_all_division_template = yes # SPTchange
 				}
 			}
 
@@ -11997,6 +12319,8 @@ GER_reichskommissariats = {
 					inherit_technology = GER
 					add_offsite_building = { type = arms_factory level = 6 }
 					load_oob = "RK_OOB"
+
+					country_lock_all_division_template = yes # SPTchange
 				}
 			}
 
@@ -12325,6 +12649,8 @@ GER_reichskommissariats = {
 					inherit_technology = GER
 					add_offsite_building = { type = arms_factory level = 3 }
 					load_oob = "RK_OOB"
+
+					country_lock_all_division_template = yes # SPTchange
 				}
 			}
 

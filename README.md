@@ -1,9 +1,21 @@
 # Saving Private Tryin' Historical MP Full Changelog
-### 3.14.8
+
+### 3.14.9
 
 #### Industry
  - Can now switch between dispersed and concentrated industry per level.
  - Adds 10% Ship Refit/Repair boosts to conversion techs
+
+#### Germany
+ - Reworked 'Autarky' and related focuses.
+   - Penalty for reaching 100% on MEFO Bills/Economy of Conquest removed (was: +10% Expected Consumer Goods, -20% Factory Output, -20% Dockyard Output)
+   - Limit for MEFO Bills/Economy of Conquest raised from +100% to approximately +300% Consumer Goods Factory factor (this is a cap, not a goal, but we'd all love to see it)
+   - Germany now starts with Hjalmar Schacht as advisor for free. He will be replaced with Walther Funk for free after mid-1938 by focus 'End the Charade', or removed by taking 'Prioritizing Economic Growth'
+   - Focus 'Autarky Efforts' no longer limits Germany to a special trade law. However, Free Trade is locked (and would be replaced by Export Focus)
+   - Focus 'Autarky Achieved' removed and replaced with new focuses to mitigate, but not eliminate, inflation
+   - Focus 'Geräuschlose Kriegsfinanzierung' allows additional, somewhat more expensive options than Price Controls to reduce CGF
+   - Subtree 'Form the Zentrale Planung' moved below 'Kriegsfinanzierung' and now requires war with the Soviet Union. All focus times reduced, and dockyard output bonuses transferred to factory output.
+   - Focus 'Wirtschaftlicher Raubkrieg' allows Germany to continue fighting inflation by seizing key cities and exploiting Reichskommissariats in the western Soviet Union (these RKs should be more stable than in Vanilla and can be formed from allied occupation)
    
 #### Navy
  - Unified core slot requirements across hull types. All Hulls now require Primary Armament, Engine and Armor (if applicable).
@@ -13,7 +25,9 @@
  - Added 1 armor to cruiser armor 0/dds to circumvent divide by zero
  - Fixed designs to comply with these construction rules in all relevant nations
  - adjusted upper end of penetration damage curve to have more gradual drop between 50/10% pen. now with pen ratios of at least 2.00/1.00/0.75/0.50/0.33/0.20/0.10/0.00 you deal 1.00/1.00/0.70/0.40/0.30/0.20/0.10/0.05 times damage (added 0.33,0.2 thresholds with relevant damage mults)
-   
+
+### 3.14.8
+
 #### Hungary
  - Swapped Fiat MIO to current Italian version (Standardized Production, not Fast Tank)
 
