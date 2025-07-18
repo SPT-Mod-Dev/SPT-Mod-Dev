@@ -2144,11 +2144,22 @@ country_event = {
 	option = {
 		name = bftb_turkey.47.a #we need the help!
 		effect_tooltip = {
-			TUR = {
-				transfer_state = 656
-				transfer_state = 658
-				transfer_state = 765
-				transfer_state = 659
+			ENG = {
+				every_owned_state = {
+					limit = {
+						is_controlled_by = ENG
+						OR = {
+							THIS = { state = 656 }
+							THIS = { state = 658 }
+							THIS = { state = 765 }
+							THIS = { state = 659 }
+							THIS = { state = 1014 }
+							THIS = { state = 992 }
+							THIS = { state = 906 }
+						}
+					}
+					transfer_state_to = TUR
+				}
 			}
 		}
 		hidden_effect = {
