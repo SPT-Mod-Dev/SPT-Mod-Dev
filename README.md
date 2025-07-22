@@ -15,6 +15,16 @@
  - Focus 'Attack the West on the Islands' now increases the duration of 'Tora! Tora! Tora!' national spirit by 90 days
   - Focus 'Larger Air Bases' now increases the duration of 'Tora! Tora! Tora!' national spirit by 90 days
 
+#### British Raj
+ - Focus 'The Great Recovery' requirement reduced to 35 owned civilian factories, from 40
+ - National Spirit 'Recovering from the Great Depression' awarded by focus 'The Great Recovery' duration reduced to 550 days, from 1095 
+ - Focus 'Rural Mechanization Program' technology bonus reduced to 50%, from 75%
+ - Focus 'Ammunition Factory Khadki' no longer grants a military factory
+ - Focus 'Cordite Factory Aruvankadu' no longer grants a military factory
+ - Focus 'Ordnance Factory Kanpur' no longer grants a military factory
+ - Focus 'Engineering Revolution' reward reduced to 1 military factory, from 2
+ - Focus 'The Calcutta Line' now requires being at war with Japan to be taken
+
 ### 3.14.9
 
 #### Industry

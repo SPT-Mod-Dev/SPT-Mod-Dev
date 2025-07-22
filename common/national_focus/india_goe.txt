@@ -17877,7 +17877,7 @@ focus = {
 	cost = 10
 
 	available = {
-		industrial_complex > 39
+		industrial_complex > 34 #spt change, 39 -> 34
 	}
 
 	search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY }
@@ -17897,7 +17897,7 @@ focus = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_timed_idea = {
 				idea = idea_RAJ_great_depression_2
-				days = 1095
+				days = 550 #SPT change 1095 -> 550
 			}
 		}
 
@@ -18114,7 +18114,7 @@ focus = {
 
 		add_tech_bonus = {
 			name = RAJ_rural_mechanization_program
-			bonus = 0.75
+			bonus = 0.5 #spt change 0.75 -> 0.5
 			uses = 1
 			category = cat_production
 		}
@@ -21686,6 +21686,9 @@ focus = {
         }
 
         available = {
+            #spt change, added war check
+            has_war_with = JAP
+            
             431 = {
                 is_fully_controlled_by = ROOT
             }
@@ -22255,18 +22258,19 @@ focus = {
         search_filters = {FOCUS_FILTER_INDUSTRY}
 
         completion_reward = {
-            random_core_state = {
-                limit = {
-                    is_owned_by = RAJ
-                }
-                prioritize = { 429 } #optional: to pick those states first if they fulfill the limit
-                add_extra_state_shared_building_slots = 1
-                add_building_construction = {
-                    type = arms_factory
-                    level = 1
-                    instant_build = yes
-                }
-            }
+            #spt change, removed factory reward
+            # random_core_state = {
+            #     limit = {
+            #         is_owned_by = RAJ
+            #     }
+            #     prioritize = { 429 } #optional: to pick those states first if they fulfill the limit
+            #     add_extra_state_shared_building_slots = 1
+            #     add_building_construction = {
+            #         type = arms_factory
+            #         level = 1
+            #         instant_build = yes
+            #     }
+            # }
 
             if = {
                 limit = {
@@ -23848,7 +23852,10 @@ focus = {
                 category = engineers_tech # optional 
                 # technology  = technology_id # optional
             }
-           try_build_mil_in_core_otherwise_build_in_controlled_2_mil = yes
+            
+            #try_build_mil_in_core_otherwise_build_in_controlled_2_mil = yes
+            #spt change, reduced the number of mils awarded
+            try_build_mil_in_core_otherwise_build_in_controlled = yes
         }
     }
     
@@ -24005,7 +24012,8 @@ focus = {
                 upgrade_ordance_factories_art_no_aat = yes
             }
 
-            try_build_mil_in_core_otherwise_build_in_controlled = yes
+            #spt change, removed factory reward
+            #try_build_mil_in_core_otherwise_build_in_controlled = yes
         }
     }
 
@@ -24230,7 +24238,8 @@ focus = {
                 upgrade_ordance_factories_art_no_aat = yes
             }
 
-             try_build_mil_in_core_otherwise_build_in_controlled = yes
+            #spt change, removed factory reward
+            # try_build_mil_in_core_otherwise_build_in_controlled = yes
         }
     }
     
