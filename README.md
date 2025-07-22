@@ -1,5 +1,34 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.14.10 'Grok, how do i make the Axis win?'
+
+#### Map
+ - Several Provinces in Burma and bordering states have been altered to be harder to defend
+ - Properly updated map textures to display SPT's altered terrain (yes, you can finally see the gorgeous El Alamein Highlands)
+
+#### Romania
+ - Update focus 'Mobile Tank Destroyers' to vanilla (already unlocked Leonidas Works, now provides 2500 MIO funds)
+
+#### Japan
+ - Focus 'Defend The South Seas Mandate' time to complete reduced to 35 days, from 70
+ - Focus 'Bulward on The Continent' time to complete reduced to 35 days, from 70
+ - Focus 'Army Expansion Law' time to complete reduced to 35 days, from 70
+ - Focus 'Dockyard Expansion' time to complete reduced to 35 days, from 70
+ - Focus 'Starve The Archipelagos' time to complete reduced to 49 days, from 70
+ - Focus 'Cruiser Modernization' technology bonus reward reduced to 100%, from 200%
+ - Focus 'Attack the West on the Islands' now increases the duration of 'Tora! Tora! Tora!' national spirit by 90 days
+  - Focus 'Larger Air Bases' now increases the duration of 'Tora! Tora! Tora!' national spirit by 90 days
+
+#### British Raj
+ - Focus 'The Great Recovery' requirement reduced to 35 owned civilian factories, from 40
+ - National Spirit 'Recovering from the Great Depression' awarded by focus 'The Great Recovery' duration reduced to 550 days, from 1095 
+ - Focus 'Rural Mechanization Program' technology bonus reduced to 50%, from 75%
+ - Focus 'Ammunition Factory Khadki' no longer grants a military factory
+ - Focus 'Cordite Factory Aruvankadu' no longer grants a military factory
+ - Focus 'Ordnance Factory Kanpur' no longer grants a military factory
+ - Focus 'Engineering Revolution' reward reduced to 1 military factory, from 2
+ - Focus 'The Calcutta Line' now requires being at war with Japan to be taken
+
 ### 3.14.9
 
 #### Industry
@@ -25,6 +54,7 @@
  - Added 1 armor to cruiser armor 0/dds to circumvent divide by zero
  - Fixed designs to comply with these construction rules in all relevant nations
  - adjusted upper end of penetration damage curve to have more gradual drop between 50/10% pen. now with pen ratios of at least 2.00/1.00/0.75/0.50/0.33/0.20/0.10/0.00 you deal 1.00/1.00/0.70/0.40/0.30/0.20/0.10/0.05 times damage (added 0.33,0.2 thresholds with relevant damage mults)
+ - addjusted supremacy so that being active in a zone now gives equal/more supremacy than strike force
 
 ### 3.14.8
 

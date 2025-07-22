@@ -124,10 +124,23 @@ spt_category = {
 			if = {
 				limit = {
 					has_completed_focus = SPT_JAP_aggressive_pacific
+					NOT = {
+						has_completed_focus = SPT_JAP_island_airports
+					}
 				}
 				add_timed_idea = {
 					idea = SPT_JAP_tora_tora_tora_idea_improved
-					days = 180
+					days = 270
+				}
+			}
+			else_if = {
+				limit = {
+					has_completed_focus = SPT_JAP_aggressive_pacific
+					has_completed_focus = SPT_JAP_island_airports
+				}
+				add_timed_idea = {
+					idea = SPT_JAP_tora_tora_tora_idea_improved
+					days = 360
 				}
 			}
 			else = {
