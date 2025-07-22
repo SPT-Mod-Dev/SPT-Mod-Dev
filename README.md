@@ -5,6 +5,16 @@
 #### Romania
  - Update focus 'Mobile Tank Destroyers' to vanilla (already unlocked Leonidas Works, now provides 2500 MIO funds)
 
+#### Japan
+ - Focus 'Defend The South Seas Mandate' time to complete reduced to 35 days, from 70
+ - Focus 'Bulward on The Continent' time to complete reduced to 35 days, from 70
+ - Focus 'Army Expansion Law' time to complete reduced to 35 days, from 70
+ - Focus 'Dockyard Expansion' time to complete reduced to 35 days, from 70
+ - Focus 'Starve The Archipelagos' time to complete reduced to 49 days, from 70
+ - Focus 'Cruiser Modernization' technology bonus reward reduced to 100%, from 200%
+ - Focus 'Attack the West on the Islands' now increases the duration of 'Tora! Tora! Tora!' national spirit by 90 days
+  - Focus 'Larger Air Bases' now increases the duration of 'Tora! Tora! Tora!' national spirit by 90 days
+
 ### 3.14.9
 
 #### Industry
