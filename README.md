@@ -2,6 +2,10 @@
 
 ### 3.14.10
 
+#### Map
+ - Several Provinces in Burma and bordering states have been altered to be harder to defend
+ - Properly updated map textures to display SPT's altered terrain (yes, you can finally see the gorgeous El Alamein Highlands)
+
 #### Romania
  - Update focus 'Mobile Tank Destroyers' to vanilla (already unlocked Leonidas Works, now provides 2500 MIO funds)
 
