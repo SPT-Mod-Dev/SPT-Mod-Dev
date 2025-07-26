@@ -1,0 +1,107 @@
+SPT_JAP_planning_board_bop = {
+	initial_value = 0
+	left_side = SPT_JAP_empowered_zaibatsu_side
+	right_side = SPT_JAP_nationalized_zaibatsu_side
+	decision_category = SPT_JAP_planning_board_bop_cat
+
+	range = { #neutral status
+		id = SPT_JAP_guide_zaibatsu_bop
+		min = -0.2
+		max = 0.2
+		modifier = {
+			local_resources_factor = 0.05
+			production_factory_start_efficiency_factor = 0.05
+			conversion_cost_civ_to_mil_factor = -0.20
+			custom_modifier_tooltip = SPT_JAP_planning_board_bop_pb_up_tt
+		}
+		on_activate = {
+		}
+		on_deactivate = {
+		}
+	}
+
+	side = {
+		id = SPT_JAP_empowered_zaibatsu_side
+		icon = GFX_bop_spt_mild_empower_pb
+
+		range = {
+			id = SPT_JAP_empower_max
+			min = -1
+			max = -0.6
+			modifier = {
+				min_export = 0.1
+				production_speed_infrastructure_factor = 0.1
+				military_industrial_organization_research_bonus = 0.1
+				custom_modifier_tooltip = SPT_JAP_planning_board_bop_zai_max_tt
+			}
+			on_activate = {
+				set_power_balance_gfx = {
+					id = SPT_JAP_planning_board_bop
+					side = SPT_JAP_empowered_zaibatsu_side
+					gfx = GFX_bop_spt_empower_pb
+				}
+			}
+			on_deactivate = {
+				set_power_balance_gfx = {
+					id = SPT_JAP_planning_board_bop
+					side = SPT_JAP_empowered_zaibatsu_side
+					gfx = GFX_bop_spt_mild_empower_pb
+				}
+			}
+		}
+		range = {
+			id = SPT_JAP_empower_mild
+			min = -0.6
+			max = -0.2
+			modifier = {
+				min_export = 0.05
+				production_speed_infrastructure_factor = 0.05
+				conversion_cost_civ_to_mil_factor = -0.10
+				custom_modifier_tooltip = SPT_JAP_planning_board_bop_pb_up_tt
+			}
+		}
+	}
+
+	side = {
+		id = SPT_JAP_nationalized_zaibatsu_side
+		icon = GFX_bop_spt_mild_nationalize_pb
+
+		range = {
+			id = SPT_JAP_nationalize_mild
+			min = 0.2
+			max = 0.6
+			modifier = {
+				political_power_gain = 0.05
+				stability_factor = -0.025
+				conversion_cost_civ_to_mil_factor = -0.10
+				custom_modifier_tooltip = SPT_JAP_planning_board_bop_pb_up_tt
+			}
+		}
+
+		range = {
+			id = SPT_JAP_nationalize_max
+			min = 0.6
+			max = 1
+			modifier = {
+				political_power_gain = 0.1
+				stability_factor = -0.05
+				research_speed_factor = 0.05
+				custom_modifier_tooltip = SPT_JAP_planning_board_bop_pb_max_tt
+			}
+			on_activate = {
+				set_power_balance_gfx = {
+					id = SPT_JAP_planning_board_bop
+					side = SPT_JAP_nationalized_zaibatsu_side
+					gfx = GFX_bop_spt_nationalize_pb
+				}
+			}
+			on_deactivate = {
+				set_power_balance_gfx = {
+					id = SPT_JAP_planning_board_bop
+					side = SPT_JAP_nationalized_zaibatsu_side
+					gfx = GFX_bop_spt_mild_nationalize_pb
+				}
+			}
+		}
+	}
+}

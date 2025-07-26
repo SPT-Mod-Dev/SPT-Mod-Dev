@@ -335,6 +335,9 @@ focus_tree = {
 				}
 
 			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			country_event = spt_jap.20
+
 		}
 	}
 
@@ -630,13 +633,18 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL_CHARACTER  }
 		completion_reward = {
-			custom_effect_tooltip = SPT_JAP_managing_zaibatsu_tt
-			hidden_effect = {
-				country_event = {
-					id = spt_jap.14
-					days = 235
-				}
+			#custom_effect_tooltip = SPT_JAP_managing_zaibatsu_tt
+			# hidden_effect = {
+			# 	country_event = {
+			# 		id = spt_jap.14
+			# 		days = 235
+			# 	}
+			# }
+			add_power_balance_value = {
+				id = SPT_JAP_planning_board_bop
+				value = -0.05
 			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			if = {
 				limit = {
 					amount_taken_ideas = {
@@ -691,13 +699,13 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_POLITICAL_CHARACTER  }
 		completion_reward = {
-			custom_effect_tooltip = SPT_JAP_managing_zaibatsu_tt
-			hidden_effect = {
-				country_event = {
-					id = spt_jap.14
-					days = 235
-				}
-			}
+			# custom_effect_tooltip = SPT_JAP_managing_zaibatsu_tt
+			# hidden_effect = {
+			# 	country_event = {
+			# 		id = spt_jap.14
+			# 		days = 235
+			# 	}
+			# }
 			#custom_effect_tooltip = available_political_advisor
 			#show_ideas_tooltip = SPT_JAP_mori_hideoto
 			if = {
@@ -867,6 +875,11 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL  }
 		completion_reward = {
+			add_power_balance_value = {
+				id = SPT_JAP_planning_board_bop
+				value = 0.05
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			529 = {
 				add_building_construction = {
 					type = infrastructure
@@ -1035,13 +1048,18 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
-			custom_effect_tooltip = SPT_JAP_managing_zaibatsu_tt
-			hidden_effect = {
-				country_event = {
-					id = spt_jap.14
-					days = 270
-				}
+			#custom_effect_tooltip = SPT_JAP_managing_zaibatsu_tt
+			# hidden_effect = {
+			# 	country_event = {
+			# 		id = spt_jap.14
+			# 		days = 270
+			# 	}
+			# }
+			add_power_balance_value = {
+				id = SPT_JAP_planning_board_bop
+				value = 0.05
 			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = JAP
@@ -1315,6 +1333,11 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			add_power_balance_value = {
+				id = SPT_JAP_planning_board_bop
+				value = 0.05
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
 			add_political_power = 25
 			add_timed_idea = {
 				idea = SPT_JAP_wealth_redistribution
@@ -1581,6 +1604,11 @@ focus_tree = {
 
 		available = {
 
+		}
+		
+		allow_branch = {
+			always = no
+			#this has been made obsolete and instead the pb now is accessed through the New Economic Order BOP
 		}
 
 		bypass = {
