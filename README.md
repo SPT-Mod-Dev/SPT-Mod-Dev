@@ -2,8 +2,11 @@
 
 ### 3.14.11 help
 
-### General
+#### General
  - Reduced game speed 1 to 60 seconds per tick to mitigate unintended unpauses
+
+#### Italy
+ - Removed flame tank effects from focus 'Italian Tankettes' (avoiding a bug around special project progress >100%)
 
 ### 3.14.10 'Grok, how do i make the Axis win?'
 
