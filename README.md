@@ -7,6 +7,13 @@
  - Special project 'Jet Engines' now also requires research 'Experimental Rockets'
  - Research 'Experimental Rockets' Year 1942->1941
 
+#### Germany
+ - Eisernes Sparen politlcal power cost 75 -> 50
+ - Seize the Ukranian Grave harvest political power cost 100->75
+ - Kreditkasse decision political power cost 200->100
+ - Abolish the Hauszinssteuer political power cost 100->150
+ - Steuergutscheine political power cost 100->150
+
 #### Italy
  - Removed flame tank effects from focus 'Italian Tankettes' (avoiding a bug around special project progress >100%)
 
