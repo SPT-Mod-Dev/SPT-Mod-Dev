@@ -17,6 +17,20 @@
 #### Italy
  - Removed flame tank effects from focus 'Italian Tankettes' (avoiding a bug around special project progress >100%)
 
+#### British Raj/India
+ - Focus 'Government of India Act' time to complete increased to 70 days, from 35 days
+ - Focus 'Work with Local Leaders' time to complete increased to 70 days, from 35 days
+ - Focus 'Concessions to Industrialists' time to complete increased to 70 days, from 35 days
+ - Focus 'Empower Provincial Authorities' time to complete increased to 70 days, from 35 days
+ - Focus 'Curtail The Zamindars' time to complete increased to 70 days, from 35 days
+ - Focus 'Expand the Zamindari System' time to complete increased to 70 days, from 35 days
+ - Focus 'Reform the Agricultural Sector' time to complete increased to 70 days, from 35 days
+ - Focus 'Local Recruitment Office' time to complete increased to 70 days, from 35 days
+ - Focus 'Regimental loyalty' time to complete increased to 70 days, from 35 days
+ - Focus 'Imperial Industry Initiative' efficiency cap reduced to 5%, from 10%
+ - Focus 'Imperial Industry Initiative' efficiency growth reduced to 2.5%, from 5%
+ - Focuses 'The Dominion of India', 'Keep Calm and Carry On', and 'South East Asia Command' sub-branch removed
+
 ### 3.14.10 'Grok, how do i make the Axis win?'
 
 #### Map
