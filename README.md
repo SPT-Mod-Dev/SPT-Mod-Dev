@@ -17,6 +17,9 @@
 #### Italy
  - Removed flame tank effects from focus 'Italian Tankettes' (avoiding a bug around special project progress >100%)
 
+#### Japan
+ - No longer able to double dip on resource decisions targetting China
+
 #### British Raj/India
  - Focus 'Government of India Act' time to complete increased to 70 days, from 35 days
  - Focus 'Work with Local Leaders' time to complete increased to 70 days, from 35 days
