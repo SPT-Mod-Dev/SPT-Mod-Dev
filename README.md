@@ -4,6 +4,8 @@
 
 #### General
  - Reduced game speed 1 to 60 seconds per tick to mitigate unintended unpauses
+ - Special project 'Jet Engines' now also requires research 'Experimental Rockets'
+ - Research 'Experimental Rockets' Year 1942->1941
 
 #### Italy
  - Removed flame tank effects from focus 'Italian Tankettes' (avoiding a bug around special project progress >100%)
