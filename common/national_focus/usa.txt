@@ -9318,7 +9318,10 @@ focus_tree = {
 		available_if_capitulated = yes
 		completion_reward = {
 			air_experience = 25
-			add_ideas = air_support_focus
+			swap_ideas = {
+				remove_idea = air_war_plans_division_focus
+				add_idea = air_war_plans_division_focus_2
+			}
 		}
 	}
 	focus = {
@@ -9380,7 +9383,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = USA_air_support
-		cost = 10
+		cost = 5 #SPTcahnge
 		#ai_will_do = {
 		#	factor = 1
 		#}
@@ -9463,7 +9466,7 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = USA_escort_fighters
-				bonus = 1.5
+				bonus = 1
 				uses = 1
 				category = cat_heavy_fighter
 			}
