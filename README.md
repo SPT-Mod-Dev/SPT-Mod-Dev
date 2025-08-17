@@ -1,5 +1,10 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.14.11 help
+
+### General
+ - Reduced game speed 1 to 60 seconds per tick to mitigate unintended unpauses
+
 ### 3.14.10 'Grok, how do i make the Axis win?'
 
 #### Map
