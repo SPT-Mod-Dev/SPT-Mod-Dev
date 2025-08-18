@@ -1807,6 +1807,20 @@ war_measures = {
         visible = {
             has_war = yes
             NOT = { tag = SPC }
+
+			# SPTchange			
+			if = {
+				limit = {
+					tag = GER
+				}
+				NOT  = {
+					GER = {
+						has_dynamic_modifier = {
+							modifier = GER_economy_of_conquest_modifier
+						}
+					}
+				}
+			}
         }
 
         fire_only_once = no

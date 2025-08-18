@@ -176,13 +176,17 @@ if = {
 }
 
 #CONSUMER GOODS INCREASE AND PENALTIES VARIABLES
-set_variable = { GER_monthly_consumer_goods_start = 0.03 } #Starting amount of monthly increasing CG for MEFO Bills
+# SPTchange 0.03 -> 0.035
+set_variable = { GER_monthly_consumer_goods_start = 0.035 } #Starting amount of monthly increasing CG for MEFO Bills
 set_variable = { GER_change_monthly_CG_vichy_france = 0.005 } #Changing monthly CG when capitulating FRance
 set_variable = { GER_change_monthly_CG_price_controls = 0.005 } #Changing monthly CG when taking Price Controls focus
 set_variable = { GER_change_monthly_CG_occupied_states = 0.005 } #Changing monthly CG based on none-core states
 set_variable = { GER_expected_consumer_goods_penalty = 0.1} #Consumer Goods penalty when hitting 100% CGFF
 set_variable = { GER_factory_output_penalty = 0.15 } #Factory output penalty when hitting 100% CGFF
 set_variable = { GER_dockyard_output_penalty = 0.15 } #Dockyard output penalty when hitting 100% CGFF
+
+# SPTchange additional variables
+set_variable = { SPT_GER_change_monthly_CG_price_controls_large = 0.01 }
 
 #INDUSTRAY: MEFO Bills/Economy of Conquest/Recovering Economy/Wirtschaftswunder
 #REMINDER to always update the fake NS if these numbers are altered!
@@ -924,6 +928,9 @@ recruit_character = GER_paul_von_lettow_vorbeck # He is "new"
 recruit_character = GER_wilhelm_iv
 recruit_character = GER_eva_braun
 
+# SPTchange
+activate_advisor = hjalmar_schacht
+
 #SCIENTISTS
 recruit_character = GER_peter_adolf_thiessen
 recruit_character = GER_gustav_ludwig_hertz
@@ -1261,6 +1268,7 @@ if = {
 			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
 			fixed_ship_radar_slot = empty
 			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_armor_slot = ship_armor_cruiser_0
 			mid_1_custom_slot = ship_anti_air_1
 			mid_2_custom_slot = ship_mine_layer_1
 			rear_1_custom_slot = ship_mine_layer_1
@@ -1316,10 +1324,10 @@ if = {
 			fixed_ship_engine_slot = heavy_ship_engine_2
 			fixed_ship_secondaries_slot = ship_secondaries_1
 			fixed_ship_armor_slot = ship_armor_bc_1
-			front_1_custom_slot = ship_anti_air_1
+			front_1_custom_slot = ship_heavy_battery_2
 			mid_1_custom_slot = empty
 			mid_2_custom_slot = ship_secondaries_1
-			rear_1_custom_slot = ship_heavy_battery_2
+			rear_1_custom_slot = ship_anti_air_1
 		}
 	}
 	create_equipment_variant = {

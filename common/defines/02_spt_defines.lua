@@ -45,12 +45,51 @@ NDefines.NNavy.DEPTH_CHARGES_HIT_PROFILE 										= 100.0     --hit profile for
 NDefines.NNavy.SUBMARINE_BASE_TORPEDO_REVEAL_CHANCE 							= 0.1       --Chance of a submarine being revealed when it fires. 1.0 is 100%. this chance is then multiplied with modifier ~~created by comparing firer's visibiility and target's detection~~ depending on the subs sub visibility
 NDefines.NNavy.SUBMARINE_REVEAL_BASE_CHANCE 									= 11        --Base factor for submarine detection in Battles. It's modified by the difference of a spotter's submarines detection vs submarine visibility. Use this variable for game balancing. setting this too low will cause bad spotting issues.
 NDefines.NNavy.SUBMARINE_REVEAL_POW 											= 3.0		--A scaling factor that is applied to the reveal chance in order to make large differences in detection vs visibility more pronounced
-NDefines.NNavy.GUN_HIT_PROFILES = { -- hit profiles for guns, if target ih profile is lower the gun will have lower accuracy
-    90.0,	-- big guns
-    110.0,	-- torpedoes
-    45.0,	-- small guns
+NDefines.NNavy.MISSION_SUPREMACY_RATIOS = { -- supremacy multipliers for different mission types
+    0.0, -- HOLD
+    1.0, -- PATROL
+    0.5, -- STRIKE FORCE
+    0.5, -- CONVOY RAIDING
+    0.5, -- CONVOY ESCORT
+    0.3, -- MINES PLANTING
+    0.3, -- MINES SWEEPING
+    0.0, -- TRAIN
+    0.0, -- RESERVE_FLEET
+    1.0, -- NAVAL_INVASION_SUPPORT
 }
-NDefines.NNavy.CONVOY_HIT_PROFILE                                               = 105
+NDefines.NNavy.NAVY_PIERCING_THRESHOLDS = {					-- Our piercing / their armor must be at least this value to deal damage fraction equal to the index in the array below [higher number = higher penetration]. If armor is 0, 1.00 will be returned.
+2.00,
+1.00,
+0.75,
+0.50,
+0.33,
+0.20,
+0.10,
+0.00 --there isn't much point setting this lower than 0
+}
+
+NDefines.NNavy.NAVY_PIERCING_THRESHOLD_CRITICAL_VALUES = {	-- 0 armor will always receive maximum damage (so add overmatching at your own peril). the system expects at least 2 values, with no upper limit.
+    2.00,
+    1.00,
+    0.75,
+    0.50,
+    0.33,
+    0.20,
+    0.10,
+    0.00 -- For criticals, you could reduce crit chance unlike damage in army combat, but we do not for now.
+}
+
+NDefines.NNavy.NAVY_PIERCING_THRESHOLD_DAMAGE_VALUES = {	-- 0 armor will always receive maximum damage (so add overmatching at your own peril). the system expects at least 2 values, with no upper limit.
+    1.00,
+    1.00,
+    0.70,
+    0.40,
+    0.30,
+    0.20,
+    0.10,
+    0.05 --
+} -- all of these NEED to be the same size!!!!
+
 NDefines.NNavy.CONVOY_RAID_MAX_REGION_TO_TASKFORCE_RATIO                        = 1
 
 NDefines.NDiplomacy.EMBARGO_THREAT_THRESHOLD = 50

@@ -123,8 +123,8 @@ buildings = {
 	
 	naval_facility = {
 		show_on_map = 1
-		base_cost = 10000
-		per_controlled_building_extra_cost = 7000
+		base_cost = 12000
+		per_controlled_building_extra_cost = 5000
 		damage_factor = 0 # This building can't be damaged by regular strat bombing
 		icon_frame = 18
 		value = 1
@@ -143,6 +143,7 @@ buildings = {
 			group_by = special_project_facility
 		}
 		only_costal = yes
+		infrastructure_construction_effect = yes #spt change, made it affected by infra level
 	}
 
 	naval_base = {
@@ -195,9 +196,10 @@ buildings = {
 	}
 
 	stronghold_network = {
+		dlc_allowed = { has_dlc = Gotterdammerung }
 		show_on_map = 1
 		has_destroyed_mesh = yes
-		base_cost = 12000
+		base_cost = 12000 #spt change 20000 -> 12000
 		disabled_in_dmz = yes
 		icon_frame = 23
 		value = 1
@@ -215,7 +217,7 @@ buildings = {
 			enemy_attrition = 0.1
 			state_production_speed_bunker_factor = 0.1
 			state_production_speed_coastal_bunker_factor = 0.1
-			enemy_army_speed_factor = -0.1
+			enemy_army_speed_factor = -0.1 #spt change, added modifier
 		}		
 	}
 
@@ -411,6 +413,7 @@ buildings = {
 	}
 
 	commercial_nuclear_reactor = {
+		dlc_allowed = { has_dlc = Gotterdammerung }
 		hide_if_missing_tech = yes
 		missing_tech_loc = { 
 			localization_key = SP_BUILDING_MISSING_PROJECT
@@ -480,8 +483,8 @@ buildings = {
 
 	air_facility = {
 		show_on_map = 1
-		base_cost = 10000
-		per_controlled_building_extra_cost = 7000
+		base_cost = 12000
+		per_controlled_building_extra_cost = 5000
 		damage_factor = 0 # This building can't be damaged by regular strat bombing
 		icon_frame = 17
 		value = 1
@@ -499,12 +502,13 @@ buildings = {
 			state_max = 1
 			group_by = special_project_facility
 		}
+		infrastructure_construction_effect = yes #spt change, made it affected by infra level
 	}
 
 	land_facility = {
 		show_on_map = 1
-		base_cost = 10000
-		per_controlled_building_extra_cost = 7000
+		base_cost = 12000
+		per_controlled_building_extra_cost = 5000
 		damage_factor = 0 # This building can't be damaged by regular strat bombing
 		icon_frame = 19
 		value = 1
@@ -522,6 +526,7 @@ buildings = {
 			state_max = 1
 			group_by = special_project_facility
 		}
+		infrastructure_construction_effect = yes #spt change, made it affected by infra level
 	}
 
 	dam = {

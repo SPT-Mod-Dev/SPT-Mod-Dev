@@ -94,7 +94,8 @@ focus_tree = {
 
 	inlay_window = {
 		id = ger_inner_circle_inlay_window
-		position = { x = 4500 y = 1150 }
+		# position = { x = 4500 y = 1150 }
+		position = { x = 4500 y = 1200 } # SPTchange
 	}
 	
 	default = no
@@ -1025,7 +1026,7 @@ focus_tree = {
 		icon = GFX_focus_generic_road_investment
 		prerequisite = { focus = GER_prioritize_economic_growth focus = GER_the_four_year_plan }
 
-		x = 3
+		x = 2
 		y = 1
 		relative_position_id = GER_prioritize_economic_growth
 		cost = 5
@@ -1690,7 +1691,7 @@ focus_tree = {
 		icon = GFX_focus_GER_autarky_ambitions
 		prerequisite = { focus = GER_the_four_year_plan  }
 
-		x = 2
+		x = 1
 		y = 1
 		relative_position_id = GER_the_four_year_plan
 		cost = 5
@@ -1734,8 +1735,19 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			custom_effect_tooltip = GER_gain_autarkic_economy_lock_free_trade_tt
-			add_ideas = autarkic_economy
+			# SPTchange don't use autarkic economy, just ban Free Trade
+			# custom_effect_tooltip = GER_gain_autarkic_economy_lock_free_trade_tt
+			# add_ideas = autarkic_economy
+			custom_effect_tooltip = SPT_GER_gain_autarkic_economy_lock_free_trade_tt
+			if = {
+				limit = {
+					has_idea = free_trade
+				}
+				swap_ideas = {
+					remove_idea = free_trade
+					add_idea = export_focus
+				}
+			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -1766,7 +1778,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = GER_autarky_efforts
-		cost = 5
+		cost = 3
 		available = {
 		}
 
@@ -1779,26 +1791,27 @@ focus_tree = {
 			    popularity = -0.05
 			}
 
-			custom_effect_tooltip = generic_skip_one_line_tt
+			# SPTchange
+			# custom_effect_tooltip = generic_skip_one_line_tt
 
-			if = {
-				limit = {
-					OR = {
-						has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
-						has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
-					}
-				}
-				GER_modify_industrial_modifier = yes
-				custom_effect_tooltip = GER_reduce_increasing_consumer_goods_tt
-				subtract_from_variable = { GER_monthly_consumer_goods_increase = GER_change_monthly_CG_price_controls }
-			}
-			else = {
-				GER_modify_industrial_modifier = yes
-				add_to_variable = { 
-					GER_industrial_consumer_goods_factor = -0.1
-					tooltip = consumer_goods_factor_tt
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		OR = {
+			# 			has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
+			# 			has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
+			# 		}
+			# 	}
+			# 	GER_modify_industrial_modifier = yes
+			# 	custom_effect_tooltip = GER_reduce_increasing_consumer_goods_tt
+			# 	subtract_from_variable = { GER_monthly_consumer_goods_increase = GER_change_monthly_CG_price_controls }
+			# }
+			# else = {
+			# 	GER_modify_industrial_modifier = yes
+			# 	add_to_variable = { 
+			# 		GER_industrial_consumer_goods_factor = -0.1
+			# 		tooltip = consumer_goods_factor_tt
+			# 	}
+			# }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -1807,12 +1820,55 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = SPT_GER_end_the_charade
+		icon = GFX_focus_generic_subjugation
+		prerequisite = { focus = GER_institute_price_controls }
+
+		x = 0
+		y = 1
+		relative_position_id = GER_institute_price_controls
+		cost = 2
+		available = {
+			date > 1938.6.1
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+
+		completion_reward = {
+			GER_modify_industrial_modifier = yes
+			add_to_variable = { 
+				GER_industrial_consumer_goods_factor = -0.15
+				tooltip = consumer_goods_factor_tt
+			}
+			custom_effect_tooltip =  GER_increase_increasing_consumer_goods_tt
+			add_to_variable = { GER_monthly_consumer_goods_increase = GER_change_monthly_CG_price_controls }
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			if = {
+				limit = {
+					GER_hjalmar_schacht = {
+						is_political_advisor = yes
+					}
+				}
+				deactivate_advisor = hjalmar_schacht
+				activate_advisor = walther_funk
+
+				custom_effect_tooltip = generic_skip_one_line_tt
+			}
+
+			custom_effect_tooltip = generic_remove_as_political_advisor_tt
+			show_ideas_tooltip = hjalmar_schacht
+		}
+	}
+	
+	focus = {
 		id = GER_establish_the_reichswerke
 		icon = GFX_goal_generic_construct_civ_factory
 		prerequisite = { focus = GER_autarky_efforts }
 
-		x = -1
-		y = 2
+		x = -2
+		y = 1
 		relative_position_id = GER_autarky_efforts
 		cost = 5
 		available = {
@@ -1866,7 +1922,9 @@ focus_tree = {
 
 			GER_modify_industrial_modifier = yes
 			add_to_variable = { 
-				GER_industrial_consumer_goods_factor = 0.1
+				# SPtchange
+				# GER_industrial_consumer_goods_factor = 0.1
+				GER_industrial_consumer_goods_factor = 0.05
 				tooltip = consumer_goods_factor_tt
 			}
 			if = {
@@ -1895,15 +1953,15 @@ focus_tree = {
 		icon = GFX_focus_DEN_heavy_regulations
 		prerequisite = { focus = GER_establish_the_reichswerke }
 
-		x = -1
+		x = 0
 		y = 1
 		relative_position_id = GER_establish_the_reichswerke
-		cost = 5
+		cost = 3
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = GER_industrial_consumer_goods_factor_limit_tt
-				check_variable = { GER_industrial_consumer_goods_factor < 0.9 }
-			}
+			# custom_trigger_tooltip = {
+			# 	tooltip = GER_industrial_consumer_goods_factor_limit_tt
+			# 	check_variable = { GER_industrial_consumer_goods_factor < 0.9 }
+			# }
 			any_controlled_state = {
 				NOT = { is_core_of = ROOT }
 				is_fully_controlled_by = ROOT
@@ -1932,64 +1990,65 @@ focus_tree = {
 			}
 		}
 
-		bypass = {
-			OR = {
-				has_resources_in_country = {
-					resource = steel
-					amount > 799
-					extracted = yes
-				}
-				any_allied_country = {
-					has_resources_in_country = {
-						resource = steel
-						amount > 799
-						extracted = yes
-					}
-				}
-			}
-			OR = {
-				has_resources_in_country = {
-					resource = aluminium
-					amount > 499
-					extracted = yes
-				}
-				any_allied_country = {
-					has_resources_in_country = {
-						resource = aluminium
-						amount > 499
-						extracted = yes
-					}
-				}
-			}
-			OR = {
-				has_resources_in_country = {
-					resource = tungsten
-					amount > 99
-					extracted = yes
-				}
-				SPR = {
-					has_resources_in_country = {
-						resource = tungsten
-						amount > 99
-						extracted = yes
-					}
-				}	
-			}
-			OR = {
-				has_resources_in_country = {
-					resource = chromium
-					amount > 99
-					extracted = yes
-				}
-				any_allied_country = {
-					has_resources_in_country = {
-						resource = chromium
-						amount > 99
-						extracted = yes
-					}
-				}
-			}
-		}
+		# SPTchange
+		# bypass = {
+		# 	OR = {
+		# 		has_resources_in_country = {
+		# 			resource = steel
+		# 			amount > 799
+		# 			extracted = yes
+		# 		}
+		# 		any_allied_country = {
+		# 			has_resources_in_country = {
+		# 				resource = steel
+		# 				amount > 799
+		# 				extracted = yes
+		# 			}
+		# 		}
+		# 	}
+		# 	OR = {
+		# 		has_resources_in_country = {
+		# 			resource = aluminium
+		# 			amount > 499
+		# 			extracted = yes
+		# 		}
+		# 		any_allied_country = {
+		# 			has_resources_in_country = {
+		# 				resource = aluminium
+		# 				amount > 499
+		# 				extracted = yes
+		# 			}
+		# 		}
+		# 	}
+		# 	OR = {
+		# 		has_resources_in_country = {
+		# 			resource = tungsten
+		# 			amount > 99
+		# 			extracted = yes
+		# 		}
+		# 		SPR = {
+		# 			has_resources_in_country = {
+		# 				resource = tungsten
+		# 				amount > 99
+		# 				extracted = yes
+		# 			}
+		# 		}	
+		# 	}
+		# 	OR = {
+		# 		has_resources_in_country = {
+		# 			resource = chromium
+		# 			amount > 99
+		# 			extracted = yes
+		# 		}
+		# 		any_allied_country = {
+		# 			has_resources_in_country = {
+		# 				resource = chromium
+		# 				amount > 99
+		# 				extracted = yes
+		# 			}
+		# 		}
+		# 	}
+		# }
 
 		search_filters = { FOCUS_FILTER_RESEARCH FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
 
@@ -2102,15 +2161,15 @@ focus_tree = {
 		icon = GFX_goal_generic_oil_refinery
 		prerequisite = { focus = GER_autarky_efforts }
 
-		x = 1
+		x = 2
 		y = 2
 		relative_position_id = GER_autarky_efforts
 		cost = 5
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = GER_industrial_consumer_goods_factor_limit_tt
-				check_variable = { GER_industrial_consumer_goods_factor < 0.9 }
-			}
+			# custom_trigger_tooltip = {
+			# 	tooltip = GER_industrial_consumer_goods_factor_limit_tt
+			# 	check_variable = { GER_industrial_consumer_goods_factor < 0.9 }
+			# }
 		}
 
 		continue_if_invalid = yes
@@ -2204,10 +2263,10 @@ focus_tree = {
 		relative_position_id = GER_coal_liquefaction
 		cost = 5
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = GER_industrial_consumer_goods_factor_limit_tt
-				check_variable = { GER_industrial_consumer_goods_factor < 0.9 }
-			}
+			# custom_trigger_tooltip = {
+			# 	tooltip = GER_industrial_consumer_goods_factor_limit_tt
+			# 	check_variable = { GER_industrial_consumer_goods_factor < 0.9 }
+			# }
 			has_tech = oil_processing
 		}
 
@@ -2299,10 +2358,10 @@ focus_tree = {
 		relative_position_id = GER_coal_liquefaction
 		cost = 5
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = GER_industrial_consumer_goods_factor_limit_tt
-				check_variable = { GER_industrial_consumer_goods_factor < 0.9 }
-			}
+			# custom_trigger_tooltip = {
+			# 	tooltip = GER_industrial_consumer_goods_factor_limit_tt
+			# 	check_variable = { GER_industrial_consumer_goods_factor < 0.9 }
+			# }
 			has_tech = rubber_processing
 		}
 
@@ -2381,6 +2440,90 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = {
+		id = SPT_GER_grossraumwirtschaft
+		icon = GFX_focus_GER_integrated_economies
+		prerequisite = { focus = GER_seize_foreign_industries }
+		prerequisite = { focus = SPT_GER_end_the_charade } 
+
+		x = 1
+		y = 1
+		relative_position_id = GER_seize_foreign_industries
+		cost = 2
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+
+		available = {
+			FRA = { 
+				has_capitulated = yes
+			}
+			BEL = { 
+				has_capitulated = yes
+			}
+		}
+
+		completion_reward = {
+			GER_modify_industrial_modifier = yes
+			add_to_variable = { 
+				GER_industrial_consumer_goods_factor = -0.10
+				tooltip = consumer_goods_factor_tt
+			}
+			custom_effect_tooltip =  GER_increase_increasing_consumer_goods_tt
+			add_to_variable = { GER_monthly_consumer_goods_increase = GER_change_monthly_CG_price_controls }
+		}
+	}
+
+	focus = {
+		id = SPT_GER_kriegsfinanzierung
+		icon = GFX_focus_generic_welfare
+		prerequisite = { focus = SPT_GER_grossraumwirtschaft }
+		# prerequisite = { focus = SPT_GER_end_the_charade }
+		prerequisite = { focus = GER_subsidize_hoesch_benzin }
+		prerequisite = { focus = GER_establish_buna_werke }
+
+		x = 0
+		y = 4
+		relative_position_id = GER_autarky_efforts
+		cost = 5
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SPT_GER_gegenmassnahmen_minimum_tt
+				check_variable = { GER_industrial_consumer_goods_factor > 0.5 }
+			}
+		}
+
+		completion_reward = {			
+			custom_effect_tooltip = SPT_GER_unlock_gegenmassnahmen_decision_tt
+		}
+
+	}
+	
+	focus = {
+		id = SPT_GER_raubkrieg
+		# icon = GFX_focus_generic_welfare
+		icon = GFX_focus_RAJ_trickle_down_economics
+		prerequisite = { focus = SPT_GER_kriegsfinanzierung }
+
+		# x = 0
+		x = 2
+		y = 1
+		relative_position_id = SPT_GER_kriegsfinanzierung
+		cost = 5
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		available = {
+			GER = {
+				has_war_with = SOV
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = SPT_GER_unlock_feed_the_beast_decisions_tt
+		}
+	}
 	
 	focus = {
 		id = GER_autarky_achieved
@@ -2389,6 +2532,10 @@ focus_tree = {
 		prerequisite = { focus = GER_subsidize_hoesch_benzin }
 		prerequisite = { focus = GER_establish_buna_werke }
 
+		# relative_position_id = SPT_GER_raubkrieg
+		# x = 0
+		# y = 1
+		# cost = 5
 		x = 2
 		y = 1
 		relative_position_id = GER_seize_foreign_industries
@@ -2481,6 +2628,11 @@ focus_tree = {
 					}
 				}
 			}
+		}
+
+		# SPTchange replaced with Forever War
+		allow_branch = {
+			always = no
 		}
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -2727,14 +2879,23 @@ focus_tree = {
 	focus = {
 		id = GER_zentrale_planung
 		icon = GFX_focus_generic_central_planning
-		prerequisite = { focus = GER_concentrated_armament_program focus = GER_establish_production_targets}
+		# SPTchange
+		# prerequisite = { focus = GER_concentrated_armament_program focus = GER_establish_production_targets}
 
-		x = 1
-		y = 2
-		relative_position_id = GER_concentrated_armament_program
-		cost = 10
+		# x = 1
+		# y = 2
+		# relative_position_id = GER_concentrated_armament_program
+		# SPTchange
+		prerequisite = { focus = SPT_GER_kriegsfinanzierung }
+		x = -2
+		y = 1
+		relative_position_id = SPT_GER_kriegsfinanzierung
+		cost = 5 # SPTchange 10->5
 		available = {
-			has_war_with_major = yes
+			# has_war_with_major = yes
+			GER = { # SPTchange
+				has_war_with = SOV
+			}
 			has_civil_war = no
 		}
 
@@ -2743,30 +2904,31 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
 
 		completion_reward = {
-			if = {
-				limit = { #Must be one economy law away from the next one and fulfill the next law's criterias
-					has_idea = partial_economic_mobilisation
-					has_war_support > 0.5
-					OR = {
-						has_government = fascism
-						has_government = communism
-						custom_trigger_tooltip = { tooltip = or_clarification_tooltip always = no }
-						AND = {
-							has_war = yes
-							any_enemy_country = {
-								ic_ratio = {
-									tag = ROOT
-									ratio > 0.4
-								}
-							}
-						}
-					}
-				}
-				add_ideas = war_economy
-			}
-			else = {
-				custom_effect_tooltip = GER_criteria_for_economy_laws_tt
-			}
+			# SPTchange kinda useless in MP meta
+			# if = {
+			# 	limit = { #Must be one economy law away from the next one and fulfill the next law's criterias
+			# 		has_idea = partial_economic_mobilisation
+			# 		has_war_support > 0.5
+			# 		OR = {
+			# 			has_government = fascism
+			# 			has_government = communism
+			# 			custom_trigger_tooltip = { tooltip = or_clarification_tooltip always = no }
+			# 			AND = {
+			# 				has_war = yes
+			# 				any_enemy_country = {
+			# 					ic_ratio = {
+			# 						tag = ROOT
+			# 						ratio > 0.4
+			# 					}
+			# 				}
+			# 			}
+			# 		}
+			# 	}
+			# 	add_ideas = war_economy
+			# }
+			# else = {
+			# 	custom_effect_tooltip = GER_criteria_for_economy_laws_tt
+			# }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			
@@ -2776,13 +2938,14 @@ focus_tree = {
 				tooltip = production_lack_of_resource_penalty_factor_tt
 			}
 			add_to_variable = { 
-				GER_industrial_industrial_capacity_factory = 0.05
+				GER_industrial_industrial_capacity_factory = 0.10 # SPTchange 0.05->0.10
 				tooltip = industrial_capacity_factory_tt
 			}
-			add_to_variable = { 
-				GER_industrial_industrial_capacity_dockyard = 0.05
-				tooltip = industrial_capacity_dockyard_tt
-			}
+			# SPTchange
+			# add_to_variable = { 
+			# 	GER_industrial_industrial_capacity_dockyard = 0.05
+			# 	tooltip = industrial_capacity_dockyard_tt
+			# }
 			add_to_variable = { 
 				GER_industrial_conversion_cost_civ_to_mil_factor = -0.2
 				tooltip = conversion_cost_civ_to_mil_factor_tt
@@ -2827,13 +2990,14 @@ focus_tree = {
 
 			GER_modify_industrial_modifier = yes
 			add_to_variable = { 
-				GER_industrial_production_speed_arms_factory_factor = 0.05
+				GER_industrial_production_speed_arms_factory_factor = 0.10 # SPTChange 0.5->0.10
 				tooltip = production_speed_arms_factory_factor_tt
 			}
-			add_to_variable = { 
-				GER_industrial_production_speed_dockyard_factor = 0.05
-				tooltip = production_speed_dockyard_factor_tt
-			}
+			# SPTchange
+			# add_to_variable = { 
+			# 	GER_industrial_production_speed_dockyard_factor = 0.05
+			# 	tooltip = production_speed_dockyard_factor_tt
+			# }
 			add_to_variable = { 
 				GER_industrial_industry_air_damage_factor = -0.1
 				tooltip = industry_air_damage_factor_tt
@@ -2862,10 +3026,11 @@ focus_tree = {
 				GER_industrial_industrial_capacity_factory = 0.05
 				tooltip = industrial_capacity_factory_tt
 			}
-			add_to_variable = { 
-				GER_industrial_industrial_capacity_dockyard = 0.05
-				tooltip = industrial_capacity_dockyard_tt
-			}
+			# SPTchange
+			# add_to_variable = { 
+			# 	GER_industrial_industrial_capacity_dockyard = 0.05
+			# 	tooltip = industrial_capacity_dockyard_tt
+			# }
 			add_to_variable = { 
 				GER_industrial_production_factory_max_efficiency_factor = 0.05
 				tooltip = production_factory_max_efficiency_factor_tt
@@ -2896,7 +3061,17 @@ focus_tree = {
 		relative_position_id = GER_armament_rationalization
 		cost = 5
 		available = {
-			has_idea = tot_economic_mobilisation
+			has_war_with_major = yes
+			OR = {
+				has_war_support > 0.89
+				surrender_progress > 0
+			}
+			any_enemy_country = {
+				ic_ratio = {
+					tag = ROOT
+					ratio > 0.5
+				}
+			}
 		}
 
 		continue_if_invalid = yes
@@ -6539,10 +6714,10 @@ focus_tree = {
 						fixed_ship_engine_slot = heavy_ship_engine_2
 						fixed_ship_secondaries_slot = ship_secondaries_1
 						fixed_ship_armor_slot = ship_armor_bb_2
-						front_1_custom_slot = ship_anti_air_1
+						front_1_custom_slot = ship_heavy_battery_3
 						mid_1_custom_slot = ship_airplane_launcher_1
 						mid_2_custom_slot = ship_secondaries_1
-						rear_1_custom_slot = ship_heavy_battery_3
+						rear_1_custom_slot = ship_anti_air_1
 					}
 					design_team = mio:GER_germaniawerft_organization
 				}
@@ -6597,10 +6772,10 @@ focus_tree = {
 						fixed_ship_engine_slot = heavy_ship_engine_2
 						fixed_ship_secondaries_slot = ship_secondaries_1
 						fixed_ship_armor_slot = ship_armor_bb_2
-						front_1_custom_slot = ship_anti_air_1
+						front_1_custom_slot = ship_heavy_battery_2
 						mid_1_custom_slot = ship_airplane_launcher_1
 						mid_2_custom_slot = ship_secondaries_1
-						rear_1_custom_slot = ship_heavy_battery_2
+						rear_1_custom_slot = ship_anti_air_1
 					}
 					design_team = mio:GER_germaniawerft_organization
 				}
@@ -6655,10 +6830,10 @@ focus_tree = {
 						fixed_ship_engine_slot = heavy_ship_engine_2
 						fixed_ship_secondaries_slot = ship_secondaries_1
 						fixed_ship_armor_slot = ship_armor_bb_2
-						front_1_custom_slot = ship_anti_air_1
+						front_1_custom_slot = ship_heavy_battery_3
 						mid_1_custom_slot = ship_airplane_launcher_1
 						mid_2_custom_slot = ship_secondaries_1
-						rear_1_custom_slot = ship_heavy_battery_3
+						rear_1_custom_slot = ship_anti_air_1
 					}
 					design_team = mio:GER_germaniawerft_organization
 				}
@@ -6713,10 +6888,10 @@ focus_tree = {
 						fixed_ship_engine_slot = heavy_ship_engine_2
 						fixed_ship_secondaries_slot = ship_secondaries_1
 						fixed_ship_armor_slot = ship_armor_bb_2
-						front_1_custom_slot = ship_anti_air_1
+						front_1_custom_slot = ship_heavy_battery_2
 						mid_1_custom_slot = ship_airplane_launcher_1
 						mid_2_custom_slot = ship_secondaries_1
-						rear_1_custom_slot = ship_heavy_battery_2
+						rear_1_custom_slot = ship_anti_air_1
 					}
 					design_team = mio:GER_germaniawerft_organization
 				}
@@ -6877,6 +7052,7 @@ focus_tree = {
 							fixed_ship_deck_slot_1 = ship_deck_space
 							fixed_ship_anti_air_slot = ship_anti_air_1
 							fixed_ship_engine_slot = cruiser_ship_engine_2
+							fixed_ship_armor_slot = ship_armor_cruiser_0
 							fixed_ship_secondaries_slot = empty
 							custom_ship_rear_slot_1 = ship_deck_space
 						}
@@ -6912,7 +7088,9 @@ focus_tree = {
 							fixed_ship_anti_air_slot = ship_anti_air_1
 							fixed_ship_engine_slot = carrier_ship_engine_3
 							fixed_ship_secondaries_slot = empty
+							fixed_ship_armor_slot = ship_armor_cruiser_0
 							front_1_custom_slot = ship_deck_space
+							mid_1_custom_slot = ship_secondaries_1
 						}
 						design_team = mio:GER_deutsche_werke_organization
 					}		
@@ -6945,6 +7123,7 @@ focus_tree = {
 							fixed_ship_secondaries_slot = empty
 							front_1_custom_slot = ship_deck_space
 							mid_1_custom_slot = ship_deck_space
+							mid_2_custom_slot = ship_secondaries_1
 						}
 						design_team = mio:GER_deutsche_werke_organization
 					}
@@ -7084,11 +7263,11 @@ focus_tree = {
 						fixed_ship_engine_slot = heavy_ship_engine_2
 						fixed_ship_secondaries_slot = ship_secondaries_1
 						fixed_ship_armor_slot = ship_armor_bb_2
-						front_1_custom_slot = ship_anti_air_1
+						front_1_custom_slot = ship_heavy_battery_3
 						mid_1_custom_slot = ship_airplane_launcher_1
 						mid_2_custom_slot = ship_secondaries_1
 						mid_3_custom_slot = ship_anti_air_1
-						rear_1_custom_slot = ship_heavy_battery_3
+						rear_1_custom_slot = ship_anti_air_1
 					}
 					design_team = mio:GER_germaniawerft_organization
 				}

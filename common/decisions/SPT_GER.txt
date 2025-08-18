@@ -1,0 +1,206 @@
+SPT_GER_gegenmassnahmen_category = {
+	# Kriegsfinanzierung
+	SPT_GER_eisernes_sparen = { # Voluntary savings program
+		# There were proposals to force Germans into *mandatory* savings, but this doesn't seem to have panned out
+		fire_only_once = yes
+		cost = 50
+		days_remove = 380		
+
+		icon = GFX_decision_generic_political_address
+
+		complete_effect = {			
+			GER_modify_industrial_modifier = yes
+			custom_effect_tooltip = GER_reduce_increasing_consumer_goods_tt
+			subtract_from_variable = { GER_monthly_consumer_goods_increase = GER_change_monthly_CG_price_controls }
+			custom_effect_tooltip = generic_skip_one_line_tt
+		}
+
+		remove_effect = {
+			GER_modify_industrial_modifier = yes
+			custom_effect_tooltip =  GER_increase_increasing_consumer_goods_large_tt
+			add_to_variable = { GER_monthly_consumer_goods_increase = SPT_GER_change_monthly_CG_price_controls_large }
+			custom_effect_tooltip = generic_skip_one_line_tt
+		}
+	}
+
+	# Goebbel's winter crisis 41-42 campaign against war profiteering and illegal markets
+	# Only available after CGFF > 100%?
+
+	# Kerhl's memorandum, July 1944: paying workers in bonds and sharply increasing sales tax.
+
+	SPT_GER_dividendabgabeverordnung = { # Restrictions on dividends
+		fire_only_once = yes
+		cost = 100
+
+		icon = GFX_decision_eng_trade_unions_support
+
+		complete_effect = {
+			GER_modify_industrial_modifier = yes
+			add_to_variable = { 
+				GER_industrial_consumer_goods_factor = -0.10
+				tooltip = consumer_goods_factor_tt
+			}
+			add_war_support = -0.10
+			add_popularity = {
+				ideology = fascism
+				popularity = -0.10
+			}
+		}
+	}
+
+	# Idea: End Contracts Priced Under LSO(subscript)e. Restrict industrial profits.
+
+	SPT_GER_abolish_hauszinssteuer = {
+		# One time ten years tax payment of a cost-sharing state tax that was already supposed to be gone.
+		fire_only_once = yes
+		cost = 150
+
+		icon = GFX_decision_hol_attract_foreign_investors
+
+		complete_effect = {
+			GER_modify_industrial_modifier = yes
+			add_to_variable = { 
+				GER_industrial_consumer_goods_factor = -0.075
+				tooltip = consumer_goods_factor_tt
+			}
+			add_stability = -0.05
+		}
+	}
+
+
+	SPT_GER_steuergutscheine = { # Tax vouchers.
+		fire_only_once = yes
+		cost = 150
+
+		icon = GFX_decision_generic_factory
+
+		complete_effect = {
+			GER_modify_industrial_modifier = yes
+			add_to_variable = { 
+				GER_industrial_consumer_goods_factor = -0.10
+				tooltip = consumer_goods_factor_tt
+			}
+			custom_effect_tooltip =  GER_increase_increasing_consumer_goods_tt
+			add_to_variable = { GER_monthly_consumer_goods_increase = GER_change_monthly_CG_price_controls }
+			custom_effect_tooltip = generic_skip_one_line_tt
+		}
+
+	}
+
+	SPT_GER_rustungsurlauber = { # Rüstungsurlauber (armaments holiday) rotate veterans to make guns for 6 months... repeatable
+		fire_only_once = no
+		cost = 75
+		days_remove = 180
+
+		icon = GFX_decision_generic_industry
+
+		available = {
+			NOT = {
+				has_war_with = SOV
+			}
+			SOV = { 
+				exists = yes
+			}
+		}
+
+		modifier = {
+			# recruitable pop?
+			experience_loss_factor = 0.2
+		}
+
+		complete_effect = {
+			GER_modify_industrial_modifier = yes
+			add_to_variable = { 
+				GER_industrial_consumer_goods_factor = -0.05
+				tooltip = consumer_goods_factor_tt
+			}
+		}
+	}
+
+	### Raubkrieg
+
+	SPT_GER_kreditkasse = { # Per Soviet RK
+		fire_only_once = yes
+		cost = 100
+
+		icon = GFX_decision_generic_fundraising
+
+		target_non_existing = yes
+		targets = { RKO RKU RKK RKM }
+
+		available = {
+			has_completed_focus = SPT_GER_raubkrieg	
+			FROM = {
+				exists = yes
+				has_capitulated = no
+			}
+		}
+
+		complete_effect = {
+			GER_modify_industrial_modifier = yes
+			add_to_variable = { 
+				GER_industrial_consumer_goods_factor = -0.10
+				tooltip = consumer_goods_factor_tt
+			}
+
+			FROM = {
+				every_controlled_state = {
+					add_resistance = 30
+				}
+			}
+		}
+		# RKO = Ostland
+		# RKU = Ukraine
+		# RKK = kaukasien
+		# RKM = Moskowien
+	}
+
+	# SPT_GER_schleusengenwinne = { # "smuggled profits"
+	# 	available = { has_completed_focus = SPT_GER_raubkrieg }
+	# 	cost = 50
+
+	# 	icon = GFX_decision_gre_paying_ifc_debt
+	# }
+
+	SPT_GER_ukrainian_granaries = {
+		fire_only_once = yes
+		cost = 75
+
+		icon = GFX_decision_generic_confiscation
+
+		available = {
+			has_completed_focus = SPT_GER_raubkrieg	
+			RKU = {
+				exists = yes
+				has_capitulated = no
+				all_owned_state = {
+					is_controlled_by_ROOT_or_ally = yes
+				}
+			}
+		}
+
+		complete_effect = {
+			GER_modify_industrial_modifier = yes
+			add_to_variable = { 
+				GER_industrial_consumer_goods_factor = -0.15
+				tooltip = consumer_goods_factor_tt
+			}
+
+			# Tooltip generation before RKU exists
+			if = {
+				limit = {
+					RKU = {
+						exists = no
+					}
+				}
+				custom_effect_tooltip = SPT_GER_ukrainian_granaries_not_exist_tt
+			}
+
+			RKU = {
+				every_controlled_state = {
+					add_resistance = 50
+				}
+			}
+		}
+	}
+}

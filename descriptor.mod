@@ -4,4 +4,4 @@ tags={
 }
 name="SPT's Historical MP Mod DEV"
 picture="Thumbnail.png"
-supported_version="1.15.*"
+supported_version="1.16.*"
