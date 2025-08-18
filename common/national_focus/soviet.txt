@@ -5302,11 +5302,12 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = SOV_military_engineering_university
-		cost = 10
+		cost = 4  #SPTchange 10 -> 4
 
 		mutually_exclusive = { focus = SOV_improve_the_stalin_line }
 
 		available = {
+			
 			OR = {
 				has_full_control_of_state = 188
 				has_full_control_of_state = 189
@@ -5321,7 +5322,6 @@ focus_tree = {
 				has_full_control_of_state = 766
 			}
 		}
-		
 		search_filters = {}
 
 		completion_reward = {
@@ -5543,7 +5543,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SOV_military_engineering_university
-		cost = 10
+		cost = 6  #SPTchange 10 -> 6
 
 		mutually_exclusive = { focus = SOV_the_molotov_line }
 
@@ -5563,13 +5563,14 @@ focus_tree = {
 		search_filters = {}
 
 		completion_reward = {
+			#SPTchange moved forts to more important locations. Also noted fort level changes
 			209 = {
 				if = {
 					limit = { is_fully_controlled_by = ROOT }
 					add_building_construction = {
 						type = bunker
-						level = 6
-						province = 415
+						level =  5 #SPTchange 7 -> 5
+						province = 11202
 						instant_build = yes
 					}
 				}
@@ -5591,19 +5592,19 @@ focus_tree = {
 					add_building_construction = {
 						type = bunker
 						level = 4
-						province = 3219
+						province = 9323
 						instant_build = yes
 					}
 					add_building_construction = {
 						type = bunker
 						level = 4
-						province = 6371
+						province = 11241
 						instant_build = yes
 					}
 					add_building_construction = {
 						type = bunker
 						level = 4
-						province = 6220
+						province = 11220
 						instant_build = yes
 					}
 				}
@@ -5624,13 +5625,13 @@ focus_tree = {
 					limit = { is_fully_controlled_by = ROOT }
 					add_building_construction = {
 						type = bunker
-						level = 7
+						level = 5 #SPTchange 7 -> 5
 						province = 525
 						instant_build = yes
 					}
 					add_building_construction = {
 						type = bunker
-						level = 7
+						level =  5 #SPTchange 7 -> 5
 						province = 3494
 						instant_build = yes
 					}
@@ -5642,8 +5643,8 @@ focus_tree = {
 					limit = { is_fully_controlled_by = ROOT }
 					add_building_construction = {
 						type = bunker
-						level = 7
-						province = 11409
+						level =  5 #SPTchange 7 ->5
+						province = 3452
 						instant_build = yes
 					}
 				}
@@ -5705,9 +5706,11 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_ARMY_XP}
 
 		completion_reward = {
-			army_experience = 15
+			army_experience = 25 #SPTchnge 15 -> 25
+			add_political_power = 30 #SPTchange
 			219 = {
 				custom_effect_tooltip = SOV_defense_of_moscow_forts
+				add_dynamic_modifier = { modifier = SPT_SOV_impregnable_forts scope = SOV }
 				hidden_effect = {
 					if = {
 						limit = {
@@ -5820,12 +5823,12 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = SOV_improve_the_stalin_line
-		cost = 10
+		cost = 6
 
 		available = {
+			has_war_with = GER
 			OR = {
 				has_full_control_of_state = 195 #LENINGRAD
-				has_full_control_of_state = 208 #LUGA
 				has_full_control_of_state = 137 #CRIMEA
 			}
 		}
@@ -5849,6 +5852,9 @@ focus_tree = {
 						province = {
 							id = 3151
 							id = 6174
+							id = 149
+							id = 11068
+							id = 79
 						}
 						instant_build = yes
 					}
@@ -5861,35 +5867,10 @@ focus_tree = {
 						}
 						instant_build = yes
 					}
-					add_dynamic_modifier = { modifier = SOV_krasnaya_gorka_battery scope = SOV }
+					
+					add_dynamic_modifier = { modifier = SPT_SOV_impregnable_forts scope = SOV }
 				}
 			}
-			if = {
-				limit = {
-					has_full_control_of_state = 208 #LUGA
-				}
-				208 = { #LUGA
-					add_building_construction = {
-						type = anti_air_building
-						level = 1
-						instant_build = yes
-					}
-					add_building_construction = {
-						type = bunker
-						level = 3
-						province = 9097
-						instant_build = yes
-					}
-					add_building_construction = {
-						type = coastal_bunker
-						level = 3
-						province = 9097
-						instant_build = yes
-					}
-					add_dynamic_modifier = { modifier = SOV_seraya_loshad_battery scope = SOV }
-				}
-			}
-
 			if = {
 				limit = {
 					has_full_control_of_state = 137 #CRIMEA
@@ -5912,7 +5893,7 @@ focus_tree = {
 						province = 3686
 						instant_build = yes
 					}
-					add_dynamic_modifier = { modifier = SOV_armored_battery_35 scope = SOV }
+					add_dynamic_modifier = { modifier = SPT_SOV_impregnable_forts scope = SOV }
 				}
 			}
 		}
@@ -6040,7 +6021,7 @@ focus_tree = {
 		x = 3
 		y = 1
 		relative_position_id = SOV_military_engineering_university
-		cost = 10
+		cost = 5 #SPTchange 10 -> 5
 
 		available = {
 			OR = {
@@ -6359,8 +6340,7 @@ focus_tree = {
 		x = 3
 		y = 2
 		relative_position_id = SOV_strengthen_the_mobilization_plan
-		cost = 10 #SPT change 5 -> 10
-
+		cost = 2
 		available = {
 			any_enemy_country = {
 				SOV_is_major_not_original_sov = yes
@@ -6385,8 +6365,7 @@ focus_tree = {
 		id = SOV_an_adaptable_army
 		icon = GFX_SOV_an_adaptable_army_ccp_2d_sov_compatibility
 		prerequisite = { focus = SOV_rehabilitated_military }
-		prerequisite = { focus = SOV_desperate_measures }
-		x = 1
+		x = -1
 		y = 1
 		relative_position_id = SOV_rehabilitated_military
 		cost = 10
@@ -6415,7 +6394,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = SOV_desperate_measures
-		cost = 5
+		cost = 10
 
 		available = {
 			NOT = { has_idea = SOV_desperate_measures_ns }
@@ -10051,7 +10030,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = SOV_undermine_stalins_authority
-		cost = 10
+		cost = 5
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 			#NOT = { has_idea = SOV_lavrenty_beriya } #SPT change, made beryia irrelevant
