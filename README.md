@@ -71,12 +71,19 @@
                              State modifier: no longer grants reduced encirclement penalty
                                              now grants +20% local supplies for controller
  - Focus 'Defence of Moskow' now grants 'Impregnable Forts' modifier to Moskow state
+                             Increased xp gained to 25 from 15
+                             now grants 30 political power
  - Focus 'PC of Mortar Armament' Military factory now prioritizes moskow state instead of forcing it
                                  If Germany denies treaty: now applies -75% artillery research speed for 250 days
                                  Research bonus if accepted reduced to 75% + 1y ahead of time, from 75% + 2y ahead of time
+ - Focus 'Infrastructure effort' now also prioritzes Novgorod
 
-- MIO 'Mytishchy Machina Building Plant' base conversion speed decreased to 5% from 10%
+ - MIO 'Mytishchy Machina Building Plant' base conversion speed decreased to 5% from 10%
                                          Trait 'Enemy tank refitting' increased output cost bonus to -2%, from -1%
+ - Removed Volkhov and Olonets Dams
+ - Added dam to Novgorod
+ - Reduced starting infra in Novgorod to 2 from 3
+
 
 #### USA
  - Focus 'Air War Plans Division' reduced ic reduction to -5%, from -10% 
@@ -90,7 +97,7 @@
 
 #### Tanks
  - Interwar light tank chassis cost increased to 1.21 from 0.7
- - 1934 lt chassis cost increased to
+ - 1934 lt chassis cost increased to 1.21 from 0.9
  - 1936 lt chassis cost increased to 1.42 from 1.3
  - 1941 lt chassis cost increased to 1.7 from 1.6
 
