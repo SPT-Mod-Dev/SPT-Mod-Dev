@@ -9,6 +9,7 @@
  - Special Project facilities have been returned to their vanilla IC build cost but are now affected by infrastructure level
 
 #### Germany
+ - MEFO Bills base monthly increase in Consumer Goods Factory factor: 3%->3.5%
  - Eisernes Sparen politlcal power cost 75 -> 50
  - Seize the Ukranian Grain harvest political power cost 100->75
  - Kreditkasse decision political power cost 200->100
