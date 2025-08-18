@@ -16,6 +16,13 @@
 
 #### Italy
  - Removed flame tank effects from focus 'Italian Tankettes' (avoiding a bug around special project progress >100%)
+ - Focus 'Regional Development' time to complete reduced to 35 days, from 70
+ - Focus 'Polizia della Africa Italiana' time to complete reduced to 35 days, from 70
+ - Focus 'Strengthen Ascari Corps' time to complete reduced to 35 days, from 70
+ - Focus 'Novus Ordo' time to complete reduced to 35 days, from 70
+ - Focus 'Reorganize the Party' political power reward reduced to 50, from 100
+ - Focus 'Economic Reforms' time to complete increased to 70 days, from 35
+ - Focus 'Improve The Industries' time to complete increased to 70 days, from 35
 
 #### Japan
  - No longer able to double dip on resource decisions targetting China
@@ -32,6 +39,9 @@
  - Focus 'Regimental loyalty' time to complete increased to 70 days, from 35 days
  - Focus 'Imperial Industry Initiative' efficiency cap reduced to 5%, from 10%
  - Focus 'Imperial Industry Initiative' efficiency growth reduced to 2.5%, from 5%
+ - Focus 'The Great Recovery' factory output reduced to 5%, from 10%
+ - Focus 'The Great Recovery' no longer grants civilian factories
+ - Focus 'Lions of The Great War' special forces cap reduced to 10%, from 15%
  - Focuses 'The Dominion of India', 'Keep Calm and Carry On', and 'South East Asia Command' sub-branch removed
 
 ### 3.14.10 'Grok, how do i make the Axis win?'
