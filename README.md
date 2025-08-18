@@ -8,6 +8,9 @@
  - Research 'Experimental Rockets' Year 1942->1941
  - Special Project facilities have been returned to their vanilla IC build cost but are now affected by infrastructure level
 
+#### Map
+ - Added more tiles around Leningrad, Moskow, Kyiv and Stalingrad
+
 #### Germany
  - MEFO Bills base monthly increase in Consumer Goods Factory factor: 3%->3.5%
  - Eisernes Sparen politlcal power cost 75 -> 50
@@ -49,6 +52,62 @@
  - National spirit 'Congress Shipbuilding Effort' dockyard output reduced to 10%, from 15%
  - National spirit 'Congress Productivity Effort' factory output reduced to 7.5%, from 10%
  - National spirit 'Congresss Construction Effort' construction speed reduced to 5%, from 15%
+
+ #### Brazil 
+ - Focus 'Military Interfernce' required support for military reduced to 23% from 25%
+ - Focus 'Exército Technical and Production Department' Military factory removed
+
+ #### Soviet Union
+ - Focus 'Improve Stalin Line' time to complete reduced to 42 days, from 70 days
+                               now adds forts to supplyhub tiles
+ - Focus 'Molotov Line' time to complete reduced to 28 days, from 70
+ - Focus 'Desperate Measures' time to complete reduced to 14 days, from 70
+ - Focus 'Lessons of War' time to complete increased to 70 days, from 35
+ - Focus 'Far East Fortification' time to complete reduced to 35 days, from 70
+ - Focus 'Plan for the Coup' time to complete reduced to 35 days from 70
+ - Focus 'Impregnable Forts' no longer builds forts in Luga state
+                             no longer applies state modifier in Luga state
+                             now builds forts on all Leningrad state tiles
+                             State modifier: no longer grants reduced encirclement penalty
+                                             now grants +20% local supplies for controller
+ - Focus 'Defence of Moskow' now grants 'Impregnable Forts' modifier to Moskow state
+ - Focus 'PC of Mortar Armament' Military factory now prioritizes moskow state instead of forcing it
+                                 If Germany denies treaty: now applies -75% artillery research speed for 250 days
+                                 Research bonus if accepted reduced to 75% + 1y ahead of time, from 75% + 2y ahead of time
+
+- MIO 'Mytishchy Machina Building Plant' base conversion speed decreased to 5% from 10%
+                                         Trait 'Enemy tank refitting' increased output cost bonus to -2%, from -1%
+
+#### USA
+ - Focus 'Air War Plans Division' reduced ic reduction to -5%, from -10% 
+ - Focus 'Air Support' reduced ic reduction to -5%, from -10% 
+ - Focus 'Escort Fighters' reduced research bonus to 120% from 100%
+ - Focus 'CAS effort' time to complete reduced to 35 days, from 70
+
+#### Infantry equipment
+ - 1939 Infanty equipment reduced defence to 26.5, from 28
+ - 1942 Infanty equipment reduced defence to 32, from 34
+
+#### Tanks
+ - Interwar light tank chassis cost increased to 1.21 from 0.7
+ - 1934 lt chassis cost increased to
+ - 1936 lt chassis cost increased to 1.42 from 1.3
+ - 1941 lt chassis cost increased to 1.7 from 1.6
+
+ - Interwar medium tank chassis cost reduced to 1.4 from 1.5
+ - 1937 mt chassis cost reduced to 2.15 from 2.5
+ - 1939 mt chassis cost reduced to 2.3 from 3.2
+ - 1942 mt chassis cost reduced to 2.5 from 4 
+
+ - Interwar heavy tank increased to 9.42 from 6.5
+ - 1934 ht incresed to 9.42 from 8.5
+ - 1940 ht decreased to 9.42 from 9.5
+ - 1943 ht decresed to 9.42 from 11
+
+ - Amphibius tank chassis reduced to 5 from 6
+
+ - Modren tank chassis reduced to 5 from 6
+ - Modrent tank turret cost reduced to 6 from 8
 
 ### 3.14.10 'Grok, how do i make the Axis win?'
 
