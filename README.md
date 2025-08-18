@@ -10,7 +10,7 @@
 
 #### Germany
  - Eisernes Sparen politlcal power cost 75 -> 50
- - Seize the Ukranian Grave harvest political power cost 100->75
+ - Seize the Ukranian Grain harvest political power cost 100->75
  - Kreditkasse decision political power cost 200->100
  - Abolish the Hauszinssteuer political power cost 100->150
  - Steuergutscheine political power cost 100->150
