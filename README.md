@@ -41,10 +41,14 @@
  - Focus 'Regimental loyalty' time to complete increased to 70 days, from 35 days
  - Focus 'Imperial Industry Initiative' efficiency cap reduced to 5%, from 10%
  - Focus 'Imperial Industry Initiative' efficiency growth reduced to 2.5%, from 5%
+ - Focus 'Imperial Industry Initiative' now requires Industry and Tools level 3 techs
  - Focus 'The Great Recovery' factory output reduced to 5%, from 10%
  - Focus 'The Great Recovery' no longer grants civilian factories
  - Focus 'Lions of The Great War' special forces cap reduced to 10%, from 15%
  - Focuses 'The Dominion of India', 'Keep Calm and Carry On', and 'South East Asia Command' sub-branch removed
+ - National spirit 'Congress Shipbuilding Effort' dockyard output reduced to 10%, from 15%
+ - National spirit 'Congress Productivity Effort' factory output reduced to 7.5%, from 10%
+ - National spirit 'Congresss Construction Effort' construction speed reduced to 5%, from 15%
 
 ### 3.14.10 'Grok, how do i make the Axis win?'
 
