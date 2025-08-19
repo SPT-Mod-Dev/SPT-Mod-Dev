@@ -84,12 +84,14 @@
  - Added dam to Novgorod
  - Reduced starting infra in Novgorod to 2 from 3
 
-
 #### USA
  - Focus 'Air War Plans Division' reduced ic reduction to -5%, from -10% 
  - Focus 'Air Support' reduced ic reduction to -5%, from -10% 
  - Focus 'Escort Fighters' reduced research bonus to 120% from 100%
  - Focus 'CAS effort' time to complete reduced to 35 days, from 70
+
+#### France
+ - Focus 'Artillery Focus' now accepts 'Infantry Tanks' as a prerequisite
 
 #### Infantry equipment
  - 1939 Infanty equipment reduced defence to 26.5, from 28
