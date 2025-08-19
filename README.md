@@ -89,6 +89,7 @@
  - Focus 'Air Support' reduced ic reduction to -5%, from -10% 
  - Focus 'Escort Fighters' reduced research bonus to 120% from 100%
  - Focus 'CAS effort' time to complete reduced to 35 days, from 70
+ - Investigate electoral fraud
 
 #### France
  - Focus 'Artillery Focus' now accepts 'Infantry Tanks' as a prerequisite
