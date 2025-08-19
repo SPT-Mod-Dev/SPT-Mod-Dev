@@ -1,5 +1,124 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.14.11 help
+
+#### General
+ - Reduced game speed 1 to 60 seconds per tick to mitigate unintended unpauses
+ - Special project 'Jet Engines' now also requires research 'Experimental Rockets'
+ - Research 'Experimental Rockets' Year 1942->1941
+ - Special Project facilities have been returned to their vanilla IC build cost but are now affected by infrastructure level
+
+#### Map
+ - Added more tiles around Leningrad, Moskow, Kyiv and Stalingrad
+
+#### Germany
+ - MEFO Bills base monthly increase in Consumer Goods Factory factor: 3%->3.5%
+ - Eisernes Sparen politlcal power cost 75 -> 50
+ - Seize the Ukranian Grain harvest political power cost 100->75
+ - Kreditkasse decision political power cost 200->100
+ - Abolish the Hauszinssteuer political power cost 100->150
+ - Steuergutscheine political power cost 100->150
+
+#### Italy
+ - Removed flame tank effects from focus 'Italian Tankettes' (avoiding a bug around special project progress >100%)
+ - Focus 'Regional Development' time to complete reduced to 35 days, from 70
+ - Focus 'Polizia della Africa Italiana' time to complete reduced to 35 days, from 70
+ - Focus 'Strengthen Ascari Corps' time to complete reduced to 35 days, from 70
+ - Focus 'Novus Ordo' time to complete reduced to 35 days, from 70
+ - Focus 'Reorganize the Party' political power reward reduced to 50, from 100
+ - Focus 'Economic Reforms' time to complete increased to 70 days, from 35
+ - Focus 'Improve The Industries' time to complete increased to 70 days, from 35
+
+#### Japan
+ - No longer able to double dip on resource decisions targetting China
+
+#### British Raj/India
+ - Focus 'Government of India Act' time to complete increased to 70 days, from 35 days
+ - Focus 'Work with Local Leaders' time to complete increased to 70 days, from 35 days
+ - Focus 'Concessions to Industrialists' time to complete increased to 70 days, from 35 days
+ - Focus 'Empower Provincial Authorities' time to complete increased to 70 days, from 35 days
+ - Focus 'Curtail The Zamindars' time to complete increased to 70 days, from 35 days
+ - Focus 'Expand the Zamindari System' time to complete increased to 70 days, from 35 days
+ - Focus 'Reform the Agricultural Sector' time to complete increased to 70 days, from 35 days
+ - Focus 'Local Recruitment Office' time to complete increased to 70 days, from 35 days
+ - Focus 'Regimental loyalty' time to complete increased to 70 days, from 35 days
+ - Focus 'Imperial Industry Initiative' efficiency cap reduced to 5%, from 10%
+ - Focus 'Imperial Industry Initiative' efficiency growth reduced to 2.5%, from 5%
+ - Focus 'Imperial Industry Initiative' now requires Industry and Tools level 3 techs
+ - Focus 'The Great Recovery' factory output reduced to 5%, from 10%
+ - Focus 'The Great Recovery' no longer grants civilian factories
+ - Focus 'Lions of The Great War' special forces cap reduced to 10%, from 15%
+ - Focuses 'The Dominion of India', 'Keep Calm and Carry On', and 'South East Asia Command' sub-branch removed
+ - National spirit 'Congress Shipbuilding Effort' dockyard output reduced to 10%, from 15%
+ - National spirit 'Congress Productivity Effort' factory output reduced to 7.5%, from 10%
+ - National spirit 'Congresss Construction Effort' construction speed reduced to 5%, from 15%
+
+ #### Brazil 
+ - Focus 'Military Interfernce' required support for military reduced to 23% from 25%
+ - Focus 'Exército Technical and Production Department' Military factory removed
+
+ #### Soviet Union
+ - Focus 'Improve Stalin Line' time to complete reduced to 42 days, from 70 days
+                               now adds forts to supplyhub tiles
+ - Focus 'Molotov Line' time to complete reduced to 28 days, from 70
+ - Focus 'Desperate Measures' time to complete reduced to 14 days, from 70
+ - Focus 'Lessons of War' time to complete increased to 70 days, from 35
+ - Focus 'Far East Fortification' time to complete reduced to 35 days, from 70
+ - Focus 'Plan for the Coup' time to complete reduced to 35 days from 70
+ - Focus 'Impregnable Forts' no longer builds forts in Luga state
+                             no longer applies state modifier in Luga state
+                             now builds forts on all Leningrad state tiles
+                             State modifier: no longer grants reduced encirclement penalty
+                                             now grants +20% local supplies for controller
+ - Focus 'Defence of Moskow' now grants 'Impregnable Forts' modifier to Moskow state
+                             Increased xp gained to 25 from 15
+                             now grants 30 political power
+ - Focus 'PC of Mortar Armament' Military factory now prioritizes moskow state instead of forcing it
+                                 If Germany denies treaty: now applies -75% artillery research speed for 250 days
+                                 Research bonus if accepted reduced to 75% + 1y ahead of time, from 75% + 2y ahead of time
+ - Focus 'Infrastructure effort' now also prioritzes Novgorod
+
+ - MIO 'Mytishchy Machina Building Plant' base conversion speed decreased to 5% from 10%
+                                         Trait 'Enemy tank refitting' increased output cost bonus to -2%, from -1%
+ - Removed Volkhov and Olonets Dams
+ - Added dam to Novgorod
+ - Reduced starting infra in Novgorod to 2 from 3
+
+#### USA
+ - Focus 'Air War Plans Division' reduced ic reduction to -5%, from -10% 
+ - Focus 'Air Support' reduced ic reduction to -5%, from -10% 
+ - Focus 'Escort Fighters' reduced research bonus to 120% from 100%
+ - Focus 'CAS effort' time to complete reduced to 35 days, from 70
+ - Investigate electoral fraud
+
+#### France
+ - Focus 'Artillery Focus' now accepts 'Infantry Tanks' as a prerequisite
+
+#### Infantry equipment
+ - 1939 Infanty equipment reduced defence to 26.5, from 28
+ - 1942 Infanty equipment reduced defence to 32, from 34
+
+#### Tanks
+ - Interwar light tank chassis cost increased to 1.21 from 0.7
+ - 1934 lt chassis cost increased to 1.21 from 0.9
+ - 1936 lt chassis cost increased to 1.42 from 1.3
+ - 1941 lt chassis cost increased to 1.7 from 1.6
+
+ - Interwar medium tank chassis cost reduced to 1.4 from 1.5
+ - 1937 mt chassis cost reduced to 2.15 from 2.5
+ - 1939 mt chassis cost reduced to 2.3 from 3.2
+ - 1942 mt chassis cost reduced to 2.5 from 4 
+
+ - Interwar heavy tank increased to 9.42 from 6.5
+ - 1934 ht incresed to 9.42 from 8.5
+ - 1940 ht decreased to 9.42 from 9.5
+ - 1943 ht decresed to 9.42 from 11
+
+ - Amphibius tank chassis reduced to 5 from 6
+
+ - Modren tank chassis reduced to 5 from 6
+ - Modrent tank turret cost reduced to 6 from 8
+
 ### 3.14.10 'Grok, how do i make the Axis win?'
 
 #### Map

@@ -17049,7 +17049,7 @@ focus = {
 	icon = GFX_focus_RAJ_his_majestys_loyal_government
 	
 	# x = 44
-    x = 0 # SPTchange
+    x = 5 # SPTchange
 	y = 0
 	relative_position_id = RAJ_great_depression_price_controls 
 	cost = 5
@@ -17130,7 +17130,7 @@ focus = {
 	x = -4
 	y = 1
 	relative_position_id = RAJ_his_majestys_loyal_government 
-	cost = 5
+	cost = 10 #SPT change 5 -> 10
 
 	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 
@@ -17211,7 +17211,7 @@ focus = {
 	x = 0
 	y = 1
 	relative_position_id = RAJ_the_government_of_india_act 
-	cost = 5
+	cost = 10 #SPT change 5 -> 10
 
 	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
 
@@ -17230,7 +17230,7 @@ focus = {
 	x = -1
 	y = 1
 	relative_position_id = RAJ_work_with_local_leaders 
-	cost = 5
+	cost = 10 #SPT change 5 -> 10
 
 	mutually_exclusive = { focus = RAJ_empower_provincial_authorities }
 
@@ -17266,7 +17266,7 @@ focus = {
 	x = 1
 	y = 1
 	relative_position_id = RAJ_work_with_local_leaders 
-	cost = 5
+	cost = 10 #SPT change 5 -> 10
 
 	mutually_exclusive = { focus = RAJ_concessions_to_the_industrialists }
 
@@ -17698,6 +17698,9 @@ focus = {
 		is_subject_of = ENG
 		has_autonomy_state = autonomy_dominion
 	}
+    allow_branch = { #spt change, hid focus/branch
+        always = no
+    }
 
 	search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_MANPOWER FOCUS_FILTER_STABILITY FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_TFV_AUTONOMY }
 
@@ -17741,7 +17744,7 @@ focus = {
 	x = 5
 	y = 1
 	relative_position_id = RAJ_work_with_local_leaders 
-	cost = 5
+	cost = 10 #SPT change 5 -> 10
 
 	mutually_exclusive = { focus = RAJ_expand_the_zamindari_system }
 
@@ -17818,6 +17821,12 @@ focus = {
 
 	available = {
 		has_tech = construction3
+        #spt change, added tech requirements
+        has_tech = advanced_machine_tools
+        OR = {
+            has_tech = concentrated_industry3
+            has_tech = dispersed_industry3
+        }
 	}
 
 	search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -17920,24 +17929,24 @@ focus = {
 				instant_build = yes
 			}
 		}
-		every_owned_state = {
-			limit = {
-				is_fully_controlled_by = ROOT
-				industrial_complex > 0
-				free_building_slots = {
-					building = industrial_complex
-					size > 0
-					include_locked = yes
-				}
-			}
-			random_select_amount = 2
-			add_extra_state_shared_building_slots = 2
-			add_building_construction = {
-				type = industrial_complex
-				level = 2
-				instant_build = yes
-			}
-		}
+		# every_owned_state = {
+		# 	limit = {
+		# 		is_fully_controlled_by = ROOT
+		# 		industrial_complex > 0
+		# 		free_building_slots = {
+		# 			building = industrial_complex
+		# 			size > 0
+		# 			include_locked = yes
+		# 		}
+		# 	}
+		# 	random_select_amount = 2
+		# 	add_extra_state_shared_building_slots = 2
+		# 	add_building_construction = {
+		# 		type = industrial_complex
+		# 		level = 2
+		# 		instant_build = yes
+		# 	}
+		# }
 		every_owned_state = {
 			limit = {
 				is_fully_controlled_by = ROOT
@@ -17967,7 +17976,7 @@ focus = {
 	x = 1
 	y = 1
 	relative_position_id = RAJ_curtail_the_zamindars 
-	cost = 5
+	cost = 10 #SPT change 5 -> 10
 
 	search_filters = { FOCUS_FILTER_STABILITY }
 
@@ -17989,7 +17998,7 @@ focus = {
 	x = 4
 	y = 0
 	relative_position_id = RAJ_curtail_the_zamindars 
-	cost = 5
+	cost = 10 #SPT change 5 -> 10
 
 	mutually_exclusive = { focus = RAJ_curtail_the_zamindars }
 
@@ -18763,6 +18772,10 @@ focus = {
 		arms_factory > 39
 	}
 
+    allow_branch = { #spt change, hid focus/branch
+        always = no
+    }
+
 	search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH FOCUS_FILTER_TFV_AUTONOMY }
 
 	completion_reward = {
@@ -18834,7 +18847,7 @@ focus = {
 	icon = GFX_focus_RAJ_indian_gentlemen_offcers
 	prerequisite = { focus = RAJ_his_majestys_loyal_government }
 	
-	x = 14
+	x = 10 #spt change, moved a lil
 	y = 1
 	relative_position_id = RAJ_his_majestys_loyal_government 
 	cost = 5
@@ -19762,6 +19775,10 @@ focus = {
 	}
 
 	search_filters = {  }
+
+    allow_branch = { #spt change, hid focus/branch
+        always = no
+    }
 
 	completion_reward = {
 		custom_effect_tooltip = RAJ_south_east_asia_command_rename_dm_tt
@@ -22367,7 +22384,7 @@ focus = {
         y = 0
         relative_position_id = RAJ_military_pensions
         
-        cost = 5
+        cost = 10 #spt change 5 -> 10
 
         ai_will_do = {
             factor = 1
@@ -23009,7 +23026,7 @@ focus = {
         y = 0
         relative_position_id = RAJ_relax_agrarian_society_criteria
         
-        cost = 5
+        cost = 10 #spt change 5 -> 10
 
         ai_will_do = {
             factor = 1
