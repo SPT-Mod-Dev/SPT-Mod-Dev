@@ -98,11 +98,16 @@
  - 1939 Infanty equipment reduced defence to 26.5, from 28
  - 1942 Infanty equipment reduced defence to 32, from 34
 
+#### MIO
+ - Focke Wulf Organiation 'Radial Engines' Removed Agility
+                                           Added 2% Speed
+ - Messerschmitt Organisation 'Fuelussage-Based Weapons' added 2% defence
+
 #### Tanks
  - Interwar light tank chassis cost increased to 1.20 from 0.7
  - 1934 lt chassis cost increased to 1.20 from 0.9
  - 1936 lt chassis cost increased to 1.41 from 1.3
- - 1941 lt chassis cost reduced to 1.62 from 1.7
+ - 1941 lt chassis cost reduced to 1.65 from 1.7
 
  - Interwar medium tank chassis cost reduced to 1.4 from 1.5
  - 1937 mt chassis cost reduced to 2.15 from 2.5
@@ -125,6 +130,9 @@
  - Removed extra chromium cost for upgrading armour to 15 clicks
 
  - Advanced Small Cannon increased ic cost to 2.7, from 2.5
+                         decreased soft attack to 28, from 29
+                         decreased hard attack to 17.5, from 18.5
+                         decreased breakthrough to 6.5, from 7.5
  - Improved Medium Cannon reduced speed penalty to -0.2, from -0.3
  - Advanced Medium Cannon increased soft attack to 34.5, from 33.5
                           increased hard attack to 26, from 25
