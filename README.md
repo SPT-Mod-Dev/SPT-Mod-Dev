@@ -104,6 +104,8 @@
  - Messerschmitt Organisation 'Fuelussage-Based Weapons' added 2% defence
 
 #### Tanks
+ - Fixed conversion costs
+
  - Interwar light tank chassis cost increased to 1.20 from 0.7
  - 1934 lt chassis cost increased to 1.20 from 0.9
  - 1936 lt chassis cost increased to 1.41 from 1.3
