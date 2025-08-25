@@ -1,4 +1,104 @@
 # Saving Private Tryin' Historical MP Full Changelog
+### 3.14.12 Awake
+
+#### Army doctrine
+(deep battle)
+ - 'Large front offensive' Tank HP increased to 3 from 2
+ - 'Mechanized Wave' Armoured recon company organization increased to 3 from 1
+ - 'Contious Offensive' Added 3% planning
+
+#### Airforice command
+- 'Total devestation' Decreased strat bombing to 10% from 20%
+                      Added ground support +10%
+
+#### Italy 
+ - Focus 'Thermojet Research' reduced ahead of time bonus to 0.5 from 1
+
+#### Soviet Union
+ - Focus 'Plan for the coup' time to complete increased to 49 to 35 days
+ - Focus 'Planned economy' now applies NEP to allies instead of puppets
+ - Focus 'For the Common Good' allied version of applied spirit no longer grants 5% of civillian industry to Soviet Union 
+
+ - Upgraded Bukharin no longer grants -2% factory output penalty
+                     reduced civilian intel to others to 10% from 15
+                     political power gain no longer upgraded (remains at +10%)
+
+#### USA
+ - Focus 'Air Support' reduced time to complete to 35 from 70 days
+ - Focus 'Strategic Bombing' reduced time to complete to 35 from 70 days
+
+#### Tanks
+ - Interwar Medium tank chassis ic cost increased to 1.7 from 1.4
+ - 1937 Mt chassis ic cost intcreased to 2.4 from 2.15
+                      increased reliability to 0.85 from 0.8
+                      added 1 breakthrough
+ - 1939 Mt chassis incost increased to 2.55 from 2.3
+                       added 2.5 breakthrough 
+ - 1942 Mt chassis ic cost increased to 2.65 from 2.45
+                       added 4 breakthrough
+ - 1936 Heavy tank chassis added 1.5 breakthrough
+ - 1940 Ht chassis added 3 breakthrough
+                   added 5% reliability
+ - 1943 Ht chassis added 4.5 breakthrough
+                   added 5% reliability
+ - Light one man turret ic cost increased to 0.7 from 0.5
+ - Light two man ic cost increased to 1.2 from 1
+ - Light three man ic cost increased to 1.7 from 1.5
+ - Light fixed ic cost increased to 1 from 0.75
+ - Medium one man turret ic cost decreased to 1.7 from 2
+ - Medium two man ic cost decreased to 2.5 from 3
+ - Medium three man ic cost decreased to 3.5 from 4
+ - Medium fixed ic cost decreased to 2 from 2.5
+ - Heavy two man turret soft and hard attack modifier increased to 3% was 2.5%
+ - Heavy three man turret reduced speed penalty to -0.9 from -1
+                          soft and hard attack modifier increased to 6% from 5%
+
+ - Medium cannon I increased soft attack to 26 from 24
+                             hard attack to 18.5 from 16.5
+ - Medium cannon II increased soft attack to 31 from 28.5
+                              hard attack to 21.5 from 19
+                    decreased ic cost to 2.75 from 3
+ - Medium cannon III increased soft attack to 37.5 from 34.5
+                               hard attack to 28.5 from 26
+                     decreased ic cost to 3.75 from 4
+ - Medium howitzer increased soft attack to 47 from 45
+ - Medium howitzer II increased soft attack to 53 from 51
+ - Heavy howitzer increased soft attack to 69 from 68
+ - Rocket launcher increased soft attack to 51 from 48
+                   decreased ic cost to 3.75 from 4
+ - Rocket launcher II increased soft attack to 60.5 from 59.5
+                      decreased ic cost to 4.5  from 5
+ - High velocity cannon II reduced ic cost to 4 from 4.5
+                           reduced piercing from 120 to 118
+ - High velocity cannon III reduced ic cost to 6 from 6.5
+                            reduced piercing to 158 from 162
+                            increased hard attack to 36 from 35
+ - Heavy cannon I increased soft attack to 29.5 from 28.5
+                             hard attack to 23.5 from 22.5
+ - Heavy cannon II increased soft attack to 35 from 34
+                             hard attack to 27 from 25
+ - Heavy cannon III increased soft attack to 40.5 from 39 
+                              hard attack to 34.5 from 33
+                    reduced piercing to 108 from 106
+ - Super heavy cannon increased soft attack to 50 from 49.5
+                                hard attack to 44.5 from 44
+
+ - Radio II reduced ic cost to 1.4 from 1.5
+ - Radion III reduced ic cost to 2.15 from 2.25
+ - Stabilizer reduced breakthrough to 4 from 6
+              reduced ic cost to 1.4 from 1.5
+              increased sa 3-4
+              increased ha 3-4
+ - Expanded Fuel tank increased fuel capacity to 150 from 100
+
+#### Planes
+- 6 engines tier I reduced ic cost to 66 from 68
+            tier II reduced ic cost to 76 from 80
+            tier III reduced ic cost to 88 from 92
+            tier IV reduced ic cost to 102 from 108
+ - Air-Ground radar strat bombing multiplier redued to 5% from 10%
+ - Air-Ground radar II strat bombing multiplier redued to 7.5% from 20%
+
 
 ### 3.14.11 help
 

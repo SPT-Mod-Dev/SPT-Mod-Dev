@@ -10030,7 +10030,7 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = SOV_undermine_stalins_authority
-		cost = 5
+		cost = 7 #SPTchange 10 -> 7
 		available = {
 			SOV_soviet_civil_war_not_started = yes 
 			#NOT = { has_idea = SOV_lavrenty_beriya } #SPT change, made beryia irrelevant
@@ -10430,10 +10430,10 @@ focus_tree = {
 
 		completion_reward = {
 			if = {
-				limit = {
-					num_subjects > 0
-				}
-				every_subject_country = {
+				#limit = {
+			#		num_subjects > 0
+			#	}
+				every_allied_country = {
 					country_event = { id = NSB_soviet_planned_economy.1 }
 					effect_tooltip = {
 						add_tech_bonus = {
@@ -10454,7 +10454,7 @@ focus_tree = {
 						else = {
 							add_ideas = new_economic_policy
 						}
-
+						
 					}
 				}
 			}
