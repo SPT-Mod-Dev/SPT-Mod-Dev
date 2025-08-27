@@ -7,6 +7,10 @@
  - 'Mechanized Wave' Armoured recon company organization increased to 3 from 1
  - 'Contious Offensive' Added 3% planning
 
+#### Air Doctrine
+ - Flying forterss reduced stratbomber defence to 20% from 25%
+ - Mass Destruction redced stratbombing to 15% from 20%
+
 #### Airforice command
 - 'Total devestation' Decreased strat bombing to 10% from 20%
                       Added ground support +10%
@@ -98,6 +102,13 @@
             tier IV reduced ic cost to 102 from 108
  - Air-Ground radar strat bombing multiplier redued to 5% from 10%
  - Air-Ground radar II strat bombing multiplier redued to 7.5% from 20%
+
+#### Combat tactic
+ - Masterfull bliz cobat with increased to 20% was 10%
+                   attacker tactic damage decreased to 15% from 10%
+ - Guerilla tactic combatwidth reduced to 40% from 50%
+                   attacker tactic damage reduction increased to -45% from -40%
+                   defender tactic damage reduction increased to -35% from -30%
 
 
 ### 3.14.11 help
