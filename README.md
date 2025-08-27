@@ -182,33 +182,50 @@
                              State modifier: no longer grants reduced encirclement penalty
                                              now grants +20% local supplies for controller
  - Focus 'Defence of Moskow' now grants 'Impregnable Forts' modifier to Moskow state
+                             Increased xp gained to 25 from 15
+                             now grants 30 political power
  - Focus 'PC of Mortar Armament' Military factory now prioritizes moskow state instead of forcing it
                                  If Germany denies treaty: now applies -75% artillery research speed for 250 days
                                  Research bonus if accepted reduced to 75% + 1y ahead of time, from 75% + 2y ahead of time
+ - Focus 'Infrastructure effort' now also prioritzes Novgorod
 
-- MIO 'Mytishchy Machina Building Plant' base conversion speed decreased to 5% from 10%
+ - MIO 'Mytishchy Machina Building Plant' base conversion speed decreased to 5% from 10%
                                          Trait 'Enemy tank refitting' increased output cost bonus to -2%, from -1%
+ - Removed Volkhov and Olonets Dams
+ - Added dam to Novgorod
+ - Reduced starting infra in Novgorod to 2 from 3
 
 #### USA
  - Focus 'Air War Plans Division' reduced ic reduction to -5%, from -10% 
  - Focus 'Air Support' reduced ic reduction to -5%, from -10% 
  - Focus 'Escort Fighters' reduced research bonus to 120% from 100%
  - Focus 'CAS effort' time to complete reduced to 35 days, from 70
+ - Investigate electoral fraud
+
+#### France
+ - Focus 'Artillery Focus' now accepts 'Infantry Tanks' as a prerequisite
 
 #### Infantry equipment
  - 1939 Infanty equipment reduced defence to 26.5, from 28
  - 1942 Infanty equipment reduced defence to 32, from 34
 
+#### MIO
+ - Focke Wulf Organiation 'Radial Engines' Removed Agility
+                                           Added 2% Speed
+ - Messerschmitt Organisation 'Fuelussage-Based Weapons' added 2% defence
+
 #### Tanks
- - Interwar light tank chassis cost increased to 1.21 from 0.7
- - 1934 lt chassis cost increased to
- - 1936 lt chassis cost increased to 1.42 from 1.3
- - 1941 lt chassis cost increased to 1.7 from 1.6
+ - Fixed conversion costs
+
+ - Interwar light tank chassis cost increased to 1.20 from 0.7
+ - 1934 lt chassis cost increased to 1.20 from 0.9
+ - 1936 lt chassis cost increased to 1.41 from 1.3
+ - 1941 lt chassis cost reduced to 1.65 from 1.7
 
  - Interwar medium tank chassis cost reduced to 1.4 from 1.5
  - 1937 mt chassis cost reduced to 2.15 from 2.5
  - 1939 mt chassis cost reduced to 2.3 from 3.2
- - 1942 mt chassis cost reduced to 2.5 from 4 
+ - 1942 mt chassis cost reduced to 2.45 from 4 
 
  - Interwar heavy tank increased to 9.42 from 6.5
  - 1934 ht incresed to 9.42 from 8.5
@@ -217,8 +234,31 @@
 
  - Amphibius tank chassis reduced to 5 from 6
 
- - Modren tank chassis reduced to 5 from 6
- - Modrent tank turret cost reduced to 6 from 8
+ - Modren tank chassis cost reduced to 5 from 6
+ - Modren tank turret cost reduced to 6 from 8
+
+ - Extra Chromium cost for upgrading engine now applies when upgrading to 13 clicks
+ - Added extra steel cost for upgrading engine to 8 clicks
+ - Removed extra steel cost for upgrading armour to 10 clicks
+ - Removed extra chromium cost for upgrading armour to 15 clicks
+
+ - Advanced Small Cannon increased ic cost to 2.7, from 2.5
+                         decreased soft attack to 28, from 29
+                         decreased hard attack to 17.5, from 18.5
+                         decreased breakthrough to 6.5, from 7.5
+ - Improved Medium Cannon reduced speed penalty to -0.2, from -0.3
+ - Advanced Medium Cannon increased soft attack to 34.5, from 33.5
+                          increased hard attack to 26, from 25
+                          reduced speed penalty to -0.25, from -0.3
+                          reduced ic cost to 4 from 4.5
+ - Medium Howitzer removed chormoium cost
+                   reduced ic cost to 2.5, from 3
+ - Improved Medium Howitzer reduced tungsten cost to 2, from 3
+                            reduced chromium cost to 1, from 2
+                            reduced ic cost to 3.5, from 5
+ - Heavy Howitzer reduced chromium cost to 2, from 3
+                  reduced speed penalty to -0.4 from -0.5
+                  reduced ic cost to 5.5, from 7
 
 ### 3.14.10 'Grok, how do i make the Axis win?'
 
