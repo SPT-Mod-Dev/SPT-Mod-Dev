@@ -23,6 +23,10 @@
  - 'Total Devastation' Decreased strat bombing to 10% from 20%
                       Added ground support +10%
 
+#### British Raj
+ - Removed focus 'Princely State Donations'
+ - Focus 'The Jewel Becomes the Crown' now strictly requries Britain to have capitulated
+
 #### Germany
  - New MEFO Bills scaling penalty: Expected Consumer Goods scales with Consumer Goods Factory factor, up to 5% when Consumer Goods Factory factor is 200%. 
    - Note that this extra ECG is still multiplied by CGFF when determining the final number of factories needed on Consumer Goods

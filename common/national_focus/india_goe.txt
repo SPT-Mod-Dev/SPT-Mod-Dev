@@ -17563,6 +17563,9 @@ focus = {
 	y = 2
 	relative_position_id = RAJ_court_the_princes 
 	cost = 5
+    allow_branch = { #spt change, hid focus/branch
+        always = no
+    }
 
 	search_filters = { FOCUS_FILTER_MANPOWER FOCUS_FILTER_INDUSTRY }
 
@@ -17590,7 +17593,7 @@ focus = {
 		ENG = {
 			OR = {
 				has_capitulated = yes
-				surrender_progress > 0.05
+				# surrender_progress > 0.05 # SPTchange lol
 			}
 			is_ally_with = ROOT
 		}
