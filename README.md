@@ -20,8 +20,16 @@
  - Mass Destruction redced stratbombing to 15% from 20%
 
 #### Air Force Command
-- 'Total Devastation' Decreased strat bombing to 10% from 20%
+ - 'Total Devastation' Decreased strat bombing to 10% from 20%
                       Added ground support +10%
+
+#### Germany
+ - New MEFO Bills scaling penalty: Expected Consumer Goods scales with Consumer Goods Factory factor, up to 5% when Consumer Goods Factory factor is 200%. 
+   - Note that this extra ECG is still multiplied by CGFF when determining the final number of factories needed on Consumer Goods
+ - MEFO Bills maximum Consumer Goods Factory factor limit 300%->200%
+ - MEFO Bills base monthly increase in Consumer Goods Factory factor: 3.5%->3%
+ - Focus 'Uplift the Rosenberg Office' reduced to 14 days, from 35
+ - Fixed bug where MEFO Bills increased twice in the month it exceeded 100%
 
 #### Italy 
  - Focus 'Thermojet Research' reduced ahead of time bonus to 0.5 from 1
