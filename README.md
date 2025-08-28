@@ -11,6 +11,7 @@
 #### Combat Tactics
  - Masterfull Bliz combat width increased to 20% was 10%
                    attacker tactic damage decreased to 15% from 10%
+                   defender tactic damage decreased to 15% from 10%
  - Guerilla Tactics combat width reduced to 40% from 50%
                    attacker tactic damage reduction increased to -45% from -40%
                    defender tactic damage reduction increased to -35% from -30%
@@ -45,7 +46,6 @@
  - Focus 'Plan for the coup' time to complete increased to 49 to 35 days
  - Focus 'Planned economy' now applies NEP to allies instead of puppets
  - Focus 'For the Common Good' allied version of applied spirit no longer grants 5% of civillian industry to Soviet Union 
-
  - Upgraded Bukharin no longer grants -2% factory output penalty
                      reduced civilian intel to others to 10% from 15
                      political power gain no longer upgraded (remains at +10%)
@@ -59,9 +59,9 @@
  - 1937 Mt chassis ic cost intcreased to 2.4 from 2.15
                       increased reliability to 0.85 from 0.8
                       added 1 breakthrough
- - 1939 Mt chassis incost increased to 2.55 from 2.3
+ - 1939 Mt chassis incost increased to 2.5 from 2.3
                        added 2.5 breakthrough 
- - 1942 Mt chassis ic cost increased to 2.65 from 2.45
+ - 1942 Mt chassis ic cost increased to 2.55 from 2.45
                        added 4 breakthrough
  - 1936 Heavy tank chassis added 1.5 breakthrough
  - 1940 Ht chassis added 3 breakthrough
@@ -82,12 +82,13 @@
 
  - Medium cannon I increased soft attack to 26 from 24
                              hard attack to 18.5 from 16.5
- - Medium cannon II increased soft attack to 31 from 28.5
-                              hard attack to 21.5 from 19
+ - Medium cannon II increased soft attack to 30.5 from 28.5
+                              hard attack to 22 from 19
                     decreased ic cost to 2.75 from 3
- - Medium cannon III increased soft attack to 37.5 from 34.5
+ - Medium cannon III increased soft attack to 37 from 34.5
                                hard attack to 28.5 from 26
                      decreased ic cost to 3.75 from 4
+                     decreased piercing to 70 from 72
  - Medium howitzer increased soft attack to 47 from 45
  - Medium howitzer II increased soft attack to 53 from 51
  - Heavy howitzer increased soft attack to 69 from 68
@@ -95,37 +96,40 @@
                    decreased ic cost to 3.75 from 4
  - Rocket launcher II increased soft attack to 60.5 from 59.5
                       decreased ic cost to 4.5  from 5
- - High velocity cannon II reduced ic cost to 4 from 4.5
-                           reduced piercing from 120 to 118
- - High velocity cannon III reduced ic cost to 6 from 6.5
-                            reduced piercing to 158 from 162
+ - High velocity cannon II decreased ic cost to 4 from 4.5
+                           decreased piercing from 120 to 118
+ - High velocity cannon III decreased ic cost to 6 from 6.5
+                            decreased piercing to 158 from 162
                             increased hard attack to 36 from 35
  - Heavy cannon I increased soft attack to 29.5 from 28.5
                              hard attack to 23.5 from 22.5
  - Heavy cannon II increased soft attack to 35 from 34
                              hard attack to 27 from 25
- - Heavy cannon III increased soft attack to 40.5 from 39 
-                              hard attack to 34.5 from 33
-                    reduced piercing to 108 from 106
+ - Heavy cannon III increased soft attack to 40 from 39 
+                              hard attack to 34 from 33
+                    decreased piercing to 108 from 106
  - Super heavy cannon increased soft attack to 50 from 49.5
                                 hard attack to 44.5 from 44
 
- - Radio II reduced ic cost to 1.4 from 1.5
- - Radio III reduced ic cost to 2.15 from 2.25
- - Stabilizer reduced breakthrough to 4 from 6
-              reduced ic cost to 1.4 from 1.5
-              increased sa 3-4
-              increased ha 3-4
+ - Radio II decreased ic cost to 1.4 from 1.5
+ - Radio III decreased ic cost to 2.1 from 2.25
+ - Stabilizer decreased breakthrough to 4 from 6
+              decreased ic cost to 1.4 from 1.5
+              increased soft attack to 4 from 3
+              increased hard attack to 4 from 3
  - Expanded Fuel tank increased fuel capacity to 150 from 100
 
 #### Planes
-- 6 engines tier I reduced ic cost to 66 from 68
-            tier II reduced ic cost to 76 from 80
-            tier III reduced ic cost to 88 from 92
-            tier IV reduced ic cost to 102 from 108
+- 6 engines tier I decreased ic cost to 66 from 68
+            tier II decreased ic cost to 76 from 80
+            tier III decreased ic cost to 88 from 92
+            tier IV decreased ic cost to 102 from 108
  - Air-Ground radar strat bombing multiplier redued to 5% from 10%
  - Air-Ground radar II strat bombing multiplier redued to 7.5% from 20%
 
+#### Infantry
+ - Infantry equipment II defence increased to 28 from 26.5
+ - Infantry equipment III defence increased to 34 from 32
 
 ### 3.14.11 help
 
