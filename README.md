@@ -1,5 +1,14 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.14.13 Parker Patch
+
+#### France
+ - New focus 'Intervention in Spain' (35 days) with effect:
+   - Can send volunteers
+   - Volunteer tension limit -100%
+   - Volunteer divisions +2
+   - Divisions required to be allowed to send: -100%
+
 ### 3.14.12 Awake
 
 #### Army Doctrine
