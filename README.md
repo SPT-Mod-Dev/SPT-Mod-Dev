@@ -2,6 +2,10 @@
 
 ### 3.14.13 Parker Patch
 
+#### General
+ - Spanish Civil War has been transformed into a thunderdome for meme game
+  - All minors, several allied majors receive a spirit to send at least 3 vols, without tension or army size requirements
+
 #### France
  - New focus 'Intervention in Spain' (35 days) with effect:
    - Can send volunteers
