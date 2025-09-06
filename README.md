@@ -13,6 +13,8 @@
    - Volunteer tension limit -100%
    - Volunteer divisions +2
    - Divisions required to be allowed to send: -100%
+ - On capitulation, capital will move to Casablanca or, failing that, Brazzaville (Upper Congo)
+ - Debugging decisions to force move capital to a few alternatives
 
 ### 3.14.12 Awake
 

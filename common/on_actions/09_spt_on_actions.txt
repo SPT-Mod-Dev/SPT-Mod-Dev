@@ -708,6 +708,36 @@ on_actions = {
 	}
 	on_capitulation = {
 		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = FRA
+					}
+					# NOT = { has_global_flag = france_fallen }
+				}
+				set_global_flag = france_fallen
+				if = {
+					limit = {
+						461 = { is_controlled_by = FRA } 
+					}					
+					FRA = { 
+						set_capital = {
+							state = 461
+						}	
+					}
+				}
+				else_if = {
+					limit = {
+						272 = { is_controlled_by = FRA } 
+					}					
+					FRA = { 
+						set_capital = {
+							state = 272
+						}	
+					}
+				}
+		}
+		effect = {
 			#Checks if jap or usa cap each other
 			if = {
 				limit = {
