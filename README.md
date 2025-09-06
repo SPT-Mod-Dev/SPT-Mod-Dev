@@ -1,8 +1,9 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.14.13 Parker Patch
+### 3.14.13
 
 #### General
+ - Miscallaneous optimizations to reduce rendering, combat logs
  - Spanish Civil War has been transformed into a thunderdome for meme game
   - All minors, several allied majors receive a spirit to send at least 3 vols, without tension or army size requirements
 
