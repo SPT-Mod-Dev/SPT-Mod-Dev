@@ -5,7 +5,7 @@
 #### General
  - Miscallaneous optimizations to reduce rendering, combat logs
  - Spanish Civil War has been transformed into a thunderdome for meme game
-  - All minors, several allied majors receive a spirit to send at least 3 vols, without tension or army size requirements
+   - All minors, several allied majors receive a spirit to send at least 3 vols, without tension or army size requirements
 
 #### France
  - New focus 'Intervention in Spain' (35 days) with effect:
@@ -13,7 +13,7 @@
    - Volunteer tension limit -100%
    - Volunteer divisions +2
    - Divisions required to be allowed to send: -100%
- - On capitulation, capital will move to Casablanca or, failing that, Brazzaville (Upper Congo)
+ - On capitulation, capital will move to Casablanca or, failing that, Brazzaville (Middle Congo)
  - Debugging decisions to force move capital to a few alternatives
 
 ### 3.14.12 Awake
