@@ -4,6 +4,7 @@
 
 #### General
  - Miscallaneous optimizations to reduce rendering, combat logs
+ - Removed increasing civilian factory cost for later technology licenses. Most licenses should cost 1 civ. 
  - Spanish Civil War has been transformed into a thunderdome for meme game
    - All minors, several allied majors receive a spirit to send at least 3 vols, without tension or army size requirements
 
