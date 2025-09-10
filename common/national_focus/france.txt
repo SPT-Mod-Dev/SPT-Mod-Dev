@@ -3583,13 +3583,16 @@
 	focus = {
 		id = FRA_intervention_in_spain
 		icon = GFX_focus_focus_fra_intervention_spain
-		x = 7
-		y = 2
+		# x = 7
+		# y = 2
+		x = 3
+		y = 1
 		offset = {
 			x = 0
 			y = 0
 		}
 		prerequisite = {
+			focus = FRA_form_the_popular_front
 			focus = FRA_revive_the_national_bloc
 		}
 		
@@ -3601,7 +3604,7 @@
 		}
 
 		available = {
-			SPR_scw_in_progress = yes
+			# SPR_scw_in_progress = yes
 			is_subject = no
 		}
 		
@@ -3614,8 +3617,10 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			unlock_decision_category_tooltip = FRA_spanish_intervention_category
-			set_country_flag = FRA_non_intervention
+			set_rule = { can_send_volunteers = yes }
+			add_ideas = EST_volunteer_corps
+			# unlock_decision_category_tooltip = FRA_spanish_intervention_category
+			# set_country_flag = FRA_non_intervention
 		}
 	}
 	focus = {
