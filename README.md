@@ -1,5 +1,22 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.14.13
+
+#### General
+ - Miscallaneous optimizations to reduce rendering, combat logs
+ - Removed increasing civilian factory cost for later technology licenses. Most licenses should cost 1 civ. 
+ - Spanish Civil War has been transformed into a thunderdome for meme game
+   - All minors, several allied majors receive a spirit to send at least 3 vols, without tension or army size requirements
+
+#### France
+ - New focus 'Intervention in Spain' (35 days) with effect:
+   - Can send volunteers
+   - Volunteer tension limit -100%
+   - Volunteer divisions +2
+   - Divisions required to be allowed to send: -100%
+ - On capitulation, capital will move to Casablanca or, failing that, Brazzaville (Middle Congo)
+ - Debugging decisions to force move capital to a few alternatives
+
 ### 3.14.12 Awake
 
 #### Army Doctrine

@@ -375,5 +375,41 @@ ideas = {
 				artillery = -0.75
 			}
 		}
+		
+		SPT_scw_thunderdome = {
+
+			allowed = {
+			}
+
+			allowed_civil_war = {
+			}
+
+			removal_cost = -1
+
+			picture = por_volunteers_in_the_war
+
+			rule = {
+				can_send_volunteers = yes
+			}
+
+			modifier = {
+				# Tension required to send
+				send_volunteers_tension = -1
+				# Divsiions required to even be allowed to send
+				send_volunteer_divisions_required = -1
+				# Flat additional volunteers allowed to send, ignoring own divs and Spain provinces
+				send_volunteer_size = 2
+
+				# Multiplier on how many vols you can send based on actual number of divisions?
+				# send_volunteer_factor = 10000
+			}
+
+			cancel = {
+				has_global_flag = spanish_civil_war
+				SPA = {
+					has_war = no
+				}
+			}
+		}
 	}
 }

@@ -348,6 +348,37 @@ on_actions = {
 					}
 				}
 			}
+
+			# SCW Meme game
+			every_country = {
+				if = {
+					limit = {
+						is_ai = no
+						OR = {
+							tag = HUN
+							tag = ROM
+							tag = BUL
+							tag = FIN
+							tag = DEN
+							tag = SIA
+							tag = MAN
+							tag = USA
+							tag = ENG
+							tag = FRA
+							tag = AUS
+							tag = RAJ
+							tag = CAN
+							tag = BRA
+							tag = NZL
+							tag = SAF
+							tag = MEX
+							tag = HOL
+							tag = MON
+						}
+					}
+					add_ideas = SPT_scw_thunderdome
+				}
+			}
 		}
 	}
 	on_state_control_changed = {
@@ -677,6 +708,35 @@ on_actions = {
 	}
 	on_capitulation = {
 		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = FRA
+					}
+					# NOT = { has_global_flag = france_fallen }
+				}
+				set_global_flag = france_fallen
+				if = {
+					limit = {
+						461 = { is_controlled_by = FRA } 
+					}					
+					FRA = { 
+						set_capital = {
+							state = 461
+						}	
+					}
+				}
+				else_if = {
+					limit = {
+						272 = { is_controlled_by = FRA } 
+					}					
+					FRA = { 
+						set_capital = {
+							state = 272
+						}	
+					}
+				}
+		}
 			#Checks if jap or usa cap each other
 			if = {
 				limit = {
