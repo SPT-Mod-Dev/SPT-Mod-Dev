@@ -7,6 +7,9 @@
 #### France
  - Nerfed Intervention in Spain spirit: only enables vols, removes tension requirements, and blocks air volunteers
 
+#### Mexico
+ - Reworked Mexican Civil Wars to result in pain instead of big pain
+
 ### 3.14.13
 
 #### General
