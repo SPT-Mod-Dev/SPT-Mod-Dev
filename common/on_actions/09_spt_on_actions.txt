@@ -350,8 +350,28 @@ on_actions = {
 			}
 
 			# SCW Meme game
-			every_country = {
+			every_country = {				
 				if = {
+					limit = {
+						OR = {
+							tag = USA
+							tag = ENG
+							tag = RAJ
+						}
+					}
+					add_ideas = SPT_scw_thunderdome_tier_2
+				}
+				else_if = {
+					limit = {
+						OR = {
+							tag = ITA
+							tag = GER
+							tag = JAP
+						}
+					}
+					add_ideas = SPT_scw_thunderdome_tier_fascist
+				}
+				else_if = {
 					limit = {
 						is_ai = no
 						OR = {
@@ -362,11 +382,7 @@ on_actions = {
 							tag = DEN
 							tag = SIA
 							tag = MAN
-							tag = USA
-							tag = ENG
-							tag = FRA
-							tag = AUS
-							tag = RAJ
+							tag = AST
 							tag = CAN
 							tag = BRA
 							tag = NZL
