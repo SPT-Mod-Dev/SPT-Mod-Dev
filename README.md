@@ -1,5 +1,12 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.14.14 Parker Patch
+#### General
+ - Tiered thunderdome mechanics
+
+#### France
+ - Nerfed Intervention in Spain spirit: only enables vols, removes tension requirements, and blocks air volunteers
+
 ### 3.14.13
 
 #### General
