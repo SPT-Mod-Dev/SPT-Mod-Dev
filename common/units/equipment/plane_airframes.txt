@@ -2343,6 +2343,7 @@ equipments = {
 		allowed_types = {
 			strategic_bomber
 			maritime_patrol_plane
+			mothership
 		}
 		allow_mission_type = training
 		group_by = archetype
@@ -2372,6 +2373,7 @@ equipments = {
 				allowed_module_categories = {
 					strat_weapon
 					nav_bomber_weapon
+					plane_fighter_bay
 				}
 			}
 
@@ -2382,6 +2384,7 @@ equipments = {
 					strat_weapon
 					nav_bomber_weapon
 					mine_warfare_offense
+					plane_fighter_bay
 				}
 			}
 			fixed_auxiliary_weapon_slot_2 = { 
@@ -2391,6 +2394,7 @@ equipments = {
 					strat_weapon
 					nav_bomber_weapon
 					mine_warfare_offense
+					plane_fighter_bay
 				}
 			}
 
@@ -2401,6 +2405,7 @@ equipments = {
 					strat_weapon
 					nav_bomber_weapon
 					mine_warfare_offense
+					plane_fighter_bay
 				}
 			}
 
@@ -2558,6 +2563,11 @@ equipments = {
 			count < 7
 		}
 
+		module_count_limit = {
+			category = plane_fighter_bay
+			count < 4
+		}
+
 		default_modules = {
 			fixed_main_weapon_slot = empty
 			fixed_auxiliary_weapon_slot_1 = empty
@@ -2606,44 +2616,10 @@ equipments = {
 			rubber = 2
 		}
 		module_slots = {
-			fixed_main_weapon_slot = {
-				required = yes
-				allowed_module_categories = {
-					strat_weapon
-					nav_bomber_weapon
-				}
-			}
-
-			fixed_auxiliary_weapon_slot_1 = { 
-				required = no
-				allowed_module_categories = {
-					recon_camera
-					strat_weapon
-					nav_bomber_weapon
-					mine_warfare_offense
-					
-				}
-			}
-			fixed_auxiliary_weapon_slot_2 = { 
-				required = no
-				allowed_module_categories = {
-					recon_camera
-					strat_weapon
-					nav_bomber_weapon
-					mine_warfare_offense
-					
-				}
-			}
-			fixed_auxiliary_weapon_slot_3 = { 
-				required = no
-				allowed_module_categories = {
-					recon_camera
-					strat_weapon
-					nav_bomber_weapon
-					mine_warfare_offense
-					
-				}
-			}
+			fixed_main_weapon_slot = inherit
+			fixed_auxiliary_weapon_slot_1 = inherit
+			fixed_auxiliary_weapon_slot_2 = inherit
+			fixed_auxiliary_weapon_slot_3 = inherit
 
 			engine_type_slot = {
 				required = yes
@@ -2746,54 +2722,11 @@ equipments = {
 			rubber = 2
 		}
 		module_slots = {
-			fixed_main_weapon_slot = {
-				required = yes
-				allowed_module_categories = {
-					strat_weapon
-					nav_bomber_weapon
-				}
-			}
-
-			fixed_auxiliary_weapon_slot_1 = { 
-				required = no
-				allowed_module_categories = {
-					strat_weapon
-					nav_bomber_weapon
-					recon_camera
-					mine_warfare_offense
-					
-				}
-			}
-			fixed_auxiliary_weapon_slot_2 = { 
-				required = no
-				allowed_module_categories = {
-					strat_weapon
-					nav_bomber_weapon
-					recon_camera
-					mine_warfare_offense
-					
-				}
-			}
-			fixed_auxiliary_weapon_slot_3 = { 
-				required = no
-				allowed_module_categories = {
-					strat_weapon
-					nav_bomber_weapon
-					recon_camera
-					mine_warfare_offense
-					
-				}
-			}
-			fixed_auxiliary_weapon_slot_4 = { 
-				required = no
-				allowed_module_categories = {
-					strat_weapon
-					nav_bomber_weapon
-					recon_camera
-					mine_warfare_offense
-					
-				}
-			}
+			fixed_main_weapon_slot = inherit
+			fixed_auxiliary_weapon_slot_1 = inherit
+			fixed_auxiliary_weapon_slot_2 = inherit
+			fixed_auxiliary_weapon_slot_3 = inherit
+			fixed_auxiliary_weapon_slot_4 = fixed_auxiliary_weapon_slot_3
 
 			engine_type_slot = {
 				required = yes
