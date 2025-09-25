@@ -1,4 +1,12 @@
 # Saving Private Tryin' Historical MP Full Changelog
+
+
+
+#### Air
+ - Intecontinental Bomber airframe is now a designeable Airframe
+ - Mothership Aircraft are now a designeable Subtpe of large airframes. Createable via new Module unlocked from mothership special project.
+
+
 ### 3.14.8
 
 #### Industry
