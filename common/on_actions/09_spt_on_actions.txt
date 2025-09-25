@@ -348,6 +348,53 @@ on_actions = {
 					}
 				}
 			}
+
+			# SCW Meme game
+			every_country = {				
+				if = {
+					limit = {
+						OR = {
+							tag = USA
+							tag = ENG
+							tag = RAJ
+						}
+					}
+					add_ideas = SPT_scw_thunderdome_tier_2
+				}
+				else_if = {
+					limit = {
+						OR = {
+							tag = ITA
+							tag = GER
+							tag = JAP
+						}
+					}
+					add_ideas = SPT_scw_thunderdome_tier_fascist
+				}
+				else_if = {
+					limit = {
+						is_ai = no
+						OR = {
+							tag = HUN
+							tag = ROM
+							tag = BUL
+							tag = FIN
+							tag = DEN
+							tag = SIA
+							tag = MAN
+							tag = AST
+							tag = CAN
+							tag = BRA
+							tag = NZL
+							tag = SAF
+							tag = MEX
+							tag = HOL
+							tag = MON
+						}
+					}
+					add_ideas = SPT_scw_thunderdome
+				}
+			}
 		}
 	}
 	on_state_control_changed = {
@@ -677,6 +724,35 @@ on_actions = {
 	}
 	on_capitulation = {
 		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = FRA
+					}
+					# NOT = { has_global_flag = france_fallen }
+				}
+				set_global_flag = france_fallen
+				if = {
+					limit = {
+						461 = { is_controlled_by = FRA } 
+					}					
+					FRA = { 
+						set_capital = {
+							state = 461
+						}	
+					}
+				}
+				else_if = {
+					limit = {
+						272 = { is_controlled_by = FRA } 
+					}					
+					FRA = { 
+						set_capital = {
+							state = 272
+						}	
+					}
+				}
+		}
 			#Checks if jap or usa cap each other
 			if = {
 				limit = {
@@ -1407,6 +1483,66 @@ on_actions = {
 
 					set_variable = { GER_narvik_shipments = 0 }
 					add_to_variable = { GER_narvik_civs = 1 }
+				}
+			}
+
+			
+			# Handle MEFO increasing CG past 100% (otherwise it is handled by 00_on_actions)
+			if = {
+				limit = {
+					OR = {
+						has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
+						has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
+					}
+				}
+				if = {
+					limit = {
+						check_variable = { 
+							var = GER_industrial_consumer_goods_factor 
+							compare = greater_than_or_equals
+							value = 1 
+						}
+						# Avoid double-applying when transitioning over or under 100%
+						has_country_flag = SPT_GER_OVER_100
+						# check_variable = { GER_industrial_consumer_goods_factor < 3 }
+					}
+					add_to_variable = { GER_industrial_consumer_goods_factor = GER_monthly_consumer_goods_increase }
+					clamp_variable = {
+						var = GER_industrial_consumer_goods_factor
+						max = 2
+					}
+				}
+				if = {
+					limit = {
+						NOT = {	has_country_flag = SPT_GER_OVER_100	}
+						check_variable = { 
+							var = GER_industrial_consumer_goods_factor 
+							compare = greater_than_or_equals
+							value = 1 
+						}						
+					}
+					set_country_flag = SPT_GER_OVER_100
+				}
+				else_if = {
+					limit = {
+						has_country_flag = SPT_GER_OVER_100
+						check_variable = { GER_industrial_consumer_goods_factor < 1 }
+					}
+					clr_country_flag = SPT_GER_OVER_100
+				}
+				# Scaling ECG with CGFF (quadratic consumer goods!)
+				set_temp_variable = { SPT_GER_ECG = GER_industrial_consumer_goods_factor }
+				# ECG is +2.5% ECG at 100% CGFF and +5% at 200% CGFF, meaning ECG = CGFF/40
+				divide_temp_variable = {
+					SPT_GER_ECG = 40
+				}
+				clamp_temp_variable = {
+					var = SPT_GER_ECG
+					min = 0
+					max = 0.05
+				}
+				set_variable = {
+					GER_industrial_consumer_goods_expected_value  = SPT_GER_ECG
 				}
 			}
 		}

@@ -4400,7 +4400,21 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_ideas = ROM_leonidas_works
+
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				custom_effect_tooltip = available_mio_tt
+				show_mio_tooltip = ROM_leonidas_works_organization
+				mio:ROM_leonidas_works_organization = {
+					add_mio_funds = 2500
+				}
+			}
+			else = {
+				custom_effect_tooltip = available_designer
+				show_ideas_tooltip = ROM_leonidas_works
+			}
 		}
 	}
 

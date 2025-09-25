@@ -832,20 +832,21 @@ GER_stop_rearmament = {
 }
 
 GER_add_mefo_bills_penalty = {
-	clamp_variable = {
-		var = GER.GER_industrial_consumer_goods_factor
-		max = 1
-	}
-	if = { #Apply penalties if CG is 100% or more
-		limit = {
-			NOT = { has_country_flag = GER_mefo_bills_penalty_flag }
-			check_variable = { var = GER_industrial_consumer_goods_factor value = 1 compare = greater_than_or_equals }
-		}
-		set_country_flag = GER_mefo_bills_penalty_flag
-		add_to_variable = { GER_industrial_consumer_goods_expected_value = GER_expected_consumer_goods_penalty }
-		subtract_from_variable = { GER_industrial_industrial_capacity_factory = GER_factory_output_penalty }
-		subtract_from_variable = { GER_industrial_industrial_capacity_dockyard = GER_dockyard_output_penalty }
-	}
+	# SPTChange may exceed 100%
+	# clamp_variable = {
+	# 	var = GER.GER_industrial_consumer_goods_factor
+	# 	max = 1
+	# }
+	# if = { #Apply penalties if CG is 100% or more
+	# 	limit = {
+	# 		NOT = { has_country_flag = GER_mefo_bills_penalty_flag }
+	# 		check_variable = { var = GER_industrial_consumer_goods_factor value = 1 compare = greater_than_or_equals }
+	# 	}
+	# 	set_country_flag = GER_mefo_bills_penalty_flag
+	# 	add_to_variable = { GER_industrial_consumer_goods_expected_value = GER_expected_consumer_goods_penalty }
+	# 	subtract_from_variable = { GER_industrial_industrial_capacity_factory = GER_factory_output_penalty }
+	# 	subtract_from_variable = { GER_industrial_industrial_capacity_dockyard = GER_dockyard_output_penalty }
+	# }
 }
 
 GER_reduce_mefo_bills_penalty = {

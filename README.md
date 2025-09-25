@@ -1,17 +1,361 @@
 # Saving Private Tryin' Historical MP Full Changelog
+### 3.14.14 Parker Patch
 
+#### General
+ - Tiered thunderdome mechanics
 
+#### France
+ - Nerfed Intervention in Spain spirit: only enables vols, removes tension requirements, and blocks air volunteers
+
+#### Mexico
+ - Reworked Mexican Civil Wars to result in pain instead of big pain
 
 #### Air
- - Intecontinental Bomber airframe is now a designeable Airframe
+ - Intecontinental Bomber Airframe is now a designeable Airframe
  - Mothership Aircraft are now a designeable Subtpe of large airframes. Createable via new Module unlocked from mothership special project.
 
+### 3.14.13
 
-### 3.14.8
+#### General
+ - Miscallaneous optimizations to reduce rendering, combat logs
+ - Removed increasing civilian factory cost for later technology licenses. Most licenses should cost 1 civ. 
+ - Spanish Civil War has been transformed into a thunderdome for meme game
+   - All minors, several allied majors receive a spirit to send at least 3 vols, without tension or army size requirements
+
+#### France
+ - New focus 'Intervention in Spain' (35 days) with effect:
+   - Can send volunteers
+   - Volunteer tension limit -100%
+   - Volunteer divisions +2
+   - Divisions required to be allowed to send: -100%
+ - On capitulation, capital will move to Casablanca or, failing that, Brazzaville (Middle Congo)
+ - Debugging decisions to force move capital to a few alternatives
+
+### 3.14.12 Awake
+
+#### Army Doctrine
+(deep battle)
+ - 'Large front offensive' Tank HP increased to 3 from 2
+ - 'Mechanized Wave' Armoured recon company organization increased to 3 from 1
+ - 'Contious Offensive' Added 3% planning
+
+#### Combat Tactics
+ - Masterfull Bliz combat width increased to 20% was 10%
+                   attacker tactic damage decreased to 15% from 10%
+                   defender tactic damage decreased to 15% from 10%
+ - Guerilla Tactics combat width reduced to 40% from 50%
+                   attacker tactic damage reduction increased to -45% from -40%
+                   defender tactic damage reduction increased to -35% from -30%
+
+#### Air Doctrine
+ - Flying fortress reduced stratbomber defence to 20% from 25%
+ - Mass Destruction redced stratbombing to 15% from 20%
+
+#### Air Force Command
+ - 'Total Devastation' Decreased strat bombing to 10% from 20%
+                      Added ground support +10%
+
+#### British Raj
+ - Removed focus 'Princely State Donations'
+ - Focus 'The Jewel Becomes the Crown' now strictly requries Britain to have capitulated
+
+#### Denmark
+ - Reduced Focus 'Administrate Norway' compaliance 40%->20%
+
+#### Germany
+ - New MEFO Bills scaling penalty: Expected Consumer Goods scales with Consumer Goods Factory factor, up to 5% when Consumer Goods Factory factor is 200%. 
+   - Note that this extra ECG is still multiplied by CGFF when determining the final number of factories needed on Consumer Goods
+ - MEFO Bills maximum Consumer Goods Factory factor limit 300%->200%
+ - MEFO Bills base monthly increase in Consumer Goods Factory factor: 3.5%->3%
+ - Focus 'Uplift the Rosenberg Office' reduced to 14 days, from 35
+ - Fixed bug where MEFO Bills increased twice in the month it exceeded 100%
+
+#### Italy 
+ - Focus 'Thermojet Research' reduced ahead of time bonus to 0.5 from 1
+
+#### Soviet Union
+ - Focus 'Plan for the coup' time to complete increased to 49 to 35 days
+ - Focus 'Planned economy' now applies NEP to allies instead of puppets
+ - Focus 'For the Common Good' allied version of applied spirit no longer grants 5% of civillian industry to Soviet Union 
+ - Upgraded Bukharin no longer grants -2% factory output penalty
+                     reduced civilian intel to others to 10% from 15
+                     political power gain no longer upgraded (remains at +10%)
+
+#### USA
+ - Focus 'Air Support' reduced time to complete to 35 from 70 days
+ - Focus 'Strategic Bombing' reduced time to complete to 35 from 70 days
+
+#### Tanks
+ - Interwar Medium tank chassis ic cost increased to 1.7 from 1.4
+ - 1937 Mt chassis ic cost intcreased to 2.4 from 2.15
+                      increased reliability to 0.85 from 0.8
+                      added 1 breakthrough
+ - 1939 Mt chassis incost increased to 2.5 from 2.3
+                       added 2.5 breakthrough 
+ - 1942 Mt chassis ic cost increased to 2.55 from 2.45
+                       added 4 breakthrough
+ - 1936 Heavy tank chassis added 1.5 breakthrough
+ - 1940 Ht chassis added 3 breakthrough
+                   added 5% reliability
+ - 1943 Ht chassis added 4.5 breakthrough
+                   added 5% reliability
+ - Light one man turret ic cost increased to 0.7 from 0.5
+ - Light two man ic cost increased to 1.2 from 1
+ - Light three man ic cost increased to 1.7 from 1.5
+ - Light fixed ic cost increased to 1 from 0.75
+ - Medium one man turret ic cost decreased to 1.7 from 2
+ - Medium two man ic cost decreased to 2.5 from 3
+ - Medium three man ic cost decreased to 3.5 from 4
+ - Medium fixed ic cost decreased to 2 from 2.5
+ - Heavy two man turret soft and hard attack modifier increased to 3% was 2.5%
+ - Heavy three man turret reduced speed penalty to -0.9 from -1
+                          soft and hard attack modifier increased to 6% from 5%
+
+ - Medium cannon I increased soft attack to 26 from 24
+                             hard attack to 18.5 from 16.5
+ - Medium cannon II increased soft attack to 30.5 from 28.5
+                              hard attack to 22 from 19
+                    decreased ic cost to 2.75 from 3
+ - Medium cannon III increased soft attack to 37 from 34.5
+                               hard attack to 28.5 from 26
+                     decreased ic cost to 3.75 from 4
+                     decreased piercing to 70 from 72
+ - Medium howitzer increased soft attack to 47 from 45
+ - Medium howitzer II increased soft attack to 53 from 51
+ - Heavy howitzer increased soft attack to 69 from 68
+ - Rocket launcher increased soft attack to 51 from 48
+                   decreased ic cost to 3.75 from 4
+ - Rocket launcher II increased soft attack to 60.5 from 59.5
+                      decreased ic cost to 4.5  from 5
+ - High velocity cannon II decreased ic cost to 4 from 4.5
+                           decreased piercing from 120 to 118
+ - High velocity cannon III decreased ic cost to 6 from 6.5
+                            decreased piercing to 158 from 162
+                            increased hard attack to 36 from 35
+ - Heavy cannon I increased soft attack to 29.5 from 28.5
+                             hard attack to 23.5 from 22.5
+ - Heavy cannon II increased soft attack to 35 from 34
+                             hard attack to 27 from 25
+ - Heavy cannon III increased soft attack to 40 from 39 
+                              hard attack to 34 from 33
+                    decreased piercing to 108 from 106
+ - Super heavy cannon increased soft attack to 50 from 49.5
+                                hard attack to 44.5 from 44
+
+ - Radio II decreased ic cost to 1.4 from 1.5
+ - Radio III decreased ic cost to 2.1 from 2.25
+ - Stabilizer decreased breakthrough to 4 from 6
+              decreased ic cost to 1.4 from 1.5
+              increased soft attack to 4 from 3
+              increased hard attack to 4 from 3
+ - Expanded Fuel tank increased fuel capacity to 150 from 100
+
+#### Planes
+- 6 engines tier I decreased ic cost to 66 from 68
+            tier II decreased ic cost to 76 from 80
+            tier III decreased ic cost to 88 from 92
+            tier IV decreased ic cost to 102 from 108
+ - Air-Ground radar strat bombing multiplier redued to 5% from 10%
+ - Air-Ground radar II strat bombing multiplier redued to 7.5% from 20%
+
+#### Infantry
+ - Infantry equipment II defence increased to 28 from 26.5
+ - Infantry equipment III defence increased to 34 from 32
+
+### 3.14.11 help
+
+#### General
+ - Reduced game speed 1 to 60 seconds per tick to mitigate unintended unpauses
+ - Special project 'Jet Engines' now also requires research 'Experimental Rockets'
+ - Research 'Experimental Rockets' Year 1942->1941
+ - Special Project facilities have been returned to their vanilla IC build cost but are now affected by infrastructure level
+
+#### Map
+ - Added more tiles around Leningrad, Moskow, Kyiv and Stalingrad
+
+#### Germany
+ - MEFO Bills base monthly increase in Consumer Goods Factory factor: 3%->3.5%
+ - Eisernes Sparen politlcal power cost 75 -> 50
+ - Seize the Ukranian Grain harvest political power cost 100->75
+ - Kreditkasse decision political power cost 200->100
+ - Abolish the Hauszinssteuer political power cost 100->150
+ - Steuergutscheine political power cost 100->150
+
+#### Italy
+ - Removed flame tank effects from focus 'Italian Tankettes' (avoiding a bug around special project progress >100%)
+ - Focus 'Regional Development' time to complete reduced to 35 days, from 70
+ - Focus 'Polizia della Africa Italiana' time to complete reduced to 35 days, from 70
+ - Focus 'Strengthen Ascari Corps' time to complete reduced to 35 days, from 70
+ - Focus 'Novus Ordo' time to complete reduced to 35 days, from 70
+ - Focus 'Reorganize the Party' political power reward reduced to 50, from 100
+ - Focus 'Economic Reforms' time to complete increased to 70 days, from 35
+ - Focus 'Improve The Industries' time to complete increased to 70 days, from 35
+
+#### Japan
+ - No longer able to double dip on resource decisions targetting China
+
+#### British Raj/India
+ - Focus 'Government of India Act' time to complete increased to 70 days, from 35 days
+ - Focus 'Work with Local Leaders' time to complete increased to 70 days, from 35 days
+ - Focus 'Concessions to Industrialists' time to complete increased to 70 days, from 35 days
+ - Focus 'Empower Provincial Authorities' time to complete increased to 70 days, from 35 days
+ - Focus 'Curtail The Zamindars' time to complete increased to 70 days, from 35 days
+ - Focus 'Expand the Zamindari System' time to complete increased to 70 days, from 35 days
+ - Focus 'Reform the Agricultural Sector' time to complete increased to 70 days, from 35 days
+ - Focus 'Local Recruitment Office' time to complete increased to 70 days, from 35 days
+ - Focus 'Regimental loyalty' time to complete increased to 70 days, from 35 days
+ - Focus 'Imperial Industry Initiative' efficiency cap reduced to 5%, from 10%
+ - Focus 'Imperial Industry Initiative' efficiency growth reduced to 2.5%, from 5%
+ - Focus 'Imperial Industry Initiative' now requires Industry and Tools level 3 techs
+ - Focus 'The Great Recovery' factory output reduced to 5%, from 10%
+ - Focus 'The Great Recovery' no longer grants civilian factories
+ - Focus 'Lions of The Great War' special forces cap reduced to 10%, from 15%
+ - Focuses 'The Dominion of India', 'Keep Calm and Carry On', and 'South East Asia Command' sub-branch removed
+ - National spirit 'Congress Shipbuilding Effort' dockyard output reduced to 10%, from 15%
+ - National spirit 'Congress Productivity Effort' factory output reduced to 7.5%, from 10%
+ - National spirit 'Congresss Construction Effort' construction speed reduced to 5%, from 15%
+
+ #### Brazil 
+ - Focus 'Military Interfernce' required support for military reduced to 23% from 25%
+ - Focus 'Exército Technical and Production Department' Military factory removed
+
+ #### Soviet Union
+ - Focus 'Improve Stalin Line' time to complete reduced to 42 days, from 70 days
+                               now adds forts to supplyhub tiles
+ - Focus 'Molotov Line' time to complete reduced to 28 days, from 70
+ - Focus 'Desperate Measures' time to complete reduced to 14 days, from 70
+ - Focus 'Lessons of War' time to complete increased to 70 days, from 35
+ - Focus 'Far East Fortification' time to complete reduced to 35 days, from 70
+ - Focus 'Plan for the Coup' time to complete reduced to 35 days from 70
+ - Focus 'Impregnable Forts' no longer builds forts in Luga state
+                             no longer applies state modifier in Luga state
+                             now builds forts on all Leningrad state tiles
+                             State modifier: no longer grants reduced encirclement penalty
+                                             now grants +20% local supplies for controller
+ - Focus 'Defence of Moskow' now grants 'Impregnable Forts' modifier to Moskow state
+                             Increased xp gained to 25 from 15
+                             now grants 30 political power
+ - Focus 'PC of Mortar Armament' Military factory now prioritizes moskow state instead of forcing it
+                                 If Germany denies treaty: now applies -75% artillery research speed for 250 days
+                                 Research bonus if accepted reduced to 75% + 1y ahead of time, from 75% + 2y ahead of time
+ - Focus 'Infrastructure effort' now also prioritzes Novgorod
+
+ - MIO 'Mytishchy Machina Building Plant' base conversion speed decreased to 5% from 10%
+                                         Trait 'Enemy tank refitting' increased output cost bonus to -2%, from -1%
+ - Removed Volkhov and Olonets Dams
+ - Added dam to Novgorod
+ - Reduced starting infra in Novgorod to 2 from 3
+
+#### USA
+ - Focus 'Air War Plans Division' reduced ic reduction to -5%, from -10% 
+ - Focus 'Air Support' reduced ic reduction to -5%, from -10% 
+ - Focus 'Escort Fighters' reduced research bonus to 120% from 100%
+ - Focus 'CAS effort' time to complete reduced to 35 days, from 70
+ - Investigate electoral fraud
+
+#### France
+ - Focus 'Artillery Focus' now accepts 'Infantry Tanks' as a prerequisite
+
+#### Infantry equipment
+ - 1939 Infanty equipment reduced defence to 26.5, from 28
+ - 1942 Infanty equipment reduced defence to 32, from 34
+
+#### MIO
+ - Focke Wulf Organiation 'Radial Engines' Removed Agility
+                                           Added 2% Speed
+ - Messerschmitt Organisation 'Fuelussage-Based Weapons' added 2% defence
+
+#### Tanks
+ - Fixed conversion costs
+
+ - Interwar light tank chassis cost increased to 1.20 from 0.7
+ - 1934 lt chassis cost increased to 1.20 from 0.9
+ - 1936 lt chassis cost increased to 1.41 from 1.3
+ - 1941 lt chassis cost reduced to 1.65 from 1.7
+
+ - Interwar medium tank chassis cost reduced to 1.4 from 1.5
+ - 1937 mt chassis cost reduced to 2.15 from 2.5
+ - 1939 mt chassis cost reduced to 2.3 from 3.2
+ - 1942 mt chassis cost reduced to 2.45 from 4 
+
+ - Interwar heavy tank increased to 9.42 from 6.5
+ - 1934 ht incresed to 9.42 from 8.5
+ - 1940 ht decreased to 9.42 from 9.5
+ - 1943 ht decresed to 9.42 from 11
+
+ - Amphibius tank chassis reduced to 5 from 6
+
+ - Modren tank chassis cost reduced to 5 from 6
+ - Modren tank turret cost reduced to 6 from 8
+
+ - Extra Chromium cost for upgrading engine now applies when upgrading to 13 clicks
+ - Added extra steel cost for upgrading engine to 8 clicks
+ - Removed extra steel cost for upgrading armour to 10 clicks
+ - Removed extra chromium cost for upgrading armour to 15 clicks
+
+ - Advanced Small Cannon increased ic cost to 2.7, from 2.5
+                         decreased soft attack to 28, from 29
+                         decreased hard attack to 17.5, from 18.5
+                         decreased breakthrough to 6.5, from 7.5
+ - Improved Medium Cannon reduced speed penalty to -0.2, from -0.3
+ - Advanced Medium Cannon increased soft attack to 34.5, from 33.5
+                          increased hard attack to 26, from 25
+                          reduced speed penalty to -0.25, from -0.3
+                          reduced ic cost to 4 from 4.5
+ - Medium Howitzer removed chormoium cost
+                   reduced ic cost to 2.5, from 3
+ - Improved Medium Howitzer reduced tungsten cost to 2, from 3
+                            reduced chromium cost to 1, from 2
+                            reduced ic cost to 3.5, from 5
+ - Heavy Howitzer reduced chromium cost to 2, from 3
+                  reduced speed penalty to -0.4 from -0.5
+                  reduced ic cost to 5.5, from 7
+
+### 3.14.10 'Grok, how do i make the Axis win?'
+
+#### Map
+ - Several Provinces in Burma and bordering states have been altered to be harder to defend
+ - Properly updated map textures to display SPT's altered terrain (yes, you can finally see the gorgeous El Alamein Highlands)
+
+#### Romania
+ - Update focus 'Mobile Tank Destroyers' to vanilla (already unlocked Leonidas Works, now provides 2500 MIO funds)
+
+#### Japan
+ - Focus 'Defend The South Seas Mandate' time to complete reduced to 35 days, from 70
+ - Focus 'Bulward on The Continent' time to complete reduced to 35 days, from 70
+ - Focus 'Army Expansion Law' time to complete reduced to 35 days, from 70
+ - Focus 'Dockyard Expansion' time to complete reduced to 35 days, from 70
+ - Focus 'Starve The Archipelagos' time to complete reduced to 49 days, from 70
+ - Focus 'Cruiser Modernization' technology bonus reward reduced to 100%, from 200%
+ - Focus 'Attack the West on the Islands' now increases the duration of 'Tora! Tora! Tora!' national spirit by 90 days
+  - Focus 'Larger Air Bases' now increases the duration of 'Tora! Tora! Tora!' national spirit by 90 days
+
+#### British Raj
+ - Focus 'The Great Recovery' requirement reduced to 35 owned civilian factories, from 40
+ - National Spirit 'Recovering from the Great Depression' awarded by focus 'The Great Recovery' duration reduced to 550 days, from 1095 
+ - Focus 'Rural Mechanization Program' technology bonus reduced to 50%, from 75%
+ - Focus 'Ammunition Factory Khadki' no longer grants a military factory
+ - Focus 'Cordite Factory Aruvankadu' no longer grants a military factory
+ - Focus 'Ordnance Factory Kanpur' no longer grants a military factory
+ - Focus 'Engineering Revolution' reward reduced to 1 military factory, from 2
+ - Focus 'The Calcutta Line' now requires being at war with Japan to be taken
+
+### 3.14.9
 
 #### Industry
- - Can now switch between dispersed and concentrated industry per level. 20% increase in research cost for switching.
+ - Can now switch between dispersed and concentrated industry per level.
  - Adds 10% Ship Refit/Repair boosts to conversion techs
+
+#### Germany
+ - Reworked 'Autarky' and related focuses.
+   - Penalty for reaching 100% on MEFO Bills/Economy of Conquest removed (was: +10% Expected Consumer Goods, -20% Factory Output, -20% Dockyard Output)
+   - Limit for MEFO Bills/Economy of Conquest raised from +100% to approximately +300% Consumer Goods Factory factor (this is a cap, not a goal, but we'd all love to see it)
+   - Germany now starts with Hjalmar Schacht as advisor for free. He will be replaced with Walther Funk for free after mid-1938 by focus 'End the Charade', or removed by taking 'Prioritizing Economic Growth'
+   - Focus 'Autarky Efforts' no longer limits Germany to a special trade law. However, Free Trade is locked (and would be replaced by Export Focus)
+   - Focus 'Autarky Achieved' removed and replaced with new focuses to mitigate, but not eliminate, inflation
+   - Focus 'Geräuschlose Kriegsfinanzierung' allows additional, somewhat more expensive options than Price Controls to reduce CGF
+   - Subtree 'Form the Zentrale Planung' moved below 'Kriegsfinanzierung' and now requires war with the Soviet Union. All focus times reduced, and dockyard output bonuses transferred to factory output.
+   - Focus 'Wirtschaftlicher Raubkrieg' allows Germany to continue fighting inflation by seizing key cities and exploiting Reichskommissariats in the western Soviet Union (these RKs should be more stable than in Vanilla and can be formed from allied occupation)
    
 #### Navy
  - Unified core slot requirements across hull types. All Hulls now require Primary Armament, Engine and Armor (if applicable).
@@ -21,7 +365,10 @@
  - Added 1 armor to cruiser armor 0/dds to circumvent divide by zero
  - Fixed designs to comply with these construction rules in all relevant nations
  - adjusted upper end of penetration damage curve to have more gradual drop between 50/10% pen. now with pen ratios of at least 2.00/1.00/0.75/0.50/0.33/0.20/0.10/0.00 you deal 1.00/1.00/0.70/0.40/0.30/0.20/0.10/0.05 times damage (added 0.33,0.2 thresholds with relevant damage mults)
-   
+ - addjusted supremacy so that being active in a zone now gives equal/more supremacy than strike force
+
+### 3.14.8
+
 #### Hungary
  - Swapped Fiat MIO to current Italian version (Standardized Production, not Fast Tank)
 

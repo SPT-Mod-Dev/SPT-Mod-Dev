@@ -1,0 +1,94 @@
+add_namespace = spt_mex
+
+country_event = { # Cedillo rebels, gets shot
+	id = spt_mex.1
+	title = spt_mex.1.t
+	desc = spt_mex.1.desc
+	
+	picture = GFX_report_event_yugoslavian_cavalry
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+		
+	immediate = {
+		set_global_flag = flag_mexico_cedillo_has_revolted
+		
+		add_timed_idea = {
+			idea = SPT_MEX_bad_caudillo
+			days = 360
+		}
+	}
+
+	option = {
+		name = spt_mex.1.a
+		if = {
+			limit = {
+				has_global_flag = flag_second_mexican_civil_war
+			}
+			country_event = spt_mex.4
+		}
+	}
+}
+
+country_event = { # Sectarian conflicts over religious issues
+	id = spt_mex.2
+	title = spt_mex.2.t
+	desc = spt_mex.2.desc
+	
+	picture = GFX_report_event_yugoslavian_cavalry
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+		
+	immediate = {
+		add_ideas = SPT_MEX_the_troubles
+	}
+
+	option = {
+		name = spt_mex.2.a
+		if = {
+			limit = {
+				has_global_flag = flag_mexico_cedillo_has_revolted
+			}
+			country_event = spt_mex.4
+		}
+	}
+}
+
+country_event = { # Flavor event for getting rid of the troubles
+	id = spt_mex.3
+	title = spt_mex.3.t
+	desc = spt_mex.3.desc
+	
+	picture = GFX_report_event_yugoslavian_cavalry
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = spt_mex.3.a
+	}
+}
+
+country_event = { # Congratulations, you managed to trigger "both" civil wars. You dont know how to read.
+	id = spt_mex.4
+	title = spt_mex.4.t
+	desc = spt_mex.4.desc
+	
+	picture = GFX_report_event_yugoslavian_cavalry
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+		
+	immediate = {
+		add_ideas = SPT_MEX_true_mexican_experience
+	}
+
+	option = {
+		name = spt_mex.4.a
+	}
+}

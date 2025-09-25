@@ -973,7 +973,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = ITA_develop_libya
-		cost = 10
+		cost = 5 #spt change 10 -> 5
 		available = {
 			OR = {
 				any_controlled_state = {
@@ -1754,7 +1754,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = ITA_regional_development
-		cost = 10
+		cost = 5 #spt change 10 -> 5
 		available = {
 			any_controlled_state = {
 				is_on_continent = africa
@@ -1778,7 +1778,7 @@ focus_tree = {
 		x = 3
 		y = 1
 		relative_position_id = ITA_regional_development
-		cost = 10
+		cost = 5 #spt change 10 -> 5
 		available = {
 			any_state = {
 				OR = {
@@ -3750,7 +3750,7 @@ focus_tree = {
 			}
 			add_tech_bonus = {
 				name = ITA_thermojet_research
-				ahead_reduction = 1
+				ahead_reduction = 0.5
 				bonus = 1.0
 				category = jet_technology
 				category = rocketry
@@ -4428,23 +4428,23 @@ focus_tree = {
 				
 				ITA_add_basic_light_tank_destroyer_template = yes
 
-				if = {
-					limit = {
-						is_special_project_completed = sp:sp_land_flamethrower_tank
-					}
-					#L3/35 lf Flamethrower
-					ITA_add_basic_light_flamethrower_template = yes
-				}
-				else = {
-					sp:sp_land_flamethrower_tank = {
-						add_project_progress_ratio = 0.5
-					}
-					custom_effect_tooltip = ITA_italian_tankettes_flamethrower_tt
-					effect_tooltip = {
-						#L3/35 lf Flamethrower
-						ITA_add_basic_light_flamethrower_template = yes
-					}
-				}
+				# if = {
+				# 	limit = {
+				# 		is_special_project_completed = sp:sp_land_flamethrower_tank
+				# 	}
+				# 	#L3/35 lf Flamethrower
+				# 	ITA_add_basic_light_flamethrower_template = yes
+				# }
+				# else = {
+				# 	sp:sp_land_flamethrower_tank = {
+				# 		add_project_progress_ratio = 0.5
+				# 	}
+				# 	custom_effect_tooltip = ITA_italian_tankettes_flamethrower_tt
+				# 	effect_tooltip = {
+				# 		#L3/35 lf Flamethrower
+				# 		ITA_add_basic_light_flamethrower_template = yes
+				# 	}
+				# }
 			}
 		}
 	}
@@ -11774,7 +11774,7 @@ focus_tree = {
 		x = 0
 		y = 2
 
-		cost = 10
+		cost = 5 #spt change 10 -> 5
 		available = {
 			OR = {
 				any_controlled_state = {
@@ -12377,7 +12377,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_country_leader_trait = political_reformer_1
-			add_political_power = 100
+			add_political_power = 50 #spt change, 100 -> 50
 			ITA_bop_very_low_increase_grandi_side_effect = yes
 		}
 	}
@@ -12481,7 +12481,7 @@ focus_tree = {
 		x = 1
 		y = 1
 
-		cost = 5 #SPT change 10 -> 5
+		cost = 10
 		available = {}
 		
 
@@ -12503,7 +12503,7 @@ focus_tree = {
 		x = 0
 		y = 1
 
-		cost =5 #SPT change 10 -> 5
+		cost = 10
 		available = {}
 		
 		search_filters = {FOCUS_FILTER_INDUSTRY}
