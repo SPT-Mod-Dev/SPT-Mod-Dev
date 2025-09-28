@@ -1,8 +1,10 @@
 # Saving Private Tryin' Historical MP Full Changelog
-
 ### 3.14.14 Parker Patch
+
 #### General
  - Tiered thunderdome mechanics
+ - Intecontinental Bomber Airframe is now a designeable Airframe
+ - Mothership Aircraft are now a designeable Subtpe of large airframes. Createable via new Module unlocked from mothership special project.
 
 #### France
  - Nerfed Intervention in Spain spirit: only enables vols, removes tension requirements, and blocks air volunteers

@@ -2514,4 +2514,34 @@ equipment_modules = {
 		xp_cost = 0
 	}
 
+	#Mothership parasites
+
+	parasite_bay_1 = { #SPTaddition
+		abbreviation = "fgtra"
+		category = plane_fighter_bay
+		sfx = sfx_ui_sd_module_turret
+		add_equipment_type = { fighter }
+		add_stats = {
+			build_cost_ic = 1
+			weight = 1
+		}
+		allow_mission_type = {
+			air_superiority
+			interception
+		}
+		mission_type_stats = {
+			limit = {
+				air_superiority
+				interception
+			}
+
+			add_stats = {
+				air_attack = 40
+				weight = 10
+			}
+		}
+
+		xp_cost = 0
+	}
+
 }

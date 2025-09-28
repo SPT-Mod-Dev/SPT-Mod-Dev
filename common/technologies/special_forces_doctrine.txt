@@ -979,7 +979,7 @@ technologies = {
 	}
 	
 	###Paratroopers
-
+	###Paratrooper Doctrine Fully changed by SPT, some vannila tech names remain
 	special_forces_paratroopers = {
 		doctrine_name = "PARATROOPERS_DOCTRINE"
 
@@ -991,6 +991,9 @@ technologies = {
 		#xor = { special_forces_mountaineers special_forces_marines }
 
 		paratroopers_special_forces_contribution_factor = -0.20
+		transport_plane = {
+			air_defence = 0.20
+		}
 		category_special_forces = {
 			max_organisation = 5
 			soft_attack = 0.05
@@ -1121,12 +1124,7 @@ technologies = {
 		#}
 
 		path = {
-			leads_to_tech = paras_combat_1
-			research_cost_coeff = 1
-		}
-
-		path = {
-			leads_to_tech = paras_combat_2
+			leads_to_tech = paras_dispersed_drop
 			research_cost_coeff = 1
 		}
 
@@ -1164,7 +1162,7 @@ technologies = {
 		}
 	}
 
-	paras_combat_1 = {
+	paras_dispersed_drop = {
 
 		xp_research_type = air
 		xp_unlock_cost = 60
@@ -1248,7 +1246,7 @@ technologies = {
 
 		categories = {
 			special_forces_doctrine
-			para_tech
+			#para_tech
 			cat_paratroopers_doctrine
 		}
 
@@ -1307,7 +1305,7 @@ technologies = {
 
 		categories = {
 			special_forces_doctrine
-			para_tech
+			#para_tech
 			cat_paratroopers_doctrine
 		}
 
