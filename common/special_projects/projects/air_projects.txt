@@ -425,7 +425,7 @@ sp_air_intercontinental_bomber = {
 
 	project_output = {
 		enable_equipments = {
-			strat_bomber_intercontinental_equipment_1
+			large_plane_airframe_ic #SPTchange to new airframe
 		}
 
 		country_effects = {
@@ -490,7 +490,7 @@ sp_air_intercontinental_bomber = {
 							add_equipment_bonus = {
 								name = sp_air_intercontinental_bomber_balanced
 								bonus = {
-									strat_bomber_intercontinental_equipment = { #SETUP IN CASE OF HAVING TO BALANCE DIFFERENTLY FOR NON-BBA AND BBA
+									large_plane_airframe_ic = { #SPTchange to new airframe
 										reliability = 0.05									
 									}
 								}
@@ -521,7 +521,7 @@ sp_air_intercontinental_bomber = {
 							add_equipment_bonus = {
 								name = sp_air_intercontinental_bomber_bombing_payload
 								bonus = {
-									strat_bomber_intercontinental_equipment = { #SETUP IN CASE OF HAVING TO BALANCE DIFFERENTLY FOR NON-BBA AND BBA
+									large_plane_airframe_ic = { #SPTchange to new airframe
 										air_bombing = 0.15
 										air_defence	= -0.05
 										air_attack = -0.1
@@ -556,7 +556,7 @@ sp_air_intercontinental_bomber = {
 							add_equipment_bonus = {
 								name = sp_air_intercontinental_bomber_protection
 								bonus = {
-									strat_bomber_intercontinental_equipment = { #SETUP IN CASE OF HAVING TO BALANCE DIFFERENTLY FOR NON-BBA AND BBA
+									large_plane_airframe_ic = { #SPTchange to new airframe
 										air_defence = 0.15
 										air_attack = -0.1
 										air_bombing = -0.1
@@ -642,6 +642,9 @@ sp_air_mothership_aircraft = {
 	prototype_time = sp_time.prototype.long
 
 	project_output = {
+		enable_equipment_modules = {
+			parasite_bay_1 #SPTchange give module instead of Plen
+		}
 		country_effects = {
 			custom_effect_tooltip = {
 				localization_key = SP_UNLOCK_TECH
@@ -655,127 +658,7 @@ sp_air_mothership_aircraft = {
 				localization_key = SP_UNLOCK_TECH
 				TECH = aerial_hangars
 			}			
-		}		
-
-		enable_equipments = {
-			mothership_equipment_0
-		}
-	}
-
-	unique_prototype_rewards = {
-		sp_air_mothership_unique_reward = {
-			fire_only_once = yes
-
-			threshold = { 
-				min = 40
-				max = 90
-			}
-
-			weight = {
-				base = 100
-			}
-
-			option = {
-				token = sp_air_mothership_preference_speed_agility
-				
-				iteration_output = {
-					country_effects = {
-						if = {
-							limit = { has_dlc = "By Blood Alone"}							
-						
-							add_equipment_bonus = {
-								name = sp_air_mothership_speed_agility
-								bonus = {
-									mothership_equipment = { #SETUP IN CASE OF HAVING TO BALANCE DIFFERENTLY FOR NON-BBA AND BBA
-										air_agility = 0.1
-										maximum_speed = 0.1
-										fuel_consumption = 0.15
-									}
-								}
-							}
-						}	
-						else = {
-							add_equipment_bonus = {
-								name = sp_air_mothership_speed_agility
-								bonus = {
-									mothership_equipment = { #SETUP IN CASE OF HAVING TO BALANCE DIFFERENTLY FOR NON-BBA AND BBA
-								      air_agility = 0.1
-										maximum_speed = 0.1
-										fuel_consumption = 0.15							
-									}
-								}
-							}						
-						}		
-					}
-				}
-			}
-
-			option = {
-				token = sp_air_mothership_preference_reliability
-				default = yes
-				iteration_output = {
-					country_effects = {
-						if = {
-							limit = { has_dlc = "By Blood Alone"}							
-						
-							add_equipment_bonus = {
-								name = sp_air_mothership_balanced
-								bonus = {
-									mothership_equipment = { #SETUP IN CASE OF HAVING TO BALANCE DIFFERENTLY FOR NON-BBA AND BBA
-										reliability = 0.1									
-									}
-								}
-							}
-						}							
-						else = {
-							add_equipment_bonus = {
-								name = sp_air_mothership_balanced
-								bonus = {
-									mothership_equipment = { #SETUP IN CASE OF HAVING TO BALANCE DIFFERENTLY FOR NON-BBA AND BBA
-										reliability = 0.1									
-									}
-								}
-							}						
-						}
-					} 
-				}
-			}
-
-			option = {
-				token = sp_air_mothership_preference_strength
-				
-				iteration_output = {
-					country_effects = {
-						if = {
-							limit = { has_dlc = "By Blood Alone"}							
-						
-							add_equipment_bonus = {
-								name = sp_air_mothership_strength
-								bonus = {
-									mothership_equipment = { #SETUP IN CASE OF HAVING TO BALANCE DIFFERENTLY FOR NON-BBA AND BBA
-										air_defence = 0.1
-										air_attack = 0.1	
-										build_cost_ic = 0.1						
-									}
-								}
-							}
-						}	
-						else = {
-							add_equipment_bonus = {
-								name = sp_air_mothership_strength
-								bonus = {
-									mothership_equipment = { #SETUP IN CASE OF HAVING TO BALANCE DIFFERENTLY FOR NON-BBA AND BBA
-										air_defence = 0.1
-										air_attack = 0.1
-										build_cost_ic = 0.1
-									}
-								}
-							}						
-						}
-					}
-				}
-			}		
-		}	
+		} #SPTchange removed in progress decision buffs due to possibly not working with new airframe
 	}
 }
 

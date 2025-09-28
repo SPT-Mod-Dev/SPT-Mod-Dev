@@ -90,3 +90,28 @@ SPT_MEX_gun_running_category = {
 		}
 	}
 }
+
+MEX_category_military_issues = { # Decision category for mexican civil war stuff
+	SPT_MEX_good_friday_agreement = { # Get rid of the troubles
+		icon = generic_civil_support
+	
+		cost = 150
+		
+		allowed = {
+			original_tag = MEX
+		}
+	
+		visible = {
+			has_idea = SPT_MEX_the_troubles
+		}
+		
+		available = {
+			has_government = democratic
+		}
+	
+		complete_effect = {
+			remove_ideas = SPT_MEX_the_troubles
+			country_event = spt_mex.3
+		}
+	}
+}

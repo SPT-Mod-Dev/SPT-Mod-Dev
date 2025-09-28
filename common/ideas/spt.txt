@@ -375,8 +375,109 @@ ideas = {
 				artillery = -0.75
 			}
 		}
+
+		SPT_fra_intervention_in_scw = {
+
+			allowed = {
+			}
+
+			allowed_civil_war = {
+			}
+
+			removal_cost = -1
+
+			picture = FRA_scw_intervention_republicans_focus
+
+			rule = {
+				can_send_volunteers = yes
+			}
+
+			modifier = {
+				# Tension required to send
+				send_volunteers_tension = -1
+
+				air_volunteer_cap = -1000
+			}
+
+			cancel = {
+				has_global_flag = spanish_civil_war
+				SPA = {
+					has_war = no
+				}
+			}
+		}
 		
 		SPT_scw_thunderdome = {
+
+			allowed = {
+			}
+
+			allowed_civil_war = {
+			}
+
+			removal_cost = -1
+
+			picture = por_volunteers_in_the_war3
+
+			rule = {
+				can_send_volunteers = yes
+			}
+
+			modifier = {
+				# Tension required to send
+				send_volunteers_tension = -1
+				# Divsiions required to even be allowed to send
+				send_volunteer_divisions_required = -1
+				# Flat additional volunteers allowed to send, ignoring own divs and Spain provinces
+				send_volunteer_size = 2
+				air_volunteer_cap = -1000
+
+				# Multiplier on how many vols you can send based on actual number of divisions?
+				# send_volunteer_factor = 10000
+			}
+
+			cancel = {
+				has_global_flag = spanish_civil_war
+				SPA = {
+					has_war = no
+				}
+			}
+		}
+		
+		SPT_scw_thunderdome_tier_2 = {
+
+			allowed = {
+			}
+
+			allowed_civil_war = {
+			}
+
+			removal_cost = -1
+
+			picture = por_volunteers_in_the_war2
+
+			rule = {
+				can_send_volunteers = yes
+			}
+
+			modifier = {
+				# Tension required to send
+				send_volunteers_tension = -1
+
+				air_volunteer_cap = -1000
+				# Multiplier on how many vols you can send based on actual number of divisions?
+				# send_volunteer_factor = 10000
+			}
+
+			cancel = {
+				has_global_flag = spanish_civil_war
+				SPA = {
+					has_war = no
+				}
+			}
+		}
+		
+		SPT_scw_thunderdome_tier_fascist = {
 
 			allowed = {
 			}
@@ -393,12 +494,8 @@ ideas = {
 			}
 
 			modifier = {
-				# Tension required to send
-				send_volunteers_tension = -1
-				# Divsiions required to even be allowed to send
-				send_volunteer_divisions_required = -1
 				# Flat additional volunteers allowed to send, ignoring own divs and Spain provinces
-				send_volunteer_size = 2
+				send_volunteer_size = 4
 
 				# Multiplier on how many vols you can send based on actual number of divisions?
 				# send_volunteer_factor = 10000
