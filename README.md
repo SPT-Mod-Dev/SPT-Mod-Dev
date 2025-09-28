@@ -10,6 +10,9 @@
 #### Mexico
  - Reworked Mexican Civil Wars to result in pain instead of big pain
 
+#### Bulgaria
+ - Reworked Zveno coup and Fatherland Front to result in pain instead of big pain
+
 ### 3.14.13
 
 #### General
