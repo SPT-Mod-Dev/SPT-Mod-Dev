@@ -1,4 +1,12 @@
 # Saving Private Tryin' Historical MP Full Changelog
+### 3.14.15 Pie
+
+#### General
+ - Reverted Thunderdome
+
+#### France 
+ - Maybe fixed volunteer civil war. Probably not
+
 ### 3.14.14 Parker Patch
 
 #### General
