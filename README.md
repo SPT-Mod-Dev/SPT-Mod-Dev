@@ -1,5 +1,9 @@
 # Saving Private Tryin' Historical MP Full Changelog
-#### Did we have a new patch yet?
+
+### 3.14.15 Pie
+
+#### General
+ - Reverted Thunderdome
  - Gave new Zealand access to the funny norwegian makeshift components via Bob Semple focus
  - Made AI Saf more sensible in what it does
  - Redid PDX's shitty implementation of tank gun refitting(what were they smoking)
@@ -14,6 +18,9 @@
   - 1.5x Difference to previous tier for direct upgrades of destroyer guns
   - 1x Difference to previous tier for direct upgrades of FC/Radar/Sonar 
   - Full module cost otherwise
+
+#### France 
+ - Maybe fixed volunteer civil war. Probably not
 
 ### 3.14.14 Parker Patch
 
