@@ -1,11 +1,19 @@
 # Saving Private Tryin' Historical MP Full Changelog
-#### Do we have a new patch et?
+#### Did we have a new patch yet?
  - Gave new Zealand access to the funny norwegian makeshift components via Bob Semple focus
  - Made AI Saf more sensible in what it does
  - Redid PDX's shitty implementation of tank gun refitting(what were they smoking)
    - Refitting guns now has a flat base cost of 1,2,3 or 4 IC depending on the size of the larger gun in the refit (small, medium, large, superheavy) (used to be 1 for all except 0.5 if refitting from Flamers/HMG)
    - upgrading a gun to its subsequent version now only costs the Difference in IC in addition instead of the full cost
    - refitting between guns of the same size no longer incurs a cost penalty
+- Normalized ship gun refitting to use consistent price/difference multipliers. New mults proportional to old ones over regular upgrade order.
+  - Half of module cost within category
+  - 5x Difference to previous tier for direct upgrades of heavy guns
+  - 3x Difference to previous tier for direct upgrades of light cruiser guns
+  - 2x Difference to previous tier for direct upgrades of secondaries/AA
+  - 1.5x Difference to previous tier for direct upgrades of destroyer guns
+  - 1x Difference to previous tier for direct upgrades of FC/Radar/Sonar 
+  - Full module cost otherwise
 
 ### 3.14.14 Parker Patch
 
