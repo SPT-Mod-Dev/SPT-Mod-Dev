@@ -1,4 +1,11 @@
 # Saving Private Tryin' Historical MP Full Changelog
+#### Do we have a new patch et?
+ - Gave new Zealand access to the funny norwegian makeshift components via Bob Semple focus
+ - Made AI Saf more sensible in what it does
+ - Redid PDX's shitty implementation of tank gun refitting(what were they smoking)
+   - Refitting guns now has a flat cost of 1,2,3 or 4 IC depending on the size of the larger gun in the refit (small, medium, large, superheavy) (used to be a number between 0.5 and )
+   - 
+
 ### 3.14.14 Parker Patch
 
 #### General
