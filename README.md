@@ -3,9 +3,7 @@
 ### 3.14.15 Pie
 
 #### General
- - Reverted Thunderdome
- - Gave new Zealand access to the funny norwegian makeshift components via Bob Semple focus
- - Made AI Saf more sensible in what it does
+ - Reverted Spanish Civil War Thunderdome
  - Redid PDX's shitty implementation of tank gun refitting(what were they smoking)
    - Refitting guns now has a flat base cost of 1,2,3 or 4 IC depending on the size of the larger gun in the refit (small, medium, large, superheavy) (used to be 1 for all except 0.5 if refitting from Flamers/HMG)
    - upgrading a gun to its subsequent version now only costs the Difference in IC in addition instead of the full cost
@@ -21,6 +19,12 @@
 
 #### France 
  - Maybe fixed volunteer civil war. Probably not
+
+#### New Zealand
+ - Now has access to funny Norwegian makeshift components via Bob Semple focus
+
+#### South Africa
+ - Made AI focus order more sensible
 
 ### 3.14.14 Parker Patch
 
