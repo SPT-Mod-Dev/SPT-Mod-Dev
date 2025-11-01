@@ -1,5 +1,13 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.14.16
+
+#### Spain
+ - Unite Iberia focus time reduced to 35 days
+ - The Army of Africa Model focus time reduced to 35 days
+ - Improve Cross-Country Railways focus time reduced to 35 days
+ - Stamp out the Marquis focus time reduced to 35 days
+
 ### 3.14.15 Pie
 
 #### General
