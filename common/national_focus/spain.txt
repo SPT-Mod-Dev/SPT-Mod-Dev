@@ -99,7 +99,7 @@ focus_tree = {
 		
 		
 		icon = GFX_goal_generic_demand_territory
-		x = 20
+		x = 16
 		y = 0
 		offset = {
 			x = -14
@@ -3118,11 +3118,11 @@ focus_tree = {
 	focus = {
 		id = SPA_expand_the_war_industry
 		available = {
-			any_country = {
-				is_in_faction_with = ROOT
-				has_government = fascism
-				is_major = yes
-			}
+			# any_country = { # SPTChange remove requirement
+			# 	is_in_faction_with = ROOT
+			# 	has_government = fascism
+			# 	is_major = yes
+			# }
 		}
 		bypass = {
 		}
@@ -3888,8 +3888,9 @@ focus_tree = {
 		}
 	}
 
-	focus = {
+	focus = { # SPTChange reduce bloat
 		id = SPA_portuguese_aid
+		allow_branch = { always = no }
 		available = {
 			NOT = { has_war_with = POR }
 			any_enemy_country = {
@@ -3901,6 +3902,7 @@ focus_tree = {
 				}
 			}
 		}
+		
 		bypass = {
 			has_global_flag = scw_over
 		}
@@ -3935,12 +3937,12 @@ focus_tree = {
 		bypass = {
 			NOT = { 112 = { is_owned_by = POR } }
 		}
-		prerequisite = { focus = SPA_portuguese_aid }
+		prerequisite = { focus = SPA_fuse_the_parties }
 		
 		icon = GFX_focus_generic_attack_portugal
 		x = 0
 		y = 1
-		relative_position_id = SPA_portuguese_aid
+		relative_position_id = SPA_fuse_the_parties
 		cost = 2
 
 		available_if_capitulated = yes
@@ -3971,6 +3973,45 @@ focus_tree = {
 			}
 			
 		}
+	}
+
+	focus = {
+		id = SPT_reintegrate_portugal
+		available = {
+			112 = { is_owned_by = SPR } 
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SPT_unite_iberia }
+		
+		icon = GFX_focus_generic_befriend_portugal
+		x = 0
+		y = 1
+		relative_position_id = SPT_unite_iberia
+		cost = 10
+
+		available_if_capitulated = yes
+
+		completion_reward = {	
+			hidden_effect = {
+				every_owned_state = {
+					limit = {
+						is_core_of = POR
+						NOT = { is_core_of = SPR }
+						OR = {
+							state = 112 # Lisbon
+							state = 179 # Beja
+							state = 180 # Porto
+							state = 181 # Guarda
+							state = 795 # Santarem
+						}
+					}
+					add_compliance = 40
+				}
+			}
+			custom_effect_tooltip = SPT_reintegrate_portugal_tt
+		}
+					
 	}
 
 	focus = {
@@ -4921,7 +4962,7 @@ focus_tree = {
 	focus = {
 		id = SPA_invest_in_naval_infrastructure
 		available = {
-			has_completed_focus = SPA_unify_the_nationalist_front
+		# 	has_completed_focus = SPA_unify_the_nationalist_front # SPTChange remove requirement
 		}
 		bypass = {
 		}
