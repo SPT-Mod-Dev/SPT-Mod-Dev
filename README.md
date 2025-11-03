@@ -3,10 +3,18 @@
 ### 3.14.16
 
 #### Spain
- - Unite Iberia focus time reduced to 35 days
+ - Unite Iberia focus time reduced to 14 days
+ - Join the Axis focus time reduced to 14 days
+ - Improve Cross Country Railroads focus time reduced to 35 days
  - The Army of Africa Model focus time reduced to 35 days
  - Improve Cross-Country Railways focus time reduced to 35 days
  - Stamp out the Marquis focus time reduced to 35 days
+ - Autarky
+   - No longer grants closed economy
+   - Infrastructure construction speed changed to all construction speed
+ - Support the War Industry no longer requires Improve Cross Country Railroads
+ - By default cannot join factions, Join the Axis now enables joining of faction
+ - Removed requirement of allies for subsequent focuses
 
 ### 3.14.15 Pie
 

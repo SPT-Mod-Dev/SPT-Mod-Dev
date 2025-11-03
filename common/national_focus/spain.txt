@@ -2766,40 +2766,43 @@ focus_tree = {
 		x = 4
 		y = 1
 		relative_position_id = SPA_the_national_syndicalist_state
-		cost = 10
+		cost = 2
 
 		available_if_capitulated = yes
 
 		completion_reward = {
-			if = {
-				limit = {
-					GER = {
-						has_government = fascism
-						is_faction_leader = yes
-					}
-				}
-				GER = { country_event = generic.2 }
+			set_rule = { # SPTChange faction allowed
+				can_join_factions = yes
 			}
-			if = {
-				limit = {
-					ITA = {
-						has_government = fascism
-						is_faction_leader = yes
-					}
-				}
-				ITA = { country_event = generic.2 }
-			}
+			# if = {
+			# 	limit = {
+			# 		GER = {
+			# 			has_government = fascism
+			# 			is_faction_leader = yes
+			# 		}
+			# 	}
+			# 	GER = { country_event = generic.2 }
+			# }
+			# if = {
+			# 	limit = {
+			# 		ITA = {
+			# 			has_government = fascism
+			# 			is_faction_leader = yes
+			# 		}
+			# 	}
+			# 	ITA = { country_event = generic.2 }
+			# }
 		}
 	}
 
 	focus = {
 		id = SPA_fascist_economic_aid
 		available = {
-			any_country = {
-				is_in_faction_with = ROOT
-				has_government = fascism
-				is_major = yes
-			}
+			# any_country = { # SPTChange remove requirement
+			# 	is_in_faction_with = ROOT
+			# 	has_government = fascism
+			# 	is_major = yes
+			# }
 		}
 		bypass = {
 		}
@@ -2839,10 +2842,10 @@ focus_tree = {
 			has_full_control_of_state = 176
 			has_full_control_of_state = 792
 			has_full_control_of_state = 41
-			any_allied_country = {
-				is_major = yes
-				has_government = fascism
-			}
+			# any_allied_country = { # SPTChange remove requirement
+			# 	is_major = yes
+			# 	has_government = fascism
+			# }
 		}
 		bypass = {
 		}
@@ -2968,16 +2971,16 @@ focus_tree = {
 	focus = {
 		id = SPA_support_the_war_industry
 		available = {
-			any_country = {
-				is_in_faction_with = ROOT
-				has_government = fascism
-				is_major = yes
-			}
+			# any_country = { # SPTChange remove requirement
+			# 	is_in_faction_with = ROOT
+			# 	has_government = fascism
+			# 	is_major = yes
+			# }
 		}
 		bypass = {
 		}
 		prerequisite = { focus = SPA_facilitate_pyrenees_freight_transports }
-		prerequisite = { focus = SPA_improve_cross_country_railways }
+		# prerequisite = { focus = SPA_improve_cross_country_railways } # SPTChange remove require junk
 		
 		icon = GFX_goal_generic_construct_civ_factory
 		x = 0
@@ -3089,11 +3092,11 @@ focus_tree = {
 	focus = {
 		id = SPA_the_duty_to_work
 		available = {
-			any_country = {
-				is_in_faction_with = ROOT
-				has_government = fascism
-				is_major = yes
-			}
+			# any_country = { # SPTChange remove requirement
+			# 	is_in_faction_with = ROOT
+			# 	has_government = fascism
+			# 	is_major = yes
+			# }
 		}
 		bypass = {
 		}
@@ -3249,12 +3252,12 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = {FOCUS_FILTER_RESEARCH}
 		completion_reward = {
-			if = {
-				limit = {
-					NOT = { has_idea = closed_economy }
-				}
-				add_ideas = closed_economy
-			}
+			# if = { # SPTChange prevent skill issues
+			# 	limit = {
+			# 		NOT = { has_idea = closed_economy }
+			# 	}
+			# 	add_ideas = closed_economy
+			# }
 			swap_ideas = {
 				remove_idea = SPA_national_recovery_1
 				add_idea = SPA_national_recovery_2
@@ -3368,8 +3371,8 @@ focus_tree = {
 	focus = {
 		id = SPA_expand_the_axis_gold_trade
 		available = {
-			NOT = { has_completed_focus = SPA_the_stabilization_plan }
-		}
+		# 	NOT = { has_completed_focus = SPA_the_stabilization_plan } # SPTChange remove requirement
+		 }
 		bypass = {
 		}
 		prerequisite = { focus = SPA_spanish_austerity }
@@ -3938,7 +3941,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = SPA_portuguese_aid
-		cost = 5
+		cost = 2
 
 		available_if_capitulated = yes
 
