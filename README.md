@@ -18,7 +18,10 @@
  - Support the War Industry no longer requires Improve Cross Country Railroads
  - By default cannot join factions, Join the Axis now enables joining of faction
  - Removed requirement of allies for subsequent focuses
- - New focus Reintegrate Portugal give 40% compliance 
+ - New focus Reintegrate Portugal gives 40% compliance in Portugal
+ - New focus Expand the Spanish Protectorate gives German event to transfer French North Africa
+ - New focus Develop the Spanish Protectorate gives compliance and factories in French North Africa
+
 
 ### 3.14.15 Pie
 
