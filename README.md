@@ -21,6 +21,7 @@
  - Autarky
    - No longer grants closed economy
    - Infrastructure construction speed changed to all construction speed
+ - The Duty To Work now removed Recovering from the Civil War
  - Support the War Industry no longer requires Improve Cross Country Railroads
  - Removed requirement of allies for subsequent focuses
  - New focus Reintegrate Portugal gives 40% compliance in Portugal
