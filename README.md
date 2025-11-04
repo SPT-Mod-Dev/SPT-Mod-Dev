@@ -11,6 +11,7 @@
    - Focus time reduced to 14 days
    - Removed event
    - Enables joining faction
+   - Requires Fascist Economic Aid
  - The Army of Africa Model focus time reduced to 35 days
  - Improve Cross-Country Railways focus time reduced to 35 days
  - Stamp out the Marquis focus time reduced to 35 days
