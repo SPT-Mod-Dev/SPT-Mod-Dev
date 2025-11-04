@@ -1,5 +1,11 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.14.17
+
+#### Soviet Union
+ - Boris Stetchkin now land scientist for his work on the Tsar Tank
+ - Land facility moved to Found the PCDI
+
 ### 3.14.16 La Vida Loca
 
 #### Spain 
