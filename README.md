@@ -12,8 +12,11 @@
  - Improve Cross-Country Railways focus time reduced to 35 days
  - Stamp out the Marquis focus time reduced to 35 days
  - Portuguese Aid focus removed
+ - National Recovery
+   - Spirit no longer timed
+   - Grants -10% political power
  - Autarky
-   - No longer grants closed economy; pay 150 pp instead
+   - No longer grants closed economy
    - Infrastructure construction speed changed to all construction speed
  - Support the War Industry no longer requires Improve Cross Country Railroads
  - By default cannot join factions, Join the Axis now enables joining of faction
