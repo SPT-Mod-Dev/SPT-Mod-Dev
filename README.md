@@ -3,11 +3,14 @@
 ### 3.14.15.1 La Vida Loca
 
 #### Spain 
+ - By default cannot join factions
  - Unite Iberia 
    - Focus time reduced to 14 days
    - Now requires Fuse the Parties
- - Join the Axis focus time reduced to 14 days
- - Improve Cross Country Railroads focus time reduced to 35 days
+ - Join the Axis 
+   - Focus time reduced to 14 days
+   - Removed event
+   - Enables joining faction
  - The Army of Africa Model focus time reduced to 35 days
  - Improve Cross-Country Railways focus time reduced to 35 days
  - Stamp out the Marquis focus time reduced to 35 days
@@ -19,7 +22,6 @@
    - No longer grants closed economy
    - Infrastructure construction speed changed to all construction speed
  - Support the War Industry no longer requires Improve Cross Country Railroads
- - By default cannot join factions, Join the Axis now enables joining of faction
  - Removed requirement of allies for subsequent focuses
  - New focus Reintegrate Portugal gives 40% compliance in Portugal
  - New focus Expand the Spanish Protectorate gives German event to transfer French North Africa
