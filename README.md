@@ -1,8 +1,8 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.14.15.1
+### 3.14.15.1 La Vida Loca
 
-#### Spain La Vida Loca
+#### Spain 
  - Unite Iberia 
    - Focus time reduced to 14 days
    - Now requires Fuse the Parties
