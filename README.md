@@ -15,15 +15,15 @@
  - Improve Cross-Country Railways focus time reduced to 35 days
  - Stamp out the Marquis focus time reduced to 35 days
  - Portuguese Aid focus removed
+ - Demand French North Africa branch removed
  - National Recovery
    - Spirit no longer timed
    - Grants -10% political power
- - Autarky
-   - No longer grants closed economy
-   - Infrastructure construction speed changed to all construction speed
- - The Duty To Work now removed Recovering from the Civil War
+ - Autarky no longer grants closed economy
+ - Spanish Austerity now gives the correct version of Recovering from the Civil War
+ - The Duty To Work now removes Recovering from the Civil War
  - Support the War Industry no longer requires Improve Cross Country Railroads
- - Removed requirement of allies for subsequent focuses
+ - Removed requirement of allies for Fascist Economic Aid and subsequent focuses
  - New focus Reintegrate Portugal gives 40% compliance in Portugal
  - New focus Expand the Spanish Protectorate gives German event to transfer French North Africa
  - New focus Develop the Spanish Protectorate gives compliance and factories in French North Africa

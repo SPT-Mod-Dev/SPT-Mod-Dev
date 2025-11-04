@@ -3478,38 +3478,42 @@ focus_tree = {
 				remove_idea = SPA_national_recovery_2
 				add_idea = SPA_national_recovery_3
 			}
-			if = {
-				limit = {
-					NOT = {
-						has_idea = SPA_recovering_from_civil_war
-						has_idea = SPA_recovering_from_civil_war_2
-					}
-				}
-				effect_tooltip = {
-					swap_ideas = {
-						remove_idea = SPA_recovering_from_civil_war
-						add_idea = SPA_recovering_from_civil_war_2
-					}
-				}
+			swap_ideas = { # SPTChange correct idea
+				remove_idea = SPA_recovering_from_civil_war
+				add_idea = SPA_recovering_from_civil_war_2
 			}
-			if = {
-				limit = {
-					has_idea = SPA_recovering_from_civil_war
-				}
-				swap_ideas = {
-					remove_idea = SPA_recovering_from_civil_war
-					add_idea = SPA_recovering_from_civil_war_2
-				}
-			}
-			if = {
-				limit = {
-					has_idea = SPA_recovering_from_civil_war_2
-				}
-				swap_ideas = {
-					remove_idea = SPA_recovering_from_civil_war_2
-					add_idea = SPA_recovering_from_civil_war_3
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		NOT = {
+			# 			has_idea = SPA_recovering_from_civil_war
+			# 			has_idea = SPA_recovering_from_civil_war_2
+			# 		}
+			# 	}
+			# 	effect_tooltip = {
+			# 		swap_ideas = {
+			# 			remove_idea = SPA_recovering_from_civil_war
+			# 			add_idea = SPA_recovering_from_civil_war_2
+			# 		}
+			# 	}
+			# }
+			# if = {
+			# 	limit = {
+			# 		has_idea = SPA_recovering_from_civil_war
+			# 	}
+			# 	swap_ideas = {
+			# 		remove_idea = SPA_recovering_from_civil_war
+			# 		add_idea = SPA_recovering_from_civil_war_2
+			# 	}
+			# }
+			# if = {
+			# 	limit = {
+			# 		has_idea = SPA_recovering_from_civil_war_2
+			# 	}
+			# 	swap_ideas = {
+			# 		remove_idea = SPA_recovering_from_civil_war_2
+			# 		add_idea = SPA_recovering_from_civil_war_3
+			# 	}
+			# }
 		}
 	}
 
@@ -3592,7 +3596,7 @@ focus_tree = {
 		}
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 		completion_reward = {
-			remove_ideas = SPA_recovering_from_civil_war_3
+			remove_ideas = SPA_recovering_from_civil_war_2 # SPTChange correct idea
 			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
