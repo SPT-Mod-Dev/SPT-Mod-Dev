@@ -1,6 +1,6 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.14.16
+### 3.14.15.1
 
 #### Spain
  - Unite Iberia 
@@ -13,7 +13,7 @@
  - Stamp out the Marquis focus time reduced to 35 days
  - Portuguese Aid focus removed
  - Autarky
-   - No longer grants closed economy
+   - No longer grants closed economy; pay 150 pp instead
    - Infrastructure construction speed changed to all construction speed
  - Support the War Industry no longer requires Improve Cross Country Railroads
  - By default cannot join factions, Join the Axis now enables joining of faction
