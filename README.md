@@ -22,7 +22,9 @@
  - Autarky no longer grants closed economy
  - Spanish Austerity now gives the correct version of Recovering from the Civil War
  - The Duty To Work now removes Recovering from the Civil War
- - Support the War Industry no longer requires Improve Cross Country Railroads
+ - Support the War Industry
+   - No longer requires Improve Cross Country Railroads
+   - Civ factories equalled to Autarky path
  - Removed requirement of allies for Fascist Economic Aid and subsequent focuses
  - New focus Reintegrate Portugal gives 40% compliance in Portugal
  - New focus Expand the Spanish Protectorate gives German event to transfer French North Africa
