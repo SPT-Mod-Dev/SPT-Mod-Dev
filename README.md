@@ -22,6 +22,9 @@
  - New focus Expand the Spanish Protectorate gives German event to transfer French North Africa
  - New focus Develop the Spanish Protectorate gives compliance and factories in French North Africa
 
+#### Soviet Union
+ - Focus 'PC of Mechanical Engineering' now grants a Land Warfare Facility in Moscow
+
 
 ### 3.14.15 Pie
 
