@@ -2436,7 +2436,7 @@ focus_tree = {
 		prerequisite = { focus = SPA_the_national_syndicalist_state focus = SPA_fuse_the_parties }
 		
 		icon = GFX_goal_generic_army_doctrines
-		x = 2
+		x = 3
 		y = 1
 		relative_position_id = SPA_the_national_syndicalist_state
 		cost = 10
@@ -2558,7 +2558,7 @@ focus_tree = {
 		prerequisite = { focus = SPA_the_army_of_africa_model }
 		
 		icon = GFX_goal_generic_small_arms
-		x = -1
+		x = -2
 		y = 2
 		relative_position_id = SPA_the_army_of_africa_model
 		cost = 10
@@ -2676,7 +2676,7 @@ focus_tree = {
 		prerequisite = { focus = SPA_the_army_of_africa_model }
 		
 		icon = GFX_goal_generic_army_motorized
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = SPA_the_army_of_africa_model
 		cost = 10
@@ -2723,7 +2723,6 @@ focus_tree = {
 	focus = {
 		id = SPA_join_the_axis
 		available = {
-			has_global_flag = scw_over
 			is_in_faction = no
 			OR = {
 				AND = {
@@ -2739,8 +2738,6 @@ focus_tree = {
 					}
 				}
 			}
-			NOT = { has_completed_focus = SPA_the_latin_bloc }
-			NOT = { has_global_flag = POR_iberian_summit_in_progress_flag }
 		}
 		bypass = {
 			OR = {
@@ -2752,7 +2749,7 @@ focus_tree = {
 				is_in_faction_with = ITA
 			}
 		}
-		prerequisite = { focus = SPA_the_national_syndicalist_state focus = SPA_fuse_the_parties }
+		prerequisite = { focus = SPA_fascist_economic_aid }
 
 		ai_will_do = {
 			factor = 1
@@ -2763,9 +2760,9 @@ focus_tree = {
 		}
 
 		icon = GFX_goal_support_fascism
-		x = 4
+		x = -2
 		y = 1
-		relative_position_id = SPA_the_national_syndicalist_state
+		relative_position_id = SPA_fascist_economic_aid 
 		cost = 2
 
 		available_if_capitulated = yes
@@ -2824,7 +2821,7 @@ focus_tree = {
 		}
 
 		icon = GFX_focus_POL_complete_april_constitution
-		x = -1
+		x = 1
 		y = 1
 		relative_position_id = SPA_join_the_axis
 		cost = 5
@@ -2866,7 +2863,7 @@ focus_tree = {
 		}
 
 		icon = GFX_focus_spa_strengthen_the_supreme_reality_of_spain
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = SPT_spanish_protectorate
 		cost = 10
@@ -2976,14 +2973,13 @@ focus_tree = {
 		}
 		bypass = {
 		}
-		prerequisite = { focus = SPA_join_the_axis }
 		prerequisite = { focus = SPA_national_recovery }
 		mutually_exclusive = { focus = SPA_autarky }
 		
 		icon = GFX_goal_generic_construction
-		x = 1
+		x = -1
 		y = 1
-		relative_position_id = SPA_join_the_axis
+		relative_position_id = SPA_national_recovery
 		cost = 10
 
 		available_if_capitulated = yes
@@ -5146,7 +5142,7 @@ focus_tree = {
 		prerequisite = { focus = SPA_dictator_for_life focus = SPA_restore_the_monarchy }
 		
 		icon = GFX_goal_generic_navy_doctrines_tactics
-		x = -3
+		x = -2
 		y = 2
 		relative_position_id = SPA_dictator_for_life
 		cost = 10
