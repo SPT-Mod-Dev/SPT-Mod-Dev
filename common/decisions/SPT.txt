@@ -2077,3 +2077,40 @@ SPT_FRA_appeal = {
 		}
 	}
 }
+
+SPT_iberia = {
+
+	SPT_form_iberia = {
+
+		icon = generic_form_nation
+
+		allowed = {
+			original_tag = SPR 
+		}
+
+		available = {
+				AND = {
+					owns_state = 112 # Lisbon
+					owns_state = 179 # Beja
+					owns_state = 180 # Porto
+					owns_state = 181 # Guarda
+					owns_state = 795 # Santarem
+					owns_state = 458
+					owns_state = 459
+					owns_state = 460
+					owns_state = 461 
+					owns_state = 462
+					owns_state = 513 
+					owns_state = 665
+					owns_state = 118 # Gibraltar
+				}
+		}
+		visible = { 
+			has_completed_focus = SPT_develop_spanish_protectorate
+			NOT = { has_cosmetic_tag = ESU_POR_unified }
+		}
+		complete_effect = {
+			set_cosmetic_tag = ESU_POR_unified
+		}
+	}
+}

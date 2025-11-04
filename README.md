@@ -1,5 +1,39 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 3.14.15.1 La Vida Loca
+
+#### Spain 
+ - By default cannot join factions
+ - Unite Iberia 
+   - Focus time reduced to 14 days
+   - Now requires Fuse the Parties
+ - Join the Axis 
+   - Focus time reduced to 14 days
+   - Removed event
+   - Enables joining faction
+ - The Army of Africa Model focus time reduced to 35 days
+ - Improve Cross-Country Railways focus time reduced to 35 days
+ - Stamp out the Marquis focus time reduced to 35 days
+ - Portuguese Aid focus removed
+ - Demand French North Africa branch removed
+ - National Recovery
+   - Spirit no longer timed
+   - Grants -10% political power
+ - Autarky no longer grants closed economy
+ - Spanish Austerity now gives the correct version of Recovering from the Civil War
+ - The Duty To Work now removes Recovering from the Civil War
+ - Support the War Industry
+   - No longer requires Improve Cross Country Railroads
+   - Civ factories equalled to Autarky path
+ - Removed requirement of allies for Fascist Economic Aid and subsequent focuses
+ - New focus Reintegrate Portugal gives 40% compliance in Portugal
+ - New focus Expand the Spanish Protectorate gives German event to transfer French North Africa
+ - New focus Develop the Spanish Protectorate gives compliance and factories in French North Africa
+
+#### Soviet Union
+ - Focus 'PC of Mechanical Engineering' now grants a Land Warfare Facility in Moscow
+
+
 ### 3.14.15 Pie
 
 #### General
