@@ -11,11 +11,37 @@ leader_traits = {
 			}
 		}
 		modifier = {
-			breakthrough_factor = 0.25
-			army_infantry_attack_factor = 0.20
-			army_infantry_defence_factor = -0.10
+			army_strength_factor = 0.1
+			army_infantry_attack_factor = 0.12
 			army_armor_attack_factor = -0.25
 			army_armor_defence_factor = -0.25 
+			max_commander_army_size = 6
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		new_commander_weight = {
+			factor = 0
+		}
+	}
+	JAP_nobunaga_spirit = { 
+		type = all
+		trait_type = personality_trait
+		gain_xp = {
+			always = no # not gainable
+		}
+		allowed = {
+			FROM = {
+				tag = JAP
+			}
+		}
+		modifier = {
+			army_strength_factor = 0.1
+			motorized_attack_factor = 0.15
+			mechanized_attack_factor = 0.15
+			army_armor_attack_factor = -0.25
+			army_armor_defence_factor = -0.25
 			max_commander_army_size = 6
 		}
 		

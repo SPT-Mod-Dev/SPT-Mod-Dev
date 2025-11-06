@@ -260,6 +260,7 @@ country_event = {
 			add_to_variable = { election_factor = -0.5 }
 			USA_election_senate = yes
 			USA_election_house = yes
+			# SPT_USA_spin_the_wheel = yes  #spt change, added for the hell of it
 			custom_effect_tooltip = usa_congress_elections_tt_bad
 			country_event = usa.30
 		}
@@ -291,6 +292,7 @@ country_event = {
 		add_to_variable = { election_factor = -0.6 }
 		USA_election_senate = yes
 		USA_election_house = yes
+		# SPT_USA_spin_the_wheel = yes  #spt change, added for the hell of it
 		USA_flip_support = yes
 		custom_effect_tooltip = usa_congress_elections_tt_good
 		add_political_power = 50 #SPT change 120 -> 50
@@ -483,7 +485,10 @@ country_event = {
 	option = { 
 		name = usa.8.b
 		set_party_name = { ideology = democratic long_name = USA_democratic_party name = USA_democratic_party }
-		add_ideas = new_deal
+		swap_ideas = {
+			remove_idea = landons_clean_deal #SPTchange swapps new deal if usa goes landon. No stacking new deals
+			add_idea = new_deal
+		}
 		retire_country_leader = yes
 		add_political_power = 120
 		set_variable = { election_factor = random }
@@ -1947,25 +1952,91 @@ country_event = {
 	}
 }
 
-country_event = {
-	id = usa.176 #Fire arsenal of democracy speech
-	
-	fire_only_once = yes
-	
-	trigger = {
-		tag = USA
-		has_war = yes
-		has_war_with = GER
-		date > 1939.1.1
-	}
-	
-	mean_time_to_happen = {
-		days = 30
-	}
-	
-	hidden = yes
+country_event = { #Charlie Brown and Franz Stigler incident (USA)
+	id = usa.65
+	title = usa.65.t
+	desc = usa.65.desc
+	picture = GFX_report_event_USA_charlie_brown
 
-	immediate = {
-		play_arsenal_of_democracy_effect = yes
+	fire_only_once = yes
+
+	trigger = {
+		date > 1943.12.20
+		original_tag = USA
+		has_government = democratic
+		has_deployed_air_force_size = {
+			size > 0
+			type = strategic_bomber
+		}
+		any_country = {
+			original_tag = GER
+			has_government = fascism
+			has_war_with = ROOT
+		}
+	}
+
+	option = { #A hero through and through
+		name = usa.65.a
+		ai_chance = {
+			base = 10
+		}
+
+		add_ace = {
+			name = Charles
+			surname = Brown
+			callsign = "Charlie"
+			type = bomber_unique
+		}
+
+		add_war_support = -0.03
+	}
+
+	option = { #Make an example of him for defying us
+		name = usa.65.b
+		ai_chance = {
+			base = 10
+		}
+
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.05
+		}
+
+		add_war_support = 0.03
+	}
+
+	option = { #Silence this situation! The troops cannot know
+		name = usa.65.c
+		ai_chance = {
+			base = 10
+			modifier = { #historically this was silenced
+				factor = 10
+				is_historical_focus_on = yes
+			}
+		}
 	}
 }
+
+# SPTchange this event is simultaneous with Japanese DoW in our ruleset.
+# country_event = {
+# 	id = usa.176 #Fire arsenal of democracy speech
+	
+# 	fire_only_once = yes
+	
+# 	trigger = {
+# 		tag = USA
+# 		has_war = yes
+# 		has_war_with = GER
+# 		date > 1939.1.1
+# 	}
+	
+# 	mean_time_to_happen = {
+# 		days = 30
+# 	}
+	
+# 	hidden = yes
+
+# 	immediate = {
+# 		play_arsenal_of_democracy_effect = yes
+# 	}
+# }

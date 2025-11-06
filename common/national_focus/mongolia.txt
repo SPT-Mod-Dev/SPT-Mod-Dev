@@ -371,6 +371,7 @@ focus = {
 	relative_position_id = MON_merge_the_parties
 	prerequisite = {
 		focus = MON_merge_the_parties
+		focus = MON_end_isolation
 	}
 	cost = 5
 	available = {
@@ -2388,13 +2389,14 @@ focus = {
 	search_filters = {
 	}
 	completion_reward = {
+		set_technology = {
+			tech_trucks = 1
+			motorised_infantry = 1
+		}
 		add_equipment_to_stockpile = {
 			type = motorized_equipment
 			amount = 1000
 			producer = MON
-		}
-		set_technology = {
-			motorised_infantry = 1
 		}
 		818 = {
 			add_extra_state_shared_building_slots = 1

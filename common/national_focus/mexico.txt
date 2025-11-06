@@ -4533,11 +4533,10 @@ focus_tree = {
 						target = ROOT
 						modifier = mexico_hispanic_diplomacy
 					}
-					add_timed_idea = {
-						idea = MEX_synarchist_influence
-    					days = 720
+					country_event = {
+							id = south_american_events.63  
+							hours = 1
 					}
-					set_country_flag = received_MEX_synarchist_influence
 				}
 			}
 			else_if = {
@@ -6813,6 +6812,11 @@ focus_tree = {
 				uses = 1
 				category = armor
 			}
+			add_breakthrough_progress = {
+				specialization = specialization_land
+				value = 0.5
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			IF = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
@@ -6874,6 +6878,11 @@ focus_tree = {
 				uses = 1
 				category = air_doctrine
 			}
+			add_breakthrough_progress = {
+				specialization = specialization_air
+				value = 0.25
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			IF = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
@@ -6936,6 +6945,10 @@ focus_tree = {
 				uses = 1
 				category = air_doctrine
 			}
+			add_breakthrough_progress = {
+				specialization = specialization_air
+				value = 0.5
+			}
 		}
 	}
 
@@ -6985,10 +6998,10 @@ focus_tree = {
 						state = 477
 					}
 				}
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
-					level = 1
+					level = 2
 					instant_build = yes
 				}
 			}

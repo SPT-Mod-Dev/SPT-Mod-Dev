@@ -8,6 +8,10 @@ ARG_request_falkland_islands:0 "Request the Falkland Islands"
 JAP_declare_war_on_allies:0 "Declare war on Allies"
 FRA_push_into_italy:0 "Push into Italy"
 
+spt_debug_category:0 "SPT Live Debugging"
+force_convoy_recalculation_decision:0 "Force Convoy Recalculation"
+force_convoy_recalculation_decision_desc:0 "Our scientists will borrow virtual convoys from the seething (and coping) quantum foam underlying all of reality."
+
 USA_PAC_island_targets:0 "Offensive targets"
 USA_PAC_island_defense:0 "Defensive targets"
 JAP_PAC_island_targets:0 "Offensive targets"
@@ -62,18 +66,12 @@ Fully_integrate_Olonets:0 "Fully Integrate Olonets"
 ENG_annex_malaya:0 "Annex Malaya"
 JAP_annex_manchuko:0 "Annex ManchukoGin"
 
-JAP_manchu_lightindustry:0 "Develop manchurian light industry"
-JAP_manchu_heavyindustry:0 "Develop manchurian heavy industry"
-JAP_manchu_steelworks:0 "Develop manchurian steel factories"
-JAP_manchu_aluminum:0 "Develop manchurian aluminum deposits"
-JAP_manchuria_development:0"The Manchurian Project"
-
 SPT_USA_recession_decisions:0 "The Recession of 1937"
 SPT_USA_recession_decisions_desc:0 "Despite all of our best efforts to combat the effects of the 1929 economic crash, it seems that our economy has begun to stagnate. If things continue like this, we are certainly going to experience a recession that will set us back in our progress for quite a while.\n\nOnce it hits, we can attempt to steer it to a faster recovery, at a cost."
 SPT_USA_incoming_recession:0 "Incoming Recession"
-SPT_USA_recession_decision_cp_25_blocked:0 "£command_power  §R25"
-SPT_USA_recession_decision_cp_25:0 "£command_power  §Y25!"
-SPT_USA_recession_decision_cp_25_tooltip:0 "It costs £command_power  §Y15! to take the decision"
+SPT_USA_recession_decision_cp_25_blocked:0 "£command_power  §R25§! "
+SPT_USA_recession_decision_cp_25:0 "£command_power  §Y25§! "
+SPT_USA_recession_decision_cp_25_tooltip:0 "It costs £command_power  §Y25§! to take the decision"
 SPT_USA_ongoing_recession:0 "Ongoing Recession"
 SPT_USA_recession_remove_civs:0 "Privatise Underperforming Industries"
 SPT_USA_recession_temporary_relief:0 "Tax Breaks"
@@ -95,10 +93,32 @@ SPT_USA_low_taxes_help:0 "Lower Taxes"
 SPT_USA_fed_construction_help:0 "Federal Construction"
 SPT_USA_rebuild_help:0 "Rebuilding America"
 SPT_USA_pay_farm_subsidies_landon:0 "Pay Farm Subsidies"
+SPT_USA_clean_deal_decision:0 "The Clean Deal"
+SPT_USA_Election_promises_1:0 "Campaign On the Pacific Coast"
+SPT_USA_Election_promises_2:0 "Campaign In The Midwest"
+SPT_USA_Election_promises_6:0 "Campaign In The Southwest"
+SPT_USA_Election_promises_3:0 "Campaign In The Great Lakes"
+SPT_USA_Election_promises_4:0 "Campaign In The Southeast "
+SPT_USA_Election_promises_5:0 "Campaign In The Northeast"
+SPT_USA_Landon_Electoral_promises_folow_up:0 "Fulfill Electoral Promises"
+
+SPT_USA_Election_promises_decision_1_remove_effect_tt:0 "Adds §Y$SPT_USA_Election_promises_modifier$§! to §O[378.GetName], [377.GetName], [380.GetName], [385.GetName], [387.GetName], [386.GetName], [379.GetName]§! \n Upgraded to §Y$SPT_USA_Election_promises_modifier_2$§! when focus §C$SPT_USA_electoral_promises$§! is completed\n"
+
+SPT_USA_Election_promises_decision_2_remove_effect_tt:0 "Adds §Y$SPT_USA_Election_promises_modifier$§! to §O[388.GetName], [381.GetName], [384.GetName], [390.GetName], [389.GetName], [391.GetName], [392.GetName]§! \n Upgraded to §Y$SPT_USA_Election_promises_modifier_2$§! when focus §C$SPT_USA_electoral_promises$§! is completed\n"
+
+SPT_USA_Election_promises_decision_6_remove_effect_tt:0 "Adds §Y$SPT_USA_Election_promises_modifier$§! to §O[375.GetName], [376.GetName], [374.GetName], [372.GetName], [371.GetName], [383.GetName], [382.GetName]§! \n Upgraded to §Y$SPT_USA_Election_promises_modifier_2$§! when focus §C$SPT_USA_electoral_promises$§! is completed\n"
+
+SPT_USA_Election_promises_decision_3_remove_effect_tt:0 "Adds §Y$SPT_USA_Election_promises_modifier$§! to §O[394.GetName], [395.GetName], [393.GetName], [396.GetName], [369.GetName], [261.GetName], [373.GetName]§! \n Upgraded to §Y$SPT_USA_Election_promises_modifier_2$§! when focus §C$SPT_USA_electoral_promises$§! is completed\n"
+
+SPT_USA_Election_promises_decision_4_remove_effect_tt:0 "Adds §Y$SPT_USA_Election_promises_modifier$§! to §O[363.GetName], [368.GetName], [370.GetName], [367.GetName], [365.GetName], [364.GetName], [366.GetName]§! \n Upgraded to §Y$SPT_USA_Election_promises_modifier_2$§! when focus §C$SPT_USA_electoral_promises$§! is completed\n"
+
+SPT_USA_Election_promises_decision_5_remove_effect_tt:0 "Adds §Y$SPT_USA_Election_promises_modifier$§! to §O[362.GetName], [361.GetName], [360.GetName], [359.GetName], [358.GetName], [357.GetName], [816.GetName]§! \n Upgraded to §Y$SPT_USA_Election_promises_modifier_2$§! when focus §C$SPT_USA_electoral_promises$§! is completed\n"
+
 
 SPT_FIN_join_against_SOV:0 "Joining the continuation war"
 SPT_FIN_join_the_war:0 "Automatically join in 90 days"
 SPT_FIN_join_the_war_decision:0 "Join now"
+SPT_FIN_volunteer_decision:0 "Volunteers in Europe"
 
 ITA_ultimatum_generic_effects_tt:0 "\nWhen the timer expires this event will give §Y[ROOT.GetFlag][ROOT.GetNameDefCap]§! a war goal on §Y[FROM.GetFlag][FROM.GetNameDefCap]§!.\n"
 
@@ -127,3 +147,46 @@ GER_reichskommissariat_belgien_niederlande:0 "Reichskommissariat Belgien-Niederl
 
 BRA_annex_MEX_decision:0 "Annex Mexico"
 USA_annex_PHI_decision:0 "Annex Philippines"
+SOV_annex_MON_decision:0 "Annex Mongolia" 
+
+SPT_MEX_gun_running_category:0 "The Spanish Civil War"
+SPT_MEX_decision_support_spanish_loyalists:0 "Support the Republicans"
+SPT_MEX_decision_support_spanish_loyalists_desc:0 "We will send a shipment of rifles to the Republican government to defend democracy against the illegal usurpers of Franco and his fascist minions."
+
+SPT_SAF_mozambique_transfer:0 "Secure Portuguese Colonies"
+
+#Mexican Civil war
+SPT_MEX_good_friday_agreement:0 "End the religious conflicts in Mexico"
+SPT_MEX_good_friday_agreement_desc:0 "By bringing both parties to the negotiation table, we can draft an agreement that will bring an end to the religious conflicts in Mexico."
+
+# Autarky Rework
+SPT_GER_mefo_bills_mission_tt:0 "Issue another six-month tranche of '§YMEFO Bills§!', to go into effect upon the due date of the current batch of MEFO bills.\n\nIf we decide to §YPrioritize Economic Growth§!, we will pay politically depending on how many bills have been issued.\n\nOtherwise, Hjalmar Schacht plans to stop issuing the Bills in 1938..."
+SPT_GER_gegenmassnahmen_category:0 "Gegenmaßnahmen"
+SPT_GER_gegenmassnahmen_category_desc:0 "Wage and price controls are no longer sufficient to preserve economic stability. We cannot risk undersubscribed bond issuances or severe tax increases either. We will have to buy time with more creative countermeasures."
+SPT_GER_eisernes_sparen:0 "Promote Eisernes Sparen (Relentless Savings)"
+SPT_GER_eisernes_sparen_desc:0 "Comrade workers, at this time, there are fewer products to buy because making arms for victory is the priority. Save relentlessly, and enjoy your tax-free earnings just one year after victory!"
+SPT_GER_dividendabgabeverordnung:0 "Dividendabgabeverordnung (Dividend Tax Ordinance)"
+SPT_GER_dividendabgabeverordnung_desc:0 "High corporate dividends are unpatriotic. All dividends up to 6% shall be heavily taxed, and beyond 6% must be reinvested in government bonds."
+SPT_GER_abolish_hauszinssteuer:0 "Abolish the Hauszinssteuer (Rental Income Tax)"
+SPT_GER_abolish_hauszinssteuer_desc:0 "First established during the Weimar Republic, the Hauszinssteuer helps fund the states. The Party has long promised to abolish it - but landlords ought to pay us ten years' worth of tax as compensation. If they have to take out second mortgages, even better."
+SPT_GER_steuergutscheine:0 "Pay Expenditures in Steuergutscheine (Tax Vouchers)"
+SPT_GER_steuergutscheine_desc:0 "Why pay contractors in cash, when we can pay them in vouchers only redeemable on future taxes?"
+SPT_GER_rustungsurlauber:0 "Institute Rüstungsurlauber (Armaments Holiday)"
+SPT_GER_rustungsurlauber_desc:0 "As we prepare for Operation Barbarossa, the veterans twiddling their thumbs represent valuable manpower. Why not send them home to make the armaments they will use on the Eastern Front?"
+SPT_GER_gegenmassnahmen_category_desc:0 "'You have inflation only if you want it. Inflation is a lack of discipline. I will see to it that prices remain stable. I have my S.A. for that.' - Adolf Hitler"
+
+# Raubkrieg
+SPT_GER_kreditkasse:0 "Establish the [FROM.GetAdjective] Kreditkasse" # Extract Schleusengenwinne (Arbitraged Profits)
+SPT_GER_kreditkasse_desc:0 "By establishing a kreditkasse (Credit Office) in [FROM.GetNameDef], we can begin to control the local economy beyond basic robbery. The bank will forcibly replace the ruble with a new currency (pegged to the Reichsmark) and create a schleusengenwinne (arbitrage profit) between prices in [FROM.GetName] and the Reich."
+SPT_GER_ukrainian_granaries:0 "Seize the Ukranian Grain Harvest"
+SPT_GER_ukrainian_granaries_desc:0 "Are we the baddies?"
+SPT_GER_ukrainian_granaries_not_exist_tt:0 "Adds §Rsevere§! resistance to all Ukrainian states."
+GER_increase_increasing_consumer_goods_large_tt:0 "Increase §Y$MODIFIER_CONSUMER_GOODS_FACTOR$§! additionally each month by §Y+[?SPT_GER_change_monthly_CG_price_controls_large|%1]§!"
+SPT_GER_reichskommissariat_highlighted_required_states:0 "§Y[ROOT.GetNameWithFlag]§!, allies, or subjects fully control all §YHighlighted States§!"
+
+SPT_FRA_capitals:0 "Move Capital to [FROM.GetName]"
+
+SPT_iberia:0 "Iberian Union"
+SPT_iberia_desc:0 "Successful Iberian Unity returns us to a great state within the world, as Spain was for centuries past and will be for centuries to come."
+SPT_form_iberia:0 "Proclaim Iberian Unity"
+

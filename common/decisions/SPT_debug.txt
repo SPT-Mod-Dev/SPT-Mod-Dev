@@ -1,0 +1,60 @@
+spt_debug_category = {
+	force_convoy_recalculation_decision = {
+		available = {
+			is_ai = no
+		}
+
+		days_remove = 28
+		
+		complete_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = SPT_recalculated_convoys
+					}
+				}
+				add_equipment_to_stockpile = {
+					type = convoy_1
+					amount = 1
+				}
+				set_country_flag = SPT_recalculated_convoys
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					type = convoy_1
+					amount = -1
+				}
+				clr_country_flag = SPT_recalculated_convoys
+			}
+		}
+	}
+	
+	SPT_FRA_capitals = { # Per Eligible target
+		cost = 0
+
+		icon = GFX_decision_generic_fundraising
+
+		state_target = yes
+		targets = { 272 461 310 772 459 635 914 }
+
+		visible = {
+			original_tag = FRA
+		}
+
+		available = {
+			has_capitulated = yes
+			FROM = {
+				is_fully_controlled_by = FRA 
+				is_capital = no
+			}
+		}
+
+		complete_effect = {
+			FRA = {
+				set_capital = {  
+					state = FROM
+				}
+			}
+		}
+	}
+}

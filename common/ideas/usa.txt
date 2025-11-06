@@ -67,6 +67,7 @@ ideas = {
 	}
 
 	country = {
+
 		great_depression = {
 			picture = usa_great_depression_3
 			
@@ -365,7 +366,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				consumer_goods_factor = 0.10	
+				consumer_goods_factor = 0.10
 			}
 		}
 		USA_the_pentagon = {
@@ -381,7 +382,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				planning_speed = 0.1	
+				max_planning = 0.05	
 			}
 		}
 		USA_maritime_commission = {
@@ -398,6 +399,60 @@ ideas = {
 			
 			modifier = {
 				production_speed_dockyard_factor = 0.1	
+			}
+		}
+		USA_greenland_patrol_idea = {
+			picture = tur_sub_zero_survival_training
+
+			allowed = {
+				original_tag = USA
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			available = {
+				101 = {	is_controlled_by = ROOT }
+				# DEN = {
+				# 	OR = {
+				# 		has_war = yes
+				# 		is_subject = yes
+				# 	}
+				# }
+			}
+
+			# cancel = {
+			# 	DEN = {
+			# 		is_subject = no
+			# 		has_war = no
+			# 		is_in_faction_with = ROOT
+			# 		has_government = ROOT
+			# 	}
+			# }
+
+			# on_remove = {
+			# 	IF = {
+			# 		limit = {
+			# 			DEN = {
+			# 				exists = yes
+			# 				is_subject = no
+			# 			}
+			# 			101 = {
+			# 				is_owned_and_controlled_by = ROOT
+			# 			}
+			# 		}
+			# 		101 = {
+			# 			transfer_state_to = DEN
+			# 		}
+			# 		DEN = { country_event = { id = AAT_USA_events.07 days = 1 } }
+			# 	}
+			# }
+			
+			modifier = {
+				acclimatization_cold_climate_gain_factor = 0.1
+				spotting_chance = 0.02
 			}
 		}
 		USA_us_air_force = {
@@ -543,7 +598,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				consumer_goods_factor = 0.1
+				consumer_goods_factor = 0.10
 				stability_factor = 0.1
 			}
 		}
@@ -686,7 +741,25 @@ ideas = {
 				drift_defence_factor = 0.2
 			}
 		}
-		
+		landons_clean_deal = {
+			
+			picture = new_deal
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_infrastructure_factor = 0.1
+				stability_factor = 0.05
+				drift_defence_factor = 0.2
+			}
+		}
 		full_employment = {
 			
 			
@@ -722,7 +795,7 @@ ideas = {
 			picture = generic_production_bonus
 
 			modifier = {
-				conversion_cost_civ_to_mil_factor= -0.5
+				conversion_cost_civ_to_mil_factor = -0.5
 			}
 		}
 	
@@ -914,6 +987,25 @@ ideas = {
 			}
 		}
 
+		USA_manhattan_project_ns = {
+			name = USA_manhattan_project
+
+			picture = generic_research_bonus
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				specialization_nuclear_speed_factor = 0.05
+			}
+		}
+
 		war_bonds_focus = {
 			allowed = {
 				always = no
@@ -979,20 +1071,21 @@ ideas = {
 			allowed_civil_war = {
 				always = yes
 			}
+			picture = air_war_plans_division_focus
 			
 			removal_cost = -1
 		
 			equipment_bonus = {
 				small_plane_airframe = {
-					build_cost_ic = -0.1 instant = yes
+					build_cost_ic = -0.05 instant = yes
 				}
 				medium_plane_fighter_airframe = {
-					build_cost_ic = -0.1 instant = yes
+					build_cost_ic = -0.05 instant = yes
 				}
 			}
 		}
 
-		air_support_focus = {
+		air_war_plans_division_focus_2 = {
 			
 			allowed = {
 				always = no
@@ -1001,14 +1094,14 @@ ideas = {
 			allowed_civil_war = {
 				always = yes
 			}
-			
+			picture = air_war_plans_division_focus
 			removal_cost = -1
 			
 			equipment_bonus = {
-				small_plane_cas_airframe = {
+				small_plane_airframe = {
 					build_cost_ic = -0.1 instant = yes
 				}
-				medium_plane_airframe = {
+				medium_plane_fighter_airframe = {
 					build_cost_ic = -0.1 instant = yes
 				}
 			}
@@ -1053,6 +1146,7 @@ ideas = {
 		}
 		
 		home_of_the_free = {
+
 			allowed = {
 				always = no
 			}
@@ -1403,6 +1497,7 @@ ideas = {
 			modifier = {
 				weekly_manpower = 500
 				research_speed_factor = 0.05
+				special_project_speed_factor = 0.05
 			}
 		}
 		SPT_USA_lend_lease_expanded = {
@@ -1444,6 +1539,26 @@ ideas = {
 				consumer_goods_factor = -0.1
 				production_factory_max_efficiency_factor = 0.1
 				production_factory_efficiency_gain_factor = 0.1
+			}
+		}
+		SPT_USA_allied_aid_soviet = {
+			picture = generic_economic_increase
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				production_speed_buildings_factor = 0.075
+				consumer_goods_factor = -0.1
+				production_factory_max_efficiency_factor = 0.1
+				production_factory_efficiency_gain_factor = 0.1
+				surrender_limit = 0.1
 			}
 		}
 		SPT_USA_aid_payment_brit = { #ginger i swear to god if you complain about the aid payment spirits, you wont ever again see the light of day
@@ -1602,7 +1717,9 @@ ideas = {
 				has_government = democratic
 			}
 			available = {
-				has_idea = SPT_USA_recession_hit
+				has_dynamic_modifier = {
+				modifier = SPT_USA_recession
+				}
 			}
 			removal_cost = -1
 			
@@ -1697,7 +1814,6 @@ ideas = {
 			}
 			removal_cost = -1
 			modifier = {
-
 				stability_factor = -0.15
 				political_power_gain = -0.15
 				production_speed_buildings_factor = -0.2
@@ -1706,6 +1822,7 @@ ideas = {
 				consumer_goods_factor = 0.45
 			}
 		}
+		
 
 		SPT_USA_form_cabinet = {
 			picture = generic_political_support
@@ -2597,6 +2714,23 @@ ideas = {
 			modifier = {
 				industrial_capacity_factory = 0.05
 			}
+		}
+		USA_union_pacific_railway = {
+
+			picture = idea_USA_union_pacific_railway
+
+			allowed = {
+				original_tag = USA
+			}
+
+			available = {
+			}
+
+			research_bonus = {
+				industry = 0.05
+			}
+
+			traits = { railway_company }
 		}
 	}
 }

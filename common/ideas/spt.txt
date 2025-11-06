@@ -45,7 +45,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				surrender_limit = -0.3
+				surrender_limit = -0.1
 			}
 
 		}
@@ -128,35 +128,27 @@ ideas = {
 			modifier = {
 				army_org_Factor = -0.075
 				max_planning_factor = -0.05
-				supply_consumption_factor = 0.075		
-			}
-			targeted_modifier = {
-				tag = GER
-				attack_bonus_against = -0.05
-				defense_bonus_against = -0.05
-			}
-			targeted_modifier = {
-				tag = ITA
-				attack_bonus_against = -0.05
-				defense_bonus_against = -0.05
+				supply_consumption_factor = 0.075
+				attrition = 0.03
 			}
 		}
 		SPT_Med_BOP_Allies_Debuff_high = {
 			picture = chi_war_of_resistance3
 			modifier = {
 				army_org_Factor = -0.075
-				max_planning_factor = -0.075
+				max_planning_factor = -0.05
 				supply_consumption_factor = 0.1
+				attrition = 0.03
 			}
 			targeted_modifier = {
 				tag = GER
-				attack_bonus_against = -0.1
-				defense_bonus_against = -0.1
+				attack_bonus_against = -0.05
+				defense_bonus_against = -0.05
 			}
 			targeted_modifier = {
 				tag = ITA
-				attack_bonus_against = -0.1
-				defense_bonus_against = -0.1
+				attack_bonus_against = -0.05
+				defense_bonus_against = -0.05
 			}
 		}
 		
@@ -164,8 +156,8 @@ ideas = {
 			picture = eng_a_change_in_course
 
 			modifier = {
-				navy_fuel_consumption_factor = 0.15
-				air_fuel_consumption_factor = 0.15
+				navy_fuel_consumption_factor = 0.10
+				air_fuel_consumption_factor = 0.10
 				supply_consumption_factor = 0.15
 			}
 		}
@@ -364,6 +356,156 @@ ideas = {
 				industrial_capacity_factory = 0.02
 				production_factory_max_efficiency_factor = 0.02
 				license_production_speed = 0.1
+			}
+		}
+
+		SPT_raj_cap = {
+			picture = ENG_special_air_service
+            modifier = {
+                special_forces_cap = 0.10
+            }
+		}
+
+		SPT_GER_arty_research_penalty = {
+			picture = SOV_scientist_defect
+			allowed = {
+				always = no # Added via event
+			}
+			research_bonus = {
+				artillery = -0.75
+			}
+		}
+
+		SPT_fra_intervention_in_scw = {
+
+			allowed = {
+			}
+
+			allowed_civil_war = {
+			}
+
+			removal_cost = -1
+
+			picture = FRA_scw_intervention_republicans_focus
+
+			rule = {
+				can_send_volunteers = yes
+			}
+
+			modifier = {
+				# Tension required to send
+				send_volunteers_tension = -1
+
+				air_volunteer_cap = -1000
+			}
+
+			cancel = {
+				has_global_flag = spanish_civil_war
+				SPA = {
+					has_war = no
+				}
+			}
+		}
+		
+		SPT_scw_thunderdome = {
+
+			allowed = {
+			}
+
+			allowed_civil_war = {
+			}
+
+			removal_cost = -1
+
+			picture = por_volunteers_in_the_war3
+
+			rule = {
+				can_send_volunteers = yes
+			}
+
+			modifier = {
+				# Tension required to send
+				send_volunteers_tension = -1
+				# Divsiions required to even be allowed to send
+				send_volunteer_divisions_required = -1
+				# Flat additional volunteers allowed to send, ignoring own divs and Spain provinces
+				send_volunteer_size = 2
+				air_volunteer_cap = -1000
+
+				# Multiplier on how many vols you can send based on actual number of divisions?
+				# send_volunteer_factor = 10000
+			}
+
+			cancel = {
+				has_global_flag = spanish_civil_war
+				SPA = {
+					has_war = no
+				}
+			}
+		}
+		
+		SPT_scw_thunderdome_tier_2 = {
+
+			allowed = {
+			}
+
+			allowed_civil_war = {
+			}
+
+			removal_cost = -1
+
+			picture = por_volunteers_in_the_war2
+
+			rule = {
+				can_send_volunteers = yes
+			}
+
+			modifier = {
+				# Tension required to send
+				send_volunteers_tension = -1
+
+				air_volunteer_cap = -1000
+				# Multiplier on how many vols you can send based on actual number of divisions?
+				# send_volunteer_factor = 10000
+			}
+
+			cancel = {
+				has_global_flag = spanish_civil_war
+				SPA = {
+					has_war = no
+				}
+			}
+		}
+		
+		SPT_scw_thunderdome_tier_fascist = {
+
+			allowed = {
+			}
+
+			allowed_civil_war = {
+			}
+
+			removal_cost = -1
+
+			picture = por_volunteers_in_the_war
+
+			rule = {
+				can_send_volunteers = yes
+			}
+
+			modifier = {
+				# Flat additional volunteers allowed to send, ignoring own divs and Spain provinces
+				send_volunteer_size = 4
+
+				# Multiplier on how many vols you can send based on actual number of divisions?
+				# send_volunteer_factor = 10000
+			}
+
+			cancel = {
+				has_global_flag = spanish_civil_war
+				SPA = {
+					has_war = no
+				}
 			}
 		}
 	}

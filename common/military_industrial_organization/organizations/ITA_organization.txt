@@ -29,6 +29,7 @@ ITA_fiat_organization = {
 				has_dlc = "By Blood Alone"
 			}
 			tag = DEN # SPTchange
+			tag = HUN # SPTchange
 		}
 	}
 
@@ -75,7 +76,7 @@ ITA_fiat_organization = {
 			FROM = {
 				OR = {
 					is_subject = no
-					is_subject_of = ITA
+					is_subject_of = GER #SPTChange ITA -> GER
 				}
 				#is_in_faction_with = ITA
 				NOT = { has_completed_focus = BUL_nationalization }
@@ -87,6 +88,12 @@ ITA_fiat_organization = {
 			}
 			FROM = { has_completed_focus = DEN_establish_domestic_tank_manufacturing }
 		}
+		ELSE_IF = { # SPTChange
+			limit = { 
+				FROM = { original_tag = HUN } 
+			}
+			FROM = { has_completed_focus = wuw_HUN_license_fiat_tankettes }
+		}
 	}
 	
 	add_trait = { 
@@ -96,7 +103,7 @@ ITA_fiat_organization = {
 		special_trait_background = yes
 
 		position = { x=9 y=0 }
-		
+
 		available = {
 			ITA = { # SPTchange
 				has_completed_focus = ITA_new_industrialization_program
@@ -136,6 +143,10 @@ ITA_crda_organization = {
 				tag = BUL 
 				has_dlc = "Battle for the Bosporus"
 			}
+			AND = {
+				tag = HUN
+				has_dlc = "Gotterdammerung"
+			}
 		}
 	}
 	
@@ -163,11 +174,18 @@ ITA_crda_organization = {
 			FROM = {
 				OR = {
 					is_subject = no
-					is_subject_of = ITA
+					is_subject_of = GER #SPTChange ITA -> GER
 				}
 				#is_in_faction_with = ITA
 				NOT = { has_completed_focus = BUL_nationalization }
 			}
+		}
+
+		IF = {
+			limit = {
+				FROM = { original_tag = HUN }
+			}
+			FROM = { controls_state = 736 } #LITORALE (Trieste)
 		}
 	}
 
@@ -178,7 +196,13 @@ ITA_crda_organization = {
 		special_trait_background = yes
 
 		position = { x=9 y=0 }
-		
+
+		visible = {
+			FROM = {
+				original_tag = ITA
+			}
+		}
+
 		available = {
 			FROM = {
 				has_completed_focus = ITA_new_industrialization_program
@@ -737,16 +761,39 @@ ITA_crda_cant_organization = {
 ITA_fiat_aviazione_organization = {
 	include = generic_range_focused_aircraft_organization
 	icon = GFX_idea_ITA_fiat_aviazione
-	
+
+
+
 	allowed = {	 
-		tag = ITA 
+		OR = {
+			tag = ITA
+			AND = {
+				tag = BRA
+				has_dlc = "Trial of Allegiance"
+			}
+		}
 	}
 	
 	available = {
-		FROM = {
-			controls_state = 158 #PIEDMONT (Torino)
+		IF = {
+			limit = {
+				FROM = { NOT = { original_tag = ITA } }
+			}
+			FROM = { NOT = { has_war_with = ITA } }
 		}
-		ITA_is_northern_designer = yes
+		ELSE = {
+			FROM = {
+				controls_state = 158 #PIEDMONT (Torino)
+			}
+			ITA_is_northern_designer = yes
+		}
+
+		IF = {
+			limit = { FROM = { original_tag = BRA } }
+			FROM = {
+				has_completed_focus = BRA_italian_aircraft
+			}
+		}
 	}
 	
 	initial_trait = {
@@ -787,7 +834,11 @@ ITA_fiat_aviazione_organization = {
 		special_trait_background = yes
 
 		position = { x=9 y=0 }
-		
+
+		visible = {
+			FROM = { original_tag = ITA }
+		}
+
 		available = {
 			FROM = {
 				has_completed_focus = ITA_new_industrialization_program
@@ -918,7 +969,7 @@ ITA_lancia_organization = {
 			FROM = {
 				OR = {
 					is_subject = no
-					is_subject_of = ITA
+					is_subject_of = GER #SPTChange ITA -> GER
 				}
 				#is_in_faction_with = ITA
 				NOT = { has_completed_focus = BUL_nationalization }

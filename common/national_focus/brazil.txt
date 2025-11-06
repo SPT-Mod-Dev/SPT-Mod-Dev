@@ -851,6 +851,12 @@ focus_tree = {
 				idea = BRA_secure_our_borders_idea
 				days = 1460
 			}
+			# SPTchange Brazilian Self-Defense Force
+			ENG = {
+				country_event = {
+					id = generic.2 #This is the "[name] seeks to join [alliance]" event
+				}
+			}
 		}
 	}
 
@@ -2489,14 +2495,16 @@ focus_tree = {
 					has_war_with = ROOT
 				}
 			}
-			NOT = {
-				is_in_faction = yes
-			}
+			# SPTChange
+			# NOT = {
+			# 	is_in_faction = yes
+			# }
 		}
 
-		bypass = {
-			is_in_faction_with = USA
-		}
+		# SPTchange
+		# bypass = {
+		# 	is_in_faction_with = USA
+		# }
 		cancel_if_invalid = yes
 
 		search_filters = { FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_HISTORICAL }
@@ -2510,7 +2518,7 @@ focus_tree = {
 				}
 				country_event = {
 					id = JUNO_brazil_events.15
-					hours = 1
+					# hours = 1 # SPTchange why wait?
 				}
 			}
 			custom_effect_tooltip = BRA_washington_accords_tt
@@ -2593,11 +2601,8 @@ focus_tree = {
 					id = JUNO_brazil_events.20
 					hours = 1
 				}
-				IF = {
-					limit = {
-						is_in_faction = yes
-					}
-					add_to_faction = BRA
+				faction_leader = {
+					add_to_faction = ROOT
 				}
 			}
 			custom_effect_tooltip = BRA_potenji_river_conference_tt
@@ -2606,10 +2611,11 @@ focus_tree = {
 					has_war_with = USA
 					is_major = yes
 				}
-				BRA = {
-					declare_war_on = {
-						target = PREV
-						type = topple_government
+				ROOT = {
+					add_to_war = {
+					    targeted_alliance = USA
+					    enemy = PREV
+					    hostility_reason = asked_to_join
 					}
 				}
 			}
@@ -2703,8 +2709,7 @@ focus_tree = {
 					498 = {
 						free_building_slots = {
 							building = air_base
-							size > 2 
-							include_locked = yes
+							size > 2
 						}
 					}
 				}
@@ -2721,8 +2726,7 @@ focus_tree = {
 						498 = {
 							free_building_slots = {
 								building = air_base
-								size > 1 
-								include_locked = yes
+								size > 1
 							}
 						}
 					}
@@ -2740,8 +2744,7 @@ focus_tree = {
 						498 = {
 							free_building_slots = {
 								building = air_base
-								size > 0 
-								include_locked = yes
+								size > 0
 							}
 						}
 					}
@@ -5134,7 +5137,7 @@ focus_tree = {
 		prerequisite = { focus = BRA_implement_a_national_guard }
 		cost = 10
 		available = {
-			neutrality < 0.25 #SPT change 0.21 -> 0.25
+			neutrality < 0.23 #SPT change 0.21 -> 0.23
 		}
 		cancel_if_invalid = no
 
@@ -7172,15 +7175,17 @@ focus_tree = {
 						size > 1
 						include_locked = yes
 					}
-					OR = {
-						state = 961
-						state = 962
-						state = 963
-						state = 964
-						state = 965
-						state = 966
-						state = 967
-						state = 968
+					NOT = {
+						OR = {
+							state = 961
+							state = 962
+							state = 963
+							state = 964
+							state = 965
+							state = 966
+							state = 967
+							state = 968
+						}
 					}
 				}
 				add_extra_state_shared_building_slots = 1

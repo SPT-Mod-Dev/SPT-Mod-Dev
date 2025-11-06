@@ -362,6 +362,44 @@ shared_focus = {
 
 	completion_reward = {
 		custom_effect_tooltip = CHI_purchase_tanks_tt
+		if = {
+			limit = {
+				has_dlc = "Arms Against Tyranny"
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = CHI_closer_ties_with_germany
+						has_completed_focus = CHI_rapprochement_with_soviet_union
+					}
+				}
+				add_equipment_subsidy = {
+					cic = 500
+					equipment_type = light_tank_chassis
+					seller_trigger = CHI_tank_seller_for_subsidy
+				}
+			}
+			else_if = {
+				limit = {
+					has_completed_focus = CHI_closer_ties_with_germany
+				}
+				add_equipment_subsidy = {
+					cic = 500
+					equipment_type = light_tank_chassis
+					seller_tags = { GER } 
+				}
+			}
+			else_if = {
+				limit = {
+					has_completed_focus = CHI_rapprochement_with_soviet_union
+				}
+				add_equipment_subsidy = {
+					cic = 500
+					equipment_type = light_tank_chassis
+					seller_tags = { SOV } 
+				}
+			}
+		}
 		hidden_effect = { 
 			if = {
 				limit = {
@@ -450,8 +488,29 @@ shared_focus = {
 			uses = 1
 			category = armor
 		}
-		custom_effect_tooltip = available_designer
-		show_ideas_tooltip = german_chinese_tank_designer
+		add_breakthrough_progress = {
+			specialization = specialization_land
+			value = 0.25
+		}
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+
+		IF = {
+			limit = {
+				has_dlc = "Arms Against Tyranny"
+			}
+			custom_effect_tooltip = available_mio_tt
+			show_mio_tooltip = CHI_sino_german_technical_mission_organization
+
+			mio:CHI_sino_german_technical_mission_organization = {
+				add_mio_size = 1
+				add_mio_funds = 500
+			}
+		}
+		ELSE = {
+			custom_effect_tooltip = available_designer
+			show_ideas_tooltip = german_chinese_tank_designer
+		}
 	}
 }
 
@@ -557,6 +616,46 @@ shared_focus = {
 
 	completion_reward = {
 		custom_effect_tooltip = CHI_experimental_mechanised_unit_effect
+
+		IF = {
+			limit = {
+				has_dlc = "Arms Against Tyranny"
+			}
+			IF = {
+				limit = {
+					NOT = {
+						has_completed_focus = CHI_closer_ties_with_germany
+						has_completed_focus = CHI_rapprochement_with_soviet_union
+					}
+				}
+				add_equipment_subsidy = {
+					cic = 500
+					equipment_type = motorized_equipment
+					seller_trigger = CHI_tank_seller_for_subsidy
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_completed_focus = CHI_closer_ties_with_germany
+				}
+				add_equipment_subsidy = {
+					cic = 500
+					equipment_type = motorized_equipment
+					seller_tags = { GER } 
+				}
+			}
+			ELSE_IF = {
+				limit = {
+					has_completed_focus = CHI_rapprochement_with_soviet_union
+				}
+				add_equipment_subsidy = {
+					cic = 500
+					equipment_type = motorized_equipment
+					seller_tags = { SOV } 
+				}
+			}
+		}
+
 		hidden_effect = {
 			if = {
 				limit = {
@@ -3403,6 +3502,10 @@ shared_focus = {
 	available_if_capitulated = yes
 
 	completion_reward = {
+		add_breakthrough_progress = {
+			specialization = specialization_naval
+			value = 0.25
+		}
 		add_tech_bonus = {
 			name = CHI_naval_aviation
 			bonus = 1.0

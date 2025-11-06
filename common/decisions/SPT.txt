@@ -102,13 +102,57 @@ spt_category = {
 		}
 		available = {
 			date > 1941.1.1
-			has_completed_focus = JAP_strike_south_completed
+			has_completed_focus = SPT_JAP_strike_south_completed
 		}
 		ai_will_do = {
 			factor = 10
 		}
 		fire_only_once = yes
 		complete_effect = {
+			news_event = {
+				id = spt_jap_news.3
+			}
+			hidden_effect = {
+				JAP = {
+					country_event = {
+						id = spt_jap.13
+						days = 90
+						random_days = 90
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = SPT_JAP_aggressive_pacific
+					NOT = {
+						has_completed_focus = SPT_JAP_island_airports
+					}
+				}
+				add_timed_idea = {
+					idea = SPT_JAP_tora_tora_tora_idea_improved
+					days = 270
+				}
+			}
+			else_if = {
+				limit = {
+					has_completed_focus = SPT_JAP_aggressive_pacific
+					has_completed_focus = SPT_JAP_island_airports
+				}
+				add_timed_idea = {
+					idea = SPT_JAP_tora_tora_tora_idea_improved
+					days = 360
+				}
+			}
+			else = {
+				add_timed_idea = {
+					idea = JAP_tora_tora_tora_idea
+					days = 180
+				}
+			}
+
+			ENG = {
+				add_to_faction = USA
+			}
 			every_country = {
 				limit = {
 					is_in_faction_with = ENG
@@ -120,8 +164,201 @@ spt_category = {
 					}
 				}
 			}
+			# Ensure USA joins the war in Europe too
+			every_other_country = {
+				limit = {
+					has_war_with = ENG
+				}
+				USA = {
+					add_to_war = {
+					    targeted_alliance = ENG
+					    enemy = PREV
+					    hostility_reason = asked_to_join
+					}
+				}
+				# Mexico and Brazil join the war in Europe if they're in the Allies
+				MEX = {
+					if = {
+						limit = {
+							is_in_faction_with = USA
+						}
+						add_to_war = {
+							targeted_alliance = ENG
+							enemy = PREV
+							hostility_reason = asked_to_join
+						}
+					}
+				}
+				BRA = {
+					if = {
+						limit = {
+							is_in_faction_with = USA
+						}
+						add_to_war = {
+							targeted_alliance = ENG
+							enemy = PREV
+							hostility_reason = asked_to_join
+						}
+					}
+				}
+			}
+			# memes
+			hidden_effect = {	
+				every_country = {
+					limit = {
+						OR = {
+							is_in_faction_with = JAP
+							is_in_faction_with = GER
+							tag = FIN
+							tag = SPA
+						}
+					}
+					scoped_play_song = "empireofthesun"
+				}
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			every_controlled_state = {
+				limit = {
+					JAP = {
+						has_completed_focus = SPT_JAP_defensive_pacific
+					}
+					OR = {
+						state = 646
+						state = 684
+						state = 647
+						state = 633
+						state = 648
+						state = 645
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_war_with_allies_defensive_buff
+					days = 365
+					scope = JAP
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = SPT_JAP_defensive_continent
+				}
+				every_controlled_state = {
+					limit = {
+						OR = {
+							is_core_of = SIA
+							is_core_of = VIN
+							is_core_of = CAM
+							is_core_of = LAO
+							state = 325
+							state = 747
+							state = 601
+							state = 591
+							state = 594
+						}
+					}
+					add_dynamic_modifier = {
+						modifier = SPT_JAP_war_with_allies_defensive_buff
+						days = 365
+						scope = JAP
+					}
+				}
+				SIA = {
+					every_controlled_state = {
+						add_dynamic_modifier = {
+							modifier = SPT_JAP_war_with_allies_defensive_buff
+							days = 365
+							scope = JAP
+						}
+					}
+				}
+			}
 		}
 	}
+	# JAP_declare_war_on_allies_pearl_harbor_edition = {
+	# 	icon = GFX_decision_generic_human_torpedo
+
+	# 	allowed = {
+	# 		always = no
+	# 	}
+
+	# 	visible = {
+	# 		#has_completed_focus = SPT_JAP_aggressive_pacific
+	# 		NOT = { 
+	# 			JAP = {
+	# 				has_war_with = USA
+	# 			}	
+	# 		}
+	# 	}
+
+	# 	available = {
+	# 		custom_trigger_tooltip = {
+	# 			tooltip = SPT_JAP_state_in_pacific_to_pearl_harbor_tt
+	# 			state_is_in_pearl_harbor_range_and_has_ships = yes
+	# 		}
+	# 	}
+
+	# 	cost = 0
+
+	# 	fire_only_once = yes
+
+	# 	complete_effect = {
+	# 		custom_effect_tooltip = SPT_JAP_pearl_harbor_tt
+	# 		hidden_effect = {
+	# 			random_country = {
+	# 				limit = {
+	# 					is_major = yes
+	# 					is_part_of_allies = yes
+	# 					any_state = {
+	# 						state_is_in_pacific_islands = yes
+	# 						PREV = {
+	# 							ships_in_state_ports = {
+	# 								type = capital_ship
+	# 								size > 0
+	# 								state = PREV
+	# 							}
+	# 						}
+	# 					}
+	# 				}
+	# 				random_state = {
+	# 					limit = {
+	# 						state_is_in_pacific_islands = yes
+	# 						PREV = {
+	# 							ships_in_state_ports = {
+	# 								type = capital_ship
+	# 								size > 0
+	# 								state = PREV
+	# 							}
+	# 						}
+	# 					}
+	# 					prioritize = { 629 } #hawaii
+	# 					damage_units = {
+	# 						state = THIS # optional
+	# 						damage = 0.2
+	# 						army = no
+	# 						navy = yes
+	# 					}
+	# 					set_variable = { JAP.JAP_raided_state_var = THIS }
+	# 					set_variable = {
+	# 						JAP.JAP_raided_country_var = PREV
+	# 					}
+	# 				}
+	# 				custom_effect_tooltip = ITA_human_torpedo_effect_tt
+	# 				hidden_effect = {
+	# 					country_event = { id = BBA_italy_human_torpedo_raid.1 hours = 4}
+	# 				}
+	# 				activate_decision = JAP_declare_war_on_allies
+	# 			}
+				
+	# 			news_event = {
+	# 				id = spt_jap_news.3
+	# 			}
+	# 		}
+
+	# 	}
+
+	# 	ai_will_do = {
+	# 		base = 0
+	# 	}
+	# }
 	FRA_push_into_italy = {
 		allowed = {
 			OR = {
@@ -219,6 +456,7 @@ spt_category = {
 			}
 		}
 	}
+
 	ENG_annex_malaya = {
 		allowed = {
 			original_tag = ENG
@@ -252,6 +490,7 @@ spt_category = {
 			}
 		}
 	}
+
 	JAP_annex_manchuko = {
 		allowed = {
 			original_tag = JAP
@@ -299,6 +538,7 @@ spt_category = {
 		}
 		fire_only_once = yes
 	}
+
 	CAN_annex_SAF_decision = {
 		allowed = {
 			original_tag = CAN
@@ -326,38 +566,153 @@ spt_category = {
 		fire_only_once = yes
 	}
 
-BRA_annex_MEX_decision = {
-	allowed = {
-		original_tag = BRA
-	}
-	available = {
-		MEX = {
-			is_ai = yes
+	BRA_annex_MEX_decision = {
+		allowed = {
+			original_tag = BRA
 		}
-		is_ai = no
-	}
-	complete_effect = {
-		annex_country = {
-			target = MEX
-			transfer_troops = yes
+		available = {
+			MEX = {
+				is_ai = yes
+			}
+			is_ai = no
 		}
-		add_state_core = 484
-		add_state_core = 483
-		add_state_core = 482
-		add_state_core = 481
-		add_state_core = 480
-		add_state_core = 479
-		add_state_core = 478
-		add_state_core = 477
-		add_state_core = 476
-		add_state_core = 475
-		add_state_core = 485
-		add_state_core = 277
-		add_state_core = 474	
+		complete_effect = {
+			annex_country = {
+				target = MEX
+				transfer_troops = yes
+			}
+			add_state_core = 484
+			add_state_core = 483
+			add_state_core = 482
+			add_state_core = 481
+			add_state_core = 480
+			add_state_core = 479
+			add_state_core = 478
+			add_state_core = 477
+			add_state_core = 476
+			add_state_core = 475
+			add_state_core = 485
+			add_state_core = 277
+			add_state_core = 474	
+		}
+		fire_only_once = yes
 	}
-	fire_only_once = yes
+
+	SOV_annex_MON_decision = {
+		allowed = {
+			original_tag = SOV
+		}
+		
+		available = {
+			MON = {
+				is_ai = yes
+			}
+			is_ai = no
+		}
+		complete_effect = {
+			annex_country = {
+				target = MON
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = TAN
+				transfer_troops = yes
+			}
+			add_state_core = 818
+			add_state_core = 820
+			add_state_core = 330
+			add_state_core = 817
+			add_state_core = 819
+			add_state_core = 329
+		}
+		fire_only_once = yes
+	}
+	SPT_SAF_mozambique_transfer = {
+		allowed = {
+			original_tag = SAF
+		}
+		fire_only_once = yes
+		available = {
+			SPA = {
+				owns_state = 112
+			}
+			has_completed_focus = SAF_secure_interests_in_africa
+			546 = {
+				controlled_by_allies = yes
+			}
+			889 = {
+				controlled_by_allies = yes
+			}
+		}
+		complete_effect = {
+			transfer_state = 897
+			transfer_state = 896
+			transfer_state = 544
+			if = {
+				limit = {
+					NOT = {
+						POR = {
+							controls_state = 891
+							controls_state = 892
+							controls_state = 540
+							controls_state = 796
+							controls_state = 296
+							controls_state = 702
+							controls_state = 697
+							controls_state = 698
+						}
+					}
+				}
+				LIB = {
+					transfer_state = 891
+					transfer_state = 892
+					transfer_state = 540
+					transfer_state = 796
+					transfer_state = 296
+					transfer_state = 702
+					transfer_state = 697
+				}
+				ENG = {
+					transfer_state = 698
+				}
+			}
+		}
+	}
+
+	SPT_FIN_volunteer_decision = {
+		allowed = {
+			original_tag = FIN
+		}
+
+		visible = {
+			NOT = {
+				SOV = {
+					controls_state = 219
+				}
+			}
+			NOT = {
+				has_rule = can_send_volunteers
+			}
+		}
+
+		available = {
+			SOV = {
+				OR= {
+					has_capitulated = yes
+					exists = no
+					surrender_progress > 0.8
+				}
+			}	
+		}
+
+		complete_effect = {
+			FIN = {
+				set_rule = { can_send_volunteers = yes }
+			}
+		}
+	}
 }
-}
+
 USA_PAC_category = {
 	USA_PAC_island_targets = {
 		available = {
@@ -976,7 +1331,7 @@ JAP_manchuria_development = {
 			factor = 200
 		}
 		available = {
-			has_completed_focus = JAP_the_manchurian_project
+			has_completed_focus = SPT_JAP_manchurian_project
 			OR = {
 				MAN = {exists = yes}
 				any_controlled_state = {is_core_of = MAN}
@@ -988,6 +1343,13 @@ JAP_manchuria_development = {
 		modifier = {
 			civilian_factory_use = 2
 		}
+		highlight_states = {
+			highlight_color_before_active = 2
+			highlight_state_targets = {
+				state = 328
+			}
+		}
+		icon = GFX_decision_generic_factory
 		remove_effect = {
 			random_state = {
 				limit = {
@@ -1029,17 +1391,24 @@ JAP_manchuria_development = {
 			factor = 150
 		}
 		available = {
-			has_completed_focus = JAP_the_manchurian_project
+			has_completed_focus = SPT_JAP_manchurian_project
 			OR = {
 				MAN = {exists = yes}
 				any_controlled_state = {is_core_of = MAN}
 			}
 		}
+		icon = GFX_decision_generic_industry
 		fire_only_once = yes
 		days_remove = 140
 		cost = 25
 		modifier = {
 			civilian_factory_use = 2
+		}
+		highlight_states = {
+			highlight_color_before_active = 2
+			highlight_state_targets = {
+				state = 716
+			}
 		}
 		remove_effect = {
 			random_state = {
@@ -1082,7 +1451,7 @@ JAP_manchuria_development = {
 			factor = 200
 		}
 		available = {
-			has_completed_focus = JAP_the_manchurian_project
+			has_completed_focus = SPT_JAP_manchurian_project
 			OR = {
 				JAP = {
 					has_full_control_of_state = 716
@@ -1092,9 +1461,17 @@ JAP_manchuria_development = {
 				}
 			}
 		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 716
+			}
+			highlight_color_while_active = 3
+			highlight_color_before_active = 2
+		}
+		icon = GFX_decision_steel
 		fire_only_once = yes
 		days_remove = 70
-		cost = 50
+		cost = 25
 		modifier = {
 			civilian_factory_use = 2
 		}
@@ -1121,7 +1498,7 @@ JAP_manchuria_development = {
 			factor = 200
 		}
 		available = {
-			has_completed_focus = JAP_the_manchurian_project
+			has_completed_focus = SPT_JAP_manchurian_project
 			OR = {
 				JAP = {
 					has_full_control_of_state = 328
@@ -1131,9 +1508,17 @@ JAP_manchuria_development = {
 				}
 			}
 		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 328
+			}
+			highlight_color_while_active = 3
+			highlight_color_before_active = 2
+		}
+		icon = GFX_decision_aluminium
 		fire_only_once = yes
 		days_remove = 70
-		cost = 50
+		cost = 25
 		modifier = {
 			civilian_factory_use = 2
 		}
@@ -1693,5 +2078,39 @@ SPT_FRA_appeal = {
 	}
 }
 
+SPT_iberia = {
 
+	SPT_form_iberia = {
 
+		icon = generic_form_nation
+
+		allowed = {
+			original_tag = SPR 
+		}
+
+		available = {
+				AND = {
+					owns_state = 112 # Lisbon
+					owns_state = 179 # Beja
+					owns_state = 180 # Porto
+					owns_state = 181 # Guarda
+					owns_state = 795 # Santarem
+					owns_state = 458
+					owns_state = 459
+					owns_state = 460
+					owns_state = 461 
+					owns_state = 462
+					owns_state = 513 
+					owns_state = 665
+					owns_state = 118 # Gibraltar
+				}
+		}
+		visible = { 
+			has_completed_focus = SPT_develop_spanish_protectorate
+			NOT = { has_cosmetic_tag = ESU_POR_unified }
+		}
+		complete_effect = {
+			set_cosmetic_tag = ESU_POR_unified
+		}
+	}
+}

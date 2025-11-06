@@ -1,0 +1,1294 @@
+add_namespace = spt_jap
+add_namespace = spt_jap_news
+
+#country_event = {
+#	id = spt_jap.1
+#	title = spt_jap.1.t
+#	desc = spt_jap.1.desc
+#	is_triggered_only = yes
+#	option = {
+#		name = spt_jap.1.a
+#	}
+#}
+
+
+country_event = { #hidden event to spawn militia units periodically (for japan)
+	id = spt_jap.2
+	title = spt_jap.2.t
+	desc = spt_jap.2.desc
+	is_triggered_only = yes
+	timeout_days = 1
+	hidden = yes
+	picture = GFX_report_event_chinese_soldiers
+
+	immediate = {
+		country_event = {
+			id = spt_jap.2
+			days = 30
+		}
+
+		for_loop_effect = {
+			start = 0
+			end = 6
+			add = 1
+
+			SPT_JAP_spawn_militia = yes
+
+		}
+
+
+	}
+
+	option = {
+		name = spt_jap.2.a
+	}
+}
+
+
+#German Production Engineers Inspect Our Methods
+country_event = { 
+	id = spt_jap.3
+	title = spt_jap.3.t
+	desc = spt_jap.3.desc
+	is_triggered_only = yes
+	timeout_days = 14
+	picture = GFX_report_event_generic_factory
+
+	immediate = {
+
+	}
+
+	option = { #Maintain the japanese model
+		name = spt_jap.3.a
+
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_production_factory_start_efficiency_factor = 0.05
+			tooltip = production_factory_start_efficiency_factor_tt
+		}
+	}
+
+	option = { #Take their advice
+		name = spt_jap.3.b
+
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_production_factory_efficiency_gain_factor = 0.1
+			tooltip = production_factory_efficiency_gain_factor_tt
+		}
+		add_to_variable = {
+			SPT_JAP_zai_political_power_gain = -0.05
+			tooltip = political_power_gain_tt
+		}
+		hidden_effect = {
+			add_ideas = SPT_JAP_took_german_advice
+		}
+	}
+}
+
+#Grain markets in china cause inflation
+country_event = { 
+	id = spt_jap.4
+	title = spt_jap.4.t
+	desc = spt_jap.4.desc
+	is_triggered_only = yes #this is triggered by china capitulating
+	timeout_days = 14
+	picture = GFX_report_event_japanese_parade
+
+	immediate = { #effect applied immediately to avoid cheese
+		add_to_variable = {
+			var = JAP.spt_jap_cg_increase_tracker
+			value = 0.005
+		}
+		hidden_effect = {
+			add_ideas = SPT_JAP_grain_market_inflation_active
+		}
+	}
+
+	option = { #Warns the player that shit sucks now
+		name = spt_jap.4.a
+		custom_effect_tooltip = SPT_JAP_cg_expected_timed_increase_up_tt
+	}
+}
+
+#Solving the chinese grain market problem
+country_event = { 
+	id = spt_jap.5
+	title = spt_jap.5.t
+	desc = spt_jap.5.desc
+	is_triggered_only = yes
+	timeout_days = 14
+	picture = GFX_report_event_japanese_parade
+
+	immediate = { 
+		hidden_effect = {
+			remove_ideas = SPT_JAP_grain_market_inflation_active
+		}
+	}
+
+	option = { #Seize the grain
+		name = spt_jap.5.a
+		add_stability = -0.05
+
+		add_to_variable = {
+			var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+			value = -0.04
+			tooltip = SPT_JAP_cg_expected_tt
+		}
+		hidden_effect = {
+			if = { 
+				limit = {
+					check_variable = {
+						var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+						value = 0.0
+						compare = less_than
+					}
+				}
+				set_variable = {
+					var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+					value = 0.0
+				}
+			}
+		}
+	}
+
+	option = { #Eat a debuff now but stop getting the increased cg
+		name = spt_jap.5.b
+		custom_effect_tooltip = SPT_JAP_cg_expected_timed_increase_down_tt
+		hidden_effect = {
+			add_to_variable = {
+				var = JAP.spt_jap_cg_increase_tracker
+				value = -0.005
+			}
+			remove_ideas = SPT_JAP_grain_market_inflation_active
+
+		}
+		custom_effect_tooltip = SPT_JAP_whitespace_tt
+		custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+		add_to_variable = {
+			var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+			value = 0.01
+			tooltip = SPT_JAP_cg_expected_tt
+		}
+	}
+}
+
+#Hidden event to trigger an increase in eco pressure later
+country_event = { 
+	id = spt_jap.6
+	title = spt_jap.6.t
+	desc = spt_jap.6.desc
+	hidden = yes
+	is_triggered_only = yes #this is triggered by war with china
+	timeout_days = 1
+	picture = GFX_report_event_japanese_parade
+
+	immediate = { #effect applied immediately to avoid cheese
+		country_event = {
+			id = spt_jap.7
+			days = 30
+			random_days = 150
+		}
+	}
+
+	option = { #Warns the player that shit sucks now
+		name = spt_jap.6.a
+	}
+}
+#War with china causes increase in eco pressure
+country_event = { 
+	id = spt_jap.7
+	title = spt_jap.7.t
+	desc = spt_jap.7.desc
+	is_triggered_only = yes #this is triggered by spt_jap.6
+	timeout_days = 1
+	picture = GFX_report_event_japanese_soldiers_02
+
+	immediate = { #effect applied immediately to avoid cheese
+		add_to_variable = {
+			var = JAP.spt_jap_cg_increase_tracker
+			value = 0.005
+		}
+		
+	}
+
+	option = { #Warns the player that shit sucks now
+		name = spt_jap.7.a
+		
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_production_speed_arms_factory_factor = 0.025
+			tooltip = production_speed_arms_factory_factor_tt
+		}
+		custom_effect_tooltip = SPT_JAP_whitespace_tt
+		custom_effect_tooltip = SPT_JAP_cg_expected_timed_increase_up_tt
+	}
+	option = {
+		name = spt_jap.7.b
+
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_production_speed_arms_factory_factor = 0.05
+			tooltip = production_speed_arms_factory_factor_tt
+		}
+		add_to_variable = {
+			SPT_JAP_zai_production_speed_dockyard_factor = 0.05
+			tooltip = production_speed_dockyard_factor_tt
+		}
+		custom_effect_tooltip = SPT_JAP_whitespace_tt
+		add_to_variable = {
+			var = JAP.spt_jap_cg_increase_tracker
+			value = 0.005
+		}
+
+		custom_effect_tooltip = SPT_JAP_cg_expected_timed_increase_up_double_tt
+	}
+	option = {
+		name = spt_jap.7.c
+
+		trigger = {
+			has_completed_focus = SPT_JAP_zaibatsu_in_gov
+		}
+		add_to_variable = { #immediately removes the increase
+			var = JAP.spt_jap_cg_increase_tracker
+			value = -0.005
+		}
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_political_power_gain = 0.1
+			tooltip = political_power_gain_tt
+		}
+		custom_effect_tooltip = SPT_JAP_whitespace_tt
+		custom_effect_tooltip = SPT_JAP_pol_showa_state_header_tt
+		add_to_variable = {
+			SPT_JAP_pol_war_support_factor = -0.05
+			tooltip = war_support_factor_tt
+		}
+	}
+}
+
+#Event for ENG indicating that a border conflict for Hong Kong will take place
+country_event = { 
+	id = spt_jap.8
+	title = spt_jap.8.t
+	desc = spt_jap.8.desc
+	is_triggered_only = yes
+	timeout_days = 14
+	picture = GFX_report_event_japanese_army_parade
+
+	immediate = {
+
+	}
+
+	option = { #holy shit we gotta do something
+		name = spt_jap.8.a
+		custom_effect_tooltip = SPT_JAP_border_war_incoming_tt
+	}
+	option = { #fuck this, that rock aint worth it
+		name = spt_jap.8.b
+		JAP = {
+			transfer_state = 326
+		}
+		add_stability = -0.05
+		add_war_support = -0.05
+	}	
+}
+
+#Japanese victory in hong kong
+country_event = { 
+	id = spt_jap.9
+	title = spt_jap.9.t
+	desc = spt_jap.9.desc
+	is_triggered_only = yes
+	timeout_days = 7
+	picture = GFX_report_event_japanese_army_parade
+
+	immediate = {
+	}
+
+	option = { #england has to suck it
+		name = spt_jap.9.a
+
+		trigger = {
+			TAG = ENG
+		}
+
+		add_stability = -0.05
+		add_war_support = -0.1
+	}
+	option = { #japan rules, england drools
+		name = spt_jap.9.b
+
+		trigger = {
+			TAG = JAP
+		}
+
+		JAP = {
+			transfer_state = 326
+		}
+		army_experience = 25
+		add_war_support = 0.1
+
+		hidden_effect = {
+			news_event = {
+				id = spt_jap_news.4
+				days = 3
+			}
+		}
+	}
+}
+#Japanese loss in Hong Kong
+country_event = { 
+	id = spt_jap.10
+	title = spt_jap.10.t
+	desc = spt_jap.10.desc
+	is_triggered_only = yes
+	timeout_days = 7
+	picture = GFX_report_event_japanese_army_parade
+
+	immediate = {
+	}
+
+	option = { #perfidious albion does it again
+		name = spt_jap.10.a
+
+		trigger = {
+			TAG = ENG
+		}
+		army_experience = 50
+		add_political_power = 50
+		add_command_power = 50
+	}
+	option = { #so much for superior will
+		name = spt_jap.10.b
+
+		trigger = {
+			TAG = JAP
+		}
+		add_war_support = -0.05
+		add_political_power = -25
+	}
+}
+#stalemate in hong kong
+country_event = { 
+	id = spt_jap.11
+	title = spt_jap.11.t
+	desc = spt_jap.11.desc
+	is_triggered_only = yes
+	timeout_days = 7
+	picture = GFX_report_event_japanese_army_parade
+
+	immediate = {
+	}
+
+	option = { #cool waste of time
+		name = spt_jap.11.a
+	}
+}
+
+#Banzai Charge incoming
+country_event = { 
+	id = spt_jap.12
+	title = spt_jap.12.t
+	desc = spt_jap.12.desc
+	is_triggered_only = yes
+	timeout_days = 7
+	picture = GFX_report_event_japanese_army_parade
+
+	immediate = {
+	}
+
+	option = { #oh shit
+		name = spt_jap.12.a
+	}
+}
+
+#War with the allies makes the inflation go up
+country_event = { 
+	id = spt_jap.13
+	title = spt_jap.13.t
+	desc = spt_jap.13.desc
+	is_triggered_only = yes #triggered by declaring war on the allies via decision
+	timeout_days = 14
+	picture = GFX_report_event_japanese_soldiers_03
+
+	immediate = { #effect applied immediately to avoid cheese
+		add_to_variable = {
+			var = JAP.spt_jap_cg_increase_tracker
+			value = 0.01
+		}
+	}
+
+	option = { #Warns the player that shit sucks now
+		name = spt_jap.13.a
+		custom_effect_tooltip = SPT_JAP_cg_expected_timed_increase_up_double_tt
+	}
+}
+
+#Zaibatsu management event chain
+#part 1: getting sloppy silly-style
+#mobilization of materials
+country_event = { 
+	id = spt_jap.14
+	title = spt_jap.14.t
+	desc = spt_jap.14.desc
+	is_triggered_only = yes #triggered by focus
+	timeout_days = 14
+	picture = GFX_report_event_FIN_petsamo_mine
+
+	immediate = {
+		hidden_effect = {
+			JAP = {
+				country_event = {
+					id = spt_jap.15
+					days = 270
+					random_days = 90
+				}
+			}
+		}
+	}
+
+	option = { #zaibatsu neutral
+		name = spt_jap.14.a
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_industrial_capacity_factory = 0.05
+			tooltip = industrial_capacity_factory_tt
+		}
+	}
+	
+	option = { #zaibatsu guided
+		name = spt_jap.14.b
+		trigger = {
+			has_completed_focus = SPT_JAP_state_control
+		}
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_production_lack_of_resource_penalty_factor = -0.05
+			tooltip = production_lack_of_resource_penalty_factor_tt
+		}
+	}
+
+	option = { #zaibatsu empowered
+		name = spt_jap.14.c
+		trigger = {
+			has_completed_focus = SPT_JAP_zaibatsu_in_gov
+		}
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_resource_trade_cost_bonus_per_factory = 1
+			tooltip = resource_trade_cost_bonus_per_factory_tt
+		}
+		add_to_variable = {
+			SPT_JAP_zai_political_power_gain = -0.05
+			tooltip = political_power_gain_tt
+		}
+	}
+
+	option = { #zaibatsu challenged
+		name = spt_jap.14.d
+		trigger = {
+			has_completed_focus = SPT_JAP_challenge_zaibatsu
+		}
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_min_export = -0.05
+			tooltip = min_export_tt
+		}
+	}
+}
+
+#Zaibatsu management event chain
+#part 2: slurping that good good
+#cartel management
+country_event = { 
+	id = spt_jap.15
+	title = spt_jap.15.t
+	desc = spt_jap.15.desc
+	is_triggered_only = yes #triggered by another event
+	timeout_days = 14
+	picture = GFX_report_event_generic_handshake
+
+	immediate = {
+		hidden_effect = {
+			JAP = {
+				country_event = {
+					id = spt_jap.16
+					days = 270
+					random_days = 90
+				}
+			}
+		}
+	}
+
+	option = { #zaibatsu neutral
+		name = spt_jap.15.a
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_fuel_gain_factor = 0.1
+			tooltip = fuel_gain_factor_tt
+		}
+	}
+	option = { #zaibatsu guided
+		name = spt_jap.15.b
+		trigger = {
+			has_completed_focus = SPT_JAP_state_control
+		}
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_production_speed_arms_factory_factor = 0.05
+			tooltip = production_speed_arms_factory_factor_tt
+		}
+	}
+	option = { #zaibatsu empowered
+		name = spt_jap.15.c
+		trigger = {
+			has_completed_focus = SPT_JAP_zaibatsu_in_gov
+		}
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_industrial_capacity_dockyard = 0.05
+			tooltip = industrial_capacity_factory_tt
+		}
+		add_to_variable = {
+			SPT_JAP_zai_min_export = 0.05
+			tooltip = min_export_tt
+		}
+	}
+	option = { #zaibatsu challenged
+		name = spt_jap.15.d
+		trigger = {
+			has_completed_focus = SPT_JAP_challenge_zaibatsu
+		}
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_consumer_goods_factor = -0.1
+			tooltip = consumer_goods_factor_tt
+		}
+	}
+}
+
+#Zaibatsu management event chain
+#part 3: climax of the industrialists
+#production quotas
+country_event = { 
+	id = spt_jap.16
+	title = spt_jap.16.t
+	desc = spt_jap.16.desc
+	is_triggered_only = yes #triggered by another event
+	timeout_days = 14
+	picture = GFX_report_event_airplane_factory
+
+	immediate = {
+		hidden_effect = {
+			JAP = {
+				country_event = {
+					id = spt_jap.17
+					days = 180
+					random_days = 90
+				}
+			}
+		}
+	}
+
+	option = { #zaibatsu neutral
+		name = spt_jap.16.a
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_production_speed_infrastructure_factor = 0.1
+			tooltip = production_speed_infrastructure_factor_tt
+		}
+		
+	}
+	option = { #zaibatsu guided
+		name = spt_jap.16.b
+		trigger = {
+			has_completed_focus = SPT_JAP_state_control
+		}
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_production_factory_efficiency_gain_factor = 0.05
+			tooltip = production_factory_efficiency_gain_factor_tt
+		}
+	}
+	option = { #zaibatsu empowered
+		name = spt_jap.16.c
+		trigger = {
+			has_completed_focus = SPT_JAP_zaibatsu_in_gov
+		}
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_global_building_slots_factor = 0.1
+			tooltip = global_building_slots_factor_tt
+		}
+		add_to_variable = {
+			SPT_JAP_zai_production_speed_buidlings_factor = 0.05
+			tooltip = production_speed_buildings_factor_tt
+		}
+	}
+	option = { #zaibatsu challenged
+		name = spt_jap.16.d
+		trigger = {
+			has_completed_focus = SPT_JAP_challenge_zaibatsu
+		}
+		custom_effect_tooltip = SPT_JAP_zaibatsu_mod_header_tt
+		add_to_variable = {
+			SPT_JAP_zai_factory_max_efficiency_factor = 0.075
+			tooltip = production_factory_max_efficiency_factor_tt
+		}
+		add_to_variable = {
+			SPT_JAP_zai_production_factory_efficiency_gain_factor = -0.05
+			tooltip = production_factory_efficiency_gain_factor_tt
+		}
+	}
+}
+
+#Zaibatsu management event chain
+#part 4: wowie zowie
+#fate of the planning board
+country_event = { 
+	id = spt_jap.17
+	title = spt_jap.17.t
+	desc = spt_jap.17.desc
+	is_triggered_only = yes #triggered by another event
+	timeout_days = 14
+	picture = GFX_report_event_generic_conference
+
+	immediate = {
+	}
+
+	option = { #zaibatsu neutral
+		name = spt_jap.17.a
+		#stay as is
+		add_political_power = 50
+	}
+	option = { #zaibatsu guided
+		name = spt_jap.17.b
+		trigger = {
+			has_completed_focus = SPT_JAP_state_control
+		}
+		#make the planning board slightly better
+		set_country_flag = SPT_JAP_guided_planning_board
+
+		#things get a bit wild here but this is done this way to produce a nice readable tooltip
+		if = {
+			limit = {
+				has_idea = SPT_JAP_national_company
+			}
+			swap_ideas = {
+				remove_idea = SPT_JAP_national_company
+				add_idea = SPT_JAP_national_company_guided
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = kawasaki
+			}
+			hidden_effect = {
+				add_ideas = SPT_JAP_national_company
+			}
+			swap_ideas = {
+				remove_idea = SPT_JAP_national_company
+				add_idea = SPT_JAP_national_company_guided
+			}
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = SPT_JAP_national_company_guided
+					add_idea = kawasaki
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = JAP_idemitsu_kosan
+			}
+			hidden_effect = {
+				add_ideas = SPT_JAP_national_company
+			}
+			swap_ideas = {
+				remove_idea = SPT_JAP_national_company
+				add_idea = SPT_JAP_national_company_guided
+			}
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = SPT_JAP_national_company_guided
+					add_idea = JAP_idemitsu_kosan
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = sumitomo
+			}
+			hidden_effect = {
+				add_ideas = SPT_JAP_national_company
+			}
+			swap_ideas = {
+				remove_idea = SPT_JAP_national_company
+				add_idea = SPT_JAP_national_company_guided
+			}
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = SPT_JAP_national_company_guided
+					add_idea = sumitomo
+				}
+			}
+		}
+		else = {
+			hidden_effect = {
+				add_ideas = SPT_JAP_national_company
+			}
+			swap_ideas = {
+				remove_idea = SPT_JAP_national_company
+				add_idea = SPT_JAP_national_company_guided
+			}
+			hidden_effect = {
+				remove_ideas = SPT_JAP_national_company_guided
+			}
+		}
+		
+	}
+	option = { #zaibatsu empowered
+		name = spt_jap.17.c
+		trigger = {
+			has_completed_focus = SPT_JAP_zaibatsu_in_gov
+		}
+		#improve the industrial concerns
+		set_country_flag = SPT_JAP_empowered_zaibatsu_flag
+
+		#first check what concern the player has active
+		if = {
+			limit = {
+				has_idea = kawasaki
+			}
+			set_country_flag = SPT_JAP_had_kawasaki
+		}
+		else_if = {
+			limit = { 
+				has_idea = sumitomo
+			}
+			set_country_flag = SPT_JAP_had_sumitomo
+		}
+		else_if = {
+			limit = {
+				has_idea = JAP_idemitsu_kosan
+			}	
+			set_country_flag = SPT_JAP_had_idemitsu
+		}
+
+		#repeatedly swap ideas to generate a readable tooltip
+		swap_ideas = {
+			remove_idea = kawasaki
+			add_idea = SPT_kawasaki
+		}
+		swap_ideas = {
+			remove_idea = sumitomo
+			add_idea = SPT_sumitomo
+		}
+		swap_ideas = {
+			remove_idea = JAP_idemitsu_kosan
+			add_idea = SPT_JAP_idemitsu_kosan
+		}
+
+		#apply the correct idea based on what concern the player had before the tooltip was produced
+		hidden_effect = {
+			if = {
+				limit = {
+					has_country_flag = SPT_JAP_had_kawasaki
+				}
+				swap_ideas = {
+					remove_idea = SPT_JAP_idemitsu_kosan
+					add_idea = SPT_kawasaki
+				}
+			}
+			else_if = {
+				limit = {
+					has_country_flag = SPT_JAP_had_sumitomo
+				}
+				swap_ideas = {
+					remove_idea = SPT_JAP_idemitsu_kosan
+					add_idea = SPT_sumitomo
+				}
+			}
+			else_if = {
+				limit = { 
+					has_country_flag = SPT_JAP_had_idemitsu
+				}
+				add_ideas = SPT_JAP_idemitsu_kosan
+			}
+			else = {
+				remove_ideas = SPT_JAP_idemitsu_kosan
+			}
+		}
+	}
+
+	option = { #zaibatsu challenged
+		name = spt_jap.17.d
+		trigger = {
+			has_completed_focus = SPT_JAP_challenge_zaibatsu
+		}
+		#nationalize the industrial concerns and buff the planning board with their traits
+		set_country_flag = SPT_JAP_nationalized_planning_board
+		custom_effect_tooltip = SPT_JAP_industrial_concern_disabled_tt
+
+		#things get a bit wild here but this is done this way to produce a nice readable tooltip
+		if = {
+			limit = {
+				has_idea = SPT_JAP_national_company
+			}
+			swap_ideas = {
+				remove_idea = SPT_JAP_national_company
+				add_idea = SPT_JAP_national_company_nationalized
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = kawasaki
+			}
+			hidden_effect = {
+				add_ideas = SPT_JAP_national_company
+			}
+			swap_ideas = {
+				remove_idea = SPT_JAP_national_company
+				add_idea = SPT_JAP_national_company_nationalized
+			}
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = SPT_JAP_national_company_nationalized
+					add_idea = kawasaki
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = JAP_idemitsu_kosan
+			}
+			hidden_effect = {
+				add_ideas = SPT_JAP_national_company
+			}
+			swap_ideas = {
+				remove_idea = SPT_JAP_national_company
+				add_idea = SPT_JAP_national_company_nationalized
+			}
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = SPT_JAP_national_company_nationalized
+					add_idea = JAP_idemitsu_kosan
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = sumitomo
+			}
+			hidden_effect = {
+				add_ideas = SPT_JAP_national_company
+			}
+			swap_ideas = {
+				remove_idea = SPT_JAP_national_company
+				add_idea = SPT_JAP_national_company_nationalized
+			}
+			hidden_effect = {
+				swap_ideas = {
+					remove_idea = SPT_JAP_national_company_nationalized
+					add_idea = sumitomo
+				}
+			}
+		}
+		else = {
+			hidden_effect = {
+				add_ideas = SPT_JAP_national_company
+			}
+			swap_ideas = {
+				remove_idea = SPT_JAP_national_company
+				add_idea = SPT_JAP_national_company_nationalized
+			}
+			hidden_effect = {
+				remove_ideas = SPT_JAP_national_company_nationalized
+			}
+		}
+	}
+}
+
+
+country_event = { 
+	id = spt_jap.18
+	title = spt_jap.18.t
+	desc = spt_jap.18.desc
+	is_triggered_only = yes
+	#hidden = no
+	timeout_days = 14
+	picture = GFX_report_event_ITA_democratic_parlament
+
+	immediate = {
+		hidden_effect = {
+			country_event = {
+				id = spt_jap.18
+				days = 120
+				random_days = 120
+			}
+		}
+	}
+
+	option = { 
+		name = spt_jap.18.a
+		trigger = {
+			has_country_flag = diet_option_a_available
+		}
+
+		SPT_JAP_diet_flags_clear = yes
+		SPT_JAP_diet_flag_taken_clear = yes
+		hidden_effect = {
+			SPT_JAP_diet_remove_trait = yes
+		}
+
+		set_country_flag = diet_option_a_taken
+		add_country_leader_trait = kodoha_diet_research_trait
+		SPT_JAP_diet_flags_set = yes
+	}
+	option = { 
+		name = spt_jap.18.b
+		trigger = {
+			has_country_flag = diet_option_b_available
+		}
+
+		SPT_JAP_diet_flags_clear = yes
+		SPT_JAP_diet_flag_taken_clear = yes
+		hidden_effect = {
+			SPT_JAP_diet_remove_trait = yes
+		}
+
+		set_country_flag = diet_option_b_taken
+		add_country_leader_trait = kodoha_diet_stockpile_bolster_trait
+		SPT_JAP_diet_flags_set = yes
+	}
+	option = { 
+		name = spt_jap.18.c
+		trigger = {
+			has_country_flag = diet_option_c_available
+		}
+
+		SPT_JAP_diet_flags_clear = yes
+		SPT_JAP_diet_flag_taken_clear = yes
+		hidden_effect = {
+			SPT_JAP_diet_remove_trait = yes
+		}
+
+		set_country_flag = diet_option_c_taken
+		add_country_leader_trait = kodoha_diet_army_bolster_trait
+		SPT_JAP_diet_flags_set = yes
+	}
+	option = { 
+		name = spt_jap.18.d
+		trigger = {
+			has_country_flag = diet_option_d_available
+		}
+
+		SPT_JAP_diet_flags_clear = yes
+		SPT_JAP_diet_flag_taken_clear = yes
+		hidden_effect = {
+			SPT_JAP_diet_remove_trait = yes
+		}
+
+		set_country_flag = diet_option_d_taken
+		add_country_leader_trait = kodoha_diet_navy_bolster_trait
+		SPT_JAP_diet_flags_set = yes
+	}
+	option = { 
+		name = spt_jap.18.e
+		trigger = {
+			has_country_flag = diet_option_e_available
+		}
+
+		SPT_JAP_diet_flags_clear = yes
+		SPT_JAP_diet_flag_taken_clear = yes
+		hidden_effect = {
+			SPT_JAP_diet_remove_trait = yes
+		}
+
+		set_country_flag = diet_option_e_taken
+		add_country_leader_trait = kodoha_diet_stab_trait
+		SPT_JAP_diet_flags_set = yes
+	}
+	option = { 
+		name = spt_jap.18.f
+		trigger = {
+			has_country_flag = diet_option_f_available
+		}
+		SPT_JAP_diet_flags_clear = yes
+		SPT_JAP_diet_flag_taken_clear = yes
+		hidden_effect = {
+			SPT_JAP_diet_remove_trait = yes
+		}
+
+		set_country_flag = diet_option_f_taken
+		add_country_leader_trait = kodoha_diet_war_trait
+		SPT_JAP_diet_flags_set = yes
+	}
+}
+
+
+country_event = { 
+	id = spt_jap.999
+	title = spt_jap.999.t
+	desc = spt_jap.999.desc
+	is_triggered_only = yes
+	hidden = yes
+	timeout_days = 7
+	picture = GFX_report_event_japanese_army_parade
+
+	immediate = {
+		JAP = {
+			annex_country = {
+				target = CHI
+			}
+		}
+		add_threat = 50
+	}
+
+	option = { # :)
+		name = spt_jap.999.a
+	}
+}
+
+# NEWS EVENTS
+
+#kodoha dudes fumble the coup, just like me with the goth girl
+news_event = {
+	id = spt_jap_news.1
+	title = spt_jap_news.1.t
+	desc = spt_jap_news.1.d
+	picture = GFX_news_event_ger_civil_war
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = spt_jap_news.1.a
+		trigger = {
+			NOT = {
+				TAG = JAP
+			}
+			OR = { 
+				TAG = ENG
+				TAG = USA
+				TAG = FRA
+				TAG = BRA
+				TAG = CAN
+				TAG = RAJ
+				TAG = AST
+				TAG = NZL
+				TAG = SAF
+				TAG = HOL
+				TAG = MEX
+				TAG = SOV
+				TAG = MON
+			}
+		}
+	}
+	option = {
+		name = spt_jap_news.1.b
+		trigger = {
+			NOT = {
+				TAG = JAP
+			}
+			NOT = {
+				OR = { 
+					TAG = ENG
+					TAG = USA
+					TAG = FRA
+					TAG = BRA
+					TAG = CAN
+					TAG = RAJ
+					TAG = AST
+					TAG = NZL
+					TAG = SAF
+					TAG = HOL
+					TAG = MEX
+					TAG = SOV
+					TAG = MON
+				}
+			}
+		}
+	}
+	option = {
+		name = spt_jap_news.1.c
+		trigger = {
+			TAG = JAP
+		}
+	}
+}
+
+#kodoha dudes succeed the coup
+news_event = {
+	id = spt_jap_news.2
+	title = spt_jap_news.2.t
+	desc = spt_jap_news.2.d
+	picture = GFX_news_event_japanese_army_parade
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = spt_jap_news.2.a
+		trigger = {
+			NOT = {
+				TAG = JAP
+			}
+			OR = { 
+				TAG = ENG
+				TAG = USA
+				TAG = FRA
+				TAG = BRA
+				TAG = CAN
+				TAG = RAJ
+				TAG = AST
+				TAG = NZL
+				TAG = SAF
+				TAG = HOL
+				TAG = MEX
+				TAG = SOV
+				TAG = MON
+			}
+		}
+	}
+	option = {
+		name = spt_jap_news.2.b
+		trigger = {
+			NOT = {
+				TAG = JAP
+			}
+			NOT = {
+				OR = { 
+					TAG = ENG
+					TAG = USA
+					TAG = FRA
+					TAG = BRA
+					TAG = CAN
+					TAG = RAJ
+					TAG = AST
+					TAG = NZL
+					TAG = SAF
+					TAG = HOL
+					TAG = MEX
+					TAG = SOV
+					TAG = MON
+				}
+			}
+		}
+	}
+	option = {
+		name = spt_jap_news.2.c
+		trigger = {
+			TAG = JAP
+		}
+	}
+}
+
+
+# Japan declares war by bombing a navy
+news_event = {
+	id = spt_jap_news.3
+	title = spt_jap_news.3.t
+	desc = spt_jap_news.3.d
+	picture = GFX_news_event_usa_japan_at_war
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = spt_jap_news.3.a
+		trigger = {
+			NOT = {
+				OR = {
+					TAG = JAP
+					TAG = RAJ
+				}
+			}
+		}
+	}
+	option = {
+		name = spt_jap_news.3.b
+		trigger = {
+			TAG = JAP
+			not = {
+				TAG = RAJ
+			}
+		}
+	}
+	option = {
+		name = spt_jap_news.3.c
+		trigger = {
+			TAG = RAJ
+		}
+	}
+}
+
+news_event = {
+	id = spt_jap_news.4
+	title = spt_jap_news.4.t
+	desc = spt_jap_news.4.d
+	picture = GFX_news_event_japanese_parade
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = spt_jap_news.4.a
+		trigger = {
+			NOT = {
+				TAG = JAP
+			}
+			OR = { 
+				TAG = ENG
+				TAG = USA
+				TAG = FRA
+				TAG = BRA
+				TAG = CAN
+				TAG = RAJ
+				TAG = AST
+				TAG = NZL
+				TAG = SAF
+				TAG = HOL
+				TAG = MEX
+				TAG = SOV
+				TAG = MON
+			}
+		}
+	}
+	option = {
+		name = spt_jap_news.4.b
+		trigger = {
+			NOT = {
+				TAG = JAP
+			}
+			NOT = {
+				OR = { 
+					TAG = ENG
+					TAG = USA
+					TAG = FRA
+					TAG = BRA
+					TAG = CAN
+					TAG = RAJ
+					TAG = AST
+					TAG = NZL
+					TAG = SAF
+					TAG = HOL
+					TAG = MEX
+					TAG = SOV
+					TAG = MON
+				}
+			}
+		}
+	}
+	option = {
+		name = spt_jap_news.4.c
+		trigger = {
+			TAG = JAP
+		}
+	}
+}

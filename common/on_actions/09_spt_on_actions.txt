@@ -2,11 +2,32 @@ on_actions = {
 	on_startup = {
 		effect = {
 
-			#le funneh happens
-			CHI = {
-				#SPT_randomize_china_color = yes
-				SPT_will_it_blend = yes
+			MAN = {
+				annex_country = {
+					target = MEN
+				}
 			}
+
+			# ATF = { #dont ask me why it needs to be triggered inside a country
+			# 	SPT_april_fools_roll_the_dice = yes #april fools
+			# } bye bye april fools
+
+			USA = {
+				SPT_USA_spin_the_wheel = yes
+			}
+			# LAT = { activate_decision = form_baltic_federation }
+
+			#le funneh happens
+			# CHI = {
+			# 	#SPT_randomize_china_color = yes
+			# 	SPT_will_it_blend = yes
+			# }
+
+			#i hate the concept of self-determination of peoples, they all should be integrated into megacountries and slowly italianized for the return of Rome
+			every_country = {
+				SPT_remove_useless_cores = yes
+			}
+
 
 			#Suck it sticky #it didnt work too well ginger, theyve joined factions
 			#Prevent countries joining faction
@@ -255,40 +276,6 @@ on_actions = {
 					active = yes
 				}
 			}
-			#Remove Pakistan cores
-			RAJ = {
-				443 = {
-					remove_core_of = PAK
-				}
-				444 = {
-					remove_core_of = PAK
-				}
-				445 = {
-					remove_core_of = PAK
-				}
-				440 = {
-					remove_core_of = PAK
-				}
-				442 = {
-					remove_core_of = PAK
-				}
-				430 = {
-					remove_core_of = PAK
-					remove_core_of = BAN
-				}
-				787 = {
-					remove_core_of = PAK
-				}
-				441 = {
-					remove_claim_by = PAK
-				}
-				640 = {
-					remove_core_of = BRM
-				}
-				288 = {
-					remove_core_of = BRM
-				}
-			}
 			#Remove yugos anti german idea
 			YUG = {
 				remove_ideas = anti_german_military
@@ -338,64 +325,135 @@ on_actions = {
 				
 				sound_effect = "spt_pipe_falling"
 			}
+
+			if = {
+				limit = {
+					has_dlc = "Axis Armor Pack"
+				}
+
+				GER = { news_event = spt.114 }
+				
+				sound_effect = "spt_pipe_falling"
+			}
+
+			# Give Australia the camels it deserves
+			if = {
+				limit = {
+					has_dlc = "Battle for the Bosporus"
+				}
+				AST = {
+					set_technology = {
+						camelry = 1 
+						popup = no
+					}
+				}
+			}
+
+			# SCW Meme game
+			# every_country = {				
+			# 	if = {
+			# 		limit = {
+			# 			OR = {
+			# 				tag = USA
+			# 				tag = ENG
+			# 				tag = RAJ
+			# 			}
+			# 		}
+			# 		add_ideas = SPT_scw_thunderdome_tier_2
+			# 	}
+			# 	else_if = {
+			# 		limit = {
+			# 			OR = {
+			# 				tag = ITA
+			# 				tag = GER
+			# 				tag = JAP
+			# 			}
+			# 		}
+			# 		add_ideas = SPT_scw_thunderdome_tier_fascist
+			# 	}
+			# 	else_if = {
+			# 		limit = {
+			# 			is_ai = no
+			# 			OR = {
+			# 				tag = HUN
+			# 				tag = ROM
+			# 				tag = BUL
+			# 				tag = FIN
+			# 				tag = DEN
+			# 				tag = SIA
+			# 				tag = MAN
+			# 				tag = AST
+			# 				tag = CAN
+			# 				tag = BRA
+			# 				tag = NZL
+			# 				tag = SAF
+			# 				tag = MEX
+			# 				tag = HOL
+			# 				tag = MON
+			# 			}
+			# 		}
+			# 		add_ideas = SPT_scw_thunderdome
+			# 	}
+			# }
 		}
 	}
 	on_state_control_changed = {
 		effect = {
-			#Checks axis take oslo SPTChange makes it work idk
-			if = {
-				limit = {
-					NOT = { has_global_flag = GER_norr_rights }
-					GER = { has_completed_focus = GER_swedish_trade_agreement }
-					110 = { 
-						controller = { 
-							OR = {
-								AND = {
-									original_tag = NOR
-									has_government = fascism
-									NOT = { is_ally_with = GER }
-								}	
-								is_ally_with = GER
-							}
-						}
-					}
-				}
-				GER = {
-					set_global_flag = GER_norr_rights
-					country_event = {
-						days = 3
-						id = spt.1
-					}
-				}
-			}
-			#Checks axis lose oslo
-			if = {
-				limit = {
-					has_global_flag = GER_norr_rights
-					GER = { has_completed_focus = GER_swedish_trade_agreement }
-					NOT = {
-						110 = { 
-							controller = { 
-								OR = {
-									AND = {
-										original_tag = NOR
-										has_government = fascism
-										NOT = { is_ally_with = GER }
-									}	
-									is_ally_with =  GER
-								}
-							}
-						}
-					}
-				}
-				GER = {
-					clr_global_flag = GER_norr_rights
-					country_event = {
-						days = 3
-						id = spt.2
-					}
-				}
-			}
+			# #Checks axis take oslo SPTChange makes it work idk
+			# if = {
+			# 	limit = {
+			# 		NOT = { has_global_flag = GER_norr_rights }
+			# 		GER = { has_completed_focus = GER_trade_deal_with_sweden }
+			# 		110 = { 
+			# 			controller = { 
+			# 				OR = {
+			# 					AND = {
+			# 						original_tag = NOR
+			# 						has_government = fascism
+			# 						NOT = { is_ally_with = GER }
+			# 					}	
+			# 					is_ally_with = GER
+			# 				}
+			# 			}
+			# 		}
+			# 	}
+			# 	GER = {
+			# 		set_global_flag = GER_norr_rights
+			# 		country_event = {
+			# 			days = 3
+			# 			id = spt.1
+			# 		}
+			# 	}
+			# }
+			# #Checks axis lose oslo
+			# if = {
+			# 	limit = {
+			# 		has_global_flag = GER_norr_rights
+			# 		GER = { has_completed_focus = GER_trade_deal_with_sweden }
+			# 		NOT = {
+			# 			110 = { 
+			# 				controller = { 
+			# 					OR = {
+			# 						AND = {
+			# 							original_tag = NOR
+			# 							has_government = fascism
+			# 							NOT = { is_ally_with = GER }
+			# 						}	
+			# 						is_ally_with =  GER
+			# 					}
+			# 				}
+			# 			}
+			# 		}
+			# 	}
+			# 	GER = {
+			# 		clr_global_flag = GER_norr_rights
+			# 		country_event = {
+			# 			days = 3
+			# 			id = spt.2
+			# 		}
+			# 	}
+			# }
+
 			#Pacific front checks
 			#USA takes island
 			if = {
@@ -666,6 +724,35 @@ on_actions = {
 	}
 	on_capitulation = {
 		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = FRA
+					}
+					# NOT = { has_global_flag = france_fallen }
+				}
+				set_global_flag = france_fallen
+				if = {
+					limit = {
+						461 = { is_controlled_by = FRA } 
+					}					
+					FRA = { 
+						set_capital = {
+							state = 461
+						}	
+					}
+				}
+				else_if = {
+					limit = {
+						272 = { is_controlled_by = FRA } 
+					}					
+					FRA = { 
+						set_capital = {
+							state = 272
+						}	
+					}
+				}
+		}
 			#Checks if jap or usa cap each other
 			if = {
 				limit = {
@@ -692,49 +779,102 @@ on_actions = {
 					add_ideas = PAC_total_victory
 				}
 			}
-			#Get compliance when ger takes france
 			if = {
 				limit = {
 					ROOT = {
-						original_tag = FRA
-					}
-					capped_by_axis = yes
-				}
-				set_global_flag = france_fallen
-				GER = {
-					if = {
-						limit = {
-							has_completed_focus = GER_fra_compliance
-						}
-						country_event = {
-							id = spt.103
-							days = 7
-						}
+						tag = ITA
 					}
 				}
-				#Remove paradox silly flags
-				every_state = {
-					clr_state_flag = prevent_auto_flip_after_capitulation
+				play_song = "bella_ciao"
+			}
+			# Hid obsolete on actions
+			# #Get compliance when ger takes france
+			# if = {
+			# 	limit = {
+			# 		ROOT = {
+			# 			original_tag = FRA
+			# 		}
+			# 		capped_by_axis = yes
+			# 	}
+			# 	set_global_flag = france_fallen
+			# 	GER = {
+			# 		if = {
+			# 			limit = {
+			# 				has_completed_focus = GER_fra_compliance
+			# 			}
+			# 			country_event = {
+			# 				id = spt.103
+			# 				days = 7
+			# 			}
+			# 		}
+			# 	}
+			# 	#Remove paradox silly flags
+			# 	every_state = {
+			# 		clr_state_flag = prevent_auto_flip_after_capitulation
+			# 	}
+			# }
+			# #Get compliance when ger takes poland
+			# if = {
+			# 	limit = {
+			# 		capped_by_axis = yes
+			# 		ROOT = {
+			# 			original_tag = POL
+			# 		}
+			# 	}
+			# 	GER = {
+			# 		if = {
+			# 			limit = {
+			# 				has_completed_focus = GER_pol_compliance
+			# 			}
+			# 			country_event = {
+			# 				id = spt.100
+			# 				days = 7
+			# 			}
+			# 		}
+			# 	}
+			# }
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = CHI
+					}
+					NOT = {
+						OR = {
+							JAP = {
+								has_completed_focus = SPT_JAP_grain_market
+							}
+							JAP = {
+								has_idea = SPT_JAP_grain_market_inflation_active
+							}
+						}
+					}
+					#grain market inflation activation
+				}
+				JAP = {
+					country_event = {
+						id = spt_jap.4
+						days = 30
+						random_days = 90
+					}
 				}
 			}
-			#Get compliance when ger takes poland
+			# Automatically peace conference mainland Portugal to end skill issues for all time
 			if = {
 				limit = {
-					capped_by_axis = yes
 					ROOT = {
-						original_tag = POL
+						tag = POR
+					}
+					FROM = {
+						tag = SPA
 					}
 				}
-				GER = {
-					if = {
-						limit = {
-							has_completed_focus = GER_pol_compliance
-						}
-						country_event = {
-							id = spt.100
-							days = 7
-						}
-					}
+				SPA = {
+					white_peace = POR
+					transfer_state = 112
+					transfer_state = 179
+					transfer_state = 180
+					transfer_state = 181
+					transfer_state = 795
 				}
 			}
 		}
@@ -748,13 +888,6 @@ on_actions = {
 					}
 					FROM = {
 						is_in_faction_with = ENG
-					}
-				}
-				JAP = {
-					#add_ideas = JAP_tora_tora_tora_idea
-					add_timed_idea = {
-						idea = JAP_tora_tora_tora_idea
-						days = 180
 					}
 				}
 			}
@@ -779,6 +912,37 @@ on_actions = {
 					country_event = {
 						id = spt_mongolia.15
 						days = 35
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = JAP
+					}
+					FROM = {
+						tag = CHI
+					}
+					#triggers hidden event for a future increase in eco pressure
+				}
+				hidden_effect = {
+					complete_national_focus = SPT_JAP_liaison_conference
+					JAP = {
+						country_event = {
+							id = spt_jap.6 #war with china causes increase in eco pressure
+						}
+						#this is to prevent forever wars on the ai side, a small convenience thing for test builds
+						if = {
+							limit = {
+								JAP = {
+									is_ai = yes
+								}
+							}
+							country_event = {
+								id = spt_jap.999
+								days = 800
+							}
+						}
 					}
 				}
 			}
@@ -853,6 +1017,18 @@ on_actions = {
 				}
 				ENG = {
 					add_to_faction = HOL
+				}
+			}
+			# Check if SAF is at war with GER and change leader
+			if = {
+				limit = {
+					SAF = {
+						has_war_with = GER
+						has_country_leader = { ruling_only = yes name = "J. B. M. Hertzog" } 
+					}
+				}
+				SAF = {
+					country_event = {id = spt.113 hours = 0}
 				}
 			}
 		}
@@ -949,6 +1125,15 @@ on_actions = {
 			}
 		}
 	}
+	
+	on_nuke_drop = {
+		effect = {
+			if = {
+				limit = { NOT = { has_global_flag = first_nuke_dropped } }
+				play_song = "apocalyptic_weapons"
+			}			
+		}
+	}
 
 	# capitulation bug for FRA
 	on_state_control_changed = {
@@ -1025,47 +1210,57 @@ on_actions = {
 			IF = {
 				limit = {
 					USA = {
-						has_tech = radio
+						has_tech = electronic_mechanical_engineering
 					}
 				}
 				set_technology = {
-					radio = 1
+					electronic_mechanical_engineering = 1
+				}
+			}
+			IF = {
+				limit = {
+					USA = {							
+						# SPTchange alternative projects
+						OR = {
+							is_special_project_completed = sp:sp_air_radar
+							is_special_project_completed = sp:sp_naval_radar
+							is_special_project_completed = sp:sp_land_radar
+						}
+					}
+					NOT = {
+						PHI = {
+							is_special_project_completed = sp:sp_air_radar
+						}	
+					}
+				}
+				complete_special_project = {
+					project = sp:sp_air_radar
 				}
 			}
 			IF = {
 				limit = {
 					USA = {
-						has_tech = radio_detection
+						has_tech = cavity_magnatron
+					}
+					NOT = {
+						PHI = {
+							has_tech = cavity_magnatron
+						}	
 					}
 				}
 				set_technology = {
-					radio_detection = 1
-				}
-			}
-			IF = {
-				limit = {
-					USA = {
-						has_tech = decimetric_radar
-					}
-				}
-				set_technology = {
-					decimetric_radar = 1
-				}
-			}
-			IF = {
-				limit = {
-					USA = {
-						has_tech = improved_decimetric_radar
-					}
-				}
-				set_technology = {
-					improved_decimetric_radar = 1
+					cavity_magnatron = 1
 				}
 			}
 			IF = {
 				limit = {
 					USA = {
 						has_tech = centimetric_radar
+					}
+					NOT = {
+						PHI = {
+							has_tech = centimetric_radar
+						}	
 					}
 				}
 				set_technology = {
@@ -1075,71 +1270,91 @@ on_actions = {
 			IF = {
 				limit = {
 					USA = {
-						has_tech = improved_centimetric_radar
+						has_tech = phased_array
+					}
+					NOT = {
+						PHI = {
+							has_tech = phased_array
+						}	
 					}
 				}
 				set_technology = {
-					improved_centimetric_radar = 1
+					phased_array = 1
 				}
 			}
 			IF = {
 				limit = {
 					USA = {
-						has_tech = advanced_centimetric_radar
+						has_tech = monopulse_radar
+					}
+					NOT = {
+						PHI = {
+							has_tech = monopulse_radar
+						}	
 					}
 				}
 				set_technology = {
-					advanced_centimetric_radar = 1
+					monopulse_radar = 1
 				}
 			}
 		}
 	}
 	on_monthly_MAL = {
-		effect = {			
+		effect = {
 			IF = {
 				limit = {
 					ENG = {
-						has_tech = radio
+						has_tech = electronic_mechanical_engineering
 					}
 				}
 				set_technology = {
-					radio = 1
+					electronic_mechanical_engineering = 1
+				}
+			}
+			IF = {
+				limit = {
+					ENG = {							
+						# SPTchange alternative projects
+						OR = {
+							is_special_project_completed = sp:sp_air_radar
+							is_special_project_completed = sp:sp_naval_radar
+							is_special_project_completed = sp:sp_land_radar
+						}
+					}
+					NOT = {
+						MAL = {
+							is_special_project_completed = sp:sp_air_radar
+						}	
+					}
+				}
+				complete_special_project = {
+					project = sp:sp_air_radar
 				}
 			}
 			IF = {
 				limit = {
 					ENG = {
-						has_tech = radio_detection
+						has_tech = cavity_magnatron
+					}
+					NOT = {
+						MAL = {
+							has_tech = cavity_magnatron
+						}	
 					}
 				}
 				set_technology = {
-					radio_detection = 1
-				}
-			}
-			IF = {
-				limit = {
-					ENG = {
-						has_tech = decimetric_radar
-					}
-				}
-				set_technology = {
-					decimetric_radar = 1
-				}
-			}
-			IF = {
-				limit = {
-					ENG = {
-						has_tech = improved_decimetric_radar
-					}
-				}
-				set_technology = {
-					improved_decimetric_radar = 1
+					cavity_magnatron = 1
 				}
 			}
 			IF = {
 				limit = {
 					ENG = {
 						has_tech = centimetric_radar
+					}
+					NOT = {
+						MAL = {
+							has_tech = centimetric_radar
+						}	
 					}
 				}
 				set_technology = {
@@ -1149,21 +1364,185 @@ on_actions = {
 			IF = {
 				limit = {
 					ENG = {
-						has_tech = improved_centimetric_radar
+						has_tech = phased_array
+					}
+					NOT = {
+						MAL = {
+							has_tech = phased_array
+						}	
 					}
 				}
 				set_technology = {
-					improved_centimetric_radar = 1
+					phased_array = 1
 				}
 			}
 			IF = {
 				limit = {
 					ENG = {
-						has_tech = advanced_centimetric_radar
+						has_tech = monopulse_radar
+					}
+					NOT = {
+						MAL = {
+							has_tech = monopulse_radar
+						}	
 					}
 				}
 				set_technology = {
-					advanced_centimetric_radar = 1
+					monopulse_radar = 1
+				}
+			}
+		}
+	}
+	on_monthly = {
+		effect = {
+			if = {
+				limit = {
+					date > 1938.12.30
+					NOT = { has_global_flag = riptriparte }
+				}
+				set_global_flag = riptriparte
+				JAP = {
+					diplomatic_relation = { country = GER relation = guarantee active = no } 
+					diplomatic_relation = { country = ITA relation = guarantee active = no } 
+				}
+				GER = {
+					diplomatic_relation = { country = JAP relation = guarantee active = no } 
+					diplomatic_relation = { country = ITA relation = guarantee active = no } 
+				}
+				ITA = {
+					diplomatic_relation = { country = GER relation = guarantee active = no } 
+					diplomatic_relation = { country = JAP relation = guarantee active = no } 
+				}
+			}
+
+			if = {	#check to prevent cheesing grain market event by holding china hostage
+				limit = { 
+					date > 1939.6.30
+					JAP = {
+						has_war_with = CHI
+					}
+					NOT = {
+						OR = {
+							JAP = {
+								has_completed_focus = SPT_JAP_grain_market
+							}
+							JAP = {
+								has_idea = SPT_JAP_grain_market_inflation_active
+							}
+						}
+					}
+					CHI = {
+						surrender_progress > 0.2
+					}
+				}
+				random_list = {
+					10 = {
+						JAP = {
+							country_event = spt_jap.4
+						}
+					}
+					20 = {
+						#nothing happens
+					}
+				}
+			}
+		}
+	}
+	on_monthly_GER = {
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							144 = { is_fully_controlled_by = NOR }
+							NOR = { has_government = fascism }
+						}
+						144 = { is_fully_controlled_by = DEN }
+					}
+					check_variable = { GER_narvik_civs < 8 }
+					
+					666 = {
+						NOT = {
+							has_dynamic_modifier = {
+								modifier = SWE_blown_up_mines
+							}
+						}
+					}
+				}
+
+				add_to_variable = { GER_narvik_shipments = 1 }
+				if = {
+					limit = {
+						check_variable = { GER_narvik_shipments > 5 }
+					}
+
+					add_offsite_building = {
+						type = industrial_complex
+						level = 1
+					}
+
+					set_variable = { GER_narvik_shipments = 0 }
+					add_to_variable = { GER_narvik_civs = 1 }
+				}
+			}
+
+			
+			# Handle MEFO increasing CG past 100% (otherwise it is handled by 00_on_actions)
+			if = {
+				limit = {
+					OR = {
+						has_dynamic_modifier = { modifier = GER_mefo_bills_modifier }
+						has_dynamic_modifier = { modifier = GER_economy_of_conquest_modifier }
+					}
+				}
+				if = {
+					limit = {
+						check_variable = { 
+							var = GER_industrial_consumer_goods_factor 
+							compare = greater_than_or_equals
+							value = 1 
+						}
+						# Avoid double-applying when transitioning over or under 100%
+						has_country_flag = SPT_GER_OVER_100
+						# check_variable = { GER_industrial_consumer_goods_factor < 3 }
+					}
+					add_to_variable = { GER_industrial_consumer_goods_factor = GER_monthly_consumer_goods_increase }
+					clamp_variable = {
+						var = GER_industrial_consumer_goods_factor
+						max = 2
+					}
+				}
+				if = {
+					limit = {
+						NOT = {	has_country_flag = SPT_GER_OVER_100	}
+						check_variable = { 
+							var = GER_industrial_consumer_goods_factor 
+							compare = greater_than_or_equals
+							value = 1 
+						}						
+					}
+					set_country_flag = SPT_GER_OVER_100
+				}
+				else_if = {
+					limit = {
+						has_country_flag = SPT_GER_OVER_100
+						check_variable = { GER_industrial_consumer_goods_factor < 1 }
+					}
+					clr_country_flag = SPT_GER_OVER_100
+				}
+				# Scaling ECG with CGFF (quadratic consumer goods!)
+				set_temp_variable = { SPT_GER_ECG = GER_industrial_consumer_goods_factor }
+				# ECG is +2.5% ECG at 100% CGFF and +5% at 200% CGFF, meaning ECG = CGFF/40
+				divide_temp_variable = {
+					SPT_GER_ECG = 40
+				}
+				clamp_temp_variable = {
+					var = SPT_GER_ECG
+					min = 0
+					max = 0.05
+				}
+				set_variable = {
+					GER_industrial_consumer_goods_expected_value  = SPT_GER_ECG
 				}
 			}
 		}

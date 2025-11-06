@@ -60,6 +60,23 @@
 #		}
 #	}
 #}
+missing_garrison_scaled_effect = {
+	icon = 1
+	missing_garrison_law = yes # missing garrison will now be scaling to law set as missing_garrison_law if it is set, otherwise it will use default_law as it used to
+	sound_effect = "Martial_Law_Interface_No_Garrison"
+	visible = {
+		always = no
+	}
+
+	state_modifier = {
+		resistance_target = 0.1
+		compliance_gain = -0.045
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+}
 
 #SPTChange removed no garrison
 
@@ -226,6 +243,20 @@ military_governor_occupation = {
 			check_variable  = { resistance_target_without_law > 0.24}
 			add = 400
 		}
+
+		modifier = {
+			check_variable  = { resistance_target_without_law > 0.34}
+
+			set_temp_variable = { requirement_limit = 0.25 }
+			if = {
+				limit = { occupation_law = military_governor_occupation }
+				set_temp_variable = { requirement_limit = 0.45 }
+			}
+			check_variable = { garrison_min_support_ratio < requirement_limit }
+
+			add = 400
+		}
+
 	}
 }
 
@@ -459,19 +490,29 @@ colonial_police = {
 	fallback_law = colonial_police_improved
 
 	visible = {
-		original_tag = ITA
-		#NOT = { has_completed_focus = ITA_regional_development }
-		NOT = { has_country_flag = ITA_colonial_police_improved_flag }
 		OR = {
 			AND = {
-				has_completed_focus = ITA_albanian_fascist_militia
-				FROM = { original_tag = ALB }
+				original_tag = ITA
+				#NOT = { has_completed_focus = ITA_regional_development }
+				NOT = { has_country_flag = ITA_colonial_police_improved_flag }
+				OR = {
+					AND = {
+						has_completed_focus = ITA_albanian_fascist_militia
+						FROM = { original_tag = ALB }
+					}
+					AND = {
+						has_completed_focus = ITA_ministry_of_italian_africa
+						FROM = { capital_scope = { is_on_continent = africa } }
+					}
+				}
 			}
 			AND = {
-				has_completed_focus = ITA_ministry_of_italian_africa
+				original_tag = BEL
+				has_completed_focus = CONGO_force_publique
 				FROM = { capital_scope = { is_on_continent = africa } }
 			}
 		}
+
 	}
 
 	state_modifier = { #CHANGES HERE NEED TO BE APPLIED ALSO IN ITA_fake_colonial_police_law idea
@@ -583,6 +624,180 @@ colonial_police_final = {
 		local_factories 				= 0.25
 		local_resources 				= 0.25
 		local_manpower 					= 0.05
+	}
+
+
+	ai_will_do = {
+		base = 250
+		modifier = {
+			check_variable  = { resistance_target_without_law > 0.3}
+			add = 200
+		}
+
+
+		modifier = {
+			check_variable  = { resistance_target_without_law > 0.44}
+
+			set_temp_variable = { requirement_limit = 0.35 }
+			if = {
+				limit = { occupation_law = local_police_force_garrison }
+				set_temp_variable = { requirement_limit = 0.55 }
+			}
+			check_variable = { garrison_min_support_ratio < requirement_limit }
+
+			add = 350
+		}
+	}
+}
+
+secretaries_general = {
+	icon = 13
+	sound_effect = "Martial_Law_Interface_Autonomous_Occupation_Unique_DEM"
+
+	fallback_law = military_governor_occupation
+
+	visible = {
+		has_dlc = "Gotterdammerung"
+		BEL = {
+			has_completed_focus = BEL_secretaries_general
+		}
+		FROM = { original_tag = BEL }
+		NOT = {
+			has_global_flag = BEL_no_secretaries_general
+		}
+	}
+
+	state_modifier = { #CHANGES HERE NEED TO BE APPLIED ALSO IN ITA_fake_colonial_police_law idea TODO_GARETH: anything to do here?
+		resistance_target 				= -0.3
+		compliance_gain 				= -0.02
+		required_garrison_factor 		= -0.30
+		resistance_damage_to_garrison	= -0.4
+	}
+
+	ai_will_do = {
+		base = 250
+		modifier = {
+			check_variable  = { resistance_target_without_law > 0.3}
+			add = 200
+		}
+
+		modifier = {
+			check_variable  = { resistance_target_without_law > 0.44}
+			set_temp_variable = { requirement_limit = 0.35 }
+			if = {
+				limit = { occupation_law = local_police_force_garrison }
+				set_temp_variable = { requirement_limit = 0.55 }
+			}
+			check_variable = { garrison_min_support_ratio < requirement_limit }
+			add = 350
+		}
+	}
+}
+
+independent_rule = {
+	icon = 15
+	sound_effect = "Martial_Law_Interface_Autonomous_Occupation_Unique_DEM"
+
+	fallback_law = foreign_civilian_oversight
+
+	visible = {
+		original_tag = RAJ
+		has_completed_focus = RAJ_princely_states_policy
+		FROM = {
+			OR = {
+				original_tag = MYS
+				original_tag = HYD
+				original_tag = MYS
+				original_tag = RJP
+				original_tag = CIP
+				original_tag = WIS
+				original_tag = SIN
+				original_tag = KAS
+				original_tag = KOL
+				original_tag = KAS
+				original_tag = WIS
+				original_tag = NWF
+				original_tag = MPU
+				original_tag = KHL
+				original_tag = FSS
+				original_tag = SKK
+				original_tag = RAS
+				original_tag = KLT
+			}
+		}
+	}
+
+	state_modifier = {
+		resistance_target 				= -0.1
+		compliance_gain 				=  0.03
+		required_garrison_factor 		= -0.5
+		resistance_damage_to_garrison	= -0.5
+		local_resources 				= -0.35
+		local_factories 				= -0.35
+	}
+
+
+	ai_will_do = {
+
+		base = 450
+		modifier = {
+			check_variable  = { resistance_target_without_law > 0.2 }
+			add = 200
+		}
+
+
+		modifier = {
+			check_variable  = { resistance_target_without_law > 0.34}
+			add = 300
+		}
+	}
+}
+
+# The idea for this law is that we exploit the people to get us extra resources fast, but builds up resistance much quicker
+princely_subjugation= {
+	icon = 14
+	sound_effect = "Martial_Law_Interface_Autonomous_Occupation_Unique_DEM"
+
+	fallback_law = military_governor_occupation
+
+	visible = {
+		original_tag = RAJ
+		has_completed_focus = RAJ_princely_states_policy
+		FROM = {
+			OR = {
+				original_tag = MYS
+				original_tag = HYD
+				original_tag = MYS
+				original_tag = RJP
+				original_tag = CIP
+				original_tag = WIS
+				original_tag = SIN
+				original_tag = KAS
+				original_tag = KOL
+				original_tag = KAS
+				original_tag = WIS
+				original_tag = NWF
+				original_tag = MPU
+				original_tag = KHL
+				original_tag = FSS
+				original_tag = SKK
+				original_tag = RAS
+				original_tag = KLT
+			}
+		}
+	}
+
+	state_modifier = {
+		# SPTchange
+		# resistance_target 				= 0.60
+		resistance_target = 0.20
+		compliance_gain 				= -0.10
+		required_garrison_factor 		= 0.15
+		resistance_damage_to_garrison 	= -0.10
+		# SPTchange
+		# local_factories 				= 0.60
+		local_factories = 0.20
+		local_resources 				= 0.60
 
 	}
 
@@ -606,6 +821,358 @@ colonial_police_final = {
 			check_variable = { garrison_min_support_ratio < requirement_limit }
 
 			add = 350
+		}
+	}
+}
+
+
+
+#SPT LAW
+
+spt_yen_bloc_law_1 = {
+	icon = "GFX_occupation_law_spt_yen_bloc" 
+	sound_effect = "Martial_Law_Interface_Harsh_Quotas_Occupation"
+
+	fallback_law = spt_yen_bloc_law_2
+
+	state_modifier = {
+		resistance_target 				= -0.15
+		compliance_gain 				= -0.08
+		required_garrison_factor 		= -0.10
+		resistance_damage_to_garrison 	= -0.10
+		local_factories 				= 0.10
+		local_resources 				= 0.10
+		production_speed_buildings_factor = 0.025
+	}
+
+	visible = {
+		original_tag = JAP
+		has_completed_focus = SPT_JAP_integrate_yen_bloc_economies
+		NOT = {
+			has_country_flag = SPT_JAP_upgraded_occ_law_once
+		}
+		NOT = {
+			has_country_flag = SPT_JAP_upgraded_occ_law_twice
+		}
+		FROM = {
+			OR = {
+				original_tag = KOR
+				original_tag = CHI
+				AND = {
+					JAP = {
+						has_completed_focus = SPT_JAP_integrate_south_resource_area
+					}
+					original_tag = PHI
+					OR = {
+						has_capitulated = yes
+						exists = no
+					}
+				}
+				AND = {
+					JAP = {
+						has_completed_focus = SPT_JAP_integrate_south_resource_area
+					}
+					original_tag = MAL
+					OR = {
+						has_capitulated = yes
+						exists = no
+					}
+				}
+				AND = {
+					JAP = {
+						has_completed_focus = SPT_JAP_integrate_south_resource_area
+					}
+					original_tag = INS
+					OR = {
+						has_capitulated = yes
+						exists = no
+					}
+				}
+				AND = {
+					JAP = {
+						has_completed_focus = SPT_JAP_integrate_india
+					}
+					original_tag = RAJ
+					OR = {
+						has_capitulated = yes
+						exists = no
+					}
+				}
+				# AND = {
+				# 	JAP = {
+				# 		has_completed_focus = SPT_JAP_integrate_oceania
+				# 	}
+				# 	original_tag = NZL
+				# 	OR = {
+				# 		has_capitulated = yes
+				# 		exists = no
+				# 	}
+				# }
+				# AND = {
+				# 	JAP = {
+				# 		has_completed_focus = SPT_JAP_integrate_oceania
+				# 	}
+				# 	original_tag = AST
+				# 	OR = {
+				# 		has_capitulated = yes
+				# 		exists = no
+				# 	}
+				# }
+			}
+		}
+	}
+
+	ai_will_do = {
+		base = 20
+	}
+}
+spt_yen_bloc_law_2 = {
+	icon = "GFX_occupation_law_spt_yen_bloc" 
+	sound_effect = "Martial_Law_Interface_Harsh_Quotas_Occupation"
+
+	fallback_law = spt_yen_bloc_law_3
+
+	state_modifier = {
+		resistance_target 				= -0.15
+		compliance_gain 				= -0.06
+		required_garrison_factor 		= -0.15
+		resistance_damage_to_garrison 	= -0.15
+		local_factories 				= 0.15
+		local_resources 				= 0.15
+		production_speed_buildings_factor = 0.05
+	}
+
+	visible = {
+		original_tag = JAP
+		has_completed_focus = SPT_JAP_integrate_yen_bloc_economies
+		has_country_flag = SPT_JAP_upgraded_occ_law_once
+		NOT = {
+			has_country_flag = SPT_JAP_upgraded_occ_law_twice
+		}
+		FROM = {
+			OR = {
+				original_tag = KOR
+				original_tag = CHI
+				AND = {
+					JAP = {
+						has_completed_focus = SPT_JAP_integrate_south_resource_area
+					}
+					original_tag = PHI
+					OR = {
+						has_capitulated = yes
+						exists = no
+					}
+				}
+				AND = {
+					JAP = {
+						has_completed_focus = SPT_JAP_integrate_south_resource_area
+					}
+					original_tag = MAL
+					OR = {
+						has_capitulated = yes
+						exists = no
+					}
+				}
+				AND = {
+					JAP = {
+						has_completed_focus = SPT_JAP_integrate_south_resource_area
+					}
+					original_tag = INS
+					OR = {
+						has_capitulated = yes
+						exists = no
+					}
+				}
+				AND = {
+					JAP = {
+						has_completed_focus = SPT_JAP_integrate_india
+					}
+					original_tag = RAJ
+					OR = {
+						has_capitulated = yes
+						exists = no
+					}
+				}
+				# AND = {
+				# 	JAP = {
+				# 		has_completed_focus = SPT_JAP_integrate_oceania
+				# 	}
+				# 	original_tag = NZL
+				# 	OR = {
+				# 		has_capitulated = yes
+				# 		exists = no
+				# 	}
+				# }
+				# AND = {
+				# 	JAP = {
+				# 		has_completed_focus = SPT_JAP_integrate_oceania
+				# 	}
+				# 	original_tag = AST
+				# 	OR = {
+				# 		has_capitulated = yes
+				# 		exists = no
+				# 	}
+				# }
+			}
+		}
+	}
+
+	ai_will_do = {
+		base = 20
+	}
+}
+spt_yen_bloc_law_3 = {
+	icon = "GFX_occupation_law_spt_yen_bloc" 
+	sound_effect = "Martial_Law_Interface_Harsh_Quotas_Occupation"
+
+	fallback_law = secret_police_oversight
+
+	state_modifier = {
+		resistance_target 				= -0.20
+		compliance_gain 				= -0.04
+		required_garrison_factor 		= -0.20
+		resistance_damage_to_garrison 	= -0.20
+		local_factories 				= 0.15
+		local_resources 				= 0.15
+		production_speed_buildings_factor = 0.075
+	}
+
+	visible = {
+		original_tag = JAP
+		has_completed_focus = SPT_JAP_integrate_yen_bloc_economies
+		AND = {
+			has_country_flag = SPT_JAP_upgraded_occ_law_once
+			has_country_flag = SPT_JAP_upgraded_occ_law_twice
+		}
+		FROM = {
+			OR = {
+				original_tag = KOR
+				original_tag = CHI
+				AND = {
+					JAP = {
+						has_completed_focus = SPT_JAP_integrate_south_resource_area
+					}
+					original_tag = PHI
+					OR = {
+						has_capitulated = yes
+						exists = no
+					}
+				}
+				AND = {
+					JAP = {
+						has_completed_focus = SPT_JAP_integrate_south_resource_area
+					}
+					original_tag = MAL
+					OR = {
+						has_capitulated = yes
+						exists = no
+					}
+				}
+				AND = {
+					JAP = {
+						has_completed_focus = SPT_JAP_integrate_south_resource_area
+					}
+					original_tag = INS
+					OR = {
+						has_capitulated = yes
+						exists = no
+					}
+				}
+				AND = {
+					JAP = {
+						has_completed_focus = SPT_JAP_integrate_india
+					}
+					original_tag = RAJ
+					OR = {
+						has_capitulated = yes
+						exists = no
+					}
+				}
+				# AND = {
+				# 	JAP = {
+				# 		has_completed_focus = SPT_JAP_integrate_oceania
+				# 	}
+				# 	original_tag = NZL
+				# 	OR = {
+				# 		has_capitulated = yes
+				# 		exists = no
+				# 	}
+				# }
+				# AND = {
+				# 	JAP = {
+				# 		has_completed_focus = SPT_JAP_integrate_oceania
+				# 	}
+				# 	original_tag = AST
+				# 	OR = {
+				# 		has_capitulated = yes
+				# 		exists = no
+				# 	}
+				# }
+			}
+		}
+	}
+
+	ai_will_do = {
+		base = 20
+	}
+}
+
+pan_asia_law = {
+	icon = "GFX_occupation_law_spt_pan_asia"
+	sound_effect = "Martial_Law_Interface_Local_Police_Force_Garrison"
+	fallback_law = local_police_force_garrison
+	
+	state_modifier = {
+		resistance_target 				= -0.20
+		compliance_gain 				= 0.02
+		required_garrison_factor 		= 0.15
+		resistance_damage_to_garrison	= -0.35
+		local_factories 				= 0.05
+		local_resources 				= 0.05
+		non_core_manpower 				= -0.1
+	}
+
+	visible = {
+		original_tag = JAP
+		has_completed_focus = SPT_JAP_pan_asia_sentiment
+		FROM = {
+			OR = {
+				original_tag = VIN
+				original_tag = LAO
+				original_tag = CAM
+				original_tag = CHI
+				original_tag = KOR
+				original_tag = RAJ
+				original_tag = MYS
+				original_tag = HYD
+				original_tag = MYS
+				original_tag = RJP
+				original_tag = CIP
+				original_tag = WIS
+				original_tag = SIN
+				original_tag = KAS
+				original_tag = KOL
+				original_tag = KAS
+				original_tag = WIS
+				original_tag = NWF
+				original_tag = MPU
+				original_tag = KHL
+				original_tag = FSS
+				original_tag = SKK
+				original_tag = RAS
+				original_tag = KLT
+				original_tag = MAL
+				original_tag = PHI
+				original_tag = HAW
+				original_tag = BRM
+				original_tag = MAN
+				original_tag = SIA
+				original_tag = FSM
+				original_tag = GUM
+				original_tag = PAK
+				original_tag = INS
+				original_tag = TAH
+			}
 		}
 	}
 }

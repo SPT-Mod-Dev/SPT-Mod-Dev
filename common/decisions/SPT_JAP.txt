@@ -1,0 +1,2504 @@
+
+
+# SPT_JAP_conf_ = {
+# 	cost = 50
+# 	fire_only_once = no
+
+# 	icon = GFX_decision_revolt
+
+# 	available = {
+		
+# 	}
+# 	visible = {
+
+# 	}
+
+# 	#days_remove = 2
+	
+# 	# modifier = {
+# 	# 	#fake modifiers using tooltips combined with hidden ideas, makes it easier to add and remove the effects
+# 	# }
+
+# 	complete_effect = {
+# 		#hidden_effect = {
+# 		#	remove_ideas = SPT_JAP_conference_debug_idea
+# 		#}
+# 		#custom_effect_tooltip = SPT_JAP_conference_debug_remove_buff_tt
+# 	}
+# }
+
+SPT_JAP_eco_pressure = {
+	SPT_JAP_eco_debug = {
+
+		cost = 10
+		fire_only_once = no
+
+		icon = GFX_decision_revolt
+
+		available = {
+		
+		}
+		visible = {
+			is_debug = yes
+			is_ai = no
+		}
+
+		#days_remove = 2
+	
+		# modifier = {
+			# 	#fake modifiers using tooltips combined with hidden ideas, makes it easier to add and remove the effects
+		# }
+
+		complete_effect = {
+			#hidden_effect = {
+			#	remove_ideas = SPT_JAP_conference_debug_idea
+			#}
+			#custom_effect_tooltip = SPT_JAP_conference_debug_remove_buff_tt
+		}
+	}
+	SPT_JAP_eco_pressure_up_debug = {
+		cost = 0
+		fire_only_once = no
+
+		icon = GFX_decision_revolt
+
+		available = {
+		
+		}
+		visible = {
+			is_debug = yes
+			is_ai = no
+		}
+
+		#days_remove = 2
+	
+		# modifier = {
+			# 	#fake modifiers using tooltips combined with hidden ideas, makes it easier to add and remove the effects
+		# }
+
+		complete_effect = {
+			add_to_variable = {
+				SPT_JAP_eco_pressure_consumer_goods_expected_value = 0.01
+			}
+		}
+	}
+	SPT_JAP_eco_pressure_down_debug = {
+		cost = 0
+		fire_only_once = no
+
+		icon = GFX_decision_revolt
+
+		available = {
+		
+		}
+		visible = {
+			is_debug = yes
+			is_ai = no
+		}
+
+		#days_remove = 2
+	
+		# modifier = {
+			# 	#fake modifiers using tooltips combined with hidden ideas, makes it easier to add and remove the effects
+		# }
+
+		complete_effect = {
+			add_to_variable = {
+				SPT_JAP_eco_pressure_consumer_goods_expected_value = -0.01
+			}
+		}
+	}
+	SPT_JAP_eco_pressure_reset_debug = {
+		cost = 0
+		fire_only_once = no
+
+		icon = GFX_decision_revolt
+
+		available = {
+		
+		}
+		visible = {
+			is_debug = yes
+			is_ai = no
+		}
+
+		#days_remove = 2
+	
+		# modifier = {
+			# 	#fake modifiers using tooltips combined with hidden ideas, makes it easier to add and remove the effects
+		# }
+
+		complete_effect = {
+			set_variable = {
+				SPT_JAP_eco_pressure_consumer_goods_expected_value = 0
+			}
+		}
+	}
+
+
+	#This is the main event that takes care of the timed increases in cg from the Eco Bubble Mechanic
+	SPT_JAP_eco_pressure_timed_increase = { 
+		allowed = {
+			tag = JAP 
+		}
+
+		icon = GFX_decision_generic_welfare
+
+		days_mission_timeout = 120
+		is_good = yes
+		fire_only_once = no
+
+		cancel_trigger = {
+			has_completed_focus = SPT_JAP_full_eco_control
+		}
+		
+		activation = {
+			has_completed_focus = SPT_JAP_planned_eco
+		}
+		available = {
+			always = no
+		}
+
+		visible = {
+			has_completed_focus = SPT_JAP_planned_eco
+			not = {
+				has_completed_focus = SPT_JAP_full_eco_control
+			}
+		}
+		
+		cancel_effect = {
+		}
+
+		timeout_effect = {
+			# so, just to be clear here because it can be a bit weird and
+			# there's some technical debt that i can't be arsed to deal with,
+			# the way this works is that there's a variable called spt_jap_cg_increase_tracker
+			# that determines how much the cg increase will be. This variable gets
+			# set up in the focus SPT_JAP_planned_eco, which i know is a bit odd
+			# and not exactly great coding, but it is what it is. If you wanna
+			# adjust how much this increase is at base, then you just gotta go
+			# in that focus and move the needle a bit. 
+			# Other info that might be useful is that this stupid value can't go
+			# negative (fuck you paradox) and if you want an example of how to change
+			# it on the fly, the focus SPT_JAP_rapid_dev is a good one to look at.
+			# Sincerely, if it wasn't my obsession to make this nation both more fun and
+			# more miserable to play, i wouldn't ever recommend going down this route
+			# for making a mechanic, this whole thing is held together with duct tape and spit.
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = spt_jap_cg_increase_tracker
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+			hidden_effect = {
+				activate_mission = SPT_JAP_eco_pressure_timed_increase 
+			}
+
+		}
+
+		ai_will_do = {
+		}
+	}
+
+	SPT_JAP_manchu_grain = {
+		allowed = {
+			original_tag = JAP
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		available = {
+			has_completed_focus = SPT_JAP_manchurian_project
+			OR = {
+				MAN = {exists = yes}
+				any_controlled_state = {is_core_of = MAN}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_JAP_cg_threshold_3_or_higher_tt
+				check_variable = {
+					var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+					value = 0.03
+					compare = greater_than_or_equals
+				}
+			}
+
+		}
+		visible = {
+			not = {
+				has_completed_focus = SPT_JAP_full_eco_control
+			}
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 611
+				state = 612
+				state = 610
+				state = 715
+				state = 716
+				state = 328
+				state = 761
+				state = 714
+				state = 717
+			}
+		}
+		fire_only_once = yes
+		#days_remove = 70
+		cost = 20
+		# modifier = {
+		# 	civilian_factory_use = 2
+		# }
+		icon = GFX_decision_SWI_support_humanitarian_efforts
+		
+		complete_effect = {
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = -0.03
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			if = {
+				limit = {
+					MAN = {
+						exists = yes
+					}
+				}
+				MAN = {
+					add_timed_idea = {
+						idea = SPT_JAP_exploit_manchu_grain
+						days = 180
+					}
+				}
+			}
+			else = {
+				add_timed_idea = {
+					idea = SPT_JAP_exploit_manchu_grain
+					days = 120
+				}
+			}
+
+		}
+	}
+
+	SPT_JAP_korean_grain = {
+		allowed = {
+			original_tag = JAP
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		available = {
+			has_completed_focus = SPT_JAP_korean_project
+			OR = {
+				KOR = {exists = yes}
+				any_controlled_state = {is_core_of = KOR}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_JAP_cg_threshold_3_or_higher_tt
+				check_variable = {
+					var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+					value = 0.03
+					compare = greater_than_or_equals
+				}
+			}
+
+		}
+		visible = {
+			not = {
+				has_completed_focus = SPT_JAP_full_eco_control
+			}
+			has_completed_focus = SPT_JAP_korean_project
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 527
+				state = 525
+			}
+		}
+		fire_only_once = yes
+		days_remove = 70
+		cost = 20
+		modifier = {
+			consumer_goods_factor = 0.2
+		}
+		icon = GFX_decision_POL_looming_peasants_strike
+		remove_effect = {
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = -0.03
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+		}
+	}
+	SPT_JAP_exploit_vietnam = {
+		allowed = {
+			original_tag = JAP
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		available = {
+			286 = {
+				OR = {
+					is_controlled_by = JAP
+					is_controlled_by = MAN
+					is_controlled_by = SIA
+				}
+			}
+			671 = {
+				OR = {
+					is_controlled_by = JAP
+					is_controlled_by = MAN
+					is_controlled_by = SIA
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_JAP_cg_threshold_2_or_higher_tt
+				check_variable = {
+					var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+					value = 0.02
+					compare = greater_than_or_equals
+				}
+			}
+
+		}
+		visible = {
+			not = {
+				has_completed_focus = SPT_JAP_full_eco_control
+			}
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 286
+				state = 671
+			}
+		}
+		fire_only_once = yes
+		days_remove = 70
+		cost = 20
+		modifier = {
+			#consumer_goods_factor = 0.2
+			political_power_gain = -0.15
+		}
+		icon = GFX_decision_oppression
+		remove_effect = {
+			286 = {
+				add_resistance = 15
+				add_compliance = -20
+			}
+			671 = {
+				add_resistance = 15
+				add_compliance = -20
+			}
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = -0.02
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+		}
+	}
+	SPT_JAP_malaya_grain = {
+		allowed = {
+			original_tag = JAP
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		available = {
+			has_completed_focus = SPT_JAP_exploit_the_southern_resource_area
+			336 = {
+				OR = {
+					is_controlled_by = JAP
+					is_controlled_by = MAN
+					is_controlled_by = SIA
+				}
+			}
+			333 = {
+				OR = {
+					is_controlled_by = JAP
+					is_controlled_by = MAN
+					is_controlled_by = SIA
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_JAP_cg_threshold_3_or_higher_tt
+				check_variable = {
+					var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+					value = 0.03
+					compare = greater_than_or_equals
+				}
+			}
+
+		}
+		visible = {
+			not = {
+				has_completed_focus = SPT_JAP_full_eco_control
+			}
+			has_completed_focus = SPT_JAP_exploit_the_southern_resource_area
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 333
+				state = 336
+			}
+		}
+		fire_only_once = yes
+		days_remove = 70
+		cost = 20
+		modifier = {
+			#consumer_goods_factor = 0.2
+			political_power_gain = -0.15
+		}
+		icon = GFX_decision_generic_belgian_colonial_helmet
+		remove_effect = {
+			333 = {
+				add_resistance = 30
+				add_compliance = -50
+			}
+			336 = {
+				add_resistance = 30
+				add_compliance = -50
+			}
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = -0.03
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+		}
+	}
+	SPT_JAP_indonesia_grain = {
+		allowed = {
+			original_tag = JAP
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		available = {
+			has_completed_focus = SPT_JAP_exploit_the_southern_resource_area
+			334 = {
+				OR = {
+					is_controlled_by = JAP
+					is_controlled_by = MAN
+					is_controlled_by = SIA
+				}
+			}
+			672 = {
+				OR = {
+					is_controlled_by = JAP
+					is_controlled_by = MAN
+					is_controlled_by = SIA
+				}
+			}
+			335 = {
+				OR = {
+					is_controlled_by = JAP
+					is_controlled_by = MAN
+					is_controlled_by = SIA
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_JAP_cg_threshold_3_or_higher_tt
+				check_variable = {
+					var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+					value = 0.03
+					compare = greater_than_or_equals
+				}
+			}
+
+		}
+		visible = {
+			not = {
+				has_completed_focus = SPT_JAP_full_eco_control
+			}
+			has_completed_focus = SPT_JAP_exploit_the_southern_resource_area
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 334
+				state = 335
+				state = 672
+			}
+		}
+		fire_only_once = yes
+		days_remove = 70
+		cost = 20
+		modifier = {
+			#consumer_goods_factor = 0.2
+			political_power_gain = -0.15
+		}
+		icon = GFX_decision_generic_forestry
+		remove_effect = {
+			335 = {
+				add_resistance = 30
+				add_compliance = -50
+			}
+			672 = {
+				add_resistance = 30
+				add_compliance = -50
+			}
+			334 = {
+				add_resistance = 30
+				add_compliance = -50
+			}
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = -0.03
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+		}
+	}
+	SPT_JAP_allow_exports = {
+		allowed = {
+			original_tag = JAP
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SPT_JAP_cg_threshold_3_or_higher_tt
+				check_variable = {
+					var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+					value = 0.03
+					compare = greater_than_or_equals
+				}
+			}
+		}
+		visible = {
+			not = {
+				has_completed_focus = SPT_JAP_full_eco_control
+			}
+		}
+		fire_only_once = yes
+		days_remove = 180
+		cost = 20
+		modifier = {
+			min_export = 0.2
+		}
+		icon = GFX_decision_eng_trade_unions_support
+		remove_effect = {
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = -0.03
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+		}
+	}
+	SPT_JAP_distribute_luxuries = {
+		allowed = {
+			original_tag = JAP
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		available = {
+		}
+		visible = {
+			not = {
+				has_completed_focus = SPT_JAP_full_eco_control
+			}
+		}
+		fire_only_once = yes
+		days_remove = 120
+		cost = 20
+		modifier = {
+			consumer_goods_factor = -0.3
+			stability_factor = 0.1
+		}
+		icon = GFX_decision_hol_attract_foreign_investors
+		remove_effect = {
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.02
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+		}
+	}
+
+	SPT_JAP_rice_substitutes = {
+		allowed = {
+			original_tag = JAP
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SPT_JAP_cg_threshold_6_or_higher_tt
+				check_variable = {
+					var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+					value = 0.06
+					compare = greater_than_or_equals
+				}
+			}
+		}
+		visible = {
+			not = {
+				has_completed_focus = SPT_JAP_full_eco_control
+			}
+		}
+
+		fire_only_once = yes
+		#days_remove = 120
+		cost = 20
+		icon = GFX_decision_RAJ_famine
+		remove_effect = {
+			custom_effect_tooltip = SPT_JAP_pol_showa_state_header_tt
+			add_to_variable = {
+				SPT_JAP_pol_stability_factor = -0.05
+				tooltip = stability_factor_tt
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = -0.03
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+		}
+	}
+
+	SPT_JAP_ration_foodstuff = {
+		allowed = {
+			original_tag = JAP
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SPT_JAP_cg_threshold_5_or_higher_tt
+				check_variable = {
+					var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+					value = 0.05
+					compare = greater_than_or_equals
+				}
+			}
+
+		}
+		visible = {
+			not = {
+				has_completed_focus = SPT_JAP_full_eco_control
+			}
+		}
+		fire_only_once = yes
+		days_remove = 360
+		cost = 20
+		# modifier = {
+		# 	consumer_goods_factor = -0.3
+		# }
+		complete_effect = {
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = -0.05
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+		}
+		icon = GFX_decision_generic_consumer_goods
+		remove_effect = {
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.07
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+		}
+	}
+	SPT_JAP_price_controls = {
+		allowed = {
+			original_tag = JAP
+		}
+		ai_will_do = {
+			factor = 360
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SPT_JAP_cg_threshold_3_or_higher_tt
+				check_variable = {
+					var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+					value = 0.03
+					compare = greater_than_or_equals
+				}
+			}
+
+		}
+		visible = {
+			not = {
+				has_completed_focus = SPT_JAP_full_eco_control
+			}
+		}
+		fire_only_once = yes
+		days_remove = 360
+		cost = 20
+		# modifier = {
+		# 	consumer_goods_factor = -0.3
+		# }
+		complete_effect = {
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = -0.03
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+		}
+		icon = GFX_decision_eng_trade_unions_demand
+		remove_effect = {
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.05
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+		}
+	}
+	SPT_JAP_collect_metals = {
+		allowed = {
+			original_tag = JAP
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		available = {
+		}
+		visible = {
+			not = {
+				has_completed_focus = SPT_JAP_full_eco_control
+			}
+		}
+		fire_only_once = no
+		days_remove = 200
+		cost = 20
+		# modifier = {
+		# 	consumer_goods_factor = -0.3
+		# }
+		complete_effect = {
+			add_timed_idea = {
+				idea = SPT_JAP_collect_metals_idea
+				days = 180
+			}
+		}	
+		icon = GFX_decision_steel
+		remove_effect = {
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.02
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+		}
+	}
+	SPT_JAP_improve_countryside_infra = {
+		allowed = {
+			original_tag = JAP
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		available = {
+			has_completed_focus = SPT_JAP_seize_wealth
+		}
+		visible = {
+			not = {
+				has_completed_focus = SPT_JAP_full_eco_control
+			}
+			not = {
+				has_completed_focus = SPT_JAP_purge_kodoha
+			}
+		}
+		fire_only_once = yes
+		days_remove = 70
+		cost = 20
+		# modifier = {
+		# 	consumer_goods_factor = -0.3
+		# }
+		remove_effect = {
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.01
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			533 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			534 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 2
+
+			}
+			535 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			530 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+		icon = GFX_decision_generic_train
+		# remove_effect = {
+
+		# }
+	}
+	SPT_JAP_improve_urban_infra = {
+		allowed = {
+			original_tag = JAP
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		available = {
+			has_completed_focus = SPT_JAP_invest_in_urban_centers
+			NOT = {
+				OR = {
+					282 = {
+						has_dynamic_modifier = {
+							modifier = SPT_JAP_investing_in_urban
+						}
+					}
+					531 = {
+						has_dynamic_modifier = {
+							modifier = SPT_JAP_investing_in_urban
+						}
+					}
+					528 = {
+						has_dynamic_modifier = {
+							modifier = SPT_JAP_investing_in_urban
+						}
+					}
+				}
+			}
+		}
+		visible = {
+			not = {
+				has_completed_focus = SPT_JAP_full_eco_control
+			}
+			not = {
+				OR = {
+					has_completed_focus = SPT_JAP_support_kodoha
+					has_completed_focus = SPT_JAP_state_control
+				}
+			}
+		}
+		fire_only_once = yes
+		days_remove = 70
+		cost = 20
+		# modifier = {
+		# 	consumer_goods_factor = -0.3
+		# }
+		remove_effect = {
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.01
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			282 = {
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_investing_in_urban
+					days = 150
+				}
+			}
+			531 = {
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_investing_in_urban
+					days = 150
+				}
+			}
+			528 = {
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_investing_in_urban
+					days = 150
+				}
+			}
+		}
+		icon = GFX_decision_generic_construction
+		# remove_effect = {
+
+		# }
+	}
+	SPT_JAP_improve_electric_infra = {
+		allowed = {
+			original_tag = JAP
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		available = {
+			has_completed_focus = SPT_JAP_japan_elec_co
+			NOT = {
+				OR = {
+					529 = {
+						has_dynamic_modifier = {
+							modifier = SPT_JAP_investing_in_urban
+						}
+					}
+					532 = {
+						has_dynamic_modifier = {
+							modifier = SPT_JAP_investing_in_urban
+						}
+					}
+				}
+			}
+		}
+		visible = {
+			not = {
+				has_completed_focus = SPT_JAP_full_eco_control
+			}
+			not = {
+				OR = {
+					has_completed_focus = SPT_JAP_support_kodoha
+					has_completed_focus = SPT_JAP_zaibatsu_in_gov
+				}
+			}
+		}
+		fire_only_once = yes
+		days_remove = 70
+		cost = 20
+		# modifier = {
+		# 	consumer_goods_factor = -0.3
+		# }
+		remove_effect = {
+			custom_effect_tooltip = SPT_JAP_eco_pressure_modify_header_tt
+			add_to_variable = {
+				var = SPT_JAP_eco_pressure_consumer_goods_expected_value
+				value = 0.01
+				tooltip = SPT_JAP_cg_expected_tt
+			}
+			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			529 = {
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_investing_in_urban
+					days = 200
+				}
+			}
+			532 = {
+				add_extra_state_shared_building_slots = 2
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_investing_in_urban
+					days = 200
+				}
+			}
+		}
+		icon = GFX_decision_generic_electricity
+		# remove_effect = {
+
+		# }
+	}
+}
+
+SPT_JAP_korea_dev = {
+
+	SPT_JAP_korea_light_ind = {
+		allowed = {
+			original_tag = JAP
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		available = {
+			has_completed_focus = SPT_JAP_korean_project
+			OR = {
+				KOR = {exists = yes}
+				any_controlled_state = {is_core_of = KOR}
+			}
+		}
+		fire_only_once = yes
+		days_remove = 70
+		cost = 20
+		modifier = {
+			civilian_factory_use = 3
+		}
+		icon = GFX_decision_generic_factory
+		highlight_states = {
+			highlight_state_targets = {
+				state = 527
+				state = 525
+			}
+			highlight_color_before_active = 2
+		}
+		remove_effect = {
+			525 = {
+				if = {
+					limit = {
+						OR = {
+							is_fully_controlled_by = JAP
+							is_fully_controlled_by = KOR
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			527 = {
+				if = {
+					limit = {
+						OR = {
+							is_fully_controlled_by = JAP
+							is_fully_controlled_by = KOR
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	SPT_JAP_korea_heavy_ind = {
+		allowed = {
+			original_tag = JAP
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		available = {
+			has_completed_focus = SPT_JAP_korean_project
+			OR = {
+				KOR = {exists = yes}
+				any_controlled_state = {is_core_of = KOR}
+			}
+		}
+		fire_only_once = yes
+		days_remove = 70
+		cost = 20
+		modifier = {
+			civilian_factory_use = 3
+		}
+		icon = GFX_decision_generic_industry
+		highlight_states = {
+			highlight_state_targets = {
+				state = 527
+				state = 525
+			}
+			highlight_color_before_active = 2
+		}
+		remove_effect = {
+			525 = {
+				if = {
+					limit = {
+						OR = {
+							is_fully_controlled_by = JAP
+							is_fully_controlled_by = KOR
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			527 = {
+				if = {
+					limit = {
+						OR = {
+							is_fully_controlled_by = JAP
+							is_fully_controlled_by = KOR
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	SPT_JAP_infra_boost_korea = {
+		allowed = {
+			original_tag = JAP
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		available = {
+			has_completed_focus = SPT_JAP_korean_project
+			OR = {
+				KOR = {exists = yes}
+				any_controlled_state = {is_core_of = KOR}
+			}
+		}
+		fire_only_once = yes
+		days_remove = 50
+		cost = 20
+		modifier = {
+			civilian_factory_use = 2
+		}
+		icon = GFX_decision_generic_construction
+		highlight_states = {
+			highlight_state_targets = {
+				state = 527
+				state = 525
+			}
+			highlight_color_before_active = 2
+		}
+		remove_effect = {
+			527 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+			525 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+				}
+			}
+		}
+	}
+
+	SPT_JAP_japanese_settlement = {
+		allowed = {
+			original_tag = JAP
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		available = {
+			has_completed_focus = SPT_JAP_korean_project
+			OR = {
+				KOR = {exists = yes}
+				any_controlled_state = {is_core_of = KOR}
+			}
+		}
+		fire_only_once = yes
+		days_remove = 70
+		cost = 20
+		modifier = {
+			civilian_factory_use = 3
+		}
+		icon = GFX_decision_generic_train
+		highlight_states = {
+			highlight_state_targets = {
+				state = 527
+				state = 525
+			}
+			highlight_color_before_active = 2
+		}
+		remove_effect = {
+			hidden_effect = {
+				add_ideas = SPT_JAP_settled_korea
+			}
+			every_owned_state = {
+				limit = {
+					is_core_of = JAP
+					NOT = {
+						is_core_of = KOR
+					}
+				}
+				add_manpower = -5000
+			}
+			every_owned_state = {
+				limit = {
+					is_core_of = KOR
+				}
+				add_manpower = 35000
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_korea_industry_help
+					days = 250
+				}
+			}
+		}
+	}
+}
+
+SPT_JAP_military_operations = {
+
+	SPT_JAP_border_conflict_for_hong_kong = {
+
+		icon = border_war
+
+		available = {
+			JAP = {
+				NOT = {
+					has_war_with = ENG
+				}
+			}
+			ENG = {
+				has_war_with = ITA
+			}
+			593 = {
+				OR = {
+					is_fully_controlled_by = JAP
+					is_fully_controlled_by = MAN
+				}
+			}
+			divisions_in_border_state = {
+				state = 593
+				border_state = 326
+				size > 0
+			}
+			326 = {
+				is_fully_controlled_by = ENG
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 593
+				state = 326	
+			} 
+		}
+
+		visible = {
+			has_completed_focus = SPT_JAP_seize_hong_kong
+		}
+
+		ai_will_do = {
+
+		}
+
+		fire_only_once = yes
+		custom_cost_trigger = {
+			command_power > 25
+		}
+		custom_cost_text = SPT_USA_recession_decision_cp_25
+
+		days_remove = 15
+
+		complete_effect = {
+			ENG = {
+				country_event = {
+					id = spt_jap.8
+					days = 5
+				}
+			}
+		}
+
+		remove_effect = {
+			if = {
+				limit = {
+					326 = {
+						NOT = {
+							OR = {
+								is_controlled_by = JAP
+								is_controlled_by = MAN
+							}
+						}
+					}
+				}
+				start_border_war = {
+					change_state_after_war = no
+					attacker = {
+						state = 593
+						num_provinces = 4
+						on_win = spt_jap.9
+						on_lose = spt_jap.10
+						on_cancel = japan_border_conflict.4
+					}
+					
+					defender = {
+						state = 326
+						num_provinces = 4
+						on_win = spt_jap.10
+						on_lose =  spt_jap.9
+						on_cancel = japan_border_conflict.4
+					}
+				}
+			}
+			else = {
+				army_experience = 25
+				navy_experience = 25
+				air_experience = 25
+			}
+		}
+	}
+
+	SPT_JAP_operation_india = {
+		
+		icon = GFX_decision_generic_operation
+		available = {
+			JAP = {
+				has_war_with = RAJ
+			}
+		}
+		visible = {
+			has_completed_focus = SPT_JAP_aggressive_continent
+		}
+
+		fire_only_once = no
+		custom_cost_trigger = {
+			command_power > 25
+		}
+		custom_cost_text = SPT_USA_recession_decision_cp_25
+
+		days_remove = 240
+
+		highlight_states = {
+			highlight_color_before_active = 2
+			highlight_states_trigger = {
+				is_owned_by = RAJ
+				NOT = {
+					is_fully_controlled_by = JAP
+				}
+			}
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+			RAJ = {
+				country_event = {
+					id = spt_jap.12
+					days = 7
+				}
+				every_owned_state = {
+					limit = {
+						NOT = {
+							is_fully_controlled_by = JAP
+						}
+					}
+					add_dynamic_modifier = {
+						modifier = SPT_JAP_war_with_allies_offensive_buff
+						days = 30
+						scope = JAP
+					}
+				}
+			}
+		}
+		remove_effect = {
+		}
+	}
+	SPT_JAP_operation_malaya = {
+		
+		icon = GFX_decision_generic_operation
+		available = {
+			JAP = {
+				OR = {
+					has_war_with = MAL
+					has_war_with = ENG
+				}
+			}
+		}
+		visible = {
+			has_completed_focus = SPT_JAP_aggressive_continent
+		}
+
+		fire_only_once = no
+		custom_cost_trigger = {
+			command_power > 25
+		}
+		custom_cost_text = SPT_USA_recession_decision_cp_25
+
+		days_remove = 240
+
+		highlight_states = {
+			highlight_color_before_active = 2
+			highlight_states_trigger = {
+				OR = {
+					is_owned_by = MAL
+					AND = {
+						is_owned_by = ENG
+						is_core_of = MAL
+					}
+				}
+				NOT = {
+					is_fully_controlled_by = JAP
+				}
+			}
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+			if = {
+				limit = {
+					MAL = {
+						exists = yes
+					}
+				}
+				MAL = {
+					country_event = {
+						id = spt_jap.12
+						days = 2
+					}
+					every_owned_state = {
+						limit = {
+							NOT = {
+								is_fully_controlled_by = JAP
+							}
+							
+						}
+						add_dynamic_modifier = {
+							modifier = SPT_JAP_war_with_allies_offensive_buff
+							days = 30
+							scope = JAP
+						}
+					}
+				}
+			}
+			else = {
+				ENG = {
+					country_event = {
+						id = spt_jap.12
+						days = 2
+					}
+					every_owned_state = {
+						limit = {
+							NOT = {
+								is_fully_controlled_by = JAP
+							}
+							is_core_of = MAL
+						}
+						add_dynamic_modifier = {
+							modifier = SPT_JAP_war_with_allies_offensive_buff
+							days = 30
+							scope = JAP
+						}
+					}
+				}
+			}
+		}
+		remove_effect = {
+		}
+	}
+	SPT_JAP_operation_australia_nzl = {
+		
+		icon = GFX_decision_generic_operation
+		available = {
+			JAP = {
+				has_war_with = AST
+			}
+		}
+		visible = {
+			has_completed_focus = SPT_JAP_hit_the_colonies
+		}
+
+		fire_only_once = no
+		custom_cost_trigger = {
+			command_power > 25
+		}
+		custom_cost_text = SPT_USA_recession_decision_cp_25
+
+		days_remove = 240
+
+		highlight_states = {
+			highlight_color_before_active = 2
+			highlight_states_trigger = {
+				OR = {
+					is_owned_by = AST
+					is_owned_by = NZL
+				}
+				NOT = {
+					is_fully_controlled_by = JAP
+				}
+			}
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+			AST = {
+				country_event = {
+					id = spt_jap.12
+					days = 7
+				}
+				every_owned_state = {
+					limit = {
+						NOT = {
+							is_fully_controlled_by = JAP
+						}
+						
+					}
+					add_dynamic_modifier = {
+						modifier = SPT_JAP_war_with_allies_offensive_buff
+						days = 30
+						scope = JAP
+					}
+				}
+			}
+			NZL = {
+				country_event = {
+					id = spt_jap.12
+					days = 7
+				}
+				every_owned_state = {
+					limit = {
+						NOT = {
+							is_fully_controlled_by = JAP
+						}
+						
+					}
+					add_dynamic_modifier = {
+						modifier = SPT_JAP_war_with_allies_offensive_buff
+						days = 30
+						scope = JAP
+					}
+				}
+			}
+		}
+		remove_effect = {
+		}
+	}
+	SPT_JAP_operation_indonesia = {
+		
+		icon = GFX_decision_generic_operation
+		available = {
+			JAP = {
+				has_war_with = HOL
+			}
+		}
+		visible = {
+			has_completed_focus = SPT_JAP_hit_the_colonies
+		}
+
+		fire_only_once = no
+		custom_cost_trigger = {
+			command_power > 25
+		}
+		custom_cost_text = SPT_USA_recession_decision_cp_25
+
+		days_remove = 240
+
+		highlight_states = {
+			highlight_color_before_active = 2
+			highlight_states_trigger = {
+				OR = {
+					is_owned_by = HOL
+					is_owned_by = INS
+				}
+				is_core_of = INS
+				NOT = {
+					is_fully_controlled_by = JAP
+				}
+			}
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+			INS = {
+				country_event = {
+					id = spt_jap.12
+					days = 7
+				}
+				every_owned_state = {
+					limit = {
+						NOT = {
+							is_fully_controlled_by = JAP
+						}
+						
+					}
+					add_dynamic_modifier = {
+						modifier = SPT_JAP_war_with_allies_offensive_buff
+						days = 30
+						scope = JAP
+					}
+				}
+			}
+			HOL = {
+				country_event = {
+					id = spt_jap.12
+					days = 7
+				}
+				every_owned_state = {
+					limit = {
+						NOT = {
+							is_fully_controlled_by = JAP
+						}
+						is_core_of = INS
+					}
+					add_dynamic_modifier = {
+						modifier = SPT_JAP_war_with_allies_offensive_buff
+						days = 30
+						scope = JAP
+					}
+				}
+			}
+		}
+		remove_effect = {
+		}
+	}
+	SPT_JAP_operation_philippines = {
+		
+		icon = GFX_decision_generic_operation
+		available = {
+			JAP = {
+				has_war_with = USA
+			}
+		}
+		visible = {
+			has_completed_focus = SPT_JAP_hit_the_colonies
+		}
+
+		fire_only_once = no
+		custom_cost_trigger = {
+			command_power > 25
+		}
+		custom_cost_text = SPT_USA_recession_decision_cp_25
+
+		days_remove = 240
+
+		highlight_states = {
+			highlight_color_before_active = 2
+			highlight_states_trigger = {
+				OR = {
+					is_owned_by = USA
+					is_owned_by = PHI
+				}
+				is_core_of = PHI
+				NOT = {
+					is_fully_controlled_by = JAP
+				}
+			}
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+			PHI = {
+				country_event = {
+					id = spt_jap.12
+					days = 7
+				}
+				every_owned_state = {
+					limit = {
+						NOT = {
+							is_fully_controlled_by = JAP
+						}
+						
+					}
+					add_dynamic_modifier = {
+						modifier = SPT_JAP_war_with_allies_offensive_buff
+						days = 30
+						scope = JAP
+					}
+				}
+			}
+			USA = {
+				country_event = {
+					id = spt_jap.12
+					days = 7
+				}
+				every_owned_state = {
+					limit = {
+						NOT = {
+							is_fully_controlled_by = JAP
+						}
+						is_core_of = PHI
+					}
+					add_dynamic_modifier = {
+						modifier = SPT_JAP_war_with_allies_offensive_buff
+						days = 30
+						scope = JAP
+					}
+				}
+			}
+		}
+		remove_effect = {
+		}
+	}
+	
+	SPT_JAP_operation_soviet = {
+		
+		icon = GFX_decision_generic_operation
+		available = {
+			JAP = {
+				has_war_with = SOV
+			}
+		}
+		visible = {
+			has_completed_focus = SPT_JAP_hokushin_ron
+		}
+
+		fire_only_once = no
+		custom_cost_trigger = {
+			command_power > 25
+		}
+		custom_cost_text = SPT_USA_recession_decision_cp_25
+
+		days_remove = 240
+
+		highlight_states = {
+			highlight_color_before_active = 2
+			highlight_states_trigger = {
+				is_owned_by = SOV
+				NOT = {
+					is_fully_controlled_by = JAP
+				}
+			}
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+			SOV = {
+				country_event = {
+					id = spt_jap.12
+					days = 7
+				}
+				every_owned_state = {
+					limit = {
+						NOT = {
+							is_fully_controlled_by = JAP
+						}
+						
+					}
+					add_dynamic_modifier = {
+						modifier = SPT_JAP_war_with_allies_offensive_buff
+						days = 30
+						scope = JAP
+					}
+				}
+			}
+		}
+		remove_effect = {
+		}
+	}
+	SPT_JAP_operation_mongolia = {
+
+		icon = GFX_decision_generic_operation
+		available = {
+			JAP = {
+				OR = {
+					has_war_with = MON
+					has_war_with = SOV
+				}
+
+			}
+		}
+		visible = {
+			has_completed_focus = SPT_JAP_hokushin_ron
+		}
+
+		fire_only_once = no
+		custom_cost_trigger = {
+			command_power > 25
+		}
+		custom_cost_text = SPT_USA_recession_decision_cp_25
+
+		days_remove = 240
+
+		highlight_states = {
+			highlight_color_before_active = 2
+			highlight_states_trigger = {
+				OR = {
+					is_owned_by = MON
+					is_owned_by = SOV
+				}
+				is_core_of = MON
+				NOT = {
+					is_fully_controlled_by = JAP
+				}
+			}
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+			if = {
+				limit = {
+					MON = {
+						exists = yes
+					}
+				}
+				MON = {
+					country_event = {
+						id = spt_jap.12
+						days = 2
+					}
+					every_owned_state = {
+						limit = {
+							NOT = {
+								is_fully_controlled_by = JAP
+							}
+							
+						}
+						add_dynamic_modifier = {
+							modifier = SPT_JAP_war_with_allies_offensive_buff
+							days = 30
+							scope = JAP
+						}
+					}
+				}
+			}
+			else = {
+				SOV = {
+					country_event = {
+						id = spt_jap.12
+						days = 2
+					}
+					every_owned_state = {
+						limit = {
+							NOT = {
+								is_fully_controlled_by = JAP
+							}
+							is_core_of = MON
+						}
+						add_dynamic_modifier = {
+							modifier = SPT_JAP_war_with_allies_offensive_buff
+							days = 30
+							scope = JAP
+						}
+					}
+				}
+			}
+		}
+		remove_effect = {
+		}
+	}
+
+	SPT_JAP_operation_islands_enemy = {
+		
+		icon = GFX_decision_generic_operation
+		available = {
+			JAP = {
+				has_war_with = USA
+			}
+		}
+		visible = {
+			has_completed_focus = SPT_JAP_target_islands
+		}
+
+		fire_only_once = no
+		custom_cost_trigger = {
+			command_power > 25
+		}
+		custom_cost_text = SPT_USA_recession_decision_cp_25
+
+		highlight_states = {
+			highlight_color_before_active = 2
+			highlight_states_trigger = {
+				OR = {
+					state = 638
+					state = 632
+					state = 642
+					state = 727
+					state = 630
+					state = 629
+					state = 631
+					state = 650
+					state = 639
+					state = 725
+					state = 643
+				}
+				NOT = {
+					is_fully_controlled_by = JAP
+				}
+			}
+		}
+
+		days_remove = 240
+
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+			USA = {
+				country_event = {
+					id = spt_jap.12
+					days = 7
+				}
+				every_owned_state = {
+					limit = {
+						NOT = {
+							is_fully_controlled_by = JAP
+						}
+						OR = {
+							state = 638
+							state = 632
+							state = 642
+							state = 727
+							state = 630
+							state = 629
+							state = 631
+							state = 650
+						}
+					}
+					add_dynamic_modifier = {
+						modifier = SPT_JAP_war_with_allies_offensive_buff
+						days = 30
+						scope = JAP
+					}
+				}
+			}
+			ENG = {
+				country_event = {
+					id = spt_jap.12
+					days = 7
+				}
+				every_owned_state = {
+					limit = {
+						NOT = {
+							is_fully_controlled_by = JAP
+						}
+						OR = {
+							state = 639
+							state = 725
+							state = 643
+						}
+					}
+					add_dynamic_modifier = {
+						modifier = SPT_JAP_war_with_allies_offensive_buff
+						days = 30
+						scope = JAP
+					}
+				}
+			}
+		}
+		remove_effect = {
+		}
+	}
+	SPT_JAP_operation_islands_retake = {
+		
+		icon = GFX_decision_generic_operation
+		available = {
+			JAP = {
+				has_war_with = USA
+				any_owned_state = {
+					NOT = {
+						is_fully_controlled_by = JAP
+					}
+					OR = {
+						state = 648
+						state = 646
+						state = 645
+						state = 526
+						state = 524
+						state = 647
+						state = 684
+						state = 633
+					}
+				}
+				power_balance_value = {
+					id = JAP_PAC_pacific_front
+					value < -0.15
+				}
+			}
+		}
+		visible = {
+			has_completed_focus = SPT_JAP_retake_our_islands
+		}
+
+		fire_only_once = no
+		custom_cost_trigger = {
+			command_power > 25
+		}
+		custom_cost_text = SPT_USA_recession_decision_cp_25
+
+		days_remove = 240
+
+		highlight_states = {
+			highlight_color_before_active = 2
+			highlight_states_trigger = {
+				OR = {
+					state = 648
+					state = 646
+					state = 645
+					state = 526
+					state = 524
+					state = 647
+					state = 684
+					state = 633
+				}
+			}
+		}
+
+		complete_effect = {
+			USA = {
+				country_event = {
+					id = spt_jap.12
+					days = 7
+				}
+			}
+			hidden_effect = {
+				add_command_power = -25
+			}
+			every_owned_state = {
+				limit = {
+					NOT = {
+						is_fully_controlled_by = JAP
+					}
+					OR = {
+						state = 648
+						state = 646
+						state = 645
+						state = 526
+						state = 524
+						state = 647
+						state = 684
+						state = 633
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = SPT_JAP_war_with_allies_offensive_buff
+					days = 30
+					scope = JAP
+				}
+			}
+		}
+		remove_effect = {
+		}
+	}
+	SPT_JAP_operation_aim_for_continent = {
+		
+		icon = GFX_decision_generic_operation
+		available = {
+			JAP = {
+				has_war_with = USA
+			}
+		}
+		visible = {
+			has_completed_focus = SPT_JAP_aim_for_the_continent
+		}
+
+		fire_only_once = no
+		custom_cost_trigger = {
+			command_power > 25
+		}
+		custom_cost_text = SPT_USA_recession_decision_cp_25
+
+		days_remove = 240
+
+		highlight_states = {
+			highlight_color_before_active = 2
+			highlight_states_trigger = {
+				OR = {
+					state = 463
+					state = 386
+					state = 385
+					state = 378
+					state = 740
+					state = 739
+					state = 471
+					state = 473
+					state = 484
+					state = 483
+					state = 481
+					state = 478
+					state = 485
+					state = 476
+					state = 475
+				}
+				NOT = {
+					is_fully_controlled_by = JAP
+				}
+			}
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+			USA = {
+				country_event = {
+					id = spt_jap.12
+					days = 7
+				}
+				every_owned_state = {
+					limit = {
+						NOT = {
+							is_fully_controlled_by = JAP
+						}
+						OR = {
+							state = 463
+							state = 386
+							state = 385
+							state = 378
+						}
+					}
+					add_dynamic_modifier = {
+						modifier = SPT_JAP_war_with_allies_offensive_buff
+						days = 30
+						scope = JAP
+					}
+				}
+			}
+			CAN = {
+				country_event = {
+					id = spt_jap.12
+					days = 7
+				}
+				every_owned_state = {
+					limit = {
+						NOT = {
+							is_fully_controlled_by = JAP
+						}
+						OR = {
+							state = 740
+							state = 739
+							state = 471
+							state = 473
+						}
+					}
+					add_dynamic_modifier = {
+						modifier = SPT_JAP_war_with_allies_offensive_buff
+						days = 30
+						scope = JAP
+					}
+				}
+			}
+			MEX = {
+				country_event = {
+					id = spt_jap.12
+					days = 7
+				}
+				every_owned_state = {
+					limit = {
+						NOT = {
+							is_fully_controlled_by = JAP
+						}
+						OR = {
+							state = 484
+							state = 483
+							state = 481
+							state = 478
+							state = 485
+							state = 476
+							state = 475
+						}
+					}
+					add_dynamic_modifier = {
+						modifier = SPT_JAP_war_with_allies_offensive_buff
+						days = 30
+						scope = JAP
+					}
+				}
+			}
+		}
+		remove_effect = {
+		}
+	}
+	SPT_JAP_kill_usa = { #kill jester
+		
+		icon = GFX_decision_generic_operation
+		available = {
+			JAP = {
+				has_war_with = USA
+				any_controlled_state = {
+					is_core_of = USA
+					NOT = {
+						OR = {
+							state = 650
+							state = 629
+						}
+					}
+				}
+			}
+		}
+		visible = {
+			has_completed_focus = SPT_JAP_push_for_washington
+		}
+
+		fire_only_once = no
+		custom_cost_trigger = {
+			command_power > 25
+		}
+		custom_cost_text = SPT_USA_recession_decision_cp_25
+
+		days_remove = 240
+
+		highlight_states = {
+			highlight_color_before_active = 2
+			highlight_states_trigger = {
+				is_core_of = USA
+				NOT = {
+					OR = {
+						state = 463
+						state = 386
+						state = 385
+						state = 378
+					}
+				}
+				NOT = {
+					is_fully_controlled_by = JAP
+				}
+			}
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -25
+			}
+			USA = {
+				country_event = {
+					id = spt_jap.12
+					days = 7
+				}
+				every_owned_state = {
+					limit = {
+						is_core_of = USA
+						NOT = {
+							is_fully_controlled_by = JAP
+						}
+						NOT = {
+							OR = {
+								state = 463
+								state = 386
+								state = 385
+								state = 378
+							}
+						}
+
+					}
+					add_dynamic_modifier = {
+						modifier = SPT_JAP_war_with_allies_offensive_buff
+						days = 30
+						scope = JAP
+					}
+				}
+			}
+		}
+		remove_effect = {
+		}
+	}
+}
+
+
+
+#china spawn-in divs to make things a little more spicy
+#this only happens if japan is a player
+SPT_JAP_China_exclusive_spawn_divs = { 
+	set_up_and_spawn_wave_1 = {
+		cost = 0
+		fire_only_once = yes
+		icon = GFX_decision_revolt
+
+		available = {
+			JAP = {
+				is_ai = no
+			}
+		}
+		visible = {
+		}
+		ai_will_do = {
+			factor = 999
+		}
+
+		#days_remove = 2
+	
+		# modifier = {
+			# 	#fake modifiers using tooltips combined with hidden ideas, makes it easier to add and remove the effects
+		# }
+
+		complete_effect = {
+			SPT_CHI_set_up_militia = yes
+			SPT_CHI_spawn_militia = yes
+			SPT_CHI_spawn_militia = yes
+		}
+	}
+	spawn_wave_2 = {
+		cost = 0
+		fire_only_once = yes
+		icon = GFX_decision_revolt
+
+		available = {
+			has_war_with = JAP
+			surrender_progress > 0.10
+			JAP = {
+				is_ai = no
+			}
+		}
+		visible = {
+		}
+		ai_will_do = {
+			factor = 999
+		}
+
+		#days_remove = 2
+	
+		# modifier = {
+			# 	#fake modifiers using tooltips combined with hidden ideas, makes it easier to add and remove the effects
+		# }
+
+		complete_effect = {
+			SPT_CHI_spawn_militia = yes
+			army_experience = -50
+			#wave 2 is instant on war start, so no point in applying state debuffs
+		}
+	}
+	spawn_wave_3 = {
+		cost = 0
+		fire_only_once = yes
+		icon = GFX_decision_revolt
+
+		available = {
+			has_war_with = JAP
+			surrender_progress > 0.25
+			JAP = {
+				is_ai = no
+			}
+		}
+		visible = {
+		}
+		ai_will_do = {
+			factor = 999
+		}
+
+		#days_remove = 2
+	
+		# modifier = {
+			# 	#fake modifiers using tooltips combined with hidden ideas, makes it easier to add and remove the effects
+		# }
+
+		complete_effect = {
+			SPT_CHI_spawn_militia = yes #yeah, this wave does spawn 2 batches, it's intentional
+			SPT_CHI_spawn_militia = yes
+			army_experience = -50
+			every_owned_state = {
+				limit = {
+					NOT = {
+						is_fully_controlled_by = CHI
+					}
+					OR = {
+						NOT = {
+							is_fully_controlled_by = JAP
+							is_fully_controlled_by = MAN
+							is_fully_controlled_by = SIA
+						}
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = SPT_CHI_war_of_resistance
+					days = 15
+				}
+			}
+		}
+	}
+	spawn_wave_4 = {
+		cost = 0
+		fire_only_once = yes
+		icon = GFX_decision_revolt
+
+		available = {
+			has_war_with = JAP
+			surrender_progress > 0.45
+			JAP = {
+				is_ai = no
+			}
+		}
+		visible = {
+		}
+		ai_will_do = {
+			factor = 999
+		}
+
+		#days_remove = 2
+	
+		# modifier = {
+			# 	#fake modifiers using tooltips combined with hidden ideas, makes it easier to add and remove the effects
+		# }
+
+		complete_effect = {
+			SPT_CHI_spawn_militia = yes
+			#army_experience = -50
+			every_owned_state = {
+				limit = {
+					NOT = {
+						is_fully_controlled_by = CHI
+					}
+					OR = {
+						NOT = {
+							is_fully_controlled_by = JAP
+							is_fully_controlled_by = MAN
+							is_fully_controlled_by = SIA
+						}
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = SPT_CHI_war_of_resistance
+					days = 15
+				}
+			}
+		}
+	}
+	spawn_wave_5 = {
+		cost = 0
+		fire_only_once = yes
+		icon = GFX_decision_revolt
+
+		available = {
+			has_war_with = JAP
+			surrender_progress > 0.75
+			JAP = {
+				is_ai = no
+			}
+		}
+		visible = {
+		}
+		ai_will_do = {
+			factor = 999
+		}
+
+		#days_remove = 2
+	
+		# modifier = {
+			# 	#fake modifiers using tooltips combined with hidden ideas, makes it easier to add and remove the effects
+		# }
+
+		complete_effect = {
+			SPT_CHI_spawn_militia = yes
+			SPT_CHI_spawn_militia = yes
+			#army_experience = -50
+			every_owned_state = {
+				limit = {
+					NOT = {
+						is_fully_controlled_by = CHI
+					}
+					OR = {
+						NOT = {
+							is_fully_controlled_by = JAP
+							is_fully_controlled_by = MAN
+							is_fully_controlled_by = SIA
+						}
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = SPT_CHI_war_of_resistance
+					days = 15
+				}
+			}
+		}
+	}
+}

@@ -1,6 +1,5 @@
 guiTypes = {
 
-
 	# Action/Mission bar
 	containerWindowType = {
 		name = "action_bar_window"
@@ -174,6 +173,7 @@ guiTypes = {
 			name = "btn_mission5"
 			position = {x=10000 y=@nv_mission_btn_y}
 			spriteType = "GFX_NV_btn_mines_planting"
+			#shortcut = "b"
 			clicksound = click_default
 		}
 		iconType = {
@@ -190,11 +190,11 @@ guiTypes = {
 			alwaystransparent = yes
 		}
 
-		
 		buttonType = {
 			name = "btn_mission6"
 			position = {x=10000 y=@nv_mission_btn_y}
 			spriteType = "GFX_NV_btn_mines_sweeping"
+			#shortcut = "shift+b"
 			clicksound = click_default
 		}
 		iconType = {
@@ -213,14 +213,14 @@ guiTypes = {
 
 		buttonType = {
 			name = "btn_mission9"
-			position = {x=260 y=@nv_mission_btn_y}
+			position = {x=360 y=@nv_mission_btn_y}
 			spriteType = "GFX_NV_btn_naval_invasion_support"
 			shortcut = "a"
 			clicksound = click_default
 		}
 		iconType = {
 			name = "hint_highlight_mission_9"
-			position = {x=260 y=@nv_mission_btn_y}
+			position = {x=360 y=@nv_mission_btn_y}
 			spriteType = "GFX_naval_mission_btn_highlight"
 			alwaystransparent = yes
 			hide = yes
@@ -228,7 +228,7 @@ guiTypes = {
 		iconType = {
 			name ="btn_mission9_warn"
 			spriteType = "GFX_btn_yellow_glow"
-			position = {x=260 y=@nv_mission_btn_y}
+			position = {x=360 y=@nv_mission_btn_y}
 			alwaystransparent = yes
 		}
 
@@ -375,6 +375,20 @@ guiTypes = {
 				position = {x=214 y=@nv_tb_btn_y}
 				spriteType = "GFX_NV_btn_taskforce_o_matic"
 				clicksound = click_default
+			}
+
+			buttonType = {
+				position = { x=244 y=@nv_tb_btn_y }
+				name = "btn_base_underway_replenishment"
+				spriteType = "GFX_NV_btn_base_partial_toggle"
+				clicksound = click_default
+			}
+
+			iconType = {
+				name = "btn_underway_replenishment"
+				position = {x=244 y=@nv_tb_btn_y}
+				spriteType = "GFX_NV_btn_underway_replenishment"
+				alwaystransparent = yes
 			}
 
 			buttonType = {
@@ -901,6 +915,48 @@ guiTypes = {
 		}
 
 		buttonType = {
+			name = "toggle_btn_split_for_repair_indiv"
+			position = {x=389 y=43}
+			spriteType = "GFX_NV_btn_base_partial_toggle"
+			clicksound = click_default
+		}
+
+		iconType = {
+			name = "toggle_btn_split_for_repair_indiv_icon"
+			position = {x=389 y=43}
+			spriteType = "GFX_NV_btn_toggle_split_for_repair"
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			position = {x=419 y=43}
+			name = "toggle_btn_for_repair_priority_indiv"
+			spriteType = "GFX_NV_btn_base_partial_toggle"
+			clicksound = click_default
+		}
+
+		iconType = {
+			position = {x=419 y=43}
+			name = "toggle_btn_repair_priority_indiv_icon"
+			spriteType = "GFX_NV_btn_repair_priority"
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			position = {x=449 y=43}
+			name = "toggle_btn_aggressiveness_indiv"
+			spriteType = "GFX_NV_btn_base_partial_toggle"
+			clicksound = click_default
+		}
+
+		iconType = {
+			name = "toggle_btn_aggressiveness_indiv_icon"
+			position = {x=449 y=43}
+			spriteType = "GFX_NV_btn_aggressiveness_small"
+			alwaystransparent = yes
+		}
+
+		buttonType = {
 			name = "select_btn"
 			position = { x=389 y=3 }
 			spriteType = "GFX_NV_btn_select"
@@ -957,7 +1013,7 @@ guiTypes = {
 			position = { x=60 y=38 }
 			text = "I DO THAT"
 			font = "hoi_16mbs"
-			maxWidth = 299
+			maxWidth = 269
 			maxHeight = 40
 			format = left
 			fixedsize = yes
@@ -985,6 +1041,13 @@ guiTypes = {
 		}
 
 		iconType = {
+			name = "underway_replenishment_icon"
+			position = {x=330 y=43}
+			spriteType = "GFX_NV_btn_underway_replenishment"
+			frame = 1
+		}
+
+		iconType = {
 			name = "fuel_stocks_icon"
 			position = {x=355 y=47}
 			spriteType = "GFX_fuel_extended_strip"
@@ -995,25 +1058,6 @@ guiTypes = {
 			name = "fuel_efficiency_warning_icon"
 			spriteType = "GFX_mapicon_unit_invalid_orders"
 			position = { x=350 y=47 }
-		}
-
-		iconType = {
-			name = "split_for_repair_icon"
-			position = {x=385 y=45}
-			spriteType = "GFX_NV_icon_split_for_repair"
-		}
-
-		iconType = {
-			name = "repair_priority_icon"
-			position = {x=418 y=45}
-			spriteType = "GFX_NV_btn_repair_priority"
-		}
-
-		iconType = {
-			name = "aggressiveness_icon"
-			position = {x=447 y=45}
-			spriteType = "GFX_NV_btn_aggressiveness_small"
-			frame = 1
 		}
 
 		# Code toggles visibility on ships_detailed

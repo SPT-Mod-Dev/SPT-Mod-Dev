@@ -1189,7 +1189,6 @@ focus_tree = {
 					free_building_slots = {
 						building = infrastructure
 						size > 0
-						include_locked = yes
 					}
 				}
 				add_extra_state_shared_building_slots = 1
@@ -1556,10 +1555,13 @@ focus_tree = {
 
 		available = {
 			has_country_flag = invited_motor_co
-			OR = {
-				has_idea = POL_vauxhall
-				has_idea = POL_ford
-				has_idea = POL_somua
+			IF = {
+				limit = { NOT = { has_dlc = "Arms Against Tyranny" } }
+				OR = {
+					has_idea = POL_vauxhall
+					has_idea = POL_ford
+					has_idea = POL_somua
+				}
 			}
 		}
 
@@ -1864,9 +1866,15 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
+
+			add_breakthrough_progress = {
+				specialization = specialization_air
+				value = 0.5
+			}
+
 			add_tech_bonus = {
 				name = POL_rocket_development
-				bonus = 1.0
+				bonus = 0.75
 				uses = 2
 				category = jet_technology
 				category = rocketry
@@ -4343,7 +4351,6 @@ focus_tree = {
 					free_building_slots = {
 						building = infrastructure
 						size > 0
-						include_locked = yes
 					}
 				}
 				add_building_construction = {
@@ -4360,7 +4367,6 @@ focus_tree = {
 					free_building_slots = {
 						building = infrastructure
 						size > 0
-						include_locked = yes
 					}
 				}
 				add_building_construction = {
@@ -6436,7 +6442,13 @@ focus_tree = {
 					puppet = LIT
 				}
 			}
-			else = {
+			else_if = {
+				limit = {
+					LIT = {
+						exists = yes
+						NOT = { is_ally_with = ROOT }
+					}
+				}
 				create_wargoal = {
 					type = topple_government
 					target = LIT
@@ -6455,7 +6467,13 @@ focus_tree = {
 					puppet = LAT
 				}
 			}
-			else = {
+			else_if = {
+				limit = {
+					LAT = {
+						exists = yes
+						NOT = { is_ally_with = ROOT }
+					}
+				}
 				create_wargoal = {
 					type = topple_government
 					target = LAT
@@ -6474,7 +6492,13 @@ focus_tree = {
 					puppet = EST
 				}
 			}
-			else = {
+			else_if = {
+				limit = {
+					EST = {
+						exists = yes
+						NOT = { is_ally_with = ROOT }
+					}
+				}
 				create_wargoal = {
 					type = topple_government
 					target = EST
@@ -7630,6 +7654,7 @@ focus_tree = {
 						OR = {
 							state = 664
 							state = 69
+							state = 972
 							state = 70
 							state = 71
 							state = 72
@@ -7646,6 +7671,7 @@ focus_tree = {
 						OR = {
 							owns_state = 664
 							owns_state = 69
+							owns_state = 972
 							owns_state = 70
 							owns_state = 71
 							owns_state = 72
@@ -8037,8 +8063,8 @@ focus_tree = {
 					infantry = { x = 1 y = 2 }
 		
 					infantry = { x = 2 y = 0 }
-					artillery_brigade = { x = 2 y = 1 }
-					artillery_brigade = { x = 2 y = 2 }
+					artillery_brigade = { x = 3 y = 0 }
+					artillery_brigade = { x = 3 y = 1 }
 				}
 				support = {
 					engineer = { x = 0 y = 0 }
@@ -8396,7 +8422,6 @@ focus_tree = {
 					free_building_slots = {
 						building = infrastructure
 						size > 1
-						include_locked = yes
 					}
 				}
 				add_building_construction = {
@@ -8413,7 +8438,6 @@ focus_tree = {
 					free_building_slots = {
 						building = infrastructure
 						size > 1
-						include_locked = yes
 					}
 				}
 				add_building_construction = {
@@ -8767,8 +8791,6 @@ focus_tree = {
 			factor = 2.5
 		}
 
-		
-		
 		allow_branch = {
 			has_dlc = "No Step Back"
 			if = {
@@ -10047,7 +10069,6 @@ focus_tree = {
 					free_building_slots = {
 						building = infrastructure
 						size > 1
-						include_locked = yes
 					}
 				}
 				add_building_construction = {
@@ -10063,7 +10084,6 @@ focus_tree = {
 					free_building_slots = {
 						building = infrastructure
 						size > 1
-						include_locked = yes
 					}
 				}
 				add_building_construction = {
@@ -10227,7 +10247,6 @@ focus_tree = {
 					free_building_slots = {
 						building = infrastructure
 						size > 0
-						include_locked = yes
 					}
 				}
 				add_extra_state_shared_building_slots = 1
@@ -14801,9 +14820,15 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
+
+			add_breakthrough_progress = {
+				specialization = specialization_nuclear
+				value = 0.75
+			}
+
 			add_tech_bonus = {
 				name = POL_atomic_physics_institute
-				bonus = 1.0
+				bonus = 0.5 # was 1
 				uses = 1
 				category = nuclear
 			}
@@ -14916,7 +14941,16 @@ focus_tree = {
 					occupier = POL
 					occupied = DNZ
 				}
-				start_resistance = DNZ
+				if = {
+					limit = {
+						NOT = {
+							85 = {
+								has_resistance = yes
+							}
+						}
+					}
+					start_resistance = DNZ
+				}
 				set_resistance = 40
 				set_compliance = 30
 				add_resistance_target = { 
@@ -15189,6 +15223,12 @@ focus_tree = {
 	focus = {
 		id = POL_integrate_gdansk_industries
 		icon = GFX_goal_generic_construct_naval_dockyard
+		available = {
+			any_owned_state = {
+				is_coastal = yes
+				is_controlled_by = ROOT
+			}
+		}
 		prerequisite = { focus = POL_ban_the_nazi_party }
 		x = -1
 		y = 1
