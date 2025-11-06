@@ -1,6 +1,12 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.14.15.1 La Vida Loca
+### 3.14.17
+
+#### Soviet Union
+ - Boris Stetchkin now land scientist for his work on the Tsar Tank
+ - Land facility moved to Found the PCDI
+
+### 3.14.16 La Vida Loca
 
 #### Spain 
  - By default cannot join factions
@@ -11,6 +17,7 @@
    - Focus time reduced to 14 days
    - Removed event
    - Enables joining faction
+   - Requires Fascist Economic Aid
  - The Army of Africa Model focus time reduced to 35 days
  - Improve Cross-Country Railways focus time reduced to 35 days
  - Stamp out the Marquis focus time reduced to 35 days

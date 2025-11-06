@@ -1,0 +1,982 @@
+#	joint_focus = {
+#		id = SPT_CW_
+#		icon = GFX_
+#		prerequisite = { focus = }
+#		mutually_exclusive = { focus =  }
+#		x = -3
+#		y = 0
+#		relative_position_id = 
+#
+#		cost = 10
+#
+#		ai_will_do = {
+#			factor = 1
+#		}
+#
+#		joint_trigger = {
+#  			
+#		}
+#
+#	available = {
+#
+#		}
+#		
+#		bypass = {
+#
+#		}
+#
+#		cancel_if_invalid = yes
+#		continue_if_invalid = no
+#		available_if_capitulated = no
+#
+#		complete_tooltip = {
+#
+#		}
+#
+#		completion_reward = {
+#
+#		}
+#	}
+
+shared_focus = {
+	id = SPT_CW_Together_for_victory
+	icon = GFX_focus_CW_TfV
+	text_icon = NORDIC_focus_style
+	x = 0
+	y = 0
+
+	offset = {
+		x = 40
+		y = 0
+		trigger = {
+			has_focus_tree = australian_focus
+		}
+	}
+	offset = {
+		x = 33
+		y = 0
+		trigger = {
+			has_focus_tree = new_zealander_focus
+		}
+	}
+	offset = {
+		x = 46
+		y = 0
+		trigger = {
+			has_focus_tree = indian_focus
+		}
+	}
+	offset = {
+		x = 33
+		y = 0
+		trigger = {
+			has_focus_tree = south_african_focus
+		}
+	}
+	offset = {
+		x = 40
+		y = 0
+		trigger = {
+			has_focus_tree = canadian_focus
+		}
+	}
+
+	cost = 10
+
+	ai_will_do = {
+		factor = 1
+	}
+
+	available = {
+		always = no
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		custom_effect_tooltip = SPT_CW_auto_complete_tt
+		add_political_power = 50
+		add_command_power = 25
+	}
+}
+shared_focus = {
+	id = SPT_CW_allied_air
+	icon = GFX_spt_CW_allied_air
+	x = -7
+	y = 1
+	relative_position_id = SPT_CW_Together_for_victory
+	prerequisite = {
+		focus = SPT_CW_Together_for_victory
+	} 
+
+	cost = 5
+
+	ai_will_do = {
+	}
+
+	available = {
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		add_ideas = SPT_CW_allied_air_ns_1
+	}
+}
+shared_focus = {
+	id = SPT_CW_allied_navy
+	icon = GFX_spt_CW_allied_navy
+	x = 0
+	y = 1
+	relative_position_id = SPT_CW_Together_for_victory
+	prerequisite = {
+		focus = SPT_CW_Together_for_victory
+	} 
+
+	cost = 5
+
+	ai_will_do = {
+	}
+
+	available = {
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		add_ideas = SPT_CW_allied_navy_ns_1
+	}
+}
+shared_focus = {
+	id = SPT_CW_allied_army
+	icon = GFX_spt_CW_allied_army
+	x = 7
+	y = 1
+	relative_position_id = SPT_CW_Together_for_victory
+	prerequisite = {
+		focus = SPT_CW_Together_for_victory
+	} 
+
+	cost = 5
+
+	ai_will_do = {
+	}
+
+	available = {
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		add_ideas = SPT_CW_allied_army_ns_1
+	}
+}
+shared_focus = {
+	id = SPT_CW_joint_air_training
+	icon = GFX_goal_generic_build_airforce
+	x = 0
+	y = 1
+	relative_position_id = SPT_CW_allied_air
+	prerequisite = {
+		focus = SPT_CW_allied_air
+	} 
+
+	cost = 5
+
+	ai_will_do = {
+	}
+
+	available = {
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = SPT_CW_allied_air_ns_1
+			add_idea = SPT_CW_allied_air_ns_2
+		}
+	}
+}
+shared_focus = {
+	id = SPT_CW_joint_air_navy
+	icon = GFX_goal_generic_air_fighter2
+	x = 3
+	y = 1
+	relative_position_id = SPT_CW_allied_air
+	prerequisite = {
+		focus = SPT_CW_allied_air
+	}
+	prerequisite = {
+		focus = SPT_CW_allied_navy
+	}
+
+	cost = 5
+
+	ai_will_do = {
+	}
+
+	available = {
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		air_experience = 25
+		navy_experience = 25
+	}
+}
+shared_focus = {
+	id = SPT_CW_air_innovation
+	icon = GFX_focus_generic_copy_plane_designs
+	x = 0
+	y = 1
+	relative_position_id = SPT_CW_joint_air_training
+	prerequisite = {
+		focus = SPT_CW_joint_air_training
+	} 
+
+	cost = 5
+
+	ai_will_do = {
+	}
+
+	available = {
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = SPT_CW_allied_air_ns_2
+			add_idea = SPT_CW_allied_air_ns_3
+		}
+	}
+}
+joint_focus = {
+	id = SPT_CW_paratrooper_specialization
+	icon = GFX_spt_CW_paras
+	text_icon = NORDIC_focus_style
+	x = -1
+	y = 1
+	relative_position_id = SPT_CW_air_innovation
+	prerequisite = {
+		focus = SPT_CW_air_innovation
+	} 
+	mutually_exclusive = {
+		focus = SPT_CW_plane_specialization
+	}
+
+	cost = 10
+
+	ai_will_do = {
+	}
+
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = SPT_CW_specialized_tt	
+			not = { has_idea = SPT_CW_specialized }	
+		}
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward_joint_originator = {
+		custom_effect_tooltip = SPT_CW_specialization_tt
+		swap_ideas = {
+			remove_idea = SPT_CW_allied_air_ns_3
+			add_idea = SPT_CW_allied_air_ns_4_paras
+		}
+		hidden_effect = {
+			add_ideas = SPT_CW_specialized
+		}
+		if = {
+			limit = {
+				has_dlc = "Arms Against Tyranny"
+			}
+			add_doctrine_cost_reduction = {
+				name = SPT_CW_para_doctrine_boost
+				cost_reduction = 0.9
+				uses = 2
+				category = para_tech
+			}
+		}
+	}
+}
+joint_focus = {
+	id = SPT_CW_plane_specialization
+	icon = GFX_spt_CW_plane
+	text_icon = NORDIC_focus_style
+	x = 1
+	y = 1
+	relative_position_id = SPT_CW_air_innovation
+	prerequisite = {
+		focus = SPT_CW_air_innovation
+	}
+	mutually_exclusive = {
+		focus = SPT_CW_paratrooper_specialization
+	}
+
+	cost = 10
+
+	ai_will_do = {
+	}
+
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = SPT_CW_specialized_tt	
+			not = { has_idea = SPT_CW_specialized }	
+		}
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward_joint_originator = {
+		custom_effect_tooltip = SPT_CW_specialization_tt
+		swap_ideas = {
+			remove_idea = SPT_CW_allied_air_ns_3
+			add_idea = SPT_CW_allied_air_ns_4_planes
+		}
+		hidden_effect = {
+			add_ideas = SPT_CW_specialized
+		}
+	}
+}
+joint_focus = {
+	id = SPT_CW_fighter_focus
+	icon = GFX_goal_continuous_air_production
+	x = -2
+	y = 2
+	relative_position_id = SPT_CW_plane_specialization
+	prerequisite = {
+		focus = SPT_CW_plane_specialization
+	}
+	mutually_exclusive = {
+		focus = SPT_CW_cas_focus
+		focus = SPT_CW_naval_bomber_focus
+	}
+
+	cost = 10
+
+	ai_will_do = {
+	}
+	
+	available = {
+		has_idea = SPT_CW_allied_air_ns_4_planes
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward_joint_originator = {
+		swap_ideas = {
+			remove_idea = SPT_CW_allied_air_ns_4_planes
+			add_idea = SPT_CW_allied_air_ns_4_planes_fighter
+		}
+	}
+}
+joint_focus = {
+	id = SPT_CW_cas_focus
+	icon = GFX_focus_generic_cas_aircraft
+	x = 0
+	y = 2
+	relative_position_id = SPT_CW_plane_specialization
+	prerequisite = {
+		focus = SPT_CW_plane_specialization
+	}
+	mutually_exclusive = {
+		focus = SPT_CW_fighter_focus
+		focus = SPT_CW_naval_bomber_focus
+	}
+
+	cost = 10
+
+	ai_will_do = {
+	}
+
+	available = {
+		has_idea = SPT_CW_allied_air_ns_4_planes
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward_joint_originator = {
+		swap_ideas = {
+			remove_idea = SPT_CW_allied_air_ns_4_planes
+			add_idea = SPT_CW_allied_air_ns_4_planes_cas
+		}
+	}
+}
+joint_focus = {
+	id = SPT_CW_naval_bomber_focus
+	icon = GFX_goal_generic_air_naval_bomber
+	x = 2
+	y = 2
+	relative_position_id = SPT_CW_plane_specialization
+	prerequisite = {
+		focus = SPT_CW_plane_specialization
+	}
+	prerequisite = {
+		focus = SPT_CW_joint_air_navy
+	}
+	mutually_exclusive = {
+		focus = SPT_CW_fighter_focus
+		focus = SPT_CW_cas_focus
+	}
+
+	cost = 10
+
+	ai_will_do = {
+	}
+
+	available = {
+		has_idea = SPT_CW_allied_air_ns_4_planes
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward_joint_originator = {
+		swap_ideas = {
+			remove_idea = SPT_CW_allied_air_ns_4_planes
+			add_idea = SPT_CW_allied_air_ns_4_planes_nav
+		}
+	}
+}
+joint_focus = {
+	id = SPT_CW_joint_navy_excercises
+	icon = GFX_goal_generic_navy_doctrines_tactics
+	x = 0
+	y = 1
+	relative_position_id = SPT_CW_allied_navy
+	prerequisite = {
+		focus = SPT_CW_allied_navy
+	}
+	cost = 5
+
+	ai_will_do = {
+	}
+
+	available = {
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward_joint_originator = {
+		add_doctrine_cost_reduction = {
+			name = NORDIC_naval_exercises
+			cost_reduction = 0.5
+			uses = 2
+			category = naval_doctrine 
+		}
+	}
+	completion_reward_joint_member = {
+		navy_experience = 25
+	}
+}
+joint_focus = {
+	id = SPT_CW_carrier_focus
+	icon = GFX_spt_CW_carrier
+	text_icon = NORDIC_focus_style
+	x = -2
+	y = 1
+	relative_position_id = SPT_CW_joint_navy_excercises
+	prerequisite = {
+		focus = SPT_CW_joint_navy_excercises
+	}
+	prerequisite = {
+		focus = SPT_CW_joint_air_navy
+	}
+	cost = 5
+
+	ai_will_do = {
+	}
+
+	available = {
+		AND = {
+			custom_trigger_tooltip = {
+				tooltip = SPT_CW_specialized_tt	
+				not = { has_idea = SPT_CW_specialized }	
+			}
+			has_idea = SPT_CW_allied_navy_ns_1
+			NOT = {
+				has_completed_focus = SPT_CW_escort_focus
+			}
+		}
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward_joint_originator = {
+		custom_effect_tooltip = SPT_CW_specialization_tt
+		swap_ideas = {
+			remove_idea = SPT_CW_allied_navy_ns_1
+			add_idea = SPT_CW_allied_navy_ns_2_carrier
+		}
+		hidden_effect = {
+			add_ideas = SPT_CW_specialized
+		}
+	}
+}
+shared_focus = {
+	id = SPT_CW_escort_focus
+	icon = GFX_focus_generic_merchant_fleet
+	x = 2
+	y = 1
+	relative_position_id = SPT_CW_joint_navy_excercises
+	prerequisite = {
+		focus = SPT_CW_joint_navy_excercises
+	}
+	cost = 5
+
+	ai_will_do = {
+	}
+
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = SPT_CW_specialized_carrier_tt	
+			NOT = {
+				has_idea = SPT_CW_allied_navy_ns_2_carrier
+			}
+		}
+		has_idea = SPT_CW_allied_navy_ns_1
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = SPT_CW_allied_navy_ns_1
+			add_idea = SPT_CW_allied_navy_ns_2_escort
+		}
+	}
+}
+shared_focus = {
+	id = SPT_CW_dockyard_effort
+	icon = GFX_goal_generic_construct_naval_dockyard
+	x = 2
+	y = 2
+	relative_position_id = SPT_CW_carrier_focus
+	prerequisite = {
+		focus = SPT_CW_carrier_focus
+		focus = SPT_CW_escort_focus
+	}
+	cost = 5
+
+	ai_will_do = {
+	}
+
+	available = {
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = ROOT
+				is_coastal = yes
+			}
+			add_extra_state_shared_building_slots = 3
+			add_building_construction = {
+				type = dockyard
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+}
+joint_focus = {
+	id = SPT_CW_ship_primacy
+	icon = GFX_focus_SWE_Vasa_II
+	x = -2
+	y = 1
+	relative_position_id = SPT_CW_dockyard_effort
+	prerequisite = {
+		focus = SPT_CW_carrier_focus
+	}
+	prerequisite = {
+		focus = SPT_CW_dockyard_effort
+	}
+	cost = 10
+
+	ai_will_do = {
+	}
+
+	available = {
+		has_idea = SPT_CW_allied_navy_ns_2_carrier
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward_joint_originator = {
+		swap_ideas = {
+			remove_idea = SPT_CW_allied_navy_ns_2_carrier
+			add_idea = SPT_CW_allied_navy_ns_3_ship
+		}
+	}
+}
+joint_focus = {
+	id = SPT_CW_marine_focus
+	icon = GFX_spt_CW_marines
+	text_icon = NORDIC_focus_style
+	x = 2
+	y = 1
+	relative_position_id = SPT_CW_dockyard_effort
+	prerequisite = {
+		focus = SPT_CW_dockyard_effort
+	}
+	prerequisite = {
+		focus = SPT_CW_escort_focus
+	}
+	cost = 10
+
+	ai_will_do = {
+	}
+
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = SPT_CW_specialized_tt	
+			not = { has_idea = SPT_CW_specialized }	
+		}
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward_joint_originator = {
+		custom_effect_tooltip = SPT_CW_specialization_tt
+		swap_ideas = {
+			remove_idea = SPT_CW_allied_navy_ns_2_escort
+			add_idea = SPT_CW_allied_navy_ns_3_marine
+		}
+		hidden_effect = {
+			add_ideas = SPT_CW_specialized
+		}
+		if = {
+			limit = {
+				has_dlc = "Arms Against Tyranny"
+			}
+			add_doctrine_cost_reduction = {
+				name = SPT_CW_marine_doctrine_boost
+				cost_reduction = 0.9
+				uses = 2
+				category = marine_tech
+			}
+		}
+	}
+}
+shared_focus = {
+	id = SPT_CW_combined_offensives
+	icon = GFX_goal_generic_amphibious_assault
+	x = 4
+	y = 1
+	relative_position_id = SPT_CW_allied_navy
+	prerequisite = {
+		focus = SPT_CW_allied_army
+	}
+	prerequisite = {
+		focus = SPT_CW_allied_navy
+	}
+	cost = 5
+
+	ai_will_do = {
+	}
+
+	available = {
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		navy_experience = 25
+		army_experience = 25
+	}
+}
+shared_focus = {
+	id = SPT_CW_joint_command
+	icon = GFX_focus_POL_complete_april_constitution
+	x = 0
+	y = 1
+	relative_position_id = SPT_CW_allied_army
+	prerequisite = {
+		focus = SPT_CW_allied_army
+	}
+	cost = 5
+
+	ai_will_do = {
+	}
+
+	available = {
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = SPT_CW_allied_army_ns_1
+			add_idea = SPT_CW_allied_army_ns_2
+		}
+	}
+}
+shared_focus = {
+	id = SPT_CW_army_training
+	icon = GFX_focus_SWE_varnplikt
+	x = 0
+	y = 1
+	relative_position_id = SPT_CW_joint_command
+	prerequisite = {
+		focus = SPT_CW_joint_command
+	}
+	cost = 5
+
+	ai_will_do = {
+	}
+
+	available = {
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = SPT_CW_allied_army_ns_2
+			add_idea = SPT_CW_allied_army_ns_3
+		}
+	}
+}
+joint_focus = {
+	id = SPT_CW_tank_specialization
+	icon = GFX_spt_CW_armor
+	text_icon = NORDIC_focus_style
+	x = -1
+	y = 1
+	relative_position_id = SPT_CW_army_training
+	prerequisite = {
+		focus = SPT_CW_army_training
+	}
+	cost = 10
+
+	ai_will_do = {
+	}
+
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = SPT_CW_specialized_tt	
+			not = { has_idea = SPT_CW_specialized }	
+		}
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward_joint_originator = {
+		custom_effect_tooltip = SPT_CW_specialization_tt
+		hidden_effect = {
+			add_ideas = SPT_CW_specialized
+		}
+		swap_ideas = {
+			remove_idea = SPT_CW_allied_army_ns_3
+			add_idea = SPT_CW_allied_army_ns_4_tanks
+		}
+	}
+}
+joint_focus = {
+	id = SPT_CW_amph_tank
+	icon = GFX_focus_ICE_the_viking_spirit
+	x = -2
+	y = 2
+	relative_position_id = SPT_CW_tank_specialization
+	prerequisite = {
+		focus = SPT_CW_tank_specialization
+	}
+	prerequisite = {
+		focus = SPT_CW_combined_offensives
+	}
+	prerequisite = {
+		focus = SPT_CW_escort_focus
+	}
+	mutually_exclusive = {
+		focus = SPT_CW_tank_destroyer
+	}
+	mutually_exclusive = {
+		focus = SPT_CW_tank_production
+	}
+	cost = 10
+
+	ai_will_do = {
+	}
+
+	available = {
+		has_idea = SPT_CW_allied_army_ns_4_tanks
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward_joint_originator = {
+		swap_ideas = {
+			remove_idea = SPT_CW_allied_army_ns_4_tanks
+			add_idea = SPT_CW_allied_army_ns_4_tanks_amph
+		}
+	}
+}
+joint_focus = {
+	id = SPT_CW_tank_production
+	icon = GFX_focus_generic_tank_production
+	x = 0
+	y = 2
+	relative_position_id = SPT_CW_tank_specialization
+	prerequisite = {
+		focus = SPT_CW_tank_specialization
+	}
+	mutually_exclusive = {
+		focus = SPT_CW_amph_tank
+	}
+	mutually_exclusive = {
+		focus = SPT_CW_tank_destroyer
+	}
+	cost = 10
+
+	ai_will_do = {
+	}
+
+	available = {
+		has_idea = SPT_CW_allied_army_ns_4_tanks
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward_joint_originator = {
+		swap_ideas = {
+			remove_idea = SPT_CW_allied_army_ns_4_tanks
+			add_idea = SPT_CW_allied_army_ns_4_tanks_mass_prod
+		}
+	}
+}
+joint_focus = {
+	id = SPT_CW_tank_destroyer
+	icon = GFX_focus_generic_army_tanks2
+	x = 2
+	y = 2
+	relative_position_id = SPT_CW_tank_specialization
+	prerequisite = {
+		focus = SPT_CW_tank_specialization
+	}
+	mutually_exclusive = {
+		focus = SPT_CW_amph_tank
+	}
+	mutually_exclusive = {
+		focus = SPT_CW_tank_production
+	}
+	cost = 10
+
+	ai_will_do = {
+	}
+
+	available = {
+		has_idea = SPT_CW_allied_army_ns_4_tanks
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward_joint_originator = {
+		swap_ideas = {
+			remove_idea = SPT_CW_allied_army_ns_4_tanks
+			add_idea = SPT_CW_allied_army_ns_4_tanks_destroyer
+		}
+	}
+}
+joint_focus = {
+	id = SPT_CW_mountaineer_focus
+	icon = GFX_spt_CW_mountain
+	text_icon = NORDIC_focus_style
+	x = 1
+	y = 1
+	relative_position_id = SPT_CW_army_training
+	prerequisite = {
+		focus = SPT_CW_army_training
+	}
+	cost = 10
+
+	ai_will_do = {
+	}
+
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = SPT_CW_specialized_tt	
+			not = { has_idea = SPT_CW_specialized }	
+		}
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward_joint_originator = {
+		custom_effect_tooltip = SPT_CW_specialization_tt
+		hidden_effect = {
+			add_ideas = SPT_CW_specialized
+		}
+		swap_ideas = {
+			remove_idea = SPT_CW_allied_army_ns_3
+			add_idea = SPT_CW_allied_army_ns_4_mount
+		}
+		if = {
+			limit = {
+				has_dlc = "Arms Against Tyranny"
+			}
+			add_doctrine_cost_reduction = {
+				name = SPT_CW_mount_doctrine_boost
+				cost_reduction = 0.9
+				uses = 2
+				category = mountaineers_tech
+			}
+		}
+	}
+}
