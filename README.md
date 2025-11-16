@@ -2,6 +2,13 @@
 
 ### 3.14.17
 
+#### General
+ - Tank designer armor clicks:
+   - Reliability: -2% -> -1.5% per click
+   - Build Cost IC: 0.20 IC -> 0.15 IC per click
+ - Anti-Tank Equipment 2 piercing: 90->80
+ - Anti-Tank Equipment 3 piercing: 120->100
+
 #### Soviet Union
  - Boris Stetchkin now land scientist for his work on the Tsar Tank
  - Land facility moved to Found the PCDI
