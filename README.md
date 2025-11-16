@@ -5,6 +5,10 @@
 #### Soviet Union
  - Boris Stetchkin now land scientist for his work on the Tsar Tank
  - Land facility moved to Found the PCDI
+ - Focus 'Infrastructure Effort' time reduced from 70 to 35 days
+ - Focus 'Heavy Industry' time reduced from 70 to 35 days
+ - Focus 'PC of Mortar Armament' time increased from 35 to 70 days
+ - Focus' Merge Tank and Materiel Plants' time reduced from 70 to 35 days
 
 ### 3.14.16 La Vida Loca
 
