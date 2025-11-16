@@ -8,6 +8,8 @@
    - Build Cost IC: 0.20 IC -> 0.15 IC per click
  - Anti-Tank Equipment 2 piercing: 90->80
  - Anti-Tank Equipment 3 piercing: 120->100
+ - Fixed a bug where penalty to defense/breakthrough from enemy air superiority was effectively 0% (now -25%). 
+   - See 3.13.7 for intended penalty curve.
 
 #### Soviet Union
  - Boris Stetchkin now land scientist for his work on the Tsar Tank
