@@ -2,12 +2,30 @@
 
 ### 3.14.17
 
+#### General
+ - Tank designer armor clicks:
+   - Reliability: -2% -> -1.5% per click
+   - Build Cost IC: 0.20 IC -> 0.15 IC per click
+ - Anti-Tank Equipment 2 piercing: 90->80
+ - Anti-Tank Equipment 3 piercing: 120->100
+ - Added Manchukuo and Siam to Japan's auto-war dec
+ - Fixed a bug where penalty to defense/breakthrough from enemy air superiority was effectively 0% (now -25%). 
+   - See 3.13.7 for intended penalty curve.
+
 #### AI
  - Improved Germany behaviour to represent current strategies
 
 #### Soviet Union
  - Boris Stetchkin now land scientist for his work on the Tsar Tank
  - Land facility moved to Found the PCDI
+ - Focus 'Infrastructure Effort' time reduced from 70 to 35 days
+ - Focus 'Heavy Industry' time reduced from 70 to 35 days
+ - Focus 'PC of Mortar Armament' time increased from 35 to 70 days
+ - Focus' Merge Tank and Materiel Plants' time reduced from 70 to 35 days
+
+#### USA
+ - Decision 'Establish the Greenland Patrol' poliitcal power cost 50->0
+ - Decision 'Establish the Greenland Patrol' may now be taken if anyone annexes Greenland
 
 #### Norway
  - Vanilla tree added, now must be invaded by Germany
