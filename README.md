@@ -2,9 +2,17 @@
 
 ### 3.14.17
 
+#### AI
+ - Improved Germany behaviour to represent current strategies
+
 #### Soviet Union
  - Boris Stetchkin now land scientist for his work on the Tsar Tank
  - Land facility moved to Found the PCDI
+
+#### Norway
+ - Vanilla tree added, now must be invaded by Germany
+ - Nordland must be controlled by Germany rather than fascist Norway for the civ shipments
+
 
 ### 3.14.16 La Vida Loca
 
