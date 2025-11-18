@@ -1631,6 +1631,49 @@
 			set_country_flag = { flag = FRA_popular_front_cooldown value = 1 days = 360 } #fires strike event if labour laws not reformed in time
 		}
 	}
+
+	focus = {
+		id = SPT_FRA_intervention_in_spain # SPTchange
+		icon = GFX_focus_focus_fra_intervention_spain
+		# x = 7
+		# y = 2
+		x = 3
+		y = 1
+		offset = {
+			x = 0
+			y = 0
+		}
+		prerequisite = {
+			focus = FRA_form_the_popular_front
+		}
+		
+		relative_position_id = FRA_form_the_popular_front
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			# SPR_scw_in_progress = yes
+			is_subject = no
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = SPT_fra_intervention_in_scw
+			# unlock_decision_category_tooltip = FRA_spanish_intervention_category
+			# set_country_flag = FRA_non_intervention
+		}
+	}
+
 	focus = {
 		allow_branch = {always = no}
 		
@@ -2923,6 +2966,7 @@
 			}
 		}
 	}
+
 	focus = {
 		id = FRA_nationalize_key_industry
 		icon = GFX_goal_generic_construct_civ_factory
@@ -2963,6 +3007,7 @@
 			}
 		}
 	}
+
 	focus = {
 		id = FRA_reorganize_the_aviation_industry
 		icon = GFX_goal_generic_air_production
@@ -2994,14 +3039,37 @@
 		continue_if_invalid = no
 		available_if_capitulated = no
 		search_filters = { FOCUS_FILTER_INDUSTRY }
+
 		completion_reward = {
-			unlock_decision_tooltip = { decision = FRA_reorganize_aviation_industry_north show_effect_tooltip = yes }
-			unlock_decision_tooltip = { decision = FRA_reorganize_aviation_industry_west show_effect_tooltip = yes }
-			unlock_decision_tooltip = { decision = FRA_reorganize_aviation_industry_center show_effect_tooltip = yes }
-			unlock_decision_tooltip = { decision = FRA_reorganize_aviation_industry_south_east show_effect_tooltip = yes }
-			unlock_decision_tooltip = { decision = FRA_reorganize_aviation_industry_south_west show_effect_tooltip = yes }
+
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}	
+				}
+				prioritize = { 16 24 15 20 31 }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}	
+			}	
+			custom_effect_tooltip = CHL_skip_one_line_tt
+			unlock_decision_tooltip = { decision = FRA_reorganize_aviation_industry_north show_effect_tooltip = no }
+			unlock_decision_tooltip = { decision = FRA_reorganize_aviation_industry_west show_effect_tooltip = no }
+			unlock_decision_tooltip = { decision = FRA_reorganize_aviation_industry_center show_effect_tooltip = no }
+			unlock_decision_tooltip = { decision = FRA_reorganize_aviation_industry_south_east show_effect_tooltip = no }
+			unlock_decision_tooltip = { decision = FRA_reorganize_aviation_industry_south_west show_effect_tooltip = no }
 		}
 	}
+
+
 	focus = {
 		id = FRA_form_the_state_arsenals
 		icon = GFX_goal_generic_construct_mil_factory
@@ -3070,6 +3138,7 @@
 			}
 		}
 	}
+
 	focus = {
 		id = FRA_general_work_council
 		icon = GFX_goal_generic_construction
@@ -3580,48 +3649,7 @@
 			add_political_power = 120
 		}
 	}
-	focus = {
-		id = SPT_FRA_intervention_in_spain # SPTchange
-		icon = GFX_focus_focus_fra_intervention_spain
-		# x = 7
-		# y = 2
-		x = 3
-		y = 1
-		offset = {
-			x = 0
-			y = 0
-		}
-		prerequisite = {
-			focus = FRA_form_the_popular_front
-			focus = FRA_revive_the_national_bloc
-		}
-		
-		relative_position_id = FRA_form_the_popular_front
-		cost = 5
 
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-			# SPR_scw_in_progress = yes
-			is_subject = no
-		}
-		
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		completion_reward = {
-			add_ideas = SPT_fra_intervention_in_scw
-			# unlock_decision_category_tooltip = FRA_spanish_intervention_category
-			# set_country_flag = FRA_non_intervention
-		}
-	}
 	focus = {
 		id = FRA_support_the_finns
 		icon = GFX_focus_invite_finland

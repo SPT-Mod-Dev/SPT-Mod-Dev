@@ -31,6 +31,9 @@
  - Vanilla tree added, now must be invaded by Germany
  - Nordland must be controlled by Germany rather than fascist Norway for the civ shipments
 
+#### France
+ - Removed subsequent communists in government events
+ - Reorganise the Aviation Industry now matched vanilla
 
 ### 3.14.16 La Vida Loca
 
