@@ -946,6 +946,59 @@ on_actions = {
 					}
 				}
 			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = GER
+					}
+					FROM = {
+						tag = NOR
+					}
+				}
+				hidden_effect = {
+					GER = { set_state_controller = 110 }
+					division_template = {
+						name = "Quislings Coupers"
+						is_locked = no
+						template_counter = 4
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 0 y = 2 }		
+							infantry = { x = 0 y = 3 }				
+						}
+						support = {
+							engineer = { x = 0 y = 0 }
+						}
+					}
+					110 = {
+						create_unit = { 
+						division = "division_template = \"Quislings Coupers\" 	start_experience_factor = 0.4" 
+						owner = ROOT
+						}
+						create_unit = { 
+						division = "division_template = \"Quislings Coupers\" 	start_experience_factor = 0.4" 
+						owner = ROOT
+						}
+						create_unit = { 
+						division = "division_template = \"Quislings Coupers\" 	start_experience_factor = 0.4" 
+						owner = ROOT
+						}
+						create_unit = { 
+						division = "division_template = \"Quislings Coupers\" 	start_experience_factor = 0.4" 
+						owner = ROOT
+						}
+						create_unit = { 
+						division = "division_template = \"Quislings Coupers\" 	start_experience_factor = 0.4" 
+						owner = ROOT
+						}
+						create_unit = { 
+						division = "division_template = \"Quislings Coupers\" 	start_experience_factor = 0.4" 
+						owner = ROOT
+						}
+					}
+				}
+			}	
 		}
 	}
 	on_war_relation_added = {
