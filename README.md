@@ -31,6 +31,10 @@
  - Vanilla tree added, now must be invaded by Germany
  - Nordland must be controlled by Germany rather than fascist Norway for the civ shipments
 
+#### Germany
+ - Now transfers Oslo and spawns some divisions when declaring on Norway
+ - Subsidize Hoesch-Benzin no longer bypasses
+
 #### France
  - Removed subsequent communists in government events
  - Reorganise the Aviation Industry now matched vanilla
