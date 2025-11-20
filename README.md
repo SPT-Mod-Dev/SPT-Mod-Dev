@@ -15,6 +15,18 @@
 #### AI
  - Improved Germany behaviour to represent current strategies
 
+#### France
+ - Removed subsequent communists in government events
+ - Reorganise the Aviation Industry now matched vanilla
+
+#### Germany
+ - Now transfers Oslo and spawns some divisions when declaring on Norway
+ - Subsidize Hoesch-Benzin no longer bypasses
+
+#### Norway
+ - Vanilla tree added, now must be invaded by Germany
+ - Nordland must be controlled by Germany rather than fascist Norway for the civ shipments
+
 #### Soviet Union
  - Boris Stetchkin now land scientist for his work on the Tsar Tank
  - Land facility moved to Found the PCDI
@@ -26,18 +38,6 @@
 #### USA
  - Decision 'Establish the Greenland Patrol' poliitcal power cost 50->0
  - Decision 'Establish the Greenland Patrol' may now be taken if anyone annexes Greenland
-
-#### Norway
- - Vanilla tree added, now must be invaded by Germany
- - Nordland must be controlled by Germany rather than fascist Norway for the civ shipments
-
-#### Germany
- - Now transfers Oslo and spawns some divisions when declaring on Norway
- - Subsidize Hoesch-Benzin no longer bypasses
-
-#### France
- - Removed subsequent communists in government events
- - Reorganise the Aviation Industry now matched vanilla
 
 ### 3.14.16 La Vida Loca
 
