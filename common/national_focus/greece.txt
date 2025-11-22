@@ -1378,22 +1378,41 @@ focus_tree = {
 			}
 			hidden_effect = { 
 				set_cosmetic_tag = GRE_stalinist
+			}
+			if = {
+				limit = {
+					TUR = {
+						exists = yes
+						NOT = {
+							is_ally_with = ROOT
+							is_ally_with = SOV
+						}
+					}
+					SOV = {
+						exists = yes
+						NOT = {
+							has_war_with = ROOT
+						}
+					}
+				}
 				TUR = { 
 					country_event = { id = bftb_greece.29 days = 1 }
 				}
 				SOV = { 
-					country_event = { id = bftb_greece.29 days = 7 }
+					country_event = { id = bftb_greece.30 days = 7 }
 				}
-				add_opinion_modifier = {
-		    		target = TUR
-		    		modifier = GRE_strategic_enemy
-				}
-				TUR = { 
+				hidden_effect = {
 					add_opinion_modifier = {
-		   				target = GRE
-		   				modifier = GRE_strategic_enemy
+						target = TUR
+						modifier = GRE_strategic_enemy
 					}
-				}	
+					TUR = { 
+						add_opinion_modifier = {
+							target = GRE
+							modifier = GRE_strategic_enemy
+						}
+					}
+				}
 			}
 		}
 	}
@@ -1488,7 +1507,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
 		completion_reward = {
 			set_rule = { can_create_factions = yes }
-			create_faction = GRE_corfu_cooperative
+			create_faction_from_template = {
+				template = faction_template_BUL_balkan_federation_of_socialist_republics
+				name = GRE_corfu_cooperative
+			}
 			if = { 
 				limit = { 
 					YUG = { 
@@ -1680,6 +1702,13 @@ focus_tree = {
 			}
 		}
 
+		available = {
+			is_subject = no
+			SOV = {
+				has_country_flag = SOV_isolating_turkey
+			}
+		}
+
 		completion_reward = {
 			country_event = { id = bftb_greece.31 }
 			add_war_support = 0.05
@@ -1689,8 +1718,8 @@ focus_tree = {
 	focus = {
 		id = GRE_revolutionaries_of_the_south
 		icon = GFX_goal_support_communism
-		prerequisite = { focus = GRE_stage_an_incident_in_the_bosporus }
-		x = 0
+		prerequisite = { focus = GRE_tow_the_stalinist_line }
+		x = 1
 		y = 1
 		relative_position_id = GRE_stage_an_incident_in_the_bosporus
 		cost = 10
@@ -2325,7 +2354,11 @@ focus_tree = {
 				}
 				GER = { 
 					set_rule = { can_create_factions = yes }
-					create_faction = "GER_central_powers_faction"
+					create_faction_from_template = {
+						template = faction_template_GER_mitteleuropa_alliance
+						name = GER_central_powers_faction
+						icon = GFX_faction_logo_generic_13
+					}
 					country_event = { id  = generic.2 days = 7 } 
 				}
 			}
@@ -2351,7 +2384,10 @@ focus_tree = {
 						}
 					}
 				}
-				create_faction = GRE_argos_alliance
+				create_faction_from_template = {
+					template = faction_template_generic_dominance
+					name = GRE_argos_alliance
+				}
 				HUN = { country_event = { id = generic.5 days = 7 } }
 			}
 			else = { 
@@ -4111,6 +4147,7 @@ focus_tree = {
 				}
 			}	
 			add_tech_bonus = {
+				name = GRE_increase_our_mining_operations
 				bonus = 1.0
 				uses = 2
 				category = excavation_tech
@@ -5357,11 +5394,11 @@ focus_tree = {
 				uses = 2
 				category = air_doctrine
 			}
-			add_doctrine_cost_reduction = {
+			add_mastery_bonus = {
 				name = GRE_destroying_our_foes
-				cost_reduction = 0.25
-				uses = 1
-				category = strategic_destruction_tree
+				bonus = 0.1
+				days = 240
+				grand_doctrine = new_strategic_destruction
 			}
 			add_tech_bonus = {
 				name = GRE_destroying_our_foes
@@ -5389,16 +5426,17 @@ focus_tree = {
 		completion_reward = {
 			add_doctrine_cost_reduction = {
 				name = GRE_protecting_our_skies
-				cost_reduction = 0.5
+				cost_reduction = 0.25
 				uses = 2
 				category = air_doctrine
 			}
-			add_doctrine_cost_reduction = {
+			add_mastery_bonus = {
 				name = GRE_protecting_our_skies
-				cost_reduction = 0.25
-				uses = 1
-				category = battlefield_support_tree
+				bonus = 0.1
+				days = 240
+				grand_doctrine = new_battlefield_support
 			}
+			
 			add_tech_bonus = {
 				name = GRE_protecting_our_skies
 				bonus = 1.0

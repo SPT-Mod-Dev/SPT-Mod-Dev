@@ -3241,7 +3241,6 @@ focus_tree = {
 				bonus = 1
 				ahead_reduction = 2
 				uses = 2
-				category = cl_tech
 				category = ca_tech
 			}
 		}
@@ -6435,7 +6434,12 @@ focus_tree = {
 
 		completion_reward = {
 			set_rule = { can_create_factions = yes }
-			create_faction = HOL_benelux
+			create_faction_from_template = {
+				template = faction_template_defensive_democratic
+				name = HOL_benelux
+				icon = GFX_faction_logo_generic_13
+			}
+
 			BEL = {
 				custom_effect_tooltip = HOL_form_the_benelux_bel_tt
 			}
@@ -6523,11 +6527,19 @@ focus_tree = {
 
 				custom_effect_tooltip = generic_skip_one_line_tt
 
-				create_faction = BEL_european_union
+				create_faction_from_template = {
+					template = faction_template_european_unity
+					name = BEL_european_union
+					icon = GFX_faction_logo_eu
+				}
 			}
 
 			ELSE = {
-				create_faction = BEL_european_union
+				create_faction_from_template = {
+					template = faction_template_european_unity
+					name = BEL_european_union
+					icon = GFX_faction_logo_eu
+				}
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt

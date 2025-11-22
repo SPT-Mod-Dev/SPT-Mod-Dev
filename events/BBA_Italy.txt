@@ -7150,7 +7150,9 @@ country_event = {
 		}
 
 		hidden_effect = {
-			country_event = { id = BBA_italy_communist_events.07 hours = 24 random_hours = 12 }
+			FROM = {
+				country_event = { id = BBA_italy_communist_events.07 hours = 24 random_hours = 12 }
+			}
 		}
 	}
 
@@ -7163,7 +7165,9 @@ country_event = {
 		}
 
 		hidden_effect = {
-			country_event = { id = BBA_italy_communist_events.08 hours = 24 random_hours = 12 }
+			FROM = {
+				country_event = { id = BBA_italy_communist_events.08 hours = 24 random_hours = 12 }
+			}
 		}
 	}
 }
@@ -12668,7 +12672,10 @@ country_event = {
 			}
 			else = {
 				ROOT = {
-					create_faction = stresa_front_ita
+					create_faction_from_template = {
+						template = faction_template_the_little_entente
+						name = stresa_front_ita
+					}
 					ROOT = { add_to_faction = ITA }
 					ROOT = { add_to_faction = ENG }
 				}
@@ -12731,7 +12738,10 @@ country_event = { #Hidden event
 		}
 		else = {
 			ROOT = {
-				create_faction = stresa_front_ita
+				create_faction_from_template = {
+					template = faction_template_the_little_entente
+					name = stresa_front_ita
+				}
 				ROOT = { add_to_faction = ITA }
 				ROOT = { add_to_faction = ENG }
 			}

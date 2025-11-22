@@ -351,6 +351,7 @@ ideas = {
 			modifier = {
 				max_command_power = 30	
 				command_power_gain_mult = 0.1
+				experience_gain_factor = 0.1
 			}
 		}
 		USA_state_funds_refused = {
@@ -2263,10 +2264,30 @@ ideas = {
 			
 			
 			allowed = {
-				original_tag = USA
+				OR = {
+					original_tag = USA
+					PHI_SEA = yes
+				}
 			}
 			
-
+			available = {
+				if = {
+					limit = {
+						original_tag = PHI
+					}
+					if = {
+						limit = {
+							NOT = {
+								has_completed_focus = PHI_declare_military_emergency
+							}
+						}
+						has_completed_focus = PHI_align_with_the_usa
+						else = {
+							has_completed_focus = PHI_declare_military_emergency
+						}
+					}
+				}
+			}
 			
 			research_bonus = {
 				armor = 0.15
@@ -2281,10 +2302,39 @@ ideas = {
 			
 			picture = generic_industrial_concern_1
 			allowed = {
-				original_tag = USA
+				OR = {
+					original_tag = USA
+					PHI_SEA = yes
+				}
 			}
 			available = {
-				has_completed_focus = USA_main_battle_tanks
+				if = {
+					limit = {
+						original_tag = PHI
+					}
+					if = {
+						limit = {
+							NOT = {
+								has_completed_focus = PHI_declare_military_emergency
+							}
+						}
+						has_completed_focus = PHI_align_with_the_usa
+						else = {
+							has_completed_focus = PHI_declare_military_emergency
+						}
+					}
+				}
+				if = {
+					limit = {
+						original_tag = USA
+					}
+					has_completed_focus = USA_main_battle_tanks
+				}
+				else = {
+					USA = {
+						has_completed_focus = USA_main_battle_tanks
+					}
+				}
 			}
 
 			
@@ -2375,10 +2425,30 @@ ideas = {
 			
 			
 			allowed = {
-				original_tag = USA
+				OR = {
+					original_tag = USA
+					PHI_SEA = yes
+				}
 			}
 			
-
+			available = {
+				if = {
+					limit = {
+						original_tag = PHI
+					}
+					if = {
+						limit = {
+							NOT = {
+								has_completed_focus = PHI_declare_military_emergency
+							}
+						}
+						has_completed_focus = PHI_align_with_the_usa
+						else = {
+							has_completed_focus = PHI_declare_military_emergency
+						}
+					}
+				}
+			}
 			
 			research_bonus = {
 				naval_equipment = 0.15
@@ -2456,10 +2526,30 @@ ideas = {
 			
 			
 			allowed = {
-				original_tag = USA
+				OR = {
+					original_tag = USA
+					PHI_SEA = yes
+				}
 			}
 			
-
+			available = {
+				if = {
+					limit = {
+						original_tag = PHI
+					}
+					if = {
+						limit = {
+							NOT = {
+								has_completed_focus = PHI_declare_military_emergency
+							}
+						}
+						has_completed_focus = PHI_align_with_the_usa
+						else = {
+							has_completed_focus = PHI_declare_military_emergency
+						}
+					}
+				}
+			}
 			
 			research_bonus = {
 				air_equipment = 0.15
@@ -2494,10 +2584,30 @@ ideas = {
 			
 			
 			allowed = {
-				original_tag = USA
+				OR = {
+					original_tag = USA
+					PHI_SEA = yes
+				}
 			}
 			
-
+			available = {
+				if = {
+					limit = {
+						original_tag = PHI
+					}
+					if = {
+						limit = {
+							NOT = {
+								has_completed_focus = PHI_declare_military_emergency
+							}
+						}
+						has_completed_focus = PHI_align_with_the_usa
+						else = {
+							has_completed_focus = PHI_declare_military_emergency
+						}
+					}
+				}
+			}
 			
 			research_bonus = {
 				air_equipment = 0.15
@@ -2595,10 +2705,30 @@ ideas = {
 			
 			
 			allowed = {
-				original_tag = USA
+				OR = {
+					original_tag = USA
+					PHI_SEA = yes
+				}
 			}
 			
-
+			available = {
+				if = {
+					limit = {
+						original_tag = PHI
+					}
+					if = {
+						limit = {
+							NOT = {
+								has_completed_focus = PHI_declare_military_emergency
+							}
+						}
+						has_completed_focus = PHI_align_with_the_usa
+						else = {
+							has_completed_focus = PHI_declare_military_emergency
+						}
+					}
+				}
+			}
 			
 			research_bonus = {
 				infantry_weapons = 0.15
@@ -2608,16 +2738,37 @@ ideas = {
 			
 			modifier = {
 			}
+
 		}
 		
 		ford_motor_company = {
 			
 			
 			allowed = {
-				original_tag = USA
+				OR = {
+					original_tag = USA
+					PHI_SEA = yes
+				}
 			}
 			
-
+			available = {
+				if = {
+					limit = {
+						original_tag = PHI
+					}
+					if = {
+						limit = {
+							NOT = {
+								has_completed_focus = PHI_declare_military_emergency
+							}
+						}
+						has_completed_focus = PHI_align_with_the_usa
+						else = {
+							has_completed_focus = PHI_declare_military_emergency
+						}
+					}
+				}
+			}
 			
 			research_bonus = {
 				motorized_equipment = 0.15
@@ -2635,10 +2786,30 @@ ideas = {
 			
 			
 			allowed = {
-				original_tag = USA
+				OR = {
+					original_tag = USA
+					PHI_SEA = yes
+				}
 			}
 			
-
+			available = {
+				if = {
+					limit = {
+						original_tag = PHI
+					}
+					if = {
+						limit = {
+							NOT = {
+								has_completed_focus = PHI_declare_military_emergency
+							}
+						}
+						has_completed_focus = PHI_align_with_the_usa
+						else = {
+							has_completed_focus = PHI_declare_military_emergency
+						}
+					}
+				}
+			}
 			
 			research_bonus = {
 				artillery = 0.15

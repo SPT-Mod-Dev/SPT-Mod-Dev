@@ -833,31 +833,31 @@ on_actions = {
 			# 		}
 			# 	}
 			# }
-			if = {
-				limit = {
-					ROOT = {
-						original_tag = CHI
-					}
-					NOT = {
-						OR = {
-							JAP = {
-								has_completed_focus = SPT_JAP_grain_market
-							}
-							JAP = {
-								has_idea = SPT_JAP_grain_market_inflation_active
-							}
-						}
-					}
-					#grain market inflation activation
-				}
-				JAP = {
-					country_event = {
-						id = spt_jap.4
-						days = 30
-						random_days = 90
-					}
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		ROOT = {
+			# 			original_tag = CHI
+			# 		}
+			# 		NOT = {
+			# 			OR = {
+			# 				JAP = {
+			# 					has_completed_focus = SPT_JAP_grain_market
+			# 				}
+			# 				JAP = {
+			# 					has_idea = SPT_JAP_grain_market_inflation_active
+			# 				}
+			# 			}
+			# 		}
+			# 		#grain market inflation activation
+			# 	}
+			# 	JAP = {
+			# 		country_event = {
+			# 			id = spt_jap.4
+			# 			days = 30
+			# 			random_days = 90
+			# 		}
+			# 	}
+			# }
 			# Automatically peace conference mainland Portugal to end skill issues for all time
 			if = {
 				limit = {
@@ -1449,37 +1449,37 @@ on_actions = {
 				}
 			}
 
-			if = {	#check to prevent cheesing grain market event by holding china hostage
-				limit = { 
-					date > 1939.6.30
-					JAP = {
-						has_war_with = CHI
-					}
-					NOT = {
-						OR = {
-							JAP = {
-								has_completed_focus = SPT_JAP_grain_market
-							}
-							JAP = {
-								has_idea = SPT_JAP_grain_market_inflation_active
-							}
-						}
-					}
-					CHI = {
-						surrender_progress > 0.2
-					}
-				}
-				random_list = {
-					10 = {
-						JAP = {
-							country_event = spt_jap.4
-						}
-					}
-					20 = {
-						#nothing happens
-					}
-				}
-			}
+			# if = {	#check to prevent cheesing grain market event by holding china hostage
+			# 	limit = { 
+			# 		date > 1939.6.30
+			# 		JAP = {
+			# 			has_war_with = CHI
+			# 		}
+			# 		NOT = {
+			# 			OR = {
+			# 				JAP = {
+			# 					has_completed_focus = SPT_JAP_grain_market
+			# 				}
+			# 				JAP = {
+			# 					has_idea = SPT_JAP_grain_market_inflation_active
+			# 				}
+			# 			}
+			# 		}
+			# 		CHI = {
+			# 			surrender_progress > 0.2
+			# 		}
+			# 	}
+			# 	random_list = {
+			# 		10 = {
+			# 			JAP = {
+			# 				country_event = spt_jap.4
+			# 			}
+			# 		}
+			# 		20 = {
+			# 			#nothing happens
+			# 		}
+			# 	}
+			# }
 		}
 	}
 	on_monthly_GER = {

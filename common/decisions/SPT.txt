@@ -96,186 +96,186 @@ spt_category = {
 			}
 		}
 	}
-	JAP_declare_war_on_allies = {
-		allowed = {
-			original_tag = JAP
-		}
-		available = {
-			date > 1941.1.1
-			has_completed_focus = SPT_JAP_strike_south_completed
-		}
-		ai_will_do = {
-			factor = 10
-		}
-		fire_only_once = yes
-		complete_effect = {
-			news_event = {
-				id = spt_jap_news.3
-			}
-			hidden_effect = {
-				JAP = {
-					country_event = {
-						id = spt_jap.13
-						days = 90
-						random_days = 90
-					}
-				}
-			}
-			if = {
-				limit = {
-					has_completed_focus = SPT_JAP_aggressive_pacific
-					NOT = {
-						has_completed_focus = SPT_JAP_island_airports
-					}
-				}
-				add_timed_idea = {
-					idea = SPT_JAP_tora_tora_tora_idea_improved
-					days = 270
-				}
-			}
-			else_if = {
-				limit = {
-					has_completed_focus = SPT_JAP_aggressive_pacific
-					has_completed_focus = SPT_JAP_island_airports
-				}
-				add_timed_idea = {
-					idea = SPT_JAP_tora_tora_tora_idea_improved
-					days = 360
-				}
-			}
-			else = {
-				add_timed_idea = {
-					idea = JAP_tora_tora_tora_idea
-					days = 180
-				}
-			}
+	# JAP_declare_war_on_allies = {
+	# 	allowed = {
+	# 		original_tag = JAP
+	# 	}
+	# 	available = {
+	# 		date > 1941.1.1
+	# 		has_completed_focus = SPT_JAP_strike_south_completed
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 10
+	# 	}
+	# 	fire_only_once = yes
+	# 	complete_effect = {
+	# 		news_event = {
+	# 			id = spt_jap_news.3
+	# 		}
+	# 		hidden_effect = {
+	# 			JAP = {
+	# 				country_event = {
+	# 					id = spt_jap.13
+	# 					days = 90
+	# 					random_days = 90
+	# 				}
+	# 			}
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				has_completed_focus = SPT_JAP_aggressive_pacific
+	# 				NOT = {
+	# 					has_completed_focus = SPT_JAP_island_airports
+	# 				}
+	# 			}
+	# 			add_timed_idea = {
+	# 				idea = SPT_JAP_tora_tora_tora_idea_improved
+	# 				days = 270
+	# 			}
+	# 		}
+	# 		else_if = {
+	# 			limit = {
+	# 				has_completed_focus = SPT_JAP_aggressive_pacific
+	# 				has_completed_focus = SPT_JAP_island_airports
+	# 			}
+	# 			add_timed_idea = {
+	# 				idea = SPT_JAP_tora_tora_tora_idea_improved
+	# 				days = 360
+	# 			}
+	# 		}
+	# 		else = {
+	# 			add_timed_idea = {
+	# 				idea = JAP_tora_tora_tora_idea
+	# 				days = 180
+	# 			}
+	# 		}
 
-			ENG = {
-				add_to_faction = USA
-			}
-			every_country = {
-				limit = {
-					is_in_faction_with = ENG
-				}
-				every_country = {
-					limit = {
-						is_in_faction_with = JAP
-					}
-					declare_war_on = {
-						target = PREV
-						type = annex_everything
-					}
-				}
-			}
-			# Ensure USA joins the war in Europe too
-			every_other_country = {
-				limit = {
-					has_war_with = ENG
-				}
-				USA = {
-					add_to_war = {
-					    targeted_alliance = ENG
-					    enemy = PREV
-					    hostility_reason = asked_to_join
-					}
-				}
-				# Mexico and Brazil join the war in Europe if they're in the Allies
-				MEX = {
-					if = {
-						limit = {
-							is_in_faction_with = USA
-						}
-						add_to_war = {
-							targeted_alliance = ENG
-							enemy = PREV
-							hostility_reason = asked_to_join
-						}
-					}
-				}
-				BRA = {
-					if = {
-						limit = {
-							is_in_faction_with = USA
-						}
-						add_to_war = {
-							targeted_alliance = ENG
-							enemy = PREV
-							hostility_reason = asked_to_join
-						}
-					}
-				}
-			}
-			# memes
-			hidden_effect = {	
-				every_country = {
-					limit = {
-						OR = {
-							is_in_faction_with = JAP
-							is_in_faction_with = GER
-							tag = FIN
-							tag = SPA
-						}
-					}
-					scoped_play_song = "empireofthesun"
-				}
-			}
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
-			every_controlled_state = {
-				limit = {
-					JAP = {
-						has_completed_focus = SPT_JAP_defensive_pacific
-					}
-					OR = {
-						state = 646
-						state = 684
-						state = 647
-						state = 633
-						state = 648
-						state = 645
-					}
-				}
-				add_dynamic_modifier = {
-					modifier = SPT_JAP_war_with_allies_defensive_buff
-					days = 365
-					scope = JAP
-				}
-			}
-			if = {
-				limit = {
-					has_completed_focus = SPT_JAP_defensive_continent
-				}
-				every_controlled_state = {
-					limit = {
-						OR = {
-							is_core_of = SIA
-							is_core_of = VIN
-							is_core_of = CAM
-							is_core_of = LAO
-							state = 325
-							state = 747
-							state = 601
-							state = 591
-							state = 594
-						}
-					}
-					add_dynamic_modifier = {
-						modifier = SPT_JAP_war_with_allies_defensive_buff
-						days = 365
-						scope = JAP
-					}
-				}
-				SIA = {
-					every_controlled_state = {
-						add_dynamic_modifier = {
-							modifier = SPT_JAP_war_with_allies_defensive_buff
-							days = 365
-							scope = JAP
-						}
-					}
-				}
-			}
-		}
-	}
+	# 		ENG = {
+	# 			add_to_faction = USA
+	# 		}
+	# 		every_country = {
+	# 			limit = {
+	# 				is_in_faction_with = ENG
+	# 			}
+	# 			every_country = {
+	# 				limit = {
+	# 					is_in_faction_with = JAP
+	# 				}
+	# 				declare_war_on = {
+	# 					target = PREV
+	# 					type = annex_everything
+	# 				}
+	# 			}
+	# 		}
+	# 		# Ensure USA joins the war in Europe too
+	# 		every_other_country = {
+	# 			limit = {
+	# 				has_war_with = ENG
+	# 			}
+	# 			USA = {
+	# 				add_to_war = {
+	# 				    targeted_alliance = ENG
+	# 				    enemy = PREV
+	# 				    hostility_reason = asked_to_join
+	# 				}
+	# 			}
+	# 			# Mexico and Brazil join the war in Europe if they're in the Allies
+	# 			MEX = {
+	# 				if = {
+	# 					limit = {
+	# 						is_in_faction_with = USA
+	# 					}
+	# 					add_to_war = {
+	# 						targeted_alliance = ENG
+	# 						enemy = PREV
+	# 						hostility_reason = asked_to_join
+	# 					}
+	# 				}
+	# 			}
+	# 			BRA = {
+	# 				if = {
+	# 					limit = {
+	# 						is_in_faction_with = USA
+	# 					}
+	# 					add_to_war = {
+	# 						targeted_alliance = ENG
+	# 						enemy = PREV
+	# 						hostility_reason = asked_to_join
+	# 					}
+	# 				}
+	# 			}
+	# 		}
+	# 		# memes
+	# 		hidden_effect = {	
+	# 			every_country = {
+	# 				limit = {
+	# 					OR = {
+	# 						is_in_faction_with = JAP
+	# 						is_in_faction_with = GER
+	# 						tag = FIN
+	# 						tag = SPA
+	# 					}
+	# 				}
+	# 				scoped_play_song = "empireofthesun"
+	# 			}
+	# 		}
+	# 		custom_effect_tooltip = SPT_JAP_whitespace_tt
+	# 		every_controlled_state = {
+	# 			limit = {
+	# 				JAP = {
+	# 					has_completed_focus = SPT_JAP_defensive_pacific
+	# 				}
+	# 				OR = {
+	# 					state = 646
+	# 					state = 684
+	# 					state = 647
+	# 					state = 633
+	# 					state = 648
+	# 					state = 645
+	# 				}
+	# 			}
+	# 			add_dynamic_modifier = {
+	# 				modifier = SPT_JAP_war_with_allies_defensive_buff
+	# 				days = 365
+	# 				scope = JAP
+	# 			}
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				has_completed_focus = SPT_JAP_defensive_continent
+	# 			}
+	# 			every_controlled_state = {
+	# 				limit = {
+	# 					OR = {
+	# 						is_core_of = SIA
+	# 						is_core_of = VIN
+	# 						is_core_of = CAM
+	# 						is_core_of = LAO
+	# 						state = 325
+	# 						state = 747
+	# 						state = 601
+	# 						state = 591
+	# 						state = 594
+	# 					}
+	# 				}
+	# 				add_dynamic_modifier = {
+	# 					modifier = SPT_JAP_war_with_allies_defensive_buff
+	# 					days = 365
+	# 					scope = JAP
+	# 				}
+	# 			}
+	# 			SIA = {
+	# 				every_controlled_state = {
+	# 					add_dynamic_modifier = {
+	# 						modifier = SPT_JAP_war_with_allies_defensive_buff
+	# 						days = 365
+	# 						scope = JAP
+	# 					}
+	# 				}
+	# 			}
+	# 		}
+	# 	}
+	# }
 	# JAP_declare_war_on_allies_pearl_harbor_edition = {
 	# 	icon = GFX_decision_generic_human_torpedo
 
@@ -1323,225 +1323,225 @@ SPT_propaganda_campaigns = {
 
 
 # No_retreat_allowed SOV_semyon_timoshenko
-JAP_manchuria_development = {
-	#Converted manchurian focuses into decisions
-	#Japanese Settlers focus merged into Light Industry and Heavy Industry decision
-	JAP_manchu_lightindustry = {
-		allowed = {
-			original_tag = JAP
-		}
-		ai_will_do = {
-			factor = 200
-		}
-		available = {
-			has_completed_focus = SPT_JAP_manchurian_project
-			OR = {
-				MAN = {exists = yes}
-				any_controlled_state = {is_core_of = MAN}
-			}
-		}
-		fire_only_once = yes
-		days_remove = 140
-		cost = 25
-		modifier = {
-			civilian_factory_use = 2
-		}
-		highlight_states = {
-			highlight_color_before_active = 2
-			highlight_state_targets = {
-				state = 328
-			}
-		}
-		icon = GFX_decision_generic_factory
-		remove_effect = {
-			random_state = {
-				limit = {
-					is_core_of = MAN
-					OR = {
-						is_fully_controlled_by = JAP
-						is_fully_controlled_by = MAN
-					}
-				}
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
-			random_state = {
-				limit = {
-					is_core_of = MAN
-					OR = {
-						is_fully_controlled_by = JAP
-						is_fully_controlled_by = MAN
-					}
-				}
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
-	}
-	JAP_manchu_heavyindustry = {
-		allowed = {
-			original_tag = JAP
-		}
-		ai_will_do = {
-			factor = 150
-		}
-		available = {
-			has_completed_focus = SPT_JAP_manchurian_project
-			OR = {
-				MAN = {exists = yes}
-				any_controlled_state = {is_core_of = MAN}
-			}
-		}
-		icon = GFX_decision_generic_industry
-		fire_only_once = yes
-		days_remove = 140
-		cost = 25
-		modifier = {
-			civilian_factory_use = 2
-		}
-		highlight_states = {
-			highlight_color_before_active = 2
-			highlight_state_targets = {
-				state = 716
-			}
-		}
-		remove_effect = {
-			random_state = {
-				limit = {
-					is_core_of = MAN
-					OR = {
-						is_fully_controlled_by = JAP
-						is_fully_controlled_by = MAN
-					}
-				}
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-			}
-			random_state = {
-				limit = {
-					is_core_of = MAN
-					OR = {
-						is_fully_controlled_by = JAP
-						is_fully_controlled_by = MAN
-					}
-				}
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
-	}
-	JAP_manchu_steelworks = {
-		allowed = {
-			original_tag = JAP
-		}
-			ai_will_do = {
-			factor = 200
-		}
-		available = {
-			has_completed_focus = SPT_JAP_manchurian_project
-			OR = {
-				JAP = {
-					has_full_control_of_state = 716
-				}
-				MAN = {
-					has_full_control_of_state = 716
-				}
-			}
-		}
-		highlight_states = {
-			highlight_state_targets = {
-				state = 716
-			}
-			highlight_color_while_active = 3
-			highlight_color_before_active = 2
-		}
-		icon = GFX_decision_steel
-		fire_only_once = yes
-		days_remove = 70
-		cost = 25
-		modifier = {
-			civilian_factory_use = 2
-		}
-		remove_effect = {
-			716 = {
-				add_resource = {
-					type = steel
-					amount = 16
-				}
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
-	}
-	JAP_manchu_aluminum = {
-		allowed = {
-			original_tag = JAP
-		}
-		ai_will_do = {
-			factor = 200
-		}
-		available = {
-			has_completed_focus = SPT_JAP_manchurian_project
-			OR = {
-				JAP = {
-					has_full_control_of_state = 328
-				}
-				MAN = {
-					has_full_control_of_state = 328
-				}
-			}
-		}
-		highlight_states = {
-			highlight_state_targets = {
-				state = 328
-			}
-			highlight_color_while_active = 3
-			highlight_color_before_active = 2
-		}
-		icon = GFX_decision_aluminium
-		fire_only_once = yes
-		days_remove = 70
-		cost = 25
-		modifier = {
-			civilian_factory_use = 2
-		}
-		remove_effect = {
-			328 = {
-				add_resource = {
-					type = aluminium
-					amount = 12
-				}
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
-	}
+# JAP_manchuria_development = {
+# 	#Converted manchurian focuses into decisions
+# 	#Japanese Settlers focus merged into Light Industry and Heavy Industry decision
+# 	JAP_manchu_lightindustry = {
+# 		allowed = {
+# 			original_tag = JAP
+# 		}
+# 		ai_will_do = {
+# 			factor = 200
+# 		}
+# 		available = {
+# 			has_completed_focus = SPT_JAP_manchurian_project
+# 			OR = {
+# 				MAN = {exists = yes}
+# 				any_controlled_state = {is_core_of = MAN}
+# 			}
+# 		}
+# 		fire_only_once = yes
+# 		days_remove = 140
+# 		cost = 25
+# 		modifier = {
+# 			civilian_factory_use = 2
+# 		}
+# 		highlight_states = {
+# 			highlight_color_before_active = 2
+# 			highlight_state_targets = {
+# 				state = 328
+# 			}
+# 		}
+# 		icon = GFX_decision_generic_factory
+# 		remove_effect = {
+# 			random_state = {
+# 				limit = {
+# 					is_core_of = MAN
+# 					OR = {
+# 						is_fully_controlled_by = JAP
+# 						is_fully_controlled_by = MAN
+# 					}
+# 				}
+# 				add_extra_state_shared_building_slots = 3
+# 				add_building_construction = {
+# 					type = industrial_complex
+# 					level = 2
+# 					instant_build = yes
+# 				}
+# 			}
+# 			random_state = {
+# 				limit = {
+# 					is_core_of = MAN
+# 					OR = {
+# 						is_fully_controlled_by = JAP
+# 						is_fully_controlled_by = MAN
+# 					}
+# 				}
+# 				add_extra_state_shared_building_slots = 3
+# 				add_building_construction = {
+# 					type = industrial_complex
+# 					level = 2
+# 					instant_build = yes
+# 				}
+# 			}
+# 		}
+# 	}
+# 	JAP_manchu_heavyindustry = {
+# 		allowed = {
+# 			original_tag = JAP
+# 		}
+# 		ai_will_do = {
+# 			factor = 150
+# 		}
+# 		available = {
+# 			has_completed_focus = SPT_JAP_manchurian_project
+# 			OR = {
+# 				MAN = {exists = yes}
+# 				any_controlled_state = {is_core_of = MAN}
+# 			}
+# 		}
+# 		icon = GFX_decision_generic_industry
+# 		fire_only_once = yes
+# 		days_remove = 140
+# 		cost = 25
+# 		modifier = {
+# 			civilian_factory_use = 2
+# 		}
+# 		highlight_states = {
+# 			highlight_color_before_active = 2
+# 			highlight_state_targets = {
+# 				state = 716
+# 			}
+# 		}
+# 		remove_effect = {
+# 			random_state = {
+# 				limit = {
+# 					is_core_of = MAN
+# 					OR = {
+# 						is_fully_controlled_by = JAP
+# 						is_fully_controlled_by = MAN
+# 					}
+# 				}
+# 				add_extra_state_shared_building_slots = 3
+# 				add_building_construction = {
+# 					type = arms_factory
+# 					level = 2
+# 					instant_build = yes
+# 				}
+# 			}
+# 			random_state = {
+# 				limit = {
+# 					is_core_of = MAN
+# 					OR = {
+# 						is_fully_controlled_by = JAP
+# 						is_fully_controlled_by = MAN
+# 					}
+# 				}
+# 				add_extra_state_shared_building_slots = 3
+# 				add_building_construction = {
+# 					type = arms_factory
+# 					level = 2
+# 					instant_build = yes
+# 				}
+# 			}
+# 		}
+# 	}
+# 	JAP_manchu_steelworks = {
+# 		allowed = {
+# 			original_tag = JAP
+# 		}
+# 			ai_will_do = {
+# 			factor = 200
+# 		}
+# 		available = {
+# 			has_completed_focus = SPT_JAP_manchurian_project
+# 			OR = {
+# 				JAP = {
+# 					has_full_control_of_state = 716
+# 				}
+# 				MAN = {
+# 					has_full_control_of_state = 716
+# 				}
+# 			}
+# 		}
+# 		highlight_states = {
+# 			highlight_state_targets = {
+# 				state = 716
+# 			}
+# 			highlight_color_while_active = 3
+# 			highlight_color_before_active = 2
+# 		}
+# 		icon = GFX_decision_steel
+# 		fire_only_once = yes
+# 		days_remove = 70
+# 		cost = 25
+# 		modifier = {
+# 			civilian_factory_use = 2
+# 		}
+# 		remove_effect = {
+# 			716 = {
+# 				add_resource = {
+# 					type = steel
+# 					amount = 16
+# 				}
+# 				add_extra_state_shared_building_slots = 3
+# 				add_building_construction = {
+# 					type = industrial_complex
+# 					level = 2
+# 					instant_build = yes
+# 				}
+# 			}
+# 		}
+# 	}
+# 	JAP_manchu_aluminum = {
+# 		allowed = {
+# 			original_tag = JAP
+# 		}
+# 		ai_will_do = {
+# 			factor = 200
+# 		}
+# 		available = {
+# 			has_completed_focus = SPT_JAP_manchurian_project
+# 			OR = {
+# 				JAP = {
+# 					has_full_control_of_state = 328
+# 				}
+# 				MAN = {
+# 					has_full_control_of_state = 328
+# 				}
+# 			}
+# 		}
+# 		highlight_states = {
+# 			highlight_state_targets = {
+# 				state = 328
+# 			}
+# 			highlight_color_while_active = 3
+# 			highlight_color_before_active = 2
+# 		}
+# 		icon = GFX_decision_aluminium
+# 		fire_only_once = yes
+# 		days_remove = 70
+# 		cost = 25
+# 		modifier = {
+# 			civilian_factory_use = 2
+# 		}
+# 		remove_effect = {
+# 			328 = {
+# 				add_resource = {
+# 					type = aluminium
+# 					amount = 12
+# 				}
+# 				add_extra_state_shared_building_slots = 3
+# 				add_building_construction = {
+# 					type = industrial_complex
+# 					level = 2
+# 					instant_build = yes
+# 				}
+# 			}
+# 		}
+# 	}
 
-}
+# }
 SPT_winter_war = {
 	FIN_winter_war = {
 		name = winter_war

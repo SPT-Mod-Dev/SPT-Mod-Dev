@@ -14,7 +14,9 @@ FRA_spanish_intervention_category = {
 		original_tag = FRA
 	}
 	visible = {
-		has_completed_focus = FRA_intervention_in_spain
+		#SPTchange replaced
+		always = no
+		# has_completed_focus = FRA_intervention_in_spain
 		SPR_scw_in_progress = yes
 	}
 }
@@ -49,7 +51,13 @@ FRA_intervention_in_overseas_territories = {
 
 FRA_weapons_purchases_category = {
 	allowed = {
-		original_tag = FRA
+		OR = {
+			original_tag = FRA
+			AND = {
+				original_tag = PHI
+				has_dlc = "No Compromise, No Surrender"
+			}
+		}
 	}
 	visible = {
 		has_country_flag = FRA_arms_purchases_permitted
