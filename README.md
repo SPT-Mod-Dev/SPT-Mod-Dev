@@ -1,5 +1,14 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 4.0.0 Japanese soldier fights against Paradox dlc release for 40 years, dispatched by server owner
+
+#### General
+ - Made compatible with new No Compromise, No Surrender (NCNS) dlc release
+
+#### Japan
+ - Replaced custom SPT content with NCNS content
+ - Several focuses have been shortened, moved, and/or adjusted to better fit the SPT ruleset
+
 ### 3.14.17
 
 #### General
