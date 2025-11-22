@@ -26,7 +26,7 @@ guiTypes = {
 		containerWindowType = {
 		name = "topbar_resource_containerin"
 		position = { x = 1024 y = 0 }
-		size = { width=380 height=36}
+		size = { width=460 height=36}
 		Orientation = UPPER_LEFT
 		clipping=yes
 		moveable = yes
@@ -206,6 +206,42 @@ guiTypes = {
 			fixedsize = yes
 			format = center
 			#pdx_tooltip = "PRODUCTION_MATERIALS_chromium"
+					}
+		}
+
+		# SPTchange jury rigged by luce
+		containerWindowType = {
+			name = "coal_container"
+			position = { x = 365 y = 0 }#3 abstand
+			Orientation = UPPER_LEFT
+			size = { width = 73 height = 30}
+			background = {
+				name = "Background2"
+				quadTextureSprite ="GFX_mini_tooltip"
+				alwaystransparent=yes
+			}
+		iconType = {
+			name = "coal_icon"
+			position = { x=2 y=1 }
+			spriteType = "GFX_resources_strip"
+			frame = 6 # SPTChange doesn't exist, we use chromium for now
+			scale=1
+			alwaystransparent=yes
+			#pdx_tooltip = "disable_resources"
+		}
+		
+		instantTextboxType = {
+			name = "coal_value"
+			position = { x = 14 y = 4 }#x = 995
+			textureFile = ""
+			font = "hoi_18mbs"
+			borderSize = {x = 0 y = 0}
+			text= [coal_text]
+			maxWidth = 57
+			maxHeight = 24
+			fixedsize = yes
+			format = center
+			#pdx_tooltip = "PRODUCTION_MATERIALS_coal"
 					}
 		}
 		
