@@ -6151,6 +6151,10 @@ focus_tree = {
 			}
 		}
 
+		allow_branch = {
+			always = no #spt change, no whacky alliances
+		}
+
 		bypass = {
 
 		}
@@ -6186,7 +6190,7 @@ focus_tree = {
 		id = JAP_return_to_sakoku_ron
 		icon = GFX_focus_JAP_return_to_sakoku_ron
 		mutually_exclusive = { focus = JAP_the_enemy_of_our_enemy focus = JAP_utilize_our_polish_friendship }
-		x = 2
+		x = 0
 		y = 1
 		relative_position_id = JAP_the_imperial_colors
 
@@ -6283,6 +6287,10 @@ focus_tree = {
 			factor = 1
 		}
 
+		allow_branch = {
+			always = no #spt change, no whacky alliances
+		}
+
 		available = {
 			is_in_faction = no
 			GER = {
@@ -6357,7 +6365,10 @@ focus_tree = {
 		y = 1
 		relative_position_id = JAP_the_enemy_of_our_enemy
 
-		prerequisite = { focus = JAP_the_enemy_of_our_enemy focus = JAP_utilize_our_polish_friendship focus = JAP_return_to_sakoku_ron }
+		prerequisite = {
+			focus = JAP_return_to_sakoku_ron
+		}
+		#prerequisite = { focus = JAP_the_enemy_of_our_enemy focus = JAP_utilize_our_polish_friendship focus = JAP_return_to_sakoku_ron }
 
 		cost = 10
 
@@ -6537,7 +6548,7 @@ focus_tree = {
 		icon = GFX_focus_JAP_national_spiritual_mobilization_movement
 		#mutually_exclusive = { focus = JAP_utilize_our_polish_friendship }
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = JAP_propagandize_the_nihon_shoki
 
 		prerequisite = { focus = JAP_propagandize_the_nihon_shoki }
@@ -6803,7 +6814,7 @@ focus_tree = {
 		icon = GFX_focus_JAP_hakko_ichiu
 		#mutually_exclusive = { focus = JAP_utilize_our_polish_friendship }
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = JAP_the_jeweled_spear_has_struck
 
 		prerequisite = { focus = JAP_the_jeweled_spear_has_struck }
