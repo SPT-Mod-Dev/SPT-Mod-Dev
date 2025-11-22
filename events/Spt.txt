@@ -744,6 +744,25 @@ country_event = {
 	}
 }
 
+#event for ai japan to annex china at a reasonable date
+country_event = {
+	id = spt.671
+	title = "Operation completed!"
+	desc = "Our spies have completed their task in [victim_nation.GetName]. Don't forget to reassign your spies to a new operation."
+	is_triggered_only = yes
+	picture = GFX_report_event_finnish_letter
+
+	option = {
+		name = "Thank you!"
+		JAP = {
+			annex_country = {
+				target = CHI
+			}
+		}
+		add_threat = 50
+	}
+}
+
 country_event = { #Get compliance from Poland
 	id = spt.100
 	title = spt.100.t
