@@ -9,6 +9,10 @@
  - Replaced custom SPT content with NCNS content
  - Several focuses have been shortened, moved, and/or adjusted to better fit the SPT ruleset
 
+#### Manchukuo
+ - Replaced custom SPT content with NCNS content
+ - Reenabled big manchu option
+
 ### 3.14.17
 
 #### General
