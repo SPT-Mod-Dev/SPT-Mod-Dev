@@ -150,82 +150,82 @@ faction_goal_guerilla_expansion = {
 	}
 }
 
-faction_goal_north_subjugated = {
-	name = faction_goal_north_subjugated_name
-	description = faction_goal_north_subjugated_desc
-	category = short_term
-	group = FOCUS_FILTER_ANNEXATION
-	visible = {
-		FROM = {
-			original_tag = CHI
-			has_faction_template = faction_template_chinese_united_front 
-			NOT = {
-				has_country_flag = CHI_tour_the_south_flag
-				has_country_flag = CHI_tour_the_west_flag
-			}
-		}
-	}
-	available = {
-		FROM = { has_completed_focus = CHI_tour_the_north }
-	}
-	completed = {
-		NXM = {
-			all_core_state = {
-				is_owned_by = ROOT
-			}
-		}
-		SHX = {
-			all_core_state = {
-				is_owned_by = ROOT
-			}
-		}
-		GSM = {
-			all_core_state = {
-				is_owned_by = ROOT
-			}
-		}
-		HBC = {
-			all_core_state = {
-				is_owned_by = ROOT
-			}
-		}
-		XIC = {
-			all_core_state = {
-				is_owned_by = ROOT
-			}
-		}
-		SND = {
-			all_core_state = {
-				is_owned_by = ROOT
-			}
-		}
+# faction_goal_north_subjugated = {
+# 	name = faction_goal_north_subjugated_name
+# 	description = faction_goal_north_subjugated_desc
+# 	category = short_term
+# 	group = FOCUS_FILTER_ANNEXATION
+# 	visible = {
+# 		FROM = {
+# 			original_tag = CHI
+# 			has_faction_template = faction_template_chinese_united_front 
+# 			NOT = {
+# 				has_country_flag = CHI_tour_the_south_flag
+# 				has_country_flag = CHI_tour_the_west_flag
+# 			}
+# 		}
+# 	}
+# 	available = {
+# 		FROM = { has_completed_focus = CHI_tour_the_north }
+# 	}
+# 	completed = {
+# 		NXM = {
+# 			all_core_state = {
+# 				is_owned_by = ROOT
+# 			}
+# 		}
+# 		SHX = {
+# 			all_core_state = {
+# 				is_owned_by = ROOT
+# 			}
+# 		}
+# 		GSM = {
+# 			all_core_state = {
+# 				is_owned_by = ROOT
+# 			}
+# 		}
+# 		HBC = {
+# 			all_core_state = {
+# 				is_owned_by = ROOT
+# 			}
+# 		}
+# 		XIC = {
+# 			all_core_state = {
+# 				is_owned_by = ROOT
+# 			}
+# 		}
+# 		SND = {
+# 			all_core_state = {
+# 				is_owned_by = ROOT
+# 			}
+# 		}
 
-	}
-	complete_effect = {
-		add_faction_power_projection = 50
-		every_collection_element = {
-			input = {
-				input = game:scope
-				operators =  { 
-					faction_members
-					limit = {
-						is_subject = yes
-					}
-				}
+# 	}
+# 	complete_effect = {
+# 		add_faction_power_projection = 50
+# 		every_collection_element = {
+# 			input = {
+# 				input = game:scope
+# 				operators =  { 
+# 					faction_members
+# 					limit = {
+# 						is_subject = yes
+# 					}
+# 				}
 				
-				name = ALL_FACTION_MEMBERS
-			}
-			custom_effect_tooltip = ALL_FACTION_MEMBERS
-			add_timed_idea = {
-				idea = idea_CHI_central_government_integration_pressure
-				days = 365
-			}
-		}
-	}
-	ai_will_do = {
-		base = 1
-	}
-}
+# 				name = ALL_FACTION_MEMBERS
+# 			}
+# 			custom_effect_tooltip = ALL_FACTION_MEMBERS
+# 			add_timed_idea = {
+# 				idea = idea_CHI_central_government_integration_pressure
+# 				days = 365
+# 			}
+# 		}
+# 	}
+# 	ai_will_do = {
+# 		base = 1
+# 	}
+# }
 
 faction_goal_unlock_research = {
 	name = faction_goal_unlock_research_name
@@ -379,132 +379,132 @@ faction_goal_unlock_military = {
 	}
 }
 
-faction_goal_west_subjugated = {
-	name = faction_goal_west_subjugated_name
-	description = faction_goal_west_subjugated_desc
-	category = short_term
-	group = FOCUS_FILTER_ANNEXATION
-	visible = {
-		FROM = {
-			original_tag = CHI
-			has_faction_template = faction_template_chinese_united_front 
-			NOT = {
-				has_country_flag = CHI_tour_the_south_flag
-				has_country_flag = CHI_tour_the_north_flag
-			}
-		}
-	}
-	available = {
-		FROM = { has_completed_focus = CHI_tour_the_west }
-	}
-	completed = {
-		XSM = {
-			all_core_state = {
-				is_owned_by = ROOT
-			}
-		}
-		KHM = {
-			all_core_state = {
-				is_owned_by = ROOT
-			}
-		}
-		SIK = {
-			all_core_state = {
-				is_owned_by = ROOT
-			}
-		}
-		SIC = {
-			all_core_state = {
-				is_owned_by = ROOT
-			}
-		}
-	}
-	complete_effect = {
-		add_faction_power_projection = 50
-		every_collection_element = {
-			input = {
-				input = game:scope
-				operators =  { 
-					faction_members
-					limit = {
-						is_subject = yes
-					}
-				}
+# faction_goal_west_subjugated = {
+# 	name = faction_goal_west_subjugated_name
+# 	description = faction_goal_west_subjugated_desc
+# 	category = short_term
+# 	group = FOCUS_FILTER_ANNEXATION
+# 	visible = {
+# 		FROM = {
+# 			original_tag = CHI
+# 			has_faction_template = faction_template_chinese_united_front 
+# 			NOT = {
+# 				has_country_flag = CHI_tour_the_south_flag
+# 				has_country_flag = CHI_tour_the_north_flag
+# 			}
+# 		}
+# 	}
+# 	available = {
+# 		FROM = { has_completed_focus = CHI_tour_the_west }
+# 	}
+# 	completed = {
+# 		XSM = {
+# 			all_core_state = {
+# 				is_owned_by = ROOT
+# 			}
+# 		}
+# 		KHM = {
+# 			all_core_state = {
+# 				is_owned_by = ROOT
+# 			}
+# 		}
+# 		SIK = {
+# 			all_core_state = {
+# 				is_owned_by = ROOT
+# 			}
+# 		}
+# 		SIC = {
+# 			all_core_state = {
+# 				is_owned_by = ROOT
+# 			}
+# 		}
+# 	}
+# 	complete_effect = {
+# 		add_faction_power_projection = 50
+# 		every_collection_element = {
+# 			input = {
+# 				input = game:scope
+# 				operators =  { 
+# 					faction_members
+# 					limit = {
+# 						is_subject = yes
+# 					}
+# 				}
 				
-				name = ALL_FACTION_MEMBERS
-			}
-			custom_effect_tooltip = ALL_FACTION_MEMBERS
-			add_timed_idea = {
-				idea = idea_CHI_central_government_integration_pressure
-				days = 365
-			}
-		}
-	}
-	ai_will_do = {
-		base = 1
-	}
-}
+# 				name = ALL_FACTION_MEMBERS
+# 			}
+# 			custom_effect_tooltip = ALL_FACTION_MEMBERS
+# 			add_timed_idea = {
+# 				idea = idea_CHI_central_government_integration_pressure
+# 				days = 365
+# 			}
+# 		}
+# 	}
+# 	ai_will_do = {
+# 		base = 1
+# 	}
+# }
 
-faction_goal_south_subjugated = {
-	name = faction_goal_south_subjugated_name
-	description = faction_goal_south_subjugated_desc
-	group = FOCUS_FILTER_ANNEXATION
-	category = short_term
-	visible = {
-		FROM = {
-			original_tag = CHI
-			has_faction_template = faction_template_chinese_united_front 
-			NOT = {
-				has_country_flag = CHI_tour_the_north_flag
-				has_country_flag = CHI_tour_the_west_flag
-			}
-		}
-	}
-	available = {
-		FROM = { has_completed_focus = CHI_tour_the_south }
-	}
-	completed = {
-		GDC = {
-			all_core_state = {
-				is_owned_by = ROOT
-			}
-		}
-		GXC = {
-			all_core_state = {
-				is_owned_by = ROOT
-			}
-		}
-		YUN = {
-			all_core_state = {
-				is_owned_by = ROOT
-			}
-		}
-	}
-	complete_effect = {
-		add_faction_power_projection = 50
-		every_collection_element = {
-			input = {
-				input = game:scope
-				operators =  { 
-					faction_members
-					limit = {
-						is_subject = yes
-					}
-				}
+# faction_goal_south_subjugated = {
+# 	name = faction_goal_south_subjugated_name
+# 	description = faction_goal_south_subjugated_desc
+# 	group = FOCUS_FILTER_ANNEXATION
+# 	category = short_term
+# 	visible = {
+# 		FROM = {
+# 			original_tag = CHI
+# 			has_faction_template = faction_template_chinese_united_front 
+# 			NOT = {
+# 				has_country_flag = CHI_tour_the_north_flag
+# 				has_country_flag = CHI_tour_the_west_flag
+# 			}
+# 		}
+# 	}
+# 	available = {
+# 		FROM = { has_completed_focus = CHI_tour_the_south }
+# 	}
+# 	completed = {
+# 		GDC = {
+# 			all_core_state = {
+# 				is_owned_by = ROOT
+# 			}
+# 		}
+# 		GXC = {
+# 			all_core_state = {
+# 				is_owned_by = ROOT
+# 			}
+# 		}
+# 		YUN = {
+# 			all_core_state = {
+# 				is_owned_by = ROOT
+# 			}
+# 		}
+# 	}
+# 	complete_effect = {
+# 		add_faction_power_projection = 50
+# 		every_collection_element = {
+# 			input = {
+# 				input = game:scope
+# 				operators =  { 
+# 					faction_members
+# 					limit = {
+# 						is_subject = yes
+# 					}
+# 				}
 				
-				name = ALL_FACTION_MEMBERS
-			}
-			custom_effect_tooltip = ALL_FACTION_MEMBERS
-			add_timed_idea = {
-				idea = idea_CHI_central_government_integration_pressure
-				days = 365
-			}
-		}
-	}
-	ai_will_do = {
-		base = 1
-	}
-}
+# 				name = ALL_FACTION_MEMBERS
+# 			}
+# 			custom_effect_tooltip = ALL_FACTION_MEMBERS
+# 			add_timed_idea = {
+# 				idea = idea_CHI_central_government_integration_pressure
+# 				days = 365
+# 			}
+# 		}
+# 	}
+# 	ai_will_do = {
+# 		base = 1
+# 	}
+# }
 
 
  ###  ##  ###   ##  #  # 
@@ -623,7 +623,8 @@ faction_goal_stall_the_fascist_threat = {
 	completed = {
 		OR = {
 			AND = {
-				date > 1939.1.1
+				# date > 1939.1.1
+				date > 1937.1.1 # SPTchange
 				NOT = { has_global_flag = scw_over }
 			}
 			AND = {
@@ -675,10 +676,10 @@ faction_goal_growing_the_faction = {
 	category = short_term
 	group = FOCUS_FILTER_POLITICAL_CHARACTER
 	visible = {
-		num_faction_members < 5
+		num_faction_members < 3 # SPTchange for axis/japan
 	}
 	completed = {
-		num_faction_members > 4
+		num_faction_members > 2 # SPTchange for axis/japan
 	}
 	complete_effect = {
 		add_faction_power_projection = 50 
@@ -1155,54 +1156,54 @@ faction_goal_a_great_fortress = {
 
 
 
-faction_goal_preemptive_strike_on_fascism = {
-	name = preemptive_strike_on_fascism_goal_name
-	description = preemptive_strike_on_fascism_goal_desc
-	category = short_term
-	group = FOCUS_FILTER_WAR_SUPPORT
-	visible = {
-		FROM = {
-			NOT = {
-				has_government = fascism
-			}
-			NOT = {
-				any_enemy_country = {
-					has_government = fascism
-				}
-			}
-		}
-	}
-	available = {
-		threat < 0.5
-	}
-	completed = {
-		any_allied_country = {
-			has_offensive_war = yes
-			any_enemy_country = {
-				has_government = fascism
-			}
-		}
-	}
-	complete_effect = {
-		add_faction_power_projection = 100
-		custom_effect_tooltip = generic_skip_one_line_tt
-		custom_effect_tooltip = THE_FACTION_LEADER
-		add_faction_initiative = 1
-		custom_effect_tooltip = generic_skip_one_line_tt
-		custom_effect_tooltip = ALL_FACTION_MEMBERS
-		every_faction_member = {
-			army_experience = 25
-			add_war_support = 0.05
-		}
-	}
-	ai_will_do = {
-		base = 0
-		modifier = {
-			add = 1
-			is_historical_focus_on = yes
-		}
-	}
-}
+# faction_goal_preemptive_strike_on_fascism = {
+# 	name = preemptive_strike_on_fascism_goal_name
+# 	description = preemptive_strike_on_fascism_goal_desc
+# 	category = short_term
+# 	group = FOCUS_FILTER_WAR_SUPPORT
+# 	visible = {
+# 		FROM = {
+# 			NOT = {
+# 				has_government = fascism
+# 			}
+# 			NOT = {
+# 				any_enemy_country = {
+# 					has_government = fascism
+# 				}
+# 			}
+# 		}
+# 	}
+# 	available = {
+# 		threat < 0.5
+# 	}
+# 	completed = {
+# 		any_allied_country = {
+# 			has_offensive_war = yes
+# 			any_enemy_country = {
+# 				has_government = fascism
+# 			}
+# 		}
+# 	}
+# 	complete_effect = {
+# 		add_faction_power_projection = 100
+# 		custom_effect_tooltip = generic_skip_one_line_tt
+# 		custom_effect_tooltip = THE_FACTION_LEADER
+# 		add_faction_initiative = 1
+# 		custom_effect_tooltip = generic_skip_one_line_tt
+# 		custom_effect_tooltip = ALL_FACTION_MEMBERS
+# 		every_faction_member = {
+# 			army_experience = 25
+# 			add_war_support = 0.05
+# 		}
+# 	}
+# 	ai_will_do = {
+# 		base = 0
+# 		modifier = {
+# 			add = 1
+# 			is_historical_focus_on = yes
+# 		}
+# 	}
+# }
 
 
 faction_goal_war_on_communism = {
@@ -1216,6 +1217,8 @@ faction_goal_war_on_communism = {
 				has_government = communism
 			}
 		}
+		NOT = { original_tag = ENG } # SPTchange
+		NOT = { original_tag = USA } # SPTchange
 		any_country = {
 			has_government = communism
 			is_on_same_continent_as = FROM
@@ -1263,6 +1266,8 @@ faction_goal_war_on_democracy = {
 				has_government = democratic
 			}
 		}
+		NOT = { original_tag = SOV } # SPTchange
+		NOT = { original_tag = GER } # SPTChange they have a more interesting one
 		any_country = {
 			has_government = democratic
 			is_on_same_continent_as = FROM
@@ -1408,9 +1413,12 @@ faction_goal_develop_mexican_oil = {
 		}
 	}
 	available = {
-		FROM = {
-			has_tech = excavation1
-			has_tech = excavation2
+		FROM = { # SPTchange to add excav 3
+			OR = {				
+				has_tech = excavation1
+				has_tech = excavation2
+				has_tech = excavation3
+			}
 		}
 		480 = { is_controlled_by_ROOT_or_ally = yes }
 		479 = {	is_controlled_by_ROOT_or_ally = yes }
@@ -1494,9 +1502,12 @@ faction_goal_develop_curacao_oil = {
 		695 = { is_controlled_by_ROOT_or_ally = yes }
 	}
 	available = {
-		FROM = {
-			has_tech = excavation1
-			has_tech = excavation2
+		FROM = { # SPTchange to add excav 3
+			OR = {				
+				has_tech = excavation1
+				has_tech = excavation2
+				has_tech = excavation3
+			}
 		}
 	}
 	completed = {
@@ -1555,9 +1566,12 @@ faction_goal_develop_venezuelan_oil = {
 		}
 	}
 	available = {
-		FROM = {
-			has_tech = excavation1
-			has_tech = excavation2
+		FROM = { # SPTchange to add excav 3
+			OR = {				
+				has_tech = excavation1
+				has_tech = excavation2
+				has_tech = excavation3
+			}
 		}
 		489 = { is_controlled_by_ROOT_or_ally = yes }
 		307 = {	is_controlled_by_ROOT_or_ally = yes }
@@ -1627,9 +1641,12 @@ faction_goal_develop_guyanan_bauxite = {
 		687 = { is_controlled_by_ROOT_or_ally = yes }
 	}
 	available = {
-		FROM = {
-			has_tech = excavation1
-			has_tech = excavation2
+		FROM = { # SPTchange to add excav 3
+			OR = {				
+				has_tech = excavation1
+				has_tech = excavation2
+				has_tech = excavation3
+			}
 		}
 
 	}
@@ -1696,9 +1713,12 @@ faction_goal_develop_suriname_bauxite = {
 		309 = { is_controlled_by_ROOT_or_ally = yes }
 	}
 	available = {
-		FROM = {
-			has_tech = excavation1
-			has_tech = excavation2
+		FROM = { # SPTchange to add excav 3
+			OR = {				
+				has_tech = excavation1
+				has_tech = excavation2
+				has_tech = excavation3
+			}
 		}
 
 	}
@@ -1768,9 +1788,12 @@ faction_goal_develop_lappland_metals = {
 		}
 	}
 	available = {
-		FROM = {
-			has_tech = excavation1
-			has_tech = excavation2
+		FROM = { # SPTchange to add excav 3
+			OR = {				
+				has_tech = excavation1
+				has_tech = excavation2
+				has_tech = excavation3
+			}
 		}
 		666 = { is_controlled_by_ROOT_or_ally = yes }
 		918 = {	is_controlled_by_ROOT_or_ally = yes }
@@ -1911,9 +1934,12 @@ faction_goal_develop_ploiesti_oil_fields = {
 		46 = { is_controlled_by_ROOT_or_ally = yes }
 	}
 	available = {
-		FROM = {
-			has_tech = excavation1
-			has_tech = excavation2
+		FROM = { # SPTchange to add excav 3
+			OR = {				
+				has_tech = excavation1
+				has_tech = excavation2
+				has_tech = excavation3
+			}
 		}
 	}
 	completed = {
@@ -1973,9 +1999,12 @@ faction_goal_develop_baku_oil_fields = {
 		}
 	}
 	available = {
-		FROM = {
-			has_tech = excavation1
-			has_tech = excavation2
+		FROM = { # SPTchange to add excav 3
+			OR = {				
+				has_tech = excavation1
+				has_tech = excavation2
+				has_tech = excavation3
+			}
 		}
 		229 = { is_controlled_by_ROOT_or_ally = yes }
 		232 = {	is_controlled_by_ROOT_or_ally = yes }
@@ -2057,9 +2086,12 @@ faction_goal_develop_iraqi_oil = {
 		}
 	}
 	available = {
-		FROM = {
-			has_tech = excavation1
-			has_tech = excavation2
+		FROM = { # SPTchange to add excav 3
+			OR = {				
+				has_tech = excavation1
+				has_tech = excavation2
+				has_tech = excavation3
+			}
 		}
 		291 = { is_controlled_by_ROOT_or_ally = yes }
 		676 = {	is_controlled_by_ROOT_or_ally = yes }
@@ -2141,9 +2173,12 @@ faction_goal_develop_persian_oil = {
 		}
 	}
 	available = {
-		FROM = {
-			has_tech = excavation1
-			has_tech = excavation2
+		FROM = { # SPTchange to add excav 3
+			OR = {				
+				has_tech = excavation1
+				has_tech = excavation2
+				has_tech = excavation3
+			}
 		}
 		411 = { is_controlled_by_ROOT_or_ally = yes }
 		412 = {	is_controlled_by_ROOT_or_ally = yes }
@@ -2226,9 +2261,12 @@ faction_goal_develop_chinese_metals = {
 		}
 	}
 	available = {
-		FROM = {
-			has_tech = excavation1
-			has_tech = excavation2
+		FROM = { # SPTchange to add excav 3
+			OR = {				
+				has_tech = excavation1
+				has_tech = excavation2
+				has_tech = excavation3
+			}
 		}
 		592 = { is_controlled_by_ROOT_or_ally = yes }
 		593 = {	is_controlled_by_ROOT_or_ally = yes }
@@ -2414,9 +2452,12 @@ faction_goal_develop_malayan_riches = {
 		}
 	}
 	available = {
-		FROM = {
-			has_tech = excavation1
-			has_tech = excavation2
+		FROM = { # SPTchange to add excav 3
+			OR = {				
+				has_tech = excavation1
+				has_tech = excavation2
+				has_tech = excavation3
+			}
 		}
 		333 = { is_controlled_by_ROOT_or_ally = yes }
 		336 = {	is_controlled_by_ROOT_or_ally = yes }
@@ -2639,9 +2680,12 @@ faction_goal_develop_indonesian_riches = {
 		}
 	}
 	available = {
-		FROM = {
-			has_tech = excavation1
-			has_tech = excavation2
+		FROM = { # SPTchange to add excav 3
+			OR = {				
+				has_tech = excavation1
+				has_tech = excavation2
+				has_tech = excavation3
+			}
 		}
 		334 = { is_controlled_by_ROOT_or_ally = yes }
 		335 = {	is_controlled_by_ROOT_or_ally = yes }

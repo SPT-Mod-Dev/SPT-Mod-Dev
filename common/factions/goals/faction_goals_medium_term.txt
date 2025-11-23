@@ -889,103 +889,103 @@ faction_goal_secure_the_oil_supply = {
 ##   ##    #   ### ###  #       ##  #  # ###  ##  #  # 
 
 
-faction_goal_indifference_is_a_threat = {
-	name = indifference_is_a_threat_goal_name
-	description = indifference_is_a_threat_goal_desc
-	category = medium_term
-	group = FOCUS_FILTER_CONSOLIDATION
-	allowed = {
+# faction_goal_indifference_is_a_threat = {
+# 	name = indifference_is_a_threat_goal_name
+# 	description = indifference_is_a_threat_goal_desc
+# 	category = medium_term
+# 	group = FOCUS_FILTER_CONSOLIDATION
+# 	allowed = {
 		
-	}
-	visible = {
-		FROM = {
-			original_tag = SOV
-		}
-	}
-	completed = {
-		collection_size = {
-			input = {
-				input = collection:europe_non_aligned_countries
-				name = COLLECTION_COUNTRIES_EUROPE_NON_ALIGNED
-			}
-			value < 3
-		}
-	}
-	complete_effect = {
-		add_faction_power_projection = 500
-		custom_effect_tooltip = generic_skip_one_line_tt
-		custom_effect_tooltip = ALL_FACTION_MEMBERS
-		every_faction_member = {
-			add_political_power = 50
-			add_popularity = {
-				ideology = communism
-				popularity = 0.05
-			}
-		}
-	}
-	ai_will_do = {
-		base = 1
-	}
-}
+# 	}
+# 	visible = {
+# 		FROM = {
+# 			original_tag = SOV
+# 		}
+# 	}
+# 	completed = {
+# 		collection_size = {
+# 			input = {
+# 				input = collection:europe_non_aligned_countries
+# 				name = COLLECTION_COUNTRIES_EUROPE_NON_ALIGNED
+# 			}
+# 			value < 3
+# 		}
+# 	}
+# 	complete_effect = {
+# 		add_faction_power_projection = 500
+# 		custom_effect_tooltip = generic_skip_one_line_tt
+# 		custom_effect_tooltip = ALL_FACTION_MEMBERS
+# 		every_faction_member = {
+# 			add_political_power = 50
+# 			add_popularity = {
+# 				ideology = communism
+# 				popularity = 0.05
+# 			}
+# 		}
+# 	}
+# 	ai_will_do = {
+# 		base = 1
+# 	}
+# }
 
-faction_goal_undoing_brest_litowsk = {
-	name = undoing_brest_litowsk_goal_name
-	description = undoing_brest_litowsk_goal_desc
-	category = medium_term
-	group = FOCUS_FILTER_ANNEXATION
-	allowed = {
+# faction_goal_undoing_brest_litowsk = {
+# 	name = undoing_brest_litowsk_goal_name
+# 	description = undoing_brest_litowsk_goal_desc
+# 	category = medium_term
+# 	group = FOCUS_FILTER_ANNEXATION
+# 	allowed = {
 		
-	}
-	visible = {
-		FROM = {
-			original_tag = SOV
-		}
-	}
-	completed = {
-		count_triggers = {
-			amount = 4
-			OR = {
-				LIT = { exists = no }
-				LIT = { is_in_faction_with = ROOT }
-			}
-			OR = {
-				LAT = { exists = no }
-				LAT = { is_in_faction_with = ROOT }
-			}
-			OR = {
-				EST = { exists = no }
-				EST = { is_in_faction_with = ROOT }
-			}
-			OR = {
-				POL = { exists = no }
-				POL = { is_in_faction_with = ROOT }
-			}
-			OR = {
-				FIN = { exists = no }
-				FIN = { is_in_faction_with = ROOT }
-			}
-		}
+# 	}
+# 	visible = {
+# 		FROM = {
+# 			original_tag = SOV
+# 		}
+# 	}
+# 	completed = {
+# 		count_triggers = {
+# 			amount = 4
+# 			OR = {
+# 				LIT = { exists = no }
+# 				LIT = { is_in_faction_with = ROOT }
+# 			}
+# 			OR = {
+# 				LAT = { exists = no }
+# 				LAT = { is_in_faction_with = ROOT }
+# 			}
+# 			OR = {
+# 				EST = { exists = no }
+# 				EST = { is_in_faction_with = ROOT }
+# 			}
+# 			OR = {
+# 				POL = { exists = no }
+# 				POL = { is_in_faction_with = ROOT }
+# 			}
+# 			OR = {
+# 				FIN = { exists = no }
+# 				FIN = { is_in_faction_with = ROOT }
+# 			}
+# 		}
 		
-	}
-	complete_effect = {
-		add_faction_power_projection = 500
-		custom_effect_tooltip = generic_skip_one_line_tt
-		custom_effect_tooltip = THE_FACTION_LEADER
-		add_faction_initiative = 1
-		custom_effect_tooltip = generic_skip_one_line_tt
-		custom_effect_tooltip = ALL_FACTION_MEMBERS
-		every_faction_member = {
-			army_experience = 50
-		}
-	}
-	ai_will_do = {
-		base = 1
-		modifier = {
-			add = 9 # SOV should always prio this
-			original_tag = SOV
-		}
-	}
-}  
+# 	}
+# 	complete_effect = {
+# 		add_faction_power_projection = 500
+# 		custom_effect_tooltip = generic_skip_one_line_tt
+# 		custom_effect_tooltip = THE_FACTION_LEADER
+# 		add_faction_initiative = 1
+# 		custom_effect_tooltip = generic_skip_one_line_tt
+# 		custom_effect_tooltip = ALL_FACTION_MEMBERS
+# 		every_faction_member = {
+# 			army_experience = 50
+# 		}
+# 	}
+# 	ai_will_do = {
+# 		base = 1
+# 		modifier = {
+# 			add = 9 # SOV should always prio this
+# 			original_tag = SOV
+# 		}
+# 	}
+# }  
 
 
 
@@ -1060,10 +1060,10 @@ faction_goal_a_large_faction = {
 	category = medium_term
 	group = FOCUS_FILTER_POLITICAL_CHARACTER
 	visible = {
-		num_faction_members > 4
+		num_faction_members > 2 # SPTchange for Euro Axis
 	}
 	completed = {
-		num_faction_members > 9
+		num_faction_members > 4 # SPTchange for Euro Axis
 	}
 	complete_effect = {
 		add_faction_power_projection = 200
@@ -1347,7 +1347,7 @@ faction_goal_air_superiority = {
 				name = FACTION
 			}
 			unit = fighter
-			size > 999
+			size > 1999 # SPTchange 999->1999
 		}
 	}
 	complete_effect = {
@@ -1360,7 +1360,7 @@ faction_goal_air_superiority = {
 					faction_members 
 					limit = {
 						has_army_size = {
-							size > 249
+							size > 999 # SPTchange 249->999
 							type = fighter
 						}
 					}

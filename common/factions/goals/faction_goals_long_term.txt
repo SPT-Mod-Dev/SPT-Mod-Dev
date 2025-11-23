@@ -264,59 +264,59 @@ faction_goal_no_japanese_in_china = {
 
 
 # Align China
-faction_goal_align_china = {
-	name = align_china_goal_name
-	description = align_china_goal_desc
-	category = long_term
-	group = FOCUS_FILTER_ANNEXATION
-	visible = {
-		FROM = {
-			original_tag = JAP
-		}
-	}
-	completed = {
-		collection_size = {
-			input = {
-				input = collection:countries_china
-				operators = {
-					limit = {
-						exists = yes 
-						has_capitulated = no
-						NOT = { is_subject_of = ROOT }
-					}
-				}
-				name = COLLECTION_UNCAPITULATED_INDEPENDENT_CHINESE_COUNTRIES
-			}
-			value < 3
-		}
-	}
-	complete_effect = {
+# faction_goal_align_china = {
+# 	name = align_china_goal_name
+# 	description = align_china_goal_desc
+# 	category = long_term
+# 	group = FOCUS_FILTER_ANNEXATION
+# 	visible = {
+# 		FROM = {
+# 			original_tag = JAP
+# 		}
+# 	}
+# 	completed = {
+# 		collection_size = {
+# 			input = {
+# 				input = collection:countries_china
+# 				operators = {
+# 					limit = {
+# 						exists = yes 
+# 						has_capitulated = no
+# 						NOT = { is_subject_of = ROOT }
+# 					}
+# 				}
+# 				name = COLLECTION_UNCAPITULATED_INDEPENDENT_CHINESE_COUNTRIES
+# 			}
+# 			value < 3
+# 		}
+# 	}
+# 	complete_effect = {
 		
-		add_faction_power_projection = 300
-		every_collection_element = {
-			input = {
-				input = game:scope
-				operators =  { 
-					faction_members 
-					limit = {
-						faction_influence_ratio > 0.3
-					}
-				}
+# 		add_faction_power_projection = 300
+# 		every_collection_element = {
+# 			input = {
+# 				input = game:scope
+# 				operators =  { 
+# 					faction_members 
+# 					limit = {
+# 						faction_influence_ratio > 0.3
+# 					}
+# 				}
 				
-				name = INFLUENCE_ABOVE_30_PERCENT
-			}
-			custom_effect_tooltip = INFLUENCE_ABOVE_30_PERCENT
-			add_faction_initiative = 1
-		}
-	}
-	ai_will_do = {
-		base = 1
-		modifier = {
-			add = 9 # Early game prio
-			date < 1941.1.1
-		}
-	}
-}
+# 				name = INFLUENCE_ABOVE_30_PERCENT
+# 			}
+# 			custom_effect_tooltip = INFLUENCE_ABOVE_30_PERCENT
+# 			add_faction_initiative = 1
+# 		}
+# 	}
+# 	ai_will_do = {
+# 		base = 1
+# 		modifier = {
+# 			add = 9 # Early game prio
+# 			date < 1941.1.1
+# 		}
+# 	}
+# }
 
 faction_goal_war_on_communism_in_asia = {
 	name = war_on_communism_in_asia_goal_name
@@ -477,75 +477,75 @@ faction_goal_contain_japanese_expansion_asia = {
 ##   ##    #   ### ###  #       ##  #  # ###  ##  #  # 
 
 
-faction_goal_eastern_european_security = {
-	name = eastern_european_security_goal_name
-	description = eastern_european_security_goal_desc
-	category = long_term
-	group = FOCUS_FILTER_POLITICAL_CHARACTER
-	visible = {
-		FROM = { original_tag = SOV }
-	}
-	completed = {
-		count_triggers = {
-				amount = 6
+# faction_goal_eastern_european_security = {
+# 	name = eastern_european_security_goal_name
+# 	description = eastern_european_security_goal_desc
+# 	category = long_term
+# 	group = FOCUS_FILTER_POLITICAL_CHARACTER
+# 	visible = {
+# 		FROM = { original_tag = SOV }
+# 	}
+# 	completed = {
+# 		count_triggers = {
+# 				amount = 6
 				
-			POL = {
-				is_subject_of = ROOT
-				is_in_faction_with = ROOT
-			}
-			ROM = {
-				is_subject_of = ROOT
-				is_in_faction_with = ROOT
-			}
-			HUN = {
-				is_subject_of = ROOT
-				is_in_faction_with = ROOT
-			}
-			CZE = {
-				is_subject_of = ROOT
-				is_in_faction_with = ROOT
-			}
-			BUL = {
-				is_subject_of = ROOT
-				is_in_faction_with = ROOT
-			}
-			GRE = {
-				is_subject_of = ROOT
-				is_in_faction_with = ROOT
-			}
-			YUG = {
-				is_subject_of = ROOT
-				is_in_faction_with = ROOT
-			}
-			TUR = {
-				is_subject_of = ROOT
-				is_in_faction_with = ROOT
-			}
-		}			
-	}
-	complete_effect = {
-		add_faction_power_projection = 1000
-		custom_effect_tooltip = generic_skip_one_line_tt
-		custom_effect_tooltip = INFLUENCE_ABOVE_30_PERCENT
-		every_faction_member = {
-			limit = { faction_influence_ratio > 0.3}
-			add_political_power = 200
-			add_faction_initiative = 1
-		}
-	}
-	ai_will_do = {
-		base = 0
-		modifier = {
-			add = 1
-			date > 1938.1.1
-		}
-		modifier = {
-			add = 9 # SOV should always prio this
-			date > 1938.1.1
-			original_tag = SOV
-		}
-	}
-}
+# 			POL = {
+# 				is_subject_of = ROOT
+# 				is_in_faction_with = ROOT
+# 			}
+# 			ROM = {
+# 				is_subject_of = ROOT
+# 				is_in_faction_with = ROOT
+# 			}
+# 			HUN = {
+# 				is_subject_of = ROOT
+# 				is_in_faction_with = ROOT
+# 			}
+# 			CZE = {
+# 				is_subject_of = ROOT
+# 				is_in_faction_with = ROOT
+# 			}
+# 			BUL = {
+# 				is_subject_of = ROOT
+# 				is_in_faction_with = ROOT
+# 			}
+# 			GRE = {
+# 				is_subject_of = ROOT
+# 				is_in_faction_with = ROOT
+# 			}
+# 			YUG = {
+# 				is_subject_of = ROOT
+# 				is_in_faction_with = ROOT
+# 			}
+# 			TUR = {
+# 				is_subject_of = ROOT
+# 				is_in_faction_with = ROOT
+# 			}
+# 		}			
+# 	}
+# 	complete_effect = {
+# 		add_faction_power_projection = 1000
+# 		custom_effect_tooltip = generic_skip_one_line_tt
+# 		custom_effect_tooltip = INFLUENCE_ABOVE_30_PERCENT
+# 		every_faction_member = {
+# 			limit = { faction_influence_ratio > 0.3}
+# 			add_political_power = 200
+# 			add_faction_initiative = 1
+# 		}
+# 	}
+# 	ai_will_do = {
+# 		base = 0
+# 		modifier = {
+# 			add = 1
+# 			date > 1938.1.1
+# 		}
+# 		modifier = {
+# 			add = 9 # SOV should always prio this
+# 			date > 1938.1.1
+# 			original_tag = SOV
+# 		}
+# 	}
+# }
 
 
 ###   ##  #    ##  #  # ###  
@@ -1465,7 +1465,7 @@ faction_goal_the_red_tide = {
 				name = FACTION_NAME
 			}
 			manpower = yes
-			size > 10000000
+			size > 5000000 # SPTchange from 10,000,000. Please don't lag the game.
 		}
 	}
 	complete_effect = {
