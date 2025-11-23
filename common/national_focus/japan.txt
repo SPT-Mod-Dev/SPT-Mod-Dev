@@ -6466,7 +6466,14 @@ focus_tree = {
 		}
 
 		available = {
-			
+			#spt change, adjusted conditions
+			OR = {
+				date > 1939.1.1
+				AND = {
+					has_war_with = CHI
+					date > 1938.06.1
+				}
+			}
 		}
 
 		bypass = {
@@ -6493,8 +6500,9 @@ focus_tree = {
 
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = JAP_heisuke_yanagawa
-				
-			
+			custom_effect_tooltip = generic_skip_one_line_tt	
+			custom_effect_tooltip = JAP_gain_national_defense_state_remove_total_mob_tt
+			add_ideas = national_defense_state
 		}
 	}
 
@@ -6790,6 +6798,7 @@ focus_tree = {
 
 		available = {
 			is_subject = no
+			date > 1942.1.1
 		}
 
 		bypass = {
@@ -9087,17 +9096,25 @@ focus_tree = {
 		}
 
 		available = {
-			has_war_with_major = yes
+			#spt change, adjusted conditions
 			OR = {
-				has_war_support > 0.79
-				surrender_progress > 0
-			}
-			any_enemy_country = {
-				ic_ratio = {
-					tag = ROOT
-					ratio > 0.3
+				date > 1939.1.1
+				AND = {
+					has_war_with = CHI
+					date > 1938.06.1
 				}
 			}
+			# has_war_with_major = yes
+			# OR = {
+			# 	has_war_support > 0.79
+			# 	surrender_progress > 0
+			# }
+			# any_enemy_country = {
+			# 	ic_ratio = {
+			# 		tag = ROOT
+			# 		ratio > 0.3
+			# 	}
+			# }
 		}
 
 		bypass = {
@@ -9815,7 +9832,7 @@ focus_tree = {
 		}
 
 		available = {
-			
+			date > 1942.1.1
 		}
 
 		bypass = {
