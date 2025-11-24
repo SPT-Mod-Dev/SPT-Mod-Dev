@@ -5,6 +5,10 @@
 #### General
  - Made compatible with new No Compromise, No Surrender (NCNS) dlc release
 
+#### Tanks
+ - SPGs should no longer be able to use whichever main armament they want
+
+
 #### Axis
  - Some of Germany's coal has been moved into Italy, Hungary, Romania, Bulgaria
 
