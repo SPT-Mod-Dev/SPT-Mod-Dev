@@ -11,6 +11,16 @@
 #### Allies
  - Some of the USA's coal has been moved into Brazil and Mexico
 
+#### British Raj
+ - Starting factories in Burma removed
+ - Starting Civilian factories in Hyderabad reduced to 1, from 2
+ - Focus 'His Majestys Loyal Government' time to complete increased to 70 days, from 35
+  - Focus 'Confer with the Congress' time to complete increased to 70 days, from 35
+ - Focus 'The Great Recovery' now requires at least 40 civilian factories, from 35
+ - Focus 'Curtail the Zamindars' Civilian Factory reward reduced to 1, from 2
+ - Focus 'Raise Import Duties' time to complete increased to 70 days, from 35
+ - Focus 'The Empires Workshop' no longer grants the Raj 2 civilian factories
+
 #### Japan
  - Replaced custom SPT content with NCNS content
  - Several focuses have been shortened, moved, and/or adjusted to better fit the SPT ruleset

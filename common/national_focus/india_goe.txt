@@ -17164,7 +17164,7 @@ focus = {
     x = 5 # SPTchange
 	y = 0
 	relative_position_id = RAJ_great_depression_price_controls 
-	cost = 5
+	cost = 10 #spt change, 5 -> 10
 
 	mutually_exclusive = { focus = RAJ_great_depression_price_controls focus = RAJ_provincial_autonomy }
 
@@ -17405,7 +17405,7 @@ focus = {
 	x = 1
 	y = 1
 	relative_position_id = RAJ_concessions_to_the_industrialists 
-	cost = 5
+	cost = 10 #spt change, 5 -> 10
 
 	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY FOCUS_FILTER_WAR_SUPPORT }
 
@@ -17883,7 +17883,7 @@ focus = {
 					include_locked = yes
 				}
 			}
-			random_select_amount = 2
+			random_select_amount = 1 #spt change, 2 -> 1
 			add_extra_state_shared_building_slots = 1
 			add_building_construction = {
 				type = industrial_complex
@@ -17907,7 +17907,7 @@ focus = {
 	x = -1
 	y = 1
 	relative_position_id = RAJ_curtail_the_zamindars 
-	cost = 5
+	cost = 10 #spt change, 5 -> 10
 
 	search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
 
@@ -18001,7 +18001,7 @@ focus = {
 	cost = 10
 
 	available = {
-		industrial_complex > 34 #spt change, 39 -> 34
+		industrial_complex > 39
 	}
 
 	search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY }
@@ -18735,22 +18735,23 @@ focus = {
 		}
 
 		custom_effect_tooltip = generic_skip_one_line_tt
-		random_core_state = {
-			limit = {
-				is_fully_controlled_by = ROOT
-				free_building_slots = {
-					building = industrial_complex
-					size > 1
-					include_locked = yes
-				}
-			}
-			add_extra_state_shared_building_slots = 2
-			add_building_construction = {
-				type = industrial_complex
-				level = 2
-				instant_build = yes
-			}
-		}
+        #spt change, no longer grants 2 civs
+		# random_core_state = {
+		# 	limit = {
+		# 		is_fully_controlled_by = ROOT
+		# 		free_building_slots = {
+		# 			building = industrial_complex
+		# 			size > 1
+		# 			include_locked = yes
+		# 		}
+		# 	}
+		# 	add_extra_state_shared_building_slots = 2
+		# 	add_building_construction = {
+		# 		type = industrial_complex
+		# 		level = 2
+		# 		instant_build = yes
+		# 	}
+		# }
 
 		if = {
 			limit = {
