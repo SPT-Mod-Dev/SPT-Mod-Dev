@@ -5,6 +5,12 @@
 #### General
  - Made compatible with new No Compromise, No Surrender (NCNS) dlc release
 
+#### Axis
+ - Some of Germany's coal has been moved into Italy, Hungary, Romania, Bulgaria
+
+#### Allies
+ - Some of the USA's coal has been moved into Brazil and Mexico
+
 #### Japan
  - Replaced custom SPT content with NCNS content
  - Several focuses have been shortened, moved, and/or adjusted to better fit the SPT ruleset
