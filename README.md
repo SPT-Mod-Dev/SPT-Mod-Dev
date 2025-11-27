@@ -4,6 +4,7 @@
 
 #### General
  - Made compatible with new No Compromise, No Surrender (NCNS) dlc release
+ - Officer Corps adjusted to include new NCNS spirits and adjusted slightly
 
 #### Tanks
  - SPGs should no longer be able to use whichever main armament they want
