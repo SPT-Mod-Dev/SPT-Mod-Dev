@@ -4159,7 +4159,7 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_establish_the_gunbatsu }
 
-		cost = 10
+		cost = 5 #spt change, 10 -> 5
 
 		ai_will_do = {
 			factor = 1
@@ -7274,7 +7274,7 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_sea_purge_the_kodoha_faction }
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -25894,7 +25894,7 @@ focus_tree = {
 		}
 
 		available = {
-			industrial_complex > 34
+			num_of_civilian_factories > 34
 		}
 
 		bypass = {
@@ -30250,11 +30250,18 @@ focus_tree = {
 				CHARACTER = JAP_jiro_horikoshi
 			}
 
-			custom_effect_tooltip = generic_skip_one_line_tt
-
-			add_breakthrough_progress = {
-				specialization = specialization_air
-				value = 0.25
+			IF = {
+				limit = {
+					531 = {
+						is_controlled_by = ROOT
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				add_resource = {
+				    type = aluminium
+				    amount = 5
+				    state = 531
+				}
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt

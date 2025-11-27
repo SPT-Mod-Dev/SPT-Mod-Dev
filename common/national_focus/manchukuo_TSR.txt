@@ -1725,7 +1725,7 @@
 
 		relative_position_id = MAN_tsr_the_question_of_leadership
 
-		cost = 10
+		cost = 5 #spt change 10 -> 5
 
 		ai_will_do = {
 			factor = 1
@@ -1805,6 +1805,11 @@
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			MAN_low_legitimacy_level_down = yes
+			#spt change, added a debuff to china as an additional benefit
+			custom_effect_tooltip = generic_skip_one_line_tt
+			CHI = {
+				add_ideas = CHI_illegitimate_government
+			}
 		}
 	}
 
@@ -1820,6 +1825,10 @@
 
 		ai_will_do = {
 			factor = 1
+		}
+
+		allow_branch = {
+			always = no #spt change, there's no mengkukuo anyways
 		}
 
 		available = {
@@ -1864,11 +1873,11 @@
 		id = MAN_tsr_national_cooperation_government
 		icon = GFX_goal_generic_improve_relations
 		prerequisite = { focus = MAN_tsr_chinese_leadership }
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = MAN_tsr_chinese_leadership
 
-		cost = 10
+		cost = 5 #spt change 10 -> 5
 
 		ai_will_do = {
 			factor = 1
@@ -1900,13 +1909,13 @@
 	focus = {
 		id = MAN_tsr_the_two_emperors
 		icon = GFX_goal_anschluss
-		prerequisite = { focus = MAN_tsr_vassalize_mengukuo }
+		#prerequisite = { focus = MAN_tsr_vassalize_mengukuo }
 		prerequisite = { focus = MAN_tsr_national_cooperation_government }
 		x = 0
 		y = 2
 		relative_position_id = MAN_tsr_chinese_leadership
 
-		cost = 10
+		cost = 5 #spt change, 10 -> 5
 
 		ai_will_do = {
 			factor = 1
@@ -1914,17 +1923,18 @@
 
 		available = {
 			is_subject_of = JAP
-			compare_autonomy_state > autonomy_wtt_imperial_protectorate			
-			MAN = { 
-				ic_ratio = {
-					tag = JAP
-					ratio > 0.2
-				}
-			}
-			strength_ratio = {
-				tag = JAP
-				ratio > 0.25
-			}
+			compare_autonomy_state > autonomy_wtt_imperial_protectorate		
+			#spt change, none of this strength ration shit	
+			# MAN = { 
+			# 	ic_ratio = {
+			# 		tag = JAP
+			# 		ratio > 0.2
+			# 	}
+			# }
+			# strength_ratio = {
+			# 	tag = JAP
+			# 	ratio > 0.25
+			# }
 			controls_state = 608
 		}
 
@@ -1962,7 +1972,7 @@
 
 		relative_position_id = MAN_tsr_the_question_of_leadership
 
-		cost = 10
+		cost = 5 #spt change, 10 -> 5
 
 		ai_will_do = {
 			factor = 1
@@ -2149,6 +2159,10 @@
 				is_historical_focus_on = yes
 				factor = 0
 			}
+		}
+
+		allow_branch = { #spt change, this is just excessive at this point
+			always = no
 		}
 
 		available = {
