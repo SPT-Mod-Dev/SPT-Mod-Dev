@@ -35,9 +35,13 @@
  - Focus 'PC of Mortar Armament' time increased from 35 to 70 days
  - Focus' Merge Tank and Materiel Plants' time reduced from 70 to 35 days
 
+#### Mongolia
+ - Fixed for no asia
+
 #### USA
  - Decision 'Establish the Greenland Patrol' poliitcal power cost 50->0
  - Decision 'Establish the Greenland Patrol' may now be taken if anyone annexes Greenland
+
 
 ### 3.14.16 La Vida Loca
 
