@@ -4,17 +4,23 @@
 
 #### General
  - Made compatible with new No Compromise, No Surrender (NCNS) dlc release
- - Officer Corps adjusted to include new NCNS spirits and adjusted slightly
+ - Officer Corps adjusted to include new NCNS spirits and to better fit with new subdoctrines 
 
 #### Tanks
  - SPGs should no longer be able to use whichever main armament they want
 
+#### Naval Support Tech
+ - 'Landing Craft' tech start time reduced to 1939, from 1940
+ - 'Advanced Landing Craft' tech start time reduced to 1941, from 1944
 
 #### Axis
  - Some of Germany's coal has been moved into Italy, Hungary, Romania, Bulgaria
 
 #### Allies
  - Some of the USA's coal has been moved into Brazil and Mexico
+
+#### England
+ - Properly starts with 'Operational Integrity' as its air grand doctrine
 
 #### British Raj
  - Starting factories in Burma removed

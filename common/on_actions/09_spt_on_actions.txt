@@ -1593,4 +1593,73 @@ on_actions = {
 			}
 		}
 	}
+
+	on_unit_leader_created = {
+		effect = {
+			character = {
+				if = {
+					limit = {
+						is_army_leader = yes
+					}
+				}
+				if = {
+					limit = {
+						FROM = {
+							has_idea = best_of_the_best_spirit
+						}
+					}
+					random_list = {
+						25 = {
+							random_list = {
+								50 = { add_unit_leader_trait = brilliant_strategist }
+								50 = { add_unit_leader_trait = inflexible_strategist }
+							}
+						}
+						75 = {
+							#do nothing
+						}
+					}
+				}
+			}
+		}
+	}
+	on_unit_leader_level_up = {
+		effect = {
+			if = {
+				limit = {
+					FROM = {
+						has_idea = academy_scholarships_spirit
+					}
+				}
+				character = {
+					if = {
+						limit = {
+							is_army_leader = yes
+						}
+						random_list = { 
+							666 = {
+								random_list = {
+									25 = {
+										add_attack = 1
+									}
+									25 = {
+										add_defense = 1
+									}
+									25 = {
+										add_logistics = 1
+									}
+									25 = {
+										add_planning = 1
+									}
+								}
+							} 
+							333 = {
+	
+							} 
+						}
+					}
+				}
+			}
+		}
+	}
 }
