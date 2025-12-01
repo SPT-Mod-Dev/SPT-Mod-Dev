@@ -14,6 +14,7 @@
 
 #### AI
  - Improved Germany behaviour to represent current strategies
+ - Austria now more likely to complete industry focuses
 
 #### France
  - Removed subsequent communists in government events
@@ -22,6 +23,7 @@
 #### Germany
  - Now transfers Oslo and spawns some divisions when declaring on Norway
  - Subsidize Hoesch-Benzin no longer bypasses
+
 
 #### Norway
  - Vanilla tree added, now must be invaded by Germany
