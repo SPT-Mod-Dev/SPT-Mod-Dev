@@ -42,6 +42,13 @@
  - Decision 'Establish the Greenland Patrol' poliitcal power cost 50->0
  - Decision 'Establish the Greenland Patrol' may now be taken if anyone annexes Greenland
 
+#### Canada
+ - War requirement moved from 'Commit to the War' to 'Send in the Zombies'
+ - 'Mine the Shield' time reduced from 70 to 35 days
+ - 'Montreal Laboratory Collaboraton' time reduced from 70 to 35 days
+ - 'Long Branch Arsenal' time reduced from 70 to 35 days
+ - 'Independent Command' time reduced from 70 to 35 days
+
 
 ### 3.14.16 La Vida Loca
 
