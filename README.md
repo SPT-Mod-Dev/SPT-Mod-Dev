@@ -6,6 +6,9 @@
  - Made compatible with new No Compromise, No Surrender (NCNS) dlc release
  - Officer Corps adjusted to include new NCNS spirits and to better fit with new subdoctrines 
 
+#### Grand Doctrines
+ - Brigade Size increase moved to basic reward for selecting a grand doctrine, previously tied to milestones
+
 #### Tanks
  - SPGs should no longer be able to use whichever main armament they want
 
