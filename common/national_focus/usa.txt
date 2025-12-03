@@ -1092,11 +1092,8 @@ focus_tree = {
 							has_completed_focus = ITA_new_colonial_policies
 						}
 					}
-					any_state = {
-						is_controlled_by = ITA
-						NOT = {
-							is_core_of = ITA
-						}
+					any_controlled_state = {
+						NOT = { is_core_of = ITA }
 					}
 				}
 				FRA = {
@@ -1107,11 +1104,8 @@ focus_tree = {
 					NOT = {
 						is_in_faction_with = ROOT
 					}
-					any_state = {
-						is_controlled_by = FRA
-						NOT = {
-							is_core_of = FRA
-						}
+					any_controlled_state = {
+						NOT = { is_core_of = FRA }
 					}
 				}
 				GER = {
@@ -1122,11 +1116,8 @@ focus_tree = {
 					NOT = {
 						is_in_faction_with = ROOT
 					}
-					any_state = {
-						is_controlled_by = GER
-						NOT = {
-							is_core_of = GER
-						}
+					any_controlled_state = {
+						NOT = { is_core_of = GER }
 					}
 				}
 			}
@@ -1178,11 +1169,8 @@ focus_tree = {
 						NOT = {
 							is_in_faction_with = ROOT
 						}
-						any_state = {
-							is_controlled_by = ITA
-							NOT = {
-								is_core_of = ITA
-							}
+						any_controlled_state = {
+							NOT = { is_core_of = ITA }
 						}
 						OR = {
 							NOT = {
@@ -1221,11 +1209,8 @@ focus_tree = {
 						NOT = {
 							is_in_faction_with = ROOT
 						}
-						any_state = {
-							is_controlled_by = FRA
-							NOT = {
-								is_core_of = FRA
-							}
+						any_controlled_state = {
+							NOT = { is_core_of = FRA }
 						}
 					}
 				}
@@ -1255,11 +1240,8 @@ focus_tree = {
 						NOT = {
 							is_in_faction_with = ROOT
 						}
-						any_state = {
-							is_controlled_by = GER
-							NOT = {
-								is_core_of = GER
-							}
+						any_controlled_state = {
+							NOT = { is_core_of = GER }
 						}
 					}
 				}
@@ -1971,7 +1953,7 @@ focus_tree = {
 					uses = 1
 					category = nuclear
 				}
-				custom_effect_tooltip = SPT_JAP_whitespace_tt
+				
 				add_breakthrough_progress = {
 					specialization = specialization_nuclear
 					value = 0.5
@@ -2283,7 +2265,7 @@ focus_tree = {
 		#}
 		complete_tooltip = {
 			army_experience = 10
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 			every_state = {
 				limit = {
 					has_state_flag = USA_military_construction_5MF
@@ -2311,7 +2293,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			army_experience = 10
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 			random_owned_controlled_state = {
 				limit = {
 					arms_factory > 0
@@ -2577,7 +2559,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_ideas = low_economic_mobilisation
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT
@@ -2616,10 +2598,10 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_ideas = wartime_industry_focus
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 
 			add_ideas = partial_economic_mobilisation
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 
 			random_owned_controlled_state = {
 				limit = {
@@ -2944,7 +2926,7 @@ focus_tree = {
 				idea = SPT_USA_aid_payment_brit
 				days = 365
 			}
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 			ENG = {
 				add_ideas = SPT_USA_allied_aid
 			}
@@ -2952,7 +2934,7 @@ focus_tree = {
 				limit = {
 					336 = { is_fully_controlled_by = ENG }
 				}
-				custom_effect_tooltip = SPT_JAP_whitespace_tt
+				
 				ENG = {
 					give_resource_rights = {
 						receiver = USA
@@ -2964,7 +2946,7 @@ focus_tree = {
 				limit = {
 					336 = { is_fully_controlled_by = MAL }
 				}
-				custom_effect_tooltip = SPT_JAP_whitespace_tt
+				
 				MAL = {
 					give_resource_rights = {
 						receiver = USA
@@ -2996,11 +2978,11 @@ focus_tree = {
 				idea = SPT_USA_aid_payment_pacific
 				days = 365
 			}
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 			AST = {
 				add_ideas = SPT_USA_allied_aid
 			}
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 			NZL = {
 				add_ideas = SPT_USA_allied_aid
 			}
@@ -3028,7 +3010,7 @@ focus_tree = {
 				idea = SPT_USA_aid_payment_raj
 				days = 365
 			}
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 			RAJ = {
 				add_ideas = SPT_USA_allied_aid
 			}
@@ -3056,15 +3038,15 @@ focus_tree = {
 				idea = SPT_USA_aid_payment_amex
 				days = 365
 			}
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 			CAN = {
 				add_ideas = SPT_USA_allied_aid
 			}
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 			MEX = {
 				add_ideas = SPT_USA_allied_aid
 			}
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 			BRA = {
 				add_ideas = SPT_USA_allied_aid
 			}
@@ -3098,7 +3080,7 @@ focus_tree = {
 				idea = SPT_USA_aid_payment_africa
 				days = 365
 			}
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 			SAF = {
 				add_ideas = SPT_USA_allied_aid
 			}
@@ -3134,7 +3116,7 @@ focus_tree = {
 				idea = SPT_USA_aid_payment_sov
 				days = 365
 			}
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 			add_equipment_to_stockpile = {
 				type = infantry_equipment
 				amount = -10000
@@ -3147,10 +3129,10 @@ focus_tree = {
 				type = support_equipment
 				amount = -1000
 			}
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 			SOV = {
 				add_ideas = SPT_USA_allied_aid_soviet
-				custom_effect_tooltip = SPT_JAP_whitespace_tt
+				
 				add_equipment_to_stockpile = {
 					type = infantry_equipment
 					amount = 20000
@@ -3194,7 +3176,7 @@ focus_tree = {
 				idea = SPT_USA_aid_payment_fra
 				days = 365
 			}
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 			add_equipment_to_stockpile = {
 				type = infantry_equipment
 				amount = -10000
@@ -3207,10 +3189,10 @@ focus_tree = {
 				type = support_equipment
 				amount = -1000
 			}
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 			FRA = {
 				add_ideas = SPT_USA_allied_aid
-				custom_effect_tooltip = SPT_JAP_whitespace_tt
+				
 				add_equipment_to_stockpile = {
 					type = infantry_equipment
 					amount = 10000
@@ -4302,7 +4284,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			add_ideas = landons_clean_deal
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 			custom_effect_tooltip = SPT_USA_recession_clean_deal_decision_tt
 		}
 	}
@@ -4384,7 +4366,7 @@ focus_tree = {
 				SPT_USA_recession_civ_bonus = 0.2
 				tooltip = production_speed_industrial_complex_factor_tt
 			}
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 			custom_effect_tooltip = SPT_USA_american_dream_tt
 			add_to_variable = {
 				SPT_USA_consumer_goods_factor = 0.05
@@ -4460,7 +4442,7 @@ focus_tree = {
 		}
 		completion_reward = {
 #			custom_effect_tooltip = SPT_USA_recession_tt
-#			custom_effect_tooltip = SPT_JAP_whitespace_tt
+#			
 			custom_effect_tooltip = SPT_USA_american_dream_tt
 			add_to_variable = {
 				SPT_USA_consumer_goods_factor = 0.05
@@ -4470,7 +4452,7 @@ focus_tree = {
 				SPT_USA_recession_mio_research = 0.1
 				tooltip = military_industrial_organization_research_bonus_tt
 			}
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 			add_tech_bonus = {
 				name = SPT_USA_patent_incentive
 				bonus = 0.5
@@ -4553,7 +4535,7 @@ focus_tree = {
 			}
 			custom_effect_tooltip = SPT_USA_great_depression_cooldown_tt
 			USA_congress_medium_opposition = yes
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 			custom_effect_tooltip = SPT_USA_american_dream_tt
 			add_to_variable = {
 					SPT_USA_consumer_goods_factor = 0.05
@@ -4726,7 +4708,7 @@ focus_tree = {
 			}
 			custom_effect_tooltip = SPT_USA_great_depression_cooldown_tt
 			USA_congress_medium_opposition = yes
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 			custom_effect_tooltip = SPT_USA_american_dream_tt
 
 				add_to_variable = {
@@ -4741,7 +4723,7 @@ focus_tree = {
 					SPT_USA_military_industrial_organization_funds_gain = 0.2
 					tooltip = military_industrial_organization_funds_gain_tt
 				}
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 		}
 	}
 	focus = {
@@ -4870,7 +4852,7 @@ focus_tree = {
 					SPT_USA_stability_factor = 0.05
 					tooltip = stability_factor_tt
 				}
-				custom_effect_tooltip = SPT_JAP_whitespace_tt
+				
 			
 			random_owned_controlled_state = {
 				limit = {
@@ -4963,7 +4945,7 @@ focus_tree = {
 				SPT_USA_post_depression_industrial_capacity_factory = 0.05
 				tooltip = industrial_capacity_factory_tt
 			}
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT
@@ -4998,7 +4980,7 @@ focus_tree = {
 				SPT_USA_stability_factor = 0.05
 				tooltip = stability_factor_tt
 			}
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 			custom_effect_tooltip = SPT_USA_post_depression_boom_tt
 			add_to_variable = {
 				SPT_USA_post_depression_production_speed_air_base_factor = 0.15
@@ -5008,7 +4990,7 @@ focus_tree = {
 				SPT_USA_post_depression_production_speed_nuclear_reactor_factor = 0.15
 				tooltip = production_speed_nuclear_reactor_factor_tt
 			}
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT
@@ -5077,7 +5059,7 @@ focus_tree = {
 				tooltip = consumer_goods_factor_tt
 			}
 
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT
@@ -5114,7 +5096,7 @@ focus_tree = {
 			}
 			
 			
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT
@@ -5190,7 +5172,7 @@ focus_tree = {
 					days =  200
 				}
 			}
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 			FRA = {
 				add_timed_idea = {
 					idea = SPT_USA_allied_aid
@@ -5455,7 +5437,7 @@ focus_tree = {
 				type = infantry_equipment
 				amount = 10000
 			}
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 				add_to_variable = {
 					SPT_USA_war_support_factor = 0.05
 					tooltip = war_support_factor_tt
@@ -5590,7 +5572,7 @@ focus_tree = {
 				type = convoy
 				amount = 100
 			}
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 
 			custom_effect_tooltip = SPT_USA_post_depression_boom_tt
 			add_to_variable = {
@@ -6496,6 +6478,10 @@ focus_tree = {
 						}
 					}
 				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			USA_ernest_king = {
+				add_skill_level = 1
 			}
 		}
 	}
@@ -7790,7 +7776,10 @@ focus_tree = {
 				limit = {
 					is_in_faction = no
 				}
-				create_faction = USA_hemisphere_defense_faction
+				create_faction_from_template = {
+					template = faction_template_pan_american
+					name = USA_hemisphere_defense_faction
+				}
 			}
 			if = {
 				limit = {
@@ -8936,6 +8925,10 @@ focus_tree = {
 				uses = 1
 				category = land_doctrine
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			USA_george_s_patton = {
+				add_skill_level = 1
+			}	
 		}
 	}
 	focus = {
@@ -8949,6 +8942,10 @@ focus_tree = {
 
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
 		}
 
 		available = {
@@ -9001,6 +8998,13 @@ focus_tree = {
 		available_if_capitulated = no
 		completion_reward = {
 			add_ideas = USA_army_of_the_united_states
+			custom_effect_tooltip = generic_skip_one_line_tt
+			USA_omar_bradley = {
+				add_skill_level = 1
+			}
+			USA_mark_clark = {
+				add_skill_level = 1
+			}
 		}
 	}
 	focus = {
@@ -9724,15 +9728,20 @@ focus_tree = {
 		completion_reward = {
 			navy_experience = 50
 			add_ideas = bureau_of_ships_focus
-			hidden_effect  = {
-				country_event = {
-					days = 110
-					random_days = 60
-					id = spt.106
-				}
+			country_event = {
+				days = 110
+				random_days = 60
+				id = spt.106
 			}
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 			custom_effect_tooltip = USA_bureau_of_ships_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			USA_chester_w_nimitz = {
+				add_skill_level = 1
+			}
+			USA_william_halsey_jr = {
+				add_skill_level = 1
+			}
 		}
 	}
 	focus = {
@@ -9786,11 +9795,12 @@ focus_tree = {
 			FOCUS_FILTER_RESEARCH
 		}
 		completion_reward = {
-			add_doctrine_cost_reduction = {
+
+			add_mastery_bonus = {
 				name = USA_advanced_mahanian_doctrine
-				cost_reduction = 0.5
-				uses = 1
-				category = cat_base_strike
+				bonus = 0.1
+				days = 180
+				grand_doctrine = new_base_strike
 			}
 		}
 	}
@@ -9981,11 +9991,15 @@ focus_tree = {
 		}
 		completion_reward = {
 			navy_experience = 25
-			add_doctrine_cost_reduction = {
+			add_mastery = {
+				amount = 50
+				track = screens
+			}
+			add_mastery_bonus = {
 				name = USA_convoy_tactics
-				cost_reduction = 0.35
-				uses = 2
-				category = convoy_defense_tree
+				bonus = 0.1
+				days = 180
+				track = screens
 			}
 		}
 	}
@@ -10023,7 +10037,7 @@ focus_tree = {
 				specialization = specialization_naval
 				value = 0.25
 			}
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
+			
 
 			IF = {
 				limit = {

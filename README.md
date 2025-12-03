@@ -1,5 +1,50 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 4.0.0 Japanese soldier fights against Paradox dlc release for 40 years, dispatched by server owner
+
+#### General
+ - Made compatible with new No Compromise, No Surrender (NCNS) dlc release
+ - Officer Corps adjusted to include new NCNS spirits and to better fit with new subdoctrines 
+
+#### Grand Doctrines
+ - Brigade Size increase moved to basic reward for selecting a grand doctrine, previously tied to milestones
+
+#### Tanks
+ - SPGs should no longer be able to use whichever main armament they want
+
+#### Naval Support Tech
+ - 'Landing Craft' tech start time reduced to 1939, from 1940
+ - 'Advanced Landing Craft' tech start time reduced to 1941, from 1944
+
+#### Axis
+ - Some of Germany's coal has been moved into Italy, Hungary, Romania, Bulgaria
+
+#### Allies
+ - Some of the USA's coal has been moved into Brazil and Mexico
+
+#### England
+ - Properly starts with 'Operational Integrity' as its air grand doctrine
+
+#### British Raj
+ - Starting factories in Burma removed
+ - Starting Civilian factories in Hyderabad reduced to 1, from 2
+ - Focus 'His Majestys Loyal Government' time to complete increased to 70 days, from 35
+  - Focus 'Confer with the Congress' time to complete increased to 70 days, from 35
+ - Focus 'The Great Recovery' now requires at least 40 civilian factories, from 35
+ - Focus 'Curtail the Zamindars' Civilian Factory reward reduced to 1, from 2
+ - Focus 'Raise Import Duties' time to complete increased to 70 days, from 35
+ - Focus 'The Empires Workshop' no longer grants the Raj 2 civilian factories
+
+#### Japan
+ - Replaced custom SPT content with NCNS content
+ - Several focuses have been shortened, moved, and/or adjusted to better fit the SPT ruleset
+
+#### Manchukuo
+ - Replaced custom SPT content with NCNS content
+ - Reenabled big manchu option
+ - No longer starts with Mengjiang territory, but has cores to compensate (it's more historical this way, please don't flood our DMs with complaints)
+ 
+
 ### 3.14.17
 
 #### General

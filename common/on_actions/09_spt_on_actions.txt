@@ -833,31 +833,31 @@ on_actions = {
 			# 		}
 			# 	}
 			# }
-			if = {
-				limit = {
-					ROOT = {
-						original_tag = CHI
-					}
-					NOT = {
-						OR = {
-							JAP = {
-								has_completed_focus = SPT_JAP_grain_market
-							}
-							JAP = {
-								has_idea = SPT_JAP_grain_market_inflation_active
-							}
-						}
-					}
-					#grain market inflation activation
-				}
-				JAP = {
-					country_event = {
-						id = spt_jap.4
-						days = 30
-						random_days = 90
-					}
-				}
-			}
+			# if = {
+			# 	limit = {
+			# 		ROOT = {
+			# 			original_tag = CHI
+			# 		}
+			# 		NOT = {
+			# 			OR = {
+			# 				JAP = {
+			# 					has_completed_focus = SPT_JAP_grain_market
+			# 				}
+			# 				JAP = {
+			# 					has_idea = SPT_JAP_grain_market_inflation_active
+			# 				}
+			# 			}
+			# 		}
+			# 		#grain market inflation activation
+			# 	}
+			# 	JAP = {
+			# 		country_event = {
+			# 			id = spt_jap.4
+			# 			days = 30
+			# 			random_days = 90
+			# 		}
+			# 	}
+			# }
 			# Automatically peace conference mainland Portugal to end skill issues for all time
 			if = {
 				limit = {
@@ -914,38 +914,53 @@ on_actions = {
 						days = 35
 					}
 				}
-			}
-			if = {
-				limit = {
-					ROOT = {
-						tag = JAP
-					}
-					FROM = {
-						tag = CHI
-					}
-					#triggers hidden event for a future increase in eco pressure
-				}
-				hidden_effect = {
-					complete_national_focus = SPT_JAP_liaison_conference
-					JAP = {
-						country_event = {
-							id = spt_jap.6 #war with china causes increase in eco pressure
-						}
-						#this is to prevent forever wars on the ai side, a small convenience thing for test builds
-						if = {
-							limit = {
-								JAP = {
-									is_ai = yes
-								}
+				hidden_effect = { #this is for making japan capable of being competent in a test game
+					if = {
+						limit = {
+							JAP = {
+								is_ai = yes
 							}
+						}
+						JAP = {
 							country_event = {
-								id = spt_jap.999
+								id = spt.671
 								days = 800
 							}
 						}
 					}
 				}
 			}
+			# if = {
+			# 	limit = {
+			# 		ROOT = {
+			# 			tag = JAP
+			# 		}
+			# 		FROM = {
+			# 			tag = CHI
+			# 		}
+			# 		#triggers hidden event for a future increase in eco pressure
+			# 	}
+			# 	hidden_effect = {
+			# 		complete_national_focus = SPT_JAP_liaison_conference
+			# 		JAP = {
+			# 			country_event = {
+			# 				id = spt_jap.6 #war with china causes increase in eco pressure
+			# 			}
+			# 			#this is to prevent forever wars on the ai side, a small convenience thing for test builds
+			# 			if = {
+			# 				limit = {
+			# 					JAP = {
+			# 						is_ai = yes
+			# 					}
+			# 				}
+			# 				country_event = {
+			# 					id = spt_jap.999
+			# 					days = 800
+			# 				}
+			# 			}
+			# 		}
+			# 	}
+			# }
 			if = {
 				limit = {
 					ROOT = {
@@ -1449,37 +1464,37 @@ on_actions = {
 				}
 			}
 
-			if = {	#check to prevent cheesing grain market event by holding china hostage
-				limit = { 
-					date > 1939.6.30
-					JAP = {
-						has_war_with = CHI
-					}
-					NOT = {
-						OR = {
-							JAP = {
-								has_completed_focus = SPT_JAP_grain_market
-							}
-							JAP = {
-								has_idea = SPT_JAP_grain_market_inflation_active
-							}
-						}
-					}
-					CHI = {
-						surrender_progress > 0.2
-					}
-				}
-				random_list = {
-					10 = {
-						JAP = {
-							country_event = spt_jap.4
-						}
-					}
-					20 = {
-						#nothing happens
-					}
-				}
-			}
+			# if = {	#check to prevent cheesing grain market event by holding china hostage
+			# 	limit = { 
+			# 		date > 1939.6.30
+			# 		JAP = {
+			# 			has_war_with = CHI
+			# 		}
+			# 		NOT = {
+			# 			OR = {
+			# 				JAP = {
+			# 					has_completed_focus = SPT_JAP_grain_market
+			# 				}
+			# 				JAP = {
+			# 					has_idea = SPT_JAP_grain_market_inflation_active
+			# 				}
+			# 			}
+			# 		}
+			# 		CHI = {
+			# 			surrender_progress > 0.2
+			# 		}
+			# 	}
+			# 	random_list = {
+			# 		10 = {
+			# 			JAP = {
+			# 				country_event = spt_jap.4
+			# 			}
+			# 		}
+			# 		20 = {
+			# 			#nothing happens
+			# 		}
+			# 	}
+			# }
 		}
 	}
 	on_monthly_GER = {
@@ -1574,6 +1589,75 @@ on_actions = {
 				}
 				set_variable = {
 					GER_industrial_consumer_goods_expected_value  = SPT_GER_ECG
+				}
+			}
+		}
+	}
+
+	on_unit_leader_created = {
+		effect = {
+			character = {
+				if = {
+					limit = {
+						is_army_leader = yes
+					}
+				}
+				if = {
+					limit = {
+						FROM = {
+							has_idea = best_of_the_best_spirit
+						}
+					}
+					random_list = {
+						25 = {
+							random_list = {
+								50 = { add_unit_leader_trait = brilliant_strategist }
+								50 = { add_unit_leader_trait = inflexible_strategist }
+							}
+						}
+						75 = {
+							#do nothing
+						}
+					}
+				}
+			}
+		}
+	}
+	on_unit_leader_level_up = {
+		effect = {
+			if = {
+				limit = {
+					FROM = {
+						has_idea = academy_scholarships_spirit
+					}
+				}
+				character = {
+					if = {
+						limit = {
+							is_army_leader = yes
+						}
+						random_list = { 
+							666 = {
+								random_list = {
+									25 = {
+										add_attack = 1
+									}
+									25 = {
+										add_defense = 1
+									}
+									25 = {
+										add_logistics = 1
+									}
+									25 = {
+										add_planning = 1
+									}
+								}
+							} 
+							333 = {
+	
+							} 
+						}
+					}
 				}
 			}
 		}

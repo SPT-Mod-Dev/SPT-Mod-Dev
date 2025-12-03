@@ -5767,7 +5767,20 @@ focus_tree = {
 		search_filters = {
 		}
 		completion_reward = {
-			create_faction = SWE_the_nordic_defense_council
+			
+			IF = {
+				limit = {
+					has_dlc = "No Compromise, No Surrender"
+				}
+				set_rule = { can_create_factions = yes }
+				create_faction_from_template = faction_template_SWE_the_nordic_defense_council
+				add_faction_initiative = 1
+			}
+			ELSE = {
+				set_rule = { can_create_factions = yes }
+				create_faction = SWE_the_nordic_defense_council
+			}
+
 			complete_national_focus = NORDIC_form_joint_alliance
 			every_other_country = {
 				limit = {
@@ -9498,8 +9511,20 @@ focus_tree = {
 				is_owned_and_controlled_by = SWE
 			}
 		}
+
 		bypass = {
-			has_war_with = FIN
+			148 = {
+				OR = {
+					owner = {
+						OR = {
+							has_war = yes
+							is_subject_of = ROOT
+						}
+					}
+					is_owned_by = ROOT
+					is_demilitarized_zone = yes
+				}
+			}
 		}
 		search_filters = {
 			FOCUS_FILTER_ANNEXATION
@@ -9585,17 +9610,15 @@ focus_tree = {
 		}
 		search_filters = {
 		}
+
 		completion_reward = {
-			#TODO_Manu: Please poke Manu if this leads to inviting Finland to a faction tack!
-			set_rule = {
-				can_create_factions = yes
+			set_rule = { can_create_factions = yes }
+			create_faction_from_template = {
+				template = faction_template_NORDIC_alliance_democratic
+				name = SWE_swedish_finnish_defense_agreement_faction
 			}
-			create_faction = "Swedish-Finnish Defense Agreement"
 			FIN = {
-				country_event = {
-					id = generic.5
-					hours = 4
-				}
+				country_event = { id = generic.5 hours = 4 }
 			}
 		}
 	}

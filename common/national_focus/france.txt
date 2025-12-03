@@ -598,6 +598,7 @@
 						state = 286
 						state = 671
 						state = 670
+						state = 1017
 					}
 					OWNER = { is_owned_or_subject_trigger = yes }	
 					NOT = {
@@ -2619,7 +2620,7 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_ideas = { FRA_revolutionary_zeal}
+			add_ideas = FRA_revolutionary_zeal
 		}
 	}
 	focus = {
@@ -2655,19 +2656,32 @@
 		available_if_capitulated = no
 
 		completion_reward = {
+
 			promote_character = FRA_rene_nicod
+
 			add_trait = {
 				character = FRA_rene_nicod
 				ideology = marxism
 				trait = proletariat_internationalist
 			}
+
 			set_party_name = {
 				ideology = communism
 				long_name = FRA_union_populaire_long
 				name = FRA_union_populaire
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			set_rule = { can_create_factions = yes }
-			create_faction = FRA_communist_faction
+			create_faction_from_template = {
+				template = faction_template_POR_popular_front_bloc
+				name = FRA_communist_faction
+				icon = GFX_faction_logo_generic_14
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			create_operative_leader = {
 				name = "Jacques Duclos"
 				GFX = GFX_portrait_jacques_duclos
@@ -3835,7 +3849,8 @@
 					is_in_faction = no
 				}
 				set_rule = { can_create_factions = yes }
-				create_faction = FRA_little_entente
+				create_faction_from_template = faction_template_the_little_entente
+
 				CZE = { custom_effect_tooltip = invite_to_faction_tt }
 				hidden_effect = {
 					CZE = { country_event = generic.5 }
@@ -5491,7 +5506,10 @@
 
 		completion_reward = {
 			set_rule = { can_create_factions = yes }
-			create_faction = FRA_latin_entente
+			create_faction_from_template = {
+				template = faction_template_european_dominance
+				name = FRA_latin_entente
+			}
 			create_country_leader = {
 				name = "François de la Rocque"
 				desc = "POLITICS_ÉDOUARD_DALADIER_DESC"
@@ -7179,7 +7197,11 @@
 
 		completion_reward = {
 			set_rule = { can_create_factions = yes }
-			create_faction = FRA_orleanist_faction
+			create_faction_from_template = {
+				template = faction_template_anti_fascist
+				name = FRA_orleanist_faction
+				icon = GFX_faction_logo_generic_12
+			}
 			if = {
 				limit = {
 					GER = { has_government = fascism }
@@ -7454,9 +7476,8 @@
 				}
 			}
 			else = {
-				any_state = {
+				any_controlled_state = {
 					is_core_of = SPB
-					is_controlled_by = ROOT
 				}
 			}
 			is_subject = no
@@ -7530,14 +7551,18 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			if = {
+			IF = {
 				limit = {
 					is_in_faction = no
 				}
 				set_rule = { can_create_factions = yes }
-				create_faction = FRA_legitimist_faction
+				create_faction_from_template = {
+					template = faction_template_anti_communist
+					name = FRA_legitimist_faction
+					icon = GFX_faction_logo_generic_5 
+				}
 			}
-			if = {
+			IF = {
 				limit = {
 					SPB = { is_in_faction = no }
 				}
@@ -7595,12 +7620,25 @@
 					
 				}
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			set_party_name = {
 				ideology = neutrality
 				long_name = FRA_bonepartist_party_long
 				name = FRA_bonepartist_party
 			}
 			set_politics = { ruling_party = neutrality }
+			custom_effect_tooltip = generic_skip_one_line_tt
+			if = {
+				limit = {
+					is_in_faction = no
+				}
+				set_rule = { can_create_factions = yes }
+				create_faction_from_template = {
+					template = faction_template_european_dominance_monarchist
+					name = FRA_continental_system
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			hidden_effect = {
 				news_event = { id = lar_news.8 days = 3 random_days = 5 }
 			}
@@ -7710,9 +7748,8 @@
 				HOL = {
 					is_subject_of = ROOT
 				}
-				any_state = {
+				any_controlled_state = {
 					is_core_of = HOL
-					is_controlled_by = ROOT
 				}
 			}
 		}
@@ -7753,6 +7790,10 @@
 
 		available = {
 			is_subject = no
+			OR = {
+				is_in_faction = no
+				is_faction_leader = yes
+			}
 		}
 		
 		bypass = {
@@ -7796,9 +7837,8 @@
 
 		available = {
 			is_subject = no
-			any_state = { 
+			any_controlled_state = { 
 				is_core_of = GER
-				is_controlled_by = ROOT
 			}
 			GER = {
 				OR = {
@@ -8547,7 +8587,7 @@
 				name = FRA_improved_screen_ships
 				bonus = 2.0
 				uses = 1
-				category = cl_tech
+				category = ca_tech
 			}
 		}
 	}

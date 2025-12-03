@@ -1542,9 +1542,8 @@
 		}
 
 		available = {
-			any_state = {
+			any_controlled_state = {
 				is_coastal = yes
-				is_controlled_by = ROOT
 			}
 		}
 		
@@ -1614,9 +1613,8 @@
 		}
 
 		available = {
-			any_state = {
+			any_controlled_state = {
 				is_coastal = yes
-				is_controlled_by = ROOT
 			}
 		}
 		
@@ -1701,12 +1699,19 @@
 		search_filters = { FOCUS_FILTER_RESEARCH  }
 
 		completion_reward = {
+			
+			add_mastery_bonus = {
+				name = AST_protect_overseas_commerce
+				bonus = 0.1
+				days = 120
+				track = screens
+			}
+
 			add_doctrine_cost_reduction = {
 				name = AST_protect_overseas_commerce
 				cost_reduction = 0.25
 				uses = 2
-				category = fleet_in_being_tree
-				category = convoy_defense_tree
+				category = naval_doctrine
 			}
 		}
 	}
@@ -1740,11 +1745,19 @@
 		search_filters = { FOCUS_FILTER_RESEARCH  }
 
 		completion_reward = {
+			
+			add_mastery_bonus = {
+				name = AST_fly_the_jolly_roger
+				bonus = 0.1
+				days = 120
+				track = submarines
+			}
+
 			add_doctrine_cost_reduction = {
 				name = AST_fly_the_jolly_roger
 				cost_reduction = 0.25
-				uses = 2
-				category = submarine_doctrine
+				uses = 1
+				category = naval_doctrine
 			}
 		}
 	}
@@ -1890,7 +1903,6 @@
 				bonus = 1.0
 				ahead_reduction = 2
 				uses = 1
-				category = cl_tech
 				category = ca_tech
 			}
 		}
@@ -3387,7 +3399,10 @@
 
 		completion_reward = {
 			ENG = {
-				country_event = { id = tfv_australia.1 }
+				country_event = { 
+					id = tfv_australia.1 
+					hours = 6
+				}
 			}
 		}
 	}
@@ -4097,7 +4112,11 @@
 
 		completion_reward = {
 			set_rule = { can_create_factions = yes }
-			create_faction = south_west_pacific_initiative
+			create_faction_from_template = {
+				template = faction_template_defensive_democratic
+				name = south_west_pacific_initiative
+				icon = GFX_faction_logo_generic_12
+			}
 			if = {
 				limit = {
 					has_completed_focus = AST_protect_the_dutch_colonies

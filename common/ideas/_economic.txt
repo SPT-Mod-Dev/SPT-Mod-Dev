@@ -27,6 +27,7 @@ ideas = {
 				max_fuel_factor = -0.45
 				fuel_gain_factor = -0.6
 				agency_upgrade_time = 1.0
+				factory_energy_consumption = -0.3
 			}
 
 			allowed_to_remove = {
@@ -73,6 +74,7 @@ ideas = {
 				max_fuel_factor = -0.35
 				fuel_gain_factor = -0.5
 				agency_upgrade_time = 0.8
+				factory_energy_consumption = -0.3
 			}
 			allowed_to_remove = {
 				IF = {
@@ -110,6 +112,7 @@ ideas = {
 				conversion_cost_mil_to_civ_factor = 0.3
 				max_fuel_factor = -0.25
 				fuel_gain_factor = -0.4
+				factory_energy_consumption = -0.3
 			}
 
 			default = yes
@@ -218,6 +221,8 @@ ideas = {
 				production_speed_industrial_complex_factor = -0.1
 				production_speed_arms_factory_factor = -0.1
 				fuel_gain_factor = -0.25
+				factory_energy_consumption = -0.15
+				unit_medal_effectiveness = -0.60
 			}
 
 			cancel_if_invalid = no
@@ -266,8 +271,10 @@ ideas = {
 						}
 					}
 					ELSE = {
-						has_completed_focus = HUN_secret_rearmament
-						NOT = { has_idea = HUN_treaty_of_triannon }
+						OR = {
+							has_completed_focus = HUN_secret_rearmament
+							NOT = { has_idea = HUN_treaty_of_triannon }
+						}
 					}
 				}
 				ELSE_IF = {
@@ -391,6 +398,29 @@ ideas = {
 				OR = {
 					has_government = fascism
 					has_government = communism
+					if = {
+						limit = {
+							PHI_SEA = yes
+						}
+						if = {
+							limit = {
+								has_idea = PHI_ties_with_nationalist_spain
+							}
+							has_idea = PHI_ties_with_nationalist_spain
+						}
+						else_if = {
+							limit = {
+								has_idea = PHI_ties_with_nationalist_spain_2
+							}
+							has_idea = PHI_ties_with_nationalist_spain_2
+						}
+						else = {
+							hidden_trigger = { always = no } #NEED TO HAVE AN ALWAYS AS AN END STATEMENT IF URE USING AN IF ELSE IN AN OR STATEMENT OTHERWISE THE EVALUATION BREAKS!!
+						}
+					}
+					else = {
+						hidden_trigger = { always = no } #NEED TO HAVE AN ALWAYS AS AN END STATEMENT IF URE USING AN IF ELSE IN AN OR STATEMENT OTHERWISE THE EVALUATION BREAKS!!
+					}
 					custom_trigger_tooltip = { tooltip = or_clarification_tooltip always = no }
 					AND = {
 						has_war = yes
@@ -489,6 +519,7 @@ ideas = {
 				production_speed_arms_factory_factor = 0.2
 				conversion_cost_civ_to_mil_factor= -0.2
 				conversion_cost_mil_to_civ_factor = -0.2
+				factory_energy_consumption = 0.25
 			}
 
 			cancel_if_invalid = no
@@ -541,6 +572,18 @@ ideas = {
 					has_civil_war = yes
 					has_government = neutrality
 				}
+
+				modifier = {
+					# They will take the focus to gain this for free, so they shouldn't spend pp on it too willy-nilly 
+					factor = 0.5
+					original_tag = JAP
+					OR = {
+						is_historical_focus_on = yes
+						has_country_flag = JAP_AI_RANDOM_FASCIST
+						has_country_flag = JAP_AI_RANDOM_NEUTRALITY
+					}
+
+				}
    			}
 		}
 
@@ -552,6 +595,17 @@ ideas = {
 						original_tag = GER
 					}
 					NOT = { has_completed_focus = GER_totaler_krieg }
+				}
+				if = {
+					limit = {
+						original_tag = JAP
+					}
+					NOT = { 
+						has_completed_focus = JAP_sea_national_defense_state 
+						#has_completed_focus = JAP_prepare_for_the_final_war 
+						#spt change, swapped where young officer japan gets NDS
+						has_completed_focus = JAP_the_spirit_of_the_imperial_nation
+					}
 				}
 			}
 
@@ -663,7 +717,7 @@ ideas = {
 				}
 			}
 			ai_will_do = {
-   				factor = 1
+   				base = 1
 
 				modifier = {
 					factor = 25
@@ -692,7 +746,7 @@ ideas = {
 					factor = 0
 
 					tag = GER
-					NOT = { has_tech = volkssturm }
+					NOT = { has_doctrine = last_stand }
 					has_war = yes
 					date < 1944.01.01
 				}
@@ -722,6 +776,7 @@ ideas = {
 				production_speed_arms_factory_factor = 0.3
 				conversion_cost_civ_to_mil_factor= -0.3
 				conversion_cost_mil_to_civ_factor = -0.3
+				factory_energy_consumption = 0.5
 			}
 
 			cancel_if_invalid = no
@@ -758,6 +813,53 @@ ideas = {
 				conversion_cost_mil_to_civ_factor = -0.3
 				industrial_capacity_factory = 0.05
 				industrial_capacity_dockyard = 0.05
+				factory_energy_consumption = 0.5
+			}
+			cancel_if_invalid = no
+		}
+
+		national_defense_state = { 
+
+			picture = JAP_national_defense_state
+
+			visible = {
+				original_tag = JAP
+				OR = {
+					#spt change, swapped how young officer japan gets NDS
+					has_completed_focus = JAP_the_spirit_of_the_imperial_nation
+					#has_completed_focus = JAP_prepare_for_the_final_war
+					has_completed_focus = JAP_sea_national_defense_state
+				}
+			}
+
+			available = {
+				OR = {
+					#spt change, swapped how young officer japan gets NDS
+					has_completed_focus = JAP_the_spirit_of_the_imperial_nation
+					#has_completed_focus = JAP_prepare_for_the_final_war
+					has_completed_focus = JAP_sea_national_defense_state
+				}
+				OR = {
+					has_war_with_major = yes
+					has_war_support > 0.75
+				}
+				any_enemy_country = {
+					ic_ratio = {
+						tag = ROOT
+						ratio > 0.5
+					}
+				}
+			}
+
+			cost = 150
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_expected_value = 0.15
+				production_speed_arms_factory_factor = 0.3
+				conversion_cost_civ_to_mil_factor= -0.3
+				conversion_cost_mil_to_civ_factor = -0.3
+				factory_energy_consumption = 0.45
 			}
 			cancel_if_invalid = no
 		}
@@ -782,6 +884,7 @@ ideas = {
 				consumer_goods_expected_value = 0.15
 				production_speed_buildings_factor = -0.1 #SPT change -0.15 -> 0.1
 				production_speed_arms_factory_factor = 0.25 #SPT change, added mil build speed
+				factory_energy_consumption = 0.25
 			}
 
 			cancel_if_invalid = no
@@ -812,6 +915,7 @@ ideas = {
 				production_speed_buildings_factor = -0.05 #SPT change -0.2 -> -0.05
 				production_speed_arms_factory_factor = 0.3 #SPT change, added mil build speed
 				global_building_slots_factor = 0.1
+				factory_energy_consumption = 0.35
 			}
 
 			cancel_if_invalid = no
@@ -820,67 +924,67 @@ ideas = {
    				factor = 0
    			}
 		}
-		spt_jap_controlled_eco_law = { #SPT change, added unique eco law to japan
-			name = spt_jap_controlled_eco_law
+	# 	spt_jap_controlled_eco_law = { #SPT change, added unique eco law to japan
+	# 		name = spt_jap_controlled_eco_law
 
-			picture = SPR_collectivized_society	
+	# 		picture = SPR_collectivized_society	
 
-			allowed = {
-				always = no
-			}
-			allowed_to_remove = {
-				always = no
-			}
-			removal_cost = -1
+	# 		allowed = {
+	# 			always = no
+	# 		}
+	# 		allowed_to_remove = {
+	# 			always = no
+	# 		}
+	# 		removal_cost = -1
 
-			modifier = {
-				civilian_intel_to_others = -20
-				consumer_goods_expected_value = 0.1
-				conscription = -0.015
-				production_speed_arms_factory_factor = 0.25
-				production_speed_dockyard_factor = 0.05
-				industrial_capacity_dockyard = 0.05
-				industrial_capacity_factory = 0.1
-				surrender_limit = 0.1
-			}
+	# 		modifier = {
+	# 			civilian_intel_to_others = -20
+	# 			consumer_goods_expected_value = 0.1
+	# 			conscription = -0.015
+	# 			production_speed_arms_factory_factor = 0.25
+	# 			production_speed_dockyard_factor = 0.05
+	# 			industrial_capacity_dockyard = 0.05
+	# 			industrial_capacity_factory = 0.1
+	# 			surrender_limit = 0.1
+	# 		}
 
-			cancel_if_invalid = no
+	# 		cancel_if_invalid = no
 
-			ai_will_do = {
-   				factor = 0
-   			}
-		}
-		spt_jap_controlled_eco_law_improved = { #SPT change, added unique eco law to japan
-		name = spt_jap_controlled_eco_law_improved
+	# 		ai_will_do = {
+   	# 			factor = 0
+   	# 		}
+	# 	}
+	# 	spt_jap_controlled_eco_law_improved = { #SPT change, added unique eco law to japan
+	# 	name = spt_jap_controlled_eco_law_improved
 
-		picture = SPR_collectivized_society	
+	# 	picture = SPR_collectivized_society	
 
-		allowed = {
-			always = no
-		}
-		allowed_to_remove = {
-			always = no
-		}
-		removal_cost = -1
+	# 	allowed = {
+	# 		always = no
+	# 	}
+	# 	allowed_to_remove = {
+	# 		always = no
+	# 	}
+	# 	removal_cost = -1
 
-		modifier = {
-			civilian_intel_to_others = -20
-			consumer_goods_expected_value = 0.1
-			conscription = -0.015
-			production_speed_arms_factory_factor = 0.3
-			production_speed_dockyard_factor = 0.1
-			industrial_capacity_dockyard = 0.1
-			industrial_capacity_factory = 0.15
-			local_resources_factor = 0.1
-			surrender_limit = 0.1
-		}
+	# 	modifier = {
+	# 		civilian_intel_to_others = -20
+	# 		consumer_goods_expected_value = 0.1
+	# 		conscription = -0.015
+	# 		production_speed_arms_factory_factor = 0.3
+	# 		production_speed_dockyard_factor = 0.1
+	# 		industrial_capacity_dockyard = 0.1
+	# 		industrial_capacity_factory = 0.15
+	# 		local_resources_factor = 0.1
+	# 		surrender_limit = 0.1
+	# 	}
 
-		cancel_if_invalid = no
+	# 	cancel_if_invalid = no
 
-		ai_will_do = {
-			   factor = 0
-		   }
-	}
+	# 	ai_will_do = {
+	# 		   factor = 0
+	# 	   }
+	# }
 
 		capital_investment_model = {
 			name = capital_investment_model
@@ -903,7 +1007,45 @@ ideas = {
 				trade_opinion_factor = 0.75
 				stability_factor = -0.15
 				political_power_factor = -0.1
+				factory_energy_consumption = 0.35
 
+			}
+
+			cancel_if_invalid = no
+
+			ai_will_do = {
+   				factor = 0
+   			}
+		}
+
+		JAP_war_communism_idea = {
+
+			picture = new_economic_policy
+
+			allowed = {
+				always = no
+			}
+			allowed_to_remove = {
+				OR = {
+					surrender_progress > 0.75
+					NOT = { has_government = communism }
+				}
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_expected_value = 0.15
+				production_speed_industrial_complex_factor = -0.1
+				global_building_slots_factor = 0.1
+				factory_energy_consumption = 0.3
+				war_support_factor = 0.1
+				stability_factor = -0.1
+				conscription = 0.02
+				industrial_capacity_factory = 0.05
+				industrial_capacity_dockyard = 0.05
+				production_speed_arms_factory_factor = 0.2
+				production_speed_dockyard_factor = 0.2
 			}
 
 			cancel_if_invalid = no
@@ -1001,6 +1143,14 @@ ideas = {
 					}
 					NOT = { has_completed_focus = GER_autarky_efforts }
 				}
+
+				if = {
+					limit = {
+						original_tag = PRC
+						has_dlc = "No Compromise, No Surrender"
+					}
+					NOT = { has_completed_focus = PRC_promote_paper_bills }
+				}
 			}
 			rule = { can_access_market = no } #SPT
 			cost = 150
@@ -1079,6 +1229,14 @@ ideas = {
 				# 	}
 				# 	NOT = { has_completed_focus = GER_autarky_efforts }
 				# }
+
+				if = {
+					limit = {
+						original_tag = PRC
+						has_dlc = "No Compromise, No Surrender"
+					}
+					NOT = { has_completed_focus = PRC_promote_paper_bills }
+				}
 			}
 			rule = { can_access_market = no } #SPT
 			cost = 150
@@ -1344,6 +1502,34 @@ ideas = {
 
 			available = {
 				has_war = yes
+
+				IF = {
+					limit = {
+						NOT = {
+							original_tag = JAP
+						}
+					}
+					OR = {
+						has_government = fascism
+						has_government = communism
+					}
+				}
+				ELSE_IF = {
+					limit = {
+						original_tag = JAP
+					}
+					OR = {
+						has_government = fascism
+						has_government = communism
+						AND = {
+							has_completed_focus = JAP_sea_state_general_mobilization_law
+							has_government = neutrality
+						}
+						# SPTchange evil fuckery hope this works - luce
+						has_idea = national_defense_state
+					}
+				}
+
 				OR = {
 					has_government = fascism
 					has_government = communism
@@ -1355,18 +1541,20 @@ ideas = {
 						has_idea = partial_economic_mobilisation
 					}
 				}
+
 				OR = {
 					NOT = {	tag = SOV }
 					NOT = { has_opinion_modifier = MR_pact }
 				}
 
-				if = {
+				IF = {
 					limit = {
 						original_tag = CHI
 						has_dlc = "Waking the Tiger"
 					}
 					NOT = { has_idea = CHI_nine_power_treaty }
 				}
+
 			}
 
 			rule = {

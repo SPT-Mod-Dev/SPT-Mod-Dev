@@ -1678,12 +1678,20 @@ focus_tree = {
 		relative_position_id = POR_second_navy_reequipment
 		cost = 10
 		search_filters = {FOCUS_FILTER_RESEARCH}
-		completion_reward = { 	
+		completion_reward = { 
+
+			add_mastery_bonus = {
+				name = POR_submarine_effort
+				bonus = 0.1
+				days = 240
+				grand_doctrine = new_convoy_raiding
+				track = submarines
+			}
 			add_doctrine_cost_reduction = {
 				name = POR_submarine_effort
-			    cost_reduction = 0.5
+			    cost_reduction = 0.2
 			    uses = 1
-			    category = cat_trade_interdiction			   
+			    category = naval_doctrine			   
 			}
 
 			add_tech_bonus = {
@@ -1804,7 +1812,7 @@ focus_tree = {
 				name = POR_arsenal_do_alfeite
 			    bonus = 1.0
 			    uses = 1
-			    category = cl_tech	   
+			    category = ca_tech	   
 			}
 
 			112 = { #Lisbon
@@ -1851,7 +1859,7 @@ focus_tree = {
 				name = POR_national_cruiser_production
 			    bonus = 1.0
 			    uses = 1
-			    category = cl_tech	   
+			    category = ca_tech	   
 			}
 
 			navy_experience = 50
@@ -1880,11 +1888,13 @@ focus_tree = {
 			    uses = 2
 			    category = bb_tech	   
 			}
-			add_doctrine_cost_reduction = {
+
+			add_mastery_bonus = {
 				name = POR_battleship_effort
-			    cost_reduction = 0.5
-			    uses = 1
-			    category = cat_fleet_in_being	   
+				bonus = 0.2
+				days = 240
+				grand_doctrine = new_fleet_in_being
+				track = capital_ships
 			}
 		}
 	}
@@ -1911,12 +1921,15 @@ focus_tree = {
 			    uses = 2
 			    category = cv_tech	   
 			}
-			add_doctrine_cost_reduction = {
-  				name = POR_carrier_effort
-  				cost_reduction = 0.5
-  				uses = 1
-  				category = base_strike_main
-  			}
+
+			add_mastery_bonus = {
+				name = POR_carrier_effort
+				bonus = 0.2
+				days = 240
+				grand_doctrine = new_base_strike
+				track = carriers
+			}
+			
 		}
 	}
 
@@ -3254,7 +3267,19 @@ focus_tree = {
 		relative_position_id = POR_the_iberian_socialist_union
 		cost = 10
 		completion_reward = {
-			create_faction = POR_popular_front_bloc
+			IF = {
+				limit = {
+					has_dlc = "No Compromise, No Surrender"
+				}
+				set_rule = { can_create_factions = yes }
+				create_faction_from_template = faction_template_POR_popular_front_bloc
+				add_faction_initiative = 1
+			}
+			ELSE = {
+				set_rule = { can_create_factions = yes }
+				create_faction_from_template = faction_template_POR_popular_front_bloc
+			}
+
 			every_other_country = {
 				limit = {
 					capital_scope = { is_on_continent = europe }
@@ -3800,17 +3825,24 @@ focus_tree = {
 					NOT = { is_in_faction_with = ROOT } 
 				}
 			}
+			729 = {
+				is_controlled_by_ROOT_or_subject = yes
+			}
 		}
 
 		bypass = {		
 		}
-		prerequisite = { focus = POR_they_need_our_help focus = POR_allow_free_elections focus = POR_the_popular_front_bloc }			
+
+		prerequisite = { focus = POR_they_need_our_help focus = POR_allow_free_elections focus = POR_the_popular_front_bloc }	
+
 		icon = GFX_focus_chi_united_front
+
 		x = -2		
 		y = 1
-
 		relative_position_id = POR_they_need_our_help
+
 		cost = 10
+
 		completion_reward = { 
 			592 = {
 				owner =  {				
@@ -5001,7 +5033,18 @@ focus_tree = {
 		available = {
 			JAP = {
 				exists = yes
-				NOT = { has_war_with = ROOT }
+				NOT = { 
+					has_war_with = ROOT 
+					is_ally_with = ROOT
+				}
+			}
+			OR = {
+				729 = {
+					is_controlled_by_ROOT_or_subject = yes
+				}
+				721 = {
+					is_controlled_by_ROOT_or_subject = yes
+				}
 			}
 		}
 
@@ -5016,6 +5059,7 @@ focus_tree = {
 
 		relative_position_id = POR_proudly_alone
 		cost = 10
+
 		completion_reward = { 
 			create_wargoal = {
 				target = JAP
@@ -5031,6 +5075,7 @@ focus_tree = {
 				}
 			}
 		}
+
 	}
 
 	focus = {
@@ -5231,15 +5276,21 @@ focus_tree = {
 		relative_position_id = POR_camisas_azuis
 		cost = 10
 		search_filters = {FOCUS_FILTER_MANPOWER FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_INDUSTRY}
+
 		completion_reward = { 	
+
 			add_ideas = POR_the_fifth_empire
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			remove_ideas = POR_unstable_republic
-			if = {
+			IF = {
 				limit = { is_in_faction = yes }
 				leave_faction = yes
 			}
 			set_rule = { can_create_factions = yes }
 			set_rule = { can_join_factions = no }
+
 			every_other_country = {
 				limit = {
 					NOT = { is_puppet_of = ROOT }
@@ -5253,6 +5304,9 @@ focus_tree = {
 					modifier = embargo
 				}
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			set_cosmetic_tag = POR_empire
 		}
 	}
@@ -5268,6 +5322,7 @@ focus_tree = {
 						controls_state = 594
 						controls_state = 325
 						controls_state = 613
+						controls_state = 1035
 						controls_state = 622
 						controls_state = 604
 						controls_state = 615
@@ -5472,7 +5527,18 @@ focus_tree = {
 		available = {
 			JAP = {
 				exists = yes
-				NOT = { is_in_faction_with = ROOT }
+				NOT = { 
+					has_war_with = ROOT 
+					is_ally_with = ROOT
+				}
+			}
+			OR = {
+				729 = {
+					is_controlled_by_ROOT_or_subject = yes
+				}
+				721 = {
+					is_controlled_by_ROOT_or_subject = yes
+				}
 			}
 		}
 

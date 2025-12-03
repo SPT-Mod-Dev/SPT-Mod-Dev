@@ -146,21 +146,43 @@ bookmarks = {
 				ITA_a_colonial_empire
 			}		
 		}
-		"JAP"={
+		JAP = {
 			history = "JAP_GATHERING_STORM_DESC"
-			ideology = fascism
+			available = {  NOT = { has_dlc = "No Compromise, No Surrender" } }
+			ideology = neutrality
+			new_content = yes
+			override_leader_portrait = JAP_emperor_hirohito
 			ideas = {
-				state_shintoism
-				#JAP_zaibatsus #SPT change
-				JAP_interservice_rivalry_balanced
+				JAP_1936_fake_state_shintoism_idea
+				JAP_1936_fake_industrial_idea
 				JAP_militarism
-			}	
+			}
 			focuses = {
-				#SPT change to showcase relevant focuses instead and custom ones too
-				SPT_JAP_taisei_yokusankai
-				SPT_JAP_strike_south_completed
-				SPT_JAP_full_eco_control
-			}			
+				JAP_sea_purge_the_kodoha_faction
+				# JAP_the_unthinkable_option
+				# JAP_support_the_kodoha_faction
+			}
+		}
+
+		JAP = {
+			history = "JAP_GATHERING_STORM_DESC"
+			available = {  has_dlc = "No Compromise, No Surrender" }
+			ideology = neutrality
+			new_content = yes
+			override_leader_portrait = JAP_emperor_hirohito
+			ideas = {
+				JAP_1936_fake_state_shintoism_idea
+				JAP_1936_fake_industrial_idea
+				JAP_militarism
+			}
+			focuses = {
+				#SPT change to showcase relevant focuses instead
+				JAP_sea_purge_the_kodoha_faction
+				JAP_the_eternal_kingdom
+				JAP_revere_the_emperor_destroy_the_traitors
+				# JAP_revere_the_emperor_destroy_the_traitors
+				# JAP_okadas_military_purge_speech
+			}
 		}
 		"SOV"={
 			history = "SOV_GATHERING_STORM_DESC"
@@ -440,19 +462,21 @@ bookmarks = {
 			}
 		}
 
-		"MAN"={
+		MAN = {
 			minor = yes
-			history = "MAN_GATHERING_STORM_DESC"
+			available = { has_dlc = "No Compromise, No Surrender" } 
+			history = "MAN_TSR_BLITZKRIEG_DESC"
 			ideology = fascism
+			new_content = yes
 			ideas = {
-				MAN_banditry
-				MAN_kwantung_veto
-				MAN_low_legitimacy_5
+				MAN_the_kangde_emperor
+				MAN_five_year_plan_industry
+				JAP_new_order_in_east_asia_idea
 			}
 			focuses = {
-				#SPT change to showcase relevant focuses instead
-				SPT_MAN_the_japanese_colony
-				SPT_MAN_new_chinese_economic_policy
+				MAN_tsr_empire_of_manchukuo
+				MAN_tsr_mangyo
+				MAN_tsr_the_two_emperors
 			}
 		}
 
