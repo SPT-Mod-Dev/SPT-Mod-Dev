@@ -70,7 +70,6 @@
  - Now transfers Oslo and spawns some divisions when declaring on Norway
  - Subsidize Hoesch-Benzin no longer bypasses
 
-
 #### Norway
  - Vanilla tree added, now must be invaded by Germany
  - Nordland must be controlled by Germany rather than fascist Norway for the civ shipments
