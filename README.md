@@ -56,9 +56,11 @@
  - Added Manchukuo and Siam to Japan's auto-war dec
  - Fixed a bug where penalty to defense/breakthrough from enemy air superiority was effectively 0% (now -25%). 
    - See 3.13.7 for intended penalty curve.
+ - Performance improvements via population reduction and disabling ai markets
 
 #### AI
  - Improved Germany behaviour to represent current strategies
+ - Austria now more likely to complete industry focuses
 
 #### France
  - Removed subsequent communists in government events
@@ -67,6 +69,7 @@
 #### Germany
  - Now transfers Oslo and spawns some divisions when declaring on Norway
  - Subsidize Hoesch-Benzin no longer bypasses
+
 
 #### Norway
  - Vanilla tree added, now must be invaded by Germany
@@ -79,10 +82,22 @@
  - Focus 'Heavy Industry' time reduced from 70 to 35 days
  - Focus 'PC of Mortar Armament' time increased from 35 to 70 days
  - Focus' Merge Tank and Materiel Plants' time reduced from 70 to 35 days
+ - Foreign Expert decisions fixed for no asia
+
+#### Mongolia
+ - Focus availability fixed for no asia
 
 #### USA
  - Decision 'Establish the Greenland Patrol' poliitcal power cost 50->0
  - Decision 'Establish the Greenland Patrol' may now be taken if anyone annexes Greenland
+
+#### Canada
+ - War requirement moved from 'Commit to the War' to 'Send in the Zombies'
+ - 'Mine the Shield' time reduced from 70 to 35 days
+ - 'Montreal Laboratory Collaboraton' time reduced from 70 to 35 days
+ - 'Long Branch Arsenal' time reduced from 70 to 35 days
+ - 'Independent Command' time reduced from 70 to 35 days
+
 
 ### 3.14.16 La Vida Loca
 
