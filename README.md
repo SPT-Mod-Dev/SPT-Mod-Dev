@@ -11,6 +11,7 @@
  - Added Manchukuo and Siam to Japan's auto-war dec
  - Fixed a bug where penalty to defense/breakthrough from enemy air superiority was effectively 0% (now -25%). 
    - See 3.13.7 for intended penalty curve.
+ - Performance improvements via population reduction and disabling ai markets
 
 #### AI
  - Improved Germany behaviour to represent current strategies
