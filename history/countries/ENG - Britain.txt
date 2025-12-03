@@ -95,10 +95,15 @@ if = {
 
 IRQ = {
 	give_military_access = ENG
-	diplomatic_relation = { 
-		country = ENG
-		relation = OFFER_AIR_BASE_ACCESS 
-		active = yes
+	IF = {
+		limit = {
+			has_dlc = "No Compromise, No Surrender"
+		}
+		diplomatic_relation = { 
+			country = ENG
+			relation = OFFER_AIR_BASE_ACCESS 
+			active = yes
+		}
 	}
 }
 

@@ -4705,7 +4705,9 @@ initial_show_position = {
 					specialization = specialization_nuclear
 					value = 0.5
 				}
-			}			
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_ideas =  PHI_sea_of_cobalt_idea  			
 		}
 		search_filters = { FOCUS_FILTER_RESEARCH }
 	}
@@ -4892,7 +4894,10 @@ initial_show_position = {
 		available_if_capitulated = no
 	
 		completion_reward = {
-			add_ideas =  PHI_cobalt_supremacy_idea  
+			swap_ideas = {
+				remove_idea = PHI_sea_of_cobalt_idea
+				add_idea = PHI_cobalt_supremacy_idea
+			}
 		}
 	}
 
@@ -5100,7 +5105,8 @@ initial_show_position = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = PHI_philippine_resistance_movement_dynamic_modifier_tt
-			add_to_variable = { PHI_resistance_resistance_target_on_our_occupied_states = 0.15 tooltip = resistance_target_on_our_occupied_states_tt }
+			add_to_variable = { PHI_resistance_resistance_target_on_our_occupied_states = 0.10 tooltip = resistance_target_on_our_occupied_states_tt }
+			add_to_variable = { PHI_resistance_resistance_damage_to_garrison_on_our_occupied_states = 0.05 tooltip = resistance_damage_to_garrison_on_our_occupied_states_tt }
 			add_to_variable = { PHI_resistance_communism_drift = 0.02 tooltip = communism_drift_tt }
 			
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -5148,18 +5154,18 @@ initial_show_position = {
 					has_completed_focus = PHI_encourage_chinese_immigration
 				}
 				custom_effect_tooltip = PHI_philippine_resistance_movement_dynamic_modifier_tt
-				add_to_variable = { PHI_resistance_resistance_target_on_our_occupied_states = 0.2 tooltip = resistance_target_on_our_occupied_states_tt }
+				add_to_variable = { PHI_resistance_resistance_target_on_our_occupied_states = 0.10 tooltip = resistance_target_on_our_occupied_states_tt }
 			}
 			else = {
 				custom_effect_tooltip = PHI_if_chinese_immigration_tt
 				effect_tooltip = {
 					custom_effect_tooltip = PHI_philippine_resistance_movement_dynamic_modifier_tt
-					add_to_variable = { PHI_resistance_resistance_target_on_our_occupied_states = 0.2 tooltip = resistance_target_on_our_occupied_states_tt }
+					add_to_variable = { PHI_resistance_resistance_target_on_our_occupied_states = 0.10 tooltip = resistance_target_on_our_occupied_states_tt }
 				}
 				custom_effect_tooltip = generic_skip_one_line_tt
 				custom_effect_tooltip = generic_current_effects
 				custom_effect_tooltip = PHI_philippine_resistance_movement_dynamic_modifier_tt
-				add_to_variable = { PHI_resistance_resistance_target_on_our_occupied_states = 0.1 tooltip = resistance_target_on_our_occupied_states_tt }
+				add_to_variable = { PHI_resistance_resistance_target_on_our_occupied_states = 0.05 tooltip = resistance_target_on_our_occupied_states_tt }
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -5268,7 +5274,8 @@ initial_show_position = {
 			custom_effect_tooltip = PHI_philippine_resistance_movement_dynamic_modifier_tt
 			add_to_variable = { PHI_resistance_special_forces_cap = 0.20 tooltip = special_forces_cap_tt }
 			add_to_variable = { PHI_resistance_terrain_trait_xp_gain_factor = 0.20 tooltip = terrain_trait_xp_gain_factor_tt }
-			add_to_variable = { PHI_resistance_resistance_target_on_our_occupied_states = 0.1 tooltip = resistance_target_on_our_occupied_states_tt }
+			add_to_variable = { PHI_resistance_resistance_target_on_our_occupied_states = 0.05 tooltip = resistance_target_on_our_occupied_states_tt }
+			add_to_variable = { PHI_resistance_resistance_damage_to_garrison_on_our_occupied_states = 0.05 tooltip = resistance_damage_to_garrison_on_our_occupied_states_tt }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 

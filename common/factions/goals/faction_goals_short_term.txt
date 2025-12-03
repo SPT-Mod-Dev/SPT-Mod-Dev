@@ -48,6 +48,7 @@ faction_goal_one_germany = {
 	complete_effect = {
 		add_faction_power_projection = 50
 		custom_effect_tooltip = THE_FACTION_LEADER
+		add_faction_initiative = 1
 		add_stability = 0.05
 	}
 	ai_will_do = {
@@ -75,11 +76,12 @@ faction_goal_building_up_guam = {
 		FROM = { NOT = { controls_state = 638 } }
 	}
 	completed = {
-		638 = { naval_base > 3 }
+		638 = { naval_base > 2 }
 	}
 	complete_effect = {
-		add_faction_power_projection = 50 
+		add_faction_power_projection = 100 
 		custom_effect_tooltip = THE_FACTION_LEADER
+		add_faction_initiative = 1
 		add_war_support = 0.02
 	}
 	ai_will_do = {
@@ -126,6 +128,10 @@ faction_goal_guerilla_expansion = {
 	}
 	complete_effect = {
 		add_faction_power_projection = 100
+		custom_effect_tooltip = generic_skip_one_line_tt
+		custom_effect_tooltip = THE_FACTION_LEADER
+		add_faction_initiative = 1
+		custom_effect_tooltip = generic_skip_one_line_tt
 		every_collection_element = {
 			input = {
 				input = game:scope
@@ -935,7 +941,7 @@ faction_goal_ensure_military_r_d = {
 				name = OWNS_LISTED_STATE
 			}
 			custom_effect_tooltip = OWNS_LISTED_STATE
-			add_faction_influence_ratio = 0.05
+			OWNER = { add_faction_influence_ratio = 0.05 }
 		}
 		every_faction_member = {
 			if = {
@@ -1041,7 +1047,7 @@ faction_goal_military_infrastructure = {
 								NOT = { is_in_faction_with = ROOT }
 							}
 						}
-						infrastructure < 5
+						infrastructure < 4
 					}
 				}
 				name = COLLECTION_FACTION_BORDER_STATES_FULL_INFRASTRUCTURE
@@ -1061,12 +1067,12 @@ faction_goal_military_infrastructure = {
 								NOT = { is_in_faction_with = ROOT }
 							}
 						}
-						infrastructure < 5
+						infrastructure < 4
 					}
 				}
 				name = COLLECTION_FACTION_BORDER_STATES_FULL_INFRASTRUCTURE
 			}
-			value < 1
+			value < 10
 		}
 	}
 	complete_effect = {
@@ -1268,6 +1274,9 @@ faction_goal_war_on_democracy = {
 		}
 		NOT = { original_tag = SOV } # SPTchange
 		NOT = { original_tag = GER } # SPTChange they have a more interesting one
+		faction_leader = {
+			NOT = { has_government = democratic }
+		}
 		any_country = {
 			has_government = democratic
 			is_on_same_continent_as = FROM
@@ -1338,6 +1347,7 @@ faction_goal_an_armored_fist = {
 				limit = {
 					is_unit_leader = yes 
 					OR = {
+						has_trait = armor_officer
 						has_trait = panzer_leader
 						has_trait = panzer_expert 
 					}
@@ -1379,6 +1389,7 @@ faction_goal_an_infantry_army = {
 				limit = {
 					is_unit_leader = yes 
 					OR = {
+						has_trait = infantry_officer
 						has_trait = infantry_leader
 						has_trait = infantry_expert 
 					}
