@@ -1553,10 +1553,14 @@ focus_tree = {
                 category = land_doctrine
             }
 
-            set_technology = {
-                tech_mountaineers = 1
-                popup = no
-            }
+                IF = {
+                    limit = { NOT = { has_tech = tech_mountaineers } }
+                    custom_effect_tooltip = generic_skip_one_line_tt
+                    set_technology = { 
+                        tech_mountaineers = 1 
+                        popup = no
+                    }
+                }
 
             division_template = {
                 name = "Mountain Lions"
@@ -7557,8 +7561,6 @@ focus_tree = {
             add_to_variable = { RAJ_autonomy_gain_independence_movement = 0.1 tooltip = autonomy_gain_tt }
             add_to_variable = { RAJ_resistance_activity_independence_movement = 0.1 tooltip =  resistance_activity_tt }
             add_to_variable = { RAJ_resistance_target_independence_movement = 0.1 tooltip =  resistance_target_tt }
-
-            set_country_flag = RAJ_quit_india_movement
         }
     }
 

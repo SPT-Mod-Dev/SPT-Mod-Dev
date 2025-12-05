@@ -8652,6 +8652,8 @@ form_maphilindo_category = {
 				state = 628
 				state = 625
 				state = 627
+				state = 1021
+				state = 1022
 				state = 1025
 				state = 1026
 				state = 1027
@@ -8671,12 +8673,14 @@ form_maphilindo_category = {
 				controls_state = 667
 				controls_state = 738
 				controls_state = 669
+				#controls_state = 1022 # Commented out to prevent edge cases as it is impassible terrain
 			}
 			# British Malaya
 			custom_trigger_tooltip = {
 				tooltip = form_majapahit_malaya_required_states_tt
 				controls_state = 336
 				controls_state = 333
+				controls_state = 1021
 				controls_state = 1023
 				controls_state = 1024
 			}
@@ -11550,6 +11554,7 @@ form_turan_category = {
 				controls_state = 353
 				controls_state = 352
 				controls_state = 800
+				controls_state = 799
 			}
 			# Syria
 			custom_trigger_tooltip = {
@@ -11599,6 +11604,9 @@ form_turan_category = {
 				controls_state = 200
 				controls_state = 196
 				controls_state = 137
+				controls_state = 827
+				controls_state = 828
+				controls_state = 821
 			}
 			# Urals + Central Asia
 			custom_trigger_tooltip = {
@@ -11628,6 +11636,7 @@ form_turan_category = {
 				controls_state = 651
 				controls_state = 249
 				controls_state = 256
+				controls_state = 1007 
 			}
 			# Siberia
 			custom_trigger_tooltip = {
@@ -11653,6 +11662,8 @@ form_turan_category = {
 				controls_state = 637
 				controls_state = 822
 				controls_state = 878
+				controls_state = 575
+				controls_state = 578 
 			}
 		}
 
@@ -11753,6 +11764,9 @@ form_turan_category = {
 				651 = { add_core_of = TUR }
 				249 = { add_core_of = TUR }
 				256 = { add_core_of = TUR }
+				1007 = { add_core_of = TUR }
+				571 = { add_core_of = TUR }
+				570 = { add_core_of = TUR }
 				#SIBERIA
 				654 = { add_core_of = TUR }
 				40 = { add_core_of = TUR }
@@ -11871,6 +11885,7 @@ form_turan_category = {
 			controls_state = 760
 			controls_state = 617
 			controls_state = 618
+			controls_state = 1042
 			# Xibei San Ma
 			controls_state = 604
 			controls_state = 755
@@ -11879,6 +11894,9 @@ form_turan_category = {
 			controls_state = 283
 			controls_state = 753
 			controls_state = 616
+			controls_state = 1040
+			controls_state = 1044
+			controls_state = 1045
 			# Nationalist China
 			controls_state = 752
 			controls_state = 751
@@ -11896,6 +11914,8 @@ form_turan_category = {
 			controls_state = 761
 			controls_state = 714
 			controls_state = 717
+			controls_state = 1039 
+			controls_state = 1043 
 		}
 
 		visible = {
@@ -11912,6 +11932,7 @@ form_turan_category = {
 			760 = { add_core_of = ROOT }
 			617 = { add_core_of = ROOT }
 			618 = { add_core_of = ROOT }
+			1042 = { add_core_of = ROOT }
 			# China
 			604 = { add_dynamic_modifier = { modifier = turanist_assimilation } }
 			755 = { add_dynamic_modifier = { modifier = turanist_assimilation } }
@@ -11930,12 +11951,17 @@ form_turan_category = {
 			714 = { add_dynamic_modifier = { modifier = turanist_assimilation } }
 			717 = { add_dynamic_modifier = { modifier = turanist_assimilation } }
 			746 = { add_dynamic_modifier = { modifier = turanist_assimilation } }
+			1040 = { add_dynamic_modifier = { modifier = turanist_assimilation } }
+			1044 = { add_dynamic_modifier = { modifier = turanist_assimilation } }
+			1045 = { add_dynamic_modifier = { modifier = turanist_assimilation } }
 			#Mongolia
 			330 = { add_dynamic_modifier = { modifier = turanist_assimilation } }
 			817 = { add_dynamic_modifier = { modifier = turanist_assimilation } }
 			818 = { add_dynamic_modifier = { modifier = turanist_assimilation } }
 			819 = { add_dynamic_modifier = { modifier = turanist_assimilation } }
 			820 = { add_dynamic_modifier = { modifier = turanist_assimilation } }
+			1039 = { add_dynamic_modifier = { modifier = turanist_assimilation } }
+			1043 = { add_dynamic_modifier = { modifier = turanist_assimilation } }
 		}
 
 		ai_will_do = {
@@ -17316,6 +17342,10 @@ greater_mongolia_category = {
 			add_state_core = 616
 			add_state_core = 1043 
 			add_state_core = 1040 
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			add_state_core = 237 
 
 			hidden_effect = {
 			

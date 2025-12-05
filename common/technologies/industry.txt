@@ -19,6 +19,11 @@ technologies = {
 			leads_to_tech = dispersed_industry
 			research_cost_coeff = 1
 		}
+
+		path = {
+			leads_to_tech = coal_refining
+			research_cost_coeff = 1
+		}
 		
 		path = {
 			leads_to_tech = coal_refining
@@ -258,7 +263,7 @@ technologies = {
 			industry
 			cat_production
 			construction_tech
-			excavation_tech
+			excavation_tech		
 		}
 	}
 	
@@ -304,7 +309,9 @@ technologies = {
 	concentrated_industry = {
 
 		industrial_capacity_factory = 0.15
-		industrial_capacity_dockyard = 0.125
+		industrial_capacity_dockyard = 0.125 #spt change, 0.1 -> 0.125
+		#industrial_capacity_factory_powered = 0.075 
+		#industrial_capacity_dockyard_powered = 0.05 
 		global_building_slots_factor = 0.20
 		
 		path = {
@@ -312,7 +319,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		path = {
+		path = { #spt change, can multiclass output techs
 			leads_to_tech = dispersed_industry2
 			research_cost_coeff = 1.2
 		}
@@ -380,15 +387,17 @@ technologies = {
 	concentrated_industry2 = {
 
 		industrial_capacity_factory = 0.15
-		industrial_capacity_dockyard = 0.125
+		industrial_capacity_dockyard = 0.125 #spt change, 0.1 -> 0.125
+		#industrial_capacity_factory_powered = 0.1 
+		#industrial_capacity_dockyard_powered = 0.075 
 		global_building_slots_factor = 0.20
 		
 		path = {
 			leads_to_tech = concentrated_industry3 
 			research_cost_coeff = 1
 		}
-
-		path = {
+		
+		path = { #spt change, can multiclass output techs
 			leads_to_tech = dispersed_industry3
 			research_cost_coeff = 1.2
 		}
@@ -396,10 +405,10 @@ technologies = {
 		research_cost = 2
 		start_year = 1937
 
-		XOR = {
+		XOR = { #spt change, exclusivity check for multiclassing
 			dispersed_industry2
 		}
-
+		
 		folder = {
 			name = industry_folder
 			position = { x = 4 y = 4 }
@@ -428,7 +437,9 @@ technologies = {
 	concentrated_industry3 = {
 
 		industrial_capacity_factory = 0.15
-		industrial_capacity_dockyard = 0.125
+		industrial_capacity_dockyard = 0.125 #spt change, 0.1 -> 0.125
+		#industrial_capacity_factory_powered = 0.125 
+		#industrial_capacity_dockyard_powered = 0.1 
 		global_building_slots_factor = 0.20
 		
 		path = {
@@ -436,7 +447,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		path = {
+		path = { #spt change, can multiclass output techs
 			leads_to_tech = dispersed_industry4
 			research_cost_coeff = 1.2
 		}
@@ -444,10 +455,10 @@ technologies = {
 		research_cost = 2
 		start_year = 1939
 
-		XOR = {
+		XOR = { #spt change, check for multiclassing
 			dispersed_industry3
 		}
-		
+
 		folder = {
 			name = industry_folder
 			position = { x = 4 y = 6 }
@@ -475,7 +486,9 @@ technologies = {
 	concentrated_industry4 = {
 
 		industrial_capacity_factory = 0.15
-		industrial_capacity_dockyard = 0.125
+		industrial_capacity_dockyard = 0.1 #spt change, 0.1 -> 0.125
+		#industrial_capacity_factory_powered = 0.15 
+		#industrial_capacity_dockyard_powered = 0.1 
 		global_building_slots_factor = 0.20
 		
 		path = {
@@ -483,7 +496,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		path = {
+		path = { #spt change, can multiclass output techs
 			leads_to_tech = dispersed_industry5
 			research_cost_coeff = 1.2
 		}
@@ -491,10 +504,10 @@ technologies = {
 		research_cost = 2
 		start_year = 1941
 
-		XOR = {
+		XOR = { #spt change, check for multiclassing
 			dispersed_industry4
 		}
-		
+
 		folder = {
 			name = industry_folder
 			position = { x = 4 y = 8 }
@@ -522,13 +535,15 @@ technologies = {
 	concentrated_industry5 = {
 
 		industrial_capacity_factory = 0.15
-		industrial_capacity_dockyard = 0.125
+		industrial_capacity_dockyard = 0.125 #spt change, 0.1 -> 0.125
+		#industrial_capacity_factory_powered = 0.15 
+		#industrial_capacity_dockyard_powered = 0.1 
 		global_building_slots_factor = 0.20
 		
 		research_cost = 2
 		start_year = 1943
 
-		XOR = {
+		XOR = { #spt change, check for multiclassing
 			dispersed_industry5
 		}
 		
@@ -564,7 +579,9 @@ technologies = {
 	dispersed_industry = {
 
 		industrial_capacity_factory = 0.1
-		industrial_capacity_dockyard = 0.125
+		industrial_capacity_dockyard = 0.125 #spt change, 0.1 -> 0.125
+		#industrial_capacity_factory_powered = 0.05 
+		#industrial_capacity_dockyard_powered = 0.05 
 		line_change_production_efficiency_factor = 0.1
 		production_factory_start_efficiency_factor = 0.05
 		industry_air_damage_factor = -0.15
@@ -574,8 +591,8 @@ technologies = {
 			leads_to_tech = dispersed_industry2 
 			research_cost_coeff = 1
 		}
-
-		path = {
+		
+		path = { #spt change, can multiclass output techs
 			leads_to_tech = concentrated_industry2
 			research_cost_coeff = 1.2
 		}
@@ -643,7 +660,9 @@ technologies = {
 	dispersed_industry2 = {
 
 		industrial_capacity_factory = 0.1
-		industrial_capacity_dockyard = 0.125
+		industrial_capacity_dockyard = 0.125 #spt change, 0.1 -> 0.125
+		#industrial_capacity_factory_powered = 0.075 
+		#industrial_capacity_dockyard_powered = 0.075 
 		line_change_production_efficiency_factor = 0.1
 		production_factory_start_efficiency_factor = 0.05
 		industry_air_damage_factor = -0.10
@@ -654,7 +673,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		path = {
+		path = { #spt change, can multiclass output techs
 			leads_to_tech = concentrated_industry3
 			research_cost_coeff = 1.2
 		}
@@ -662,7 +681,7 @@ technologies = {
 		research_cost = 2
 		start_year = 1937
 
-		XOR = {
+		XOR = { #spt change, check for multiclassing
 			concentrated_industry2
 		}
 		
@@ -693,7 +712,9 @@ technologies = {
 	dispersed_industry3 = {
 
 		industrial_capacity_factory = 0.1
-		industrial_capacity_dockyard = 0.125
+		industrial_capacity_dockyard = 0.1 #spt change, 0.1 -> 0.125
+		#industrial_capacity_factory_powered = 0.075 #TODO SEA set value
+		#industrial_capacity_dockyard_powered = 0.075 #TODO SEA set value
 		line_change_production_efficiency_factor = 0.1
 		production_factory_start_efficiency_factor = 0.05
 		industry_air_damage_factor = -0.10
@@ -704,7 +725,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		path = {
+		path = { #spt change, can multiclass output techs
 			leads_to_tech = concentrated_industry4
 			research_cost_coeff = 1.2
 		}
@@ -712,10 +733,10 @@ technologies = {
 		research_cost = 2
 		start_year = 1939
 
-		XOR = {
+		XOR = { #spt change, check for multiclassing
 			concentrated_industry3
 		}
-		
+
 		folder = {
 			name = industry_folder
 			position = { x = 6 y = 6 }
@@ -743,7 +764,9 @@ technologies = {
 	dispersed_industry4 = {
 
 		industrial_capacity_factory = 0.1
-		industrial_capacity_dockyard = 0.125
+		industrial_capacity_dockyard = 0.125 #spt change, 0.1 -> 0.125
+		#industrial_capacity_factory_powered = 0.1 
+		#industrial_capacity_dockyard_powered = 0.1 
 		line_change_production_efficiency_factor = 0.1
 		production_factory_start_efficiency_factor = 0.05
 		industry_air_damage_factor = -0.10
@@ -754,7 +777,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		path = {
+		path = { #spt change, can multiclass output techs
 			leads_to_tech = concentrated_industry5
 			research_cost_coeff = 1.2
 		}
@@ -762,10 +785,10 @@ technologies = {
 		research_cost = 2
 		start_year = 1941
 
-		XOR = {
+		XOR = { #spt change, check for multiclassing
 			concentrated_industry4
 		}
-		
+
 		folder = {
 			name = industry_folder
 			position = { x = 6 y = 8 }
@@ -793,7 +816,9 @@ technologies = {
 	dispersed_industry5 = {
 
 		industrial_capacity_factory = 0.1
-		industrial_capacity_dockyard = 0.125
+		industrial_capacity_dockyard = 0.125 #spt change, 0.1 -> 0.125
+		#industrial_capacity_factory_powered = 0.1 
+		#industrial_capacity_dockyard_powered = 0.1 
 		line_change_production_efficiency_factor = 0.1
 		production_factory_start_efficiency_factor = 0.05
 		industry_air_damage_factor = -0.10
@@ -802,8 +827,8 @@ technologies = {
 		
 		research_cost = 2
 		start_year = 1943
-
-		XOR = {
+		
+		XOR = { #spt change, check for multiclassing
 			concentrated_industry5
 		}
 		
@@ -1227,7 +1252,7 @@ technologies = {
 				FIN_nokia_tires_after_tech_effect = yes
 			}
 		}
-
+		
 		ai_will_do = {
 			factor = 5
 			modifier = {
@@ -1307,8 +1332,8 @@ technologies = {
 			}			
 			modifier = {
 				factor = 25
-				original_tag = GER
-				date > "1937.1.1"
+				original_tag = GER	
+				date > "1937.1.1"	
 			}
 		}
 		
@@ -1529,8 +1554,8 @@ technologies = {
 			}			
 			modifier = {
 				factor = 25
-				original_tag = GER
-				date > "1938.1.1"
+				original_tag = GER	
+				date > "1938.1.1"	
 			}
 		}
 		
@@ -1855,7 +1880,7 @@ technologies = {
 			excavation_tech
 		}
 
-
+		
 		folder = {
 			name = industry_folder
 			position = { x = 2 y = 2 }
@@ -2004,10 +2029,10 @@ technologies = {
 		on_research_complete = {
 			custom_effect_tooltip = {
 				localization_key = SP_UNLOCK_PROJECT
-				PROJECT = sp_commercial_nuclear_reactor
+				PROJECT = sp_commercial_nuclear_reactor	
 			}
 		}
-
+		
 		path = {
 			leads_to_tech = construction5 
 			research_cost_coeff = 1
@@ -2182,5 +2207,5 @@ technologies = {
 				}
 			}
 		}
-	}			
+	}	
 }

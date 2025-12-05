@@ -3057,10 +3057,27 @@
 				popularity = 0.2
 			}
 			remove_ideas = MAN_kwantung_veto
-			add_timed_idea = {
-				idea = MAN_korean_liberation_army
-				days = 365
+
+			IF = {
+				limit = {
+					KOR = {
+						exists = yes
+						is_ally_with = JAP
+					}
+				}
+				add_timed_idea = {
+					idea = MAN_korean_liberation_army
+					days = 365
+				}
 			}
+			ELSE = {
+				add_timed_idea = {
+					idea = MAN_korean_liberation_army_no_korea
+					days = 365
+				}	
+			}
+			
+
 			hidden_effect = { set_variable = { MAN_independence_target = OVERLORD } } #We're using a variable here because the saved event target becomes invalidated deep in ScopedEventTarget 
 			OVERLORD = { set_autonomy = { target = ROOT autonomy_state = autonomy_free } }
 			effect_tooltip = {		
@@ -4118,7 +4135,7 @@
 		cost = 5
 
 		ai_will_do = {
-			factor = 10
+			base = 10
 		}
 
 		available = {
@@ -4165,7 +4182,7 @@
 		cost = 10
 
 		ai_will_do = {
-			factor = 10
+			base = 1
 		}
 
 		available = {
@@ -4271,7 +4288,7 @@
 		cost = 5
 
 		ai_will_do = {
-			factor = 10
+			base = 10
 		}
 
 		available = {
@@ -4324,7 +4341,7 @@
 		cost = 5
 
 		ai_will_do = {
-			factor = 10
+			base = 10
 		}
 
 		available = {
@@ -4365,7 +4382,7 @@
 		cost = 10
 
 		ai_will_do = {
-			factor = 1
+			base = 10
 		}
 
 		available = {
@@ -4422,7 +4439,7 @@
 		cost = 5
 
 		ai_will_do = {
-			factor = 1
+			base = 5
 		}
 
 		available = {
@@ -4489,7 +4506,7 @@
 		cost = 10
 
 		ai_will_do = {
-			factor = 1
+			base = 10
 		}
 
 		available = {
@@ -4535,7 +4552,7 @@
 		cost = 10
 
 		ai_will_do = {
-			factor = 5
+			base = 5
 		}
 
 		available = {
@@ -4570,7 +4587,7 @@
 		cost = 10
 
 		ai_will_do = {
-			factor = 1
+			base = 1
 		}
 
 		available = {
@@ -4615,7 +4632,7 @@
 		cost = 10
 
 		ai_will_do = {
-			factor = 1
+			base = 1
 		}
 
 		available = {
@@ -4656,7 +4673,7 @@
 		cost = 5
 
 		ai_will_do = {
-			factor = 10
+			base = 25
 		}
 
 		available = {
@@ -4705,7 +4722,7 @@
 		cost = 10
 
 		ai_will_do = {
-			factor = 10
+			base = 25
 		}
 
 		available = {
@@ -4909,7 +4926,7 @@
 		cost = 10
 
 		ai_will_do = {
-			factor = 10
+			base = 10
 		}
 
 		available = {
@@ -4988,7 +5005,7 @@
 		cost = 10
 
 		ai_will_do = {
-			factor = 20
+			base = 50
 		}
 
 		available = {

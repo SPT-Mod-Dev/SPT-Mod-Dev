@@ -170,7 +170,7 @@ shared_focus = {
 	y = 1
 	relative_position_id = CHI_sea_mission_to_germany
 
-	cost = 10
+	cost = 5
 
 	ai_will_do = {
 		factor = 1
@@ -1131,7 +1131,7 @@ shared_focus = {
 	y = 1
 	relative_position_id = CHI_sea_mission_to_the_soviet_union
 
-	cost = 10
+	cost = 5
 
 	ai_will_do = {
 		factor = 1
@@ -1169,7 +1169,7 @@ shared_focus = {
 	y = 1
 	relative_position_id = CHI_sea_mission_to_the_soviet_union
 
-	cost = 10
+	cost = 5
 
 	ai_will_do = {
 		factor = 1
@@ -1212,6 +1212,15 @@ shared_focus = {
 			planning_skill = 2
 			logistics_skill = 2
 			id = 600
+		}
+		IF = {
+			limit = {
+				NOT = {
+					has_idea = CHI_soviet_military_cooperation_idea
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_ideas = CHI_soviet_military_cooperation_idea
 		}
 	}
 }
@@ -1980,6 +1989,135 @@ shared_focus = {
 					expire = 0
 				}
 			}
+		}
+
+	}
+
+}
+
+shared_focus = {
+	id = CHI_ncns_request_handover_of_coastal_cities
+
+	icon = GFX_focus_PRC_dare_to_struggle
+
+	prerequisite = { focus = CHI_sea_one_china_policy }
+
+	x = -2
+	y = 2
+	relative_position_id = CHI_sea_one_china_policy
+
+	cost = 10
+
+	search_filters = { FOCUS_FILTER_ANNEXATION }
+
+	ai_will_do = {
+		factor = 1
+	}
+
+	available = {
+
+		is_subject = no
+
+		OR = {
+			1033 = {
+				state_is_fully_controlled_by_ROOT_or_subject = yes
+			}
+			592 = {
+				state_is_fully_controlled_by_ROOT_or_subject = yes
+			}
+			593 = {
+				state_is_fully_controlled_by_ROOT_or_subject = yes
+			}
+		}
+
+		OR = {
+			NOT = {
+				is_in_faction_with = ENG
+			}
+			326 = {
+				state_is_fully_controlled_by_ROOT_or_subject = no
+				controller = {
+					OR = {	
+						is_literally_china_tooltip = no
+						NOT = {
+							has_war_with = ROOT
+						}
+					}
+				}
+			}
+			729 = {
+				state_is_fully_controlled_by_ROOT_or_subject = no
+				controller = {
+					OR = {	
+						is_literally_china_tooltip = no
+						NOT = {
+							has_war_with = ROOT
+						}
+					}
+				}
+			}
+			728 = {
+				state_is_fully_controlled_by_ROOT_or_subject = no
+				controller = {
+					OR = {	
+						is_literally_china_tooltip = no
+						NOT = {
+							has_war_with = ROOT
+						}
+					}
+				}
+			}
+			743 = {
+				state_is_fully_controlled_by_ROOT_or_subject = no
+				controller = {
+					OR = {	
+						is_literally_china_tooltip = no
+						NOT = {
+							has_war_with = ROOT
+						}
+					}
+				}
+			}
+		}
+
+	}
+	
+	bypass = {
+		326 = {
+			state_is_fully_controlled_by_ROOT_or_subject = yes
+		}
+		729 = {
+			state_is_fully_controlled_by_ROOT_or_subject = yes
+		}
+		728 = {
+			state_is_fully_controlled_by_ROOT_or_subject = yes
+		}
+		743 = {
+			state_is_fully_controlled_by_ROOT_or_subject = yes
+		}
+	}
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+
+		every_other_country = {
+			limit = {
+				is_literally_china_tooltip = no
+				OR = {
+					controls_state = 326
+					controls_state = 729
+					controls_state = 728
+					controls_state = 743
+				}
+				NOT = {
+					has_war_with = ROOT
+				}
+			}
+			display_individual_scopes = yes
+			country_event = { id = SEA_PRC_misc_events.18 days = 3 }
 		}
 
 	}
@@ -3772,7 +3910,7 @@ shared_focus = {
 	y = 3
 	relative_position_id = CHI_sea_mission_to_the_us
 
-	cost = 10
+	cost = 5
 
 	ai_will_do = {
 		factor = 1

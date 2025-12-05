@@ -1582,6 +1582,7 @@ focus_tree = {
 					is_faction_leader = yes
 				}
 			}
+			is_subject = no
 		}
 
 		bypass = {
@@ -1715,6 +1716,27 @@ focus_tree = {
 					tooltip = production_factory_efficiency_gain_factor_tt
 				}
 			}
+
+			IF = {
+				limit = {
+					CHI_zhu_jiahua = {
+						has_trait = CHI_minister_of_transport_trait
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				remove_trait = {
+				    character = CHI_zhu_jiahua
+				    slot = political_advisor
+				    trait = CHI_minister_of_transport_trait
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				add_trait = {
+				    character = CHI_zhu_jiahua
+				    slot = political_advisor
+				    trait = CHI_minister_of_transport_trait_2
+				}
+			}
+
 		}
 	}
 
@@ -2360,7 +2382,7 @@ focus_tree = {
 			IF = {
 				limit = {
 					is_in_faction = no
-
+					is_subject = no
 				}
 				create_faction_from_template = faction_template_wang_front 
 				every_other_country = {
@@ -2381,9 +2403,21 @@ focus_tree = {
 				}
 			}
 			ELSE = {
-				add_timed_idea = {
-					idea = idea_CHI_our_place
-					days = 365
+				IF = {
+					limit = {
+						is_in_faction = yes	
+						is_subject = no
+					}
+					add_timed_idea = {
+						idea = idea_CHI_our_place
+						days = 365
+					}
+				}
+				ELSE = {
+					add_autonomy_ratio = {
+						value = 0.2
+						localization = CHI_lay_the_foundation_for_a_united_china
+					}
 				}
 			}
 		}
@@ -2496,6 +2530,27 @@ focus_tree = {
 				}
 				CHI_concessions_add_medium_amount_of_days = yes
 			}
+
+			IF = {
+				limit = {
+					CHI_zhu_jiahua = {
+						has_trait = CHI_minister_of_transport_trait
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				remove_trait = {
+				    character = CHI_zhu_jiahua
+				    slot = political_advisor
+				    trait = CHI_minister_of_transport_trait
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				add_trait = {
+				    character = CHI_zhu_jiahua
+				    slot = political_advisor
+				    trait = CHI_minister_of_transport_trait_2
+				}
+			}
+
 		}
 	}
 
@@ -6708,7 +6763,7 @@ focus_tree = {
 			NOT = {
 				has_faction_template = faction_template_chinese_united_front
 			}
-
+			is_subject = no
 		}
 		bypass = {
 			has_faction_template = faction_template_allies
@@ -7962,6 +8017,27 @@ focus_tree = {
 					name = CHI_seek_out_western_fascist_cooperation
 				}
 			}
+
+			IF = {
+				limit = {
+					CHI_zhu_jiahua = {
+						has_trait = CHI_minister_of_transport_trait
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				remove_trait = {
+				    character = CHI_zhu_jiahua
+				    slot = political_advisor
+				    trait = CHI_minister_of_transport_trait
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				add_trait = {
+				    character = CHI_zhu_jiahua
+				    slot = political_advisor
+				    trait = CHI_minister_of_transport_trait_2
+				}
+			}
+			
 		}
 	}
 
@@ -9241,6 +9317,7 @@ focus_tree = {
 			if = {
 				limit = {
 					NOT = { has_rule = can_create_factions }
+					is_subject = no
 				}
 				set_rule = { 
 					can_create_factions = yes 

@@ -45,7 +45,7 @@
  - No longer starts with Mengjiang territory, but has cores to compensate (it's more historical this way, please don't flood our DMs with complaints)
  
 
-### 3.14.17
+### 3.14.17 The Lost Update
 
 #### General
  - Tank designer armor clicks:
@@ -69,7 +69,6 @@
 #### Germany
  - Now transfers Oslo and spawns some divisions when declaring on Norway
  - Subsidize Hoesch-Benzin no longer bypasses
-
 
 #### Norway
  - Vanilla tree added, now must be invaded by Germany

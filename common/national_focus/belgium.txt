@@ -1147,7 +1147,24 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
-			if = {
+			IF = {
+				limit = {
+					has_dlc = "No Compromise, No Surrender"
+				}
+				add_doctrine_cost_reduction = {
+					name = BEL_resist_and_bite
+					cost_reduction = 0.25
+					uses = 2
+					category = cat_rangers_doctrine
+				}
+				add_tech_bonus = {
+					name = BEL_resist_and_bite
+					bonus = 1
+					uses = 1
+					category = rangers_tech_cat
+				}
+			}
+			ELSE_IF = {
 				limit = {
 					has_dlc = "Arms Against Tyranny"
 				}
@@ -1157,12 +1174,20 @@ focus_tree = {
 					uses = 2
 					category = cat_mountaineers_doctrine
 				}
+				add_tech_bonus = {
+					name = BEL_resist_and_bite
+					bonus = 1
+					uses = 1
+					category = mountaineers_tech
+				}
 			}
-			add_tech_bonus = {
-				name = BEL_resist_and_bite
-				bonus = 1
-				uses = 1
-				category = mountaineers_tech
+			ELSE = {
+				add_tech_bonus = {
+					name = BEL_resist_and_bite
+					bonus = 1
+					uses = 1
+					category = mountaineers_tech
+				}
 			}
 		}
 
