@@ -497,6 +497,10 @@ initial_show_position = {
 				category = industry
 				name = PHI_national_fiscal_policy
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = PHI_focus_time_reduced_T1_tt
+
 			hidden_effect = {
 				PHI_central_focuses_done_T1 = yes
 			}
@@ -790,6 +794,10 @@ initial_show_position = {
 				PHI_the_great_depression_consumer_goods_factor = -0.10
 				tooltip = consumer_goods_factor_tt
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = PHI_focus_time_reduced_T1_tt
+
 			hidden_effect = {
 				PHI_central_focuses_done_T1 = yes
 			}
@@ -824,6 +832,10 @@ initial_show_position = {
 				idea = PHI_subsidies_timed_idea
 				days = 365
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = PHI_focus_time_reduced_T1_tt
+
 			hidden_effect = {
 				PHI_central_focuses_done_T1 = yes
 			}
@@ -864,6 +876,10 @@ initial_show_position = {
 				tooltip = monthly_population_tt
 			}
 			add_stability = 0.05
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = PHI_focus_time_reduced_T1_tt
+
 			hidden_effect = {
 				PHI_central_focuses_done_T1 = yes
 			}
@@ -1314,6 +1330,10 @@ initial_show_position = {
 				}	
 				add_extra_state_shared_building_slots = 1
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = PHI_focus_time_reduced_T2_tt
+
 			hidden_effect = {
 				PHI_central_focuses_done_T2 = yes
 			}
@@ -1420,6 +1440,10 @@ initial_show_position = {
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = PHI_mindanao_transport_decision_unlock_tt
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = PHI_focus_time_reduced_T2_tt
+
 			hidden_effect = {
 				PHI_central_focuses_done_T2 = yes
 			}
@@ -1480,6 +1504,10 @@ initial_show_position = {
 				custom_effect_tooltip = generic_skip_one_line_tt
 				custom_effect_tooltip = PHI_american_intervention_change_value_medium_increase_tt ## Only show the tooltip if have the decision, but add the variable regardless
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = PHI_focus_time_reduced_T2_tt
+
 			hidden_effect = {
 				PHI_central_focuses_done_T2 = yes
 			}
@@ -1498,7 +1526,7 @@ initial_show_position = {
 		x = 2
 		y = 1
 	
-		cost = 10
+		cost = 5
 
 		available = {
 			NOT = {
@@ -1839,6 +1867,10 @@ initial_show_position = {
 			add_political_power = 75
 			add_war_support = 0.1
 			add_stability = 0.05
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = PHI_focus_time_reduced_T2_tt
+
 			hidden_effect = {
 				PHI_central_focuses_done_T2 = yes
 			}
@@ -2290,6 +2322,9 @@ initial_show_position = {
 				tooltip = consumer_goods_factor_tt
 			}
 
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = PHI_focus_time_reduced_T3_tt
+
 			hidden_effect = {
 				PHI_central_focuses_done_T3 = yes
 			}
@@ -2425,6 +2460,9 @@ initial_show_position = {
 				}
 			}
 
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = PHI_focus_time_reduced_T3_tt
+
 			hidden_effect = {
 				PHI_central_focuses_done_T3 = yes
 			}
@@ -2444,7 +2482,7 @@ initial_show_position = {
 		x = 2
 		y = 1
 	
-		cost = 10
+		cost = 5
 
 		available = {
 			NOT = {
@@ -6562,6 +6600,28 @@ initial_show_position = {
 	
 		completion_reward = {
 			unlock_decision_category_tooltip = PHI_relations_with_spanish_america
+
+			if = {
+				limit = {
+					has_completed_focus = PHI_treaty_of_manila
+					is_in_faction = no
+					is_subject = no
+				}
+				create_faction = PHI_hispanic_coalition
+				every_other_country = {
+					limit = {
+						has_country_flag = PHI_agreed_to_ally
+						NOT = {
+							has_war_with = ROOT
+						}
+						is_subject = no
+						is_in_faction = no
+					}
+					ROOT = {
+						add_to_faction = PREV
+					}
+				}
+			}
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 	}
@@ -6696,7 +6756,13 @@ initial_show_position = {
 				}
 			}
 
-			#custom_effect_tooltip = generic_skip_one_line_tt
+			set_politics = {
+				ruling_party = neutrality
+				long_name = PHI_bourbon_party_long
+				name = PHI_bourbon_party
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
 
 			set_cosmetic_tag = PHI_reino_de_filipinas_tag
 
@@ -7225,6 +7291,17 @@ initial_show_position = {
 		available_if_capitulated = no
 	
 		completion_reward = {
+
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = PHI_hukbalahap
+					}
+				}
+				show_unit_leaders_tooltip = PHI_luis_taruc
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_popularity = {
 				ideology = communism
 				popularity = 0.05
@@ -7276,7 +7353,6 @@ initial_show_position = {
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
-
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = PHI_vicente_lava
 		}
@@ -7990,6 +8066,7 @@ initial_show_position = {
 			custom_effect_tooltip = PHI_philippine_army_dynamic_modifier_tt
 			add_to_variable = { PHI_philippine_army_industrial_capacity_factory = 0.75 tooltip = industrial_capacity_factory_tt }
 			add_to_variable = { PHI_philippine_army_industrial_capacity_dockyard = 0.5 tooltip = industrial_capacity_dockyard_tt }
+			add_to_variable = { PHI_philippine_army_experience_gain_army_factor = 0.40 tooltip = experience_gain_army_factor_tt }
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = PHI_reduce_national_defense_act_cost_tt
@@ -8618,7 +8695,7 @@ focus = {
 	
 		completion_reward = {
 			custom_effect_tooltip = PHI_philippine_army_dynamic_modifier_tt
-			add_to_variable = { PHI_philippine_army_experience_gain_army_factor = 0.40 tooltip = experience_gain_army_factor_tt }
+			add_to_variable = { PHI_philippine_army_experience_gain_army_factor = 0.20 tooltip = experience_gain_army_factor_tt }
 			add_to_variable = { PHI_philippine_army_max_planning_factor = 0.10 tooltip = max_planning_factor_tt }
 			add_to_variable = { PHI_philippine_army_command_power_gain_mult = 0.1 tooltip = command_power_gain_mult_tt }
 
@@ -8690,7 +8767,7 @@ focus = {
 	
 		completion_reward = {
 			custom_effect_tooltip = PHI_philippine_army_dynamic_modifier_tt
-			add_to_variable = { PHI_philippine_army_experience_gain_army_factor = 0.40 tooltip = experience_gain_army_factor_tt }
+			add_to_variable = { PHI_philippine_army_experience_gain_army_factor = 0.20 tooltip = experience_gain_army_factor_tt }
 			add_to_variable = { PHI_philippine_army_training_time_factor = -0.10 tooltip = training_time_factor_tt }
 			add_to_variable = { PHI_philippine_army_conscription_factor = 0.25 tooltip = conscription_factor_tt }
 			add_to_variable = { PHI_philippine_army_command_power_gain_mult = 0.1 tooltip = command_power_gain_mult_tt }
