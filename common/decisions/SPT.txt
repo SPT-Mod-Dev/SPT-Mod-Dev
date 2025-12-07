@@ -2326,3 +2326,666 @@ SPT_china_spawns = {
 		}
 	}
 }
+
+SPT_doctrine_mastery = {
+	SPT_hide_doctrine_decisions = {
+		icon = GFX_decision_SWI_expand_covert_operations
+		allowed = {
+
+		}
+		visible = {
+			NOT = {
+				AND = {
+					has_country_flag = used_mastery_decision_air_2
+					has_country_flag = used_mastery_decision_army_2
+					has_country_flag = used_mastery_decision_navy_2
+				}
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		available = {
+			
+		}
+		complete_effect = {
+			set_country_flag = spt_hidden_doc_decisions
+		}
+	}
+	SPT_show_doctrine_decisions = {
+		icon = GFX_decision_generic_political_address
+		allowed = {
+
+		}
+		visible = {
+			AND = {
+				has_country_flag = spt_hidden_doc_decisions
+				NOT = {
+					AND = {
+						has_country_flag = used_mastery_decision_air_2
+						has_country_flag = used_mastery_decision_army_2
+						has_country_flag = used_mastery_decision_navy_2
+					}
+				}
+			}
+		}
+		available = {
+			
+		}
+		complete_effect = {
+			clr_country_flag = spt_hidden_doc_decisions
+		}
+	}
+	SPT_gain_inf_mastery = {
+
+		icon = GFX_decision_SWE_set_army_budget
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_army_doctrine_mastery_used_less_than_twice_tt
+				NOT = {
+					has_country_flag = used_mastery_decision_army_2
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_army_high_command_tt
+				any_character = {
+					has_army_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			NOT = {
+				has_country_flag = used_mastery_decision_army_2
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Infantry Doctrine Advancements"
+				amount = 0.45
+				days = 1095
+				track = infantry
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_flag = used_mastery_decision_army_1
+					}
+					set_country_flag = used_mastery_decision_army_2
+				}
+				else = {
+					set_country_flag = used_mastery_decision_army_1
+				}
+			}
+		}
+	}
+	SPT_gain_supp_mastery = {
+
+		icon = GFX_decision_generic_ignite_civil_war
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_army_doctrine_mastery_used_less_than_twice_tt
+				NOT = {
+					has_country_flag = used_mastery_decision_army_2
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_army_high_command_tt
+				any_character = {
+					has_army_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			NOT = {
+				has_country_flag = used_mastery_decision_army_2
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Artillery & Combat Support Advancements"
+				amount = 0.45
+				days = 1095
+				track = combat_support
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_flag = used_mastery_decision_army_1
+					}
+					set_country_flag = used_mastery_decision_army_2
+				}
+				else = {
+					set_country_flag = used_mastery_decision_army_1
+				}
+			}
+		}
+	}
+	SPT_gain_tank_mastery = {
+
+		icon = GFX_decision_generic_tank
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_army_doctrine_mastery_used_less_than_twice_tt
+				NOT = {
+					has_country_flag = used_mastery_decision_army_2
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_army_high_command_tt
+				any_character = {
+					has_army_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			NOT = {
+				has_country_flag = used_mastery_decision_army_2
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Armor Doctrine Advancements"
+				amount = 0.45
+				days = 1095
+				track = armor
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_flag = used_mastery_decision_army_1
+					}
+					set_country_flag = used_mastery_decision_army_2
+				}
+				else = {
+					set_country_flag = used_mastery_decision_army_1
+				}
+			}
+		}
+	}
+	SPT_gain_special_mastery = {
+
+		icon = GFX_decision_onmap_recruit_operative
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_army_doctrine_mastery_used_less_than_twice_tt
+				NOT = {
+					has_country_flag = used_mastery_decision_army_2
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_army_high_command_tt
+				any_character = {
+					has_army_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			NOT = {
+				has_country_flag = used_mastery_decision_army_2
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Operations Doctrine Advancements"
+				amount = 0.45
+				days = 1095
+				track = operations
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_flag = used_mastery_decision_army_1
+					}
+					set_country_flag = used_mastery_decision_army_2
+				}
+				else = {
+					set_country_flag = used_mastery_decision_army_1
+				}
+			}
+		}
+	}
+	SPT_gain_sub_mastery = {
+
+		icon = GFX_decision_RAJ_famine
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_navy_doctrine_mastery_used_less_than_twice_tt
+				NOT = {
+					has_country_flag = used_mastery_decision_navy_2
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_navy_high_command_tt
+				any_character = {
+					has_navy_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			NOT = {
+				has_country_flag = used_mastery_decision_navy_2
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Submarine Doctrine Advancements"
+				amount = 0.45
+				days = 1095
+				track = submarines
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_flag = used_mastery_decision_navy_1
+					}
+					set_country_flag = used_mastery_decision_navy_2
+				}
+				else = {
+					set_country_flag = used_mastery_decision_navy_1
+				}
+			}
+		}
+	}
+	SPT_gain_screen_mastery = {
+
+		icon = GFX_decision_generic_coastal_fortification
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_navy_doctrine_mastery_used_less_than_twice_tt
+				NOT = {
+					has_country_flag = used_mastery_decision_navy_2
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_navy_high_command_tt
+				any_character = {
+					has_navy_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			NOT = {
+				has_country_flag = used_mastery_decision_navy_2
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Screening Doctrine Advancements"
+				amount = 0.45
+				days = 1095
+				track = screens
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_flag = used_mastery_decision_navy_1
+					}
+					set_country_flag = used_mastery_decision_navy_2
+				}
+				else = {
+					set_country_flag = used_mastery_decision_navy_1
+				}
+			}
+		}
+	}
+	SPT_gain_carrier_mastery = {
+
+		icon = GFX_decision_eng_puppet_usa
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_navy_doctrine_mastery_used_less_than_twice_tt
+				NOT = {
+					has_country_flag = used_mastery_decision_navy_2
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_navy_high_command_tt
+				any_character = {
+					has_navy_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			NOT = {
+				has_country_flag = used_mastery_decision_navy_2
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Carrier Doctrine Advancements"
+				amount = 0.45
+				days = 1095
+				track = carriers
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_flag = used_mastery_decision_navy_1
+					}
+					set_country_flag = used_mastery_decision_navy_2
+				}
+				else = {
+					set_country_flag = used_mastery_decision_navy_1
+				}
+			}
+		}
+	}
+	SPT_gain_capitals_mastery = {
+
+		icon = GFX_decision_generic_naval
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_navy_doctrine_mastery_used_less_than_twice_tt
+				NOT = {
+					has_country_flag = used_mastery_decision_navy_2
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_navy_high_command_tt
+				any_character = {
+					has_navy_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			NOT = {
+				has_country_flag = used_mastery_decision_navy_2
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Capital Ship Doctrine Advancements"
+				amount = 0.45
+				days = 1095
+				track = capital_ships
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_flag = used_mastery_decision_navy_1
+					}
+					set_country_flag = used_mastery_decision_navy_2
+				}
+				else = {
+					set_country_flag = used_mastery_decision_navy_1
+				}
+			}
+		}
+	}
+	SPT_gain_fighter_mastery = {
+
+		icon = GFX_decision_generic_air
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_air_doctrine_mastery_used_less_than_twice_tt
+				NOT = {
+					has_country_flag = used_mastery_decision_air_2
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_air_high_command_tt
+				any_character = {
+					has_air_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			NOT = {
+				has_country_flag = used_mastery_decision_air_2
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Fighter Aircraft Doctrine Advancements"
+				amount = 0.45
+				days = 1095
+				track = fighter_aircraft
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_flag = used_mastery_decision_air_1
+					}
+					set_country_flag = used_mastery_decision_air_2
+				}
+				else = {
+					set_country_flag = used_mastery_decision_air_1
+				}
+			}
+		}
+	}
+	SPT_gain_strike_mastery = {
+
+		icon = GFX_decision_ger_military_buildup
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_air_doctrine_mastery_used_less_than_twice_tt
+				NOT = {
+					has_country_flag = used_mastery_decision_air_2
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_air_high_command_tt
+				any_character = {
+					has_air_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			NOT = {
+				has_country_flag = used_mastery_decision_air_2
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Strike Aircraft Doctrine Advancements"
+				amount = 0.45
+				days = 1095
+				track = strike_aircraft
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_flag = used_mastery_decision_air_1
+					}
+					set_country_flag = used_mastery_decision_air_2
+				}
+				else = {
+					set_country_flag = used_mastery_decision_air_1
+				}
+			}
+		}
+	}
+	SPT_gain_medium_mastery = {
+
+		icon = GFX_decision_SWE_set_air_budget
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_air_doctrine_mastery_used_less_than_twice_tt
+				NOT = {
+					has_country_flag = used_mastery_decision_air_2
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_air_high_command_tt
+				any_character = {
+					has_air_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			NOT = {
+				has_country_flag = used_mastery_decision_air_2
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Medium Aircraft Doctrine Advancements"
+				amount = 0.45
+				days = 1095
+				track = medium_aircraft
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_flag = used_mastery_decision_air_1
+					}
+					set_country_flag = used_mastery_decision_air_2
+				}
+				else = {
+					set_country_flag = used_mastery_decision_air_1
+				}
+			}
+		}
+	}
+	SPT_gain_heavy_mastery = {
+
+		icon = GFX_decision_generic_merge_plant_aircraft
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_air_doctrine_mastery_used_less_than_twice_tt
+				NOT = {
+					has_country_flag = used_mastery_decision_air_2
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_air_high_command_tt
+				any_character = {
+					has_air_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			NOT = {
+				has_country_flag = used_mastery_decision_air_2
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Heavy Aircraft Doctrine Advancements"
+				amount = 0.45
+				days = 1095
+				track = heavy_aircraft
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_flag = used_mastery_decision_air_1
+					}
+					set_country_flag = used_mastery_decision_air_2
+				}
+				else = {
+					set_country_flag = used_mastery_decision_air_1
+				}
+			}
+		}
+	}
+}
