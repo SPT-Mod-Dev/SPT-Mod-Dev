@@ -2327,23 +2327,45 @@ SPT_china_spawns = {
 	}
 }
 
-@spt_mastery_gain_daily_amount = 0.47 #how much mastery per day each decision gives
-@spt_mastery_gain_duration = 1095 #how many days the mastery gain buff from the decisions will last
+#
+# DESPITE THE LIMITS BEING SET HERE YOU HAVE TO MANUALLY UPDATE THE TOOLTIP IN SPT_TOOLTIPS_L_ENGLISH.YML FOR IT TO DISPLAY PROPERLY
+#
+
+@spt_mastery_track_choice_limit_army = 2 	#how many army mastery tracks a player is allowed to select before decisions are no longer available
+@spt_mastery_track_choice_limit_navy = 1 	#how many navy mastery tracks a player is allowed to select before decisions are no longer available
+@spt_mastery_track_choice_limit_air = 1 	#how many air mastery tracks a player is allowed to select before decisions are no longer available
+
+@spt_mastery_gain_daily_amount = 0.47 		#how much mastery per day each decision gives
+@spt_mastery_gain_duration = 1095 			#how many days the mastery gain buff from the decisions will last
+#yes, this does mean you have to calculate the amount of mastery before seeting it here, 
+#but at least this way it doesnt make me wanna tear my hair out due to how bad hoi is for manipulating variables
 
 SPT_doctrine_mastery = { #please see the above constants for how the decisions define how much mastery to give
+
 	SPT_hide_doctrine_decisions = {
 		icon = GFX_decision_SWI_expand_covert_operations
 		allowed = {
 
 		}
 		visible = {
-			NOT = {
-				AND = {
-					has_country_flag = used_mastery_decision_air_2
-					has_country_flag = used_mastery_decision_army_2
-					has_country_flag = used_mastery_decision_navy_2
+			OR = {
+				check_variable = {
+					var = THIS.spt_chosen_army_mastery_count
+					value = @spt_mastery_track_choice_limit_army
+					compare = less_than
+				}
+				check_variable = {
+					var = THIS.spt_chosen_navy_mastery_count
+					value = @spt_mastery_track_choice_limit_navy
+					compare = less_than
+				}
+				check_variable = {
+					var = THIS.spt_chosen_air_mastery_count
+					value = @spt_mastery_track_choice_limit_air
+					compare = less_than
 				}
 			}
+			
 			NOT = {
 				has_country_flag = spt_hidden_doc_decisions
 			}
@@ -2360,17 +2382,26 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 		allowed = {
 
 		}
+
 		visible = {
-			AND = {
-				has_country_flag = spt_hidden_doc_decisions
-				NOT = {
-					AND = {
-						has_country_flag = used_mastery_decision_air_2
-						has_country_flag = used_mastery_decision_army_2
-						has_country_flag = used_mastery_decision_navy_2
-					}
+			OR = {
+				check_variable = {
+					var = THIS.spt_chosen_army_mastery_count
+					value = @spt_mastery_track_choice_limit_army
+					compare = less_than
+				}
+				check_variable = {
+					var = THIS.spt_chosen_navy_mastery_count
+					value = @spt_mastery_track_choice_limit_navy
+					compare = less_than
+				}
+				check_variable = {
+					var = THIS.spt_chosen_air_mastery_count
+					value = @spt_mastery_track_choice_limit_air
+					compare = less_than
 				}
 			}
+			has_country_flag = spt_hidden_doc_decisions
 		}
 		available = {
 			
@@ -2386,11 +2417,13 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 		allowed = {
 		}
 
-		available = {	
+		available = {
 			custom_trigger_tooltip = {
-				tooltip = SPT_army_doctrine_mastery_used_less_than_twice_tt
-				NOT = {
-					has_country_flag = used_mastery_decision_army_2
+				tooltip = SPT_army_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_army_mastery_count
+					value = @spt_mastery_track_choice_limit_army
+					compare = less_than
 				}
 			}
 			custom_trigger_tooltip = {
@@ -2403,14 +2436,17 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 			}
 		}
 		visible = { 
-			NOT = {
-				has_country_flag = used_mastery_decision_army_2
+			check_variable = {
+				var = THIS.spt_chosen_army_mastery_count
+				value = @spt_mastery_track_choice_limit_army
+				compare = less_than
 			}
 			NOT = {
 				has_country_flag = spt_hidden_doc_decisions
 			}
 		}
 		complete_effect = {
+
 			add_daily_mastery = {
 				name = "Infantry Doctrine Advancements"
 				amount = @spt_mastery_gain_daily_amount
@@ -2418,14 +2454,9 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 				track = infantry
 			}
 			hidden_effect = {
-				if = {
-					limit = {
-						has_country_flag = used_mastery_decision_army_1
-					}
-					set_country_flag = used_mastery_decision_army_2
-				}
-				else = {
-					set_country_flag = used_mastery_decision_army_1
+				add_to_variable = {
+					var = THIS.spt_chosen_army_mastery_count
+					value = 1
 				}
 			}
 		}
@@ -2439,9 +2470,11 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 
 		available = {	
 			custom_trigger_tooltip = {
-				tooltip = SPT_army_doctrine_mastery_used_less_than_twice_tt
-				NOT = {
-					has_country_flag = used_mastery_decision_army_2
+				tooltip = SPT_army_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_army_mastery_count
+					value = @spt_mastery_track_choice_limit_army
+					compare = less_than
 				}
 			}
 			custom_trigger_tooltip = {
@@ -2454,8 +2487,10 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 			}
 		}
 		visible = { 
-			NOT = {
-				has_country_flag = used_mastery_decision_army_2
+			check_variable = {
+				var = THIS.spt_chosen_army_mastery_count
+				value = @spt_mastery_track_choice_limit_army
+				compare = less_than
 			}
 			NOT = {
 				has_country_flag = spt_hidden_doc_decisions
@@ -2469,14 +2504,9 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 				track = combat_support
 			}
 			hidden_effect = {
-				if = {
-					limit = {
-						has_country_flag = used_mastery_decision_army_1
-					}
-					set_country_flag = used_mastery_decision_army_2
-				}
-				else = {
-					set_country_flag = used_mastery_decision_army_1
+				add_to_variable = {
+					var = THIS.spt_chosen_army_mastery_count
+					value = 1
 				}
 			}
 		}
@@ -2490,9 +2520,11 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 
 		available = {	
 			custom_trigger_tooltip = {
-				tooltip = SPT_army_doctrine_mastery_used_less_than_twice_tt
-				NOT = {
-					has_country_flag = used_mastery_decision_army_2
+				tooltip = SPT_army_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_army_mastery_count
+					value = @spt_mastery_track_choice_limit_army
+					compare = less_than
 				}
 			}
 			custom_trigger_tooltip = {
@@ -2505,8 +2537,10 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 			}
 		}
 		visible = { 
-			NOT = {
-				has_country_flag = used_mastery_decision_army_2
+			check_variable = {
+				var = THIS.spt_chosen_army_mastery_count
+				value = @spt_mastery_track_choice_limit_army
+				compare = less_than
 			}
 			NOT = {
 				has_country_flag = spt_hidden_doc_decisions
@@ -2520,14 +2554,9 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 				track = armor
 			}
 			hidden_effect = {
-				if = {
-					limit = {
-						has_country_flag = used_mastery_decision_army_1
-					}
-					set_country_flag = used_mastery_decision_army_2
-				}
-				else = {
-					set_country_flag = used_mastery_decision_army_1
+				add_to_variable = {
+					var = THIS.spt_chosen_army_mastery_count
+					value = 1
 				}
 			}
 		}
@@ -2541,9 +2570,11 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 
 		available = {	
 			custom_trigger_tooltip = {
-				tooltip = SPT_army_doctrine_mastery_used_less_than_twice_tt
-				NOT = {
-					has_country_flag = used_mastery_decision_army_2
+				tooltip = SPT_army_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_army_mastery_count
+					value = @spt_mastery_track_choice_limit_army
+					compare = less_than
 				}
 			}
 			custom_trigger_tooltip = {
@@ -2556,8 +2587,10 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 			}
 		}
 		visible = { 
-			NOT = {
-				has_country_flag = used_mastery_decision_army_2
+			check_variable = {
+				var = THIS.spt_chosen_army_mastery_count
+				value = @spt_mastery_track_choice_limit_army
+				compare = less_than
 			}
 			NOT = {
 				has_country_flag = spt_hidden_doc_decisions
@@ -2571,14 +2604,9 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 				track = operations
 			}
 			hidden_effect = {
-				if = {
-					limit = {
-						has_country_flag = used_mastery_decision_army_1
-					}
-					set_country_flag = used_mastery_decision_army_2
-				}
-				else = {
-					set_country_flag = used_mastery_decision_army_1
+				add_to_variable = {
+					var = THIS.spt_chosen_army_mastery_count
+					value = 1
 				}
 			}
 		}
@@ -2592,9 +2620,11 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 
 		available = {	
 			custom_trigger_tooltip = {
-				tooltip = SPT_navy_doctrine_mastery_used_less_than_twice_tt
-				NOT = {
-					has_country_flag = used_mastery_decision_navy_2
+				tooltip = SPT_navy_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_navy_mastery_count
+					value = @spt_mastery_track_choice_limit_navy
+					compare = less_than
 				}
 			}
 			custom_trigger_tooltip = {
@@ -2607,8 +2637,10 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 			}
 		}
 		visible = { 
-			NOT = {
-				has_country_flag = used_mastery_decision_navy_2
+			check_variable = {
+				var = THIS.spt_chosen_navy_mastery_count
+				value = @spt_mastery_track_choice_limit_navy
+				compare = less_than
 			}
 			NOT = {
 				has_country_flag = spt_hidden_doc_decisions
@@ -2622,14 +2654,9 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 				track = submarines
 			}
 			hidden_effect = {
-				if = {
-					limit = {
-						has_country_flag = used_mastery_decision_navy_1
-					}
-					set_country_flag = used_mastery_decision_navy_2
-				}
-				else = {
-					set_country_flag = used_mastery_decision_navy_1
+				add_to_variable = {
+					var = THIS.spt_chosen_navy_mastery_count
+					value = 1
 				}
 			}
 		}
@@ -2643,9 +2670,11 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 
 		available = {	
 			custom_trigger_tooltip = {
-				tooltip = SPT_navy_doctrine_mastery_used_less_than_twice_tt
-				NOT = {
-					has_country_flag = used_mastery_decision_navy_2
+				tooltip = SPT_navy_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_navy_mastery_count
+					value = @spt_mastery_track_choice_limit_navy
+					compare = less_than
 				}
 			}
 			custom_trigger_tooltip = {
@@ -2658,8 +2687,10 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 			}
 		}
 		visible = { 
-			NOT = {
-				has_country_flag = used_mastery_decision_navy_2
+			check_variable = {
+				var = THIS.spt_chosen_navy_mastery_count
+				value = @spt_mastery_track_choice_limit_navy
+				compare = less_than
 			}
 			NOT = {
 				has_country_flag = spt_hidden_doc_decisions
@@ -2673,14 +2704,9 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 				track = screens
 			}
 			hidden_effect = {
-				if = {
-					limit = {
-						has_country_flag = used_mastery_decision_navy_1
-					}
-					set_country_flag = used_mastery_decision_navy_2
-				}
-				else = {
-					set_country_flag = used_mastery_decision_navy_1
+				add_to_variable = {
+					var = THIS.spt_chosen_navy_mastery_count
+					value = 1
 				}
 			}
 		}
@@ -2694,9 +2720,11 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 
 		available = {	
 			custom_trigger_tooltip = {
-				tooltip = SPT_navy_doctrine_mastery_used_less_than_twice_tt
-				NOT = {
-					has_country_flag = used_mastery_decision_navy_2
+				tooltip = SPT_navy_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_navy_mastery_count
+					value = @spt_mastery_track_choice_limit_navy
+					compare = less_than
 				}
 			}
 			custom_trigger_tooltip = {
@@ -2709,8 +2737,10 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 			}
 		}
 		visible = { 
-			NOT = {
-				has_country_flag = used_mastery_decision_navy_2
+			check_variable = {
+				var = THIS.spt_chosen_navy_mastery_count
+				value = @spt_mastery_track_choice_limit_navy
+				compare = less_than
 			}
 			NOT = {
 				has_country_flag = spt_hidden_doc_decisions
@@ -2724,14 +2754,9 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 				track = carriers
 			}
 			hidden_effect = {
-				if = {
-					limit = {
-						has_country_flag = used_mastery_decision_navy_1
-					}
-					set_country_flag = used_mastery_decision_navy_2
-				}
-				else = {
-					set_country_flag = used_mastery_decision_navy_1
+				add_to_variable = {
+					var = THIS.spt_chosen_navy_mastery_count
+					value = 1
 				}
 			}
 		}
@@ -2745,9 +2770,11 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 
 		available = {	
 			custom_trigger_tooltip = {
-				tooltip = SPT_navy_doctrine_mastery_used_less_than_twice_tt
-				NOT = {
-					has_country_flag = used_mastery_decision_navy_2
+				tooltip = SPT_navy_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_navy_mastery_count
+					value = @spt_mastery_track_choice_limit_navy
+					compare = less_than
 				}
 			}
 			custom_trigger_tooltip = {
@@ -2760,8 +2787,10 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 			}
 		}
 		visible = { 
-			NOT = {
-				has_country_flag = used_mastery_decision_navy_2
+			check_variable = {
+				var = THIS.spt_chosen_navy_mastery_count
+				value = @spt_mastery_track_choice_limit_navy
+				compare = less_than
 			}
 			NOT = {
 				has_country_flag = spt_hidden_doc_decisions
@@ -2775,14 +2804,9 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 				track = capital_ships
 			}
 			hidden_effect = {
-				if = {
-					limit = {
-						has_country_flag = used_mastery_decision_navy_1
-					}
-					set_country_flag = used_mastery_decision_navy_2
-				}
-				else = {
-					set_country_flag = used_mastery_decision_navy_1
+				add_to_variable = {
+					var = THIS.spt_chosen_navy_mastery_count
+					value = 1
 				}
 			}
 		}
@@ -2796,9 +2820,11 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 
 		available = {	
 			custom_trigger_tooltip = {
-				tooltip = SPT_air_doctrine_mastery_used_less_than_twice_tt
-				NOT = {
-					has_country_flag = used_mastery_decision_air_2
+				tooltip = SPT_air_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_air_mastery_count
+					value = @spt_mastery_track_choice_limit_air
+					compare = less_than
 				}
 			}
 			custom_trigger_tooltip = {
@@ -2811,8 +2837,10 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 			}
 		}
 		visible = { 
-			NOT = {
-				has_country_flag = used_mastery_decision_air_2
+			check_variable = {
+				var = THIS.spt_chosen_air_mastery_count
+				value = @spt_mastery_track_choice_limit_air
+				compare = less_than
 			}
 			NOT = {
 				has_country_flag = spt_hidden_doc_decisions
@@ -2826,14 +2854,9 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 				track = fighter_aircraft
 			}
 			hidden_effect = {
-				if = {
-					limit = {
-						has_country_flag = used_mastery_decision_air_1
-					}
-					set_country_flag = used_mastery_decision_air_2
-				}
-				else = {
-					set_country_flag = used_mastery_decision_air_1
+				add_to_variable = {
+					var = THIS.spt_chosen_air_mastery_count
+					value = 1
 				}
 			}
 		}
@@ -2847,9 +2870,11 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 
 		available = {	
 			custom_trigger_tooltip = {
-				tooltip = SPT_air_doctrine_mastery_used_less_than_twice_tt
-				NOT = {
-					has_country_flag = used_mastery_decision_air_2
+				tooltip = SPT_air_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_air_mastery_count
+					value = @spt_mastery_track_choice_limit_air
+					compare = less_than
 				}
 			}
 			custom_trigger_tooltip = {
@@ -2862,8 +2887,10 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 			}
 		}
 		visible = { 
-			NOT = {
-				has_country_flag = used_mastery_decision_air_2
+			check_variable = {
+				var = THIS.spt_chosen_air_mastery_count
+				value = @spt_mastery_track_choice_limit_air
+				compare = less_than
 			}
 			NOT = {
 				has_country_flag = spt_hidden_doc_decisions
@@ -2877,14 +2904,9 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 				track = strike_aircraft
 			}
 			hidden_effect = {
-				if = {
-					limit = {
-						has_country_flag = used_mastery_decision_air_1
-					}
-					set_country_flag = used_mastery_decision_air_2
-				}
-				else = {
-					set_country_flag = used_mastery_decision_air_1
+				add_to_variable = {
+					var = THIS.spt_chosen_air_mastery_count
+					value = 1
 				}
 			}
 		}
@@ -2898,9 +2920,11 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 
 		available = {	
 			custom_trigger_tooltip = {
-				tooltip = SPT_air_doctrine_mastery_used_less_than_twice_tt
-				NOT = {
-					has_country_flag = used_mastery_decision_air_2
+				tooltip = SPT_air_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_air_mastery_count
+					value = @spt_mastery_track_choice_limit_air
+					compare = less_than
 				}
 			}
 			custom_trigger_tooltip = {
@@ -2913,8 +2937,10 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 			}
 		}
 		visible = { 
-			NOT = {
-				has_country_flag = used_mastery_decision_air_2
+			check_variable = {
+				var = THIS.spt_chosen_air_mastery_count
+				value = @spt_mastery_track_choice_limit_air
+				compare = less_than
 			}
 			NOT = {
 				has_country_flag = spt_hidden_doc_decisions
@@ -2928,14 +2954,9 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 				track = medium_aircraft
 			}
 			hidden_effect = {
-				if = {
-					limit = {
-						has_country_flag = used_mastery_decision_air_1
-					}
-					set_country_flag = used_mastery_decision_air_2
-				}
-				else = {
-					set_country_flag = used_mastery_decision_air_1
+				add_to_variable = {
+					var = THIS.spt_chosen_air_mastery_count
+					value = 1
 				}
 			}
 		}
@@ -2949,9 +2970,11 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 
 		available = {	
 			custom_trigger_tooltip = {
-				tooltip = SPT_air_doctrine_mastery_used_less_than_twice_tt
-				NOT = {
-					has_country_flag = used_mastery_decision_air_2
+				tooltip = SPT_air_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_air_mastery_count
+					value = @spt_mastery_track_choice_limit_air
+					compare = less_than
 				}
 			}
 			custom_trigger_tooltip = {
@@ -2964,8 +2987,10 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 			}
 		}
 		visible = { 
-			NOT = {
-				has_country_flag = used_mastery_decision_air_2
+			check_variable = {
+				var = THIS.spt_chosen_air_mastery_count
+				value = @spt_mastery_track_choice_limit_air
+				compare = less_than
 			}
 			NOT = {
 				has_country_flag = spt_hidden_doc_decisions
@@ -2979,14 +3004,9 @@ SPT_doctrine_mastery = { #please see the above constants for how the decisions d
 				track = heavy_aircraft
 			}
 			hidden_effect = {
-				if = {
-					limit = {
-						has_country_flag = used_mastery_decision_air_1
-					}
-					set_country_flag = used_mastery_decision_air_2
-				}
-				else = {
-					set_country_flag = used_mastery_decision_air_1
+				add_to_variable = {
+					var = THIS.spt_chosen_air_mastery_count
+					value = 1
 				}
 			}
 		}
