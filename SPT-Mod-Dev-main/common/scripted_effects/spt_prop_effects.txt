@@ -1,0 +1,34 @@
+@lockedframe = 1
+@unlockedframe = 2
+
+
+
+
+prop_initialise = {
+	set_variable = {PROP_poster_left_icon_frame = @lockedframe}
+	set_variable = {PROP_poster_centre_icon_frame = @lockedframe}
+	set_variable = {PROP_poster_right_icon_frame = @lockedframe}
+}
+
+prop_add_slot = {
+
+		if = {
+			limit = {
+				check_variable = { PROP_poster_left_icon_frame = @lockedframe}
+			}
+			set_variable = { PROP_poster_left_icon_frame = @unlockedframe }
+		}
+		else_if = {
+			limit = {
+				check_variable = { PROP_poster_centre_icon_frame = @lockedframe }
+			}
+			set_variable = { PROP_poster_centre_icon_frame = @unlockedframe }
+		}
+		else_if = {
+			limit = {
+				check_variable = { PROP_poster_right_icon_frame = @lockedframe }
+			}
+			set_variable = { PROP_poster_right_icon_frame = @unlockedframe }
+		}
+	
+}

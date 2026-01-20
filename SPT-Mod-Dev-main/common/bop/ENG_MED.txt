@@ -1,0 +1,310 @@
+
+ENG_MED_med_front = {
+	initial_value = 0
+	left_side = ENG_MED_ita_side
+	right_side = ENG_MED_eng_side
+	decision_category = ENG_MED_category
+
+	### Neutral status
+	range = {
+		id = ENG_MED_balance_range
+		min = -0.25
+		max = 0.25
+		modifier = {
+		}
+		on_activate = {
+			if = {
+				limit = {
+					NOT = {has_global_flag = Push_into_Italy}
+				}
+				every_core_state = {
+					limit = {
+						is_in_home_area = yes
+						is_coastal = yes
+					}
+					add_dynamic_modifier = {
+						modifier = PAC_home_defense_1
+					}
+				}
+			}
+			
+		}
+		on_deactivate = {
+		
+		 }
+	}
+
+	### eng side for eng
+	side = {
+		id = ENG_MED_eng_side
+		icon = GFX_bop_MED_eng_side
+
+		range = {
+			id = ENG_MED_low_eng_dominance
+			min = 0.25
+			max = 0.5
+			modifier = {
+				army_attack_factor = 0.05
+				army_defence_factor = 0.05
+				army_morale_factor = 0.05
+				war_support_factor = 0.1
+				
+			}
+			on_activate = {
+
+			}
+			on_deactivate = {
+				
+			}
+		}
+
+		range = {
+			id = ENG_MED_medium_eng_dominance
+			min = 0.5
+			max = 0.75
+			modifier = {
+				army_attack_factor = 0.1
+				army_defence_factor = 0.1
+				army_morale_factor = 0.1
+				war_support_factor = 0.2
+				political_power_factor = 0.1
+			}
+			on_activate = {
+				
+			}
+			on_deactivate = {
+				
+			}
+		}
+
+		range = {
+			id = ENG_MED_total_eng_dominance
+			min = 0.75
+			max = 1
+			modifier = {
+				army_attack_factor = 0.15
+				army_defence_factor = 0.15
+				army_morale_factor = 0.15
+				war_support_factor = 0.3
+				political_power_factor = 0.2
+				resistance_activity = -0.15
+			}
+			on_activate = {
+				
+			}
+			on_deactivate = {
+				
+			}
+		}
+
+		
+	}
+	### ita side for eng
+	side = {
+		id = ENG_MED_ita_side
+		icon = GFX_bop_MED_ita_side
+
+		range = {
+			id = ENG_MED_low_ita_dominance
+			min = -0.5
+			max = -0.25
+			modifier = {
+				army_attack_factor = -0.05
+				army_defence_factor = -0.05
+				army_morale_factor = -0.05
+				stability_factor = -0.1
+			}
+			on_activate = {
+				if = {
+					limit = {
+						NOT = {has_global_flag = Push_into_Italy}
+					}
+					every_core_state = {
+						limit = {
+							is_in_home_area = yes
+							is_coastal = yes
+						}
+						if = {
+							limit = {
+								has_dynamic_modifier = {
+									modifier = PAC_home_defense_1
+								}
+							}
+							remove_dynamic_modifier = {
+								modifier = PAC_home_defense_1
+							}
+						}
+						add_dynamic_modifier = {
+							modifier = PAC_home_defense_2
+						}
+					}
+				}
+				every_other_country = {
+					limit = {
+						OR = {
+							tag = RAJ
+							tag = SAF
+							tag = AST
+							tag = NZL
+							tag = FRA
+							tag = CAN
+						}
+					}
+					add_ideas = SPT_Med_BOP_Allies_Debuff_low
+				}
+				
+				
+			}
+			on_deactivate = {
+				if = {
+					limit = {
+						NOT = {has_global_flag = Push_into_Italy}
+					}
+					every_core_state = {
+						limit = {
+							is_in_home_area = yes
+							is_coastal = yes
+						}
+						remove_dynamic_modifier = {
+							modifier = PAC_home_defense_2
+						}
+					}
+				}
+				every_other_country = {
+					limit = {
+						OR = {
+							tag = RAJ
+							tag = SAF
+							tag = AST
+							tag = NZL
+							tag = FRA
+							tag = CAN
+						}
+					}
+					remove_ideas = SPT_Med_BOP_Allies_Debuff_low
+				}
+			}
+		}
+
+		range = {
+		id = ENG_MED_medium_ita_dominance
+			min = -0.75
+			max = -0.5
+			modifier = {
+				army_attack_factor = -0.1
+				army_defence_factor = -0.1
+				army_morale_factor = -0.1
+				stability_factor = -0.2
+				
+			}
+			on_activate = {
+				if = {
+					limit = {
+						NOT = {has_global_flag = Push_into_Italy}
+					}
+					every_core_state = {
+						limit = {
+							is_in_home_area = yes
+							is_coastal = yes
+						}
+						add_dynamic_modifier = {
+							modifier = PAC_home_defense_3
+						}
+					}
+				}
+				every_other_country = {
+					limit = {
+						OR = {
+							tag = RAJ
+							tag = SAF
+							tag = AST
+							tag = NZL
+							tag = FRA
+							tag = CAN
+						}
+					}
+					add_ideas = SPT_Med_BOP_Allies_Debuff_med
+				}
+			}
+			on_deactivate = {
+				if = {
+					limit = {
+						NOT = {has_global_flag = Push_into_Italy}
+					}
+				
+					every_core_state = {
+						limit = {
+							is_in_home_area = yes
+							is_coastal = yes
+						}
+						remove_dynamic_modifier = {
+							modifier = PAC_home_defense_3
+						}
+					}
+				}
+				every_other_country = {
+					limit = {
+						OR = {
+							tag = RAJ
+							tag = SAF
+							tag = AST
+							tag = NZL
+							tag = FRA
+							tag = CAN
+						}
+					}
+					remove_ideas = SPT_Med_BOP_Allies_Debuff_med
+				}
+			}
+		}
+
+		range = {
+			id = ENG_MED_total_ita_dominance
+			min = -1
+			max = -0.75
+			modifier = {
+				army_attack_factor = -0.15
+				army_defence_factor = -0.15
+				army_morale_factor = -0.15
+				stability_factor = -0.3
+				political_power_factor = -0.1
+			}
+			on_activate = {
+				every_other_country = {
+					limit = {
+						OR = {
+							tag = RAJ
+							tag = SAF
+							tag = AST
+							tag = NZL
+							tag = FRA
+							tag = CAN
+						}
+					}
+					add_ideas = SPT_Med_BOP_Allies_Debuff_high
+				}
+			}
+			on_deactivate = {
+				every_other_country = {
+					limit = {
+						OR = {
+							tag = RAJ
+							tag = SAF
+							tag = AST
+							tag = NZL
+							tag = FRA
+							tag = CAN
+						}
+					}
+					remove_ideas = SPT_Med_BOP_Allies_Debuff_high
+				}
+			}
+		}
+
+		
+	}
+
+
+	
+}
+
