@@ -1,5 +1,14 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 4.0.1 Master of Mastery
+
+#### General
+ - Added Mastery Decisions
+  - Provide passive gain over 3 years to two infantry subdoctrines and 1 naval and air subdoctrine. 
+  - The same infantry subdoctrine can be selected twice.
+  - These decisions require an appropriate branch member of high command (not chief of branch)
+  - This gain cannot be changed once selected.
+
 ### 4.0.0 Japanese soldier fights against Paradox dlc release for 40 years, dispatched by server owner
 
 #### General
