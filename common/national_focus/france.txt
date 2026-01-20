@@ -598,6 +598,7 @@
 						state = 286
 						state = 671
 						state = 670
+						state = 1017
 					}
 					OWNER = { is_owned_or_subject_trigger = yes }	
 					NOT = {
@@ -1631,6 +1632,49 @@
 			set_country_flag = { flag = FRA_popular_front_cooldown value = 1 days = 360 } #fires strike event if labour laws not reformed in time
 		}
 	}
+
+	focus = {
+		id = SPT_FRA_intervention_in_spain # SPTchange
+		icon = GFX_focus_focus_fra_intervention_spain
+		# x = 7
+		# y = 2
+		x = 3
+		y = 1
+		offset = {
+			x = 0
+			y = 0
+		}
+		prerequisite = {
+			focus = FRA_form_the_popular_front
+		}
+		
+		relative_position_id = FRA_form_the_popular_front
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			# SPR_scw_in_progress = yes
+			is_subject = no
+		}
+		
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_ideas = SPT_fra_intervention_in_scw
+			# unlock_decision_category_tooltip = FRA_spanish_intervention_category
+			# set_country_flag = FRA_non_intervention
+		}
+	}
+
 	focus = {
 		allow_branch = {always = no}
 		
@@ -2576,7 +2620,7 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_ideas = { FRA_revolutionary_zeal}
+			add_ideas = FRA_revolutionary_zeal
 		}
 	}
 	focus = {
@@ -2612,19 +2656,32 @@
 		available_if_capitulated = no
 
 		completion_reward = {
+
 			promote_character = FRA_rene_nicod
+
 			add_trait = {
 				character = FRA_rene_nicod
 				ideology = marxism
 				trait = proletariat_internationalist
 			}
+
 			set_party_name = {
 				ideology = communism
 				long_name = FRA_union_populaire_long
 				name = FRA_union_populaire
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			set_rule = { can_create_factions = yes }
-			create_faction = FRA_communist_faction
+			create_faction_from_template = {
+				template = faction_template_POR_popular_front_bloc
+				name = FRA_communist_faction
+				icon = GFX_faction_logo_generic_14
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
 			create_operative_leader = {
 				name = "Jacques Duclos"
 				GFX = GFX_portrait_jacques_duclos
@@ -2923,6 +2980,7 @@
 			}
 		}
 	}
+
 	focus = {
 		id = FRA_nationalize_key_industry
 		icon = GFX_goal_generic_construct_civ_factory
@@ -2963,6 +3021,7 @@
 			}
 		}
 	}
+
 	focus = {
 		id = FRA_reorganize_the_aviation_industry
 		icon = GFX_goal_generic_air_production
@@ -2994,14 +3053,37 @@
 		continue_if_invalid = no
 		available_if_capitulated = no
 		search_filters = { FOCUS_FILTER_INDUSTRY }
+
 		completion_reward = {
-			unlock_decision_tooltip = { decision = FRA_reorganize_aviation_industry_north show_effect_tooltip = yes }
-			unlock_decision_tooltip = { decision = FRA_reorganize_aviation_industry_west show_effect_tooltip = yes }
-			unlock_decision_tooltip = { decision = FRA_reorganize_aviation_industry_center show_effect_tooltip = yes }
-			unlock_decision_tooltip = { decision = FRA_reorganize_aviation_industry_south_east show_effect_tooltip = yes }
-			unlock_decision_tooltip = { decision = FRA_reorganize_aviation_industry_south_west show_effect_tooltip = yes }
+
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}	
+				}
+				prioritize = { 16 24 15 20 31 }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}	
+			}	
+			custom_effect_tooltip = CHL_skip_one_line_tt
+			unlock_decision_tooltip = { decision = FRA_reorganize_aviation_industry_north show_effect_tooltip = no }
+			unlock_decision_tooltip = { decision = FRA_reorganize_aviation_industry_west show_effect_tooltip = no }
+			unlock_decision_tooltip = { decision = FRA_reorganize_aviation_industry_center show_effect_tooltip = no }
+			unlock_decision_tooltip = { decision = FRA_reorganize_aviation_industry_south_east show_effect_tooltip = no }
+			unlock_decision_tooltip = { decision = FRA_reorganize_aviation_industry_south_west show_effect_tooltip = no }
 		}
 	}
+
+
 	focus = {
 		id = FRA_form_the_state_arsenals
 		icon = GFX_goal_generic_construct_mil_factory
@@ -3070,6 +3152,7 @@
 			}
 		}
 	}
+
 	focus = {
 		id = FRA_general_work_council
 		icon = GFX_goal_generic_construction
@@ -3580,48 +3663,7 @@
 			add_political_power = 120
 		}
 	}
-	focus = {
-		id = SPT_FRA_intervention_in_spain # SPTchange
-		icon = GFX_focus_focus_fra_intervention_spain
-		# x = 7
-		# y = 2
-		x = 3
-		y = 1
-		offset = {
-			x = 0
-			y = 0
-		}
-		prerequisite = {
-			focus = FRA_form_the_popular_front
-			focus = FRA_revive_the_national_bloc
-		}
-		
-		relative_position_id = FRA_form_the_popular_front
-		cost = 5
 
-		ai_will_do = {
-			factor = 1
-		}
-
-		available = {
-			# SPR_scw_in_progress = yes
-			is_subject = no
-		}
-		
-		bypass = {
-
-		}
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		completion_reward = {
-			add_ideas = SPT_fra_intervention_in_scw
-			# unlock_decision_category_tooltip = FRA_spanish_intervention_category
-			# set_country_flag = FRA_non_intervention
-		}
-	}
 	focus = {
 		id = FRA_support_the_finns
 		icon = GFX_focus_invite_finland
@@ -3807,7 +3849,8 @@
 					is_in_faction = no
 				}
 				set_rule = { can_create_factions = yes }
-				create_faction = FRA_little_entente
+				create_faction_from_template = faction_template_the_little_entente
+
 				CZE = { custom_effect_tooltip = invite_to_faction_tt }
 				hidden_effect = {
 					CZE = { country_event = generic.5 }
@@ -5463,7 +5506,10 @@
 
 		completion_reward = {
 			set_rule = { can_create_factions = yes }
-			create_faction = FRA_latin_entente
+			create_faction_from_template = {
+				template = faction_template_european_dominance
+				name = FRA_latin_entente
+			}
 			create_country_leader = {
 				name = "François de la Rocque"
 				desc = "POLITICS_ÉDOUARD_DALADIER_DESC"
@@ -7151,7 +7197,11 @@
 
 		completion_reward = {
 			set_rule = { can_create_factions = yes }
-			create_faction = FRA_orleanist_faction
+			create_faction_from_template = {
+				template = faction_template_anti_fascist
+				name = FRA_orleanist_faction
+				icon = GFX_faction_logo_generic_12
+			}
 			if = {
 				limit = {
 					GER = { has_government = fascism }
@@ -7426,9 +7476,8 @@
 				}
 			}
 			else = {
-				any_state = {
+				any_controlled_state = {
 					is_core_of = SPB
-					is_controlled_by = ROOT
 				}
 			}
 			is_subject = no
@@ -7502,14 +7551,18 @@
 		available_if_capitulated = no
 
 		completion_reward = {
-			if = {
+			IF = {
 				limit = {
 					is_in_faction = no
 				}
 				set_rule = { can_create_factions = yes }
-				create_faction = FRA_legitimist_faction
+				create_faction_from_template = {
+					template = faction_template_anti_communist
+					name = FRA_legitimist_faction
+					icon = GFX_faction_logo_generic_5 
+				}
 			}
-			if = {
+			IF = {
 				limit = {
 					SPB = { is_in_faction = no }
 				}
@@ -7567,12 +7620,25 @@
 					
 				}
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			set_party_name = {
 				ideology = neutrality
 				long_name = FRA_bonepartist_party_long
 				name = FRA_bonepartist_party
 			}
 			set_politics = { ruling_party = neutrality }
+			custom_effect_tooltip = generic_skip_one_line_tt
+			if = {
+				limit = {
+					is_in_faction = no
+				}
+				set_rule = { can_create_factions = yes }
+				create_faction_from_template = {
+					template = faction_template_european_dominance_monarchist
+					name = FRA_continental_system
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			hidden_effect = {
 				news_event = { id = lar_news.8 days = 3 random_days = 5 }
 			}
@@ -7682,9 +7748,8 @@
 				HOL = {
 					is_subject_of = ROOT
 				}
-				any_state = {
+				any_controlled_state = {
 					is_core_of = HOL
-					is_controlled_by = ROOT
 				}
 			}
 		}
@@ -7725,6 +7790,10 @@
 
 		available = {
 			is_subject = no
+			OR = {
+				is_in_faction = no
+				is_faction_leader = yes
+			}
 		}
 		
 		bypass = {
@@ -7768,9 +7837,8 @@
 
 		available = {
 			is_subject = no
-			any_state = { 
+			any_controlled_state = { 
 				is_core_of = GER
-				is_controlled_by = ROOT
 			}
 			GER = {
 				OR = {
@@ -8519,7 +8587,7 @@
 				name = FRA_improved_screen_ships
 				bonus = 2.0
 				uses = 1
-				category = cl_tech
+				category = ca_tech
 			}
 		}
 	}

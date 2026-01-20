@@ -28,35 +28,22 @@ NDefines.NBuildings.ANTI_AIR_SUPERIORITY_MULT = 25
 
 NDefines.NMilitary.ARMOR_VS_AVERAGE = 0.25
 NDefines.NMilitary.PEN_VS_AVERAGE = 0.3
-NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_IMPACT = 0.25
+NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_IMPACT = -0.25
 NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE = 0.5
 NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE_STEEPNESS = 80
 NDefines.NMilitary.AIR_SUPPORT_BASE = 0.2
 NDefines.NAir.ANTI_AIR_MAXIMUM_DAMAGE_REDUCTION_FACTOR = 0.9
 NDefines.NAir.ANTI_AIR_ATTACK_TO_DAMAGE_REDUCTION_FACTOR = 0.4
+NDefines.NAir.PORT_STRIKES_DELAY_MULTIPLIER = 1
 
 
-NDefines.NNavy.CARRIER_STACK_PENALTY 									        = 6         --The most efficient is 4 carriers in combat. 5+ brings the penalty to the amount of wings in battle.
-NDefines.NNavy.CARRIER_STACK_PENALTY_EFFECT 									= 0.5      --Each carrier above the optimal amount decreases the amount of airplanes being able to takeoff by such %.
-NDefines.NNavy.MIN_GUN_COOLDOWN                                                 = 1
+
 NDefines.NNavy.DEPTH_CHARGES_HIT_CHANCE_MULT 									= 1.1       --"multiplies hit chance of small guns" says the comment, tf does i actually do
 NDefines.NNavy.DEPTH_CHARGES_DAMAGE_MULT 										= 0.7       --multiplies damage of depth charges
 NDefines.NNavy.DEPTH_CHARGES_HIT_PROFILE 										= 100.0     --hit profile for depth charges
 NDefines.NNavy.SUBMARINE_BASE_TORPEDO_REVEAL_CHANCE 							= 0.1       --Chance of a submarine being revealed when it fires. 1.0 is 100%. this chance is then multiplied with modifier ~~created by comparing firer's visibiility and target's detection~~ depending on the subs sub visibility
 NDefines.NNavy.SUBMARINE_REVEAL_BASE_CHANCE 									= 11        --Base factor for submarine detection in Battles. It's modified by the difference of a spotter's submarines detection vs submarine visibility. Use this variable for game balancing. setting this too low will cause bad spotting issues.
 NDefines.NNavy.SUBMARINE_REVEAL_POW 											= 3.0		--A scaling factor that is applied to the reveal chance in order to make large differences in detection vs visibility more pronounced
-NDefines.NNavy.MISSION_SUPREMACY_RATIOS = { -- supremacy multipliers for different mission types
-    0.0, -- HOLD
-    1.0, -- PATROL
-    0.5, -- STRIKE FORCE
-    0.5, -- CONVOY RAIDING
-    0.5, -- CONVOY ESCORT
-    0.3, -- MINES PLANTING
-    0.3, -- MINES SWEEPING
-    0.0, -- TRAIN
-    0.0, -- RESERVE_FLEET
-    1.0, -- NAVAL_INVASION_SUPPORT
-}
 NDefines.NNavy.NAVY_PIERCING_THRESHOLDS = {					-- Our piercing / their armor must be at least this value to deal damage fraction equal to the index in the array below [higher number = higher penetration]. If armor is 0, 1.00 will be returned.
 2.00,
 1.00,
@@ -125,3 +112,6 @@ NDefines.NAI.MINIMUM_EQUIPMENT_TO_ASK_LEND_LEASE = -100000
 NDefines.NAI.MINIMUM_CONVOY_TO_ASK_LEND_LEASE = 0
 
 NDefines.NProduction.LICENSE_IC_COST_YEAR_INCREASE = 0
+
+NDefines.NMilitary.COHESION_IMMOBILE_PLANNING_SPEED_MULTIPLIER = 1	-- If using the 'immobile' cohesion setting, factor ALL planning speed growth by this
+NDefines.NMilitary.PLAN_COHESION_WEIGHTS = { 1.0, 40.0, 80.0, 100.0 } 	-- for each cohesion setting, how keen on relocating from distance should we be? (default 1.0), higher weight = shorter max distance. The last entry is special-cased, the value should have no effect and units will just not move anywhere, ever.

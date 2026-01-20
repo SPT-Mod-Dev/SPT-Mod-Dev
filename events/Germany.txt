@@ -164,17 +164,20 @@ country_event = {
 			modifier = {
 				factor = 0
 				tag = JAP
-				has_completed_focus = JAP_the_unthinkable_option
+				OR = {
+					has_completed_focus = JAP_the_unthinkable_option
+					has_completed_focus = JAP_return_of_the_manchukuo_exiles
+				}
 			}
 			modifier = {
 				factor = 0
 				is_literally_china = yes
-				JAP = { has_completed_focus = JAP_purge_the_kodoha_faction }
+				JAP = { has_completed_focus = JAP_sea_purge_the_kodoha_faction }
 			}
 			modifier = {
 				factor = 0
 				tag = JAP
-				has_completed_focus = JAP_purge_the_kodoha_faction
+				has_completed_focus = JAP_sea_purge_the_kodoha_faction
 				date > 1938.1.1
 			}
 		}
@@ -2750,7 +2753,10 @@ country_event = {
 				limit = {
 					CZE = { is_in_faction = no }
 				}
-				create_faction = french_alliance
+				create_faction_from_template = {
+					template = faction_template_the_little_entente
+					name = french_alliance
+				}
 				set_rule = { can_create_factions = yes }
 				add_to_faction = CZE
 				CZE = {
@@ -5137,7 +5143,7 @@ country_event = {
 				PREV.PREV = {
 					set_variable = { GER_military_army_org_factor = 0.05 }
 					set_variable = { GER_military_planning_speed = 0.25 }
-					set_variable = { GER_military_supply_factor = -0.15 }
+					set_variable = { GER_military_supply_consumption_factor = 0.15 }
 					set_variable = { GER_military_equipment_capture = 0 }
 					set_variable = { GER_military_initiative_factor = 0 }
 					set_variable = { GER_military_army_fuel_consumption_factor = 0 }
@@ -5250,7 +5256,7 @@ country_event = {
 				PREV.PREV = {
 					set_variable = { GER_military_army_org_factor = 0.05 }
 					set_variable = { GER_military_planning_speed = 0.25 }
-					set_variable = { GER_military_supply_factor = -0.15 }
+					set_variable = { GER_military_supply_consumption_factor = 0.15 }
 					set_variable = { GER_military_equipment_capture = 0 }
 					set_variable = { GER_military_initiative_factor = 0 }
 					set_variable = { GER_military_army_fuel_consumption_factor = 0 }
@@ -5417,7 +5423,7 @@ country_event = {
 				PREV.PREV = {
 					set_variable = { GER_military_army_org_factor = 0.05 }
 					set_variable = { GER_military_planning_speed = 0.25 }
-					set_variable = { GER_military_supply_factor = -0.15 }
+					set_variable = { GER_military_supply_consumption_factor = 0.15 }
 					set_variable = { GER_military_equipment_capture = 0 }
 					set_variable = { GER_military_initiative_factor = 0 }
 					set_variable = { GER_military_army_fuel_consumption_factor = 0 }
@@ -5530,7 +5536,7 @@ country_event = {
 				PREV.PREV = {
 					set_variable = { GER_military_army_org_factor = 0.05 }
 					set_variable = { GER_military_planning_speed = 0.25 }
-					set_variable = { GER_military_supply_factor = -0.15 }
+					set_variable = { GER_military_supply_consumption_factor = 0.15 }
 					set_variable = { GER_military_equipment_capture = 0 }
 					set_variable = { GER_military_initiative_factor = 0 }
 					set_variable = { GER_military_army_fuel_consumption_factor = 0 }
@@ -5673,7 +5679,7 @@ country_event = {
 				PREV.PREV = {
 					set_variable = { GER_military_army_org_factor = 0.05 }
 					set_variable = { GER_military_planning_speed = 0.25 }
-					set_variable = { GER_military_supply_factor = -0.15 }
+					set_variable = { GER_military_supply_consumption_factor = 0.15 }
 					set_variable = { GER_military_equipment_capture = 0 }
 					set_variable = { GER_military_initiative_factor = 0 }
 					set_variable = { GER_military_army_fuel_consumption_factor = 0 }
@@ -5786,7 +5792,7 @@ country_event = {
 				PREV.PREV = {
 					set_variable = { GER_military_army_org_factor = 0.05 }
 					set_variable = { GER_military_planning_speed = 0.25 }
-					set_variable = { GER_military_supply_factor = -0.15 }
+					set_variable = { GER_military_supply_consumption_factor = 0.15 }
 					set_variable = { GER_military_equipment_capture = 0 }
 					set_variable = { GER_military_initiative_factor = 0 }
 					set_variable = { GER_military_army_fuel_consumption_factor = 0 }
@@ -5923,7 +5929,7 @@ country_event = {
 				PREV.PREV = {
 					set_variable = { GER_military_army_org_factor = 0.05 }
 					set_variable = { GER_military_planning_speed = 0.25 }
-					set_variable = { GER_military_supply_factor = -0.15 }
+					set_variable = { GER_military_supply_consumption_factor = 0.15 }
 					set_variable = { GER_military_equipment_capture = 0 }
 					set_variable = { GER_military_initiative_factor = 0 }
 					set_variable = { GER_military_army_fuel_consumption_factor = 0 }
@@ -6036,7 +6042,7 @@ country_event = {
 				PREV.PREV = {
 					set_variable = { GER_military_army_org_factor = 0.05 }
 					set_variable = { GER_military_planning_speed = 0.25 }
-					set_variable = { GER_military_supply_factor = -0.15 }
+					set_variable = { GER_military_supply_consumption_factor = 0.15 }
 					set_variable = { GER_military_equipment_capture = 0 }
 					set_variable = { GER_military_initiative_factor = 0 }
 					set_variable = { GER_military_army_fuel_consumption_factor = 0 }
@@ -6487,6 +6493,10 @@ country_event = {
 				limit = { GER = { owns_state = 664 } }
 				transfer_state = 664
 			}
+			if = {
+				limit = { GER = { owns_state = 72 } }
+				transfer_state = 72
+			}
 			GER = { transfer_state = 85 }
 			GER = { transfer_state = 807 }
 			807 = { add_core_of = GER }
@@ -6566,6 +6576,10 @@ country_event = {
 		if = {
 			limit = { owns_state = 664 }
 			POL = { transfer_state = 664 }
+		}
+		if = {
+			limit = { owns_state = 72 }
+			POL = { transfer_state = 72 }
 		}
 		transfer_state = 85
 		transfer_state = 807
@@ -7101,7 +7115,10 @@ country_event = {
 				remove_from_faction = GER
 			}
 			add_stability = -0.2
-			create_faction = the_berlin_moscow_axis
+			create_faction_from_template = {
+				template = faction_template_regional_anti_democratic
+				name = the_berlin_moscow_axis
+			}
 			add_to_faction = SOV
 			add_named_threat = { threat = 10 name = germany.89.t }
 			every_other_country = {
@@ -9657,7 +9674,10 @@ country_event = {
 			limit = {
 				is_in_faction = no
 			}
-			create_faction = "anti_soviet_pact_faction"
+			create_faction_from_template = {
+				template = faction_template_anti_communist
+				name = anti_soviet_pact_faction
+			}
 		}
 	}
 

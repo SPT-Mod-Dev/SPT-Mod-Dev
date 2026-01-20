@@ -273,8 +273,13 @@ focus = {
 	
 	cost = 5
 	available = {
-		JAP = {
-			has_war_with = CHI
+		OR = {
+			JAP = {
+				has_war_with = CHI
+			}
+			NOT = {
+				country_exists = CHI
+			}
 		}
 	}
 	bypass = {
@@ -321,9 +326,8 @@ focus = {
 			planning_skill = 2
 			logistics_skill = 2
 		}
-		
 	}
-	}
+}
 focus = {
 	id = MON_merge_the_parties
 	icon = GFX_focus_SOV_the_supreme_soviet
@@ -353,6 +357,7 @@ focus = {
 		add_state_core = 759
 		add_state_core = 287
 		add_state_core = 619
+		add_state_core = 1042
 		remove_ideas = mon_isolation
 	}
 }
@@ -1046,6 +1051,7 @@ focus = {
 		add_state_core = 759
 		add_state_core = 287
 		add_state_core = 619
+		add_state_core = 1042
 	}
 }
 focus = {
@@ -1461,6 +1467,9 @@ focus = {
 			add_compliance = 50
 		}
 		619 = {
+			add_compliance = 50
+		}
+		1042 = {
 			add_compliance = 50
 		}
 	}

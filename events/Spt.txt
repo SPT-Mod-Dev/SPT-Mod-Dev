@@ -495,242 +495,242 @@ country_event = {
 
 }
 
-country_event = { # Manchukuo asks Japan for its future
-	id = spt.18
-	title = spt.18.t
-	desc = spt.18.desc
-	picture = GFX_report_event_chinese_japanese_handshake
-	is_triggered_only = yes
-	option = {
-		name = spt.18.a
-		JAP = {
-			country_event = spt.19
-		}
+# country_event = { # Manchukuo asks Japan for its future
+# 	id = spt.18
+# 	title = spt.18.t
+# 	desc = spt.18.desc
+# 	picture = GFX_report_event_chinese_japanese_handshake
+# 	is_triggered_only = yes
+# 	option = {
+# 		name = spt.18.a
+# 		JAP = {
+# 			country_event = spt.19
+# 		}
 		
-	}
+# 	}
 
-}
+# }
 
-country_event = { # Japanese yes or no response
-	id = spt.19
-	title = spt.19.t
-	desc = spt.19.desc
-	picture = GFX_report_event_chinese_japanese_handshake
-	is_triggered_only = yes
-	option = { # PISS OFF MAN(chukuo)
-		name = spt.19.b
-		MAN = {
-			country_event = spt.21
-		}
+# country_event = { # Japanese yes or no response
+# 	id = spt.19
+# 	title = spt.19.t
+# 	desc = spt.19.desc
+# 	picture = GFX_report_event_chinese_japanese_handshake
+# 	is_triggered_only = yes
+# 	option = { # PISS OFF MAN(chukuo)
+# 		name = spt.19.b
+# 		MAN = {
+# 			country_event = spt.21
+# 		}
 		
-	}
+# 	}
 
-}
+# }
 
-country_event = { # They said yes UwU (China path)
-	id = spt.20
-	title = spt.20.t
-	desc = spt.20.desc
-	picture = GFX_report_event_japanese_reply
-	is_triggered_only = yes
-	option = {
-		name = spt.20.a
-		complete_national_focus = SPT_MAN_chinese_leadership
-	}
+# country_event = { # They said yes UwU (China path)
+# 	id = spt.20
+# 	title = spt.20.t
+# 	desc = spt.20.desc
+# 	picture = GFX_report_event_japanese_reply
+# 	is_triggered_only = yes
+# 	option = {
+# 		name = spt.20.a
+# 		complete_national_focus = SPT_MAN_chinese_leadership
+# 	}
 
-}
+# }
 
-country_event = { # Kishi route (Full Manchukuo path)
-	id = spt.21
-	title = spt.21.t
-	desc = spt.21.desc
-	picture = GFX_report_event_japanese_siam_politicians
-	is_triggered_only = yes
-	option = {
-		name = spt.21.a
-		complete_national_focus = SPT_MAN_the_japanese_colony
-	}
+# country_event = { # Kishi route (Full Manchukuo path)
+# 	id = spt.21
+# 	title = spt.21.t
+# 	desc = spt.21.desc
+# 	picture = GFX_report_event_japanese_siam_politicians
+# 	is_triggered_only = yes
+# 	option = {
+# 		name = spt.21.a
+# 		complete_national_focus = SPT_MAN_the_japanese_colony
+# 	}
 
-}
+# }
 
-country_event = { # Puyi demands East Hebei and Dalian
-	id = spt.22
-	title = spt.22.t
-	desc = spt.22.desc
-	picture = GFX_report_event_japanese_chinese_surrender
-	is_triggered_only = yes
-	option = {
-		name = spt.22.a # YES
-		add_country_leader_trait = popular_figurehead
-		MAN = {
-			add_state_core = 609
-			add_state_core = 621
-			add_state_core = 615
-			MAN_low_legitimacy_level_down = yes
-			add_country_leader_trait = popular_figurehead
-			add_country_leader_trait = nationalist_symbol
-			if = {
-				limit = {
-					615 = { is_controlled_by = JAP }
-				}
-				transfer_state = 615
-				if = {
-					limit = {
-						JAP = {
-							OR = {
-								has_completed_focus = SPT_JAP_exploit_chinese_industry
-								#has_completed_focus = SPT_JAP_pan_asia
-							}
-						}
-					}
-					615 = {
-						remove_dynamic_modifier = {
-							modifier = SPT_JAP_exploit_chinese_industry_modifier
-						}
-						remove_dynamic_modifier = {
-							modifier = JAP_pan_asian_integration
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					621 = { is_controlled_by = JAP }
-				}
-				transfer_state = 621
-				if = {
-					limit = {
-						JAP = {
-							OR = {
-								has_completed_focus = SPT_JAP_exploit_chinese_industry
-								#has_completed_focus = SPT_JAP_pan_asia
-							}
-						}
-					}
-					621 = {
-						remove_dynamic_modifier = {
-							modifier = SPT_JAP_exploit_chinese_industry_modifier
-						}
-						remove_dynamic_modifier = {
-							modifier = JAP_pan_asian_integration
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					745 = { is_controlled_by = JAP }
-				}
-				transfer_state = 745
-				if = {
-					limit = {
-						JAP = {
-							OR = {
-								has_completed_focus = SPT_JAP_exploit_chinese_industry
-								#has_completed_focus = SPT_JAP_pan_asia
-							}
-						}
-					}
-					745 = {
-						remove_dynamic_modifier = {
-							modifier = SPT_JAP_exploit_chinese_industry_modifier
-						}
-						remove_dynamic_modifier = {
-							modifier = JAP_pan_asian_integration
-						}
-					}
-				}
-			}
-			if = {
-				limit = {
-					609 = { is_controlled_by = JAP }
-				}
-				transfer_state = 609
-				if = {
-					limit = {
-						JAP = {
-							OR = {
-								has_completed_focus = SPT_JAP_exploit_chinese_industry
-								#has_completed_focus = SPT_JAP_pan_asia
-							}
-						}
-					}
-					609 = {
-						remove_dynamic_modifier = {
-							modifier = SPT_JAP_exploit_chinese_industry_modifier
-						}
-						remove_dynamic_modifier = {
-							modifier = JAP_pan_asian_integration
-						}
-					}
-				}
-			}
-		}
-	}
+# country_event = { # Puyi demands East Hebei and Dalian
+# 	id = spt.22
+# 	title = spt.22.t
+# 	desc = spt.22.desc
+# 	picture = GFX_report_event_japanese_chinese_surrender
+# 	is_triggered_only = yes
+# 	option = {
+# 		name = spt.22.a # YES
+# 		add_country_leader_trait = popular_figurehead
+# 		MAN = {
+# 			add_state_core = 609
+# 			add_state_core = 621
+# 			add_state_core = 615
+# 			MAN_low_legitimacy_level_down = yes
+# 			add_country_leader_trait = popular_figurehead
+# 			add_country_leader_trait = nationalist_symbol
+# 			if = {
+# 				limit = {
+# 					615 = { is_controlled_by = JAP }
+# 				}
+# 				transfer_state = 615
+# 				if = {
+# 					limit = {
+# 						JAP = {
+# 							OR = {
+# 								has_completed_focus = SPT_JAP_exploit_chinese_industry
+# 								#has_completed_focus = SPT_JAP_pan_asia
+# 							}
+# 						}
+# 					}
+# 					615 = {
+# 						remove_dynamic_modifier = {
+# 							modifier = SPT_JAP_exploit_chinese_industry_modifier
+# 						}
+# 						remove_dynamic_modifier = {
+# 							modifier = JAP_pan_asian_integration
+# 						}
+# 					}
+# 				}
+# 			}
+# 			if = {
+# 				limit = {
+# 					621 = { is_controlled_by = JAP }
+# 				}
+# 				transfer_state = 621
+# 				if = {
+# 					limit = {
+# 						JAP = {
+# 							OR = {
+# 								has_completed_focus = SPT_JAP_exploit_chinese_industry
+# 								#has_completed_focus = SPT_JAP_pan_asia
+# 							}
+# 						}
+# 					}
+# 					621 = {
+# 						remove_dynamic_modifier = {
+# 							modifier = SPT_JAP_exploit_chinese_industry_modifier
+# 						}
+# 						remove_dynamic_modifier = {
+# 							modifier = JAP_pan_asian_integration
+# 						}
+# 					}
+# 				}
+# 			}
+# 			if = {
+# 				limit = {
+# 					745 = { is_controlled_by = JAP }
+# 				}
+# 				transfer_state = 745
+# 				if = {
+# 					limit = {
+# 						JAP = {
+# 							OR = {
+# 								has_completed_focus = SPT_JAP_exploit_chinese_industry
+# 								#has_completed_focus = SPT_JAP_pan_asia
+# 							}
+# 						}
+# 					}
+# 					745 = {
+# 						remove_dynamic_modifier = {
+# 							modifier = SPT_JAP_exploit_chinese_industry_modifier
+# 						}
+# 						remove_dynamic_modifier = {
+# 							modifier = JAP_pan_asian_integration
+# 						}
+# 					}
+# 				}
+# 			}
+# 			if = {
+# 				limit = {
+# 					609 = { is_controlled_by = JAP }
+# 				}
+# 				transfer_state = 609
+# 				if = {
+# 					limit = {
+# 						JAP = {
+# 							OR = {
+# 								has_completed_focus = SPT_JAP_exploit_chinese_industry
+# 								#has_completed_focus = SPT_JAP_pan_asia
+# 							}
+# 						}
+# 					}
+# 					609 = {
+# 						remove_dynamic_modifier = {
+# 							modifier = SPT_JAP_exploit_chinese_industry_modifier
+# 						}
+# 						remove_dynamic_modifier = {
+# 							modifier = JAP_pan_asian_integration
+# 						}
+# 					}
+# 				}
+# 			}
+# 		}
+# 	}
 
-	option = {
-		name = spt.22.b
-		JAP = {
-			country_event = spt.23
-		}
-	}
+# 	option = {
+# 		name = spt.22.b
+# 		JAP = {
+# 			country_event = spt.23
+# 		}
+# 	}
 
 	
 
-}
+# }
 
-country_event = { #lmao
-	id = spt.23
-	title = spt.23.t
-	desc = spt.23.desc
-	picture = GFX_report_event_japanese_chinese_surrender
-	is_triggered_only = yes
-	option = {
-		name = spt.23.a # YES
-		add_country_leader_trait = popular_figurehead
-		MAN = {
-			transfer_state = 609
-			add_state_core = 609
-			transfer_state = 621
-			add_state_core = 621
-			transfer_state = 615
-			add_state_core = 615
-			transfer_state = 745
-			add_state_core = 745
-			if = {
-				limit = {
-					JAP = {
-						has_completed_focus = JAP_pan_asia_movement
-					}
-				}
-				609 = {
-					remove_dynamic_modifier = {
-						modifier = JAP_pan_asian_integration
-					}
-				}
-				621 = {
-					remove_dynamic_modifier = {
-						modifier = JAP_pan_asian_integration
-					}
-				}
-				615 = {
-					remove_dynamic_modifier = {
-						modifier = JAP_pan_asian_integration
-					}
-				}
-				745 = {
-					remove_dynamic_modifier = {
-						modifier = JAP_pan_asian_integration
-					}
-				}
-			}
-			MAN_low_legitimacy_level_down = yes
-			add_country_leader_trait = popular_figurehead
-			add_country_leader_trait = nationalist_symbol
-		}
-	}
+# country_event = { #lmao
+# 	id = spt.23
+# 	title = spt.23.t
+# 	desc = spt.23.desc
+# 	picture = GFX_report_event_japanese_chinese_surrender
+# 	is_triggered_only = yes
+# 	option = {
+# 		name = spt.23.a # YES
+# 		add_country_leader_trait = popular_figurehead
+# 		MAN = {
+# 			transfer_state = 609
+# 			add_state_core = 609
+# 			transfer_state = 621
+# 			add_state_core = 621
+# 			transfer_state = 615
+# 			add_state_core = 615
+# 			transfer_state = 745
+# 			add_state_core = 745
+# 			if = {
+# 				limit = {
+# 					JAP = {
+# 						has_completed_focus = JAP_pan_asia_movement
+# 					}
+# 				}
+# 				609 = {
+# 					remove_dynamic_modifier = {
+# 						modifier = JAP_pan_asian_integration
+# 					}
+# 				}
+# 				621 = {
+# 					remove_dynamic_modifier = {
+# 						modifier = JAP_pan_asian_integration
+# 					}
+# 				}
+# 				615 = {
+# 					remove_dynamic_modifier = {
+# 						modifier = JAP_pan_asian_integration
+# 					}
+# 				}
+# 				745 = {
+# 					remove_dynamic_modifier = {
+# 						modifier = JAP_pan_asian_integration
+# 					}
+# 				}
+# 			}
+# 			MAN_low_legitimacy_level_down = yes
+# 			add_country_leader_trait = popular_figurehead
+# 			add_country_leader_trait = nationalist_symbol
+# 		}
+# 	}
 
-}
+# }
 
 country_event = {
 	id = spt.99
@@ -741,6 +741,25 @@ country_event = {
 
 	option = {
 		name = "Thank you!"
+	}
+}
+
+#event for ai japan to annex china at a reasonable date
+country_event = {
+	id = spt.671
+	title = "Operation completed!"
+	desc = "Our spies have completed their task in [victim_nation.GetName]. Don't forget to reassign your spies to a new operation."
+	is_triggered_only = yes
+	picture = GFX_report_event_finnish_letter
+
+	option = {
+		name = "Thank you!"
+		JAP = {
+			annex_country = {
+				target = CHI
+			}
+		}
+		add_threat = 50
 	}
 }
 
@@ -1586,5 +1605,27 @@ country_event = {
 
 	option = { # refuse
 		name = spt_spanish_protectorate_exchange.1.b
+	}
+}
+
+add_namespace = spt_ai_market
+
+country_event = {
+	id = spt_ai_market.1
+	title = spt_ai_market.1.t
+	desc = spt_ai_market.1.desc
+
+	fire_only_once = yes
+	
+	trigger = {
+		NOT = {
+			has_idea = spt_ai_market_idea
+		}
+		is_ai = yes
+	}
+
+	option = {
+		name = spt_ai_market.1.a
+		add_ideas = spt_ai_market_idea
 	}
 }

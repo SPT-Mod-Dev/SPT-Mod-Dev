@@ -303,19 +303,17 @@ shared_focus = {
 	# }
 
 	bypass = {
-		NOT = {
-			any_state = {
-				is_owned_by = ROOT
-				is_controlled_by = ROOT
+		all_owned_state = {
+			OR = {
+				NOT = { is_controlled_by = ROOT }
 				free_building_slots = {
-				    building = arms_factory
-				    size > 1
-				    include_locked = yes
+					building = arms_factory
+					size < 1
+					include_locked = no
 				}
 			}
 		}
 	}
-
 	ai_will_do = {
 			factor = 20
 		}
@@ -4243,7 +4241,7 @@ shared_focus = {
 			name = SMB_coastal_fleet
 			bonus = 1.0
 			uses = 2
-			category = cl_tech
+			category = ca_tech
 			category = dd_tech
 		}
 	}
@@ -4359,11 +4357,13 @@ shared_focus = {
 
 	completion_reward = {
 		navy_experience = 15
-		add_doctrine_cost_reduction = {
+
+		add_mastery_bonus = {
 			name = SMB_escort_fleet
-			cost_reduction = 0.5
-			uses = 2
-			category = fleet_in_being_tree
+			bonus = 0.2
+			days = 180
+			track = screens
+			grand_doctrine = new_fleet_in_being
 		}
 	}
 }
@@ -4393,12 +4393,14 @@ shared_focus = {
 
 	completion_reward = {
 		navy_experience = 15
-		add_doctrine_cost_reduction = {
+		add_mastery_bonus = {
 			name = SMB_raiding_fleet
-			cost_reduction = 0.5
-			uses = 2
-			category = trade_interdiction_tree
+			bonus = 0.2
+			days = 180
+			track = submarines
+			grand_doctrine = new_convoy_raiding
 		}
+
 	}
 }
 

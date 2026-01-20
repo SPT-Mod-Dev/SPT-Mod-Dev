@@ -854,7 +854,7 @@
 		y = 2
 		relative_position_id = CAN_defence_of_canada_regulations
 
-		cost = 10
+		cost = 5 # SPTChange 35 days
 
 		ai_will_do = {
 			factor = 25
@@ -965,7 +965,7 @@
 		id = CAN_victory_aircraft_limited
 		icon = GFX_goal_generic_production2
 		prerequisite = { focus = CAN_department_of_munitions_and_supply }
-		x = -2
+		x = -3
 		y = 3
 		relative_position_id = CAN_defence_of_canada_regulations
 
@@ -1151,7 +1151,7 @@
 		}
 
 		available = {
-			has_war = yes
+			# has_war = yes # SPTChange dont do war here
 		}
 		
 		bypass = {
@@ -1539,7 +1539,7 @@
 		}
 
 		available = {
-
+			has_war = yes # SPTChange do war here
 		}
 		
 		bypass = {
@@ -1561,7 +1561,7 @@
 		icon = GFX_goal_generic_propaganda
 		prerequisite = { focus = CAN_john_inglis_and_company }
 		prerequisite = { focus = CAN_victory_aircraft_limited }
-		x = -2
+		x = -3
 		y = 5
 		relative_position_id = CAN_defence_of_canada_regulations
 
@@ -1599,7 +1599,6 @@
 	focus = {
 		id = CAN_defense_research_grants
 		icon = GFX_focus_research
-		prerequisite = { focus = CAN_john_inglis_and_company }
 		prerequisite = { focus = CAN_if_day }
 		x = -3
 		y = 6
@@ -1692,7 +1691,7 @@
 		y = 5
 		relative_position_id = CAN_defence_of_canada_regulations
 
-		cost = 10
+		cost = 5 # SPTChange 35 days
 
 		ai_will_do = {
 			factor = 25
@@ -1730,8 +1729,8 @@
 		x = 4
 		y = 5
 		relative_position_id = CAN_defence_of_canada_regulations
-
-		cost = 10
+ 
+		cost = 5 # SPTChange 35 days
 
 		ai_will_do = {
 			factor = 25
@@ -2612,7 +2611,7 @@
 		y = 1
 		relative_position_id = CAN_strengthen_the_commonwealth_ties
 
-		cost = 10
+		cost = 5 # SPTChange 35 days
 
 		ai_will_do = {
 			factor = 35
@@ -3011,8 +3010,17 @@
 			if = {
 				limit = {
 					USA = {
+						is_faction_leader = yes
+					}
+				}
+				USA = {
+					country_event = generic.2
+				}
+			}
+			else_if = {
+				limit = {
+					USA = {
 						has_government = ROOT
-						NOT = { is_faction_leader = yes }
 					}
 				}
 				USA = {
@@ -5080,7 +5088,7 @@
 				bonus = 0.5
 				ahead_reduction = 2
 				uses = 1
-				category = cl_tech
+				category = ca_tech
 			}
 			IF = {
 				limit = {
@@ -5185,11 +5193,18 @@
 				specialization = specialization_naval
 				value = 0.15
 			}
+
+			add_mastery_bonus = {
+				name = CAN_escort_fleet
+				bonus = 0.1
+				days = 180
+				sub_doctrine = convoy_escort
+			}
 			add_doctrine_cost_reduction = {
 				name = CAN_escort_fleet
 				cost_reduction = 0.25
 				uses = 2
-				category = convoy_defense_tree
+				category = naval_doctrine
 			}
 		}
 	}
@@ -5228,11 +5243,18 @@
 				specialization = specialization_naval
 				value = 0.15
 			}
+			add_mastery_bonus = {
+				name = CAN_fleet_in_being
+				bonus = 0.1
+				days = 180
+				grand_doctrine = new_fleet_in_being
+				track = capital_ships
+			}
 			add_doctrine_cost_reduction = {
 				name = CAN_fleet_in_being
 				cost_reduction = 0.25
 				uses = 2
-				category = cat_fleet_in_being
+				category = naval_doctrine
 			}			
 		}
 	}

@@ -254,8 +254,11 @@ country_event = {
 		ai_chance = {
 			base = 5
 			modifier = {
-				has_government = democratic
-				factor = 0.5
+				OR = {
+					has_government = democratic
+					has_government = communism
+				}
+				factor = 0
 			}
 
 			modifier = {

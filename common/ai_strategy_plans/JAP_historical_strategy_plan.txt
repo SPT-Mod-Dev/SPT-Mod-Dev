@@ -1,4 +1,4 @@
-SPT_JAP_historical = {
+JAP_historical_plan = {
 	name = "SPT JAP historical plan"
 	desc = ""
 
@@ -6,174 +6,144 @@ SPT_JAP_historical = {
 		original_tag = JAP
 	}
 	enable = {
-		always = yes
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				OR = {
+					not = { has_dlc = "Waking the Tiger" }
+					has_game_rule = {
+						rule = JAP_ai_behavior
+						option = DEFAULT
+					}
+				}
+				MAN = {
+					is_ai = yes
+				}
+			}
+			has_game_rule = {
+				rule = JAP_ai_behavior
+				option = FASCIST
+			}
+			has_country_flag = JAP_AI_RANDOM_FASCIST
+		}
 	}
 	abort = {
-		
+		#MAN = {
+		#	has_completed_focus = MAN_assertiveness
+		#}
 	}
 	
-	#MOD CHANGED the order of the ai_national_focuses
 	ai_national_focuses = {
-		# JAP_purge_the_kodoha_faction
-		# JAP_challenge_the_zaibatsus
-		# JAP_national_mobilization_law
-		# JAP_national_research_policy
-		# JAP_imperial_arsenals
-		# JAP_national_defense_state
-		# JAP_liaison_conference
-		# JAP_greater_east_asian_co_prosperity_sphere
-		# JAP_intervene_in_china
-		# JAP_spiritual_mobilization
-		# JAP_volunteer_fighting_corps
-		# JAP_the_manchurian_project
-		# JAP_pan_asia_movement
-		# JAP_showa_restoration
-		# JAP_spread_our_ideals
-		# JAP_army_expansion_law
-		# JAP_army_expansion
-		# JAP_supremacy_of_will
-		# JAP_fearless_army
-		# JAP_revive_bushido
-		# JAP_new_naval_estimates
-		# JAP_carrier_warfare_experiments
-		# JAP_first_air_fleet
-		# JAP_navy_triumphant
-		# JAP_fighter_modernization
-		# JAP_agility_focus
-		# JAP_the_zero
-		# JAP_army_triumphant	
-		# JAP_expand_the_snlf
-		# JAP_pan_asia_movement
-		# JAP_showa_restoration
-		# JAP_spread_our_ideals
-		# JAP_sign_tripartite_pact
-		# JAP_strike_south_doctrine
-		# JAP_non_aggression_pact_with_the_soviet_union
-		# JAP_alliance_with_siam
-		# JAP_cruiser_modernization
-		# JAP_long_lance_torpedoes
-		# JAP_torpedo_cruisers
-		# SPT_JAP_the_zaibatsus
-		# JAP_seize_zaibatsu_docks
-		# SPT_JAP_nationalized_zaibatsus
-		# SPT_JAP_steady_development
-		# SPT_JAP_long_term_planning
-		# SPT_JAP_stockpiling_strategies
-		# SPT_JAP_industry_reorganized
-		# SPT_JAP_the_armed_forces
-		# JAP_strike_the_jewel
-		# JAP_strike_the_islands
-		# JAP_strike_the_americans
-		# SPT_JAP_military_reorganized
-		# SPT_JAP_rapid_development
-		# SPT_JAP_quick_retooling
-		# SPT_JAP_factory_mobilization
-		# JAP_strike_south_completed
-		# JAP_develop_chinese_resources
-		# JAP_employ_tonarigumi
-		# JAP_expand_tonarigumi
 
-		#new focus order to accomodate new focus tree
-		SPT_JAP_purge_kodoha
-		SPT_JAP_planned_eco
-		SPT_JAP_guide_zaibatsu
-		SPT_JAP_state_control
-		SPT_JAP_nationalize_war_industry
-		SPT_JAP_japan_elec_co
-		SPT_JAP_ishihara_plan
-		SPT_JAP_konoe_government
-		SPT_JAP_research_mobilization
-		SPT_JAP_marco_polo
+		# Do ASAP
+		JAP_the_koiso_cabinet # 70 
+		JAP_found_the_boeitai # 35 
+		JAP_advance_one_hundred_million_fireballs # 70 
+		JAP_the_war_has_not_necessarily_developed_focus # 35 
+		JAP_the_surrender_broadcast # 70
 
-		#attempt to do as many of the war focuses as possible
-		SPT_JAP_manchurian_project
-		SPT_JAP_learn_from_china
-		SPT_JAP_manchu_advisors
-		SPT_JAP_learn_from_italy
-		SPT_JAP_italian_advisors
-		SPT_JAP_strike_south
-		SPT_JAP_aggressive_pacific
-		SPT_JAP_improve_key_ports
-		SPT_JAP_island_airports
-		SPT_JAP_aggressive_continent
-		SPT_JAP_strike_south_completed
+		# 1936
+		JAP_ministry_of_commerce_and_industry # 35
+		JAP_increase_armament_spending # 35
+		JAP_promulgate_the_military_ministers_system # 35 - 270 days mission starts here
+		JAP_hokushin_ron # 35
+		JAP_the_imperial_defense_plan # 21
+		JAP_expand_kawagoe_army_arsenal # 35
+		JAP_establish_showa_aircraft_idnsutry # 35	
+		JAP_expand_hiratsuka_navy_arsenal # 35
+		JAP_revisit_the_thirteen_demands # 35
+		JAP_establish_mongol_military_government # 35
+		JAP_imperial_headquarters_liasion_conference # 35
 
-		#if japan caps china then do these
-		SPT_JAP_exploit_chinese_resources
-		SPT_JAP_grain_market
-		SPT_JAP_intensive_mining
+		# 1937
+		JAP_rely_on_supremacy_of_the_will # 35
+		JAP_the_harakiri_debate # 14
+		JAP_enact_the_national_conscription_law # 35
+		JAP_konoes_first_cabinet # 35
+		JAP_reinforce_the_beijing_garrison # 70 attack on the 16th of July, 9 days later than historical
+		JAP_sea_national_spiritual_mobliization_movement # 35
+		JAP_form_the_central_economic_council # 35
+		JAP_expand_the_showa_research_association # 70
+		JAP_ministry_of_colonial_affairs # 35
 
-		#if japan is sucking in the pacific
-		SPT_JAP_defense_of_the_homeland
-		SPT_JAP_internal_lines
-		SPT_JAP_defend_the_south
-		SPT_JAP_death_to_invaders
-		SPT_JAP_form_militias
-		SPT_JAP_kamikaze
+		# 1938
+		JAP_new_order_in_east_asia # 35
+		JAP_sea_state_general_mobilization_law # 35
+		JAP_enact_religious_organizations_law # 35
+		JAP_new_order_movement # 70
+		JAP_strategic_offensives # 35
+		JAP_sea_guide_the_zaibatsus # 35
+		JAP_approach_mitsubishi #70
+
+		# 1939
+		JAP_approach_yasuda #70(35)
+		JAP_fund_the_riken_institute # 70
+		JAP_prepare_the_southern_front # 35
+		JAP_balanced_naval_approach # 70(35)
+		JAP_form_the_great_japan_industrial_patriotic_association # 70
+
+		# 1940
 		
-		#if japan is doing well in the pacific
-		SPT_JAP_maintain_pressure
-		SPT_JAP_target_islands
-		SPT_JAP_retake_our_islands
-		SPT_JAP_aim_for_the_continent
+		JAP_form_cabinet_intelligence_bureau # 35
+		JAP_form_the_kido_butai # 35
+		JAP_naval_armaments_program #35
+		JAP_reorganize_the_united_autonomous_government # 35
+		JAP_invest_in_senbu # 35
+		JAP_intensify_anti_guerilla_operations # 35
+		JAP_imperial_rule_assistance_association # 35 12th October
+		JAP_reorganized_national_government # 35
+		JAP_sea_greater_east_asian_co_properity_sphere # 70 June 1940, historically later
+		JAP_nanshin_ron # 35
 
-		#stuff that japan can do in the meanwhile
-		SPT_JAP_long_term_dev
-		SPT_JAP_stockpile_strats
-		SPT_JAP_long_term_plan
-		SPT_JAP_alliance_with_siam
-		SPT_JAP_finish_circle_two
-		SPT_JAP_battleship_fleet
-		SPT_JAP_dockyard_expansion
-		SPT_JAP_fighter_modernization
-		SPT_JAP_agility_focus
-		SPT_JAP_small_carrier_fighter_focus
-		SPT_JAP_fighter_doctrine_focus
-		SPT_JAP_the_zero
-		SPT_JAP_fleet_exercises
-		SPT_JAP_battleship_research
-		SPT_JAP_improved_ship_guns
-		SPT_JAP_the_ultimate_battleship
-		SPT_JAP_army_expansion
-		SPT_JAP_modernizing_effort
-		SPT_JAP_supremacy_of_tech
-		SPT_JAP_primacy_of_infantry
-		SPT_JAP_lunge_mines
-		SPT_JAP_new_weapons
-		SPT_JAP_destroyer_modernization
-		SPT_JAP_expand_snlf
-		SPT_JAP_eastern_ideas
-		SPT_JAP_western_ideas
-		SPT_JAP_industry_reorg
-		SPT_JAP_showa_think_tank
-		SPT_JAP_national_polity
-		SPT_JAP_industrial_patriotic_associations
-		SPT_JAP_taisei_yokusankai
-		SPT_JAP_new_economic_order
-		SPT_JAP_asia_development_board
-		SPT_JAP_plunder_asia
-		SPT_JAP_coal_liquification
-		SPT_JAP_exploit_the_southern_resource_area
-		SPT_JAP_improve_chinese_ports
-		SPT_JAP_utilize_collaborationists
-		SPT_JAP_support_eq_effort
-		SPT_JAP_develop_new_artillery
-		SPT_JAP_anti_air_effort
-		SPT_JAP_special_forces_effort
-		SPT_JAP_cruiser_modernization
-		SPT_JAP_long_lance_torpedoes
-		SPT_JAP_torpedo_cruisers
-		SPT_JAP_more_research_funding
-		SPT_JAP_railway_gun_effort
-		SPT_JAP_neighborhood_associations
-		SPT_JAP_volunteer_corps
-		SPT_JAP_spiritual_mobilization
-		SPT_JAP_defend_the_north
-		SPT_JAP_air_module_research
-		SPT_JAP_italian_exchange
-		SPT_JAP_rocket_research
-		SPT_JAP_close_the_gap
-		SPT_JAP_jet_research
+		# 1941
+		JAP_issue_the_senjinkun_military_code # 35
+		JAP_develop_new_fighters # 70
+		JAP_mengjiang_united_autonomous_government # 35
+		JAP_sea_tripartite_pact # 35 if bypassed, potentially moves later attack dates 35 das forward
+		JAP_soviet_japanese_neutrality_pact #35 April 1941
+		JAP_demand_tonkinese_bases # 35 September 1941
+		JAP_unsinkable_aircraft_carriers # 35
+		JAP_issue_the_shinmin_no_michi_manifesto # 35
+		JAP_occupy_indochina # 35
+		JAP_sea_pressure_siam # 35
+		JAP_strike_the_southern_road # 70
+
+		# 1942
+		JAP_expand_navy_technical_department # 70
+		JAP_isolate_oceania # 70 May 1942
+		JAP_sea_national_defense_state # 70
+		JAP_7075_aluminium_alloy # 35
+		JAP_escort_efficiency # 35
+		JAP_sea_long_operational_range #70 get Longe Range Zeros for the war in the pacific
+
+		# 1943
+		JAP_formalize_the_tonarigumi # 35
+		JAP_ichioku_isshin # 35
+		JAP_tojos_premiership # 35
+		JAP_modern_bombers # 70
+		JAP_develop_the_chinese_resources # 70
+		JAP_manchuria_five_year_plan # 35
+		JAP_establish_manchuria_airplane_manufacturing_company # 35
+		JAP_approach_sumitomo #70(35)
+		JAP_instill_the_spirit_of_bushido # 70
+		JAP_fix_flawed_naval_designs # 35
+
+		# 1944
+		JAP_crackdown_on_foreign_agents # 35
+		JAP_build_up_korean_industries # 35
+		JAP_army_weapons_administration_headquarters # 70
+		JAP_adopt_new_assault_doctrine # 70
+		JAP_develop_lethal_infantry_equipment # 70
+		JAP_expand_the_irago_proving_ground # 70
+
+		# 1945
+		JAP_prepare_the_northern_front # 35
+		JAP_utilize_ainu_expertise # 35
+		JAP_kantokuen # 70
+		JAP_establish_synthetic_fuel_joint_venture # 35
+		JAP_strenghten_manchukuo_imperial_army # 70
+		JAP_the_persimmon_has_ripened # ahistorical attack Soviets really late 
+
 	}
 
 	research = {
@@ -181,12 +151,28 @@ SPT_JAP_historical = {
 	}
 
 	ideas = {
-		hideki_tojo = -20
-		JAP_mitsumasa_yonai = 15
-		takuo_godo = 12
-		JAP_hiroshi_oshima = 5
-		kanin_kotohito = 10
-		yasuji_okamura = 7
+
+		#Spirits of the Army, Airforce and Navy 
+		bold_attack_spirit = 5
+		tenacious_defense_spirit = 0
+		meticulous_preparation_spirit = 0
+		best_of_the_best_spirit = 0
+		academy_scholarships_spirit = 0
+		political_loyalty_spirit = 0.1
+		inventive_leadership_spirit = 1
+		
+		professional_officer_corps_spirit = 1
+		elevated_engineering_corps_spirit = 0
+		proper_heritage_spirit = 0
+		quick_improvisation_spirit = 0
+		state_serves_the_military_spirit = 1
+
+		static_warfare_spirit = 0
+		flexible_organization_spirit = 1
+		aggressive_reconnaisance_spirit = 0
+		reserve_officers_spirit = 0
+		victory_or_death_spirit = 1
+
 	}
 
 	traits = {

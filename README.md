@@ -1,10 +1,111 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 3.14.17
+### 4.0.1 Master of Mastery
+
+#### General
+ - Added Mastery Decisions
+  - Provide passive gain over 3 years to two infantry subdoctrines and 1 naval and air subdoctrine. 
+  - The same infantry subdoctrine can be selected twice.
+  - These decisions require an appropriate branch member of high command (not chief of branch)
+  - This gain cannot be changed once selected.
+
+### 4.0.0 Japanese soldier fights against Paradox dlc release for 40 years, dispatched by server owner
+
+#### General
+ - Made compatible with new No Compromise, No Surrender (NCNS) dlc release
+ - Officer Corps adjusted to include new NCNS spirits and to better fit with new subdoctrines 
+
+#### Grand Doctrines
+ - Brigade Size increase moved to basic reward for selecting a grand doctrine, previously tied to milestones
+
+#### Tanks
+ - SPGs should no longer be able to use whichever main armament they want
+
+#### Naval Support Tech
+ - 'Landing Craft' tech start time reduced to 1939, from 1940
+ - 'Advanced Landing Craft' tech start time reduced to 1941, from 1944
+
+#### Axis
+ - Some of Germany's coal has been moved into Italy, Hungary, Romania, Bulgaria
+
+#### Allies
+ - Some of the USA's coal has been moved into Brazil and Mexico
+
+#### England
+ - Properly starts with 'Operational Integrity' as its air grand doctrine
+
+#### British Raj
+ - Starting factories in Burma removed
+ - Starting Civilian factories in Hyderabad reduced to 1, from 2
+ - Focus 'His Majestys Loyal Government' time to complete increased to 70 days, from 35
+  - Focus 'Confer with the Congress' time to complete increased to 70 days, from 35
+ - Focus 'The Great Recovery' now requires at least 40 civilian factories, from 35
+ - Focus 'Curtail the Zamindars' Civilian Factory reward reduced to 1, from 2
+ - Focus 'Raise Import Duties' time to complete increased to 70 days, from 35
+ - Focus 'The Empires Workshop' no longer grants the Raj 2 civilian factories
+
+#### Japan
+ - Replaced custom SPT content with NCNS content
+ - Several focuses have been shortened, moved, and/or adjusted to better fit the SPT ruleset
+
+#### Manchukuo
+ - Replaced custom SPT content with NCNS content
+ - Reenabled big manchu option
+ - No longer starts with Mengjiang territory, but has cores to compensate (it's more historical this way, please don't flood our DMs with complaints)
+ 
+
+### 3.14.17 The Lost Update
+
+#### General
+ - Tank designer armor clicks:
+   - Reliability: -2% -> -1.5% per click
+   - Build Cost IC: 0.20 IC -> 0.15 IC per click
+ - Anti-Tank Equipment 2 piercing: 90->80
+ - Anti-Tank Equipment 3 piercing: 120->100
+ - Added Manchukuo and Siam to Japan's auto-war dec
+ - Fixed a bug where penalty to defense/breakthrough from enemy air superiority was effectively 0% (now -25%). 
+   - See 3.13.7 for intended penalty curve.
+ - Performance improvements via population reduction and disabling ai markets
+
+#### AI
+ - Improved Germany behaviour to represent current strategies
+ - Austria now more likely to complete industry focuses
+
+#### France
+ - Removed subsequent communists in government events
+ - Reorganise the Aviation Industry now matched vanilla
+
+#### Germany
+ - Now transfers Oslo and spawns some divisions when declaring on Norway
+ - Subsidize Hoesch-Benzin no longer bypasses
+
+#### Norway
+ - Vanilla tree added, now must be invaded by Germany
+ - Nordland must be controlled by Germany rather than fascist Norway for the civ shipments
 
 #### Soviet Union
  - Boris Stetchkin now land scientist for his work on the Tsar Tank
  - Land facility moved to Found the PCDI
+ - Focus 'Infrastructure Effort' time reduced from 70 to 35 days
+ - Focus 'Heavy Industry' time reduced from 70 to 35 days
+ - Focus 'PC of Mortar Armament' time increased from 35 to 70 days
+ - Focus' Merge Tank and Materiel Plants' time reduced from 70 to 35 days
+ - Foreign Expert decisions fixed for no asia
+
+#### Mongolia
+ - Focus availability fixed for no asia
+
+#### USA
+ - Decision 'Establish the Greenland Patrol' poliitcal power cost 50->0
+ - Decision 'Establish the Greenland Patrol' may now be taken if anyone annexes Greenland
+
+#### Canada
+ - War requirement moved from 'Commit to the War' to 'Send in the Zombies'
+ - 'Mine the Shield' time reduced from 70 to 35 days
+ - 'Montreal Laboratory Collaboraton' time reduced from 70 to 35 days
+ - 'Long Branch Arsenal' time reduced from 70 to 35 days
+ - 'Independent Command' time reduced from 70 to 35 days
+
 
 ### 3.14.16 La Vida Loca
 

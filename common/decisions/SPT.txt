@@ -96,183 +96,186 @@ spt_category = {
 			}
 		}
 	}
-	JAP_declare_war_on_allies = {
-		allowed = {
-			original_tag = JAP
-		}
-		available = {
-			date > 1941.1.1
-			has_completed_focus = SPT_JAP_strike_south_completed
-		}
-		ai_will_do = {
-			factor = 10
-		}
-		fire_only_once = yes
-		complete_effect = {
-			news_event = {
-				id = spt_jap_news.3
-			}
-			hidden_effect = {
-				JAP = {
-					country_event = {
-						id = spt_jap.13
-						days = 90
-						random_days = 90
-					}
-				}
-			}
-			if = {
-				limit = {
-					has_completed_focus = SPT_JAP_aggressive_pacific
-					NOT = {
-						has_completed_focus = SPT_JAP_island_airports
-					}
-				}
-				add_timed_idea = {
-					idea = SPT_JAP_tora_tora_tora_idea_improved
-					days = 270
-				}
-			}
-			else_if = {
-				limit = {
-					has_completed_focus = SPT_JAP_aggressive_pacific
-					has_completed_focus = SPT_JAP_island_airports
-				}
-				add_timed_idea = {
-					idea = SPT_JAP_tora_tora_tora_idea_improved
-					days = 360
-				}
-			}
-			else = {
-				add_timed_idea = {
-					idea = JAP_tora_tora_tora_idea
-					days = 180
-				}
-			}
+	# JAP_declare_war_on_allies = {
+	# 	allowed = {
+	# 		original_tag = JAP
+	# 	}
+	# 	available = {
+	# 		date > 1941.1.1
+	# 		has_completed_focus = SPT_JAP_strike_south_completed
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 10
+	# 	}
+	# 	fire_only_once = yes
+	# 	complete_effect = {
+	# 		news_event = {
+	# 			id = spt_jap_news.3
+	# 		}
+	# 		hidden_effect = {
+	# 			JAP = {
+	# 				country_event = {
+	# 					id = spt_jap.13
+	# 					days = 90
+	# 					random_days = 90
+	# 				}
+	# 			}
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				has_completed_focus = SPT_JAP_aggressive_pacific
+	# 				NOT = {
+	# 					has_completed_focus = SPT_JAP_island_airports
+	# 				}
+	# 			}
+	# 			add_timed_idea = {
+	# 				idea = SPT_JAP_tora_tora_tora_idea_improved
+	# 				days = 270
+	# 			}
+	# 		}
+	# 		else_if = {
+	# 			limit = {
+	# 				has_completed_focus = SPT_JAP_aggressive_pacific
+	# 				has_completed_focus = SPT_JAP_island_airports
+	# 			}
+	# 			add_timed_idea = {
+	# 				idea = SPT_JAP_tora_tora_tora_idea_improved
+	# 				days = 360
+	# 			}
+	# 		}
+	# 		else = {
+	# 			add_timed_idea = {
+	# 				idea = JAP_tora_tora_tora_idea
+	# 				days = 180
+	# 			}
+	# 		}
 
-			ENG = {
-				add_to_faction = USA
-			}
-			every_country = {
-				limit = {
-					is_in_faction_with = ENG
-				}
-				JAP = {
-					declare_war_on = {
-						target = PREV
-						type = annex_everything
-					}
-				}
-			}
-			# Ensure USA joins the war in Europe too
-			every_other_country = {
-				limit = {
-					has_war_with = ENG
-				}
-				USA = {
-					add_to_war = {
-					    targeted_alliance = ENG
-					    enemy = PREV
-					    hostility_reason = asked_to_join
-					}
-				}
-				# Mexico and Brazil join the war in Europe if they're in the Allies
-				MEX = {
-					if = {
-						limit = {
-							is_in_faction_with = USA
-						}
-						add_to_war = {
-							targeted_alliance = ENG
-							enemy = PREV
-							hostility_reason = asked_to_join
-						}
-					}
-				}
-				BRA = {
-					if = {
-						limit = {
-							is_in_faction_with = USA
-						}
-						add_to_war = {
-							targeted_alliance = ENG
-							enemy = PREV
-							hostility_reason = asked_to_join
-						}
-					}
-				}
-			}
-			# memes
-			hidden_effect = {	
-				every_country = {
-					limit = {
-						OR = {
-							is_in_faction_with = JAP
-							is_in_faction_with = GER
-							tag = FIN
-							tag = SPA
-						}
-					}
-					scoped_play_song = "empireofthesun"
-				}
-			}
-			custom_effect_tooltip = SPT_JAP_whitespace_tt
-			every_controlled_state = {
-				limit = {
-					JAP = {
-						has_completed_focus = SPT_JAP_defensive_pacific
-					}
-					OR = {
-						state = 646
-						state = 684
-						state = 647
-						state = 633
-						state = 648
-						state = 645
-					}
-				}
-				add_dynamic_modifier = {
-					modifier = SPT_JAP_war_with_allies_defensive_buff
-					days = 365
-					scope = JAP
-				}
-			}
-			if = {
-				limit = {
-					has_completed_focus = SPT_JAP_defensive_continent
-				}
-				every_controlled_state = {
-					limit = {
-						OR = {
-							is_core_of = SIA
-							is_core_of = VIN
-							is_core_of = CAM
-							is_core_of = LAO
-							state = 325
-							state = 747
-							state = 601
-							state = 591
-							state = 594
-						}
-					}
-					add_dynamic_modifier = {
-						modifier = SPT_JAP_war_with_allies_defensive_buff
-						days = 365
-						scope = JAP
-					}
-				}
-				SIA = {
-					every_controlled_state = {
-						add_dynamic_modifier = {
-							modifier = SPT_JAP_war_with_allies_defensive_buff
-							days = 365
-							scope = JAP
-						}
-					}
-				}
-			}
-		}
-	}
+	# 		ENG = {
+	# 			add_to_faction = USA
+	# 		}
+	# 		every_country = {
+	# 			limit = {
+	# 				is_in_faction_with = ENG
+	# 			}
+	# 			every_country = {
+	# 				limit = {
+	# 					is_in_faction_with = JAP
+	# 				}
+	# 				declare_war_on = {
+	# 					target = PREV
+	# 					type = annex_everything
+	# 				}
+	# 			}
+	# 		}
+	# 		# Ensure USA joins the war in Europe too
+	# 		every_other_country = {
+	# 			limit = {
+	# 				has_war_with = ENG
+	# 			}
+	# 			USA = {
+	# 				add_to_war = {
+	# 				    targeted_alliance = ENG
+	# 				    enemy = PREV
+	# 				    hostility_reason = asked_to_join
+	# 				}
+	# 			}
+	# 			# Mexico and Brazil join the war in Europe if they're in the Allies
+	# 			MEX = {
+	# 				if = {
+	# 					limit = {
+	# 						is_in_faction_with = USA
+	# 					}
+	# 					add_to_war = {
+	# 						targeted_alliance = ENG
+	# 						enemy = PREV
+	# 						hostility_reason = asked_to_join
+	# 					}
+	# 				}
+	# 			}
+	# 			BRA = {
+	# 				if = {
+	# 					limit = {
+	# 						is_in_faction_with = USA
+	# 					}
+	# 					add_to_war = {
+	# 						targeted_alliance = ENG
+	# 						enemy = PREV
+	# 						hostility_reason = asked_to_join
+	# 					}
+	# 				}
+	# 			}
+	# 		}
+	# 		# memes
+	# 		hidden_effect = {	
+	# 			every_country = {
+	# 				limit = {
+	# 					OR = {
+	# 						is_in_faction_with = JAP
+	# 						is_in_faction_with = GER
+	# 						tag = FIN
+	# 						tag = SPA
+	# 					}
+	# 				}
+	# 				scoped_play_song = "empireofthesun"
+	# 			}
+	# 		}
+	# 		
+	# 		every_controlled_state = {
+	# 			limit = {
+	# 				JAP = {
+	# 					has_completed_focus = SPT_JAP_defensive_pacific
+	# 				}
+	# 				OR = {
+	# 					state = 646
+	# 					state = 684
+	# 					state = 647
+	# 					state = 633
+	# 					state = 648
+	# 					state = 645
+	# 				}
+	# 			}
+	# 			add_dynamic_modifier = {
+	# 				modifier = SPT_JAP_war_with_allies_defensive_buff
+	# 				days = 365
+	# 				scope = JAP
+	# 			}
+	# 		}
+	# 		if = {
+	# 			limit = {
+	# 				has_completed_focus = SPT_JAP_defensive_continent
+	# 			}
+	# 			every_controlled_state = {
+	# 				limit = {
+	# 					OR = {
+	# 						is_core_of = SIA
+	# 						is_core_of = VIN
+	# 						is_core_of = CAM
+	# 						is_core_of = LAO
+	# 						state = 325
+	# 						state = 747
+	# 						state = 601
+	# 						state = 591
+	# 						state = 594
+	# 					}
+	# 				}
+	# 				add_dynamic_modifier = {
+	# 					modifier = SPT_JAP_war_with_allies_defensive_buff
+	# 					days = 365
+	# 					scope = JAP
+	# 				}
+	# 			}
+	# 			SIA = {
+	# 				every_controlled_state = {
+	# 					add_dynamic_modifier = {
+	# 						modifier = SPT_JAP_war_with_allies_defensive_buff
+	# 						days = 365
+	# 						scope = JAP
+	# 					}
+	# 				}
+	# 			}
+	# 		}
+	# 	}
+	# }
 	# JAP_declare_war_on_allies_pearl_harbor_edition = {
 	# 	icon = GFX_decision_generic_human_torpedo
 
@@ -1320,225 +1323,225 @@ SPT_propaganda_campaigns = {
 
 
 # No_retreat_allowed SOV_semyon_timoshenko
-JAP_manchuria_development = {
-	#Converted manchurian focuses into decisions
-	#Japanese Settlers focus merged into Light Industry and Heavy Industry decision
-	JAP_manchu_lightindustry = {
-		allowed = {
-			original_tag = JAP
-		}
-		ai_will_do = {
-			factor = 200
-		}
-		available = {
-			has_completed_focus = SPT_JAP_manchurian_project
-			OR = {
-				MAN = {exists = yes}
-				any_controlled_state = {is_core_of = MAN}
-			}
-		}
-		fire_only_once = yes
-		days_remove = 140
-		cost = 25
-		modifier = {
-			civilian_factory_use = 2
-		}
-		highlight_states = {
-			highlight_color_before_active = 2
-			highlight_state_targets = {
-				state = 328
-			}
-		}
-		icon = GFX_decision_generic_factory
-		remove_effect = {
-			random_state = {
-				limit = {
-					is_core_of = MAN
-					OR = {
-						is_fully_controlled_by = JAP
-						is_fully_controlled_by = MAN
-					}
-				}
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
-			random_state = {
-				limit = {
-					is_core_of = MAN
-					OR = {
-						is_fully_controlled_by = JAP
-						is_fully_controlled_by = MAN
-					}
-				}
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
-	}
-	JAP_manchu_heavyindustry = {
-		allowed = {
-			original_tag = JAP
-		}
-		ai_will_do = {
-			factor = 150
-		}
-		available = {
-			has_completed_focus = SPT_JAP_manchurian_project
-			OR = {
-				MAN = {exists = yes}
-				any_controlled_state = {is_core_of = MAN}
-			}
-		}
-		icon = GFX_decision_generic_industry
-		fire_only_once = yes
-		days_remove = 140
-		cost = 25
-		modifier = {
-			civilian_factory_use = 2
-		}
-		highlight_states = {
-			highlight_color_before_active = 2
-			highlight_state_targets = {
-				state = 716
-			}
-		}
-		remove_effect = {
-			random_state = {
-				limit = {
-					is_core_of = MAN
-					OR = {
-						is_fully_controlled_by = JAP
-						is_fully_controlled_by = MAN
-					}
-				}
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-			}
-			random_state = {
-				limit = {
-					is_core_of = MAN
-					OR = {
-						is_fully_controlled_by = JAP
-						is_fully_controlled_by = MAN
-					}
-				}
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
-	}
-	JAP_manchu_steelworks = {
-		allowed = {
-			original_tag = JAP
-		}
-			ai_will_do = {
-			factor = 200
-		}
-		available = {
-			has_completed_focus = SPT_JAP_manchurian_project
-			OR = {
-				JAP = {
-					has_full_control_of_state = 716
-				}
-				MAN = {
-					has_full_control_of_state = 716
-				}
-			}
-		}
-		highlight_states = {
-			highlight_state_targets = {
-				state = 716
-			}
-			highlight_color_while_active = 3
-			highlight_color_before_active = 2
-		}
-		icon = GFX_decision_steel
-		fire_only_once = yes
-		days_remove = 70
-		cost = 25
-		modifier = {
-			civilian_factory_use = 2
-		}
-		remove_effect = {
-			716 = {
-				add_resource = {
-					type = steel
-					amount = 16
-				}
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
-	}
-	JAP_manchu_aluminum = {
-		allowed = {
-			original_tag = JAP
-		}
-		ai_will_do = {
-			factor = 200
-		}
-		available = {
-			has_completed_focus = SPT_JAP_manchurian_project
-			OR = {
-				JAP = {
-					has_full_control_of_state = 328
-				}
-				MAN = {
-					has_full_control_of_state = 328
-				}
-			}
-		}
-		highlight_states = {
-			highlight_state_targets = {
-				state = 328
-			}
-			highlight_color_while_active = 3
-			highlight_color_before_active = 2
-		}
-		icon = GFX_decision_aluminium
-		fire_only_once = yes
-		days_remove = 70
-		cost = 25
-		modifier = {
-			civilian_factory_use = 2
-		}
-		remove_effect = {
-			328 = {
-				add_resource = {
-					type = aluminium
-					amount = 12
-				}
-				add_extra_state_shared_building_slots = 3
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
-	}
+# JAP_manchuria_development = {
+# 	#Converted manchurian focuses into decisions
+# 	#Japanese Settlers focus merged into Light Industry and Heavy Industry decision
+# 	JAP_manchu_lightindustry = {
+# 		allowed = {
+# 			original_tag = JAP
+# 		}
+# 		ai_will_do = {
+# 			factor = 200
+# 		}
+# 		available = {
+# 			has_completed_focus = SPT_JAP_manchurian_project
+# 			OR = {
+# 				MAN = {exists = yes}
+# 				any_controlled_state = {is_core_of = MAN}
+# 			}
+# 		}
+# 		fire_only_once = yes
+# 		days_remove = 140
+# 		cost = 25
+# 		modifier = {
+# 			civilian_factory_use = 2
+# 		}
+# 		highlight_states = {
+# 			highlight_color_before_active = 2
+# 			highlight_state_targets = {
+# 				state = 328
+# 			}
+# 		}
+# 		icon = GFX_decision_generic_factory
+# 		remove_effect = {
+# 			random_state = {
+# 				limit = {
+# 					is_core_of = MAN
+# 					OR = {
+# 						is_fully_controlled_by = JAP
+# 						is_fully_controlled_by = MAN
+# 					}
+# 				}
+# 				add_extra_state_shared_building_slots = 3
+# 				add_building_construction = {
+# 					type = industrial_complex
+# 					level = 2
+# 					instant_build = yes
+# 				}
+# 			}
+# 			random_state = {
+# 				limit = {
+# 					is_core_of = MAN
+# 					OR = {
+# 						is_fully_controlled_by = JAP
+# 						is_fully_controlled_by = MAN
+# 					}
+# 				}
+# 				add_extra_state_shared_building_slots = 3
+# 				add_building_construction = {
+# 					type = industrial_complex
+# 					level = 2
+# 					instant_build = yes
+# 				}
+# 			}
+# 		}
+# 	}
+# 	JAP_manchu_heavyindustry = {
+# 		allowed = {
+# 			original_tag = JAP
+# 		}
+# 		ai_will_do = {
+# 			factor = 150
+# 		}
+# 		available = {
+# 			has_completed_focus = SPT_JAP_manchurian_project
+# 			OR = {
+# 				MAN = {exists = yes}
+# 				any_controlled_state = {is_core_of = MAN}
+# 			}
+# 		}
+# 		icon = GFX_decision_generic_industry
+# 		fire_only_once = yes
+# 		days_remove = 140
+# 		cost = 25
+# 		modifier = {
+# 			civilian_factory_use = 2
+# 		}
+# 		highlight_states = {
+# 			highlight_color_before_active = 2
+# 			highlight_state_targets = {
+# 				state = 716
+# 			}
+# 		}
+# 		remove_effect = {
+# 			random_state = {
+# 				limit = {
+# 					is_core_of = MAN
+# 					OR = {
+# 						is_fully_controlled_by = JAP
+# 						is_fully_controlled_by = MAN
+# 					}
+# 				}
+# 				add_extra_state_shared_building_slots = 3
+# 				add_building_construction = {
+# 					type = arms_factory
+# 					level = 2
+# 					instant_build = yes
+# 				}
+# 			}
+# 			random_state = {
+# 				limit = {
+# 					is_core_of = MAN
+# 					OR = {
+# 						is_fully_controlled_by = JAP
+# 						is_fully_controlled_by = MAN
+# 					}
+# 				}
+# 				add_extra_state_shared_building_slots = 3
+# 				add_building_construction = {
+# 					type = arms_factory
+# 					level = 2
+# 					instant_build = yes
+# 				}
+# 			}
+# 		}
+# 	}
+# 	JAP_manchu_steelworks = {
+# 		allowed = {
+# 			original_tag = JAP
+# 		}
+# 			ai_will_do = {
+# 			factor = 200
+# 		}
+# 		available = {
+# 			has_completed_focus = SPT_JAP_manchurian_project
+# 			OR = {
+# 				JAP = {
+# 					has_full_control_of_state = 716
+# 				}
+# 				MAN = {
+# 					has_full_control_of_state = 716
+# 				}
+# 			}
+# 		}
+# 		highlight_states = {
+# 			highlight_state_targets = {
+# 				state = 716
+# 			}
+# 			highlight_color_while_active = 3
+# 			highlight_color_before_active = 2
+# 		}
+# 		icon = GFX_decision_steel
+# 		fire_only_once = yes
+# 		days_remove = 70
+# 		cost = 25
+# 		modifier = {
+# 			civilian_factory_use = 2
+# 		}
+# 		remove_effect = {
+# 			716 = {
+# 				add_resource = {
+# 					type = steel
+# 					amount = 16
+# 				}
+# 				add_extra_state_shared_building_slots = 3
+# 				add_building_construction = {
+# 					type = industrial_complex
+# 					level = 2
+# 					instant_build = yes
+# 				}
+# 			}
+# 		}
+# 	}
+# 	JAP_manchu_aluminum = {
+# 		allowed = {
+# 			original_tag = JAP
+# 		}
+# 		ai_will_do = {
+# 			factor = 200
+# 		}
+# 		available = {
+# 			has_completed_focus = SPT_JAP_manchurian_project
+# 			OR = {
+# 				JAP = {
+# 					has_full_control_of_state = 328
+# 				}
+# 				MAN = {
+# 					has_full_control_of_state = 328
+# 				}
+# 			}
+# 		}
+# 		highlight_states = {
+# 			highlight_state_targets = {
+# 				state = 328
+# 			}
+# 			highlight_color_while_active = 3
+# 			highlight_color_before_active = 2
+# 		}
+# 		icon = GFX_decision_aluminium
+# 		fire_only_once = yes
+# 		days_remove = 70
+# 		cost = 25
+# 		modifier = {
+# 			civilian_factory_use = 2
+# 		}
+# 		remove_effect = {
+# 			328 = {
+# 				add_resource = {
+# 					type = aluminium
+# 					amount = 12
+# 				}
+# 				add_extra_state_shared_building_slots = 3
+# 				add_building_construction = {
+# 					type = industrial_complex
+# 					level = 2
+# 					instant_build = yes
+# 				}
+# 			}
+# 		}
+# 	}
 
-}
+# }
 SPT_winter_war = {
 	FIN_winter_war = {
 		name = winter_war
@@ -2111,6 +2114,901 @@ SPT_iberia = {
 		}
 		complete_effect = {
 			set_cosmetic_tag = ESU_POR_unified
+		}
+	}
+}
+
+#china spawn-in divs to make things a little more spicy
+#this only happens if japan is a player
+SPT_china_spawns = { 
+	set_up_and_spawn_wave_1 = {
+		cost = 0
+		fire_only_once = yes
+		icon = GFX_decision_revolt
+
+		available = {
+			JAP = {
+				is_ai = no
+			}
+		}
+		visible = {
+		}
+		ai_will_do = {
+			factor = 999
+		}
+
+		#days_remove = 2
+	
+		# modifier = {
+			# 	#fake modifiers using tooltips combined with hidden ideas, makes it easier to add and remove the effects
+		# }
+
+		complete_effect = {
+			SPT_CHI_set_up_militia = yes
+			SPT_CHI_spawn_militia = yes
+			SPT_CHI_spawn_militia = yes
+		}
+	}
+	spawn_wave_2 = {
+		cost = 0
+		fire_only_once = yes
+		icon = GFX_decision_revolt
+
+		available = {
+			has_war_with = JAP
+			surrender_progress > 0.10
+			JAP = {
+				is_ai = no
+			}
+		}
+		visible = {
+		}
+		ai_will_do = {
+			factor = 999
+		}
+
+		#days_remove = 2
+	
+		# modifier = {
+			# 	#fake modifiers using tooltips combined with hidden ideas, makes it easier to add and remove the effects
+		# }
+
+		complete_effect = {
+			SPT_CHI_spawn_militia = yes
+			army_experience = -50
+			#wave 2 is instant on war start, so no point in applying state debuffs
+		}
+	}
+	spawn_wave_3 = {
+		cost = 0
+		fire_only_once = yes
+		icon = GFX_decision_revolt
+
+		available = {
+			has_war_with = JAP
+			surrender_progress > 0.25
+			JAP = {
+				is_ai = no
+			}
+		}
+		visible = {
+		}
+		ai_will_do = {
+			factor = 999
+		}
+
+		#days_remove = 2
+	
+		# modifier = {
+			# 	#fake modifiers using tooltips combined with hidden ideas, makes it easier to add and remove the effects
+		# }
+
+		complete_effect = {
+			SPT_CHI_spawn_militia = yes #yeah, this wave does spawn 2 batches, it's intentional
+			SPT_CHI_spawn_militia = yes
+			army_experience = -50
+			every_owned_state = {
+				limit = {
+					NOT = {
+						is_fully_controlled_by = CHI
+					}
+					OR = {
+						NOT = {
+							is_fully_controlled_by = JAP
+							is_fully_controlled_by = MAN
+							is_fully_controlled_by = SIA
+						}
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = SPT_CHI_war_of_resistance
+					days = 15
+				}
+			}
+		}
+	}
+	spawn_wave_4 = {
+		cost = 0
+		fire_only_once = yes
+		icon = GFX_decision_revolt
+
+		available = {
+			has_war_with = JAP
+			surrender_progress > 0.45
+			JAP = {
+				is_ai = no
+			}
+		}
+		visible = {
+		}
+		ai_will_do = {
+			factor = 999
+		}
+
+		#days_remove = 2
+	
+		# modifier = {
+			# 	#fake modifiers using tooltips combined with hidden ideas, makes it easier to add and remove the effects
+		# }
+
+		complete_effect = {
+			SPT_CHI_spawn_militia = yes
+			SPT_CHI_spawn_militia = yes
+			#SPT_CHI_spawn_militia = yes
+			#army_experience = -50
+			every_owned_state = {
+				limit = {
+					NOT = {
+						is_fully_controlled_by = CHI
+					}
+					OR = {
+						NOT = {
+							is_fully_controlled_by = JAP
+							is_fully_controlled_by = MAN
+							is_fully_controlled_by = SIA
+						}
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = SPT_CHI_war_of_resistance
+					days = 15
+				}
+			}
+		}
+	}
+	spawn_wave_5 = {
+		cost = 0
+		fire_only_once = yes
+		icon = GFX_decision_revolt
+
+		available = {
+			has_war_with = JAP
+			surrender_progress > 0.75
+			JAP = {
+				is_ai = no
+			}
+		}
+		visible = {
+		}
+		ai_will_do = {
+			factor = 999
+		}
+
+		#days_remove = 2
+	
+		# modifier = {
+			# 	#fake modifiers using tooltips combined with hidden ideas, makes it easier to add and remove the effects
+		# }
+
+		complete_effect = {
+			SPT_CHI_spawn_militia = yes
+			SPT_CHI_spawn_militia = yes
+			#SPT_CHI_spawn_militia = yes
+			#army_experience = -50
+			every_owned_state = {
+				limit = {
+					NOT = {
+						is_fully_controlled_by = CHI
+					}
+					OR = {
+						NOT = {
+							is_fully_controlled_by = JAP
+							is_fully_controlled_by = MAN
+							is_fully_controlled_by = SIA
+						}
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = SPT_CHI_war_of_resistance
+					days = 15
+				}
+			}
+		}
+	}
+}
+
+#
+# DESPITE THE LIMITS BEING SET HERE YOU HAVE TO MANUALLY UPDATE THE TOOLTIP IN SPT_TOOLTIPS_L_ENGLISH.YML FOR IT TO DISPLAY PROPERLY
+#
+
+@spt_mastery_track_choice_limit_army = 2 	#how many army mastery tracks a player is allowed to select before decisions are no longer available
+@spt_mastery_track_choice_limit_navy = 1 	#how many navy mastery tracks a player is allowed to select before decisions are no longer available
+@spt_mastery_track_choice_limit_air = 1 	#how many air mastery tracks a player is allowed to select before decisions are no longer available
+
+@spt_mastery_gain_daily_amount = 0.47 		#how much mastery per day each decision gives
+@spt_mastery_gain_duration = 1095 			#how many days the mastery gain buff from the decisions will last
+#yes, this does mean you have to calculate the amount of mastery before seeting it here, 
+#but at least this way it doesnt make me wanna tear my hair out due to how bad hoi is for manipulating variables
+
+SPT_doctrine_mastery = { #please see the above constants for how the decisions define how much mastery to give
+
+	SPT_hide_doctrine_decisions = {
+		icon = GFX_decision_SWI_expand_covert_operations
+		allowed = {
+
+		}
+		visible = {
+			OR = {
+				check_variable = {
+					var = THIS.spt_chosen_army_mastery_count
+					value = @spt_mastery_track_choice_limit_army
+					compare = less_than
+				}
+				check_variable = {
+					var = THIS.spt_chosen_navy_mastery_count
+					value = @spt_mastery_track_choice_limit_navy
+					compare = less_than
+				}
+				check_variable = {
+					var = THIS.spt_chosen_air_mastery_count
+					value = @spt_mastery_track_choice_limit_air
+					compare = less_than
+				}
+			}
+			
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		available = {
+			
+		}
+		complete_effect = {
+			set_country_flag = spt_hidden_doc_decisions
+		}
+	}
+	SPT_show_doctrine_decisions = {
+		icon = GFX_decision_generic_political_address
+		allowed = {
+
+		}
+
+		visible = {
+			OR = {
+				check_variable = {
+					var = THIS.spt_chosen_army_mastery_count
+					value = @spt_mastery_track_choice_limit_army
+					compare = less_than
+				}
+				check_variable = {
+					var = THIS.spt_chosen_navy_mastery_count
+					value = @spt_mastery_track_choice_limit_navy
+					compare = less_than
+				}
+				check_variable = {
+					var = THIS.spt_chosen_air_mastery_count
+					value = @spt_mastery_track_choice_limit_air
+					compare = less_than
+				}
+			}
+			has_country_flag = spt_hidden_doc_decisions
+		}
+		available = {
+			
+		}
+		complete_effect = {
+			clr_country_flag = spt_hidden_doc_decisions
+		}
+	}
+	SPT_gain_inf_mastery = {
+
+		icon = GFX_decision_SWE_set_army_budget
+
+		allowed = {
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SPT_army_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_army_mastery_count
+					value = @spt_mastery_track_choice_limit_army
+					compare = less_than
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_army_high_command_tt
+				any_character = {
+					has_army_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			check_variable = {
+				var = THIS.spt_chosen_army_mastery_count
+				value = @spt_mastery_track_choice_limit_army
+				compare = less_than
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+
+			add_daily_mastery = {
+				name = "Infantry Doctrine Advancements"
+				amount = @spt_mastery_gain_daily_amount
+				days = @spt_mastery_gain_duration
+				track = infantry
+			}
+			hidden_effect = {
+				add_to_variable = {
+					var = THIS.spt_chosen_army_mastery_count
+					value = 1
+				}
+			}
+		}
+	}
+	SPT_gain_supp_mastery = {
+
+		icon = GFX_decision_generic_ignite_civil_war
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_army_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_army_mastery_count
+					value = @spt_mastery_track_choice_limit_army
+					compare = less_than
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_army_high_command_tt
+				any_character = {
+					has_army_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			check_variable = {
+				var = THIS.spt_chosen_army_mastery_count
+				value = @spt_mastery_track_choice_limit_army
+				compare = less_than
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Artillery & Combat Support Advancements"
+				amount = @spt_mastery_gain_daily_amount
+				days = @spt_mastery_gain_duration
+				track = combat_support
+			}
+			hidden_effect = {
+				add_to_variable = {
+					var = THIS.spt_chosen_army_mastery_count
+					value = 1
+				}
+			}
+		}
+	}
+	SPT_gain_tank_mastery = {
+
+		icon = GFX_decision_generic_tank
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_army_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_army_mastery_count
+					value = @spt_mastery_track_choice_limit_army
+					compare = less_than
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_army_high_command_tt
+				any_character = {
+					has_army_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			check_variable = {
+				var = THIS.spt_chosen_army_mastery_count
+				value = @spt_mastery_track_choice_limit_army
+				compare = less_than
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Armor Doctrine Advancements"
+				amount = @spt_mastery_gain_daily_amount
+				days = @spt_mastery_gain_duration
+				track = armor
+			}
+			hidden_effect = {
+				add_to_variable = {
+					var = THIS.spt_chosen_army_mastery_count
+					value = 1
+				}
+			}
+		}
+	}
+	SPT_gain_special_mastery = {
+
+		icon = GFX_decision_onmap_recruit_operative
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_army_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_army_mastery_count
+					value = @spt_mastery_track_choice_limit_army
+					compare = less_than
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_army_high_command_tt
+				any_character = {
+					has_army_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			check_variable = {
+				var = THIS.spt_chosen_army_mastery_count
+				value = @spt_mastery_track_choice_limit_army
+				compare = less_than
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Operations Doctrine Advancements"
+				amount = @spt_mastery_gain_daily_amount
+				days = @spt_mastery_gain_duration
+				track = operations
+			}
+			hidden_effect = {
+				add_to_variable = {
+					var = THIS.spt_chosen_army_mastery_count
+					value = 1
+				}
+			}
+		}
+	}
+	SPT_gain_sub_mastery = {
+
+		icon = GFX_decision_RAJ_famine
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_navy_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_navy_mastery_count
+					value = @spt_mastery_track_choice_limit_navy
+					compare = less_than
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_navy_high_command_tt
+				any_character = {
+					has_navy_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			check_variable = {
+				var = THIS.spt_chosen_navy_mastery_count
+				value = @spt_mastery_track_choice_limit_navy
+				compare = less_than
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Submarine Doctrine Advancements"
+				amount = @spt_mastery_gain_daily_amount
+				days = @spt_mastery_gain_duration
+				track = submarines
+			}
+			hidden_effect = {
+				add_to_variable = {
+					var = THIS.spt_chosen_navy_mastery_count
+					value = 1
+				}
+			}
+		}
+	}
+	SPT_gain_screen_mastery = {
+
+		icon = GFX_decision_generic_coastal_fortification
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_navy_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_navy_mastery_count
+					value = @spt_mastery_track_choice_limit_navy
+					compare = less_than
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_navy_high_command_tt
+				any_character = {
+					has_navy_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			check_variable = {
+				var = THIS.spt_chosen_navy_mastery_count
+				value = @spt_mastery_track_choice_limit_navy
+				compare = less_than
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Screening Doctrine Advancements"
+				amount = @spt_mastery_gain_daily_amount
+				days = @spt_mastery_gain_duration
+				track = screens
+			}
+			hidden_effect = {
+				add_to_variable = {
+					var = THIS.spt_chosen_navy_mastery_count
+					value = 1
+				}
+			}
+		}
+	}
+	SPT_gain_carrier_mastery = {
+
+		icon = GFX_decision_eng_puppet_usa
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_navy_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_navy_mastery_count
+					value = @spt_mastery_track_choice_limit_navy
+					compare = less_than
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_navy_high_command_tt
+				any_character = {
+					has_navy_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			check_variable = {
+				var = THIS.spt_chosen_navy_mastery_count
+				value = @spt_mastery_track_choice_limit_navy
+				compare = less_than
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Carrier Doctrine Advancements"
+				amount = @spt_mastery_gain_daily_amount
+				days = @spt_mastery_gain_duration
+				track = carriers
+			}
+			hidden_effect = {
+				add_to_variable = {
+					var = THIS.spt_chosen_navy_mastery_count
+					value = 1
+				}
+			}
+		}
+	}
+	SPT_gain_capitals_mastery = {
+
+		icon = GFX_decision_generic_naval
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_navy_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_navy_mastery_count
+					value = @spt_mastery_track_choice_limit_navy
+					compare = less_than
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_navy_high_command_tt
+				any_character = {
+					has_navy_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			check_variable = {
+				var = THIS.spt_chosen_navy_mastery_count
+				value = @spt_mastery_track_choice_limit_navy
+				compare = less_than
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Capital Ship Doctrine Advancements"
+				amount = @spt_mastery_gain_daily_amount
+				days = @spt_mastery_gain_duration
+				track = capital_ships
+			}
+			hidden_effect = {
+				add_to_variable = {
+					var = THIS.spt_chosen_navy_mastery_count
+					value = 1
+				}
+			}
+		}
+	}
+	SPT_gain_fighter_mastery = {
+
+		icon = GFX_decision_generic_air
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_air_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_air_mastery_count
+					value = @spt_mastery_track_choice_limit_air
+					compare = less_than
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_air_high_command_tt
+				any_character = {
+					has_air_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			check_variable = {
+				var = THIS.spt_chosen_air_mastery_count
+				value = @spt_mastery_track_choice_limit_air
+				compare = less_than
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Fighter Aircraft Doctrine Advancements"
+				amount = @spt_mastery_gain_daily_amount
+				days = @spt_mastery_gain_duration
+				track = fighter_aircraft
+			}
+			hidden_effect = {
+				add_to_variable = {
+					var = THIS.spt_chosen_air_mastery_count
+					value = 1
+				}
+			}
+		}
+	}
+	SPT_gain_strike_mastery = {
+
+		icon = GFX_decision_ger_military_buildup
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_air_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_air_mastery_count
+					value = @spt_mastery_track_choice_limit_air
+					compare = less_than
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_air_high_command_tt
+				any_character = {
+					has_air_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			check_variable = {
+				var = THIS.spt_chosen_air_mastery_count
+				value = @spt_mastery_track_choice_limit_air
+				compare = less_than
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Strike Aircraft Doctrine Advancements"
+				amount = @spt_mastery_gain_daily_amount
+				days = @spt_mastery_gain_duration
+				track = strike_aircraft
+			}
+			hidden_effect = {
+				add_to_variable = {
+					var = THIS.spt_chosen_air_mastery_count
+					value = 1
+				}
+			}
+		}
+	}
+	SPT_gain_medium_mastery = {
+
+		icon = GFX_decision_SWE_set_air_budget
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_air_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_air_mastery_count
+					value = @spt_mastery_track_choice_limit_air
+					compare = less_than
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_air_high_command_tt
+				any_character = {
+					has_air_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			check_variable = {
+				var = THIS.spt_chosen_air_mastery_count
+				value = @spt_mastery_track_choice_limit_air
+				compare = less_than
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Medium Aircraft Doctrine Advancements"
+				amount = @spt_mastery_gain_daily_amount
+				days = @spt_mastery_gain_duration
+				track = medium_aircraft
+			}
+			hidden_effect = {
+				add_to_variable = {
+					var = THIS.spt_chosen_air_mastery_count
+					value = 1
+				}
+			}
+		}
+	}
+	SPT_gain_heavy_mastery = {
+
+		icon = GFX_decision_generic_merge_plant_aircraft
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_air_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_air_mastery_count
+					value = @spt_mastery_track_choice_limit_air
+					compare = less_than
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_air_high_command_tt
+				any_character = {
+					has_air_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			check_variable = {
+				var = THIS.spt_chosen_air_mastery_count
+				value = @spt_mastery_track_choice_limit_air
+				compare = less_than
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Heavy Aircraft Doctrine Advancements"
+				amount = @spt_mastery_gain_daily_amount
+				days = @spt_mastery_gain_duration
+				track = heavy_aircraft
+			}
+			hidden_effect = {
+				add_to_variable = {
+					var = THIS.spt_chosen_air_mastery_count
+					value = 1
+				}
+			}
 		}
 	}
 }

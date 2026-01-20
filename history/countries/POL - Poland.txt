@@ -42,11 +42,12 @@ set_technology = {
 	tech_recon = 1
 	gw_artillery = 1
 	interwar_antiair = 1
-	trench_warfare = 1
 	fuel_silos = 1
 	synth_oil_experiments = 1
 	basic_train = 1
 }
+
+set_grand_doctrine = grand_battleplan
 
 if = {
 	limit = {
@@ -215,12 +216,7 @@ if = {
 		interwar_artillery = 1
 
 		#doctrines
-		air_superiority = 1
-		grand_battle_plan = 1
-		trench_warfare = 1
-		fleet_in_being = 1
-		battlefleet_concentration = 1
-		convoy_sailing = 1
+		#air_superiority = 1
 
 		#electronics
 		electronic_mechanical_engineering = 1
@@ -245,6 +241,11 @@ if = {
 		concentrated_industry3 = 1
 		concentrated_industry4 = 1
 	}
+
+set_grand_doctrine = grand_battleplan
+set_grand_doctrine = new_fleet_in_being
+set_grand_doctrine = new_strategic_destruction
+
 	complete_special_project = {
 		project = sp:sp_air_radar
 	}
@@ -331,7 +332,7 @@ if = {
 				fixed_main_weapon_slot = bomb_locks
 				fixed_auxiliary_weapon_slot_1 = light_mg_4x
 				engine_type_slot = engine_2_1x
-				special_type_slot_1 = lmg_defense_turret_2x
+				special_type_slot_1 = lmg_defense_turret
 			}
 		}
 	}
@@ -580,7 +581,7 @@ if = {
 		}
 		upgrades = {
 			tank_nsb_armor_upgrade = 2
-			tank_nsb_engine_upgrade = 2
+			tank_nsb_engine_upgrade = 3
 		}
 		icon = "GFX_POL_improved_light_tank_medium"
 	}
@@ -598,7 +599,7 @@ if = {
 		}
 		upgrades = {
 			tank_nsb_armor_upgrade = 2
-			tank_nsb_engine_upgrade = 2
+			tank_nsb_engine_upgrade = 3
 		}
 		icon = "GFX_POL_improved_light_tank_medium"
 	}
