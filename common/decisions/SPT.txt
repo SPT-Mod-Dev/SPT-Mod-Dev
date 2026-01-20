@@ -2326,3 +2326,689 @@ SPT_china_spawns = {
 		}
 	}
 }
+
+#
+# DESPITE THE LIMITS BEING SET HERE YOU HAVE TO MANUALLY UPDATE THE TOOLTIP IN SPT_TOOLTIPS_L_ENGLISH.YML FOR IT TO DISPLAY PROPERLY
+#
+
+@spt_mastery_track_choice_limit_army = 2 	#how many army mastery tracks a player is allowed to select before decisions are no longer available
+@spt_mastery_track_choice_limit_navy = 1 	#how many navy mastery tracks a player is allowed to select before decisions are no longer available
+@spt_mastery_track_choice_limit_air = 1 	#how many air mastery tracks a player is allowed to select before decisions are no longer available
+
+@spt_mastery_gain_daily_amount = 0.47 		#how much mastery per day each decision gives
+@spt_mastery_gain_duration = 1095 			#how many days the mastery gain buff from the decisions will last
+#yes, this does mean you have to calculate the amount of mastery before seeting it here, 
+#but at least this way it doesnt make me wanna tear my hair out due to how bad hoi is for manipulating variables
+
+SPT_doctrine_mastery = { #please see the above constants for how the decisions define how much mastery to give
+
+	SPT_hide_doctrine_decisions = {
+		icon = GFX_decision_SWI_expand_covert_operations
+		allowed = {
+
+		}
+		visible = {
+			OR = {
+				check_variable = {
+					var = THIS.spt_chosen_army_mastery_count
+					value = @spt_mastery_track_choice_limit_army
+					compare = less_than
+				}
+				check_variable = {
+					var = THIS.spt_chosen_navy_mastery_count
+					value = @spt_mastery_track_choice_limit_navy
+					compare = less_than
+				}
+				check_variable = {
+					var = THIS.spt_chosen_air_mastery_count
+					value = @spt_mastery_track_choice_limit_air
+					compare = less_than
+				}
+			}
+			
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		available = {
+			
+		}
+		complete_effect = {
+			set_country_flag = spt_hidden_doc_decisions
+		}
+	}
+	SPT_show_doctrine_decisions = {
+		icon = GFX_decision_generic_political_address
+		allowed = {
+
+		}
+
+		visible = {
+			OR = {
+				check_variable = {
+					var = THIS.spt_chosen_army_mastery_count
+					value = @spt_mastery_track_choice_limit_army
+					compare = less_than
+				}
+				check_variable = {
+					var = THIS.spt_chosen_navy_mastery_count
+					value = @spt_mastery_track_choice_limit_navy
+					compare = less_than
+				}
+				check_variable = {
+					var = THIS.spt_chosen_air_mastery_count
+					value = @spt_mastery_track_choice_limit_air
+					compare = less_than
+				}
+			}
+			has_country_flag = spt_hidden_doc_decisions
+		}
+		available = {
+			
+		}
+		complete_effect = {
+			clr_country_flag = spt_hidden_doc_decisions
+		}
+	}
+	SPT_gain_inf_mastery = {
+
+		icon = GFX_decision_SWE_set_army_budget
+
+		allowed = {
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = SPT_army_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_army_mastery_count
+					value = @spt_mastery_track_choice_limit_army
+					compare = less_than
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_army_high_command_tt
+				any_character = {
+					has_army_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			check_variable = {
+				var = THIS.spt_chosen_army_mastery_count
+				value = @spt_mastery_track_choice_limit_army
+				compare = less_than
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+
+			add_daily_mastery = {
+				name = "Infantry Doctrine Advancements"
+				amount = @spt_mastery_gain_daily_amount
+				days = @spt_mastery_gain_duration
+				track = infantry
+			}
+			hidden_effect = {
+				add_to_variable = {
+					var = THIS.spt_chosen_army_mastery_count
+					value = 1
+				}
+			}
+		}
+	}
+	SPT_gain_supp_mastery = {
+
+		icon = GFX_decision_generic_ignite_civil_war
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_army_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_army_mastery_count
+					value = @spt_mastery_track_choice_limit_army
+					compare = less_than
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_army_high_command_tt
+				any_character = {
+					has_army_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			check_variable = {
+				var = THIS.spt_chosen_army_mastery_count
+				value = @spt_mastery_track_choice_limit_army
+				compare = less_than
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Artillery & Combat Support Advancements"
+				amount = @spt_mastery_gain_daily_amount
+				days = @spt_mastery_gain_duration
+				track = combat_support
+			}
+			hidden_effect = {
+				add_to_variable = {
+					var = THIS.spt_chosen_army_mastery_count
+					value = 1
+				}
+			}
+		}
+	}
+	SPT_gain_tank_mastery = {
+
+		icon = GFX_decision_generic_tank
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_army_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_army_mastery_count
+					value = @spt_mastery_track_choice_limit_army
+					compare = less_than
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_army_high_command_tt
+				any_character = {
+					has_army_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			check_variable = {
+				var = THIS.spt_chosen_army_mastery_count
+				value = @spt_mastery_track_choice_limit_army
+				compare = less_than
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Armor Doctrine Advancements"
+				amount = @spt_mastery_gain_daily_amount
+				days = @spt_mastery_gain_duration
+				track = armor
+			}
+			hidden_effect = {
+				add_to_variable = {
+					var = THIS.spt_chosen_army_mastery_count
+					value = 1
+				}
+			}
+		}
+	}
+	SPT_gain_special_mastery = {
+
+		icon = GFX_decision_onmap_recruit_operative
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_army_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_army_mastery_count
+					value = @spt_mastery_track_choice_limit_army
+					compare = less_than
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_army_high_command_tt
+				any_character = {
+					has_army_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			check_variable = {
+				var = THIS.spt_chosen_army_mastery_count
+				value = @spt_mastery_track_choice_limit_army
+				compare = less_than
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Operations Doctrine Advancements"
+				amount = @spt_mastery_gain_daily_amount
+				days = @spt_mastery_gain_duration
+				track = operations
+			}
+			hidden_effect = {
+				add_to_variable = {
+					var = THIS.spt_chosen_army_mastery_count
+					value = 1
+				}
+			}
+		}
+	}
+	SPT_gain_sub_mastery = {
+
+		icon = GFX_decision_RAJ_famine
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_navy_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_navy_mastery_count
+					value = @spt_mastery_track_choice_limit_navy
+					compare = less_than
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_navy_high_command_tt
+				any_character = {
+					has_navy_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			check_variable = {
+				var = THIS.spt_chosen_navy_mastery_count
+				value = @spt_mastery_track_choice_limit_navy
+				compare = less_than
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Submarine Doctrine Advancements"
+				amount = @spt_mastery_gain_daily_amount
+				days = @spt_mastery_gain_duration
+				track = submarines
+			}
+			hidden_effect = {
+				add_to_variable = {
+					var = THIS.spt_chosen_navy_mastery_count
+					value = 1
+				}
+			}
+		}
+	}
+	SPT_gain_screen_mastery = {
+
+		icon = GFX_decision_generic_coastal_fortification
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_navy_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_navy_mastery_count
+					value = @spt_mastery_track_choice_limit_navy
+					compare = less_than
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_navy_high_command_tt
+				any_character = {
+					has_navy_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			check_variable = {
+				var = THIS.spt_chosen_navy_mastery_count
+				value = @spt_mastery_track_choice_limit_navy
+				compare = less_than
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Screening Doctrine Advancements"
+				amount = @spt_mastery_gain_daily_amount
+				days = @spt_mastery_gain_duration
+				track = screens
+			}
+			hidden_effect = {
+				add_to_variable = {
+					var = THIS.spt_chosen_navy_mastery_count
+					value = 1
+				}
+			}
+		}
+	}
+	SPT_gain_carrier_mastery = {
+
+		icon = GFX_decision_eng_puppet_usa
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_navy_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_navy_mastery_count
+					value = @spt_mastery_track_choice_limit_navy
+					compare = less_than
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_navy_high_command_tt
+				any_character = {
+					has_navy_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			check_variable = {
+				var = THIS.spt_chosen_navy_mastery_count
+				value = @spt_mastery_track_choice_limit_navy
+				compare = less_than
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Carrier Doctrine Advancements"
+				amount = @spt_mastery_gain_daily_amount
+				days = @spt_mastery_gain_duration
+				track = carriers
+			}
+			hidden_effect = {
+				add_to_variable = {
+					var = THIS.spt_chosen_navy_mastery_count
+					value = 1
+				}
+			}
+		}
+	}
+	SPT_gain_capitals_mastery = {
+
+		icon = GFX_decision_generic_naval
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_navy_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_navy_mastery_count
+					value = @spt_mastery_track_choice_limit_navy
+					compare = less_than
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_navy_high_command_tt
+				any_character = {
+					has_navy_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			check_variable = {
+				var = THIS.spt_chosen_navy_mastery_count
+				value = @spt_mastery_track_choice_limit_navy
+				compare = less_than
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Capital Ship Doctrine Advancements"
+				amount = @spt_mastery_gain_daily_amount
+				days = @spt_mastery_gain_duration
+				track = capital_ships
+			}
+			hidden_effect = {
+				add_to_variable = {
+					var = THIS.spt_chosen_navy_mastery_count
+					value = 1
+				}
+			}
+		}
+	}
+	SPT_gain_fighter_mastery = {
+
+		icon = GFX_decision_generic_air
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_air_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_air_mastery_count
+					value = @spt_mastery_track_choice_limit_air
+					compare = less_than
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_air_high_command_tt
+				any_character = {
+					has_air_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			check_variable = {
+				var = THIS.spt_chosen_air_mastery_count
+				value = @spt_mastery_track_choice_limit_air
+				compare = less_than
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Fighter Aircraft Doctrine Advancements"
+				amount = @spt_mastery_gain_daily_amount
+				days = @spt_mastery_gain_duration
+				track = fighter_aircraft
+			}
+			hidden_effect = {
+				add_to_variable = {
+					var = THIS.spt_chosen_air_mastery_count
+					value = 1
+				}
+			}
+		}
+	}
+	SPT_gain_strike_mastery = {
+
+		icon = GFX_decision_ger_military_buildup
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_air_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_air_mastery_count
+					value = @spt_mastery_track_choice_limit_air
+					compare = less_than
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_air_high_command_tt
+				any_character = {
+					has_air_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			check_variable = {
+				var = THIS.spt_chosen_air_mastery_count
+				value = @spt_mastery_track_choice_limit_air
+				compare = less_than
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Strike Aircraft Doctrine Advancements"
+				amount = @spt_mastery_gain_daily_amount
+				days = @spt_mastery_gain_duration
+				track = strike_aircraft
+			}
+			hidden_effect = {
+				add_to_variable = {
+					var = THIS.spt_chosen_air_mastery_count
+					value = 1
+				}
+			}
+		}
+	}
+	SPT_gain_medium_mastery = {
+
+		icon = GFX_decision_SWE_set_air_budget
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_air_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_air_mastery_count
+					value = @spt_mastery_track_choice_limit_air
+					compare = less_than
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_air_high_command_tt
+				any_character = {
+					has_air_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			check_variable = {
+				var = THIS.spt_chosen_air_mastery_count
+				value = @spt_mastery_track_choice_limit_air
+				compare = less_than
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Medium Aircraft Doctrine Advancements"
+				amount = @spt_mastery_gain_daily_amount
+				days = @spt_mastery_gain_duration
+				track = medium_aircraft
+			}
+			hidden_effect = {
+				add_to_variable = {
+					var = THIS.spt_chosen_air_mastery_count
+					value = 1
+				}
+			}
+		}
+	}
+	SPT_gain_heavy_mastery = {
+
+		icon = GFX_decision_generic_merge_plant_aircraft
+
+		allowed = {
+		}
+
+		available = {	
+			custom_trigger_tooltip = {
+				tooltip = SPT_air_doctrine_mastery_used_less_than_count_tt
+				check_variable = {
+					var = THIS.spt_chosen_air_mastery_count
+					value = @spt_mastery_track_choice_limit_air
+					compare = less_than
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = SPT_hired_air_high_command_tt
+				any_character = {
+					has_air_ledger = yes
+					is_high_command = yes
+					is_hired_as_advisor = yes
+				}
+			}
+		}
+		visible = { 
+			check_variable = {
+				var = THIS.spt_chosen_air_mastery_count
+				value = @spt_mastery_track_choice_limit_air
+				compare = less_than
+			}
+			NOT = {
+				has_country_flag = spt_hidden_doc_decisions
+			}
+		}
+		complete_effect = {
+			add_daily_mastery = {
+				name = "Heavy Aircraft Doctrine Advancements"
+				amount = @spt_mastery_gain_daily_amount
+				days = @spt_mastery_gain_duration
+				track = heavy_aircraft
+			}
+			hidden_effect = {
+				add_to_variable = {
+					var = THIS.spt_chosen_air_mastery_count
+					value = 1
+				}
+			}
+		}
+	}
+}
