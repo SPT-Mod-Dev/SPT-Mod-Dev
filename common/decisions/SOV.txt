@@ -4307,13 +4307,15 @@ SOV_gosproyektstroy_decision_category = {
 		available = {
 			has_idea = SOV_gosproyektstroy_1
 			NOT = { has_country_flag = SOV_gosproyektstroy_upgrade_in_progress_flag }
-			FROM = {
-				has_opinion = {
-					target = ROOT
-					value > 29
+			OR = {
+				FROM = {
+					has_opinion = {
+						target = ROOT
+						value > 29
+					}
+					SOV_is_valid_subject = yes
+					NOT = { has_war_with = ROOT }
 				}
-				SOV_is_valid_subject = yes
-				NOT = { has_war_with = ROOT }
 				NOT = { country_exists = ROOT } # SPTChange no asia fix for usa
 			}
 		}
