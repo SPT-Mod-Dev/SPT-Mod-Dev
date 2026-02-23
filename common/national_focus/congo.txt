@@ -443,7 +443,7 @@ focus_tree = {
 				name = COG_south_atlantic_navy
 				bonus = 0.1
 				days = 240
-				grand_doctrine = new_convoy_raiding
+				folder = naval
 			}
 
 			add_doctrine_cost_reduction = {
@@ -501,7 +501,7 @@ focus_tree = {
 						popup = no
 					} 
 				}
-				add_ideas = BRA_brown_water_navy_idea
+				add_ideas = COG_brown_water_navy_idea
 			}
 
 		}
@@ -3848,7 +3848,33 @@ focus_tree = {
 
 			}
 
-
+			hidden_effect = {
+				IF = {
+					limit = {
+						has_completed_focus = COG_approach_the_barotse_litunga
+						BAR = {
+							has_character = BAR_yeta_iii
+							exists = no
+						}
+					}
+					BAR = {
+						BAR_yeta_iii = {
+							remove_country_leader_role = {
+							    ideology = despotism
+							}
+							add_field_marshal_role = {
+								skill = 3
+								attack_skill = 2
+								defense_skill = 2
+								planning_skill = 3
+								logistics_skill = 3
+								traits = { organizer }
+							}
+							set_nationality = ROOT
+						}
+					}
+				}
+			}
 
 		}
 

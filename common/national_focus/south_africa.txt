@@ -1911,13 +1911,27 @@
 
 		completion_reward = {
 			add_ideas = SAF_soviet_advisers
-
-			add_mastery_bonus = {
-				name = SAF_invite_soviet_advisers
-				bonus = 0.1
-				days = 180
+			if = {
+				limit = {
+					has_doctrine = mass_assault
+				}
+				add_mastery_bonus = {
+					name = SAF_invite_soviet_advisers
+					bonus = 0.1
+					days = 180
 				grand_doctrine = mass_assault
+				}
 			}
+				else = {
+					add_mastery_bonus = {
+					name = SAF_invite_soviet_advisers
+					bonus = 0.05
+					days = 180
+				}
+			}
+			
+
+			
 			
 			add_doctrine_cost_reduction = {
 				name = SAF_invite_soviet_advisers
@@ -3205,7 +3219,6 @@
 				name = SAF_perfect_the_cab_rank_technique
 				bonus = 0.1
 				days = 180
-				grand_doctrine = new_battlefield_support
 				track = heavy_aircraft
 			}
 		}

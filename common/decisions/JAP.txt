@@ -354,13 +354,6 @@ JAP_intervene_in_china = {
 
 		icon = jap_conquer_china
 
-		available = {	
-			event_target:WTT_current_china_leader = {
-				has_capitulated = no
-				exists = yes
-			}
-		}
-
 		visible = {
 			has_completed_focus = JAP_strategic_offensives #JAP_secure_china
 			any_enemy_country = {
@@ -370,6 +363,13 @@ JAP_intervene_in_china = {
 				NOT = { is_puppet_of = JAP }
 			}
 		}
+
+		available = {	
+			event_target:WTT_current_china_leader = {
+				has_capitulated = no
+				exists = yes
+			}
+		} 
 
 		fire_only_once = yes
 
@@ -383,9 +383,21 @@ JAP_intervene_in_china = {
 			}
 		}
 
-		cost = 50
+		custom_cost_trigger = {
+			has_political_power > 74 
+			command_power > 99
+		}
+		custom_cost_text = decision_cost_CP_100_pp_75
+
+		ai_hint_pp_cost = 75 
 
 		complete_effect = {
+
+			hidden_effect = {
+				add_political_power = -75
+				add_command_power = -100
+			}
+
 			IF = {
 				limit = {
 					USA = {
@@ -393,7 +405,9 @@ JAP_intervene_in_china = {
 					}
 				}
 				USA = { add_war_support = 0.1 }
+				custom_effect_tooltip = generic_skip_one_line_tt
 			}
+
 			IF = {
 				limit = {
 					has_dlc = "No Compromise, No Surrender"
@@ -410,6 +424,7 @@ JAP_intervene_in_china = {
 				}
 			}
 				
+			custom_effect_tooltip = generic_skip_one_line_tt
 			activate_mission_tooltip = JAP_conquer_china
 			set_country_flag = JAP_conquer_china_activate
 		}
@@ -447,7 +462,7 @@ JAP_intervene_in_china = {
 		days_mission_timeout = 365
 		
 		timeout_effect = {
-			add_stability = -0.05
+			add_stability = -0.1 
 			add_war_support = -0.15
 		}
 
@@ -2955,10 +2970,9 @@ JAP_colonial_independence = {
 		}
 
 		visible = {
-			OR = {
-				has_completed_focus = JAP_liberate_manchuria
-				has_completed_focus = JAP_democratic_war_with_manchukuo
-			}
+		
+			has_completed_focus = JAP_liberate_manchuria
+			
 			609 = {
 				owner = {
 					OR = {
@@ -4457,6 +4471,11 @@ prospect_for_resources = {
 				has_completed_focus = JAP_sea_establish_the_northern_resource_area
 				has_completed_focus = JAP_transformation_of_nature
 			}
+			655 = {
+				NOT = {
+					has_state_flag = north_sakhalin_oil_developed
+				}
+			}
 		}
 
 		fire_only_once = no
@@ -4482,6 +4501,7 @@ prospect_for_resources = {
 					type = oil
 					amount = 12
 				}
+				set_state_flag = north_sakhalin_oil_developed
 			}
 		}
 	}
@@ -5844,9 +5864,11 @@ JAP_kwantung_army_decisions = {
 		}
 
 		visible = {
-			original_tag = JAP
-			has_civil_war = no
-			is_subject = no 
+			hidden_trigger = {
+				original_tag = JAP
+				has_civil_war = no
+				is_subject = no 
+			}
 			NOT = { has_war_with = CHI }
 			NOT = {
 				has_completed_focus = JAP_subdue_the_kwantung_army
@@ -7784,7 +7806,7 @@ JAP_imperial_influence_decision_cat = {
 			hidden_trigger = { always = no }
 		}
 
-		days_mission_timeout = 365
+		days_mission_timeout = 545
 
 		is_good = no
 
@@ -7845,7 +7867,7 @@ JAP_imperial_influence_decision_cat = {
 			hidden_trigger = { always = no }
 		}
 
-		days_mission_timeout = 365
+		days_mission_timeout = 545
 
 		is_good = no
 
@@ -7918,7 +7940,7 @@ JAP_imperial_influence_decision_cat = {
 			hidden_trigger = { always = no }
 		}
 
-		days_mission_timeout = 365
+		days_mission_timeout = 545
 
 		is_good = no
 
@@ -11335,6 +11357,10 @@ JAP_the_co_prosperity_sphere_decisions = {
 				add = -500
 				is_historical_focus_on = yes # This was the initial but discarded plan for division
 			}
+			modifier = {
+				factor = 0
+				date < 1942.01.01 # Don't click this immediatly 
+			}
 		}
 	}
 
@@ -11430,6 +11456,10 @@ JAP_the_co_prosperity_sphere_decisions = {
 
 		ai_will_do = {
 			base = 500 
+			modifier = {
+				factor = 0
+				date < 1942.01.01 # Don't click this immediatly 
+			}
 		}
 
 	}
@@ -11507,6 +11537,10 @@ JAP_the_co_prosperity_sphere_decisions = {
 
 		ai_will_do = {
 			base = 500 
+			modifier = {
+				factor = 0
+				date < 1942.01.01 # Don't click this immediatly 
+			}
 		}
 
 	}
@@ -11587,6 +11621,10 @@ JAP_the_co_prosperity_sphere_decisions = {
 
 		ai_will_do = {
 			base = 500 
+			modifier = {
+				factor = 0
+				date < 1942.01.01 # Don't click this immediatly 
+			}
 		}
 
 	}
@@ -14538,6 +14576,12 @@ JAP_investing_in_foreign_industries_cat = {
 				}
 			}
 
+			hidden_effect = {
+				FROM = {
+					set_country_flag = JAP_has_already_attracted_inestments_from_here_flag
+				}
+			}
+
 		}
 
 	}
@@ -15058,6 +15102,13 @@ JAP_west_pacific_treaty_org_economic_integration_cat = {
 				}	
 				FROM = {
 					every_core_state = {
+						limit = {
+							OR = {
+								is_on_continent = asia 
+								is_on_continent = australia 
+								is_on_continent = middle_east 
+							}
+						}
 						add_core_of = ROOT
 					}
 				}

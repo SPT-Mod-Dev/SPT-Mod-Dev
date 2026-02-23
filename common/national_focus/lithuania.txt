@@ -1737,6 +1737,10 @@ focus_tree = {
 				add_claim_by = ROOT
 				set_state_flag = greater_lithuania_flag
 			}
+			834 = {
+				add_claim_by = ROOT
+				set_state_flag = greater_lithuania_flag
+			}
 		}
 	}
 
@@ -2364,35 +2368,59 @@ focus_tree = {
 		available = {
 			242 = {
 				is_controlled_by = ROOT
-				compliance > 80
+				OR = {
+					compliance > 80
+					is_core_of = ROOT
+				}
 			}
 			243 = {
 				is_controlled_by = ROOT
-				compliance > 80
+				OR = {
+					compliance > 80
+					is_core_of = ROOT
+				}
 			}
 			224 = {
 				is_controlled_by = ROOT
-				compliance > 80
+				OR = {
+					compliance > 80
+					is_core_of = ROOT
+				}
 			}
 			205 = {
 				is_controlled_by = ROOT
-				compliance > 80
+				OR = {
+					compliance > 80
+					is_core_of = ROOT
+				}
 			}
 			223 = {
 				is_controlled_by = ROOT
-				compliance > 80
+				OR = {
+					compliance > 80
+					is_core_of = ROOT
+				}
 			}
 			222 = {
 				is_controlled_by = ROOT
-				compliance > 80
+				OR = {
+					compliance > 80
+					is_core_of = ROOT
+				}
 			}
 			220 = {
 				is_controlled_by = ROOT
-				compliance > 80
+				OR = {
+					compliance > 80
+					is_core_of = ROOT
+				}
 			}
 			240 = {
 				is_controlled_by = ROOT
-				compliance > 80
+				OR = {
+					compliance > 80
+					is_core_of = ROOT
+				}
 			}
 		}
 
@@ -2409,6 +2437,9 @@ focus_tree = {
 			every_state = {
 				limit = {
 					has_state_flag = greater_lithuania_flag
+					NOT = {
+						is_core_of = ROOT
+					}
 				}
 				add_core_of = ROOT
 			}
@@ -4681,7 +4712,7 @@ focus_tree = {
 			create_wargoal = {
 				type = take_state_focus
 				target = SOV
-				generator = { 96 95 94 207 206 204 241 93 199 201 198 202 203 259 193 225 221 226 197 192 242 243 224 205 223 222 220 240 194 }
+				generator = { 96 95 94 207 206 204 241 93 199 201 198 202 203 259 193 225 221 226 197 192 242 243 224 205 223 222 220 240 194 834 }
 			}
 		}
 	}
@@ -4739,6 +4770,7 @@ focus_tree = {
 			controls_state = 66
 			controls_state = 68
 			controls_state = 63
+			controls_state = 834
 		}
 
 		available_if_capitulated = yes
@@ -4787,6 +4819,7 @@ focus_tree = {
 						state = 66
 						state = 68
 						state = 63
+						state = 834
 					}
 				}
 				add_core_of = ROOT

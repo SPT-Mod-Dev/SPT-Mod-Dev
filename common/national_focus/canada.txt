@@ -1112,6 +1112,10 @@
 					level = 3
 					instant_build = yes
 				}
+				add_resource = {
+					type = coal
+					amount = 8
+				}	
 			}
 		}
 
@@ -1131,6 +1135,10 @@
 					level = 3
 					instant_build = yes
 				}
+				add_resource = {
+					type = coal
+					amount = 8
+				}	
 				set_state_flag = CAN_alberta_coal_towns_IC
 			}
 		}
@@ -5193,13 +5201,27 @@
 				specialization = specialization_naval
 				value = 0.15
 			}
-
-			add_mastery_bonus = {
-				name = CAN_escort_fleet
-				bonus = 0.1
-				days = 180
-				sub_doctrine = convoy_escort
+			if = {
+				limit = {
+					has_doctrine = convoy_escort
+				}
+				add_mastery_bonus = {
+					name = CAN_escort_fleet
+					bonus = 0.2
+					days = 180
+					sub_doctrine = convoy_escort
+				}
 			}
+			else = {
+				add_mastery_bonus = {
+					name = CAN_escort_fleet
+					bonus = 0.1
+					days = 180
+					track = screens
+				}
+			}
+			
+			
 			add_doctrine_cost_reduction = {
 				name = CAN_escort_fleet
 				cost_reduction = 0.25
@@ -5248,7 +5270,6 @@
 				bonus = 0.1
 				days = 180
 				grand_doctrine = new_fleet_in_being
-				track = capital_ships
 			}
 			add_doctrine_cost_reduction = {
 				name = CAN_fleet_in_being

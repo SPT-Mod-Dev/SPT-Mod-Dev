@@ -1643,12 +1643,44 @@ focus_tree = {
 	}
 
 	focus = {
+		id = BRA_establish_companhia_vale_do_rio_doce
+		icon = GFX_focus_generic_mining_industry
+		prerequisite = { focus = BRA_batalha_do_borracha }
+		x = -2
+		y = 1
+		relative_position_id = BRA_batalha_do_borracha
+		cost = 10
+		available = {
+			496 = {
+				is_controlled_by = ROOT
+			}
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_HISTORICAL }
+
+		completion_reward = {
+
+			496 = {
+				add_resource = {
+					type = steel
+					amount = 12
+				}	
+				add_resource = {
+					type = aluminium
+					amount = 8
+				}	
+			}
+
+		}
+	}
+
+	focus = {
 		id = BRA_invest_in_road_infrastructure
 		icon = GFX_focus_generic_road_investment
 		prerequisite = { 
 			focus = BRA_batalha_do_borracha 
 			focus = BRA_invest_in_railways }
-		x = 3
+		x = 2
 		y = 1
 		relative_position_id = BRA_invest_in_railways
 		cost = 5
@@ -1945,6 +1977,18 @@ focus_tree = {
 					tooltip = MODIFIER_STATE_RESOURCES_FACTOR_tt
 				}
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			unlock_decision_tooltip = {
+				decision = develop_guapore_casserite_deposits
+				show_effect_tooltip = no
+			}	
+			unlock_decision_tooltip = {
+				decision = rename_guapore_to_rondonia_decision
+				show_effect_tooltip = no
+			}	
+
 		}
 	}
 
