@@ -1,5 +1,13 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 4.0.2
+
+#### General
+ - Imported 1.17.3 and 1.17.4 (please see official patch notes for most details)
+ - Restrict faction goal changes to leader-only
+ - Fixed Soviet Foreign Experts decisions
+ - Fixed Raj double spirit "Agrarian Society"
+
 ### 4.0.1 Master of Mastery
 
 #### General
