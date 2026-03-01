@@ -38,30 +38,30 @@ mobile_infantry = {
     rewards = {
         cavalry_charge = {
             category_cavalry = {
-                breakthrough = 0.20
+                breakthrough = 0.10 # SPTchange 0.20->0.10
             }
         }
         combined_arms_planning = {
             category_all_infantry = {
-                max_organisation = 10
-                maximum_speed = 0.05
+                max_organisation = 5 # SPTchange 10->5
+                maximum_speed = 0.025 # SPTchange 0.05->0.025
             }
         }
         decisive_operations = {
             category_vehicle_infantry = {
-                max_organisation = 20
+                max_organisation = 10 # SPTchange 20->10
             }
         }
         delegated_authority = {
             category_vehicle_infantry = {
-                default_morale = 0.1
-                soft_attack = 0.1
+                default_morale = 0.05 # SPTchange 0.1->0.05
+                soft_attack = 0.05 # SPTchange 0.1->0.05
             }
         }
         maneuver_warfare = {
             category_all_infantry = {
-                max_organisation = 10
-                maximum_speed = 0.2
+                max_organisation = 5 # SPTchange 10->5
+                maximum_speed = 0.1 # SPTchange 0.2->0.1
             }
         }
 
@@ -102,31 +102,31 @@ defensive_postures = {
         supply_consumption = -0.01
     }
     category_all_infantry = {
-        entrenchment = 0.2
+        entrenchment = 0.1 # SPTchange 0.2->0.1
     }
 
     rewards = {
         improvised_fighting_position = {
-            dig_in_speed_factor = 0.05
+            dig_in_speed_factor = 0.025 # SPTchange 0.05->0.025
         }
         elastic_operations = {
             category_all_infantry = {
-                max_organisation = 10
-                defense = 0.10
+                max_organisation = 5 # SPTchange 10->5
+                defense = 0.05 # SPTchange 0.10->0.05
             }
         }
         developed_trench_networking = {
             category_all_infantry = {
-                entrenchment = 0.2
+                entrenchment = 0.1 # SPTchange 0.2->0.1
             }
         }
         field_emplacements = {
             category_all_infantry = {
-                soft_attack = 0.1
+                soft_attack = 0.05 # SPTchange 0.1->0.05
             }
         }
         field_construction_training = {
-            dig_in_speed_factor = 0.15
+            dig_in_speed_factor = 0.075 # SPTchange 0.15->0.075
         }
 
     }
@@ -176,14 +176,14 @@ large_unit_tactics = {
 
     rewards = {
         wide_trench_networks = {
-            dig_in_speed_factor = 0.10
+            dig_in_speed_factor = 0.05 # SPTchange 0.10->0.05
         }
         flexible_division_structures = {
         #2
-            #spt change, this is not a thing in the mod anyways
+            #SPTchange, this is not a thing in the mod anyways
             #unit_infantry_design_cost_factor = -1
             infantry = {
-                combat_width = -0.3
+                combat_width = -0.15 # SPTchange -0.3->-0.15
             }
         }
         unit_knowledge_sharing = {
@@ -195,21 +195,21 @@ large_unit_tactics = {
         large_front_offensive = {
         #4
             category_all_infantry = {
-                max_organisation = 10
-                soft_attack = 0.1
+                max_organisation = 5 # SPTchange 10->5
+                soft_attack = 0.05 # SPTchange 0.1->0.05
             }
-            army_morale = 0.1
+            army_morale = 0.05 # SPTchange 0.1->0.05
             
         }
         motorization_initiative = {
         #5
            category_all_infantry = {
-                breakthrough = 0.1
-                soft_attack = 0.1
+                breakthrough = 0.05 # SPTchange 0.1->0.05
+                soft_attack = 0.05 # SPTchange 0.1->0.05
             }
             category_vehicle_infantry = {
-                supply_consumption = -0.02
-                reliability = 0.1
+                supply_consumption = -0.01 # SPTchange -0.02->-0.01
+                reliability = 0.05 # SPTchange 0.1->0.05
             }
         }
 
@@ -255,21 +255,21 @@ assault_infantry = {
             artillery = {
                 battalion_mult = {
                     category = category_light_infantry
-                    soft_attack = 0.2
+                    soft_attack = 0.1 # SPTchange 0.2->0.1
                 }
             }
         }
         organic_battalion_fire_support = {
         #2
             category_support_artillery = {
-                soft_attack = 0.05
+                soft_attack = 0.025 # SPTchange 0.05->0.025
             }
             anti_tank = {
-                ap_attack = 0.1
-                hard_attack = 0.1
+                ap_attack = 0.05 # SPTchange 0.1->0.05
+                hard_attack = 0.05 # SPTchange 0.1->0.05
             }
             anti_air = {
-                air_attack = 0.1
+                air_attack = 0.05 # SPTchange 0.1->0.05
             }
 
         }
@@ -277,34 +277,34 @@ assault_infantry = {
         integrated_support_batteries = {
         #3
             category_support_artillery = {
-                max_organisation = 20
-                soft_attack = 0.1
+                max_organisation = 10 # SPTchange 20->10
+                soft_attack = 0.05 # SPTchange 0.1->0.05
             }
 
         }
         breakthrough_fireteams = {
         #4
             light_tank_recon = {
-                max_organisation = 20
+                max_organisation = 10 # SPTchange 20->10
                 battalion_mult = {
                     category = category_all_infantry
-                    breakthrough = 0.2
+                    breakthrough = 0.1 # SPTchange 0.2->0.1
                 }
                 battalion_mult = {
                     category = category_all_infantry
-                    max_organisation = 5
+                    max_organisation = 2.5 # SPTchange 5->2.5
                     add = yes
                 }
             }
             mot_recon = {
-                max_organisation = 20
+                max_organisation = 10 # SPTchange 20->10
                 battalion_mult = {
                     category = category_all_infantry
-                    breakthrough = 0.1
+                    breakthrough = 0.05 # SPTchange 0.1->0.05
                 }
                 battalion_mult = {
                     category = category_all_infantry
-                    max_organisation = 5
+                    max_organisation = 2.5 # SPTchange 5->2.5
                     add = yes
                 }
             }
@@ -314,27 +314,27 @@ assault_infantry = {
         assault_detachments = {
         #5
             category_support_artillery = {
-                supply_consumption = -0.02
+                supply_consumption = -0.01 # SPTchange -0.02->-0.01
             }
             light_flame_tank = {
                 battalion_mult = {
                     category = category_all_infantry
-                    breakthrough = 0.1
-                    soft_attack = 0.1
+                    breakthrough = 0.05 # SPTchange 0.1->0.05
+                    soft_attack = 0.05 # SPTchange 0.1->0.05
                 }
             }
             medium_flame_tank = {
                 battalion_mult = {
                     category = category_all_infantry
-                    breakthrough = 0.1
-                    soft_attack = 0.1
+                    breakthrough = 0.05 # SPTchange 0.1->0.05
+                    soft_attack = 0.05 # SPTchange 0.1->0.05
                 }
             }
             heavy_flame_tank = {
                 battalion_mult = {
                     category = category_all_infantry
-                    breakthrough = 0.1
-                    soft_attack = 0.1
+                    breakthrough = 0.05 # SPTchange 0.1->0.05
+                    soft_attack = 0.05 # SPTchange 0.1->0.05
                 }
             }
 
@@ -376,7 +376,7 @@ mounted_infantry = {
         soft_attack = 0.1
         breakthrough = 0.1
     }
-    #spt change, this is useless in the mod anyway
+    #SPTchange, this is useless in the mod anyway
     #unit_cavalry_design_cost_factor = -1
 
     # EFFECTS
@@ -384,57 +384,57 @@ mounted_infantry = {
     rewards = {
         dragoon_traditions = {
             category_cavalry = {
-                breakthrough = 0.20
-                defense = 0.1
+                breakthrough = 0.10 # SPTchange 0.20->0.10
+                defense = 0.05 # SPTchange 0.1->0.05
             }
         }
         mounted_skirmish_groups = {
             recon = {
-                max_organisation = 10
-                soft_attack = 0.2
+                max_organisation = 5 # SPTchange 10->5
+                soft_attack = 0.1 # SPTchange 0.2->0.1
                 battalion_mult = {
                     category = category_light_infantry
-                    soft_attack = 0.1
-                    defense = 0.1
+                    soft_attack = 0.05 # SPTchange 0.1->0.05
+                    defense = 0.05 # SPTchange 0.1->0.05
                 }
                 battalion_mult = {
                     category = category_light_infantry
-                    max_organisation = 5
+                    max_organisation = 2.5 # SPTchange 5->2.5
                     add = yes
                 }
             } 
             category_cavalry = {
-                max_organisation = 5
+                max_organisation = 2.5 # SPTchange 5->2.5
             }
         }
         anti_mechanized_cavalry_groups = {
             category_cavalry = {
-                hard_attack = 0.2
-                ap_attack = 0.2
+                hard_attack = 0.1 # SPTchange 0.2->0.1
+                ap_attack = 0.1 # SPTchange 0.2->0.1
             }
 
-        
-}        beasts_of_war = {
+        }
+        beasts_of_war = {
             category_cavalry = {
-                maximum_speed = 0.5 
-                max_strength = 0.05 
+                maximum_speed = 0.25 # SPTchange 0.5->0.25
+                max_strength = 0.025 # SPTchange 0.05->0.025
             }
             recon = {
-                maximum_speed = 0.5
+                maximum_speed = 0.25 # SPTchange 0.5->0.25
             }
         }
         limbered_combat_support = {
             artillery_brigade = {
-                maximum_speed = 0.5
+                maximum_speed = 0.25 # SPTchange 0.5->0.25
             }
             anti_tank_brigade = {
-                maximum_speed = 0.5
+                maximum_speed = 0.25 # SPTchange 0.5->0.25
             }
             anti_air_brigade = {
-                maximum_speed = 0.5
+                maximum_speed = 0.25 # SPTchange 0.5->0.25
             }
             rocket_artillery_brigade = {
-                maximum_speed = 0.5
+                maximum_speed = 0.25 # SPTchange 0.5->0.25
             }
         }
 
@@ -464,7 +464,7 @@ commandos = {
     logistics_company = {
         battalion_mult = {
             category = category_light_infantry
-            max_strength = 5
+            max_strength = 2.5 # SPTchange 5->2.5
             add = yes
         }
     }
@@ -474,17 +474,17 @@ commandos = {
     rewards = {
         isolated_combat_elements = { 
             category_light_infantry = {
-                supply_consumption = -0.01
-                reliability = 0.05
+                supply_consumption = -0.005 # SPTchange -0.01->-0.005
+                reliability = 0.025 # SPTchange 0.05->0.025
             }
             field_hospital = {
-                casualty_trickleback = 0.05
+                casualty_trickleback = 0.025 # SPTchange 0.05->0.025
             }
             helicopter_brigade = {
-                casualty_trickleback = 0.05
+                casualty_trickleback = 0.025 # SPTchange 0.05->0.025
             }
              helicopter_field_hospital = {
-                casualty_trickleback = 0.05
+                casualty_trickleback = 0.025 # SPTchange 0.05->0.025
             }           
 
         }
@@ -493,19 +493,19 @@ commandos = {
             signal_company = {
                 battalion_mult = {
                     category = category_all_infantry
-                    defense = 0.1
+                    defense = 0.05 # SPTchange 0.1->0.05
                 }
             }
             logistics_company = {
                 battalion_mult = {
                  category = category_vehicle_infantry
-                 max_strength = 5
+                 max_strength = 2.5 # SPTchange 5->2.5
                  add = yes
                 }
             }
             category_vehicle_infantry = {
-                reliability = 0.05
-                breakthrough = 0.1
+                reliability = 0.025 # SPTchange 0.05->0.025
+                breakthrough = 0.05 # SPTchange 0.1->0.05
             } 
             
         }
@@ -513,46 +513,46 @@ commandos = {
             recon = {
                 battalion_mult = {
                     category = category_all_infantry
-                    soft_attack = 0.1
+                    soft_attack = 0.05 # SPTchange 0.1->0.05
                 }
             }
             mot_recon = {
                 battalion_mult = {
                     category = category_all_infantry
-                    soft_attack = 0.1
+                    soft_attack = 0.05 # SPTchange 0.1->0.05
                 }
             }
             light_tank_recon = {
                 battalion_mult = {
                     category = category_all_infantry
-                    soft_attack = 0.1
+                    soft_attack = 0.05 # SPTchange 0.1->0.05
                 }
             }
             
             infantry = {
                 desert = {
-                    attack = 0.05
-                    movement = 0.1
+                    attack = 0.025 # SPTchange 0.05->0.025
+                    movement = 0.05 # SPTchange 0.1->0.05
                 }
                 jungle = {
-                    attack = 0.05
-                    movement = 0.1
+                    attack = 0.025 # SPTchange 0.05->0.025
+                    movement = 0.05 # SPTchange 0.1->0.05
                 }
                 hills = {
-                    attack = 0.05
-                    movement = 0.1
+                    attack = 0.025 # SPTchange 0.05->0.025
+                    movement = 0.05 # SPTchange 0.1->0.05
                 }
             }
         }
 
         field_intel_retrieval = {
-            intel_from_combat_factor = 0.15
+            intel_from_combat_factor = 0.075 # SPTchange 0.15->0.075
         }
 
         integrated_assaults = {
             category_all_infantry = {
-                soft_attack = 0.1
-                breakthrough = 0.1
+                soft_attack = 0.05 # SPTchange 0.1->0.05
+                breakthrough = 0.05 # SPTchange 0.1->0.05
             }
             
 
@@ -623,22 +623,22 @@ irregulars = {
         
         improvised_officer_groups = {
             category_light_infantry = {
-                max_organisation = 10
-                soft_attack = 0.1
-                breakthrough = 0.1
+                max_organisation = 5 # SPTchange 10->5
+                soft_attack = 0.05 # SPTchange 0.1->0.05
+                breakthrough = 0.05 # SPTchange 0.1->0.05
             }
             
             
         }
         levee_en_masse = {
-            conscription = 0.005 #spt change, 0.02 -> 0.01
+            conscription = 0.005 #SPTchange, 0.02 -> 0.005
             mobilization_speed = 0.05
 
         }
         standardization_efforts = {
             category_light_infantry = {
-                max_organisation = 10
-                soft_attack = 0.1
+                max_organisation = 5 # SPTchange 10->5
+                soft_attack = 0.05 # SPTchange 0.1->0.05
             }
 
             effect = {
@@ -701,15 +701,15 @@ peoples_war = {
                 supply_consumption = -0.02
             }
             category_light_infantry = {
-                max_organisation = 5
+                max_organisation = 2.5 # SPTchange 5->2.5
             }
 
         }
         destruction_over_land_gains = {
         #2
-            mastery = 50
+            mastery =  50
             category_light_infantry = {
-                default_morale = 0.1
+                default_morale = 0.05 # SPTchange 0.1->0.05
             }
             militia = {
                 equipment_capture_factor = 0.01
@@ -730,8 +730,8 @@ peoples_war = {
         #4
             mastery = 50
             category_light_infantry = {
-                soft_attack = 0.1
-                max_strength = 0.15
+                soft_attack = 0.05 # SPTchange 0.1->0.05
+                max_strength = 0.075 # SPTchange 0.15->0.075
             }
         }
     }
@@ -774,14 +774,14 @@ great_war_infantry = {
             engineer = {
                 battalion_mult = {
                     category = category_light_infantry
-                    entrenchment = 0.05
+                    entrenchment = 0.025 # SPTchange 0.05->0.025
                 }
             }
             
         }
         sapping_operations = {
             category_light_infantry = {
-                defense = 0.1
+                defense = 0.05 # SPTchange 0.1->0.05
             }
             field_hospital = {
                 casualty_trickleback = 0.1
@@ -789,24 +789,23 @@ great_war_infantry = {
         }
         centralized_artillery_control = {
             artillery = {
-                soft_attack = 0.1
+                soft_attack = 0.05 # SPTchange 0.1->0.05
                 battalion_mult = {
                     category = category_light_infantry
-                    soft_attack = 0.1
-                    breakthrough = 0.05
+                    soft_attack = 0.05 # SPTchange 0.1->0.05
+                    breakthrough = 0.025 # SPTchange 0.05->0.025
                 }
             }
         }
         field_fortification_emphasis = {
             category_light_infantry = {
-                reliability = 0.05
-                defense = 0.05
-                max_organisation = 5
+                reliability = 0.025 # SPTchange 0.05->0.025
+                defense = 0.025 # SPTchange 0.05->0.025
+                max_organisation = 2.5 # SPTchange 5->2.5
             }
         }
         redoubt_networks = {
-            dig_in_speed_factor = 0.10
+            dig_in_speed_factor = 0.05 # SPTchange 0.10->0.05
         }
-
     }
 }

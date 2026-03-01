@@ -12,18 +12,17 @@ air_subdoctrine_night_bombing = {
     }
 
     ai_will_do = {
-
         base = 1
         modifier = {
             factor = 25
             OR = {
-            	original_tag = ENG  
-            	original_tag = AST 
-            	original_tag = CAN 
-            	original_tag = NZL 
-            	original_tag = SAF 
-        	}
-    	}
+                original_tag = ENG  
+                original_tag = AST 
+                original_tag = CAN 
+                original_tag = NZL 
+                original_tag = SAF 
+            }
+        }
     }
 
     # EFFECTS
@@ -31,21 +30,21 @@ air_subdoctrine_night_bombing = {
 
 
     rewards = {
-		night_raids = {
-			air_night_penalty = -0.15
-		}
+        night_raids = {
+            air_night_penalty = -0.075 # SPTchange -0.15->-0.075
+        }
         stealth_approach = {
-			strategic_bomb_visibility = -0.15
-		}
-		shared_principles = {
-			air_untrained_pilots_penalty_factor = -0.1
-		}
-		bombing_discipline = {
-			air_strategic_bomber_bombing_factor = 0.15
-		}
-		durable_airframes = {
-			air_strategic_bomber_defence_factor = 0.15			
-		}
+            strategic_bomb_visibility = -0.075 # SPTchange -0.15->-0.075
+        }
+        shared_principles = {
+            air_untrained_pilots_penalty_factor = -0.05 # SPTchange -0.1->-0.05
+        }
+        bombing_discipline = {
+            air_strategic_bomber_bombing_factor = 0.075 # SPTchange 0.15->0.075
+        }
+        durable_airframes = {
+            air_strategic_bomber_defence_factor = 0.075 # SPTchange 0.15->0.075          
+        }
     }
 }
 
@@ -63,13 +62,12 @@ air_subdoctrine_carpet_bombing = {
     }
 
     ai_will_do = {
-
         base = 1
         modifier = {
             factor = 25
             OR = {
-            	original_tag = JAP 
-            	original_tag = FRA 
+                original_tag = JAP 
+                original_tag = FRA 
             }
         }
         modifier = {
@@ -79,30 +77,30 @@ air_subdoctrine_carpet_bombing = {
     }
 
     # EFFECTS
-	category_strat_bomber = {
-		air_bombing = 0.2
-	}
+    category_strat_bomber = {
+        air_bombing = 0.2
+    }
 
     rewards = {
-		veteran_bomber_crews = {
-			ace_effectiveness_factor = 0.1
-			air_mission_xp_gain_factor = 0.05
-		}
+        veteran_bomber_crews = {
+            ace_effectiveness_factor = 0.05 # SPTchange 0.1->0.05
+            air_mission_xp_gain_factor = 0.025 # SPTchange 0.05->0.025
+        }
         breaking_the_spirit = {
-			army_bonus_air_superiority_factor = 0.05
-		}
-		destruction_campaigns = {
-			air_strategic_bomber_bombing_factor = 0.1
-		}
-		coordinated_air_operations = {
-			air_mission_efficiency = 0.05
-		}
-		defensive_formation = {
-			air_strategic_bomber_defence_factor = 0.1
-			category_strat_bomber = {
-				air_attack = 0.05
-			}
-		}
+            army_bonus_air_superiority_factor = 0.025 # SPTchange 0.05->0.025
+        }
+        destruction_campaigns = {
+            air_strategic_bomber_bombing_factor = 0.05 # SPTchange 0.1->0.05
+        }
+        coordinated_air_operations = {
+            air_mission_efficiency = 0.025 # SPTchange 0.05->0.025
+        }
+        defensive_formation = {
+            air_strategic_bomber_defence_factor = 0.05 # SPTchange 0.1->0.05
+            category_strat_bomber = {
+                air_attack = 0.025 # SPTchange 0.05->0.025
+            }
+        }
     }
 }
 
@@ -120,13 +118,12 @@ air_subdoctrine_deep_air_raids = {
     }
 
     ai_will_do = {
-
         base = 1
         modifier = {
             factor = 25
             OR = {
-            	original_tag = SOV 
-            	original_tag = GER 
+                original_tag = SOV 
+                original_tag = GER 
             }
         }
         modifier = {
@@ -136,27 +133,27 @@ air_subdoctrine_deep_air_raids = {
     }
 
     # EFFECTS
-	category_strat_bomber = {
-		air_range = 0.1
-	}
+    category_strat_bomber = {
+        air_range = 0.1
+    }
 
     rewards = {
-		bad_weather_operations = {
-			air_weather_penalty = -0.15
-		}
+        bad_weather_operations = {
+            air_weather_penalty = -0.075 # SPTchange -0.15->-0.075
+        }
         effective_targetting = {
-			air_strategic_bomber_bombing_factor = 0.2
-		}
-		improved_mission_control = {
-			air_mission_xp_gain_factor = 0.1
-		}
-		escort_cooperation = {
-			air_escort_efficiency = 0.1
-			air_superiority_detect_factor = 0.1
-		}
-		long_range_missions = {
-			air_range_factor = 0.05
-		}
+            air_strategic_bomber_bombing_factor = 0.1 # SPTchange 0.2->0.1
+        }
+        improved_mission_control = {
+            air_mission_xp_gain_factor = 0.05 # SPTchange 0.1->0.05
+        }
+        escort_cooperation = {
+            air_escort_efficiency = 0.05 # SPTchange 0.1->0.05
+            air_superiority_detect_factor = 0.05 # SPTchange 0.1->0.05
+        }
+        long_range_missions = {
+            air_range_factor = 0.025 # SPTchange 0.05->0.025
+        }
     }
 }
 
@@ -174,7 +171,6 @@ air_subdoctrine_flying_fortresses = {
     }
 
     ai_will_do = {
-
         base = 1
         modifier = {
             factor = 25
@@ -187,14 +183,14 @@ air_subdoctrine_flying_fortresses = {
     }
 
     # EFFECTS
-	category_strat_bomber = {
-		air_defence = 0.1
-	}
+    category_strat_bomber = {
+        air_defence = 0.1
+    }
 
     rewards = {
-		high_level_bombing = {
-			air_strategic_bomber_defence_factor = 0.2
-		}
+        high_level_bombing = {
+            air_strategic_bomber_defence_factor = 0.1 # SPTchange 0.2->0.1
+        }
         experienced_gunners = {
 			category_strat_bomber = {
 				air_attack = 0.1
@@ -223,7 +219,7 @@ air_subdoctrine_coastal_air_patrol = {
     xp_type = air
 
     visible = {
-    	has_dlc = "By Blood Alone"
+        has_dlc = "By Blood Alone"
     }
 
     available = {
@@ -233,13 +229,15 @@ air_subdoctrine_coastal_air_patrol = {
     ai_will_do = { base = 0 }
 
     # EFFECTS
-	category_maritime_patrol_bomber = {
-		naval_strike_attack = 0.1
-	}
+    category_maritime_patrol_bomber = {
+        naval_strike_attack = 0.1
+    }
 
     rewards = {
-		coastal_air_minelaying = {
-			mines_planting_by_air_factor = 0.2
+		improved_targetting_techniques = {
+			category_maritime_patrol_bomber = {
+				naval_strike_targetting = 0.1
+			}
 		}
         evasive_techniques = {
 			category_maritime_patrol_bomber = {
@@ -253,10 +251,8 @@ air_subdoctrine_coastal_air_patrol = {
 		fog_patrol = {
 			air_weather_penalty = -0.1
 		}
-		improved_targetting_techniques = {
-			category_maritime_patrol_bomber = {
-				naval_strike_targetting = 0.1
-			}
+		coastal_air_minelaying = {
+			# mines_planting_by_air_factor = 0.2 # SPTchange we need to find something here
 		}
     }
 }
@@ -271,7 +267,7 @@ air_subdoctrine_open_ocean_air_patrol = {
     xp_type = air
 
     visible = {
-    	has_dlc = "By Blood Alone"
+        has_dlc = "By Blood Alone"
     }
 
     available = {
@@ -281,30 +277,30 @@ air_subdoctrine_open_ocean_air_patrol = {
     ai_will_do = { base = 0 }
 
     # EFFECTS
-	category_maritime_patrol_bomber = {
-		air_range = 0.15
-	}
+    category_maritime_patrol_bomber = {
+        air_range = 0.075 # SPTchange 0.15->0.075
+    }
 
     rewards = {
-		harbor_raids = {
-			port_strike = 0.2
-		}
+        harbor_raids = {
+            port_strike = 0.1 # SPTchange 0.2->0.1
+        }
+        naval_destruction = {
+                naval_strike_targetting_factor = 0.05 # SPTchange 0.1->0.05
+        }
+        self_reliance = {
+            category_maritime_patrol_bomber = {
+                air_agility = 0.025 # SPTchange 0.05->0.025
+                air_attack = 0.05 # SPTchange 0.1->0.05
+            }
+        }
+        night_patrols = {
+            air_night_penalty = -0.05 # SPTchange -0.1->-0.05
+            spotting_chance = 0.025 # SPTchange 0.05->0.025
+        }
         aerial_minesweeping = {
-			mines_sweeping_by_air_factor = 0.2
-		}
-		self_reliance = {
-			category_maritime_patrol_bomber = {
-				air_agility = 0.05
-				air_attack = 0.1
-			}
-		}
-		night_patrols = {
-			air_night_penalty = -0.1
-			spotting_chance = 0.05
-		}
-		naval_destruction = {
-				naval_strike_targetting_factor = 0.1
-		}
+            mines_sweeping_by_air_factor = 0.1 # SPTchange 0.2->0.1
+        }
     }
 }
 
@@ -318,7 +314,7 @@ air_subdoctrine_heavy_aircraft_focus = {
     xp_type = air
 
     visible = {
-    	has_dlc = "By Blood Alone"
+        has_dlc = "By Blood Alone"
     }
 
     available = {
@@ -326,7 +322,6 @@ air_subdoctrine_heavy_aircraft_focus = {
     }
 
     ai_will_do = {
-
         base = 1
         modifier = {
             factor = 25
@@ -339,18 +334,18 @@ air_subdoctrine_heavy_aircraft_focus = {
     }
 
     # EFFECTS
-	category_strat_bomber = {
-		air_agility = 0.1
-	}
+    category_strat_bomber = {
+        air_agility = 0.1
+    }
 
     rewards = {
-		heavy_aircraft_application = {
-			air_mission_efficiency = 0.05
-		}
+        heavy_aircraft_application = {
+            air_mission_efficiency = 0.025 # SPTchange 0.05->0.025
+        }
         specialized_payloads = {
-			category_strat_bomber = {
-				air_bombing = 0.1
-			}
+            category_strat_bomber = {
+                air_bombing = 0.05 # SPTchange 0.1->0.05
+            }
 			category_maritime_patrol_bomber = {
 				naval_strike_attack = 0.05
 			}

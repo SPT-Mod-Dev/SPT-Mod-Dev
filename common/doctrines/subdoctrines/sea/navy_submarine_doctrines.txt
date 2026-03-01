@@ -20,42 +20,42 @@ wolfpacks = {
     }
 
     # EFFECTS
-	naval_retreat_speed_after_initial_combat = 0.15
-	submarine = {
-		max_organisation = 10
-	}
+    naval_retreat_speed_after_initial_combat = 0.075 # SPTchange 0.15->0.075
+    submarine = {
+        max_organisation = 5 # SPTchange 10->5
+    }
 
     rewards = {
-		predictive_expertise = {
-			submarine = {
-				naval_torpedo_hit_chance_factor = 0.05
-			}
-		}
-		pack_search_patterns = {
-			submarine = {
-				surface_detection = 0.15
-				convoy_raiding_coordination = 0.20
-			}
-		}
-		improvisation = {
-			submarine = {
-				max_strength = 0.2
-				max_organisation = 10
-			}
-		}
-        rough_weather_procedure = {
-			equipment_bonus = {
-                ship_hull_submarine = {
-				    naval_weather_penalty_factor = -0.15
-		        }
+        predictive_expertise = {
+            submarine = {
+                naval_torpedo_hit_chance_factor = 0.025 # SPTchange 0.05->0.025
             }
-		}
-		wolfpack_coordination = {
-			submarine = {
-				surface_detection = 0.15
-				convoy_raiding_coordination = 0.10
-			}
-		}
+        }
+        pack_search_patterns = {
+            submarine = {
+                surface_detection = 0.075 # SPTchange 0.15->0.075
+                convoy_raiding_coordination = 0.10 # SPTchange 0.20->0.10
+            }
+        }
+        improvisation = {
+            submarine = {
+                max_strength = 0.1 # SPTchange 0.2->0.1
+                max_organisation = 5 # SPTchange 10->5
+            }
+        }
+        rough_weather_procedure = {
+            equipment_bonus = {
+                ship_hull_submarine = {
+                    naval_weather_penalty_factor = -0.075 # SPTchange -0.15->-0.075
+                }
+            }
+        }
+        wolfpack_coordination = {
+            submarine = {
+                surface_detection = 0.075 # SPTchange 0.15->0.075
+                convoy_raiding_coordination = 0.05 # SPTchange 0.10->0.05
+            }
+        }
     }
 }
 
@@ -93,37 +93,37 @@ submarine_fleet_operations = {
     }
 
     # EFFECTS
-	naval_torpedo_screen_penetration_factor = 0.05
+    naval_torpedo_screen_penetration_factor = 0.05
 
     rewards = {
-		long_range_patrol_schedule = {
-			submarine = {
-				surface_detection = 0.30
-				naval_range = 0.1 #TODO: does this work?
-			}
-		}
-		sustained_operations = {
-			submarine = {
-				max_organisation = 15
-			}
-		}
-		ambush_tactics = {
-			navy_submarine_attack_factor = 0.10
-		}
-		diverse_operations = {
-			submarine = { mines_planting = 0.20 }
-		}
-		predictive_search_patterns = {
-			submarine = {
-				surface_detection = 0.20
-				convoy_raiding_coordination = 0.20
-			}
-		}
+        long_range_patrol_schedule = {
+            submarine = {
+                surface_detection = 0.15 # SPTchange 0.30->0.15
+                naval_range = 0.05 #TODO: does this work? # SPTchange 0.1->0.05
+            }
+        }
+        sustained_operations = {
+            submarine = {
+                max_organisation = 7.5 # SPTchange 15->7.5
+            }
+        }
+        ambush_tactics = {
+            navy_submarine_attack_factor = 0.05 # SPTchange 0.10->0.05
+        }
+        predictive_search_patterns = {
+            submarine = {
+                surface_detection = 0.10 # SPTchange 0.20->0.10
+                convoy_raiding_coordination = 0.10 # SPTchange 0.20->0.10
+            }
+        }
+        diverse_operations = {
+            # submarine = { mines_planting = 0.20 }
+        }
     }
 }
 
 capital_hunters = {
-	track = submarines
+    track = submarines
     name = SUBDOCTRINE_SUBMARINE_CAPITAL_HUNTERS
     description = SUBDOCTRINE_SUBMARINE_CAPITAL_HUNTERS_DESC
     icon = GFX_doctrine_unrestricted_submarine_warfare_medium
@@ -145,39 +145,39 @@ capital_hunters = {
     naval_torpedo_reveal_chance_factor = -0.1
 
     rewards = {
-    	fire_protocol_drills = {
-    		submarine = {
-    			naval_torpedo_hit_chance_factor = 0.15
-    		}
-    	}
-    	battle_line_priority = {
-    		naval_torpedo_screen_penetration_factor = 0.05
-    	}
-    	quick_reload_procedures = {
-    		submarine = {
-    			torpedo_attack = 0.1
-    		}
-    	}
-    	battleship_chase = {
-    		submarine = {
-    			fuel_consumption = -0.1
-    			naval_range = 0.1
-    		}
+        fire_protocol_drills = {
+            submarine = {
+                naval_torpedo_hit_chance_factor = 0.075 # SPTchange 0.15->0.075
+            }
+        }
+        battle_line_priority = {
+            naval_torpedo_screen_penetration_factor = 0.025 # SPTchange 0.05->0.025
+        }
+        quick_reload_procedures = {
+            submarine = {
+                torpedo_attack = 0.05 # SPTchange 0.1->0.05
+            }
+        }
+        battleship_chase = {
+            submarine = {
+                fuel_consumption = -0.05 # SPTchange -0.1->-0.05
+                naval_range = 0.05 # SPTchange 0.1->0.05
+            }
 
-    	}
-    	escape_when_empty = {
-    		submarine = {
-    			sub_visibility = -0.05
-    			naval_speed = 0.1
-    		}
-    		sub_retreat_speed = 0.1
+        }
+        escape_when_empty = {
+            submarine = {
+                sub_visibility = -0.025 # SPTchange -0.05->-0.025
+                naval_speed = 0.05 # SPTchange 0.1->0.05
+            }
+            sub_retreat_speed = 0.05 # SPTchange 0.1->0.05
 
-    	}
+        }
     }
 }
 
 submarine_coastal_defense = {
-	track = submarines
+    track = submarines
     name = SUBDOCTRINE_SUBMARINE_COASTAL_DEFENSE
     description = SUBDOCTRINE_SUBMARINE_COASTAL_DEFENSE_DESC
     icon = GFX_doctrine_undersea_blockade_medium
@@ -198,37 +198,37 @@ submarine_coastal_defense = {
 
     rewards = {
 
-    	optimized_compartments = {
+        optimized_compartments = {
             equipment_bonus = {
                 ship_hull_midget_submarine = {
                     reliability = 0.2
                     instant = yes
                 }
             }
-    	}
-    	patrol_vigilance = {
-    		submarine = {
-    			max_organisation = 20
-    			surface_detection = 0.2
-    		}
-    	}
-    	maneuever_fire = {
+        }
+        patrol_vigilance = {
+            submarine = {
+                max_organisation = 10 # SPTchange 20->10
+                surface_detection = 0.1 # SPTchange 0.2->0.1
+            }
+        }
+        maneuever_fire = {
             equipment_bonus = {
                 ship_hull_midget_submarine = {
                     torpedo_attack = 0.1
                     instant = yes
                 }
             }
-    	}
-    	locals_knowledge = {
-    		submarine = {
-    			sub_visibility = -0.05
-    		}
-    	}
-    	counter_submarine_operations = {
-    		submarine = {
-    			torpedo_attack = 0.1
-    		}
+        }
+        locals_knowledge = {
+            submarine = {
+                sub_visibility = -0.025 # SPTchange -0.05->-0.025
+            }
+        }
+        counter_submarine_operations = {
+            submarine = {
+                torpedo_attack = 0.05 # SPTchange 0.1->0.05
+            }
             equipment_bonus = {
                 ship_hull_midget_submarine = {
                     sub_visibility = -0.05
@@ -236,12 +236,12 @@ submarine_coastal_defense = {
                     instant = yes
                 }
             }
-    	}
+        }
     }
 }
 
 coastal_minelaying = {
-	track = submarines
+    track = submarines
     name = SUBDOCTRINE_SUBMARINE_COASTAL_MINELAYING
     description = SUBDOCTRINE_SUBMARINE_COASTAL_MINELAYING_DESC
     icon = GFX_doctrine_convoy_interdiction_medium
@@ -250,7 +250,7 @@ coastal_minelaying = {
     xp_type = navy
 
     available = {
-        always = yes
+        always = no # SPTchange
     }
     visible = {
         has_dlc = "No Compromise, No Surrender"
@@ -266,7 +266,7 @@ coastal_minelaying = {
     			mines_planting = 0.25
     		}
 
-    	}
+        }
 
     	placement_for_effect = {
     		naval_mines_damage_factor = 0.25
@@ -324,30 +324,30 @@ long_range_submarines = {
         ocean_patrols = {
             equipment_bonus = {
                 ship_hull_fleet_submarine = {
-                    surface_detection = 0.1
+                    surface_detection = 0.05 # SPTchange 0.1->0.05
                     instant = yes
                 }
                 ship_hull_cruiser_submarine = {
-                    surface_detection = 0.1
+                    surface_detection = 0.05 # SPTchange 0.1->0.05
                     instant = yes
                 }
             }
             submarine = {
-                max_organisation = 10
+                max_organisation = 5 # SPTchange 10->5
             }
         }
         improved_dive_protocols = {
             equipment_bonus = {
                 ship_hull_fleet_submarine = {
-                    surface_visibility = -0.05
+                    surface_visibility = -0.025 # SPTchange -0.05->-0.025
                     instant = yes
                 }
                 ship_hull_cruiser_submarine = {
-                    surface_visibility = -0.05
+                    surface_visibility = -0.025 # SPTchange -0.05->-0.025
                     instant = yes
                 }
                 ship_hull_carrier_submarine = {
-                    surface_visibility = -0.1
+                    surface_visibility = -0.05 # SPTchange -0.1->-0.05
                     instant = yes
 
                 }
@@ -356,17 +356,17 @@ long_range_submarines = {
         support_the_surface = {
             equipment_bonus = {
                 ship_hull_fleet_submarine = {
-                    naval_speed = 0.1
-                    torpedo_attack = 0.2
+                    naval_speed = 0.05 # SPTchange 0.1->0.05
+                    torpedo_attack = 0.1 # SPTchange 0.2->0.1
                     instant = yes
                 }
                 ship_hull_cruiser_submarine = {
-                    naval_speed = 0.1
-                    torpedo_attack = 0.2
+                    naval_speed = 0.05 # SPTchange 0.1->0.05
+                    torpedo_attack = 0.1 # SPTchange 0.2->0.1
                     instant = yes
                 }
                 ship_hull_carrier_submarine = {
-                    naval_speed = 0.2
+                    naval_speed = 0.1 # SPTchange 0.2->0.1
                     instant = yes
                 }
             }
@@ -390,12 +390,10 @@ long_range_submarines = {
 
         deep_water_supremacy = {
             submarine = {
-                sub_detection = 0.2
-                torpedo_attack = 0.1
+                sub_detection = 0.1 # SPTchange 0.2->0.1
+                torpedo_attack = 0.05 # SPTchange 0.1->0.05
             }
         }   
 
     }
-
-
-
+}

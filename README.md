@@ -8,6 +8,15 @@
  - Fixed Soviet Foreign Experts decisions
  - Fixed Raj double spirit "Agrarian Society"
 
+#### Doctrines
+ - Nearly all subdoctrine bonuses halved, in consideration of mastery decisions and rebalancing needs
+ - Heavy Aircraft - Coastal Air Patrol: mastery Coastal Air Minelaying (useless) swapped with Naval Munitions Targeting Experience
+ - Heavy Aircraft - Deep Ocean Air Patrol: mastery Offensive Minefield Lane Clearance swapped with One Torpedo - One Hit Spirit
+ - Capital Ship - Gunfire Support: mastery Landing Lane Clearance moved to end of masteries (still useless)
+ - Screens - Convoy Escort: mastery Lane Clearance Maps moved to end of masteries (still useless)
+ - Submarines - Fleet Operations: mastery Diverse Operations moved to end of masteries (still useless)
+ - Submarines - Coastal Minelaying: disabled
+
 ### 4.0.1 Master of Mastery
 
 #### General
