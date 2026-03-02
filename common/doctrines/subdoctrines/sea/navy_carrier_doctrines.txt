@@ -22,30 +22,30 @@ carrier_battlegroups = {
     ai_will_do = { }
 
     # EFFECTS
-	port_strike = 0.20
+    port_strike = 0.10 # SPTchange 0.20->0.10
 
     rewards = {
-		long_distance_logistics = {
-			navy_max_range_factor = 0.1
-		}
+        long_distance_logistics = {
+            navy_max_range_factor = 0.05 # SPTchange 0.1->0.05
+        }
         long_range_target_acquisition = {
-			navy_carrier_air_targetting_factor = 0.1
-		}
-		personnel_management = {
-			carrier = {
-				max_organisation = 60
-			}
-		}
-		dedicated_record_keeping = {
-			carrier = {
-				carrier_surface_detection = 0.20
-			}
-		}
-		floating_fortresses = {
-			carrier = {
-				anti_air_attack = 0.35
-			}
-		}
+            navy_carrier_air_targetting_factor = 0.05 # SPTchange 0.1->0.05
+        }
+        personnel_management = {
+            carrier = {
+                max_organisation = 30 # SPTchange 60->30
+            }
+        }
+        dedicated_record_keeping = {
+            carrier = {
+                carrier_surface_detection = 0.10 # SPTchange 0.20->0.10
+            }
+        }
+        floating_fortresses = {
+            carrier = {
+                anti_air_attack = 0.175 # SPTchange 0.35->0.175
+            }
+        }
     }
 }
 
@@ -82,30 +82,30 @@ floating_airfields = {
     }
 
     # EFFECTS
-	sortie_efficiency = 0.10
-	
+    sortie_efficiency = 0.05 # SPTchange 0.10->0.05
+    
     rewards = {
        traffic_control_systems = {
-			carrier_capacity_penalty_reduction = -0.20
-	   }
-	   floating_city = {
-			carrier = {
-				max_organisation = 40
-			}
-	   }
-	   veteran_pilots = {
-			navy_carrier_air_attack_factor = 0.15
-	   }
-	   night_fighting_expertise = {
-			air_carrier_night_penalty_reduction_factor = 0.15
-	   }
-	   rough_weather_procedures = {
-			equipment_bonus = {
-                carrier = {
-				    naval_weather_penalty_factor = -0.25
-			    }
+            carrier_capacity_penalty_reduction = -0.10 # SPTchange -0.20->-0.10
+       }
+       floating_city = {
+            carrier = {
+                max_organisation = 20 # SPTchange 40->20
             }
-	   }
+       }
+       veteran_pilots = {
+            navy_carrier_air_attack_factor = 0.075 # SPTchange 0.15->0.075
+       }
+       night_fighting_expertise = {
+			air_carrier_night_penalty_reduction_factor = 0.15
+       }
+       rough_weather_procedures = {
+            equipment_bonus = {
+                carrier = {
+                    naval_weather_penalty_factor = -0.125 # SPTchange -0.25->-0.125
+                }
+            }
+       }
     }
 }
 
@@ -143,8 +143,8 @@ escort_carrier_support = {
                     instant = yes
                 }
             }
-    	}
-    	integrated_convoy_escorts = {
+        }
+        integrated_convoy_escorts = {
             equipment_bonus = {
                 ship_hull_escort_carrier = {
                     sub_detection = 0.15
@@ -155,15 +155,15 @@ escort_carrier_support = {
                     instant = yes
                 }
             }
-			carrier = {
-				max_organisation = 20
-			}
+            carrier = {
+                max_organisation = 10 # SPTchange 20->10
+            }
 
-    	}
-    	convoy_carrier_support_groups = {
+        }
+        convoy_carrier_support_groups = {
             equipment_bonus = {
                 ship_hull_escort_carrier = {
-                    build_cost_ic = -0.1
+                    build_cost_ic = -0.05 # SPTchange -0.1->-0.05
                     instant = yes
                 }
             }
@@ -175,8 +175,8 @@ escort_carrier_support = {
 				reliability = 0.2
 			}
 
-    	}
-   	}
+        }
+    }
 }
 
 broad_naval_support = {
@@ -201,20 +201,20 @@ broad_naval_support = {
     critical_receive_chance = -0.1
 
     rewards = {
-    	carrier_maneuvering = {
-    		carrier = {
-    			naval_speed = 0.1
-    		}
-    	}
-    	task_force_concentration = {
-    		ships_at_battle_start = 0.1
-    	}
+        carrier_maneuvering = {
+            carrier = {
+                naval_speed = 0.05 # SPTchange 0.1->0.05
+            }
+        }
+        task_force_concentration = {
+            ships_at_battle_start = 0.05 # SPTchange 0.1->0.05
+        }
 
-    	organized_support_protocols = {
-    		naval_repair_support_value_factor = 0.25
-    		naval_general_support_value_factor = 0.25 
-    	}
-    	escorts_in_battle = {
+        organized_support_protocols = {
+            naval_repair_support_value_factor = 0.125 # SPTchange 0.25->0.125
+            naval_general_support_value_factor = 0.125 # SPTchange 0.25->0.125
+        }
+        escorts_in_battle = {
             equipment_bonus = {
                 ship_hull_escort_carrier = {
                     lg_attack = 0.15
@@ -257,35 +257,35 @@ massed_carrier_fleet = {
         always = yes
     }
 
-    naval_morale_factor	= 0.05
+    naval_morale_factor = 0.05
 
     rewards = {
-    	deep_operative_support = {
-    		carrier = {
-    			reliability = 0.05
-    			naval_range = 0.2
-    		}
-    	}
-    	carrier_independence = {
-    		screening_without_screens = 0.3
-    	}
-    	crew_shifts = {
-    		sortie_efficiency = 0.3
-    		carrier_sortie_hours_delay = -2
-    	}
-    	efficient_rearming = {
-    		carrier = {
-    			supply_consumption = -0.2
-    			fuel_consumption = -0.1
-    		}
-    	}
-    	unceasing_airpower = {
-    		carrier_traffic = 0.3
-    		carrier_night_traffic = 0.3
-    		carrier = {
-    			anti_air_attack = 0.2
-    		}
-    	}
+        deep_operative_support = {
+            carrier = {
+                reliability = 0.025 # SPTchange 0.05->0.025
+                naval_range = 0.1 # SPTchange 0.2->0.1
+            }
+        }
+        carrier_independence = {
+            screening_without_screens = 0.15 # SPTchange 0.3->0.15
+        }
+        crew_shifts = {
+            sortie_efficiency = 0.15 # SPTchange 0.3->0.15
+            carrier_sortie_hours_delay = -1 # SPTchange -2->-1
+        }
+        efficient_rearming = {
+            carrier = {
+                supply_consumption = -0.1 # SPTchange -0.2->-0.1
+                fuel_consumption = -0.05 # SPTchange -0.1->-0.05
+            }
+        }
+        unceasing_airpower = {
+            carrier_traffic = 0.15 # SPTchange 0.3->0.15
+            carrier_night_traffic = 0.15 # SPTchange 0.3->0.15
+            carrier = {
+                anti_air_attack = 0.1 # SPTchange 0.2->0.1
+            }
+        }
     }
 }
 
@@ -333,40 +333,40 @@ light_task_forces = {
     naval_retreat_speed_after_initial_combat = 0.2
 
     rewards = {
-    	direct_fire_avoidance = {
-    		carrier = {
-    			naval_speed = 0.1
-    			surface_visibility = -0.1
-    		}
-    	}
-    	surface_fleets = {
-    		carrier = {
-                surface_visibility = -0.10
-			}
-			destroyer = {
-                surface_visibility = -0.05
-			}
-    	}
-    	screen_raiders = {
-    		destroyer = {
-    			lg_attack = 0.2
-    			lg_armor_piercing = 0.2
-    			max_organisation = 20
-    		}
-    	}
-    	evasive_engagements_focus = {
-    		carrier = {
-    			max_organisation = 30
-    		}
-    		destroyer = {
-    			naval_speed = 0.2
-    			surface_detection = 0.2
-    		}
-    	}
-    	localized_sea_power = {
-    		strike_force_movement_org_loss = -0.3
-    		naval_enemy_fleet_size_ratio_penalty_factor = 0.2	
-    	}
+        direct_fire_avoidance = {
+            carrier = {
+                naval_speed = 0.05 # SPTchange 0.1->0.05
+                surface_visibility = -0.05 # SPTchange -0.1->-0.05
+            }
+        }
+        surface_fleets = {
+            carrier = {
+                surface_visibility = -0.05 # SPTchange -0.10->-0.05
+            }
+            destroyer = {
+                surface_visibility = -0.025 # SPTchange -0.05->-0.025
+            }
+        }
+        screen_raiders = {
+            destroyer = {
+                lg_attack = 0.1 # SPTchange 0.2->0.1
+                lg_armor_piercing = 0.1 # SPTchange 0.2->0.1
+                max_organisation = 10 # SPTchange 20->10
+            }
+        }
+        evasive_engagements_focus = {
+            carrier = {
+                max_organisation = 15 # SPTchange 30->15
+            }
+            destroyer = {
+                naval_speed = 0.1 # SPTchange 0.2->0.1
+                surface_detection = 0.1 # SPTchange 0.2->0.1
+            }
+        }
+        localized_sea_power = {
+            strike_force_movement_org_loss = -0.15 # SPTchange -0.3->-0.15
+            naval_enemy_fleet_size_ratio_penalty_factor = 0.1 # SPTchange 0.2->0.1   
+        }
     }
 
 }

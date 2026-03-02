@@ -35,6 +35,70 @@ focus_tree = {
     # continuous_focus_position = { x = 200 y = 3800 }
     continuous_focus_position = { x = 200 y = 1800 }
 
+    shortcut = {
+        name = RAJ_road_to_independence_shortcut
+        target = RAJ_provincial_autonomy
+        trigger = {
+            has_dlc = "Graveyard of Empires"
+        }
+    }
+
+    shortcut = {
+        name = RAJ_majestys_government_shortcut
+        target = RAJ_his_majestys_loyal_government
+        trigger = {
+            has_dlc = "Graveyard of Empires"
+        }
+    }
+
+    shortcut = {
+        name = RAJ_railways_shortcut
+        target = RAJ_great_indian_peninsula_railway_dlc
+        trigger = {
+            has_dlc = "Graveyard of Empires"
+        }
+    }
+
+    shortcut = {
+        name = RAJ_army_shortcut
+        target = RAJ_indianize_the_army 
+        trigger = {
+            has_dlc = "Graveyard of Empires"
+        }
+    }
+
+    shortcut = {
+        name = RAJ_ammunition_factories_shortcut
+        target = RAJ_ammunition_factory_khadki
+        trigger = {
+            has_dlc = "Graveyard of Empires"
+        }
+    } 
+
+    shortcut = {
+        name = RAJ_recruitment_shortcut
+        target = RAJ_local_recruitment_offices
+        trigger = {
+            has_dlc = "Graveyard of Empires"
+        }
+    }
+
+    shortcut = {
+        name = RAJ_navy_shortcut
+        target = RAJ_royal_indian_navy_dlc
+        trigger = {
+            has_dlc = "Graveyard of Empires"
+        }
+    }
+
+    shortcut = {
+        name = RAJ_airforce_shortcut
+        target = RAJ_indian_air_force
+        trigger = {
+            has_dlc = "Graveyard of Empires"
+        }
+    }
+
     focus = {
         id = RAJ_indianize_the_army
         icon = GFX_focus_RAJ_indianisation_of_army
@@ -1517,7 +1581,7 @@ focus_tree = {
 
     focus = {
         id = RAJ_sharpen_the_tulwar
-        icon = GFX_goal_generic_special_forces
+        icon = GFX_focus_RAJ_indian_gurkhas
         prerequisite = { focus = RAJ_a_peacock_prince }
         #mutually_exclusive = { }
         x = 2
@@ -2482,7 +2546,7 @@ focus_tree = {
         search_filters = {FOCUS_FILTER_ANNEXATION}
 
         completion_reward = {
-            if = {
+            IF = {
                 limit = {
                     controls_province = 7519
                 }
@@ -2501,7 +2565,7 @@ focus_tree = {
                     }
                 }
             }
-            else = {
+            ELSE = {
                 effect_tooltip = {
                     1005 = {
                         add_building_construction = {
@@ -2515,9 +2579,10 @@ focus_tree = {
             }
 
 
-            if = {
+            IF = {
                 limit = {
                     SIK = {
+                        exists = yes
                         all_core_state = {
                             is_fully_controlled_by = PREV
                         }
@@ -2527,9 +2592,10 @@ focus_tree = {
                 create_wargoal = {
                     type = annex_everything
                     target = SIK
+                    expire = 0
                 }
             }
-            else = {
+            ELSE = {
                 SIK = {
                     every_core_state = {
                         if = {
@@ -2543,12 +2609,27 @@ focus_tree = {
                                 create_wargoal = {
                                     type = annex_everything
                                     target = PREV.controller
+                                    expire = 0
                                 }
                             }
                         }
                     }
                 }
             }
+
+            IF = {
+                limit = {
+                    KHM = {
+                        exists = yes
+                    }
+                }
+                create_wargoal = {
+                    type = annex_everything
+                    target = KHM
+                    expire = 0
+                }
+            }
+
         }
     }
 
@@ -3096,9 +3177,11 @@ focus_tree = {
         search_filters = {FOCUS_FILTER_ANNEXATION}
 
         completion_reward = {
-            if = {
+
+            IF = {
                 limit = {
                     MON = {
+                        exists = yes
                         all_core_state = {
                             is_fully_controlled_by = PREV
                         }
@@ -3108,9 +3191,10 @@ focus_tree = {
                 create_wargoal = {
                     type = annex_everything
                     target = MON
+                    expire = 0 
                 }
             }
-            else = {
+            ELSE = {
                 MON = {
                     every_core_state = {
                         if = {
@@ -3124,12 +3208,31 @@ focus_tree = {
                                 create_wargoal = {
                                     type = annex_everything
                                     target = PREV.controller
+                                    expire = 0 
                                 }
                             }
                         }
                     }
                 }
             }
+
+            IF = {
+                limit = {
+                    KUM = {
+                        exists = yes
+                        NOT = {
+                            has_war_with = ROOT
+                        }
+                    }
+                }
+
+                create_wargoal = {
+                    type = annex_everything
+                    target = KUM
+                    expire = 0 
+                }
+            }
+
         }
     }
 
@@ -3167,28 +3270,37 @@ focus_tree = {
         search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_WAR_SUPPORT}
 
         completion_reward = {
-           # if = {
-                #limit = {
-                #    NOT = { has_completed_focus = RAJ_unite_the_subcontinent }
-                #}
-                #custom_effect_tooltip = newline_tt
-                #custom_effect_tooltip = if_not_subcontinent_tt
-                set_capital = { state = 415 }
-                drop_cosmetic_tag = yes
-                #set_cosmetic_tag = RAJ_silk_road_empire
-                set_cosmetic_tag = RAJ_timurid_empire
-                #custom_effect_tooltip = unlock_decisions_silk_road_tt
-            #}
+           
+            set_capital = { state = 415 }
+            drop_cosmetic_tag = yes
+            set_cosmetic_tag = RAJ_timurid_empire
+
+            custom_effect_tooltip = generic_skip_one_line_tt
+            
             every_state = {
                 limit = {
                     OR = {
                         is_core_of = PER
                         is_core_of = AFG
                         is_core_of = IRQ
+                        is_core_of = PAK
+                        is_core_of = UZB
+                        is_core_of = TMS
+                        is_core_of = BUK
+                        is_core_of = TAJ
+                        is_core_of = KYR
+                        is_core_of = KAZ
+                        is_core_of = KUR
+                        is_core_of = AZR
+                        is_core_of = ARM
+                        is_core_of = GEO
                     }
                 }
                 add_core_of = ROOT
             }
+
+            custom_effect_tooltip = generic_skip_one_line_tt
+
             add_country_leader_trait = RAJ_timurs_succesor   
                      
         }
@@ -18325,6 +18437,10 @@ focus = {
 						resource = rubber
 						amount > 19
 					}
+                    has_resources_amount = {
+                        resource = coal
+                        amount > 19
+                    }
 				}
 				is_in_array = {
 					array = ROOT.owned_states_at_game_start
@@ -18403,6 +18519,18 @@ focus = {
 						amount = 4
 					}
 				}
+                if = {
+                    limit = {
+                        has_resources_amount = {
+                            resource = coal
+                            amount > 19
+                        }
+                    }
+                    add_resource = {
+                        type = coal
+                        amount = 4
+                    }
+                }
 			}
 		}
 	}

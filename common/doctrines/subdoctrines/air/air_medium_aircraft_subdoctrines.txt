@@ -21,29 +21,29 @@ air_subdoctrine_bomber_interception = {
     }
 
     # EFFECTS
-	category_heavy_fighter = {
-		air_attack = 0.1
-	}
+    category_heavy_fighter = {
+        air_attack = 0.05 # SPTchange 0.1->0.05
+    }
 
     rewards = {
-		night_interceptions = {
-			air_night_penalty = -0.15
-		}
+        night_interceptions = {
+            air_night_penalty = -0.075 # SPTchange -0.15->-0.075
+        }
         dispersed_fighting = {
-			air_intercept_efficiency = 0.1
-		}
-		heavy_fighter_veteran_initiative = {
-			 air_ace_generation_chance_factor = 0.05
-			 air_mission_xp_gain_factor = 0.1
-		}
-		high_altitude_approach = {
-			category_heavy_fighter = {
-				air_defence = 0.1
-			}
-		}
-		bomber_interception_patrols = {
-			air_interception_detect_factor = 0.15
-		}
+            air_intercept_efficiency = 0.05 # SPTchange 0.1->0.05
+        }
+        heavy_fighter_veteran_initiative = {
+             air_ace_generation_chance_factor = 0.025 # SPTchange 0.05->0.025
+             air_mission_xp_gain_factor = 0.05 # SPTchange 0.1->0.05
+        }
+        high_altitude_approach = {
+            category_heavy_fighter = {
+                air_defence = 0.05 # SPTchange 0.1->0.05
+            }
+        }
+        bomber_interception_patrols = {
+            air_interception_detect_factor = 0.075 # SPTchange 0.15->0.075
+        }
     }
 }
 
@@ -74,28 +74,28 @@ air_subdoctrine_long_range_escort = {
     }
 
     # EFFECTS
-	air_escort_efficiency = 0.1
+    air_escort_efficiency = 0.1
 
     rewards = {
-		efficient_fly_routes = {
-			category_heavy_fighter = {
-				air_range = 0.1
-			}
-		}
+        efficient_fly_routes = {
+            category_heavy_fighter = {
+                air_range = 0.05 # SPTchange 0.1->0.05
+            }
+        }
         mutual_air_cover = {
-			air_superiority_detect_factor = 0.15
-		}
-		training_instructors = {
-			air_training_xp_gain_factor = 0.1
-		}
-		fighter_baiting = {
-			category_heavy_fighter = {
-				air_agility = 0.1
-			}
-		}
-		far_reaching_airforce = {
-			air_range_factor = 0.05
-		}
+            air_superiority_detect_factor = 0.075 # SPTchange 0.15->0.075
+        }
+        training_instructors = {
+            air_training_xp_gain_factor = 0.05 # SPTchange 0.1->0.05
+        }
+        fighter_baiting = {
+            category_heavy_fighter = {
+                air_agility = 0.05 # SPTchange 0.1->0.05
+            }
+        }
+        far_reaching_airforce = {
+            air_range_factor = 0.025 # SPTchange 0.05->0.025
+        }
     }
 }
 
@@ -118,8 +118,8 @@ air_subdoctrine_operational_air_support = {
         modifier = {
             factor = 50
             OR = {
-            	original_tag = ENG  
-            	original_tag = FRA
+                original_tag = ENG  
+                original_tag = FRA
             }
         }
         modifier = {
@@ -129,31 +129,31 @@ air_subdoctrine_operational_air_support = {
     }
 
     # EFFECTS
-	air_mission_efficiency = 0.05
+    air_mission_efficiency = 0.05
 
     rewards = {
-		efficient_support_crews = {
-			air_manpower_requirement_factor = -0.1
-			air_wing_xp_loss_when_killed_factor = -0.05
-		}
+        efficient_support_crews = {
+            air_manpower_requirement_factor = -0.05 # SPTchange -0.1->-0.05
+            air_wing_xp_loss_when_killed_factor = -0.025 # SPTchange -0.05->-0.025
+        }
         ground_interdictions = {
-			army_bonus_air_superiority_factor = 0.1
-		}
-		operational_airforce_presence = {
-			air_power_projection_factor = 0.1
-		}
-		heavy_fighter_support = {
-			category_heavy_fighter = {
-				air_agility = 0.05
-				air_attack = 0.05
-			}
-		}
-		tactical_bomber_preservation = {
-			category_tac_bomber = {
-				air_agility = 0.05
-				air_defence = 0.05
-			}
-		}
+            army_bonus_air_superiority_factor = 0.05 # SPTchange 0.1->0.05
+        }
+        operational_airforce_presence = {
+            air_power_projection_factor = 0.05 # SPTchange 0.1->0.05
+        }
+        heavy_fighter_support = {
+            category_heavy_fighter = {
+                air_agility = 0.025 # SPTchange 0.05->0.025
+                air_attack = 0.025 # SPTchange 0.05->0.025
+            }
+        }
+        tactical_bomber_preservation = {
+            category_tac_bomber = {
+                air_agility = 0.025 # SPTchange 0.05->0.025
+                air_defence = 0.025 # SPTchange 0.05->0.025
+            }
+        }
     }
 }
 
@@ -176,9 +176,9 @@ air_subdoctrine_tactical_battlefield_support = {
         modifier = {
             factor = 50
             OR = {
-            	original_tag = GER  
-            	original_tag = JAP
-            	original_tag = ITA
+                original_tag = GER  
+                original_tag = JAP
+                original_tag = ITA
             }
         }
         modifier = {
@@ -188,29 +188,29 @@ air_subdoctrine_tactical_battlefield_support = {
     }
 
     # EFFECTS
-	category_tac_bomber = {
-		air_ground_attack = 0.1
-	}
+    category_tac_bomber = {
+        air_ground_attack = 0.1
+    }
 
     rewards = {
-		keypoint_bombing = {
-			air_cas_present_factor = 0.1
-		}
+        keypoint_bombing = {
+            air_cas_present_factor = 0.05 # SPTchange 0.1->0.05
+        }
         logistical_bombing= {
-			army_bonus_air_superiority_factor = 0.05
-			air_cas_efficiency = 0.05
-		}
-		ship_hunters = {
-			category_tac_bomber = {
-				naval_strike_attack = 0.1 
-			}
-		}
-		dedicated_record_keeping = {
-			air_fuel_consumption_factor = -0.05
-		}
-		bomber_aces = {
-			ace_effectiveness_factor = 0.15
-		}
+            army_bonus_air_superiority_factor = 0.025 # SPTchange 0.05->0.025
+            air_cas_efficiency = 0.025 # SPTchange 0.05->0.025
+        }
+        ship_hunters = {
+            category_tac_bomber = {
+                naval_strike_attack = 0.05 # SPTchange 0.1->0.05
+            }
+        }
+        dedicated_record_keeping = {
+            air_fuel_consumption_factor = -0.025 # SPTchange -0.05->-0.025
+        }
+        bomber_aces = {
+            ace_effectiveness_factor = 0.075 # SPTchange 0.15->0.075
+        }
     }
 }
 
@@ -241,31 +241,31 @@ air_subdoctrine_theater_interdiction = {
     }
 
     # EFFECTS
-	air_strategic_bomber_bombing_factor = 0.15
+    air_strategic_bomber_bombing_factor = 0.15
 
     rewards = {
-		extended_reach = {
-			category_tac_bomber = {
-				air_range = 0.1
-			}
-		}
+        extended_reach = {
+            category_tac_bomber = {
+                air_range = 0.05 # SPTchange 0.1->0.05
+            }
+        }
         night_bombing = {
-			air_night_penalty = -0.1
-			air_strategic_bomber_night_penalty = -0.1
-		}
-		precision_bombing = {
-			category_tac_bomber = {
-				air_bombing = 0.05
-				air_agility = 0.05
-			}
-		}
-		port_raids = {
-			port_strike = 0.2
-		}
-		improved_casualty_recovery = {
-			air_accidents_factor = -0.05
-			air_wing_xp_loss_when_killed_factor = -0.1
-		}
+            air_night_penalty = -0.05 # SPTchange -0.1->-0.05
+            air_strategic_bomber_night_penalty = -0.05 # SPTchange -0.1->-0.05
+        }
+        precision_bombing = {
+            category_tac_bomber = {
+                air_bombing = 0.025 # SPTchange 0.05->0.025
+                air_agility = 0.025 # SPTchange 0.05->0.025
+            }
+        }
+        port_raids = {
+            port_strike = 0.1 # SPTchange 0.2->0.1
+        }
+        improved_casualty_recovery = {
+            air_accidents_factor = -0.025 # SPTchange -0.05->0.025
+            air_wing_xp_loss_when_killed_factor = -0.05 # SPTchange -0.1->0.05
+        }
     }
 }
 
@@ -279,7 +279,7 @@ air_subdoctrine_aerial_reconnaissance = {
     xp_type = air
 
     visible = {
-    	has_dlc = "La Resistance"
+        has_dlc = "La Resistance"
     }
 
     available = {
@@ -289,9 +289,9 @@ air_subdoctrine_aerial_reconnaissance = {
     ai_will_do = { base = 0 }
 
     # EFFECTS
-	category_scout_plane = {
-		air_agility = 0.1
-	}
+    category_scout_plane = {
+        air_agility = 0.1
+    }
 
     rewards = {
 		extended_reconnaissance_radius = {

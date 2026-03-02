@@ -2643,6 +2643,8 @@ initial_show_position = {
 						has_cosmetic_tag = PHI_asean_tag
 						has_cosmetic_tag = PHI_reino_de_filipinas_tag
 						has_cosmetic_tag = PHI_hispanic_empire_tag
+						has_cosmetic_tag = PHI_hispanic_empire_tag_war
+						has_cosmetic_tag = PHI_reino_de_filipinas_tag_war
 					}
 				}
 				custom_effect_tooltip = PHI_manila_tag_tt
@@ -7237,6 +7239,70 @@ initial_show_position = {
 		cost = 10
 
 		available = {
+			collection_size = {
+				input = {
+					input = game:all_states
+					operators = {
+						limit = {
+							OR = {
+								state = 543 #Madagascar
+								state = 708 #Comoro Islands
+								state = 706 #Reunion
+								state = 707 #Mauritius
+								state = 629 #Hawaii
+								state = 630 #Johnston Atoll
+								state = 631 #Midway
+								state = 632 #Wake
+								state = 633 #Marshall Islands
+								state = 638 #Guam
+								state = 639 #Gilbert Islands
+								state = 641 #Taihiti
+								state = 642 #Phoenix Island
+								state = 643 #Elice Islands
+								state = 646 #Saipan
+								state = 647 #Palau
+								state = 648 #Marcus
+								state = 684 #Caroline Islands
+								state = 725 #Nauru
+								state = 727 #Line Islands
+								state = 737 #Bismark
+								state = 634 #Solomon Islands
+								state = 734 #Nendo
+								state = 634	#Solomon Islands
+								state = 734	#Nendo
+								state = 1024 #Sabah
+								state = 334	#Kalimantan
+								state = 333	#Sarawak
+								state = 673	#Sulawesi
+								state = 336	#Malaya
+								state = 672	#Sumatra
+								state = 335	#Java
+								state = 667	#Lesser Sunda Islands
+								state = 1023 #Brunei
+								state = 1021 #Singapore
+								state = 979	#Kaiser_wilhelmsland
+								state = 668	#Moluccas
+								state = 669	#West Papua
+								state = 1022 #Interior Borneo (inaccesible, cored by coring decisions of neighboring states instead)
+								state = 738	#Aru Islands
+								state = 721	#Portuguese Timor
+								state = 667 #Lesser Sunda Islands
+								state = 284 #NZ North Island
+								state = 723 #NZ South Island
+								state = 635 #New Caladonia
+								state = 636 #Fiji
+								state = 726 #Samoa
+								state = 645 #Iwo Jima
+								state = 526 #Okinawa
+								state = 524 #Taiwan
+							}
+							is_controlled_by = ROOT
+						}
+					}
+					name = COLLECTION_CONTROLLED_AUSTRONESIA_STATES
+				}
+				value > 24
+			}
 		}
 
 		bypass = {
