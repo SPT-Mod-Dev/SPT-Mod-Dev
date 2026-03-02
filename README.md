@@ -1,6 +1,6 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 4.0.2
+### 4.0.2 Paradox Scheduling
 
 #### General
  - Imported 1.17.3 and 1.17.4 (please see official patch notes for most details)
