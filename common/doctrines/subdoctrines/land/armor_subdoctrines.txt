@@ -33,8 +33,8 @@ armored_spearhead = {
         force_concentration = {
         #1
             category_tanks= {
-                max_organisation = 1 # SPTchange 2->1
-                default_morale = 0.025 # SPTchange 0.05->0.025
+                max_organisation = 1.5 # SPTchange 2->1.5
+                default_morale = 0.04 # SPTchange 0.05->0.04
             }
         }
         armored_breakthrough_exploits = {
@@ -46,12 +46,12 @@ armored_spearhead = {
         local_reserves = {
         #3
             armored_car = {
-                default_morale = 0.05 # SPTchange 0.1->0.05
-                max_organisation = 3.5 # SPTchange 7->3.5
+                default_morale = 0.1
+                max_organisation = 7
             }
             light_armor = {
-                default_morale = 0.05 # SPTchange 0.1->0.05
-                max_organisation = 1.5 # SPTchange 3->1.5
+                default_morale = 0.1
+                max_organisation = 3
             }
         }
         tactical_reconnaissance = {
@@ -63,12 +63,12 @@ armored_spearhead = {
         assault_detachments = {
         #5
             armored_car = {
-                default_morale = 0.1 # SPTchange 0.2->0.1
-                max_organisation = 1.5 # SPTchange 3->1.5
-                breakthrough = 0.1 # SPTchange 0.2->0.1
+                default_morale = 0.2
+                max_organisation = 3
+                breakthrough = 0.2
             }
              category_tanks= {
-                max_organisation = 1.5 # SPTchange 3->1.5
+                max_organisation = 3
                 breakthrough = 0.1 # SPTchange 0.2->0.1
             }
         }
@@ -112,8 +112,8 @@ armored_spearhead_no_lar = {
         force_concentration = {
         #1
             category_tanks= {
-                max_organisation = 1 # SPTchange 2->1
-                default_morale = 0.025 # SPTchange 0.05->0.025
+                max_organisation = 2
+                default_morale = 0.05
             }
         }
         armored_breakthrough_exploits = {
@@ -125,12 +125,12 @@ armored_spearhead_no_lar = {
         local_reserves = {
         #3
             recon = {
-                max_organisation = 5 # SPTchange 10->5
+                max_organisation = 10
             }
 
             light_armor = {
-                default_morale = 0.05 # SPTchange 0.1->0.05
-                max_organisation = 1.5 # SPTchange 3->1.5
+                default_morale = 0.1
+                max_organisation = 3
             }
         }
         tactical_reconnaissance = {
@@ -142,7 +142,7 @@ armored_spearhead_no_lar = {
         assault_detachments = {
         #5
              category_tanks= {
-                max_organisation = 1.5 # SPTchange 3->1.5
+                max_organisation = 3
                 breakthrough = 0.1 # SPTchange 0.2->0.1
             }
         }
@@ -195,20 +195,20 @@ armored_infantry_support = {
         #1
             medium_armor = {
                 breakthrough = 0.025 # SPTchange 0.05->0.025
-                soft_attack = 0.05 # SPTchange 0.1->0.05
+                soft_attack = 0.1
             }
             heavy_armor = {
                 breakthrough = 0.025 # SPTchange 0.05->0.025
-                soft_attack = 0.05 # SPTchange 0.1->0.05
+                soft_attack = 0.1
             }
         }
         armored_cohorts = {
         #2
             medium_armor = {
-                max_organisation = 2.5 # SPTchange 5->2.5
+                max_organisation = 5
             }
             heavy_armor = {
-                max_organisation = 2.5 # SPTchange 5->2.5
+                max_organisation = 5
             }
         }
         maintenance_routines = {
@@ -216,7 +216,7 @@ armored_infantry_support = {
             armored_maintenance = {
                 battalion_mult = {
                     category = category_all_armor
-                    max_strength = 0.075 # SPTchange 0.15->0.075
+                    max_strength = 0.10 # SPTchange 0.15->0.10
                     add = yes
                 }
             }
@@ -224,7 +224,7 @@ armored_infantry_support = {
         fuel_rationing = {
         #4
             heavy_armor = {
-                supply_consumption = -0.04 # SPTchange -0.08->-0.04
+                supply_consumption = -0.08
             }
         }
         mobile_armored_strongpoints = {
@@ -277,44 +277,44 @@ streamlined_deployment = {
             light_tank_recon = {
                 battalion_mult = {
                     category = category_all_armor
-                    max_organisation = 1 # SPTchange 2->1
+                    max_organisation = 2
                     add = yes
                 }
             }
         }
         mechanized_wave = {
             mechanized = {
-                max_organisation = 2.5 # SPTchange 5->2.5
+                max_organisation = 5
                 default_morale = 0.05 # SPTchange 0.1->0.05
             }
             category_all_armor = {
-                default_morale = 0.025 # SPTchange 0.05->0.025
+                default_morale = 0.05
             }
         }
         tank_desant = {
             armored_signal = {
                 battalion_mult = {
                     category = category_light_infantry
-                    maximum_speed = 0.025 # SPTchange 0.05->0.025
+                    maximum_speed = 0.05
                 }
             }
             light_tank_recon = {
                 battalion_mult = {
                     category = category_light_infantry
-                    maximum_speed = 0.025 # SPTchange 0.05->0.025
+                    maximum_speed = 0.05
                 }
             }
         }
         full_front_deployment = {
             category_all_armor = {
-                reliability = 0.025 # SPTchange 0.05->0.025
-                supply_consumption = -0.01 # SPTchange -0.02->-0.01
+                reliability = 0.05
+                supply_consumption = -0.02
             }
         }
         continuous_offensives = {
             category_all_armor = {
-                default_morale = 0.025 # SPTchange 0.05->0.025
-                max_organisation = 1.5 # SPTchange 3->1.5
+                default_morale = 0.05
+                max_organisation = 3
             }
         }
     }
@@ -368,11 +368,11 @@ mobile_defense = {
         advance_under_fire = {
             light_armor = {
                 breakthrough = 0.05 # SPTchange 0.1->0.05
-                default_morale = 0.1 # SPTchange 0.2->0.1
+                default_morale = 0.2
             }
             medium_armor = {
                 breakthrough = 0.05 # SPTchange 0.1->0.05
-                default_morale = 0.05 # SPTchange 0.1->0.05
+                default_morale = 0.1
             }
         }
         attached_support = {
@@ -397,9 +397,9 @@ mobile_defense = {
         }
         tank_on_tank_engagement = {
             category_all_armor = {
-                hard_attack = 0.05 # SPTchange 0.1->0.05
-                soft_attack = 0.05 # SPTchange 0.1->0.05
-                ap_attack = 0.025 # SPTchange 0.05->0.025
+                hard_attack = 0.1
+                soft_attack = 0.1
+                ap_attack = 0.05
             }
         }    
     }
@@ -447,8 +447,8 @@ armored_cavalry = {
     rewards = {
         cruiser_tanks = {
             light_armor = {
-                maximum_speed = 0.05 # SPTchange 0.1->0.05
-                max_organisation = 2.5 # SPTchange 5->2.5
+                maximum_speed = 0.1
+                max_organisation = 5
                 breakthrough = 0.025 # SPTchange 0.05->0.025
             }
         }
@@ -456,22 +456,22 @@ armored_cavalry = {
             motorized_military_police = {
                     battalion_mult = {
                         category = category_vehicle_infantry
-                        suppression_factor = 0.025 # SPTchange 0.05->0.025
+                        suppression_factor = 0.05
                     }
             }
             armored_car = {
-                suppression_factor = 0.1 # SPTchange 0.2->0.1
+                suppression_factor = 0.2
             }
         }
         speed_as_armour = {
             light_armor = {
-                maximum_speed = 0.025 # SPTchange 0.05->0.025
+                maximum_speed = 0.05
                 breakthrough = 0.025 # SPTchange 0.05->0.025
             }
             armored_car = {
-                maximum_speed = 0.025 # SPTchange 0.05->0.025
+                maximum_speed = 0.05
                 breakthrough = 0.05 # SPTchange 0.1->0.05
-                soft_attack = 0.05 # SPTchange 0.1->0.05
+                soft_attack = 0.1
             }
             mechanized = {
                 maximum_speed = 0.025 # SPTchange 0.05->0.025
@@ -480,35 +480,35 @@ armored_cavalry = {
         }
         fighting_reconnaissance = {
             armored_car_recon = {
-                max_organisation = 1.5 # SPTchange 3->1.5
-                 soft_attack = 0.025 # SPTchange 0.05->0.025
+                max_organisation = 3
+                soft_attack = 0.05
             }
             light_tank_recon = {
-                max_organisation = 1 # SPTchange 2->1
-                soft_attack = 0.025 # SPTchange 0.05->0.025
+                max_organisation = 2
+                soft_attack = 0.05
             }
         }
         sustained_deployments = {
             armored_car = {
-                max_organisation = 2.5 # SPTchange 5->2.5
-                soft_attack = 0.025 # SPTchange 0.05->0.025
-                default_morale = 0.1 # SPTchange 0.2->0.1
+                max_organisation = 5
+                soft_attack = 0.05
+                default_morale = 0.2
             }
             light_armor = {
-                max_organisation = 2.5 # SPTchange 5->2.5
-                soft_attack = 0.025 # SPTchange 0.05->0.025
-                hard_attack = 0.05 # SPTchange 0.1->0.05
-                default_morale = 0.075 # SPTchange 0.15->0.075
+                max_organisation = 5
+                soft_attack = 0.05
+                hard_attack = 0.1
+                default_morale = 0.15
             }
             mechanized = {
-                max_organisation = 2.5 # SPTchange 5->2.5
-                soft_attack = 0.025 # SPTchange 0.05->0.025
-                default_morale = 0.05 # SPTchange 0.1->0.05
+                max_organisation = 5
+                soft_attack = 0.05
+                default_morale = 0.1
             }
             motorized = {
-                max_organisation = 2.5 # SPTchange 5->2.5
-                soft_attack = 0.025 # SPTchange 0.05->0.025
-                default_morale = 0.05 # SPTchange 0.1->0.05
+                max_organisation = 5
+                soft_attack = 0.05
+                default_morale = 0.1
             }
         }
     }
@@ -556,8 +556,8 @@ armored_cavalry_no_lar = {
     rewards = {
         cruiser_tanks = {
             light_armor = {
-                maximum_speed = 0.05 # SPTchange 0.1->0.05
-                max_organisation = 2.5 # SPTchange 5->2.5
+                maximum_speed = 0.1
+                max_organisation = 5
                 breakthrough = 0.025 # SPTchange 0.05->0.025
             }
         }
@@ -565,49 +565,49 @@ armored_cavalry_no_lar = {
             motorized_military_police = {
                     battalion_mult = {
                         category = category_vehicle_infantry
-                        suppression_factor = 0.025 # SPTchange 0.05->0.025
+                        suppression_factor = 0.05
                     }
             }
         }
         speed_as_armour = {
             light_armor = {
-                maximum_speed = 0.025 # SPTchange 0.05->0.025
+                maximum_speed = 0.05
                 breakthrough = 0.025 # SPTchange 0.05->0.025
             }
             motorized = {
-                maximum_speed = 0.025 # SPTchange 0.05->0.025
+                maximum_speed = 0.05
             }
             mechanized = {
-                maximum_speed = 0.025 # SPTchange 0.05->0.025
+                maximum_speed = 0.05
                 breakthrough = 0.025 # SPTchange 0.05->0.025
             }
         }
         fighting_reconnaissance = {
             recon = {
-                max_organisation = 1.5 # SPTchange 3->1.5
-                 soft_attack = 0.025 # SPTchange 0.05->0.025
+                max_organisation = 3
+                 soft_attack = 0.05
             }
             light_tank_recon = {
-                max_organisation = 1 # SPTchange 2->1
-                soft_attack = 0.025 # SPTchange 0.05->0.025
+                max_organisation = 2
+                soft_attack = 0.05
             }
         }
         sustained_deployments = {
             light_armor = {
-                max_organisation = 2.5 # SPTchange 5->2.5
-                soft_attack = 0.025 # SPTchange 0.05->0.025
-                hard_attack = 0.05 # SPTchange 0.1->0.05
-                default_morale = 0.075 # SPTchange 0.15->0.075
+                max_organisation = 5
+                soft_attack = 0.05
+                hard_attack = 0.1
+                default_morale = 0.15
             }
             mechanized = {
-                max_organisation = 2.5 # SPTchange 5->2.5
-                soft_attack = 0.025 # SPTchange 0.05->0.025
-                default_morale = 0.05 # SPTchange 0.1->0.05
+                max_organisation = 5
+                soft_attack = 0.05
+                default_morale = 0.1
             }
             motorized = {
-                max_organisation = 2.5 # SPTchange 5->2.5
-                soft_attack = 0.025 # SPTchange 0.05->0.025
-                default_morale = 0.05 # SPTchange 0.1->0.05
+                max_organisation = 5
+                soft_attack = 0.05
+                default_morale = 0.1
             }
         }
     }

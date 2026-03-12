@@ -1,5 +1,69 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 4.0.3
+
+#### Spirits and Doctrines
+ - Bayonet Strength: Infantry Division Attack +10%->+5%
+                     Infantry experience gain from combat +20%->+10%
+ - All-Arms Anti-tank Defense: Infantry Equipment Hard Attack +25%->+10%
+                                                  Piercing +25%->+10%
+ - Fixed zero recovery rate bonus for Infantry - Large Unit Tactics: Large Front Offensive
+ - Fixed zero equipment capture rate bonus for Operations - Guerilla War: Enemy Will Supply Us
+ - Armor - Armored Spearhead: Point of Main Effort: Organization +1->+1.5
+                                                    Recovery Rate +0.02->0.04
+                              Local Reserves: Armored Car Organization +3.5->+7
+                                              Armored Car Recovery Rate +0.05->+0.1
+                                              Light Tank Organization +1.5->+3
+                                              Light Tank Recovery Rate +0.05->+0.1
+                              Flank Protection: Armored Car Organization +1.5->+3
+                                                Armored Car Recovery Rate +0.1->+0.2
+                                                Armored Car Breakthrough +0.1->0.2
+                                                Tanks Organization +1.5->+3
+ - Armor - Armored Infantry Support: Assault Overrun: Medium Tank Soft Attack +5%->+10%
+                                                      Heavy Tank Soft Attack +5%->+10%
+                                     Armored Cohorts: Medium Tank Organization +2.5->+5
+                                                      Heavy Tank Organization +2.5->+5
+                                     Maintenance Routines: Armored Maintenance Company, HP to Tanks & Armor Variants battalions +0.07->+0.10
+                                     Fuel Rationing: Heavy Armor Supply Consumption -0.04->-0.08
+ - Armor - Streamlined Deployment: Armor Mechanization Drive: Light Tank Recon, Org to Tanks & Armor Variants battalions +1->+2
+                                   Mechanized Wave: Tanks & Armor Variants Recovery Rate +0.02->+0.05
+                                                    Mechanized Organization +2.5->+5
+                                   Tank Desant: Armored Signal Company speed to infantry +2.5%->+5%
+                                                Light Tank Recon Company speed to infantry +2.5%->+5%
+                                   Austere Logistics: Tanks & Armor Variants Supply use -0.01->-0.02
+                                                      Reliability +2%->+5%
+                                   Continuous Offensives: Organization +1.5->+3
+                                                          Recovery Rate +0.02->+0.05
+ - Armor - Mobile Defense: Advance Under Fire: Light Tank Recovery Rate +0.1->+0.2
+                                               Medium Tank Recovery Rate +0.05->+0.1
+                           Tank-on-Tank Engagement: Soft Attack +5%->+10%
+                                                    Hard Attack +5%->+10%
+                                                    Piercing +2%->+5%
+ - Armor - Armored Cavalry: Cruiser Tanks: Organization +2.5->+5
+                                           Speed +5%->+10%
+                            Motorized Security Forces: Motorized MP Suppression Bonus +2.5%->+5%
+                                                       Armored Car Suppression Bonus +10%->+20%
+                            Speed as Armour: Light Tank Speed +2.5%->+5%
+                                             Armored Car Speed +2.5%->+5%
+                                             Armored Car Soft Attack +5%->+10%
+                            Fighting Reconnaissance: Light Armored Recon Company Organization +1.5->+3
+                                                     Light Armored Recon Company Soft Attack +2.5%->+5%
+                                                     Armored Recon Company Organization +1->+2
+                                                     Armored Recon Company Soft Attack +2.5%->+5%
+                            External Stowage: Armored Car Organization +2.5->+5
+                                              Armored Car Soft Attack +2.5%->+5%
+                                              Armored Car Recovery Rate +0.1->+0.2
+                                              Light Tank Organization +2.5->+5
+                                              Light Tank Soft Attack +2.5%->+5%
+                                              Light Tank Hard Attack +5%->+10%
+                                              Light Tank Recovery Rate +0.07->+0.15
+                                              Mechanized Organization +2.5->+5
+                                              Mechanized Soft Attack +2.5%->+5%
+                                              Mechanized Recovery Rate +0.05->+0.1
+                                              Motorized Organization +2.5->+5
+                                              Motorized Soft Attack +2.5%->+5%
+                                              Motorized Recovery Rate +0.05->+0.1
+
 ### 4.0.2 Paradox Scheduling
 
 #### General
