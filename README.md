@@ -2,6 +2,9 @@
 
 ### 4.0.3
 
+### Air Combat
+ - Resetting AA versus CAS damage reduction curves to vanilla, due to significant CAS damage reduction formula change in 1.17.4
+
 #### Second Sino-Japanese War
  - Halved majority of Chinese spawn-in waves
  - (War of Resistance debuff triggers during later Chinese spawn-in waves)
