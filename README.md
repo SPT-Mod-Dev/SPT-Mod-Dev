@@ -2,6 +2,12 @@
 
 ### 4.0.3
 
+#### Second Sino-Japanese War
+ - Halved majority of Chinese spawn-in waves
+ - (War of Resistance debuff triggers during later Chinese spawn-in waves)
+    - Reduced War of Resistance speed penalty from 50% to 25%
+    - Removed War of Resistance block on strategic redeployment
+
 #### Spirits and Doctrines
  - Bayonet Strength: Infantry Division Attack +10%->+5%
                      Infantry experience gain from combat +20%->+10%
