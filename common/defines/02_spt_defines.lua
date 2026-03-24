@@ -28,13 +28,18 @@ NDefines.NBuildings.ANTI_AIR_SUPERIORITY_MULT = 25
 
 NDefines.NMilitary.ARMOR_VS_AVERAGE = 0.25
 NDefines.NMilitary.PEN_VS_AVERAGE = 0.3
-NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_IMPACT = -0.25
-NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE = 0.5
-NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE_STEEPNESS = 80
-NDefines.NMilitary.AIR_SUPPORT_BASE = 0.2
-NDefines.NAir.ANTI_AIR_MAXIMUM_DAMAGE_REDUCTION_FACTOR = 0.9
-NDefines.NAir.ANTI_AIR_ATTACK_TO_DAMAGE_REDUCTION_FACTOR = 0.4
 NDefines.NAir.PORT_STRIKES_DELAY_MULTIPLIER = 1
+NDefines.NMilitary.AIR_SUPPORT_BASE = 0.2 -- CAS bonus factor for air support moddifier for land unit in combat
+
+-- Algorithm is a * (xp / (xp + b)) (see: https://www.desmos.com/calculator/4936qnyxqp)
+-- a = ENEMY_AIR_SUPERIORITY_DEFENSE
+-- b = ENEMY_AIR_SUPERIORITY_DEFENSE_STEEPNESS
+-- xp = anti_air ^ 1.5
+NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_IMPACT = -0.25 -- effect on defense due to enemy air superiorty
+NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE = 0.5 -- more AA attack will approach this amount of help (diminishing returns)
+NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE_STEEPNESS = 80 -- how quickly defense approaches the max impact diminishing returns curve
+-- NDefines.NAir.ANTI_AIR_ATTACK_TO_DAMAGE_REDUCTION_FACTOR = 0.4 -- Balancing value to convert equipment stat anti_air_attack to the damage reduction modifier apply to incoming air attacks against units with AA. Originally 1, then 2.5 after a formula change in 1.17.4
+-- NDefines.NAir.ANTI_AIR_MAXIMUM_DAMAGE_REDUCTION_FACTOR = 0.9 -- Maximum damage reduction factor applied to incoming air attacks against units with AA. Originally 0.75
 
 
 
