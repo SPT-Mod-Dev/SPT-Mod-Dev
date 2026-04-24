@@ -136,7 +136,7 @@ technologies = {
 			leads_to_tech = improved_light_battery
 			research_cost_coeff = 1
 		}
-		path = {
+		path = {#SPT change
 			leads_to_tech = basic_dp_light_battery
 			research_cost_coeff = 1
 		}
@@ -174,11 +174,34 @@ technologies = {
 
 		ai_will_do = {
 			factor = 1
+
 			modifier = {
 				has_war = yes
 				factor = 10
 			}
+
+			modifier = {
+				factor = 2
+				date > 1938.1.1
+			}
+
+			modifier = {
+				factor = 2
+				date > 1939.1.1
+			}
+
+			modifier = {
+				factor = 5
+				OR = {
+					tag = USA
+					tag = ENG
+					tag = JAP
+					tag = ITA
+				}
 		}
+
+		}
+
 
 		categories = {
 			naval_artillery
@@ -214,7 +237,7 @@ technologies = {
 		enable_equipment_modules = {
 			ship_light_battery_3
 			ship_light_medium_battery_3
-            ship_secondaries_3
+            ship_secondaries_3#SPT change
 		}
 
 
@@ -229,6 +252,26 @@ technologies = {
 			modifier = {
 				has_tech = improved_ship_hull_light
 				factor = 20
+			}
+
+			modifier = {
+				factor = 1.5
+				date > 1939.1.1
+			}
+
+			modifier = {
+				factor = 1.5
+				date > 1940.1.1
+			}
+
+			modifier = {
+				factor = 3
+				OR = {
+					tag = USA
+					tag = ENG
+					tag = ITA
+					tag = JAP
+				}
 			}
 		}
 
@@ -290,6 +333,24 @@ technologies = {
 			modifier = {
 				has_war = yes
 				factor = 10
+			}
+
+			modifier = {
+				factor = 2
+				date > 1942.1.1
+			}
+
+			modifier = {
+				factor = 2
+				date > 1943.1.1
+			}
+
+			modifier = {
+				factor = 5
+				OR = {
+					tag = USA
+					tag = ENG
+				}
 			}
 		}
 
@@ -659,6 +720,24 @@ technologies = {
 				}
 				factor = 2
 			}
+
+			modifier = {
+				factor = 1.5
+				date > 1939.1.1
+			}
+
+			modifier = {
+				factor = 1.5
+				date > 1940.1.1
+			}
+
+			modifier = {
+				factor = 3
+				OR = {
+					tag = USA
+					tag = ENG
+				}
+			}
 		}
 
 		categories = {
@@ -753,6 +832,26 @@ technologies = {
 				factor = 5
 			}
 
+			modifier = {
+				factor = 2
+				date > 1938.1.1
+			}
+
+			modifier = {
+				factor = 2
+				date > 1939.1.1
+			}
+
+			modifier = {
+				factor = 5
+				OR = {
+					tag = USA
+					tag = ENG
+					tag = JAP
+					tag = ITA
+				}
+			}
+
 		}
 
 		categories = {
@@ -818,6 +917,8 @@ technologies = {
 		enable_equipment_modules = {
 			dp_light_battery_2
 			dp_ship_secondaries_2
+            #SPT change dp_light_battery_1 moved
+            #SPT change dp_ship_secondaries_1 moved
 		}
 
 		path = {
@@ -1019,7 +1120,7 @@ technologies = {
 		enable_equipment_modules = {
 			ship_torpedo_1
 			ship_torpedo_sub_1
-			torpedo_mounting
+			torpedo_mounting#SPT change
 		}
 
 		on_research_complete = {
@@ -1244,7 +1345,6 @@ technologies = {
 			leads_to_tech = magnetic_detonator
 			research_cost_coeff = 1
 		}
-
 		on_research_complete = {
 			custom_effect_tooltip = torpedo_advice_tt
 		}
@@ -1252,7 +1352,6 @@ technologies = {
 		enable_equipment_modules = {
 			ship_torpedo_2
 			ship_torpedo_sub_2
-
 		}
 
 
@@ -1267,6 +1366,19 @@ technologies = {
 			modifier = {
 				tag = JAP
 				factor = 5
+			}
+
+			modifier = {
+				factor = 1.5
+				date > 1937.1.1
+			}
+			modifier = {
+				factor = 1.5
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 1.5
+				date > 1939.1.1
 			}
 		}
 
@@ -1313,6 +1425,15 @@ technologies = {
 			modifier = {
 				tag = JAP
 				factor = 5
+			}
+			modifier = {
+				factor = 1.5
+				date > 1941.1.1
+			}
+
+			modifier = {
+				factor = 1.5
+				date > 1942.1.1
 			}
 		}
 
@@ -1392,7 +1513,10 @@ technologies = {
 
 		ai_will_do = {
 			factor = 3
-
+			modifier = {
+				factor = 0
+				date < 1937.1.1
+			}
 			modifier = {
 				has_navy_size = { size < 10 }
 				factor = 0.1
@@ -1445,6 +1569,10 @@ technologies = {
 		ai_will_do = {
 			factor = 3
 			modifier = {
+				factor = 0
+				date < 1939.1.1
+			}
+			modifier = {
 				is_historical_focus_on = yes
 				tag = JAP
 				factor = 0.25
@@ -1492,6 +1620,10 @@ technologies = {
 
 		ai_will_do = {
 			factor = 3
+			modifier = {
+				factor = 0
+				date < 1941.1.1
+			}
 			modifier = {
 				is_historical_focus_on = yes
 				tag = JAP
@@ -1557,13 +1689,30 @@ technologies = {
 				has_navy_size = { size < 10 }
 				factor = 0.1
 			}
+
 			modifier = {
 				has_war = yes
 				factor = 2
 			}
+
 			modifier = {
+				OR = {
+					tag = USA
+					tag = ENG
 				tag = JAP
+					tag = ITA
+				}
 				factor = 5
+			}
+
+			modifier = {
+				factor = 2
+				date > 1938.1.1
+			}
+
+			modifier = {
+				factor = 2
+				date > 1939.1.1
 			}
 		}
 
@@ -1611,9 +1760,26 @@ technologies = {
 				has_war = yes
 				factor = 2
 			}
+
 			modifier = {
+				OR = {
+					tag = USA
+					tag = ENG
 				tag = JAP
+					tag = ITA
+				}
+				date > 1939.1.1
 				factor = 5
+			}
+
+			modifier = {
+				factor = 2
+				date > 1940.1.1
+			}
+
+			modifier = {
+				factor = 2
+				date > 1941.1.1
 			}
 		}
 
@@ -1666,8 +1832,18 @@ technologies = {
 				factor = 2
 			}
 			modifier = {
+				OR = {
+					tag = USA
+					tag = ENG
 				tag = JAP
+					tag = ITA
+				}
+				date > 1941.1.1
 				factor = 5
+			}
+			modifier = {
+				factor = 0.1
+				original_tag = GER
 			}
 		}
 
