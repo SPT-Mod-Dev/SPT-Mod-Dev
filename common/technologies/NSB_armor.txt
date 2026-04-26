@@ -133,17 +133,17 @@ technologies = {
 
 			modifier = {
 				factor = 1.2
-				date > "1937.1.1"
+				date > 1937.1.1
 			}
 
 			modifier = {
 				factor = 1.2
-				date > "1938.1.1"
+				date > 1938.1.1
 			}
 
 			modifier = {
 				factor = 1.2
-				date > "1939.1.1"
+				date > 1939.1.1
 			}
 		}
 
@@ -224,17 +224,17 @@ technologies = {
 
 			modifier = {
 				factor = 1.1
-				date > "1937.1.1"
+				date > 1937.1.1
 			}
 
 			modifier = {
 				factor = 1.1
-				date > "1938.1.1"
+				date > 1938.1.1
 			}
 
 			modifier = {
 				factor = 1.1
-				date > "1939.1.1"
+				date > 1939.1.1
 			}
 		}
 
@@ -298,25 +298,31 @@ technologies = {
 				factor = 3
 			}
 			modifier = {
-				factor = 3
+				factor = 8
 				# Matilda II was designed and entered production in 1937
 				tag = ENG
-				date > "1936.9.1"
+				date > 1936.9.1
+			}
+			modifier = {
+				factor = 8
+				# M3 Stuart entered production in 1941
+				tag = USA
+				date > 1940.9.1
 			}
 
 			modifier = {
 				factor = 1.1
-				date > "1937.1.1"
+				date > 1937.1.1
 			}
 
 			modifier = {
 				factor = 1.1
-				date > "1938.1.1"
+				date > 1938.1.1
 			}
 
 			modifier = {
 				factor = 1.1
-				date > "1939.1.1"
+				date > 1939.1.1
 			}
 		}
 
@@ -519,20 +525,26 @@ technologies = {
 				is_major = no
 				factor = 2  # Minors prefer light tanks
 			}
-
 			modifier = {
-				factor = 1.1
-				date > "1942.1.1"
+				factor = 8
+				# M24 Chaffee was designed and entered production in 1943
+				tag = USA
+				date > 1943.3.1
 			}
 
 			modifier = {
 				factor = 1.1
-				date > "1943.1.1"
+				date > 1942.1.1
 			}
 
 			modifier = {
 				factor = 1.1
-				date > "1944.1.1"
+				date > 1943.1.1
+			}
+
+			modifier = {
+				factor = 1.1
+				date > 1944.1.1
 			}
 		}
 
@@ -589,8 +601,8 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		research_cost = 1.75
-		start_year = 1937
+		research_cost = 1.75 #SPT change
+		start_year = 1937 #SPT change
 
 		folder = {
 			name = nsb_armour_folder
@@ -598,10 +610,30 @@ technologies = {
 		}
 
 		ai_will_do = {
-			factor = 2
+			base = 2
 
 			modifier = {
-				factor = 2
+				factor = 1.1
+				date > 1939.1.1
+			}
+
+			modifier = {
+				factor = 1.1
+				date > 1940.1.1
+			}
+
+			modifier = {
+				factor = 1.1
+				date > 1941.1.1
+			}
+
+			modifier = {
+				factor = 1.1
+				date > 1942.1.1
+			}
+
+			modifier = {
+				factor = 3
 				is_major = yes
 				NOT = {
 					AND = {
@@ -609,31 +641,19 @@ technologies = {
 						num_of_military_factories < 50
 					}
 				}
-				date > "1938.1.1"
+				date > 1938.1.1
 			}
+
 			modifier = {
-				tag = SOV
 				factor = 1.5
+				tag = SOV
 			}
 
 			modifier = {
-				factor = 1.1
-				date > "1939.1.1"
-			}
-
-			modifier = {
-				factor = 1.1
-				date > "1940.1.1"
-			}
-
-			modifier = {
-				factor = 1.1
-				date > "1941.1.1"
-			}
-
-			modifier = {
-				factor = 1.1
-				date > "1942.1.1"
+				factor = 4
+				# M3 Lee was designed and entered production in 1940-1941
+				tag = USA
+				date > 1940.3.1
 			}
 
 			modifier = {
@@ -644,12 +664,20 @@ technologies = {
 				    category = cat_medium_armor
 				}
 			}
-			modifier = { #Use the research bonus from the focus! 
+
+			modifier = { #Use the research bonus from the focus!
 				factor = 0.5
 				tag = GER
 				NOT = {
 					has_completed_focus = GER_advanced_panzer_research
 				}	
+			}
+
+			modifier = {
+				factor = 6
+				# Crusader was designed and entered production in 1939
+				tag = ENG
+				date > 1938.11.1
 			}
 		}
 
@@ -678,7 +706,7 @@ technologies = {
 		}
 
 		research_cost = 1.75 #SPTchange 2 -> 1.75 I think this was meant to be introduced like 3 months ago
-		start_year = 1939
+		start_year = 1939 #SPT change
 
 		folder = {
 			name = nsb_armour_folder
@@ -763,10 +791,7 @@ technologies = {
 					}
 				}
 			}
-			modifier = {
-				date < "1941.1.1"
-				factor = 0.3
-			}
+
 			modifier = {
 				factor = 2
 				tag = GER
@@ -779,18 +804,37 @@ technologies = {
 			}
 
 			modifier = {
-				factor = 1.1
-				date > "1942.1.1"
+				factor = 6
+				# M4 Sherman was entered production in late 1941
+				tag = USA
+				date > 1941.6.1
+			}
+
+			modifier = {
+				factor = 6
+				# Cromwell was designed and entered production in 1942-1944
+				tag = ENG
+				date > 1942.9.1
 			}
 
 			modifier = {
 				factor = 1.1
-				date > "1943.1.1"
+				date > 1941.1.1
 			}
 
 			modifier = {
 				factor = 1.1
-				date > "1944.1.1"
+				date > 1942.1.1
+			}
+
+			modifier = {
+				factor = 1.1
+				date > 1943.1.1
+			}
+
+			modifier = {
+				factor = 1.1
+				date > 1944.1.1
 			}
 		}
 
@@ -818,7 +862,7 @@ technologies = {
 		}
 
 		research_cost = 2
-		start_year = 1942
+		start_year = 1942 #SPT change
 
 		folder = {
 			name = nsb_armour_folder
@@ -905,11 +949,18 @@ technologies = {
 			modifier = {
 				factor = 5.0
 				tag = GER
-				date > "1943.1.1"
+				date > "1942.6.1"
 				has_completed_focus = GER_expand_kummersdorfs_capacity
 				has_tech_bonus = {
 				    category = cat_medium_armor
 				}
+			}
+
+			modifier = {
+				factor = 6
+				# Comet was designed and entered production in 1943-1944
+				tag = ENG
+				date > 1943.6.1
 			}
 		}
 
@@ -947,17 +998,24 @@ technologies = {
 
 			modifier = {
 				factor = 2
-				date > "1946.1.1"
+				date > 1946.1.1
 			}
 
 			modifier = {
 				factor = 2
-				date > "1947.1.1"
+				date > 1947.1.1
 			}
 
 			modifier = {
 				factor = 2
-				date > "1948.1.1"
+				date > 1948.1.1
+			}
+
+			modifier = {
+				factor = 6
+				# Centurion was designed and entered production in 1945-1946
+				tag = ENG
+				date > 1944.9.1
 			}
 		}
 
@@ -1330,7 +1388,26 @@ technologies = {
 		}
 
 		ai_will_do = {
-			factor = 0 # Hitler cries on the inside
+			base = 0
+			modifier = {
+				add = 1
+				date > 1943.9.1
+				NOT = { has_government = democratic }
+				num_of_military_factories > 150
+			}
+			modifier = {
+				add = 2
+				original_tag = GER
+				date > 1944.5.1
+				surrender_progress < 0.1
+				has_government = fascism
+				has_war_with = SOV
+			}
+			modifier = {
+				factor = 10
+				tag = GER
+				is_historical_focus_on = yes
+			}
 		}
 
 		categories = {
@@ -1362,66 +1439,6 @@ technologies = {
 		folder = {
 			name = nsb_armour_folder
 			position = { x = 3 y = @1935 }
-		}
-
-		ai_will_do = {
-			factor = 1
-
-			modifier = {
-				factor = 2
-				is_major = yes
-			}
-			modifier = {
-				has_war = yes
-				factor = 2
-			}
-
-			modifier = {
-				factor = 1.1
-				date > "1944.1.1"
-			}
-
-			modifier = {
-				factor = 1.5
-				date > "1945.1.1"
-			}
-
-			modifier = {
-				factor = 2
-				date > "1946.1.1"
-			}
-		}
-
-		categories = {
-			armor
-			mio_cat_tech_all_armor_and_modules
-			mio_cat_tech_light_armor_and_modules
-			mio_cat_tech_medium_armor_and_modules
-			mio_cat_tech_heavy_armor_and_modules
-		}
-		special_project_specialization = { specialization_land }
-	}
-
-	armor_tech_2 = {
-
-		enable_equipment_modules = {
-			armor_skirts
-		}
-		path = {
-			leads_to_tech = armor_tech_3
-			research_cost_coeff = 1
-		}
-
-		on_research_complete = {
-			custom_effect_tooltip = armor_tech_2_tt
-		}
-		show_effect_as_desc = yes
-
-		research_cost = 1
-		start_year = 1938
-		folder = {
-			name = nsb_armour_folder
-			position = { x = 3 y = @1938 }
 		}
 
 		ai_will_do = {
@@ -1462,27 +1479,26 @@ technologies = {
 		special_project_specialization = { specialization_land }
 	}
 
-	armor_tech_3 = {
+	armor_tech_2 = {
 
 		enable_equipment_modules = {
-			lc_armored_skirts #Module for Land Cruiser
+			armor_skirts
 		}
-		
 		path = {
-			leads_to_tech = armor_tech_4
+			leads_to_tech = armor_tech_3
 			research_cost_coeff = 1
 		}
 
 		on_research_complete = {
-			custom_effect_tooltip = armor_tech_3_tt
+			custom_effect_tooltip = armor_tech_2_tt
 		}
 		show_effect_as_desc = yes
 
 		research_cost = 1
-		start_year = 1941
+		start_year = 1938
 		folder = {
 			name = nsb_armour_folder
-			position = { x = 3 y = @1941 }
+			position = { x = 3 y = @1938 }
 		}
 
 		ai_will_do = {
@@ -1510,6 +1526,67 @@ technologies = {
 			modifier = {
 				factor = 2
 				date > "1940.1.1"
+			}
+		}
+
+		categories = {
+			armor
+			mio_cat_tech_all_armor_and_modules
+			mio_cat_tech_light_armor_and_modules
+			mio_cat_tech_medium_armor_and_modules
+			mio_cat_tech_heavy_armor_and_modules
+		}
+		special_project_specialization = { specialization_land }
+	}
+
+	armor_tech_3 = {
+
+		enable_equipment_modules = {
+			lc_armored_skirts #Module for Land Cruiser
+		}
+		
+		path = {
+			leads_to_tech = armor_tech_4
+			research_cost_coeff = 1
+		}
+
+		on_research_complete = {
+			custom_effect_tooltip = armor_tech_3_tt
+		}
+		show_effect_as_desc = yes
+
+		research_cost = 1
+		start_year = 1941
+		folder = {
+			name = nsb_armour_folder
+			position = { x = 3 y = @1941 }
+		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 2
+				is_major = yes
+			}
+			modifier = {
+				has_war = yes
+				factor = 2
+			}
+
+			modifier = {
+				factor = 1.1
+				date > "1941.1.1"
+			}
+
+			modifier = {
+				factor = 1.5
+				date > "1942.1.1"
+			}
+
+			modifier = {
+				factor = 2
+				date > "1943.1.1"
 			}
 		}
 
@@ -1551,17 +1628,17 @@ technologies = {
 
 			modifier = {
 				factor = 1.1
-				date > "1941.1.1"
+				date > "1944.1.1"
 			}
 
 			modifier = {
 				factor = 1.5
-				date > "1942.1.1"
+				date > "1945.1.1"
 			}
 
 			modifier = {
 				factor = 2
-				date > "1943.1.1"
+				date > "1946.1.1"
 			}
 		}
 
@@ -1607,17 +1684,17 @@ technologies = {
 
 			modifier = {
 				factor = 1.1
-				date > "1944.1.1"
+				date > "1937.1.1"
 			}
 
 			modifier = {
 				factor = 1.5
-				date > "1945.1.1"
+				date > "1938.1.1"
 			}
 
 			modifier = {
 				factor = 2
-				date > "1946.1.1"
+				date > "1939.1.1"
 			}
 		}
 
@@ -1665,17 +1742,17 @@ technologies = {
 
 			modifier = {
 				factor = 1.1
-				date > "1937.1.1"
-			}
-
-			modifier = {
-				factor = 1.5
 				date > "1938.1.1"
 			}
 
 			modifier = {
-				factor = 2
+				factor = 1.5
 				date > "1939.1.1"
+			}
+
+			modifier = {
+				factor = 2
+				date > "1940.1.1"
 			}
 		}
 
@@ -1721,17 +1798,17 @@ technologies = {
 
 			modifier = {
 				factor = 1.1
-				date > "1938.1.1"
+				date > "1941.1.1"
 			}
 
 			modifier = {
 				factor = 1.5
-				date > "1939.1.1"
+				date > "1942.1.1"
 			}
 
 			modifier = {
 				factor = 2
-				date > "1940.1.1"
+				date > "1943.1.1"
 			}
 		}
 
@@ -1771,17 +1848,17 @@ technologies = {
 
 			modifier = {
 				factor = 1.1
-				date > "1941.1.1"
+				date > "1944.1.1"
 			}
 
 			modifier = {
 				factor = 1.5
-				date > "1942.1.1"
+				date > "1945.1.1"
 			}
 
 			modifier = {
 				factor = 2
-				date > "1943.1.1"
+				date > "1946.1.1"
 			}
 		}
 
@@ -2059,10 +2136,10 @@ technologies = {
 			forest = {
 				movement = 0.2
 			}
-			hills = {
+			hills = {#SPT change
 				movement = 0.2
 			}
-			mountain = 	{
+			mountain = 	{#SPT change
 				movement = 0.2
 			}
 			jungle = {

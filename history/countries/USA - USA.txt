@@ -181,29 +181,36 @@ if = {
 	}
 	add_ideas = MTG_naval_treaty_adherent
 }
+##Monroe Doctrine - We are trying to just remove the dlc check and see what, if any, things break. Will ask QA and BETAs to test new system both with and without ToA
+#IF = {
+#	limit = { has_dlc = "Trial of Allegiance" }
+	add_ideas = USA_monroe_doctrine_enforcer
+#}
+#IF = {
+#	limit = { NOT = { has_dlc = "Trial of Allegiance" }	}
+#	give_guarantee = CAN
+#	give_guarantee = MEX
+#	give_guarantee = CUB
+#	give_guarantee = HAI
+#	give_guarantee = DOM
+#	give_guarantee = GUA
+#	give_guarantee = HON
+#	give_guarantee = ELS
+#	give_guarantee = NIC
+#	give_guarantee = COS
+#	give_guarantee = PAN
+#	give_guarantee = VEN
+#	give_guarantee = COL
+#	give_guarantee = ECU
+#	give_guarantee = PRU
+#	give_guarantee = BRA
+#	give_guarantee = BOL
+#	give_guarantee = CHL
+#	give_guarantee = PAR
+#	give_guarantee = ARG
+#	give_guarantee = URG
+#}
 
-#Monroe Doctrine
-give_guarantee = CAN
-give_guarantee = MEX
-give_guarantee = CUB
-give_guarantee = HAI
-give_guarantee = DOM
-give_guarantee = GUA
-give_guarantee = HON
-give_guarantee = ELS
-give_guarantee = NIC
-give_guarantee = COS
-give_guarantee = PAN
-give_guarantee = VEN
-give_guarantee = COL
-give_guarantee = ECU
-give_guarantee = PRU
-give_guarantee = BRA
-give_guarantee = BOL
-give_guarantee = CHL
-give_guarantee = PAR
-give_guarantee = ARG
-give_guarantee = URG
 
 1939.1.1 = {
 
@@ -217,7 +224,6 @@ give_guarantee = URG
 		jimmy_doolittle
 		army_ordnance_department
 		general_electric
-		robert_goddard
 		USA_war_department
 		USA_intervention_in_europe
 		#laws
@@ -771,7 +777,13 @@ if = {
 			special_type_slot_2 = lmg_defense_turret
 		}
 		obsolete = yes
+		optional_assets = {
+			{
 		icon = "GFX_USA_naval_bomber1_medium"
+				model = "USA_medium_plane_1_entity"
+			}
+		}
+
 	}
 	create_equipment_variant = {
 		name = "PBY" #
@@ -784,7 +796,12 @@ if = {
 			special_type_slot_1 = flying_boat_medium
 			special_type_slot_2 = lmg_defense_turret
 		}
+		optional_assets = {
+			{
 		icon = "GFX_USA_naval_bomber1_medium"
+				model = "USA_medium_plane_1_entity"
+			}
+		}
 	}
 	create_equipment_variant = {
 		name = "F4B" #also covers F2F
@@ -1052,6 +1069,12 @@ if = {
 				mid_2_custom_slot = ship_anti_air_1
 				rear_1_custom_slot = ship_medium_battery_2
 			}
+			optional_assets = {
+				{
+					icon = "GFX_USA_heavy_cruiser_wichita"
+					model = "USA_heavy_cruiser_4_entity"
+				}
+			}
 		}
 	# Battleships #
 	create_equipment_variant = {
@@ -1090,7 +1113,59 @@ if = {
 			front_1_custom_slot = ship_heavy_battery_1
 			mid_1_custom_slot = ship_airplane_launcher_1
 			mid_2_custom_slot = ship_secondaries_1
-			rear_1_custom_slot = ship_anti_air_1
+			rear_1_custom_slot = ship_heavy_battery_1
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Nevada Class"
+		type = ship_hull_heavy_1
+		name_group = USA_BB_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_heavy_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = heavy_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			fixed_ship_armor_slot = ship_armor_bb_1
+            front_1_custom_slot = ship_heavy_battery_1
+            mid_1_custom_slot = ship_airplane_launcher_1
+            mid_2_custom_slot = ship_secondaries_1
+            rear_1_custom_slot = ship_heavy_battery_1
+        }
+		optional_assets = {
+			{
+				icon = "GFX_USA_battleship_nevada"
+				model = "USA_battleship_4_entity"
+			}
+		}
+		obsolete = yes
+	}
+		create_equipment_variant = {
+		name = "Tennessee Class"
+		type = ship_hull_heavy_1
+		name_group = USA_BB_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_heavy_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = heavy_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			fixed_ship_armor_slot = ship_armor_bb_2
+            front_1_custom_slot = ship_heavy_battery_1
+            mid_1_custom_slot = ship_airplane_launcher_1
+            mid_2_custom_slot = ship_secondaries_1
+            rear_1_custom_slot = ship_heavy_battery_1
+        }
+		optional_assets = {
+			{
+				icon = "GFX_USA_battleship_tennessee"
+				model = "USA_battleship_5_entity"
+			}
 		}
 		obsolete = yes
 	}
@@ -1113,8 +1188,39 @@ if = {
 			rear_1_custom_slot = ship_anti_air_1
 		}
 		obsolete = yes
+		optional_assets = {
+			{
+				icon = "GFX_USA_battleship_colorado"
+				model = "USA_battleship_3_entity"
+			}
+		}
 	}
 	# Carriers #
+
+	create_equipment_variant = {
+		name = "Langley Class"
+		type = ship_hull_carrier_conversion_bb
+		name_group = USA_CV_HISTORICAL
+		parent_version = 0
+		modules = {
+            fixed_ship_deck_slot_1 = ship_deck_space
+            fixed_ship_anti_air_slot = ship_anti_air_1
+            fixed_ship_radar_slot = empty
+            fixed_ship_engine_slot = heavy_ship_engine_1
+            fixed_ship_secondaries_slot = ship_secondaries_1
+            fixed_ship_armor_slot = ship_armor_cruiser_0
+            front_1_custom_slot = ship_deck_space
+            rear_1_custom_slot = ship_deck_space
+		}
+		optional_assets = {
+			{
+				icon = "GFX_USA_carrier_langley"
+				model = "USA_carrier_0_entity"
+			}
+		}
+		obsolete = yes
+	}
+
 	create_equipment_variant = {
 		name = "Lexington Class"
 		type = ship_hull_carrier_conversion_bb
