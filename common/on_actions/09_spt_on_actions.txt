@@ -49,6 +49,115 @@ on_actions = {
 			SOV = {
 				puppet = TAN
 			}
+
+			# No Asia shenanigans
+			if = {
+				limit = {
+					has_global_flag = no_asia
+				}
+				ATF = {				
+					USA = {
+						every_owned_state = {
+							add_core_of = ATF
+						}
+					}
+					annex_country = { target = USA }
+					BRA = {
+						every_owned_state = {
+							add_core_of = ATF
+						}
+					}
+					annex_country = { target = BRA }
+					MEX = {
+						every_owned_state = {
+							add_core_of = ATF
+						}
+					}
+					annex_country = { target = MEX }
+
+					set_capital = { state = 361 } # Washington, D.C. to make trade more realistic
+				}
+
+				HTF = {
+					MAN = {
+						every_owned_state = {
+							add_core_of = HTF
+						}
+					}
+					annex_country = { target = MAN }
+					CHI = {
+						every_core_state = { # Japan stole some states lol
+							add_core_of = HTF
+							transfer_state_to = HTF
+						}
+					}
+					SIA = {
+						every_owned_state = {
+							add_core_of = HTF
+						}
+					}
+					annex_country = { target = SIA }
+					VIN = {
+						every_core_state = {
+							add_core_of = HTF
+							transfer_state_to = HTF
+						}
+					}
+					CAM = {
+						every_core_state = {
+							add_core_of = HTF
+							transfer_state_to = HTF
+						}
+					}
+					LAO = {
+						every_core_state = {
+							add_core_of = HTF
+							transfer_state_to = HTF
+						}
+					}
+					KOR = {
+						every_core_state = {
+							add_core_of = HTF
+							transfer_state_to = HTF
+						}
+					}
+
+					set_capital = { state = 608 } # Beijing, to make trade more realistic
+				}
+
+				PTF = {
+					JAP = {
+						every_owned_state = {
+							add_core_of = PTF
+						}
+					}
+					annex_country = { target = JAP }
+					PHI = {
+						every_owned_state = {
+							add_core_of = PTF
+						}
+					}
+					annex_country = { target = PHI }
+					AST = {
+						every_owned_state = {
+							add_core_of = PTF
+						}
+					}
+					annex_country = { target = AST }
+					NZL = {
+						every_owned_state = {
+							add_core_of = PTF
+						}
+					}
+					annex_country = { target = NZL }
+					INS = {
+						every_owned_state = {
+							add_core_of = PTF
+						}
+					}
+					annex_country = { target = INS }
+				}
+			}
 			
 			#Gives all players training division
 			every_country = {
