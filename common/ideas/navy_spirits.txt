@@ -326,7 +326,7 @@ ideas = {
 		}
 		naval_reform_spirit = {
 			ledger = navy
-			available = { has_doctrine = new_base_strike }
+			# available = { has_doctrine = new_base_strike } # SPTchange
 			modifier = {
 				experience_gain_navy_factor = 0.2
 			}
@@ -348,7 +348,7 @@ ideas = {
 		}
 		naval_refit_yards_spirit = {
 			ledger = navy
-			available = { has_doctrine = new_fleet_in_being }
+			# available = { has_doctrine = new_fleet_in_being } # SPTchange
 			modifier = {
 				refit_speed = 0.25
 				repair_speed_factor = 0.25
@@ -488,7 +488,7 @@ ideas = {
 	naval_command_spirit = {
 		close_combat_navy_spirit = {
 			ledger = navy
-			available = { has_doctrine = new_convoy_raiding }
+			# available = { has_doctrine = new_convoy_raiding } # SPTchange
 			modifier ={
 				critical_receive_chance = 0.2
 				naval_critical_score_chance_factor = 0.2
@@ -542,12 +542,13 @@ ideas = {
 		}
 		surprise_attacks_spirit = { 
 			ledger = navy
-			available = { 
-				OR = {
-					has_doctrine = new_base_strike
-					has_doctrine = massed_carrier_fleet
-			 	}
-			 }
+			# SPTchange
+			# available = { 
+			# 	OR = {
+			# 		has_doctrine = new_base_strike
+			# 		has_doctrine = massed_carrier_fleet
+			#  	}
+			#  }
 			modifier = {
 				amphibious_invasion = 0.5
 				naval_retreat_speed = 0.3
@@ -573,12 +574,12 @@ ideas = {
 		}
 		efficient_communications_spirit = {
 			ledger = navy
-			available = { 
-				OR = {
-					has_doctrine = new_fleet_in_being 
-					has_doctrine = line_of_battle
-				}
-			}
+			# available = { 
+			# 	OR = {
+			# 		has_doctrine = new_fleet_in_being 
+			# 		has_doctrine = line_of_battle
+			# 	}
+			# }
 			modifier = {
 				positioning = 0.2
 				invasion_preparation = -0.25
@@ -664,7 +665,7 @@ ideas = {
 		}
 		inclimate_weather_experience_spirit = {
 			ledger = navy
-			available = { has_doctrine = new_convoy_raiding }
+			# available = { has_doctrine = new_convoy_raiding } # SPTchange
 			modifier = {
                 navy_weather_penalty = -0.4
                 naval_hit_chance = 0.1
