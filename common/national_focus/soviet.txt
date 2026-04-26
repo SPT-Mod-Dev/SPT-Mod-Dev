@@ -10484,7 +10484,10 @@ focus_tree = {
 		relative_position_id = SOV_curtailment_of_the_collective_farms
 		cost = 5 #SPT change, 10 -> 5
 		available = {
-			has_character = SOV_aleksey_rykov
+			OR = {
+				has_character = SOV_aleksey_rykov
+				NOT = { SOV_nikolay_bukharin = { is_country_leader = yes } }
+			}
 		}
 		                
 		search_filters = {FOCUS_FILTER_STABILITY FOCUS_FILTER_INDUSTRY}
@@ -15085,10 +15088,26 @@ ai_will_do = {
 
 		available = {
 			#SOV controls the states in which railway lines will be built
-			controls_state = 405 #TASHKENT
-			controls_state = 404 #KYZYL ORDA
-			controls_state = 732 #PAMIR
-			controls_state = 586 #ALMA-ATA
+	
+			#TASHKENT
+			405 = {
+				is_controlled_by_ROOT_or_subject = yes 
+			}
+
+			#KYZYL ORDA
+			404 = {
+				is_controlled_by_ROOT_or_subject = yes 
+			}
+
+			#PAMIR
+			732 = {
+				is_controlled_by_ROOT_or_subject = yes 
+			}
+
+			#ALMA-ATA
+			586 = {
+				is_controlled_by_ROOT_or_subject = yes 
+			}
 
 			OR = {
 				AND = { #Relevant states under Soviet control
