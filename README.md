@@ -1,7 +1,9 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
 ### 4.1.0
- - update to 1.18
+ - Update to 1.18
+ - Removed all Chinese spawn-in waves and War of Resistance effects
+ 
  - TODO: New Train MIO not balanced
  - TODO: Look at germany shit
  - TODO: Fix broken chech tank templates
