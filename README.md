@@ -1,7 +1,7 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
 ### 4.1.0
- - Update to 1.18
+ - Update to 1.17.5+ and 1.18
  - Removed all Chinese spawn-in waves and War of Resistance effects
  - Removed doctrines requirement from:
     - Cult of Heroism

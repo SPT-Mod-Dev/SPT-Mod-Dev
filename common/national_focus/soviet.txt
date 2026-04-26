@@ -10484,7 +10484,10 @@ focus_tree = {
 		relative_position_id = SOV_curtailment_of_the_collective_farms
 		cost = 5 #SPT change, 10 -> 5
 		available = {
-			has_character = SOV_aleksey_rykov
+			OR = {
+				has_character = SOV_aleksey_rykov
+				NOT = { SOV_nikolay_bukharin = { is_country_leader = yes } }
+			}
 		}
 		                
 		search_filters = {FOCUS_FILTER_STABILITY FOCUS_FILTER_INDUSTRY}
