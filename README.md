@@ -1,8 +1,7 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
 ### 4.1.0
- - Update to 1.17.5+ and subsequently 1.18
- - Removed all Chinese spawn-in waves and War of Resistance effects
+ - Update to 1.17.5+ and 1.18
  - Removed doctrines requirement from:
     - Cult of Heroism
     - Naval Refit Yards
@@ -14,6 +13,13 @@
 
  - made Chech MIO focus inacessible to germany
  - made new special project maybe actually have a reason to exist (gives +100% artillery pierce instead of +15%)
+
+#### Germany
+ - Disabled 1.18 focus 'Integrate Czech Manufacturers'
+
+#### Second Sino-Japanese War
+ - Removed all Chinese spawn-in waves and War of Resistance effects
+ - Removed surrender resistance from Chinese focus 'Revise the National Curriculum'
 
 ### 4.0.3
 
