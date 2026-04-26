@@ -12,8 +12,8 @@
     - Efficient Communications
     - Inclement Weather
 
- - TODO: New Train MIO not balanced
- - TODO: Look at germany shit
+ - made Chech MIO focus inacessible to germany
+ - made new special project maybe actually have a reason to exist (gives +100% artillery pierce instead of +15%)
  - TODO: Fix broken chech tank templates
 
 ### 4.0.3
