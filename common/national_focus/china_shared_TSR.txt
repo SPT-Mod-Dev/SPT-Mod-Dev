@@ -113,8 +113,8 @@ shared_focus = {
 		OR = {
 			has_government = neutrality
 			GER = { has_government = ROOT }
-			GER_will_support = yes
 		}
+		GER_will_support = yes
 		NOT = {
 			has_war_with = GER
 		}
@@ -1074,9 +1074,9 @@ shared_focus = {
 		OR = {
 			has_government = neutrality
 			SOV = { has_government = ROOT }
-			SOV_will_support = yes
 		}
-		not = {
+		SOV_will_support = yes
+		NOT = {
 			has_War_with = SOV
 		}
 		SOV = {
@@ -1285,9 +1285,9 @@ shared_focus = {
 		OR = {
 			has_government = neutrality
 			FRA = { has_government = ROOT }
-			FRA_will_support = yes
 		}
-		not = {
+		FRA_will_support = yes
+		NOT = {
 			has_war_with = FRA
 		}
 		FRA = {
@@ -3112,9 +3112,9 @@ shared_focus = {
 		OR = {
 			has_government = neutrality
 			ENG = { has_government = ROOT }
-			ENG_will_support = yes
 		}
-		not = {
+		ENG_will_support = yes
+		NOT = {
 			has_War_with = ENG
 		}
 		ENG = {
@@ -3850,10 +3850,10 @@ shared_focus = {
 
 	available = {
 		OR = {
-			USA_will_support = yes
 			has_government = neutrality
 			USA = { has_government = ROOT }
 		}
+		USA_will_support = yes
 		USA = {
 			has_capitulated = no
 			NOT = {
@@ -4347,7 +4347,12 @@ shared_focus = {
 
 	available = {
 		OR = {
-			JAP = { has_government = ROOT }
+			JAP = { 
+				AND = {
+					has_government = ROOT 
+					exists = yes 
+				}
+			}
 			JAP_will_support = yes
 		}
 		NOT = { has_wargoal_against = JAP }
