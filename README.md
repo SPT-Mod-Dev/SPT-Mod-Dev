@@ -21,6 +21,7 @@
 #### Second Sino-Japanese War
  - Removed all Chinese spawn-in waves and War of Resistance effects
  - Removed surrender resistance from Chinese focus 'Revise the National Curriculum'
+ - Removed planning and mastery penalties to Japanese 'Surprise Invasion' idea (lasts 245 days after Marco Polo)
 
 ### 4.0.3
 
