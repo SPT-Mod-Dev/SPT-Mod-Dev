@@ -1,5 +1,6 @@
 NDefines.NCountry.NAVAL_EQUIPMENT_BASE_COST = 0
 NDefines.NCountry.NAVAL_EQUIPMENT_RAMP_COST = 0
+NDefines.NCountry.SURRENDER_LIMIT_REDUCTION_PER_COLLABORATION = 0.30
 
 NDefines.NProduction.EQUIPMENT_MODULE_ADD_XP_COST = 0
 NDefines.NProduction.EQUIPMENT_MODULE_REPLACE_XP_COST = 0
@@ -43,12 +44,6 @@ NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE_STEEPNESS = 80 -- how quickly d
 
 
 
-NDefines.NNavy.DEPTH_CHARGES_HIT_CHANCE_MULT 									= 1.1       --"multiplies hit chance of small guns" says the comment, tf does i actually do
-NDefines.NNavy.DEPTH_CHARGES_DAMAGE_MULT 										= 0.7       --multiplies damage of depth charges
-NDefines.NNavy.DEPTH_CHARGES_HIT_PROFILE 										= 100.0     --hit profile for depth charges
-NDefines.NNavy.SUBMARINE_BASE_TORPEDO_REVEAL_CHANCE 							= 0.1       --Chance of a submarine being revealed when it fires. 1.0 is 100%. this chance is then multiplied with modifier ~~created by comparing firer's visibiility and target's detection~~ depending on the subs sub visibility
-NDefines.NNavy.SUBMARINE_REVEAL_BASE_CHANCE 									= 11        --Base factor for submarine detection in Battles. It's modified by the difference of a spotter's submarines detection vs submarine visibility. Use this variable for game balancing. setting this too low will cause bad spotting issues.
-NDefines.NNavy.SUBMARINE_REVEAL_POW 											= 3.0		--A scaling factor that is applied to the reveal chance in order to make large differences in detection vs visibility more pronounced
 NDefines.NNavy.NAVY_PIERCING_THRESHOLDS = {					-- Our piercing / their armor must be at least this value to deal damage fraction equal to the index in the array below [higher number = higher penetration]. If armor is 0, 1.00 will be returned.
 2.00,
 1.00,
@@ -88,8 +83,6 @@ NDefines.NDiplomacy.EMBARGO_THREAT_THRESHOLD = 50
 
 NDefines.NDiplomacy.PEACE_SCORE_DISTRIBUTION = { 1, 1, 1, 1, 1 }
 
-NDefines.NProject.BREAKTHROUGH_DAILY_TECHNOLOGY_GAIN = 9
-
 -- SPTChange add manpower increase
 NDefines.NProduction.MIN_POSSIBLE_TRAINING_MANPOWER = 1000000
 
@@ -120,3 +113,8 @@ NDefines.NProduction.LICENSE_IC_COST_YEAR_INCREASE = 0
 
 NDefines.NMilitary.COHESION_IMMOBILE_PLANNING_SPEED_MULTIPLIER = 1	-- If using the 'immobile' cohesion setting, factor ALL planning speed growth by this
 NDefines.NMilitary.PLAN_COHESION_WEIGHTS = { 1.0, 40.0, 80.0, 100.0 } 	-- for each cohesion setting, how keen on relocating from distance should we be? (default 1.0), higher weight = shorter max distance. The last entry is special-cased, the value should have no effect and units will just not move anywhere, ever.
+
+-- SPTChange fcuk your nothing mastery
+NDefines.NDoctrines.BASE_MASTERY_GAIN_TARGET_MANPOWER = 50000.0           -- Beyond this amount of manpower contributing to mastery, mastery gain will start having diminishing returns (see doctrines documentation)
+NDefines.NDoctrines.TRAINING_MASTERY_GAIN_FACTOR = 0.5                     -- How much training contributes to doctrine mastery relative to combat/missions
+NDefines.NDoctrines.MASTERY_BANK_CONVERSION_RATE = 1                    -- How much training contributes to doctrine mastery relative to combat/missions

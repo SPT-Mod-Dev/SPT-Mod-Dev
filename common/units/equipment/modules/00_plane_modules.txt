@@ -1,3 +1,48 @@
+#real world equivalencies - use these to guide historical templates to maintain parity between countries with similar equipment
+#
+#USE THESE ONLY AS A GUIDE, NOT A HARD RULE. REAL WORLD CAPABILITY IS NOT JUST FROM WEAPON CALIBER, BUT A COMBINATION OF THAT, RANGE, FIRE CONTROL, AMMUNITION QUALITY, ETC. DO NOT GIVE COUNTRIES MODULES THEY DON'T HAVE TECH FOR
+#IN THE STARTING DATE!
+#
+#Engines
+#
+#assign all other necessary modules then try as closely as possible to match real world top speed (at 10-20000 feet, if altitude is specified). Try to respect IRL engine numbers if possible, but prioritize stats
+#
+#Weapons
+#in general, even if they have fixed forward armament, unless a plane is agile and fast enough to be a dogfighter against enemy planes, leave fixed guns off. Use defense turrets instead.
+#rifle caliber machine guns (~7.62mm/.30 cal) fixed forward, for dogfighting other planes = light_mg_x
+#heavy machine guns (~12.7=15mm/.50 cal) fixed forward, for dogfighting other planes = heavy_mg_x
+#~20mm cannon, fixed forward for dogfighting = aircraft_cannon_1
+#~30mm cannon, fixed forward for dogfighting = aircraft_cannon_2
+#~37mmmm cannon, fixed forward for dogfighting = large_aircraft_cannon
+#external light bombs (~250kg) = bomb_locks
+#external heavy bombs 250kg+) = heavy_bomb_locks (also assess if additional regular bomb_locks would be more suitable)
+#light naval bombers and carrier CAS weapons = armor_piercing_bomb_locks (specifcally stronger against ships)
+#wing-mounted air-to-ground rockets = rocket_rails
+#internally carried small/fragmentation bombs ~50=100 kg, one moduleper ~ 1000 kg payload = small_bomb_bay
+#internally carried general purpose ~250kg bombs, one module per ~ 1000 kg payload = medium_bomb_bay
+#dedicated strat bombers only, one module per ~1000 kg payload = large_bomb_bay
+#two ground target focused ~30mm cannons = tank_buster_1
+#two ground target focused ~37mm cannons, or a single 50-75mm weapon = tank_buster_2
+#early air-dropped torpedo = torpedo_mounting (use more modules for heeavier, multi-engine torpedo bombers)
+#middle air-dropped torpedo = torpedo_mounting_2 
+#late air-dropped torpedo = torpedo_mounting_3
+#single rifle caliber machine gun defense turret = lmg_defense_turret (each turret can have multiple guns each IRL, treat that as one turret in most cases, for simplicity)
+#two rifle caliber machine gun turrets = lmg_defense_turret_2x
+#single ~.50 cal defense turret = hmg_defense_turret
+#two ~.50 cal defense turrets = hmg_defense_turret_2x
+#single ~20mm cannon defense turret = cannon_defense_turret
+#two ~20mm cannon defense turrets = cannon_defense_turret_2x
+#
+#armour for cockpit and critical components, fighters and CAS = armor_plate_small
+#internal, exceptionally large fuel capacity = fuel_tanks_small
+#self sealing protection for fuel tanks, fighters and CAS = self_sealing_fuel_tanks_small
+#extensive use of wood instead of metal for construction, fighters and CAS = non_strategic_materials_small
+#jettisonable drop tanks for fuel, fighters and CAS = drop_tanks
+#dedicated dive bombing equipment (stuka-like, not just a fighter with bombs strapped on and no sights, etc) = dive_brakes_small
+#seaplanes = floats
+#medium and large mirror the above, but for their respective aircraft size classes
+#dedicated high altitude bomb aiming equipment for strat bombers = bomb_sights_x
+
 #SPTchange removed all xp costts
 equipment_modules = {
 	limit = {
@@ -404,13 +449,13 @@ equipment_modules = {
 
 		add_stats = {
 			thrust = 25
-			build_cost_ic = 18
+			build_cost_ic = 18 #SPT change
 			fuel_consumption = 0.3
 		}
 
 		multiply_stats = {
-			air_range = -0.2
-			maximum_speed = 0.65
+			air_range = -0.2 #SPT change
+			maximum_speed = 0.65 #SPT change
 			air_agility = 0.05
 		}
 
@@ -432,13 +477,13 @@ equipment_modules = {
 
 		add_stats = {
 			thrust = 38
-			build_cost_ic = 36
+			build_cost_ic = 36 #SPT change
 			fuel_consumption = 0.6
 		}
 
 		multiply_stats = {
-			air_range = -0.2
-			maximum_speed = 0.65
+			air_range = -0.2 #SPT change
+			maximum_speed = 0.65 #SPT change
 			air_agility = 0.05
 		}
 
@@ -460,13 +505,13 @@ equipment_modules = {
 
 		add_stats = {
 			thrust = 51
-			build_cost_ic = 54
+			build_cost_ic = 54 #SPT change
 			fuel_consumption = 0.9
 		}
 
 		multiply_stats = {
-			air_range = -0.2
-			maximum_speed = 0.65
+			air_range = -0.2 #SPT change
+			maximum_speed = 0.65 #SPT change
 			air_agility = 0.05
 		}
 
@@ -488,13 +533,13 @@ equipment_modules = {
 
 		add_stats = {
 			thrust = 64
-			build_cost_ic = 72
+			build_cost_ic = 72 #SPT change
 			fuel_consumption = 1.2
 		}
 
 		multiply_stats = {
-			air_range = -0.2
-			maximum_speed = 0.65
+			air_range = -0.2 #SPT change
+			maximum_speed = 0.65 #SPT change
 			air_agility = 0.05
 		}
 
@@ -515,13 +560,13 @@ equipment_modules = {
 
 		add_stats = {
 			thrust = 90
-			build_cost_ic = 108
+			build_cost_ic = 108 #SPT change
 			fuel_consumption = 1.8
 		}
 
 		multiply_stats = {
-			air_range = -0.2
-			maximum_speed = 0.65
+			air_range = -0.2 #SPT change
+			maximum_speed = 0.65 #SPT change
 			air_agility = 0.05
 		}
 
@@ -547,7 +592,7 @@ equipment_modules = {
 		}
 
 		multiply_stats = {
-			air_range = -0.1
+			air_range = -0.1 #SPT change
 			maximum_speed = 0.70
 			air_agility = 0.05
 		}
@@ -575,7 +620,7 @@ equipment_modules = {
 		}
 
 		multiply_stats = {
-			air_range = -0.1
+			air_range = -0.1 #SPT change
 			maximum_speed = 0.70
 			air_agility = 0.05
 		}
@@ -603,7 +648,7 @@ equipment_modules = {
 		}
 
 		multiply_stats = {
-			air_range = -0.1
+			air_range = -0.1 #SPT change
 			maximum_speed = 0.70
 			air_agility = 0.05
 		}
@@ -631,7 +676,7 @@ equipment_modules = {
 		}
 
 		multiply_stats = {
-			air_range = -0.1
+			air_range = -0.1 #SPT change
 			maximum_speed = 0.70
 			air_agility = 0.05
 		}
@@ -659,7 +704,7 @@ equipment_modules = {
 		}
 
 		multiply_stats = {
-			air_range = -0.1
+			air_range = -0.1 #SPT change
 			maximum_speed = 0.70
 			air_agility = 0.05
 		}
@@ -681,15 +726,24 @@ equipment_modules = {
 
 		add_stats = {
 			thrust = 20
-			build_cost_ic = 15
+			build_cost_ic = 12
 
 		}
 		multiply_stats = {
 			air_range = -0.7
 			maximum_speed = 0.55
 		}
+		mission_type_stats = {
+			limit = {
+				interception
+			}
+			multiply_stats = {
+				air_agility = 0.1
+			}
+		}
+
 		build_cost_resources = {
-			tungsten = 3
+			tungsten = 2
 		}
 		dismantle_cost_ic = 5
 	}
@@ -701,14 +755,23 @@ equipment_modules = {
 
 		add_stats = {
 			thrust = 25
-			build_cost_ic = 16
+			build_cost_ic = 13
 		}
 		multiply_stats = {
 			air_range = -0.65
 			maximum_speed = 0.60
 		}
+		mission_type_stats = {
+			limit = {
+				interception
+			}
+			multiply_stats = {
+				air_agility = 0.125
+			}
+		}
+
 		build_cost_resources = {
-			tungsten = 3
+			tungsten = 2
 		}
 		dismantle_cost_ic = 7
 	}
@@ -721,14 +784,23 @@ equipment_modules = {
 		add_stats = {
 
 			thrust = 30
-			build_cost_ic = 17
+			build_cost_ic = 14
 		}
 		multiply_stats = {
 			air_range = -0.6
 			maximum_speed = 0.65
 		}
+		mission_type_stats = {
+			limit = {
+				interception
+			}
+			multiply_stats = {
+				air_agility = 0.15
+			}
+		}
+
 		build_cost_resources = {
-			tungsten = 3
+			tungsten = 2
 		}
 		dismantle_cost_ic = 10
 	}
@@ -1768,6 +1840,7 @@ equipment_modules = {
 			build_cost_ic = 1
 			weight = 3
 		}
+
 		multiply_stats = {
 			air_range = 0.25
 		}

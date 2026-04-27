@@ -60,6 +60,16 @@ technologies = {
 				factor = 4
 				tag = ENG
 			}
+			
+			modifier = {
+				factor = 2
+				date > 1938.1.1
+			}
+
+			modifier = {
+				factor = 2
+				date > 1939.1.1
+			}
 		}
 
 		categories = {
@@ -153,6 +163,16 @@ technologies = {
 					tag = USA
 				}
 			}
+
+			modifier = {
+				factor = 1.5
+				date > 1939.1.1
+			}
+
+			modifier = {
+				factor = 1.5
+				date > 1940.1.1
+			}
 		}
 
 		categories = {
@@ -193,6 +213,16 @@ technologies = {
 					tag = USA
 				}
 			}
+			
+			modifier = {
+				factor = 1.5
+				date > 1939.1.1
+			}
+
+			modifier = {
+				factor = 1.5
+				date > 1940.1.1
+			}
 		}
 
 		categories = {
@@ -228,6 +258,16 @@ technologies = {
 			modifier = {
 				factor = 4
 				tag = ENG
+			}
+
+			modifier = {
+				factor = 2
+				date > 1938.1.1
+			}
+
+			modifier = {
+				factor = 2
+				date > 1939.1.1
 			}
 		}
 
@@ -370,6 +410,10 @@ technologies = {
 				factor = 2
 				anti_submarine_strategy_required_trigger = yes
 			}
+			modifier = {
+				factor = 0.1
+				original_tag = GER				
+			}
 		}
 
 		categories = {
@@ -416,6 +460,10 @@ technologies = {
 			modifier = {
 				factor = 2
 				anti_submarine_strategy_required_trigger = yes
+			}
+			modifier = {
+				factor = 0.1
+				original_tag = GER
 			}
 		}
 
@@ -501,8 +549,17 @@ technologies = {
 				has_war_with = GER
 			}
 			modifier = {
-				factor = 2
+				factor = 5
 				anti_submarine_strategy_required_trigger = yes
+			}
+			modifier = {
+				factor = 2
+				date > 1938.6.1
+			}
+
+			modifier = {
+				factor = 2
+				date > 1939.6.1
 			}
 		}
 
@@ -545,8 +602,17 @@ technologies = {
 				has_war_with = GER
 			}
 			modifier = {
-				factor = 2
+				factor = 5
 				anti_submarine_strategy_required_trigger = yes
+			}
+			modifier = {
+				factor = 2
+				date > 1938.6.1
+			}
+
+			modifier = {
+				factor = 2
+				date > 1939.6.1
 			}
 		}
 
@@ -660,7 +726,7 @@ technologies = {
 			ship_airplane_launcher_1
 			cruiser_ship_engine_1
 			ship_armor_cruiser_1
-			ship_armor_cruiser_0
+			ship_armor_cruiser_0#SPT change
 		}
 		path = {
 			leads_to_tech = basic_ship_hull_cruiser
@@ -676,6 +742,7 @@ technologies = {
 			has_dlc = "Man the Guns"
 		}
 
+        #SPT change moved torpcruser to 1936
 
 		research_cost = 1.5
 
@@ -718,12 +785,13 @@ technologies = {
 			cruiser_ship_engine_2
 			ship_airplane_launcher_2
 		}
+
 		path = {
 			leads_to_tech = improved_ship_hull_cruiser
 			research_cost_coeff = 1
 		}
 
-		on_research_complete = {
+		on_research_complete = { #SPT change
 			custom_effect_tooltip = {
 				localization_key = SP_UNLOCK_PROJECT
 				PROJECT = sp_naval_torpedo_cruiser
@@ -741,6 +809,11 @@ technologies = {
 
 		ai_will_do = {
 			factor = 1
+			
+			modifier = {
+				factor = 0
+				date < 1938.1.1
+			}
 
 			modifier = {
 				factor = 4
@@ -795,6 +868,15 @@ technologies = {
 					tag = USA
 				}
 				factor = 4
+			}
+			modifier = {
+				factor = 1.5
+				date > 1939.1.1
+			}
+
+			modifier = {
+				factor = 1.5
+				date > 1940.1.1
 			}
 		}
 
@@ -885,7 +967,6 @@ technologies = {
 
 	# 	categories = {
 	# 		naval_equipment
-	# 		cl_tech
 	# 		ca_tech
 	# 		ship_modules_tech
 	# 		mio_cat_tech_all_capital_ship_and_modules
@@ -932,7 +1013,6 @@ technologies = {
 
 	# 	categories = {
 	# 		naval_equipment
-	# 		cl_tech
 	# 		ca_tech
 	# 		ship_modules_tech
 	# 		mio_cat_tech_all_capital_ship_and_modules
@@ -1021,6 +1101,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
+        #SPT change moved to 1936 hull
 		research_cost = 1.75
 
 		start_year = 1922
@@ -1079,7 +1160,7 @@ technologies = {
 			ignore_for_layout = yes
 		}
 
-		on_research_complete = {
+		on_research_complete = { #SPT change
 			custom_effect_tooltip = {
 				localization_key = SP_UNLOCK_PROJECT
 				PROJECT = sp_naval_super_heavy_battleship
@@ -1116,6 +1197,15 @@ technologies = {
 			modifier = {
 				is_major = no
 				factor = 0
+			}
+			modifier = {
+				factor = 1.5
+				date > 1939.1.1
+			}
+
+			modifier = {
+				factor = 1.5
+				date > 1940.1.1
 			}
 		}
 
@@ -1194,6 +1284,15 @@ technologies = {
 			modifier = {
 				is_major = no
 				factor = 0
+			}
+			modifier = {
+				factor = 1.5
+				date > 1939.1.1
+			}
+
+			modifier = {
+				factor = 1.5
+				date > 1940.1.1
 			}
 		}
 
@@ -1296,6 +1395,7 @@ technologies = {
 					tag = USA
 				}
 			}
+
 		}
 
 		categories = {
@@ -1334,6 +1434,11 @@ technologies = {
 
 		ai_will_do = {
 			factor = 1
+
+			modifier = {
+				factor = 0
+				date < 1938.1.1
+			}
 
 			modifier = {
 				factor = 4
@@ -1376,7 +1481,7 @@ early_ship_hull_carrier = {
 			ship_armor_carrier_deck
 			carrier_ship_engine_1
 			ship_deck_space
-			ship_armor_cruiser_0
+			ship_armor_cruiser_0#SPT change
 		}
 
 		path = {
@@ -1404,6 +1509,7 @@ early_ship_hull_carrier = {
 					tag = USA
 				}
 			}
+			
 		}
 
 		categories = {
@@ -1455,6 +1561,15 @@ early_ship_hull_carrier = {
 					tag = JAP
 					tag = USA
 				}
+			}
+			modifier = {
+				factor = 1.5
+				date > 1939.1.1
+			}
+
+			modifier = {
+				factor = 1.5
+				date > 1940.1.1
 			}
 		}
 
@@ -1522,6 +1637,15 @@ early_ship_hull_carrier = {
 					tag = JAP
 					tag = USA
 				}
+			}
+			modifier = {
+				factor = 1.5
+				date > 1939.1.1
+			}
+
+			modifier = {
+				factor = 1.5
+				date > 1940.1.1
 			}
 		}
 
@@ -1602,6 +1726,7 @@ early_ship_hull_carrier = {
 		}
 
 		on_research_complete = {
+            #SPT change cruisersub to 1936
 			custom_effect_tooltip = {
 				localization_key = SP_UNLOCK_PROJECT
 				PROJECT = sp_naval_midget_submarine
@@ -1627,6 +1752,15 @@ early_ship_hull_carrier = {
 					tag = USA
 				}
 			}
+			modifier = {
+				factor = 1.5
+				date > 1939.1.1
+			}
+
+			modifier = {
+				factor = 1.5
+				date > 1940.1.1
+			}
 		}
 
 		categories = {
@@ -1646,7 +1780,7 @@ early_ship_hull_carrier = {
 			sub_ship_engine_2
 		}
 		on_research_complete = {
-			custom_effect_tooltip = {
+			custom_effect_tooltip = { #SPT change
 				localization_key = SP_UNLOCK_PROJECT
 				PROJECT = sp_naval_cruiser_submarine
 			}
@@ -1741,6 +1875,15 @@ early_ship_hull_carrier = {
 					tag = USA
 				}
 			}
+			modifier = {
+				factor = 1.5
+				date > 1939.1.1
+			}
+
+			modifier = {
+				factor = 1.5
+				date > 1940.1.1
+			}
 		}
 
 		categories = {
@@ -1748,6 +1891,7 @@ early_ship_hull_carrier = {
 			ss_tech
 			mio_cat_tech_all_submarine_and_modules
 		}
+		special_project_specialization = { specialization_naval }
 	}
 
 	advanced_ship_hull_submarine = {
@@ -1893,7 +2037,7 @@ early_ship_hull_carrier = {
 		enable_equipments = {
 			ship_hull_cruiser_panzerschiff
 		}
-		enable_equipment_modules = {
+		enable_equipment_modules = { #SPT change
 			ship_extra_fuel_tank
 		}
 
@@ -2126,7 +2270,7 @@ early_ship_hull_carrier = {
 
 	sp_naval_proximity_fuze_tech = {
 		#HIDDEN EFFECT FOR THE PROXIMITY FUZE
-		navy_anti_air_attack_factor = 0.25 #Remember to adjust sp_naval_proximity_fuze_custom_tt when changing value
+		navy_anti_air_attack_factor = 0.25
 		research_cost = 1
 		start_year = 1940
 

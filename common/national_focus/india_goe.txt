@@ -5122,25 +5122,19 @@ focus_tree = {
             add_tech_bonus = {
                 bonus = 0.65
                 uses = 1
-                category = armor # optional 
+                category = armor # optional
                 # technology  = technology_id # optional
             }
 
             if = {
                 limit = {
-                    NOT = {
-                        has_idea = idea_RAJ_long_range_sea_operations
-                    }
+                    has_idea = idea_RAJ_long_range_sea_operations
                 }
-                add_ideas = idea_RAJ_long_range_sea_operations
-            }
-            else = {
                 swap_ideas = {
                     remove_idea = idea_RAJ_long_range_sea_operations
                     add_idea = idea_RAJ_long_range_sea_operations_2
                 }
             }
-
         }
     }
 
@@ -5245,10 +5239,24 @@ focus_tree = {
 
             }
             custom_effect_tooltip = SWE_nordljus_tt_2
-           swap_ideas = {
-               remove_idea = idea_RAJ_long_range_sea_operations_2
-               add_idea = idea_RAJ_long_range_sea_operations_3
-           }
+            if = {
+                limit = {
+                    has_idea = idea_RAJ_long_range_sea_operations_2
+                }
+                swap_ideas = {
+                    remove_idea = idea_RAJ_long_range_sea_operations_2
+                    add_idea = idea_RAJ_long_range_sea_operations_3
+                }
+            }
+            else_if = {
+                limit = {
+                    has_idea = idea_RAJ_long_range_sea_operations
+                }
+                swap_ideas = {
+                    remove_idea = idea_RAJ_long_range_sea_operations
+                    add_idea = idea_RAJ_long_range_sea_operations_3
+                }
+            }
         }
     }
 
