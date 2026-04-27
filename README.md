@@ -10,9 +10,10 @@
     - Surprise Attacks
     - Efficient Communications
     - Inclement Weather
+ - Made new special project maybe actually have a reason to exist (gives +100% artillery pierce instead of +15%)
 
- - made Chech MIO focus inacessible to germany
- - made new special project maybe actually have a reason to exist (gives +100% artillery pierce instead of +15%)
+#### France
+ - Spirit 'Victors of the Great War' no longer penalizes mastery gain
 
 #### Germany
  - Disabled 1.18 focus 'Integrate Czech Manufacturers'
