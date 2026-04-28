@@ -2,7 +2,6 @@
 
 ### 4.1.0
  - Update to 1.17.5+ and 1.18
- - Removed all Chinese spawn-in waves and War of Resistance effects
  - Removed doctrines requirement from:
     - Cult of Heroism
     - Naval Refit Yards
@@ -11,10 +10,18 @@
     - Surprise Attacks
     - Efficient Communications
     - Inclement Weather
+ - Made new special project maybe actually have a reason to exist (gives +100% artillery pierce instead of +15%)
 
- - TODO: New Train MIO not balanced
- - TODO: Look at germany shit
- - TODO: Fix broken chech tank templates
+#### France
+ - Spirit 'Victors of the Great War' no longer penalizes mastery gain
+
+#### Germany
+ - Disabled 1.18 focus 'Integrate Czech Manufacturers'
+
+#### Second Sino-Japanese War
+ - Removed all Chinese spawn-in waves and War of Resistance effects
+ - Removed surrender resistance from Chinese focus 'Revise the National Curriculum'
+ - Removed planning and mastery penalties to Japanese 'Surprise Invasion' idea (lasts 245 days after Marco Polo)
 
 ### 4.0.3
 

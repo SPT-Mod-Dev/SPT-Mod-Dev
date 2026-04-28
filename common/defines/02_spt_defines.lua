@@ -1,5 +1,6 @@
 NDefines.NCountry.NAVAL_EQUIPMENT_BASE_COST = 0
 NDefines.NCountry.NAVAL_EQUIPMENT_RAMP_COST = 0
+NDefines.NCountry.SURRENDER_LIMIT_REDUCTION_PER_COLLABORATION = 0.30
 
 NDefines.NProduction.EQUIPMENT_MODULE_ADD_XP_COST = 0
 NDefines.NProduction.EQUIPMENT_MODULE_REPLACE_XP_COST = 0
@@ -82,8 +83,6 @@ NDefines.NDiplomacy.EMBARGO_THREAT_THRESHOLD = 50
 
 NDefines.NDiplomacy.PEACE_SCORE_DISTRIBUTION = { 1, 1, 1, 1, 1 }
 
-NDefines.NProject.BREAKTHROUGH_DAILY_TECHNOLOGY_GAIN = 9
-
 -- SPTChange add manpower increase
 NDefines.NProduction.MIN_POSSIBLE_TRAINING_MANPOWER = 1000000
 
@@ -114,3 +113,8 @@ NDefines.NProduction.LICENSE_IC_COST_YEAR_INCREASE = 0
 
 NDefines.NMilitary.COHESION_IMMOBILE_PLANNING_SPEED_MULTIPLIER = 1	-- If using the 'immobile' cohesion setting, factor ALL planning speed growth by this
 NDefines.NMilitary.PLAN_COHESION_WEIGHTS = { 1.0, 40.0, 80.0, 100.0 } 	-- for each cohesion setting, how keen on relocating from distance should we be? (default 1.0), higher weight = shorter max distance. The last entry is special-cased, the value should have no effect and units will just not move anywhere, ever.
+
+-- SPTChange fcuk your nothing mastery
+NDefines.NDoctrines.BASE_MASTERY_GAIN_TARGET_MANPOWER = 50000.0           -- Beyond this amount of manpower contributing to mastery, mastery gain will start having diminishing returns (see doctrines documentation)
+NDefines.NDoctrines.TRAINING_MASTERY_GAIN_FACTOR = 0.5                     -- How much training contributes to doctrine mastery relative to combat/missions
+NDefines.NDoctrines.MASTERY_BANK_CONVERSION_RATE = 1                    -- How much training contributes to doctrine mastery relative to combat/missions
