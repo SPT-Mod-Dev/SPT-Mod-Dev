@@ -11,6 +11,9 @@
     - Efficient Communications
     - Inclement Weather
  - Made new special project maybe actually have a reason to exist (gives +100% artillery pierce instead of +15%)
+ - Increased XP gain ratio from training (0.1->0.5)
+ - Decreased Manpower requirement for maximum mastery gain without reduction (100000->50000)
+ - Removed reduction when banking mastery without a selected subdoctrine
 
 #### France
  - Spirit 'Victors of the Great War' no longer penalizes mastery gain
