@@ -86,11 +86,11 @@ on_actions = {
 					}
 					annex_country = { target = MAN }
 					CHI = {
-						every_core_state = { # Japan stole some states lol
+						every_owned_state = {
 							add_core_of = HTF
-							transfer_state_to = HTF
 						}
 					}
+					annex_country = { target = CHI }
 					SIA = {
 						every_owned_state = {
 							add_core_of = HTF
@@ -115,12 +115,6 @@ on_actions = {
 							transfer_state_to = HTF
 						}
 					}
-					KOR = {
-						every_core_state = {
-							add_core_of = HTF
-							transfer_state_to = HTF
-						}
-					}
 
 					set_capital = { state = 608 } # Beijing, to make trade more realistic
 				}
@@ -132,6 +126,12 @@ on_actions = {
 						}
 					}
 					annex_country = { target = JAP }
+					KOR = {
+						every_core_state = {
+							add_core_of = PTF
+							transfer_state_to = PTF
+						}
+					}
 					PHI = {
 						every_owned_state = {
 							add_core_of = PTF
@@ -156,6 +156,20 @@ on_actions = {
 						}
 					}
 					annex_country = { target = INS }
+				}
+
+				# Event scheduling
+				PTF = {
+					# Marco Polo
+					country_event = {
+						id = spt_no_asia.1
+						days = 552
+					}
+					# Fall of China (arbitrary date)
+					country_event = {
+						id = spt_no_asia.2
+						days = 1120
+					}
 				}
 			}
 			

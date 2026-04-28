@@ -1,0 +1,89 @@
+add_namespace = spt_no_asia
+add_namespace = spt_no_asia_news
+
+# fake marco polo bridge
+country_event = {
+	id = spt_no_asia.1
+	is_triggered_only = yes
+	hidden = yes
+	option = {
+		add_named_threat = {
+			threat = 5
+			name = SPT_no_asia_marco_polo_bridge_threat
+		}
+		every_country = {	
+			limit = {
+				is_ai = no
+			}				
+			news_event = {
+				id = news.1
+				hours = 1
+			}
+		}
+	}
+}
+
+# fake fall of China
+country_event = {
+	id = spt_no_asia.2
+	is_triggered_only = yes
+	hidden = yes
+	option = {
+		add_named_threat = {
+			threat = 5
+			name = SPT_no_asia_fall_of_china_threat
+		}
+		CHI = {
+			every_core_state = {
+				add_core_of = PTF
+				transfer_state_to = PTF
+			}
+		}
+		every_country = {	
+			limit = {
+				is_ai = no
+			}
+			news_event = {
+				id = news.210
+				hours = 1
+			}
+		}
+	}
+}
+
+# fake indochina
+country_event = {
+	id = spt_no_asia.3
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		16 = { NOT = { is_controlled_by = FRA } } #Paris has fallen
+	}
+	option = {
+		add_named_threat = { threat = 3 name = france.1.t }
+		SIA = {
+			every_core_state = {
+				add_core_of = PTF
+				transfer_state_to = PTF
+			}
+		}
+		VIN = {
+			every_core_state = {
+				add_core_of = PTF
+				transfer_state_to = PTF
+			}
+		}
+		CAM = {
+			every_core_state = {
+				add_core_of = PTF
+				transfer_state_to = PTF
+			}
+		}
+		LAO = {
+			every_core_state = {
+				add_core_of = PTF
+				transfer_state_to = PTF
+			}
+		}
+	}
+}
