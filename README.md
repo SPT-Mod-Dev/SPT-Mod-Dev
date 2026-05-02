@@ -1,5 +1,23 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 4.1.1
+ - Fix No Asia hallucination in The Gathering Storm bookmark
+
+#### Denmark
+ - Joins the Allies if Germany refuses their conditional surrender
+
+#### Japan
+ - Removed focus 'Demand Tonkinese Bases' and folded Tonkin into focus 'Occupy Indochina'
+ - Focus 'Occupy Indochina' now completes instantly
+ - Focus 'Exploit the Southern Resource Area' can now be taken with 1 of any Excavation technology
+ - Reduced focus times from 70 days to 35 days for:
+   - 'Isolate Oceania' 
+   - 'Exploit the Southern Resource Area'
+   - 'Expand the Showa Research Association'
+   - 'Reinforce the East Hebei Garrisons'
+   - 'Fund the RIKEN Institute'
+ - Added bypasses to 'Pressure Siam' and 'Occupy Siam' for quirky situations
+
 ### 4.1.0
  - Update to 1.17.5+ and 1.18
  - Removed doctrines requirement from:

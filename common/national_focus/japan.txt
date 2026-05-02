@@ -8280,7 +8280,7 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_form_the_central_economic_council }
 
-		cost = 10
+		cost = 5 # SPTchange 10->5
 
 		ai_will_do = {
 			factor = 1
@@ -11529,7 +11529,7 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_revisit_the_thirteen_demands }
 
-		cost = 10
+		cost = 5 # SPTchange 10->5
 
 		ai_will_do = {
 			factor = 1
@@ -13192,7 +13192,7 @@ focus_tree = {
 
 		prerequisite = { focus = JAP_unsinkable_aircraft_carriers }
 
-		cost = 10
+		cost = 5 # SPTchange 10->5
 
 		ai_will_do = {
 			factor = 1
@@ -13450,119 +13450,120 @@ focus_tree = {
 
 	#spt change, yes this is why southern resources used to live
 
-	focus = {
-		id = JAP_demand_tonkinese_bases
-		icon = GFX_focus_generic_attack_indochina
-		#mutually_exclusive = { focus = JAP_the_harakiri_debate }
-		x = 0
-		y = 1
-		relative_position_id = JAP_nanshin_ron
+	# SPTchange pointless focus
+	# focus = {
+	# 	id = JAP_demand_tonkinese_bases
+	# 	icon = GFX_focus_generic_attack_indochina
+	# 	#mutually_exclusive = { focus = JAP_the_harakiri_debate }
+	# 	x = 0
+	# 	y = 1
+	# 	relative_position_id = JAP_nanshin_ron
 
-		prerequisite = { focus = JAP_nanshin_ron }
+	# 	prerequisite = { focus = JAP_nanshin_ron }
 
-		cost = 5
+	# 	cost = 5
 
-		ai_will_do = {
-			factor = 1
-		}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
 
-		available = {
-			#SPT change, removed annoying checks
-			#is_subject = no
-			671 = { 
-				CONTROLLER = { 
-					NOT = {
-						has_war_with = ROOT
-						is_ally_with = ROOT
-					}
-				} 
-			}
-			OR = {
-				AND = {
-					custom_trigger_tooltip = {
-						tooltip = JAP_demand_tonkinese_bases_tt
-						671 = { 
-							CONTROLLER = { 
-								OR = { 
-									tag = FRA 
-									tag = VIC 
-									is_subject_of = FRA
-									is_subject_of = VIC
-								} 
-							}
-						}
-					}
-					#OR = {
-						# AND = {
-						# 	has_army_manpower = { size > 799999 }
-						# 	has_war_support > 0.9
-						# }
-					16 = { NOT = { is_controlled_by = FRA } } #Paris has fallen
-					#}
-				}
-				# custom_trigger_tooltip = {
-				# 	tooltip = JAP_demand_tonkinese_bases_2_tt
-				# 	671 = { 
-				# 		CONTROLLER = { 
-				# 			NOT = {
-				# 				tag = FRA 
-				# 				tag = VIC 
-				# 				is_subject_of = FRA
-				# 				is_subject_of = VIC
-				# 			}
-				# 		}
-				# 	}
-				# }
-			}
-			# 1033 = { 
-			# 	CONTROLLER = { 
-			# 		OR = {
-			# 			has_war_with = ROOT
-			# 			is_ally_with = ROOT
-			# 		}
-			# 	} 
-			# }
-		}
+	# 	available = {
+	# 		#SPT change, removed annoying checks
+	# 		#is_subject = no
+	# 		671 = { 
+	# 			CONTROLLER = { 
+	# 				NOT = {
+	# 					has_war_with = ROOT
+	# 					is_ally_with = ROOT
+	# 				}
+	# 			} 
+	# 		}
+	# 		OR = {
+	# 			AND = {
+	# 				custom_trigger_tooltip = {
+	# 					tooltip = JAP_demand_tonkinese_bases_tt
+	# 					671 = { 
+	# 						CONTROLLER = { 
+	# 							OR = { 
+	# 								tag = FRA 
+	# 								tag = VIC 
+	# 								is_subject_of = FRA
+	# 								is_subject_of = VIC
+	# 							} 
+	# 						}
+	# 					}
+	# 				}
+	# 				#OR = {
+	# 					# AND = {
+	# 					# 	has_army_manpower = { size > 799999 }
+	# 					# 	has_war_support > 0.9
+	# 					# }
+	# 				16 = { NOT = { is_controlled_by = FRA } } #Paris has fallen
+	# 				#}
+	# 			}
+	# 			# custom_trigger_tooltip = {
+	# 			# 	tooltip = JAP_demand_tonkinese_bases_2_tt
+	# 			# 	671 = { 
+	# 			# 		CONTROLLER = { 
+	# 			# 			NOT = {
+	# 			# 				tag = FRA 
+	# 			# 				tag = VIC 
+	# 			# 				is_subject_of = FRA
+	# 			# 				is_subject_of = VIC
+	# 			# 			}
+	# 			# 		}
+	# 			# 	}
+	# 			# }
+	# 		}
+	# 		# 1033 = { 
+	# 		# 	CONTROLLER = { 
+	# 		# 		OR = {
+	# 		# 			has_war_with = ROOT
+	# 		# 			is_ally_with = ROOT
+	# 		# 		}
+	# 		# 	} 
+	# 		# }
+	# 	}
 
-		bypass = {
-			671 = { 
-				CONTROLLER = { 
-					OR = {
-						has_war_with = ROOT
-						is_ally_with = ROOT
-					}
-				} 
-			}
-		}
+	# 	bypass = {
+	# 		671 = { 
+	# 			CONTROLLER = { 
+	# 				OR = {
+	# 					has_war_with = ROOT
+	# 					is_ally_with = ROOT
+	# 				}
+	# 			} 
+	# 		}
+	# 	}
 
-		will_lead_to_war_with = FRA
-		will_lead_to_war_with = VIN
+	# 	will_lead_to_war_with = FRA
+	# 	will_lead_to_war_with = VIN
 
-		cancel_if_invalid = no
-		continue_if_invalid = yes
-		available_if_capitulated = no
+	# 	cancel_if_invalid = no
+	# 	continue_if_invalid = yes
+	# 	available_if_capitulated = no
 
-		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
+	# 	search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_POLITICAL FOCUS_FILTER_ANNEXATION }
 
-		completion_reward = {
+	# 	completion_reward = {
 			
-			671 = {
-				OWNER = {
-					country_event = {
-						id = SEA_japan_foreign_policy.10
-						days = 1
-						random_days = 2
-					}
-				}
-			}
-			custom_effect_tooltip = if_they_accept_tt
-			effect_tooltip = {
-				add_political_power = 25
-				transfer_state = 671
-			}
+	# 		671 = {
+	# 			OWNER = {
+	# 				country_event = {
+	# 					id = SEA_japan_foreign_policy.10
+	# 					days = 1
+	# 					random_days = 2
+	# 				}
+	# 			}
+	# 		}
+	# 		custom_effect_tooltip = if_they_accept_tt
+	# 		effect_tooltip = {
+	# 			add_political_power = 25
+	# 			transfer_state = 671
+	# 		}
 			
-		}
-	}
+	# 	}
+	# }
 
 	focus = {
 		id = JAP_occupy_indochina
@@ -13570,11 +13571,16 @@ focus_tree = {
 		#mutually_exclusive = { focus = JAP_the_harakiri_debate }
 		x = 0
 		y = 1
-		relative_position_id = JAP_demand_tonkinese_bases
+		# relative_position_id = JAP_demand_tonkinese_bases
+		# prerequisite = { focus = JAP_demand_tonkinese_bases }
 
-		prerequisite = { focus = JAP_demand_tonkinese_bases }
+		# SPTchange
+		relative_position_id = JAP_nanshin_ron
+		prerequisite = {
+			focus = JAP_nanshin_ron
+		}
 
-		cost = 5
+		cost = 0 # SPTchange 5->0
 
 		ai_will_do = {
 			factor = 1
@@ -13860,9 +13866,13 @@ focus_tree = {
 		mutually_exclusive = { focus = JAP_occupy_siam }
 		x = -1
 		y = 2
-		relative_position_id = JAP_demand_tonkinese_bases
+		# relative_position_id = JAP_demand_tonkinese_bases
 
-		prerequisite = { focus = JAP_demand_tonkinese_bases }
+		# prerequisite = { focus = JAP_demand_tonkinese_bases }
+		relative_position_id = JAP_occupy_indochina
+		prerequisite = {
+			focus = JAP_occupy_indochina
+		}
 
 		cost = 2 #spt change, 5 -> 2
 
@@ -13875,21 +13885,23 @@ focus_tree = {
 			is_faction_leader = yes
 			SIA = {
 				exists = yes
-				# is_subject = no
-				# is_in_faction = no
-				# NOT = {
-				# 	has_war_with = ROOT
-				# }
-				#spt change, made check for player control
-				is_ai = no
+				is_subject = no
+				is_in_faction = no
+				NOT = {
+					has_war_with = ROOT
+				}
 			}
 		}
 
-		# bypass = {
-		# 	SIA = {
-		# 		is_ally_with = ROOT
-		# 	}
-		# }
+		# SPTchange
+		bypass = {
+			SIA = {
+				OR = {					
+					is_ally_with = ROOT
+					exists = no
+				}
+			}
+		}
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -13922,14 +13934,18 @@ focus_tree = {
 		mutually_exclusive = { focus = JAP_sea_pressure_siam }
 		x = 1
 		y = 2
-		relative_position_id = JAP_demand_tonkinese_bases
+		# relative_position_id = JAP_demand_tonkinese_bases
 
-		prerequisite = { focus = JAP_demand_tonkinese_bases }
+		# prerequisite = { focus = JAP_demand_tonkinese_bases }
+		relative_position_id = JAP_occupy_indochina
+		prerequisite = {
+			focus = JAP_occupy_indochina
+		}
 
 		cost = 2 #spt change, 5 -> 2
 
 		ai_will_do = {
-			factor = 1
+			factor = 0 # SPTchange
 		}
 
 		available = {
@@ -13943,12 +13959,11 @@ focus_tree = {
 				is_ai = yes
 			}
 		}
-		#spt change, this is redundant
-		# bypass = {
-		# 	SIA = {
-		# 		has_war_with = ROOT
-		# 	}
-		# }
+
+		# SPTchange
+		bypass = {
+			SIA = { exists = no }
+		}
 
 		will_lead_to_war_with = SIA
 
@@ -14470,14 +14485,21 @@ focus_tree = {
 		prerequisite = {
 			focus = JAP_strike_the_southern_road
 		}
-		cost = 10
+		cost = 5 # SPTchange 10->5
 
 		ai_will_do = {
 			factor = 1
 		}
 
 		available = {
-			has_tech = excavation1
+			# SPTchange
+			OR = {
+				has_tech = excavation1
+				has_tech = excavation2
+				has_tech = excavation3
+				has_tech = excavation4
+				has_tech = excavation5
+			}
 			OR = {
 				333 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
 				672 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
@@ -25889,7 +25911,7 @@ focus_tree = {
 		x = 1
 		y = 1
 
-		cost = 10
+		cost = 5 # SPTchange 10->5
 
 		ai_will_do = {
 			factor = 3
