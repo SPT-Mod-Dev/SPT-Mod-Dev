@@ -7,14 +7,18 @@
  - Joins the Allies if Germany refuses their conditional surrender
 
 #### Japan
- - Removed focus 'Demand Tonkinese Bases' and folded Tonkin into focus 'Occupy Indochina'
+ - Focus 'Demand Tonkinese Bases' folded into 'Occupy Indochina'
  - Focus 'Occupy Indochina' now completes instantly
  - Focus 'Exploit the Southern Resource Area' can now be taken with 1 of any Excavation technology
- - Reduced focus times from 70 days to 35 days for:
+ - Focus 'Ministry of Commerce and Industry' time reduced from 35 to 21 days (coinciding better with the February 26 incident)
+ - Focus times from 70 days to 35 days for:
+   - 'Ikki Kita's State Socialist Ideals'
+   - 'Embrace the Kokutai'
+   - 'Indoctrination in the Military Academy'
    - 'Isolate Oceania' 
    - 'Exploit the Southern Resource Area'
-   - 'Expand the Showa Research Association'
    - 'Reinforce the East Hebei Garrisons'
+   - 'Expand the Showa Research Association'
    - 'Fund the RIKEN Institute'
  - Added bypasses to 'Pressure Siam' and 'Occupy Siam' for quirky situations
 
