@@ -6,6 +6,9 @@
 #### Denmark
  - Joins the Allies if Germany refuses their conditional surrender
 
+#### France
+ - Removed focus 'Intervention in Spain'
+
 #### Japan
  - Focus 'Demand Tonkinese Bases' folded into 'Occupy Indochina'
  - Focus 'Occupy Indochina' now completes instantly
