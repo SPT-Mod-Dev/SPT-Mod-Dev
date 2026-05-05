@@ -23,6 +23,7 @@
    - 'Reinforce the East Hebei Garrisons'
    - 'Expand the Showa Research Association'
    - 'Fund the RIKEN Institute'
+ - Focus 'Instill the Spirit of Bushido' now gives all leaders with the 'Samurai Lineage' trait the ugpraded 'Bushido Spirit' trait from the old SPT Japan tree
  - Added bypasses to 'Pressure Siam' and 'Occupy Siam' for quirky situations
 
 ### 4.1.0
