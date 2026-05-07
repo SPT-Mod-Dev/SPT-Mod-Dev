@@ -1,5 +1,31 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 4.1.1
+ - Fix No Asia hallucination in The Gathering Storm bookmark
+
+#### Denmark
+ - Joins the Allies if Germany refuses their conditional surrender
+
+#### France
+ - Removed focus 'Intervention in Spain'
+
+#### Japan
+ - Focus 'Demand Tonkinese Bases' folded into 'Occupy Indochina'
+ - Focus 'Occupy Indochina' now completes instantly
+ - Focus 'Exploit the Southern Resource Area' can now be taken with 1 of any Excavation technology
+ - Focus 'Ministry of Commerce and Industry' time reduced from 35 to 21 days (coinciding better with the February 26 incident)
+ - Focus times from 70 days to 35 days for:
+   - 'Ikki Kita's State Socialist Ideals'
+   - 'Embrace the Kokutai'
+   - 'Indoctrination in the Military Academy'
+   - 'Isolate Oceania' 
+   - 'Exploit the Southern Resource Area'
+   - 'Reinforce the East Hebei Garrisons'
+   - 'Expand the Showa Research Association'
+   - 'Fund the RIKEN Institute'
+ - Focus 'Instill the Spirit of Bushido' now gives all leaders with the 'Samurai Lineage' trait the ugpraded 'Bushido Spirit' trait from the old SPT Japan tree
+ - Added bypasses to 'Pressure Siam' and 'Occupy Siam' for quirky situations
+
 ### 4.1.0
  - Update to 1.17.5+ and 1.18
  - Removed doctrines requirement from:
