@@ -1,8 +1,7 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
 ### 4.1.0
- - Update to 1.17.5+ and subsequently 1.18
- - Removed all Chinese spawn-in waves and War of Resistance effects
+ - Update to 1.17.5+ and 1.18
  - Removed doctrines requirement from:
     - Cult of Heroism
     - Naval Refit Yards
@@ -11,9 +10,21 @@
     - Surprise Attacks
     - Efficient Communications
     - Inclement Weather
+ - Made new special project maybe actually have a reason to exist (gives +100% artillery pierce instead of +15%)
+ - Increased XP gain ratio from training (0.1->0.5)
+ - Decreased Manpower requirement for maximum mastery gain without reduction (100000->50000)
+ - Removed reduction when banking mastery without a selected subdoctrine
 
- - made Chech MIO focus inacessible to germany
- - made new special project maybe actually have a reason to exist (gives +100% artillery pierce instead of +15%)
+#### France
+ - Spirit 'Victors of the Great War' no longer penalizes mastery gain
+
+#### Germany
+ - Disabled 1.18 focus 'Integrate Czech Manufacturers'
+
+#### Second Sino-Japanese War
+ - Removed all Chinese spawn-in waves and War of Resistance effects
+ - Removed surrender resistance from Chinese focus 'Revise the National Curriculum'
+ - Removed planning and mastery penalties to Japanese 'Surprise Invasion' idea (lasts 245 days after Marco Polo)
 
 ### 4.0.3
 
