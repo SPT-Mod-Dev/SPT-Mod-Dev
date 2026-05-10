@@ -1208,10 +1208,47 @@ on_actions = {
 				limit = {
 					HOL = {
 						has_war_with = GER
+						is_in_faction = no
 					}
 				}
 				ENG = {
 					add_to_faction = HOL
+				}
+			}
+			#Check if BEL is at war with GER and add BEL to allies
+			if = {
+				limit = {
+					BEL = {
+						has_war_with = GER
+						is_in_faction = no
+					}
+				}
+				ENG = {
+					add_to_faction = BEL
+				}
+			}
+			#Check if POL is at war with GER and add POL to allies
+			if = {
+				limit = {
+					POL = {
+						has_war_with = GER
+						is_in_faction = no
+					}
+				}
+				ENG = {
+					add_to_faction = POL
+				}
+			}
+			#Check if FRA is at war with GER and add FRA to allies
+			if = {
+				limit = {
+					FRA = {
+						has_war_with = GER
+						is_in_faction = no
+					}
+				}
+				ENG = {
+					add_to_faction = FRA
 				}
 			}
 			# Check if SAF is at war with GER and change leader
