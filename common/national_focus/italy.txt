@@ -15,6 +15,7 @@
 # Reminder that focus filters prio has to be handled in the generic focus file :)
 
 
+
 focus_tree = {
 	id = italian_focus
 
@@ -4332,12 +4333,6 @@ focus_tree = {
 			custom_effect_tooltip = ITA_superesercito_re_tt
 
 			army_experience = 50
-			#if = {
-			#	limit = {
-			#		has_dlc = "No Step Back"
-			#	}
-			#	custom_effect_tooltip = "TODO_Manu: Cost reduction for Army spirits. Code Support"
-			#}
 
 			#Update NS icon
 			ITA_improve_regio_esercito_dm_effect = yes
@@ -4462,7 +4457,7 @@ focus_tree = {
 
 			division_template = { 
 				name = "Reggimento Bersaglieri" 
-				division_names_group = ITA_INF_01 #TODO_Manu: Namelist: 1º,2º... Reggimento Bersaglieri
+				division_names_group = ITA_INF_01
 				regiments = { 
 					bicycle_battalion = { x = 0 y = 0 }
 					bicycle_battalion = { x = 0 y = 1 }
@@ -4985,12 +4980,14 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
 
 		completion_reward = {
+
 			add_tech_bonus = {
 				name = ITA_citta_dell_aria
 				bonus = 0.25
-				uses = 4
+				uses = 3 # was 4
 				category = air_equipment
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 
 			if = {
 				limit = {
@@ -5130,6 +5127,7 @@ focus_tree = {
 						instant_build = yes
 					}
 				}
+				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 			else = {
 				random_core_state = {
@@ -5153,7 +5151,7 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = ITA_reggianes_exports
-				bonus = 0.5
+				bonus = 0.50
 				uses = 1
 				category = air_equipment #Maybe more specific stuff? (Light/Medium bombers, fighters...)
 			}
@@ -5233,12 +5231,6 @@ focus_tree = {
 			custom_effect_tooltip = ITA_superaereo_ra_tt
 
 			air_experience = 50
-			#if = {
-			#	limit = {
-			#		has_dlc = "No Step Back"
-			#	}
-			#	custom_effect_tooltip = "TODO_Manu: Cost reduction for Airforce spirits. Code support"
-			#}
 
 			#Update NS icon
 			ITA_improve_regia_aeronautica_dm_effect = yes
@@ -5402,6 +5394,7 @@ focus_tree = {
 			ITA_improve_regia_aeronautica_dm_effect = yes
 		}
 	}
+
 
 	focus = {
 		id = ITA_long_range_aircraft
@@ -6702,8 +6695,6 @@ focus_tree = {
 			show_unit_leaders_tooltip = ITA_junio_valerio_borghese
 
 			unlock_decision_tooltip = ITA_human_torpedo_raid
-
-			#TODO_Manu: Nice to have -> New Operation for damaging enemy ships docked in nearby docks with human torpedoes
 		}
 	}
 
@@ -7189,7 +7180,7 @@ focus_tree = {
 					create_equipment_variant = {
 						name = "Comandanti Medaglie d'Oro Class"
 						type = ship_hull_light_3
-						name_group = ITA_DD_HISTORICAL #TODO_Manu: Name List
+						name_group = ITA_DD_HISTORICAL
 						parent_version = 0
 						allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
 						modules = {
@@ -7334,7 +7325,7 @@ focus_tree = {
 					create_equipment_variant = {
 						name = "Gabbiano Class"
 						type = ship_hull_light_1
-						name_group = ITA_DD_HISTORICAL #TODO_Manu: Name List
+						name_group = ITA_DD_HISTORICAL
 						parent_version = 0
 						allow_without_tech = yes #Makes no difference since ITA already has tech, but in order to keep it consistent
 						modules = {
@@ -7704,7 +7695,7 @@ focus_tree = {
 				create_equipment_variant = {
 					name = "Conte di Savoia Class - Converted Liner"
 					type = ship_hull_carrier_conversion_ca
-					name_group = ITA_CV_HISTORICAL #TODO_Manu: Namelist (Conte di Savoia, Rex, Neptunia, Oceania, Conte Rosso, Conte Grande, Saturnia, Vulcania, Conte Biancamo, Duilio, Conte verde, Giulio Cesare, Colombo, Tel Aviv) Excluded Roma (Aquila) and Augustus (Sparviero)
+					name_group = ITA_CV_HISTORICAL
 					parent_version = 0
 					allow_without_tech = yes #Makes no difference since focus grants appropriate tech (above), but it improves tooltip
 					modules = {
@@ -8005,7 +7996,7 @@ focus_tree = {
 						create_equipment_variant = {
 							name = "Costanzo Ciano Class"
 							type = ship_hull_cruiser_2
-							name_group = ITA_CL_HISTORICAL #TODO_Manu: Namelist (Conte di Savoia, Rex, Neptunia, Oceania, Conte Rosso, Conte Grande, Saturnia, Vulcania, Conte Biancamo, Duilio, Conte verde, Giulio Cesare, Colombo, Tel Aviv) Excluded Roma (Aquila) and Augustus (Sparviero)
+							name_group = ITA_CL_HISTORICAL
 							parent_version = 0
 							allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
 							modules = {
@@ -8028,7 +8019,7 @@ focus_tree = {
 						create_equipment_variant = {
 							name = "Costanzo Ciano Class"
 							type = ship_hull_cruiser_2
-							name_group = ITA_CL_HISTORICAL #TODO_Manu: Namelist (Conte di Savoia, Rex, Neptunia, Oceania, Conte Rosso, Conte Grande, Saturnia, Vulcania, Conte Biancamo, Duilio, Conte verde, Giulio Cesare, Colombo, Tel Aviv) Excluded Roma (Aquila) and Augustus (Sparviero)
+							name_group = ITA_CL_HISTORICAL
 							parent_version = 0
 							allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
 							modules = {
@@ -8350,7 +8341,7 @@ focus_tree = {
 				}
 			}
 
-			custom_effect_tooltip = ITA_flotta_d_evasione_dockyards_tt #TODO_Manu: Dynamic tooltip
+			custom_effect_tooltip = ITA_flotta_d_evasione_dockyards_tt
 		}
 	}
 

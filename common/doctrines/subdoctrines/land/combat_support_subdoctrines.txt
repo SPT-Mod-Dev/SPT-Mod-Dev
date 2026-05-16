@@ -41,17 +41,17 @@ fire_concentration = {
         predicted_fire = {
         #1
             category_line_artillery = {
-                defense = 0.025 # SPTchange 0.05->0.025
+                defense = 0.05
             }
         }
 
         standing_barrage = {
         #2
             artillery_brigade = {
-                combat_width = -0.4 # SPTchange -0.8->-0.4
+                combat_width = -1 # SPTchange -0.8->-1
             }
-            rocket_artillery_brigade = {
-                combat_width = -0.4 # SPTchange -0.8->-0.4
+            mot_artillery_brigade = {
+                combat_width = -1 # SPTchange -0.8->-1
             }
         }
         artillery_groups = {
@@ -73,10 +73,10 @@ fire_concentration = {
                 hard_attack = 0.05 # SPTchange 0.1->0.05
             }
             artillery_brigade = {
-                soft_attack = 0.025 # SPTchange 0.05->0.025
+                soft_attack = 0.05
             }
-            rocket_artillery_brigade = {
-                soft_attack = 0.025 # SPTchange 0.05->0.025
+            mot_artillery_brigade = {
+                soft_attack = 0.05
             }
         }
     }
@@ -185,29 +185,38 @@ flying_batteries = {
 
     rewards = {
         deployment_drills = {
+            rocket_artillery_brigade = {
+                max_organisation = 5 # SPTchange instead of mot line arty
+            }
             mot_rocket_artillery_brigade = {
                 max_organisation = 5 # SPTchange 10->5
             }
             motorized_rocket_brigade = {
                 max_organisation = 5 # SPTchange 10->5
             }
-            mot_artillery_brigade = {
-                max_organisation = 5 # SPTchange 10->5
+            rocket_artillery_brigade = {
+                combat_width = -1 # SPTchange -0.8->-1
+            }
+            mot_rocket_artillery_brigade = {
+                combat_width = -1 # SPTchange -0.8->-1
+            }
+            motorized_rocket_brigade = {
+                combat_width = -1 # SPTchange -0.8->-1
             }
         }
         counter_battery_tasks = {
             recon = {
                 battalion_mult = {
                     category = category_line_artillery 
-                    soft_attack = 0.025 # SPTchange 0.05->0.025
+                    soft_attack = 0.05
                     defense = 0.05 # SPTchange 0.1->0.05
                 }
-                recon = 0.125 # SPTchange 0.25->0.125
+                recon = 0.25
             }
             mot_recon = {
                 battalion_mult = {
                     category = category_line_artillery 
-                    soft_attack = 0.025 # SPTchange 0.05->0.025
+                    soft_attack = 0.05
                     defense = 0.05 # SPTchange 0.1->0.05
                 }
                 recon = 0.125 # SPTchange 0.25->0.125
@@ -218,14 +227,14 @@ flying_batteries = {
                 battalion_mult = {
                     category = category_line_artillery
                     initiative = 0.01 # SPTchange 0.02->0.01
-                    supply_consumption = -0.005 # SPTchange -0.01->-0.005
+                    supply_consumption = -0.01
                 }
             }
         }
         mobile_barrages = {
             category_line_artillery = {
-                default_morale = 0.025 # SPTchange 0.05->0.025
-                breakthrough = 0.025 # SPTchange 0.05->0.025
+                default_morale = 0.05
+                breakthrough = 0.05
             }
         }
         wide_dispersal_positions = {
@@ -282,18 +291,18 @@ air_cavalry = {
         }
         service_and_support = {
             category_helicopter_support_companies = {
-                max_strength = 0.015 # SPTchange 0.03->0.015
+                max_strength = 0.03
             }
         }
         rescue_liasions = {
             helicopter_field_hospital = {
                 battalion_mult = {
                     category = category_all_infantry
-                    max_strength = 0.025 # SPTchange 0.05->0.025
-                    default_morale = 0.025 # SPTchange 0.05->0.025
+                    max_strength = 0.05
+                    default_morale = 0.05
                 }
-                max_organisation = 2.5 # SPTchange 5->2.5
-                casualty_trickleback = 0.025 # SPTchange 0.05->0.025
+                max_organisation = 5
+                casualty_trickleback = 0.05
             }
         }
 
@@ -301,10 +310,10 @@ air_cavalry = {
             helicopter_transport = {
                 battalion_mult = {
                     category = category_light_infantry
-                    maximum_speed = 0.1 # SPTchange 0.2->0.1
-                    breakthrough = 0.025 # SPTchange 0.05->0.025
+                    maximum_speed = 0.2
+                    breakthrough = 0.05
                 }
-                breakthrough = 0.025 # SPTchange 0.05->0.025
+                breakthrough = 0.05
                 max_organisation = 5 # SPTchange 10->5
             }
         }
@@ -368,7 +377,7 @@ mobile_recon_and_assault = {
         }
         long_range_reconnaissance = {
             category_recon = {
-                maximum_speed = 0.075 # SPTchange 0.15->0.075
+                maximum_speed = 0.15
             }
         }
         mobile_operational_deployments = {
@@ -622,15 +631,15 @@ siege_artillery = {
     super_heavy_artillery = {
         battalion_mult = {
             category = category_army
-            soft_attack = 0.1
-            defense = 0.1
+            soft_attack = 0.05
+            defense = 0.05
         }
     }
     self_propelled_super_heavy_artillery = {
         battalion_mult = {
             category = category_army
-            soft_attack = 0.1
-            defense = 0.1
+            soft_attack = 0.05
+            defense = 0.05
         }
     } # SPTchange in return, make mobile SH actually on par
 
