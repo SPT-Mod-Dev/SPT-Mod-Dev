@@ -4,6 +4,7 @@
 
 #### General
  - Poland and France now automatically join the Allies once at war with Germany
+ - Big honking land doctrine rework
 
 #### Germany
  - Fixed bug relating to MEFO Bills/Economy of Conquest not updating monthly
