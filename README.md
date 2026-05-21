@@ -1,6 +1,24 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 4.1.2 Deindustrialization of Germany
+
+#### General
+ - Poland and France now automatically join the Allies once at war with Germany
+ - Big honking land doctrine rework
+   - no seriously its fucken big
+
+#### Germany
+ - Fixed bug relating to MEFO Bills/Economy of Conquest not updating monthly
+
+#### Japan
+ - Unhid tooltips in focus 'Strike the Southern Road' regarding the funny 'liberation' decisions
+
+#### Siam
+ - Added Central Vietnam to focus 'Rattanakosin Ambition'
+
 ### 4.1.1
+
+#### General
  - Fix No Asia hallucination in The Gathering Storm bookmark
 
 #### Denmark
@@ -54,7 +72,7 @@
 
 ### 4.0.3
 
-### Air Combat
+#### Air Combat
 - Resetting AA versus CAS damage reduction curves to vanilla, due to significant CAS damage reduction formula change in 1.17.4
 
 #### Second Sino-Japanese War

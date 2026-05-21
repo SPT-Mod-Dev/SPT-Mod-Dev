@@ -15,6 +15,7 @@ armored_spearhead = {
     }
 
     ai_will_do = {
+
         base = 1
         modifier = {
             factor = 25
@@ -29,47 +30,55 @@ armored_spearhead = {
     # EFFECTS
     enable_tactic = tactic_breakthrough
 
+    # Base bonus: medium armor gets a head start on the offensive
+    medium_armor = {
+        breakthrough = 0.05
+        soft_attack = 0.05
+    }
+
     rewards = {
-        force_concentration = {
-        #1
-            category_tanks= {
-                max_organisation = 1.5 # SPTchange 2->1.5
-                default_morale = 0.04 # SPTchange 0.05->0.04
+        concentrated_armor_mass = {
+            #1 - Medium armor builds cohesion for the push
+            medium_armor = {
+                max_organisation = 5
+                default_morale = 0.05
             }
         }
         armored_breakthrough_exploits = {
-        #2
-            category_all_armor = {
-                breakthrough = 0.05 # SPTchange 0.1->0.05
+            #2 - All tanks exploit the breach
+            category_tanks = {
+                breakthrough = 0.1
             }
         }
-        local_reserves = {
-        #3
-            armored_car = {
+        tactical_fire_and_movement = {
+            #3 - Medium armor refines its attack
+            medium_armor = {
+                soft_attack = 0.1
+                breakthrough = 0.05
                 default_morale = 0.1
-                max_organisation = 7
             }
-            light_armor = {
-                default_morale = 0.1
+        }
+        combined_arms_pressure = {
+            #4 - Mechanized infantry keeps up with the tanks
+            mechanized = {
+                breakthrough = 0.05
+                soft_attack = 0.05
+                max_organisation = 5
+            }
+            medium_armor = {
                 max_organisation = 3
             }
         }
-        tactical_reconnaissance = {
-        #4
-            category_all_armor = {
-                breakthrough = 0.05 # SPTchange 0.1->0.05
+        tank_on_tank_dominance = {
+            #5 - Capstone: medium armor becomes a full combined-arms fist
+            medium_armor = {
+                hard_attack = 0.1
+                soft_attack = 0.05
+                ap_attack = 0.05
+                breakthrough = 0.1
             }
-        }
-        assault_detachments = {
-        #5
-            armored_car = {
-                default_morale = 0.2
+            category_tanks = {
                 max_organisation = 3
-                breakthrough = 0.2
-            }
-             category_tanks= {
-                max_organisation = 3
-                breakthrough = 0.1 # SPTchange 0.2->0.1
             }
         }
     }
@@ -94,6 +103,7 @@ armored_spearhead_no_lar = {
     }
 
     ai_will_do = {
+
         base = 1
         modifier = {
             factor = 25
@@ -108,47 +118,56 @@ armored_spearhead_no_lar = {
     # EFFECTS
     enable_tactic = tactic_breakthrough
 
+    medium_armor = {
+        breakthrough = 0.05
+        soft_attack = 0.05
+    }
+
     rewards = {
-        force_concentration = {
-        #1
-            category_tanks= {
-                max_organisation = 2
+        concentrated_armor_mass = {
+            #1
+            medium_armor = {
+                max_organisation = 5
                 default_morale = 0.05
             }
         }
         armored_breakthrough_exploits = {
-        #2
-            category_all_armor = {
-                breakthrough = 0.05 # SPTchange 0.1->0.05
+            #2
+            category_tanks = {
+                breakthrough = 0.1
             }
         }
-        local_reserves = {
-        #3
+        tactical_fire_and_movement = {
+            #3
+            medium_armor = {
+                soft_attack = 0.1
+                breakthrough = 0.05
+                default_morale = 0.1
+            }
+        }
+        combined_arms_pressure = {
+            #4
             recon = {
                 max_organisation = 10
             }
-
-            light_armor = {
-                default_morale = 0.1
+            medium_armor = {
                 max_organisation = 3
             }
         }
-        tactical_reconnaissance = {
-        #4
-            category_all_armor = {
-                breakthrough = 0.05 # SPTchange 0.1->0.05
+        tank_on_tank_dominance = {
+            #5
+            medium_armor = {
+                hard_attack = 0.1
+                soft_attack = 0.05
+                ap_attack = 0.05
+                breakthrough = 0.1
             }
-        }
-        assault_detachments = {
-        #5
-             category_tanks= {
+            category_tanks = {
                 max_organisation = 3
-                breakthrough = 0.1 # SPTchange 0.2->0.1
             }
         }
     }
 }
-
 armored_infantry_support = {
     track = armor
     name = SUBDOCTRINE_ARMORED_INFANTRY_SUPPORT
@@ -163,12 +182,13 @@ armored_infantry_support = {
     }
 
     ai_will_do = {
+
         base = 1
         modifier = {
             factor = 25
             OR = {
-               original_tag = ENG
-               original_tag = FRA
+                original_tag = ENG
+                original_tag = FRA
             }
         }
         modifier = {
@@ -179,61 +199,76 @@ armored_infantry_support = {
 
     # EFFECTS
     enable_tactic = tactic_blitz
-    effect = {
-        add_tech_bonus = {
-            bonus = 1
-            uses = 1
-            category = cat_heavy_armor
-            name = SUBDOCTRINE_ARMORED_INFANTRY_SUPPORT
-        }
-    }
-
-    #TODO jack look if you can make a script effect for production bonuses
 
     rewards = {
-        mobile_reserves = {
-        #1
-            medium_armor = {
-                breakthrough = 0.025 # SPTchange 0.05->0.025
-                soft_attack = 0.1
-            }
-            heavy_armor = {
-                breakthrough = 0.025 # SPTchange 0.05->0.025
-                soft_attack = 0.1
-            }
-        }
-        armored_cohorts = {
-        #2
-            medium_armor = {
-                max_organisation = 5
-            }
-            heavy_armor = {
-                max_organisation = 5
-            }
-        }
-        maintenance_routines = {
-        #3
-            armored_maintenance = {
+        forward_reconnaissance = {
+            #1 - Light tank recon pushes ahead of the infantry, feeding them breakthrough
+            light_tank_recon = {
+                max_organisation = 20
                 battalion_mult = {
-                    category = category_all_armor
-                    max_strength = 0.10 # SPTchange 0.15->0.10
+                    category = category_all_infantry
+                    breakthrough = 0.1
+                }
+                battalion_mult = {
+                    category = category_all_infantry
+                    max_organisation = 5
                     add = yes
                 }
             }
         }
-        fuel_rationing = {
-        #4
-            heavy_armor = {
-                supply_consumption = -0.08
+        infantry_tank_cooperation = {
+            #2 - Infantry learns to advance behind armor
+            category_tanks = {
+                max_organisation = 3
+                default_morale = 0.05
             }
         }
-        mobile_armored_strongpoints = {
-        #5
-            category_all_infantry = {
-                breakthrough = 0.025 # SPTchange 0.05->0.025
+        armored_assault_groups = {
+            #3 - Tanks take point on assaults; infantry clears what they can't
+            category_tanks = {
+                soft_attack = 0.1
+                breakthrough = 0.05
             }
-            heavy_armor = {
-                breakthrough = 0.05 # SPTchange 0.1->0.05
+        }
+        close_support_doctrine = {
+            #4 - Dedicated support elements keep the infantry moving forward
+            armored_engineer = {
+                battalion_mult = {
+                    category = category_all_infantry
+                    breakthrough = 0.05
+                    soft_attack = 0.05
+                }
+            }
+            assault_engineer = {
+                battalion_mult = {
+                    category = category_all_infantry
+                    breakthrough = 0.05
+                    soft_attack = 0.05
+                }
+            }
+        }
+        bunker_busting_formations = {
+            #5 - Flame tanks become force multipliers for infantry assaults
+            light_flame_tank = {
+                battalion_mult = {
+                    category = category_all_infantry
+                    breakthrough = 0.1
+                    soft_attack = 0.1
+                }
+            }
+            medium_flame_tank = {
+                battalion_mult = {
+                    category = category_all_infantry
+                    breakthrough = 0.1
+                    soft_attack = 0.1
+                }
+            }
+            heavy_flame_tank = {
+                battalion_mult = {
+                    category = category_all_infantry
+                    breakthrough = 0.1
+                    soft_attack = 0.1
+                }
             }
         }
     }
@@ -253,71 +288,83 @@ streamlined_deployment = {
     }
 
     ai_will_do = {
+
         base = 1
         modifier = {
             factor = 25
             OR = {
-                original_tag = SOV 
-                original_tag = CHI 
-                original_tag = PRC 
+                original_tag = SOV
+                original_tag = CHI
+                original_tag = PRC
             }
         }
+
     }
 
+    # Base bonus: heavy armor identity — defense and anti-armor punch
+    heavy_armor = {
+        defense = 0.05
+        hard_attack = 0.05
+        ap_attack = 0.05
+    }
     category_all_armor = {
-        soft_attack = 0.1
-        breakthrough = 0.1
+        reliability = 0.03
     }
 
     rewards = {
-        flexible_armored_battalions = {
-            #spt change, this is useless in the mod
-            #unit_medium_armor_design_cost_factor = -0.5
-            #unit_light_armor_design_cost_factor  = -0.5
-            light_tank_recon = {
+        armored_maintenance_network = {
+            #1 - Keeping the machines running at scale
+            armored_maintenance = {
                 battalion_mult = {
                     category = category_all_armor
-                    max_organisation = 2
+                    max_strength = 0.10
                     add = yes
                 }
             }
-        }
-        mechanized_wave = {
-            mechanized = {
-                max_organisation = 5
-                default_morale = 0.05 # SPTchange 0.1->0.05
-            }
             category_all_armor = {
-                default_morale = 0.05
-            }
-        }
-        tank_desant = {
-            armored_signal = {
-                battalion_mult = {
-                    category = category_light_infantry
-                    maximum_speed = 0.05
-                }
-            }
-            light_tank_recon = {
-                battalion_mult = {
-                    category = category_light_infantry
-                    maximum_speed = 0.05
-                }
-            }
-        }
-        full_front_deployment = {
-            category_all_armor = {
-                reliability = 0.05
                 supply_consumption = -0.02
             }
         }
-        continuous_offensives = {
+        heavy_assault_doctrine = {
+            #2 - Heavy armor becomes a true battering ram
+            heavy_armor = {
+                breakthrough = 0.05
+                soft_attack = 0.1
+                max_organisation = 5
+            }
+        }
+        industrial_scale_reserves = {
+            #3 - Quantity has a quality of its own; all armor benefits from mass
             category_all_armor = {
                 default_morale = 0.05
                 max_organisation = 3
+                reliability = 0.03
+            }
+        }
+        fuel_conservation = {
+            #4 - Heavy armor's chief weakness addressed
+            heavy_armor = {
+                supply_consumption = -0.08
+            }
+            category_all_armor = {
+                supply_consumption = -0.01
+            }
+        }
+        overwhelming_firepower = {
+            #5 - Capstone: heavy armor fires the killing blow
+            heavy_armor = {
+                hard_attack = 0.1
+                ap_attack = 0.05
+                defense = 0.05
+                max_organisation = 3
+            }
+            category_all_armor = {
+                soft_attack = 0.05
             }
         }
     }
+
+
 }
 
 mobile_defense = {
@@ -401,7 +448,7 @@ mobile_defense = {
                 soft_attack = 0.1
                 ap_attack = 0.05
             }
-        }    
+        }
     }
 }
 
@@ -425,60 +472,54 @@ armored_cavalry = {
     }
 
     ai_will_do = {
+
         base = 1
         modifier = {
             factor = 25
             OR = {
-                original_tag = ITA 
-                original_tag = JAP 
+                original_tag = ITA
+                original_tag = JAP
             }
         }
+
     }
 
+    # Base bonus: light armor and armored cars are fast and aggressive
+    light_armor = {
+        max_organisation = 2
+        default_morale = 0.05
+    }
     armored_car = {
         max_organisation = 5
         defense = 0.1
     }
-    mechanized =  {
+    mechanized = {
         max_organisation = 5
         defense = 0.05
     }
+
     # EFFECTS
+    enable_tactic = tactic_breakthrough
+
     rewards = {
-        cruiser_tanks = {
+        fast_exploitation = {
+            #1 - Light armor races through gaps in enemy lines
             light_armor = {
                 maximum_speed = 0.1
-                max_organisation = 5
-                breakthrough = 0.025 # SPTchange 0.05->0.025
+                max_organisation = 3
+                breakthrough = 0.05
             }
         }
-        quick_response_force = {
-            motorized_military_police = {
-                    battalion_mult = {
-                        category = category_vehicle_infantry
-                        suppression_factor = 0.05
-                    }
-            }
+        armored_car_assault = {
+            #2 - Armored cars push forward with the light tanks
             armored_car = {
-                suppression_factor = 0.2
+                default_morale = 0.1
+                max_organisation = 7
+                breakthrough = 0.1
             }
         }
-        speed_as_armour = {
-            light_armor = {
-                maximum_speed = 0.05
-                breakthrough = 0.025 # SPTchange 0.05->0.025
-            }
-            armored_car = {
-                maximum_speed = 0.05
-                breakthrough = 0.05 # SPTchange 0.1->0.05
-                soft_attack = 0.1
-            }
-            mechanized = {
-                maximum_speed = 0.025 # SPTchange 0.05->0.025
-                breakthrough = 0.025 # SPTchange 0.05->0.025
-            }
-        }
-        fighting_reconnaissance = {
+        tactical_reconnaissance = {
+            #3 - Recon screens and intelligence feeds the spearhead
             armored_car_recon = {
                 max_organisation = 3
                 soft_attack = 0.05
@@ -487,27 +528,39 @@ armored_cavalry = {
                 max_organisation = 2
                 soft_attack = 0.05
             }
-        }
-        sustained_deployments = {
-            armored_car = {
-                max_organisation = 5
-                soft_attack = 0.05
-                default_morale = 0.2
+            category_all_armor = {
+                breakthrough = 0.1
             }
+        }
+        pursuit_operations = {
+            #4 - Speed becomes the weapon; enemy cannot reorganize
             light_armor = {
-                max_organisation = 5
+                maximum_speed = 0.05
+                breakthrough = 0.05
+            }
+            armored_car = {
+                maximum_speed = 0.05
                 soft_attack = 0.05
-                hard_attack = 0.1
-                default_morale = 0.15
             }
             mechanized = {
-                max_organisation = 5
-                soft_attack = 0.05
-                default_morale = 0.1
+                maximum_speed = 0.025
+                breakthrough = 0.025
             }
-            motorized = {
-                max_organisation = 5
-                soft_attack = 0.05
+        }
+        assault_detachments = {
+            #5 - Full exploitation: light armor and armored cars hit as one
+            armored_car = {
+                default_morale = 0.2
+                max_organisation = 3
+                breakthrough = 0.2
+                soft_attack = 0.1
+            }
+            category_tanks = {
+                max_organisation = 3
+                breakthrough = 0.1
+            }
+            light_armor = {
+                hard_attack = 0.1
                 default_morale = 0.1
             }
         }
@@ -538,66 +591,87 @@ armored_cavalry_no_lar = {
         modifier = {
             factor = 25
             OR = {
-                original_tag = ITA 
-                original_tag = JAP 
+                original_tag = ITA
+                original_tag = JAP
             }
         }
     }
 
+    light_armor = {
+        max_organisation = 2
+        default_morale = 0.05
+    }
     motorized = {
         max_organisation = 5
         defense = 0.1
     }
-    mechanized =  {
+    mechanized = {
         max_organisation = 5
         defense = 0.05
     }
+
     # EFFECTS
+    enable_tactic = tactic_breakthrough
+
     rewards = {
-        cruiser_tanks = {
+        fast_exploitation = {
+            #1
             light_armor = {
                 maximum_speed = 0.1
-                max_organisation = 5
-                breakthrough = 0.025 # SPTchange 0.05->0.025
+                max_organisation = 3
+                breakthrough = 0.05
             }
         }
-        quick_response_force = {
-            motorized_military_police = {
-                    battalion_mult = {
-                        category = category_vehicle_infantry
-                        suppression_factor = 0.05
-                    }
+        motorized_pursuit = {
+            #2 - No armored car, motorized fills the screening role
+            motorized = {
+                maximum_speed = 0.05
+                default_morale = 0.1
+                max_organisation = 3
+            }
+            light_armor = {
+                default_morale = 0.1
+                max_organisation = 3
+                breakthrough = 0.05
             }
         }
-        speed_as_armour = {
+        tactical_reconnaissance = {
+            #3
+            recon = {
+                max_organisation = 10
+            }
+            light_tank_recon = {
+                max_organisation = 2
+                soft_attack = 0.05
+            }
+            category_all_armor = {
+                breakthrough = 0.1
+            }
+        }
+        pursuit_operations = {
+            #4
             light_armor = {
                 maximum_speed = 0.05
-                breakthrough = 0.025 # SPTchange 0.05->0.025
+                breakthrough = 0.05
             }
             motorized = {
                 maximum_speed = 0.05
             }
             mechanized = {
                 maximum_speed = 0.05
-                breakthrough = 0.025 # SPTchange 0.05->0.025
+                breakthrough = 0.025
             }
         }
-        fighting_reconnaissance = {
-            recon = {
+        assault_detachments = {
+            #5
+            category_tanks = {
                 max_organisation = 3
-                 soft_attack = 0.05
+                breakthrough = 0.1
             }
-            light_tank_recon = {
-                max_organisation = 2
-                soft_attack = 0.05
-            }
-        }
-        sustained_deployments = {
             light_armor = {
-                max_organisation = 5
-                soft_attack = 0.05
                 hard_attack = 0.1
                 default_morale = 0.15
+                soft_attack = 0.05
             }
             mechanized = {
                 max_organisation = 5
@@ -627,8 +701,10 @@ tank_destroyer_force = {
     }
 
     ai_will_do = {
+
         base = 0
-    }  
+
+    }
 
     category_all_armor = {
         defense = 0.05 # SPTchange 0.1->0.05
@@ -637,12 +713,14 @@ tank_destroyer_force = {
     }
 
     rewards = {
+
         mobile_anti_tank = {
             mot_anti_tank_brigade = {
                 max_organisation = 4 # SPTchange 8->4
                 hard_attack = 0.05 # SPTchange 0.1->0.05
                 ap_attack = 0.05 # SPTchange 0.1->0.05
             }
+
         }
         committed_operational_units = {
             assault_engineer = {
@@ -660,12 +738,14 @@ tank_destroyer_force = {
                 default_morale = 0.05 # SPTchange 0.1->0.05
             }
         }
+
         independent_counterattacks = {
             category_tank_destroyers = {
                 max_organisation = 3 # SPTchange 6->3
                 initiative = 0.005 # SPTchange 0.01->0.005
             }
         }
+
         selfsufficient_battalion = {
             armored_signal = {
                 battalion_mult = {
@@ -675,5 +755,8 @@ tank_destroyer_force = {
                 }
             }
         }
+
+
+
     }
 }
