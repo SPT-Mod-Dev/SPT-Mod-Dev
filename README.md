@@ -1,5 +1,10 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 4.1.3
+
+#### Spain
+ - Neutered spirit 'Awaiting the Rebellion' in case of further bugs
+
 ### 4.1.2 Deindustrialization of Germany
 
 #### General
