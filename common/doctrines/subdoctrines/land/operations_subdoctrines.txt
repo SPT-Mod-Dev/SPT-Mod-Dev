@@ -45,6 +45,10 @@ mission_type_tactics = {
             category_all_infantry = {
                 default_morale = 0.05 # SPTchange 0.1->0.05
             }
+			category_regimental_support_artillery = {
+				max_organisation = 5
+				soft_attack = 0.05
+			}
         }
         flexible_command = {
             #2
@@ -89,9 +93,19 @@ last_stand = {
     xp_type = army
 
     available = {
-        OR = {
+        if = {
+            limit = {
+                NOT = {
+                    original_tag = INS
+                }
+            }
             has_defensive_war = yes
-            casualties > 100000
+        }
+        else = {
+            OR = {
+                has_defensive_war = yes
+                has_country_flag = INS_revolution_has_started
+            }
         }
     }
     # EFFECTS
@@ -246,6 +260,9 @@ infiltration_tactics = {
                 breakthrough = 0.05
             }
             org_loss_when_moving = -0.10
+			fire_support = {
+				soft_attack = 0.1
+			}
         }
     }
 }
@@ -303,18 +320,25 @@ grand_assault = {
             category_all_infantry = {
                 breakthrough = 0.05
             }
+			fire_support = {
+				soft_attack = 0.1
+			}
         }
         combined_arms_integration = {
             #3
             army_bonus_air_superiority_factor = 0.025 # SPTchange 0.05->0.025
             coordination_bonus = 0.05 # SPTchange 0.1->0.05
-            category_tanks = {
-                max_organisation = 2 # SPTchange 4->2
+			category_tank_destroyer_regimental_support = {
+                max_organisation = 5				
+			}
+            anti_air_battery = {
+                max_organisation = 5
+                air_attack = 0.1
             }
-
-            anti_air = {
-                air_attack = 0.05 # SPTchange 0.1->0.05
-            }
+			mot_fire_support = {
+                max_organisation = 5	
+				soft_attack = 0.1
+			}
         }
         forward_command_posts = {
             #4
@@ -322,6 +346,7 @@ grand_assault = {
                 battalion_mult = {
                     category = category_all_infantry
                     supply_consumption = -0.025 # SPTchange -0.05->-0.025
+                    add = yes
                 }
             }
             category_recon = {
@@ -401,6 +426,10 @@ deep_battle = {
                 default_morale = 0.05
             }
             land_reinforce_rate = 0.025
+			mot_fire_support = {
+                max_organisation = 5
+				soft_attack = 0.1				
+			}
         }
         deep_exploitation = {
             #3 - Once the line breaks, mechanized forces pour through without stopping
@@ -437,6 +466,10 @@ deep_battle = {
                     add = yes
                 }
             }
+			category_regimental_support_artillery = {
+                max_organisation = 5
+				soft_attack = 0.1	
+			}
         }
     }
 }
@@ -712,6 +745,9 @@ rapid_domination = {
             category_support_artillery = {
                 soft_attack = 0.025 # SPTchange 0.05->0.025
             }
+			category_regimental_support_artillery = {
+				breakthrough = 0.1
+			}
 
 
         }
@@ -726,6 +762,9 @@ rapid_domination = {
                     add = yes
                 }
             }
+			category_regimental_support_artillery = {
+				soft_attack = 0.1
+			}
 
         }
         centralized_fire_control = {

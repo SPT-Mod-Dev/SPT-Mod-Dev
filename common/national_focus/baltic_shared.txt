@@ -2217,8 +2217,24 @@ shared_focus = {
 
 shared_focus = {
 	id = BALTIC_natural_resources
-	icon = GFX_goal_generic_oil_refinery
+
+	dynamic = yes
+
+	icon = {
+		GFX_goal_generic_oil_refinery = {
+			original_tag = EST
+		}
+		GFX_focus_generic_agricultural_subsidies = {
+			original_tag = LIT
+		}
+		GFX_focus_generic_steel	= {
+			original_tag = LAT
+		}
+		GFX_focus_generic_steel = yes
+	}
+
 	prerequisite = { focus = BALTIC_modernize_industry }
+
 	x = 3
 	y = 1
 	relative_position_id = BALTIC_modernize_industry

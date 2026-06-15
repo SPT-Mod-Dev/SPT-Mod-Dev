@@ -275,9 +275,40 @@ if = {
 		autonomous_state = autonomy_dominion
 		freedom_level = 0.2
 	}
+	# set_autonomy = {
+	# 	target = BRM
+	# 	autonomous_state = autonomy_colony
+	# 	freedom_level = 0.2
+	# }
+	#set_autonomy = {
+	#	target = EGY
+	#	autonomous_state = autonomy_dominion
+	#	freedom_level = 0.2
+	#}
+	# set_autonomy = {
+	# 	target = PAL
+	# 	autonomous_state = autonomy_integrated_puppet
+	# 	freedom_level = 0.5
+	# }
+	# set_autonomy = {
+	# 	target = JOR
+	# 	autonomous_state = autonomy_colony
+	# 	freedom_level = 0.2
+	# }
+	# set_autonomy = {
+	# 	target = KUW
+	# 	autonomous_state = autonomy_integrated_puppet
+	# 	freedom_level = 0.5
+	# }
+
 	else = {
 		puppet = MAL
 		puppet = RAJ
+		# puppet = JOR
+		# puppet = PAL
+		# puppet = EGY
+		# puppet = KUW
+		# puppet = OMA
 	}
 }
 
@@ -683,6 +714,20 @@ recruit_character = ENG_john_cockcroft
 recruit_character = ENG_charles_goodeve
 recruit_character = ENG_nevil_shute
 recruit_character = ENG_robert_watson_watt
+
+if = { 
+	limit = {
+		has_dlc = "Thunder at Our Gates"
+	}
+	recruit_character = ENG_robert_menzies #Through AST focus tree, Australian PM Menzies can become leader in ENG
+}
+
+if = {
+	limit = {
+		has_dlc = "Graveyard of Empires"
+	}
+	recruit_character = ENG_jack_churchill 
+}
 
 
 

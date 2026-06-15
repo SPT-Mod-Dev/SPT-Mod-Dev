@@ -6,10 +6,16 @@ bookmarks = {
 		picture = "GFX_select_date_1936"
 		default_country = "GER"
 		default = yes
-		
+
+		# filters = { new_content continent }
+		# filters can also contain 'label'
+		# in that case the countries below can have 'label = { label_1 }' or 'label = { label_1 label_2 }'
+		# all these labels will be gathered and displayed as filter buttons
+
 		"FRA"={
 			history = "FRA_GATHERING_STORM_DESC"
 			ideology = democratic
+			version = base_game
 			available = { NOT = { has_dlc = "La Resistance" } }
 			ideas = {
 				FRA_victors_of_wwi
@@ -25,14 +31,15 @@ bookmarks = {
 		"FRA"={
 			history = "FRA_GATHERING_STORM_DESC"
 			ideology = democratic
-			available = { has_dlc = "La Resistance" } 
+			version = la_resistance
+			required_dlc = { "La Resistance" }
 			ideas = {
 				FRA_victors_of_wwi
 				FRA_disjointed_government
 				FRA_protected_by_the_maginot_line
 			}
 			focuses = {
-				#SPT change to showcase relevant focuses instead
+				# SPTchange to showcase relevant focuses instead
 				FRA_go_with_britain
 				FRA_reform_the_labour_laws
 				FRA_begin_rearmament
@@ -41,13 +48,14 @@ bookmarks = {
 		"USA"={
 			history = "USA_GATHERING_STORM_DESC"
 			ideology = democratic
+			version = base_game
 			ideas = {
 				home_of_the_free
 				great_depression
 				undisturbed_isolation
 			}
 			focuses = {
-				#SPT change to showcase relevant focuses instead
+				# SPTchange to showcase relevant focuses instead
 				USA_continue_the_new_deal
 				SPT_USA_american_war_industry
 				SPT_USA_towards_landon
@@ -56,14 +64,15 @@ bookmarks = {
 		"ENG"={
 			history = "ENG_GATHERING_STORM_DESC"
 			ideology = democratic
-			available = { has_dlc = "Man the Guns" }
+			version = man_the_guns
+			required_dlc = { "Man the Guns" }
 			ideas = {
 				stiff_upper_lip
 				ENG_the_war_to_end_all_wars
 				george_v
 			}
 			focuses = {
-				#SPT change to showcase relevant focuses instead
+				# SPTchange to showcase relevant focuses instead
 				ENG_imperial_conference
 				ENG_chiefs_of_staff_committee
 				ENG_steady_as_she_goes
@@ -72,6 +81,7 @@ bookmarks = {
 		"ENG"={
 			history = "ENG_GATHERING_STORM_DESC"
 			ideology = democratic
+			version = base_game
 			available = { NOT = { has_dlc = "Man the Guns" } }
 			ideas = {
 				stiff_upper_lip
@@ -87,14 +97,15 @@ bookmarks = {
 		"GER"={
 			history = "GER_GATHERING_STORM_DESC"
 			ideology = fascism
-			available = { has_dlc = "Waking the Tiger" }
+			version = gotterdammerung
+			required_dlc = { "Gotterdammerung" }
 			ideas = {
-				sour_loser
-				general_staff
-				GER_mefo_bills_1
+				GER_mefo_bills_1936_fake_ns
+				GER_army_1936_fake_ns
+				GER_airforce_fake_ns
 			}
 			focuses = {
-				#SPT change to showcase relevant focuses instead
+				# SPTchange to showcase relevant focuses instead
 				GER_fuhrerprinzip
 				GER_anschluss
 				GER_uplift_the_rosenberg_office
@@ -103,11 +114,12 @@ bookmarks = {
 		"GER"={
 			history = "GER_GATHERING_STORM_DESC"
 			ideology = fascism
-			available = { NOT = { has_dlc = "Waking the Tiger" } }
+			version = base_game
+			available = { NOT = { has_dlc = "Gotterdammerung" } }
 			ideas = {
-				sour_loser
-				general_staff
-				GER_mefo_bills_1
+				GER_mefo_bills_1936_fake_ns
+				GER_army_1936_fake_ns
+				GER_airforce_fake_ns
 			}
 			focuses = {
 				GER_fuhrerprinzip
@@ -118,14 +130,15 @@ bookmarks = {
 		"ITA"={
 			history = "ITA_GATHERING_STORM_DESC"
 			ideology = fascism
-			available = { has_dlc = "By Blood Alone" }
+			version = by_blood_alone
+			required_dlc = { "By Blood Alone" }
 			ideas = {
 				vittorio_emanuele
 				ITA_iri_fake_ns
 				ITA_re_fake_ns
 			}	
 			focuses = {
-				#SPT change to showcase relevant focuses instead
+				# SPTchange to showcase relevant focuses instead
 				ITA_culto_del_duce
 				ITA_ministry_of_italian_africa
 				ITA_towards_a_greater_italy
@@ -134,6 +147,7 @@ bookmarks = {
 		"ITA"={
 			history = "ITA_GATHERING_STORM_DESC"
 			ideology = fascism
+			version = base_game
 			available = { NOT = { has_dlc = "By Blood Alone" } }
 			ideas = {
 				vittorio_emanuele
@@ -150,7 +164,7 @@ bookmarks = {
 			history = "JAP_GATHERING_STORM_DESC"
 			available = {  NOT = { has_dlc = "No Compromise, No Surrender" } }
 			ideology = neutrality
-			new_content = yes
+			version = base_game
 			override_leader_portrait = JAP_emperor_hirohito
 			ideas = {
 				JAP_1936_fake_state_shintoism_idea
@@ -166,9 +180,9 @@ bookmarks = {
 
 		JAP = {
 			history = "JAP_GATHERING_STORM_DESC"
-			available = {  has_dlc = "No Compromise, No Surrender" }
+			required_dlc = { "No Compromise, No Surrender" }
+			version = no_compromise_no_surrender
 			ideology = neutrality
-			new_content = yes
 			override_leader_portrait = JAP_emperor_hirohito
 			ideas = {
 				JAP_1936_fake_state_shintoism_idea
@@ -176,7 +190,7 @@ bookmarks = {
 				JAP_militarism
 			}
 			focuses = {
-				#SPT change to showcase relevant focuses instead
+				# SPTchange to showcase relevant focuses instead
 				JAP_sea_purge_the_kodoha_faction
 				JAP_the_eternal_kingdom
 				JAP_revere_the_emperor_destroy_the_traitors
@@ -187,14 +201,15 @@ bookmarks = {
 		"SOV"={
 			history = "SOV_GATHERING_STORM_DESC"
 			ideology = communism
-			available = { has_dlc = "No Step Back" }
+			version = no_step_back
+			required_dlc = { "No Step Back" }
 			ideas = {
 				trotskyite_plot_nsb
 				SOV_second_five_year_plan_fake_1936_ns
 				SOV_politicized_military
 			}
 			focuses = {
-				#SPT change to showcase relevant focuses instead
+				# SPTchange to showcase relevant focuses instead
 				SOV_stalins_cult_of_personality
 				SOV_third_five_year_plan
 				SOV_the_comintern
@@ -203,6 +218,7 @@ bookmarks = {
 		"SOV"={
 			history = "SOV_GATHERING_STORM_DESC"
 			ideology = communism
+			version = base_game
 			available = { NOT = { has_dlc = "No Step Back" } }
 			ideas = {
 				trotskyite_plot_nsb
@@ -225,13 +241,14 @@ bookmarks = {
 		"CAN"={
 			minor = yes
 			history = "CAN_GATHERING_STORM_DESC"
+			version = base_game
 			ideology = democratic
 			ideas = {
 				CAN_great_depression_1
 				CAN_conscription_crisis
 			}
 			focuses = {
-				#SPT change to showcase relevant focuses instead
+				# SPTchange to showcase relevant focuses instead
 				CAN_war_fueled_economy
 				CAN_the_plan
 				CAN_send_in_the_zombies
@@ -240,26 +257,48 @@ bookmarks = {
 		"AST"={
 			minor = yes
 			history = "AST_GATHERING_STORM_DESC"
+			available = {  NOT = { has_dlc = "Thunder at Our Gates" } }
+			version = base_game
+			assume_not_played_if_missing_data = yes
 			ideology = democratic
 			ideas = {
 				AST_great_depression_1
 			}
 			focuses = {
-				#SPT change to showcase relevant focuses instead
-				AST_rats_of_tobruk
-				AST_invest_in_victory
-				AST_the_singapore_strategy
+				AST_never_another_gallipoli
+				AST_support_indonesian_uprising
+				AST_delegation_to_china
+			}
+		}
+		"AST"={
+			minor = yes
+			history = "AST_GATHERING_STORM_DESC"
+			required_dlc = { "Thunder at Our Gates" }
+			version = thunder_at_our_gates
+			assume_not_played_if_missing_data = yes
+			ideology = democratic
+			ideas = {
+				AST_poor_population_growth
+				AST_great_depression_taog_spirit_fake
+				AST_citizen_army_spirit_fake
+			}
+			focuses = {
+				AST_war_is_coming
+				AST_overseas_loyalties
+				AST_anzac_spirit
 			}
 		}
 		"NZL"={
 			minor = yes
 			history = "NZL_GATHERING_STORM_DESC"
+			version = thunder_at_our_gates
+			assume_not_played_if_missing_data = yes
 			ideology = democratic
 			ideas = {
 				
 			}
 			focuses = {
-				#SPT change to showcase relevant focuses instead
+				# SPTchange to showcase relevant focuses instead
 				NZL_bob_semple_tank
 				NZL_wairarapa_sheep_farms
 				NZL_maori_volunteers
@@ -268,13 +307,14 @@ bookmarks = {
 		"SAF"={
 			minor = yes
 			history = "SAF_GATHERING_STORM_DESC"
+			version = base_game
 			ideology = democratic
 			ideas = {
 				SAF_ossewabrandwag
 				SAF_history_of_segregation
 			}
 			focuses = {
-				#SPT change to showcase relevant focuses instead
+				# SPTchange to showcase relevant focuses instead
 				SAF_expand_the_cape_corps
 				SAF_secure_interests_in_africa
 				SAF_outlaw_strikes
@@ -285,12 +325,13 @@ bookmarks = {
 			history = "RAJ_GATHERING_STORM_DESC"
 			available = {  NOT = { has_dlc = "Graveyard of Empires" } }
 			ideology = neutrality
+			version = base_game
 			ideas = {
 				RAJ_agrarian_society
 				RAJ_princely_states
 			}
 			focuses = {
-				#SPT change to showcase relevant focuses instead
+				# SPTchange to showcase relevant focuses instead
 				RAJ_quit_india_movement
 				RAJ_indian_gurkhas
 				RAJ_the_smiling_buddha
@@ -300,8 +341,9 @@ bookmarks = {
 		RAJ = {
 			minor = yes
 			history = "RAJ_GATHERING_STORM_DESC"
-			available = {  has_dlc = "Graveyard of Empires" }
+			required_dlc = { "Graveyard of Empires" }
 			ideology = neutrality
+			version = graveyard_of_empires
 			ideas = {
 				RAJ_marginalized_muslim_community
 				RAJ_princely_states
@@ -336,13 +378,14 @@ bookmarks = {
 			minor = yes
 			history = "MEXICO_GATHERING_STORM_DESC"
 			ideology = neutrality
+			version = base_game
 			ideas = {
 				MEX_church_power_2
 				MEX_politicised_army
 				MEX_oil_concessions
 			}
 			focuses = {
-				#SPT change to showcase relevant focuses instead
+				# SPTchange to showcase relevant focuses instead
 				MEX_focus_knights_of_columbus
 				MEX_focus_support_general_cedillo
 				MEX_focus_community_of_nations
@@ -359,7 +402,7 @@ bookmarks = {
 
 			}
 			focuses = {
-				#SPT change to showcase relevant focuses instead
+				# SPTchange to showcase relevant focuses instead
 				BRA_invite_foreign_companies
 				BRA_cooperation_in_the_americas
 				BRA_banco_do_brasil
@@ -370,11 +413,33 @@ bookmarks = {
 			minor = yes
 			history = "HUN_GATHERING_STORM_DESC"
 			ideology = neutrality
+			available = {  NOT = { has_dlc = "Gotterdammerung" } }
+			version = base_game
 			ideas = {
 				HUN_treaty_of_triannon
+				HUN_gombos_trade_treaty
 			}
 			focuses = {
-				#SPT change to showcase relevant focuses instead
+				# SPTchange to showcase relevant focuses instead
+				wuw_HUN_strengthen_horthys_reign
+				wuw_HUN_undermine_the_admiral
+				wuw_HUN_secret_rearmament
+			}
+		}
+
+		HUN = {
+			minor = yes
+			history = "HUN_GATHERING_STORM_DESC"
+			ideology = neutrality
+			required_dlc = { "Gotterdammerung" }
+			version = gotterdammerung
+			ideas = {
+				HUN_treaty_of_triannon_wuw
+				HUN_gombos_trade_treaty
+				HUN_hungarian_national_defense_association
+			}
+			focuses = {
+				# SPTchange to showcase relevant focuses instead
 				wuw_HUN_strengthen_horthys_reign
 				wuw_HUN_undermine_the_admiral
 				wuw_HUN_secret_rearmament
@@ -385,12 +450,13 @@ bookmarks = {
 			minor = yes
 			history = "ROM_GATHERING_STORM_DESC"
 			ideology = neutrality
+			version = base_game
 			ideas = {
 				ROM_king_carol_ii_hedonist
 				neutrality_idea
 			}
 			focuses = {
-				#SPT change to showcase relevant focuses instead
+				# SPTchange to showcase relevant focuses instead
 				ROM_german_romanian_oil_exploitation_company
 				ROM_national_christian_party
 				ROM_preserve_greater_romania
@@ -401,13 +467,14 @@ bookmarks = {
 			minor = yes
 			history = "BUL_GATHERING_STORM_DESC"
 			ideology = neutrality
+			version = base_game
 			ideas = {
 				BUL_second_national_catastrophe
 				BUL_army_restrictions
 				BUL_imro_01
 			}
 			focuses = {
-				#SPT change to showcase relevant focuses instead
+				# SPTchange to showcase relevant focuses instead
 				BUL_power_to_the_tsar
 				BUL_restore_the_bulgarian_patriarchate
 				BUL_prussia_of_the_balkans
@@ -434,28 +501,47 @@ bookmarks = {
 			minor = yes
 			history = "SPAIN_GATHERING_STORM_DESC"
 			ideology = democratic
+			version = base_game
 			ideas = {
 				SPR_military_disloyalty
 				SPA_carlism_1
 				SPR_political_violence
 			}
 			focuses = {
-				#SPT change to showcase relevant focuses instead
+				# SPTchange to showcase relevant focuses instead
 				SPA_caudillo_of_spain
 				SPA_expand_the_axis_gold_trade
 				SPA_join_the_axis
 			}
 		}
-	
-		"FIN"={
+
+		FIN = {
 			minor = yes
-			history = "FIN_GATHERING_STORM_DESC"
+			history = FIN_GATHERING_STORM_DESC
 			ideology = neutrality
+			available = {  NOT = { has_dlc = "Arms Against Tyranny" } }
+			version = base_game
 			ideas = {
-				sisu
+				FIN_sisu_2
 			}
 			focuses = {
-				#SPT change to showcase relevant focuses instead
+				# SPTchange to showcase relevant focuses instead
+				FIN_strengthen_military_administration
+				FIN_the_lone_wolf
+				FIN_greater_finland
+			}
+		}
+		FIN = {
+			minor = yes
+			history = FIN_GATHERING_STORM_DESC
+			ideology = neutrality
+			required_dlc = { "Arms Against Tyranny" }
+			version = arms_against_tyranny
+			ideas = {
+				FIN_sisu_2
+			}
+			focuses = {
+				# SPTchange to showcase relevant focuses instead
 				FIN_strengthen_military_administration
 				FIN_the_lone_wolf
 				FIN_greater_finland
@@ -467,7 +553,6 @@ bookmarks = {
 			available = { has_dlc = "No Compromise, No Surrender" } 
 			history = "MAN_TSR_BLITZKRIEG_DESC"
 			ideology = fascism
-			new_content = yes
 			ideas = {
 				MAN_the_kangde_emperor
 				MAN_five_year_plan_industry
@@ -484,16 +569,19 @@ bookmarks = {
 			minor = yes
 			history = "SIA_GATHERING_STORM_DESC"
 			ideology = neutrality
+			available = { has_dlc = "Thunder at Our Gates" } 
+			required_dlc  = { "Thunder at Our Gates" }
+			version = thunder_at_our_gates
+			assume_not_played_if_missing_data = yes
 			ideas = {
-				SPT_SIA_economic_woes_0
-				SPT_SIA_political_opposition
-				SPT_SIA_inadequate_military_0
+				idea_SIA_military_neutral
+				idea_SIA_civilian_neutral
 			}
 			focuses = {
-				#SPT change to showcase relevant focuses instead
-				SPT_SIA_phibun
-				SPT_SIA_rattanakosin_ambition
-				SPT_SIA_elephant
+				# SPTchange more interesting
+				SIA_phibuns_premiership
+				SIA_reluctant_submission
+				SIA_built_to_withstand_every_flame
 			}
 		}
 
@@ -501,12 +589,13 @@ bookmarks = {
 			minor = yes
 			history = "MON_GATHERING_STORM_DESC"
 			ideology = communism
+			version = base_game
 			ideas = {
 				mon_isolation
 				mon_memories_of_32
 			}
 			focuses = {
-				#SPT change to showcase relevant focuses instead
+				# SPTchange to showcase relevant focuses instead
 				MON_merge_the_parties
 				MON_golden_corp
 				MON_for_the_greater_good

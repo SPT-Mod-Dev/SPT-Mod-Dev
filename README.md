@@ -1,5 +1,15 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 4.2.0 Thunder at our Mod
+
+#### General
+ - Update to 1.18.3 and 1.19.01 with most changes, excluding:
+   - (1.19) Terrain nerfs to flame tanks
+   - (1.19) Not giving bonuses for USA ABDA Maintain Strategic Flexibility for now
+   - (1.18.3) HMG and LMG module changes
+   - (1.18.3) Most of Ship & Navy changes
+ - Fully updated 'Fate of Czechoslovakia' event to Peace for our Time
+
 ### 4.1.3
 
 #### Spain

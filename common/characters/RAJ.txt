@@ -136,6 +136,14 @@ characters={
 							NOT = { has_country_flag = has_arrested_bose }
 						}
 					}
+					NOT = {
+						has_idea = idea_RAJ_bose_hiding_raj
+						has_idea = idea_RAJ_bose_hiding_afghanistan
+						has_idea = idea_RAJ_bose_hiding_ussr
+						has_idea = idea_RAJ_bose_hiding_ger
+						has_idea = idea_RAJ_bose_submarine
+						has_idea = idea_RAJ_bose_jap
+					}
 				}
 			}
 			advisor = {
@@ -143,15 +151,6 @@ characters={
 				idea_token = RAJ_subhas_chanda_bose
 				allowed = {
 					original_tag = RAJ
-				}
-				available = {
-					OR = {
-						has_country_flag = has_swayed_bose_to_communism
-						ROOT = { 
-							has_completed_focus = RAJ_forward_bloc 
-							NOT = { has_country_flag = has_arrested_bose }
-						}
-					}
 				}
 
 				visible = {
@@ -163,6 +162,28 @@ characters={
 						}
 					}
 				}
+
+				available = {
+					OR = {
+						has_country_flag = has_swayed_bose_to_communism
+						ROOT = { 
+							has_completed_focus = RAJ_forward_bloc 
+							NOT = { has_country_flag = has_arrested_bose }
+						}
+					}
+					custom_trigger_tooltip = {
+						tooltip = RAJ_bose_is_hiding_tt
+						NOT = {
+							has_idea = idea_RAJ_bose_hiding_raj
+							has_idea = idea_RAJ_bose_hiding_afghanistan
+							has_idea = idea_RAJ_bose_hiding_ussr
+							has_idea = idea_RAJ_bose_hiding_ger
+							has_idea = idea_RAJ_bose_submarine
+							has_idea = idea_RAJ_bose_jap
+						}
+					}
+				}
+				
 				traits = {
 					pragmatic_authoritarian 
 				}
@@ -1298,6 +1319,10 @@ characters={
 					original_tag = PAK
 					original_tag = AFG
 					original_tag = RAJ
+					AND = {
+						original_tag = RAJ
+						has_completed_focus = RAJ_the_mughal_uprising
+					}
 				}
 			}
 			traits = {
@@ -1961,6 +1986,11 @@ characters={
 			allowed = {
 				original_tag = RAJ
 			}
+			visible = {
+				PAK = {
+					exists = no
+				}
+			}
 			traits = {
 				muslim_scholar 
 			}
@@ -2002,6 +2032,11 @@ characters={
 			traits = {
 				well_mannered_iman 
 			}
+			visible = {
+				PAK = {
+					exists = no
+				}
+			}
 		}
 	}
 
@@ -2019,6 +2054,22 @@ characters={
 		#country_leader = {
 		#	ideology = despotism
 		#	traits = { RAJ_heir_of_the_empire }
+		#	expire = "1965.1.1.1"
+		#	id = -1
+		#}
+	}
+
+	RAJ_abdul_ghaffar_khan = {
+		name = RAJ_abdul_ghaffar_khan
+		portraits = {
+			civilian = {
+				large = GFX_portrait_RAJ_abdul_ghaffar_khan
+				small = GFX_portrait_RAJ_abdul_ghaffar_khan_small
+			}
+		}
+		#country_leader = {
+		#	ideology = despotism
+		#	traits = { RAJ_khudai_khidmatgar_leader }
 		#	expire = "1965.1.1.1"
 		#	id = -1
 		#}

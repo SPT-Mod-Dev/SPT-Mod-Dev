@@ -101,7 +101,13 @@ generic_tank_organization = {
 				has_dlc = "No Compromise, No Surrender"
 				
 			}
-		}		
+		}
+		NOT = {
+			AND =  {
+				original_tag = SIA
+				has_dlc = "Thunder at Our Gates"
+			}
+		}
 	}
 
 	equipment_type = { mio_cat_eq_all_light_tank mio_cat_eq_all_medium_tank }
@@ -415,11 +421,7 @@ generic_infantry_tank_organization = {
 		mutually_exclusive = { generic_mio_trait_overlapped_track_wheels }
 
 		equipment_bonus = {
-			maximum_speed = 0.1
-		}
-
-		production_bonus = {
-			production_cost_factor = 0.05
+			maximum_speed = 0.05
 		}
 	}
 
@@ -2574,6 +2576,15 @@ generic_escort_ship_organization = {
 				has_dlc = "No Compromise, No Surrender"
 			}
 		}
+		NOT = {
+			AND = {
+				OR = {
+					original_tag = INS
+					original_tag = SIA
+				}
+				has_dlc = "Thunder at Our Gates"
+			}
+		}
 	}
 
 	equipment_type = {
@@ -4112,6 +4123,15 @@ generic_general_aircraft_organization = {
 					original_tag = KHM
 				}
 				has_dlc = "No Compromise, No Surrender"
+			}
+		}
+		NOT = {
+			AND = {
+				OR = {
+					original_tag = INS
+					original_tag = SIA
+				}
+				has_dlc = "Thunder at Our Gates"
 			}
 		}
 	}
@@ -6849,7 +6869,7 @@ generic_artillery_organization = {
 	icon = GFX_idea_generic_artillery_manufacturer_2
 
 	allowed = {
-		NOT = { OR = { original_tag = GER tag = ENG tag = SOV tag = FRA tag = ITA tag = USA tag = JAP tag = CZE tag = ROM tag = MEX tag = SLO tag = RKH } }
+		NOT = { OR = { original_tag = GER tag = ENG tag = SOV tag = FRA tag = ITA tag = USA tag = JAP tag = CZE tag = ROM tag = MEX tag = SLO tag = RKH tag = INS } }
 		NOT = {
 			AND = {
 				tag = POL
@@ -6950,6 +6970,15 @@ generic_artillery_organization = {
 #				}
 				has_dlc = "No Compromise, No Surrender"
 				
+			}
+		}
+		NOT = {
+			AND = {
+				OR = {
+					original_tag = AST
+					original_tag = SIA
+				}
+				has_dlc = "Thunder at Our Gates"
 			}
 		}
 	}
@@ -7261,7 +7290,7 @@ generic_infantry_equipment_organization = {
 	icon = GFX_idea_generic_infantry_equipment_manufacturer_2
 
 	allowed = {
-		NOT = { OR = { original_tag = GER tag = ENG tag = SOV tag = FRA tag = ITA tag = JAP tag = USA tag = BEL tag = CZE tag = HUN tag = YUG tag = ROM tag = MEX tag = TUR tag = EST tag = SLO tag = RKH } }
+		NOT = { OR = { original_tag = GER tag = ENG tag = SOV tag = FRA tag = ITA tag = JAP tag = USA tag = BEL tag = CZE tag = HUN tag = YUG tag = ROM tag = MEX tag = TUR tag = EST tag = SLO tag = RKH tag = INS } }
 		NOT = {
 			AND = {
 				tag = POL
@@ -7361,6 +7390,14 @@ generic_infantry_equipment_organization = {
 #				}
 				has_dlc = "No Compromise, No Surrender"
 				
+			}
+		}
+		NOT = {
+			AND = {
+				OR = {
+					original_tag = SIA
+				}
+				has_dlc = "Thunder at Our Gates"
 			}
 		}
 	}
@@ -7834,7 +7871,7 @@ generic_support_equipment_organization = {
 		name = generic_mio_trait_single_shot_man_portable_anti_tank_system
 		icon = GFX_generic_mio_trait_icon_soft_attack
 		
-		position = { x=0 y=4 }
+		position = { x=0 y=3 }
 		relative_position_id = generic_mio_trait_anti_tank_rifle
 		
 		all_parents = { generic_mio_trait_anti_tank_rifle }
@@ -7854,7 +7891,7 @@ generic_support_equipment_organization = {
 		name = generic_mio_trait_small_sidearms
 		icon = GFX_generic_mio_trait_icon_defense
 		
-		position = { x=1 y=2 }
+		position = { x=1 y=1 }
 		relative_position_id = generic_mio_trait_private_tenders
 		
 		all_parents = { generic_mio_trait_private_tenders }
@@ -8023,6 +8060,16 @@ generic_motorized_mechanized_organization = {
 					original_tag = KUM
 				}
 				has_dlc = "No Compromise, No Surrender"
+			}
+		}
+		NOT = {
+			AND = {
+				OR = {
+					original_tag = INS
+					original_tag = AST
+					original_tag = SIA
+				}
+				has_dlc = "Thunder at Our Gates"
 			}
 		}
 	}
@@ -8210,7 +8257,7 @@ generic_motorized_mechanized_organization = {
 		
 		mutually_exclusive = { generic_mio_trait_advanced_artillery_racks generic_mio_trait_mounted_light_anti_tank_gun }
 		
-		limit_to_equipment_type = { mechanized_equipment motorized_equipment }
+		limit_to_equipment_type = { mechanized_equipment amphibious_mechanized_equipment motorized_equipment }
 		
 		equipment_bonus = {
 			breakthrough = 0.04
@@ -8230,7 +8277,7 @@ generic_motorized_mechanized_organization = {
 		
 		all_parents = { generic_mio_trait_bulletproof_panels }
 		
-		limit_to_equipment_type = { mechanized_equipment }
+		limit_to_equipment_type = { mechanized_equipment amphibious_mechanized_equipment }
 
 		equipment_bonus = {
 			ap_attack = 0.1
@@ -8246,7 +8293,7 @@ generic_motorized_mechanized_organization = {
 		position = { x=2 y=0 }
 		relative_position_id = generic_mio_trait_medium_machinegun_mounts
 		
-		limit_to_equipment_type = { mechanized_equipment }
+		limit_to_equipment_type = { mechanized_equipment amphibious_mechanized_equipment }
 		
 		mutually_exclusive = { generic_mio_trait_closed_chassi }
 
@@ -8264,7 +8311,7 @@ generic_motorized_mechanized_organization = {
 		position = { x=2 y=0 }
 		relative_position_id = generic_mio_trait_open_chassi
 		
-		limit_to_equipment_type = { mechanized_equipment }
+		limit_to_equipment_type = { mechanized_equipment amphibious_mechanized_equipment }
 		
 		mutually_exclusive = { generic_mio_trait_open_chassi }
 
@@ -8282,7 +8329,7 @@ generic_motorized_mechanized_organization = {
 		position = { x=-1 y=2 }
 		relative_position_id = generic_mio_trait_closed_chassi
 		
-		limit_to_equipment_type = { mechanized_equipment }
+		limit_to_equipment_type = { mechanized_equipment amphibious_mechanized_equipment }
 		
 		any_parent = { generic_mio_trait_closed_chassi generic_mio_trait_open_chassi }
 
@@ -8299,7 +8346,7 @@ generic_motorized_mechanized_organization = {
 		position = { x=0 y=2 }
 		relative_position_id = generic_mio_trait_bulletproof_panels
 		
-		limit_to_equipment_type = { mechanized_equipment }
+		limit_to_equipment_type = { mechanized_equipment amphibious_mechanized_equipment }
 		
 		all_parents = { generic_mio_trait_bulletproof_panels }
 
@@ -8316,7 +8363,7 @@ generic_motorized_mechanized_organization = {
 		position = { x=1 y=0 }
 		relative_position_id = generic_mio_trait_light_flame_projectors
 		
-		limit_to_equipment_type = { mechanized_equipment }
+		limit_to_equipment_type = { mechanized_equipment amphibious_mechanized_equipment }
 		
 		all_parents = { generic_mio_trait_bulletproof_panels }
 

@@ -1756,7 +1756,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = CHI_leverage_contacts
-		cost = 10
+		cost = 5
 		available = {
 		}
 	
@@ -3142,7 +3142,7 @@ focus_tree = {
 		x = 3
 		y = 2
 		relative_position_id = CHI_infiltrate_the_examination_yuan
-		cost = 10
+		cost = 5
 		available = {
 		}
 	
@@ -5276,7 +5276,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = CHI_secure_the_soviet_border
-		cost = 10
+		cost = 5
 		available = {
 			has_dynamic_modifier = {
 				modifier = CHI_soviet_support
@@ -7714,7 +7714,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = CHI_china_reborn
-		cost = 10
+		cost = 5
 		available = {
 		}
 	
@@ -7841,7 +7841,7 @@ focus_tree = {
 	focus = {
 		id = CHI_seek_out_western_fascist_cooperation
 		icon = {
-			trigger = {
+			GFX_focus_chi_mission_to_germany = {
 				GER = {
 					has_government = fascism
 					NOT = {
@@ -7853,10 +7853,7 @@ focus_tree = {
 					has_wargoal_against = GER
 				}
 			}
-			value = GFX_focus_chi_mission_to_germany
-		}
-		icon = {
-			trigger = {
+			GFX_focus_befriend_italy = {
 				GER = {
 					OR = {
 						has_war_with = ROOT
@@ -7878,10 +7875,7 @@ focus_tree = {
 					has_wargoal_against = ITA
 				}
 			}
-			value = GFX_focus_befriend_italy
-		} 
-		icon = {
-			trigger = {
+			GFX_focus_ARG_fascist_researchers = {
 				OR = {
 					AND = {
 						GER = {
@@ -7909,14 +7903,8 @@ focus_tree = {
 					}
 				}
 			}
-			value = GFX_focus_ARG_fascist_researchers
+			GFX_focus_ARG_fascist_researchers = yes
 		}
-		icon = {
-			trigger = {
-				always = yes
-			}
-			value = GFX_focus_generic_spread_fascism
-		} 
 
 		prerequisite = { focus = CHI_outlaw_opposition_parties }
 	
@@ -7973,6 +7961,16 @@ focus_tree = {
 					category = industry
 					category = electronics
 					name = CHI_seek_out_western_fascist_cooperation
+				}
+				IF = {
+					limit = {
+						has_dlc = "Arms Against Tyranny"
+					}	
+					custom_effect_tooltip = available_mio_tt
+					show_mio_tooltip = CHI_ncns_sino_german_technical_mission_organization
+					mio:CHI_ncns_sino_german_technical_mission_organization = {
+						add_mio_size = 1
+					}
 				}
 			}
 			else_if = {
@@ -8053,7 +8051,7 @@ focus_tree = {
 		x = 4
 		y = 1
 		relative_position_id = CHI_reform_the_blue_shirts
-		cost = 10
+		cost = 5
 		available = {
 			OR = {
 				controls_state = 1035
@@ -10808,7 +10806,7 @@ focus_tree = {
 		x = 3
 		y = 2
 		relative_position_id = CHI_decisive_battles
-		cost = 10
+		cost = 5
 		available = {
 		}
 			   	 
@@ -11328,7 +11326,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = CHI_bog_them_down_in_the_centre
-		cost = 10
+		cost = 5
 		available = {
 		}
 			   	 
@@ -11375,7 +11373,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = CHI_bog_them_down_in_the_centre
-		cost = 10
+		cost = 5
 		available = {
 		}
 			   	 
@@ -11400,7 +11398,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = CHI_guerrilla_warfare
-		cost = 10
+		cost = 5
 		available = {
 		}
 			   	 
@@ -11448,7 +11446,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = CHI_appear_where_you_are_not_expected
-		cost = 10
+		cost = 5
 		available = {
 		}
 			   	 
@@ -11475,7 +11473,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = CHI_organise_the_200th_division
-		cost = 10
+		cost = 5
 		available = {
 		}
 			   	 
@@ -11509,7 +11507,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = CHI_motorise_our_infantry
-		cost = 10
+		cost = 5
 		available = {
 		}
 		allow_branch = {
@@ -12536,8 +12534,23 @@ focus_tree = {
 					name = CHI_hongxiang_force
 					cost_reduction = 0.5
 					uses = 2
-					category = cat_paratroopers_doctrine
-				}	
+					category = special_forces_doctrine
+				}
+				custom_effect_tooltip = paratrooper_subdoctrines_default_add_mastery_bonus_effect_tooltip
+				hidden_effect = {
+					add_mastery_bonus = {
+						name = CHI_hongxiang_force
+						bonus = 0.1
+						days = 240
+						sub_doctrine = paratroopers_1
+					}
+					add_mastery_bonus = {
+						name = CHI_hongxiang_force
+						bonus = 0.1
+						days = 240
+						sub_doctrine = paratroopers_2
+					}
+				}					
 			}
 			
 		}
@@ -13043,7 +13056,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = CHI_officialize_the_rocaf
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -13139,7 +13152,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = CHI_officialize_the_rocaf
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 4
@@ -13806,7 +13819,7 @@ focus_tree = {
 		x = -4
 		y = 1
 		relative_position_id = CHI_deny_the_enemy
-		cost = 10
+		cost = 5
 		available = {
 		}
 			   	 
@@ -14345,7 +14358,7 @@ focus = CHI_long_range }
 		x = -2
 		y = 1
 		relative_position_id = CHI_heavy_cruiser_focus
-		cost = 10
+		cost = 5
 		available = {
 		}
 			   	 
@@ -15088,7 +15101,7 @@ focus = CHI_long_range }
 		x = 0
 		y = 1
 		relative_position_id = CHI_find_foreign_financiers
-		cost = 10
+		cost = 5
 		available = {
 			any_other_country = {
 				is_major = yes
@@ -15211,7 +15224,7 @@ focus = CHI_long_range }
 		x = 0
 		y = 1
 		relative_position_id = CHI_monopolise_resource_extraction
-		cost = 10
+		cost = 5
 		available = {
 			any_owned_state = {
 				is_fully_controlled_by = ROOT
@@ -15275,7 +15288,7 @@ focus = CHI_long_range }
 		x = 2
 		y = 1
 		relative_position_id = CHI_monopolise_resource_extraction
-		cost = 10
+		cost = 5
 		available = {
 		}
 	
@@ -15439,7 +15452,7 @@ focus = CHI_long_range }
 		x = 4
 		y = 2
 		relative_position_id = CHI_monopolise_resource_extraction
-		cost = 10
+		cost = 5
 		available = {
 		}
 	
@@ -15619,7 +15632,7 @@ focus = CHI_long_range }
 		x = -1
 		y = 1
 		relative_position_id = CHI_develop_the_chemical_industry
-		cost = 10
+		cost = 5
 		available = {
 		}
 	
@@ -15675,7 +15688,7 @@ focus = CHI_long_range }
 		x = 1
 		y = 1
 		relative_position_id = CHI_develop_the_chemical_industry
-		cost = 10
+		cost = 5
 		available = {
 			has_dynamic_modifier = { modifier = CHI_inefficient_economy }
 		}
@@ -15701,13 +15714,11 @@ focus = CHI_long_range }
 	focus = {
 		id = CHI_construct_the_banqiao_dam
 		icon = GFX_focus_generic_hydroelectric_energy
-		prerequisite = { focus = CHI_found_a_modern_fertiliser_plant focus = CHI_import_fertilisers }
-		prerequisite = { focus = CHI_central_steel_and_machine_works }
-		prerequisite = { focus = CHI_tungsten_and_antimony_extraction }
-	
-		x = 1
+		prerequisite = { focus = CHI_monopolise_resource_extraction }
+
+		x = -2
 		y = 1
-		relative_position_id = CHI_found_a_modern_fertiliser_plant
+		relative_position_id = CHI_monopolise_resource_extraction
 		cost = 10
 		available = {
 			controls_state = 607
@@ -15738,10 +15749,13 @@ focus = CHI_long_range }
 	focus = {
 		id = CHI_expand_national_sun_yat_sen_university
 		icon = GFX_focus_PRC_reestablish_moscow_sun_yat_sen_university
-		prerequisite = { focus = CHI_construct_the_banqiao_dam }
-		x = 0
-		y = 1
-		relative_position_id = CHI_construct_the_banqiao_dam
+		prerequisite = { focus = CHI_found_a_modern_fertiliser_plant focus = CHI_import_fertilisers }
+		prerequisite = { focus = CHI_central_steel_and_machine_works }
+		prerequisite = { focus = CHI_tungsten_and_antimony_extraction }
+
+		x = 1
+		y = 2
+		relative_position_id = CHI_found_a_modern_fertiliser_plant
 		cost = 10
 		available = {
 			

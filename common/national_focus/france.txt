@@ -16,6 +16,7 @@
 
 	
 	default = no
+	shared_focus = ABDA_abdacom
 	focus = {
 		id = FRA_devalue_the_franc
 		icon = GFX_focus_fra_devalue_the_franc
@@ -599,6 +600,10 @@
 						state = 671
 						state = 670
 						state = 1017
+						state = 1066 
+						state = 1067 
+						state = 1068 
+						state = 1069 
 					}
 					OWNER = { is_owned_or_subject_trigger = yes }	
 					NOT = {
@@ -4499,8 +4504,28 @@
 				exists = yes
 			}
 			ITA = {
-				owns_state = 550
-				owns_state = 559
+				exists = yes
+				is_subject = no 
+			}
+			AND = {
+				OR = {
+					ITA = { 
+						controls_state = 550 
+					}					
+					any_country = {
+						is_subject_of = ITA
+						controls_state = 550 
+					}
+				}
+				OR = {
+					ITA = { 
+						controls_state = 559 
+					}					
+					any_country = {
+						is_subject_of = ITA
+						controls_state = 559 
+					}
+				}
 			}
 			has_country_flag = lar_france_stresa_front_italy_agreed
 		}
