@@ -10,6 +10,9 @@
    - (1.18.3) Most of Ship & Navy changes
  - Fully updated 'Fate of Czechoslovakia' event to Peace for our Time
 
+#### Czechoslovakia
+ - Can no longer federalize or beg Moscow for halp
+
 ### 4.1.3
 
 #### Spain
