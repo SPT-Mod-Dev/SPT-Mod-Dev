@@ -9,6 +9,7 @@
    - (1.18.3) HMG and LMG module changes
    - (1.18.3) Most of Ship & Navy changes
  - Fully updated 'Fate of Czechoslovakia' event to Peace for our Time
+ - Updated most resource prospecting decisions to allow excavation tech greater than or equal to the existing requirements
 
 #### Czechoslovakia
  - Can no longer federalize or beg Moscow for halp with Peace for our Time enabled
