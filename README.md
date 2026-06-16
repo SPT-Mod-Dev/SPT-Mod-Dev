@@ -16,6 +16,10 @@
 
 #### Japan
  - Occupy Siam now grants compliance on former French Indochina as well
+ - Focus 'Remove the Weeds from the Crop' no longer penalizes stability
+ - Focus 'Empower the Shogun' no longer penalizes stability or adds war support
+ - Focus 'Politicize the Education System' no longer penalizes stability or adds war support
+ - Focus 'Purge the Kodoha Faction' stability: 10%->15%
 
 #### Siam
  - Instituted babby protection from civil war triggers
