@@ -11,7 +11,10 @@
  - Fully updated 'Fate of Czechoslovakia' event to Peace for our Time
 
 #### Czechoslovakia
- - Can no longer federalize or beg Moscow for halp
+ - Can no longer federalize or beg Moscow for halp with Peace for our Time enabled
+
+#### United Kingdom
+ - Updated British decision to annex Malaya
 
 ### 4.1.3
 
