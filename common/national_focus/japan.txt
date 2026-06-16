@@ -13806,14 +13806,25 @@ focus_tree = {
 		}
 
 		bypass = {
-
+			# SPTchange
+			SIA = {
+				controls_state = 286
+				controls_state = 670
+				controls_state = 671
+				controls_state = 741
+				controls_state = 1017
+				controls_state = 1066
+				controls_state = 1067
+				controls_state = 1068
+				controls_state = 1069
+			}
 		}
 
 		will_lead_to_war_with = FRA
-		will_lead_to_war_with = VIN
-		will_lead_to_war_with = CAM
-		will_lead_to_war_with = LAO
-		will_lead_to_war_with = CHM
+		# will_lead_to_war_with = VIN
+		# will_lead_to_war_with = CAM
+		# will_lead_to_war_with = LAO
+		# will_lead_to_war_with = CHM
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -13963,12 +13974,13 @@ focus_tree = {
 		}
 
 		available = {
-			if = {
-				limit = {
-					has_dlc = "Thunder at Our Gates"
-				}
-				is_ai = no #I am not AI
-			}
+			# SPTchange
+			# if = {
+			# 	limit = {
+			# 		has_dlc = "Thunder at Our Gates"
+			# 	}
+			# 	is_ai = no #I am not AI
+			# }
 
 
 			is_subject = no
@@ -13977,6 +13989,7 @@ focus_tree = {
 				exists = yes
 				is_subject = no
 				is_in_faction = no
+				is_ai = no # SPTchange
 				NOT = {
 					has_war_with = ROOT
 					
@@ -14106,7 +14119,12 @@ focus_tree = {
 
 			every_owned_state = { # This one does the shit
 				limit = {
-					is_core_of = SIA
+					OR = {
+						is_core_of = SIA
+						is_core_of = VIN
+						is_core_of = CAM
+						is_core_of = LAO
+					}
 				}
 				add_compliance = 100
 			}

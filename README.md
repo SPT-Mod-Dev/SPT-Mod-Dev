@@ -14,6 +14,12 @@
 #### Czechoslovakia
  - Can no longer federalize or beg Moscow for halp with Peace for our Time enabled
 
+#### Japan
+ - Occupy Siam now grants compliance on former French Indochina as well
+
+#### Siam
+ - Babby protection from civil war triggers in place
+
 #### United Kingdom
  - Updated British decision to annex Malaya
 
