@@ -3,13 +3,16 @@
 ### 4.2.0 Thunder at Our Mod
 
 #### General
- - Update to 1.18.3 and 1.19.01 with most changes, excluding:
+ - Update to 1.18.3 and 1.19.01 with most changes, excluding in particular:
+   - (1.19) ABDACOM shared tree temporarily hidden
    - (1.19) Terrain nerfs to flame tanks
-   - (1.19) Not giving bonuses for USA ABDA Maintain Strategic Flexibility for now
    - (1.18.3) HMG and LMG module changes
    - (1.18.3) Most of Ship & Navy changes
  - Fully updated 'Fate of Czechoslovakia' event to Peace for our Time
  - Updated most resource prospecting decisions to allow excavation tech greater than or equal to the existing requirements
+
+#### Australia
+ - Disabled focus branch 'No. 1 Flying Training School'
 
 #### Czechoslovakia
  - Can no longer federalize or beg Moscow for halp with Peace for Our Time enabled
@@ -28,7 +31,7 @@
    - Can only be taken after Japan takes 'Occupy Indochina'
 
 #### Soviet Union
- - Reverted focus 'PC of Mortar Armament' to give artillery research bonus directly to Soviet Union
+ - Reverted focus 'PC of Mortar Armament' to give vanilla artillery research bonus directly to Soviet Union
 
 #### United Kingdom
  - Updated British decision to annex Malaya with new states

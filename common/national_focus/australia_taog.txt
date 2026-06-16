@@ -18,6 +18,8 @@
 focus_tree = {
 	id = australia_taog_focus
 	
+	shared_focus = SPT_CW_Together_for_victory #SPT change, added shared focus tree
+
 	country = {
 		factor = 0
 		modifier = {
@@ -34,18 +36,19 @@ focus_tree = {
 	
 	default = no
 
-	continuous_focus_position = { x = 30 y = 1600 }
+	continuous_focus_position = { x = 30 y = 1800 } # SPTchange
 
-	shared_focus = ABDA_abdacom
+	# shared_focus = ABDA_abdacom # SPTchange
 
+	# SPTchange position
 	inlay_window = { #Empty version to show before ast_right_vs_left_campaign_inlay_window is unlocked
 		id = ast_right_vs_left_campaign_empty_inlay_window
-		position = { x = 4705 y = 510 } #Edit for ast_right_vs_left_campaign_inlay_window if changed
+		position = { x = 875 y = 510 } #Edit for ast_right_vs_left_campaign_inlay_window if changed
 	}
 
 	inlay_window = {
 		id = ast_right_vs_left_campaign_inlay_window
-		position = { x = 4705 y = 510 } #Edit for ast_right_vs_left_campaign_empty_inlay_window if changed
+		position = { x = 875 y = 510 } #Edit for ast_right_vs_left_campaign_empty_inlay_window if changed
 	}
 
 #### Template ###
@@ -89,7 +92,7 @@ focus_tree = {
 		mutually_exclusive = { focus = AST_australia_first focus = AST_against_war_and_fascism }
 #		relative_position_id = 	
 
-		x = 51
+		x = 10 # SPTchange
 		y = 0
 	
 		cost = 5
@@ -217,6 +220,11 @@ focus_tree = {
 		prerequisite = { focus = AST_war_is_coming }
 #		mutually_exclusive = { }
 		relative_position_id = 	AST_war_is_coming
+
+		# SPTchange
+		allow_branch = {
+			always = no
+		}
 
 		x = 0
 		y = 1
@@ -1399,8 +1407,8 @@ focus_tree = {
 		prerequisite = { focus = AST_the_ultimate_overseas_duty }
 #		mutually_exclusive = { }
 		relative_position_id = 	AST_the_ultimate_overseas_duty
-		x = 1
-		y = 2
+		x = 0 # SPTchange
+		y = 1
 	
 		cost = 5
 
@@ -1488,6 +1496,11 @@ focus_tree = {
 		y = 2
 	
 		cost = 10
+
+		# SPTchange
+		allow_branch = {
+			always = no
+		}
 
 		available = {
 			OR = {
@@ -2398,6 +2411,11 @@ focus_tree = {
 			}
 		}
 
+		# SPTchange
+		allow_branch = {
+			always = no
+		}
+
 		available = {
 		}
 
@@ -3290,6 +3308,11 @@ focus_tree = {
 	
 		cost = 5
 
+		# SPTchange
+		allow_branch = {
+			always = no
+		}
+
 		available = {
 			threat > 0.8
 			INS = {
@@ -3336,7 +3359,7 @@ focus_tree = {
 		prerequisite = { focus = AST_equal_training }
 #		mutually_exclusive = { }
 		relative_position_id = 	AST_equal_training
-		x = 1
+		x = 0 # SPTchange
 		y = 1
 	
 		cost = 5
@@ -3368,6 +3391,11 @@ focus_tree = {
 		y = 2
 	
 		cost = 5
+
+		# SPTchange
+		allow_branch = {
+			always = no
+		}
 
 		available = {
 			NZL = {
@@ -3416,6 +3444,7 @@ focus_tree = {
 		cost = 10
 
 		allow_branch = {
+			always = no # SPTchange
 			if = {
 				limit = {
 					has_game_rule = {
@@ -5497,6 +5526,7 @@ focus_tree = {
 		cost = 5
 
 		allow_branch = {
+			always = no # SPTchange
 			if = {
 				limit = {
 					has_game_rule = {
@@ -7648,9 +7678,9 @@ focus = {
 
 		prerequisite = { focus = AST_australia_first focus = AST_war_is_coming }
 #		mutually_exclusive = { }
-		#relative_position_id = AST_australia_first
+		relative_position_id = AST_war_is_coming # SPTchange
 
-		x = 31
+		x = 20
 		y = 1
 	
 		cost = 10
@@ -8601,7 +8631,7 @@ focus = {
 #		prerequisite = { }
 #		mutually_exclusive = { }
 #		relative_position_id = 
-		x = 92
+		x = 42 # SPTchange
 		y = 0
 	
 		cost = 10
@@ -8618,17 +8648,18 @@ focus = {
 			}
 		}
 
-		offset = {
-			x = -75
-			y = 0
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = AST_war_is_coming
-			}
-		}
+		# SPTchange
+		# offset = {
+		# 	x = -75
+		# 	y = 0
+		# 	trigger = {
+		# 		has_game_rule = {
+		# 			rule = obsolete_focus_branches_visibility
+		# 			option = HIDE
+		# 		}
+		# 		has_completed_focus = AST_war_is_coming
+		# 	}
+		# }
 
 		offset = {
 			x = -82
@@ -9014,7 +9045,7 @@ focus = {
 		icon = GFX_focus_AST_australian_military_forces
 		#mutually_exclusive = { }
 
-		x = 104
+		x = 54 # SPTchange
 		y = 0
 	
 		cost = 5
@@ -9031,17 +9062,18 @@ focus = {
 			}
 		}
 
-		offset = {
-			x = -25
-			y = 0
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = AST_war_is_coming
-			}
-		}
+		# SPTchange
+		# offset = {
+		# 	x = -25
+		# 	y = 0
+		# 	trigger = {
+		# 		has_game_rule = {
+		# 			rule = obsolete_focus_branches_visibility
+		# 			option = HIDE
+		# 		}
+		# 		has_completed_focus = AST_war_is_coming
+		# 	}
+		# }
 
 		offset = {
 			x = -58
@@ -10104,7 +10136,7 @@ focus = {
 
 		#mutually_exclusive = { }
 
-		x = 117
+		x = 60 # SPTchange
 		y = 0
 	
 		cost = 5
@@ -10121,17 +10153,18 @@ focus = {
 			}
 		}
 
-		offset = {
-			x = -25
-			y = 0
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = AST_war_is_coming
-			}
-		}
+		# SPTchange
+		# offset = {
+		# 	x = -25
+		# 	y = 0
+		# 	trigger = {
+		# 		has_game_rule = {
+		# 			rule = obsolete_focus_branches_visibility
+		# 			option = HIDE
+		# 		}
+		# 		has_completed_focus = AST_war_is_coming
+		# 	}
+		# }
 
 		offset = {
 			x = -58
@@ -10143,6 +10176,11 @@ focus = {
 				}
 				has_completed_focus = AST_against_war_and_fascism
 			}
+		}
+
+		# SPTchange
+		allow_branch = {
+			always = no
 		}
 
 		available = {
@@ -10742,7 +10780,7 @@ focus = {
 
 		#mutually_exclusive = { }
 
-		x = 125
+		x = 65
 		y = 0
 
 		cost = 5
@@ -10759,17 +10797,18 @@ focus = {
 			}
 		}
 
-		offset = {
-			x = -25
-			y = 0
-			trigger = {
-				has_game_rule = {
-					rule = obsolete_focus_branches_visibility
-					option = HIDE
-				}
-				has_completed_focus = AST_war_is_coming
-			}
-		}
+		# SPTchange
+		# offset = {
+		# 	x = -25
+		# 	y = 0
+		# 	trigger = {
+		# 		has_game_rule = {
+		# 			rule = obsolete_focus_branches_visibility
+		# 			option = HIDE
+		# 		}
+		# 		has_completed_focus = AST_war_is_coming
+		# 	}
+		# }
 
 		offset = {
 			x = -58
