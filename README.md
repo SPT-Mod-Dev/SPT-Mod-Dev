@@ -1,6 +1,6 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 4.2.0 Thunder at our Mod
+### 4.2.0 Thunder at Our Mod
 
 #### General
  - Update to 1.18.3 and 1.19.01 with most changes, excluding:
@@ -12,16 +12,22 @@
  - Updated most resource prospecting decisions to allow excavation tech greater than or equal to the existing requirements
 
 #### Czechoslovakia
- - Can no longer federalize or beg Moscow for halp with Peace for our Time enabled
+ - Can no longer federalize or beg Moscow for halp with Peace for Our Time enabled
 
 #### Japan
  - Occupy Siam now grants compliance on former French Indochina as well
 
 #### Siam
- - Babby protection from civil war triggers in place
+ - Instituted babby protection from civil war triggers
+ - Focus 'Demand the Return of Lost Territories':
+   - Only checks Indochina, not Malaysia
+   - Can only be taken after Japan takes 'Occupy Indochina'
+
+#### Soviet Union
+ - Reverted focus 'PC of Mortar Armament' to give artillery research bonus directly to Soviet Union
 
 #### United Kingdom
- - Updated British decision to annex Malaya
+ - Updated British decision to annex Malaya with new states
 
 ### 4.1.3
 
