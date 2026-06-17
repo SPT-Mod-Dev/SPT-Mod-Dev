@@ -427,26 +427,27 @@ ability = {
 		}
 	}
 
-	defense_in_depth = {
-		name = ABILITY_DEFENSE_IN_DEPTH
-		desc = ABILITY_DEFENSE_IN_DEPTH_DESC
-		sound_effect = ability_defence_in_depth
-		type = army_leader
-		requires_deployed_hq = yes
+	# SPTchange removed
+	# defense_in_depth = {
+	# 	name = ABILITY_DEFENSE_IN_DEPTH
+	# 	desc = ABILITY_DEFENSE_IN_DEPTH_DESC
+	# 	sound_effect = ability_defence_in_depth
+	# 	type = army_leader
+	# 	requires_deployed_hq = yes
 		
-		allowed = {
-			is_border_war = no
-		}
+	# 	allowed = {
+	# 		is_border_war = no
+	# 	}
 		
-		unit_modifiers = {
-			max_planning = -0.5
-			max_dig_in = 3
-		}
+	# 	unit_modifiers = {
+	# 		max_planning = -0.5
+	# 		max_dig_in = 3
+	# 	}
 		
-		cancelable = yes
-		cost = 0.1
-		duration = -1
-	}
+	# 	cancelable = yes
+	# 	cost = 0.1
+	# 	duration = -1
+	# }
 
 	front_overrun = {
 		name = ABILITY_FRONT_OVERRUN
@@ -470,38 +471,39 @@ ability = {
 		duration = -1
 	}
 
-	rotating_reserves = {
-		name = ABILITY_ROTATING_RESERVES
-		desc = ABILITY_ROTATING_RESERVES_DESC
+	# SPTchange
+	# rotating_reserves = {
+	# 	name = ABILITY_ROTATING_RESERVES
+	# 	desc = ABILITY_ROTATING_RESERVES_DESC
 		
-		sound_effect = ability_local_command
+	# 	sound_effect = ability_local_command
 		
-		type = army_leader
-		requires_deployed_hq = yes
+	# 	type = army_leader
+	# 	requires_deployed_hq = yes
 		
-		allowed = {
-			is_border_war = no
-		}
+	# 	allowed = {
+	# 		is_border_war = no
+	# 	}
 		
-		cost = 0.12
-		duration = 168
+	# 	cost = 0.12
+	# 	duration = 168
 		
-		unit_modifiers = {
-			land_reinforce_rate = 0.06 
-		}
+	# 	unit_modifiers = {
+	# 		land_reinforce_rate = 0.06 
+	# 	}
 		
-		ai_will_do = {
-			factor = -1
-			modifier = {
-				FROM = {
-					command_power > 6.0
-				}
-				check_variable = { num_units > 6 }
-				check_variable = { num_units_in_combat > 4}
-				check_variable = { avg_combat_status > 0.7}
+	# 	ai_will_do = {
+	# 		factor = -1
+	# 		modifier = {
+	# 			FROM = {
+	# 				command_power > 6.0
+	# 			}
+	# 			check_variable = { num_units > 6 }
+	# 			check_variable = { num_units_in_combat > 4}
+	# 			check_variable = { avg_combat_status > 0.7}
 				
-				add = 2
-			}
-		}
-	}
+	# 			add = 2
+	# 		}
+	# 	}
+	# }
 }

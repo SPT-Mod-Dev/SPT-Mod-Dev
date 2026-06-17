@@ -1,10 +1,11 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 4.2.0 Thunder at Our Mod
+### 4.2.0 Thunder at our Mod
 
 #### General
- - Update to 1.18.3 and 1.19.01 with most changes, excluding in particular:
-   - (1.19) ABDACOM shared tree temporarily hidden
+ - Update to 1.18.3 and 1.19.01 with most changes, excluding:
+   - (1.19) Defense in Depth and Rotating Reserves HQ abilities
+   - (1.19) ABDACOM shared tree
    - (1.19) Terrain nerfs to flame tanks
    - (1.18.3) HMG and LMG module changes
    - (1.18.3) Most of Ship & Navy changes
@@ -19,10 +20,10 @@
  - Focus 'Second Australian Imperial Force' does not increase permitted conscription level
 
 #### Czechoslovakia
- - Can no longer federalize or beg Moscow for halp with Peace for Our Time enabled
+ - Can no longer federalize or beg Moscow for halp with Peace for our Time enabled
 
 #### Japan
- - Occupy Siam now grants compliance on former French Indochina as well
+ - Focus 'Occupy Siam' now grants compliance on former French Indochina as well
  - Focus 'Remove the Weeds from the Crop' no longer penalizes stability
  - Focus 'Empower the Shogun' no longer penalizes stability or adds war support
  - Focus 'Politicize the Education System' no longer penalizes stability or adds war support
@@ -41,7 +42,7 @@
  - Reverted focus 'PC of Mortar Armament' to give vanilla artillery research bonus directly to Soviet Union
 
 #### United Kingdom
- - Updated British decision to annex Malaya with new states
+ - Fixed British decision to annex Malaya with compliance for new states
 
 ### 4.1.3
 
