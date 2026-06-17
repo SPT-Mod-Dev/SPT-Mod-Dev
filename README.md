@@ -33,6 +33,9 @@
  - Focus 'Demand the Return of Lost Territories':
    - Only checks Indochina, not Malaysia
    - Can only be taken after Japan takes 'Occupy Indochina'
+ - Focus 'Unconventional Tank Construction: IC -20%->-10%
+                                            Reliability -15%->-5%
+ - Focus 'Conventional Tank Construction': German tank studies IC reduction -10%->-5%
 
 #### Soviet Union
  - Reverted focus 'PC of Mortar Armament' to give vanilla artillery research bonus directly to Soviet Union
