@@ -13,6 +13,10 @@
 
 #### Australia
  - Disabled focus branch 'No. 1 Flying Training School'
+ - Removed +0.5% recruitable population from focus 'Populate or Perish'
+ - Removed +1.0% recruitable population from focus 'Recruitment Drive'
+ - Focus 'Owen Gun' Ahead of Time bonus: 2 years->1 year
+ - Focus 'Second Australian Imperial Force' does not increase permitted conscription level
 
 #### Czechoslovakia
  - Can no longer federalize or beg Moscow for halp with Peace for Our Time enabled
