@@ -11,6 +11,13 @@
    - (1.18.3) Most of Ship & Navy changes
  - Fully updated 'Fate of Czechoslovakia' event to Peace for our Time
  - Updated most resource prospecting decisions to allow excavation tech greater than or equal to the existing requirements
+ - Heavy Weapons Company: Infantry Equipment 30->75
+                          Support Equipment 5->7
+ - Motorized Heavy Weapons Company: Infantry Equipment 30->75
+                                    Support Equipment 5->10
+                                    Trucks 5->20
+                                    Provides full breakthrough from motorized
+ - Infantry Guns: Artillery 4->8
 
 #### Australia
  - Disabled focus branch 'No. 1 Flying Training School'
