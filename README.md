@@ -30,6 +30,11 @@
 #### Czechoslovakia
  - Can no longer federalize or beg Moscow for halp with Peace for our Time enabled
 
+#### Italy
+ - Transferred 10 more coal from Moselland (Germany) to Piedmont (Italy), for a total of 31 coal
+ - Focus 'Steel Industry in Terni' now grants 4 coal in Latium
+ - Focus 'Power Plants in Terni' now grants 16 coal in Latium
+
 #### Japan
  - Focus 'Occupy Siam' now grants compliance on former French Indochina as well
  - Focus 'Remove the Weeds from the Crop' no longer penalizes stability
