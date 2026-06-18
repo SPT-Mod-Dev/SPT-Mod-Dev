@@ -3682,119 +3682,119 @@ country_event = {
 		}
 		custom_effect_tooltip = GAME_OVER_TT
 	}
-	option = { # Refuse
-		trigger = {always=no} #SPTChange hid option
-		name = germany.53.b
-		ai_chance = {
-			base = 50
-			modifier = {
-				factor = 0
-				OR = {
-					AND = {
-						NOT = { is_in_faction_with = ENG }
-						NOT = { is_in_faction_with = FRA }
-						is_subject = no
-						NOT = {
-							GER = {
-								has_war_with = ENG
-								has_war_with = FRA
-							}
-						}
-						NOT = {
-							GER = {
-								has_war_with = SOV
-								OR = {
-									has_war_with = ENG
-									has_war_with = FRA
-								}
-							}
-						}
-					}
-				}
-			}
-			modifier = {
-				add = 25
-				GER = {
-					OR = {
-						AND = {
-							has_war_with = ENG
-							NOT = {
-								has_war_with = FRA
-							}
-						}
-						AND = {
-							has_war_with = FRA
-							NOT = {
-								has_war_with = ENG
-							}
-						}
-						has_war_with = SOV
-					}
-				}
-			}
-			modifier = {
-				add = 150 #Germany's neighbors are banding together and feeling mighty strong. This will increase the chance for players to have an impact on the outcome
-				OR = {
-					POL = { 
-						has_completed_focus = POL_coerce_czechoslovakia
-						OR = {
-							is_in_faction_with = CZE
-							has_guaranteed = CZE
-						}
-					}
-					AND = {
-						AUS = {
-							has_completed_focus = AUS_the_danubian_federation
-						}
-						is_in_faction_with = AUS
-					}
-					AND = {
-						HUN = {
-							has_completed_focus = wuw_HUN_a_danubian_federation
-						}
-						is_in_faction_with = HUN
-					}
-				}
-			}
-		}
-		GER = {
-			country_event = { id = germany.54 days = 1 }
-		}
-		if = {
-			limit = {
-				ENG = {
-					NOT = {
-						is_in_faction_with = GER
-					}
-				}
-			}
-			ENG = {
-				add_war_support = 0.1
-			}
-		}
-		if = {
-			limit = {
-				FRA = {
-					NOT = {
-						is_in_faction_with = GER
-					}
-				}
-			}
-			FRA = {
-				add_war_support = 0.1
-			}
-		}
-		every_other_country = {
-			limit = {
-				is_in_faction_with = CZE
-				NOT = {
-					original_tag = FRA
-					original_tag = ENG
-				}
-			}
-			add_war_support = 0.05
-		}
-	}
+	# SPTchange hid option
+	# option = { # Refuse
+	# 	name = germany.53.b
+	# 	ai_chance = {
+	# 		base = 50
+	# 		modifier = {
+	# 			factor = 0
+	# 			OR = {
+	# 				AND = {
+	# 					NOT = { is_in_faction_with = ENG }
+	# 					NOT = { is_in_faction_with = FRA }
+	# 					is_subject = no
+	# 					NOT = {
+	# 						GER = {
+	# 							has_war_with = ENG
+	# 							has_war_with = FRA
+	# 						}
+	# 					}
+	# 					NOT = {
+	# 						GER = {
+	# 							has_war_with = SOV
+	# 							OR = {
+	# 								has_war_with = ENG
+	# 								has_war_with = FRA
+	# 							}
+	# 						}
+	# 					}
+	# 				}
+	# 			}
+	# 		}
+	# 		modifier = {
+	# 			add = 25
+	# 			GER = {
+	# 				OR = {
+	# 					AND = {
+	# 						has_war_with = ENG
+	# 						NOT = {
+	# 							has_war_with = FRA
+	# 						}
+	# 					}
+	# 					AND = {
+	# 						has_war_with = FRA
+	# 						NOT = {
+	# 							has_war_with = ENG
+	# 						}
+	# 					}
+	# 					has_war_with = SOV
+	# 				}
+	# 			}
+	# 		}
+	# 		modifier = {
+	# 			add = 150 #Germany's neighbors are banding together and feeling mighty strong. This will increase the chance for players to have an impact on the outcome
+	# 			OR = {
+	# 				POL = { 
+	# 					has_completed_focus = POL_coerce_czechoslovakia
+	# 					OR = {
+	# 						is_in_faction_with = CZE
+	# 						has_guaranteed = CZE
+	# 					}
+	# 				}
+	# 				AND = {
+	# 					AUS = {
+	# 						has_completed_focus = AUS_the_danubian_federation
+	# 					}
+	# 					is_in_faction_with = AUS
+	# 				}
+	# 				AND = {
+	# 					HUN = {
+	# 						has_completed_focus = wuw_HUN_a_danubian_federation
+	# 					}
+	# 					is_in_faction_with = HUN
+	# 				}
+	# 			}
+	# 		}
+	# 	}
+	# 	GER = {
+	# 		country_event = { id = germany.54 days = 1 }
+	# 	}
+	# 	if = {
+	# 		limit = {
+	# 			ENG = {
+	# 				NOT = {
+	# 					is_in_faction_with = GER
+	# 				}
+	# 			}
+	# 		}
+	# 		ENG = {
+	# 			add_war_support = 0.1
+	# 		}
+	# 	}
+	# 	if = {
+	# 		limit = {
+	# 			FRA = {
+	# 				NOT = {
+	# 					is_in_faction_with = GER
+	# 				}
+	# 			}
+	# 		}
+	# 		FRA = {
+	# 			add_war_support = 0.1
+	# 		}
+	# 	}
+	# 	every_other_country = {
+	# 		limit = {
+	# 			is_in_faction_with = CZE
+	# 			NOT = {
+	# 				original_tag = FRA
+	# 				original_tag = ENG
+	# 			}
+	# 		}
+	# 		add_war_support = 0.05
+	# 	}
+	# }
 }
 
 # The Czechs Resist

@@ -27,9 +27,6 @@
  - Focus 'Owen Gun' Ahead of Time bonus: 2 years->1 year
  - Focus 'Second Australian Imperial Force' does not increase permitted conscription level
 
-#### Czechoslovakia
- - Can no longer federalize or beg Moscow for halp with Peace for our Time enabled
-
 #### Italy
  - Transferred 10 more coal from Moselland (Germany) to Piedmont (Italy), for a total of 31 coal
  - Focus 'Steel Industry in Terni' now grants 4 coal in Latium
