@@ -355,7 +355,7 @@
 
 	available_if_capitulated = no
 
-	ai_will_do = { factor = 0 }
+	ai_will_do = { base = 2 }
 
 	allow_branch = {
 		has_dlc = "Thunder at Our Gates"
@@ -381,7 +381,11 @@
 	available = {
 		is_in_faction = yes
 		has_war_with = JAP
-		is_major = yes
+		OR = {
+			is_major = yes
+			original_tag = HOL
+			original_tag = AST
+		}
 		OR = {
 			has_government = democratic
 			has_government = neutrality
@@ -429,7 +433,7 @@ joint_focus = {
 	x = -2
 	y = 1
 
-	cost = 10
+	cost = 5
 
 	available = {
 		OR = {
@@ -445,11 +449,12 @@ joint_focus = {
 
 	available_if_capitulated = no
 
-	ai_will_do = { factor = 0 }
+	ai_will_do = { factor = 10 }
 
 	completion_reward_joint_originator = {
 		ENG = {
 			custom_effect_tooltip = ABDA_fortress_singapore_choice_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
 			country_event = { id = ABDA_events.4 }
 		}
 	}
@@ -466,7 +471,7 @@ joint_focus = {
 	x = 0
 	y = 1
 
-	cost = 10
+	cost = 5
 
 	available = {
 		OR = {
@@ -474,11 +479,14 @@ joint_focus = {
 			has_completed_focus = ABDA_abdacom
 		}
 		tag = FRA
+		1066 = {
+			is_fully_controlled_by = FRA
+		}
 	}
 
 	available_if_capitulated = no
 
-	ai_will_do = { factor = 0 }
+	ai_will_do = { factor = 10 }
 
 	completion_reward_joint_originator = {
 		FRA = {
@@ -542,7 +550,7 @@ joint_focus = {
 	x = 2
 	y = 1
 
-	cost = 10
+	cost = 5
 
 	available = {
 		OR = {
@@ -554,7 +562,7 @@ joint_focus = {
 
 	available_if_capitulated = no
 
-	ai_will_do = { factor = 0 }
+	ai_will_do = { factor = 10 }
 
 	completion_reward_joint_originator = {
 		USA ={
@@ -574,7 +582,7 @@ joint_focus = {
 	x = -1
 	y = 2
 
-	cost = 10
+	cost = 5
 
 	available = {
 		OR = {
@@ -586,7 +594,7 @@ joint_focus = {
 	available_if_capitulated = no
 
 	ai_will_do = {
-		base = 0
+		base = 1
 		modifier = {
 			add = 2
 			original_tag = INS
@@ -620,7 +628,10 @@ joint_focus = {
 					array = INS.owned_states_at_game_start
 					value = THIS
 				}
-				is_controlled_by = INS
+				OR = {
+					is_controlled_by = INS
+					is_controlled_by = HOL
+				}
 			}
 			add_building_construction = {
 				type = coastal_bunker
@@ -651,7 +662,7 @@ joint_focus = {
 	x = 1
 	y = 2
 
-	cost = 10
+	cost = 5
 
 	available = {
 		OR = {
@@ -673,7 +684,7 @@ joint_focus = {
 	available_if_capitulated = no
 
 	ai_will_do = {
-		base = 0
+		base = 1
 		modifier = {
 			add = 2
 			original_tag = INS
@@ -708,6 +719,11 @@ joint_focus = {
 						limit = {
 							is_controlled_by = AST
 							is_core_of = AST
+							free_building_slots = {
+								building = dockyard
+								size > 1
+								include_locked = yes
+							}
 						}
 						add_building_construction = {
 							type = dockyard
@@ -724,6 +740,11 @@ joint_focus = {
 						limit = {
 							is_controlled_by = INS
 							is_core_of = INS
+							free_building_slots = {
+								building = dockyard
+								size > 1
+								include_locked = yes
+							}
 						}
 						add_building_construction = {
 							type = dockyard
@@ -748,7 +769,7 @@ joint_focus = {
 	x = 0
 	y = 3
 
-	cost = 10
+	cost = 5
 
 	available = {
 		OR = {
@@ -760,7 +781,7 @@ joint_focus = {
 	available_if_capitulated = no
 
 	ai_will_do = {
-		base = 0
+		base = 1
 		modifier = {
 			add = 1
 			original_tag = INS
@@ -805,7 +826,7 @@ joint_focus = {
 	x = -2
 	y = 4
 
-	cost = 10
+	cost = 5
 
 	available = {
 		OR = {
@@ -817,7 +838,7 @@ joint_focus = {
 	available_if_capitulated = no
 
 	ai_will_do = {
-		base = 0
+		base = 1
 		modifier = {
 			add = 1
 			original_tag = INS
@@ -852,7 +873,7 @@ joint_focus = {
 	x = 0
 	y = 4
 
-	cost = 10
+	cost = 5
 
 	available = {
 		original_tag = USA
@@ -864,7 +885,7 @@ joint_focus = {
 
 	available_if_capitulated = no
 
-	ai_will_do = { factor = 0 }
+	ai_will_do = { base = 1 }
 
 	completion_reward_joint_originator = {
 		if = {
@@ -992,7 +1013,7 @@ joint_focus = {
 	x = 2
 	y = 4
 
-	cost = 10
+	cost = 5
 
 	available = {
 		OR = {
@@ -1004,7 +1025,7 @@ joint_focus = {
 	available_if_capitulated = no
 
 	ai_will_do = {
-		base = 0
+		base = 1
 		modifier = {
 			add = 1
 			original_tag = INS
@@ -1053,7 +1074,7 @@ joint_focus = {
 	available_if_capitulated = no
 
 	ai_will_do = {
-		base = 0
+		base = 1
 		modifier = {
 			add = 1
 			original_tag = INS

@@ -339,6 +339,9 @@ AST_union_control_2_foreign_cat = {
 		available = {
 			always = no
 		}
+		visible = {
+			always = no
+		}
 		activation = {
 			always = no
 		}
@@ -347,7 +350,7 @@ AST_union_control_2_foreign_cat = {
 		}
     	selectable_mission = no
 
-		days_mission_timeout = 90
+		days_mission_timeout = 180
 		is_good = yes
 
 		fire_only_once = yes
@@ -672,6 +675,9 @@ AST_union_control_2_cat = {
 		available = {
 			always = no
 		}
+		visible = {
+			always = no
+		}
 		activation = {
 			always = no
 		}
@@ -680,7 +686,7 @@ AST_union_control_2_cat = {
 		}
     	selectable_mission = no
 
-		days_mission_timeout = 90
+		days_mission_timeout = 180
 		is_good = yes
 
 		fire_only_once = yes
@@ -1210,7 +1216,12 @@ AST_cabinet_trust_cat = {
 			civilian_factory_use = 1
 		}
 
-		remove_effect = {	
+		remove_effect = {
+			add_days_mission_timeout = { 
+	  			mission = AST_castle_crumbling_mission
+	   			days = 30
+	   		}
+	   		custom_effect_tooltip = generic_skip_one_line_tt	
 			add_ideas = AST_australian_comforts_fund_idea
 			set_country_flag = AST_cabinet_trust_increase
 			AST_cabinet_trust_change = yes #Calls to function swaping Cabinet Trust state
@@ -1256,6 +1267,12 @@ AST_cabinet_trust_cat = {
 		}
 
 		complete_effect = {
+			add_days_mission_timeout = { 
+	  			mission = AST_castle_crumbling_mission
+	   			days = 30
+	   		}
+	   		custom_effect_tooltip = generic_skip_one_line_tt
+
 			add_dynamic_modifier = {
 			    modifier = AST_eminent_successors_spirit
 			    days = 180
@@ -1333,6 +1350,12 @@ AST_cabinet_trust_cat = {
 		}
 
 		remove_effect = {	
+			add_days_mission_timeout = { 
+	  			mission = AST_castle_crumbling_mission
+	   			days = 30
+	   		}
+	   		custom_effect_tooltip = generic_skip_one_line_tt
+
 			IF = { 
 				limit = {
 					has_government = communism
@@ -1497,30 +1520,60 @@ AST_cabinet_trust_cat = {
 			ELSE = {
 				IF = {
 					limit = {
-						NOT = {
-							has_country_leader = { ruling_only = yes character = AST_robert_menzies }
+						has_completed_focus = AST_war_is_coming
+						check_variable = {
+							var = AST_ruling_party
+							value = 1 #ALP
+							compare = equals
 						}
-
+					}
+					IF = {
+						limit = {
+							NOT = { can_be_country_leader = AST_robert_menzies }
+						}
+						add_country_leader_role = {
+							character = AST_robert_menzies
+							country_leader = {
+								ideology = socialism
+								expire = "1989.1.1.1"
+							}
+						}
+						custom_effect_tooltip = generic_skip_one_line_tt
 					}
 					AST_robert_menzies = {
 			 			add_trait = { 
 			 				trait = AST_a_sound_voice_trait
-		 					ideology = democratic
+		 					ideology = socialism
 			 			}
 	 				}
 				}
 
 				ELSE_IF = {
 					limit = {
-						NOT = {
-							has_country_leader = { ruling_only = yes character = AST_john_curtin }
+						has_completed_focus = AST_war_is_coming
+						check_variable = {
+							var = AST_ruling_party
+							value = 0 #UAP
+							compare = equals
 						}
-
+					}
+					IF = {
+						limit = {
+							NOT = { can_be_country_leader = AST_john_curtin }
+						}
+						add_country_leader_role = {
+							character = AST_john_curtin
+							country_leader = {
+								ideology = socialism
+								expire = "1989.1.1.1"
+							}
+						}
+						custom_effect_tooltip = generic_skip_one_line_tt
 					}
 					AST_john_curtin = {
 			 			add_trait = { 
 			 				trait = AST_a_sound_voice_trait
-		 					ideology = democratic
+		 					ideology = socialism
 			 			}
 	 				}
 				}
@@ -1626,7 +1679,6 @@ AST_cabinet_trust_cat = {
 
 		complete_effect = {
 			custom_effect_tooltip = AST_castle_crumbling_mission_complete_tt
-			custom_effect_tooltip = AST_cabinet_trust_remove_tt
 			custom_effect_tooltip = generic_skip_one_line_tt
 			JAP = { country_event = { id = AST_canberra_air_disaster_events.5 hours = 3 } }
 			custom_effect_tooltip = AST_make_a_common_enemy_tt
@@ -1643,7 +1695,9 @@ AST_cabinet_trust_cat = {
 			}
 			set_country_flag = AST_cabinet_trust_complete_1_flag #This completes Castle Crumbling mission
 			AST_cabinet_trust_change = yes #Calls to function removing Cabinet Trust state
-			clr_country_flag = AST_canberra_air_disaster_flag
+			hidden_effect = {
+				clr_country_flag = AST_canberra_air_disaster_flag
+			}
 		}
 
 		ai_will_do = {
@@ -1680,10 +1734,12 @@ AST_cabinet_trust_cat = {
 
 		complete_effect = {
 			custom_effect_tooltip = AST_castle_crumbling_mission_complete_tt
-			custom_effect_tooltip = AST_cabinet_trust_remove_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
 			set_country_flag = AST_cabinet_trust_complete_2_flag #This completes Castle Crumbling mission
 			AST_cabinet_trust_change = yes #Calls to function removing Cabinet Trust state
-			clr_country_flag = AST_canberra_air_disaster_flag
+			hidden_effect = {
+				clr_country_flag = AST_canberra_air_disaster_flag
+			}
 		}
 
 		ai_will_do = {
@@ -1730,6 +1786,8 @@ AST_cabinet_trust_cat = {
 		fire_only_once = yes
 
 		timeout_effect = {
+			custom_effect_tooltip = AST_cabinet_trust_remove_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
 
 			IF = {
 				limit = {
@@ -1742,7 +1800,6 @@ AST_cabinet_trust_cat = {
 						promote_character = yes
 					}
 				}
-				custom_effect_tooltip = AST_cabinet_trust_remove_tt	
 			}
 
 			ELSE_IF = {
@@ -1775,7 +1832,6 @@ AST_cabinet_trust_cat = {
 						ruling_party = fascism
 					}
 				}
-				custom_effect_tooltip = AST_cabinet_trust_remove_tt	
 			}
 			
 			ELSE_IF = {
@@ -1786,43 +1842,21 @@ AST_cabinet_trust_cat = {
 					}
 				}
 				country_event = { id = AST_canberra_air_disaster_events.3 hours = 1 }
+				custom_effect_tooltip = AST_castle_crumbling_mission_event_tt
+				event_option_tooltip = AST_canberra_air_disaster_events.3.a
+			}
 
-				IF = {
-					limit = {
-						check_variable = {
-							var = AST_ruling_party
-							value = 0
-							compare = equals
-						}
-				 	}
-				 	custom_effect_tooltip = AST_castle_crumbling_mission_event_tt
-					custom_effect_tooltip = AST_alp_becomes_ruling_party
-				}
-
-				ELSE_IF = {
-					limit = {
-						check_variable = {
-							var = AST_ruling_party
-							value = 1
-							compare = equals
-						}
-				 	}
-				 	custom_effect_tooltip = AST_castle_crumbling_mission_event_tt
-					custom_effect_tooltip = AST_uap_becomes_ruling_party
-				}
-			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = AST_cabinet_trust_remove_tt	
-			custom_effect_tooltip = generic_skip_one_line_tt
-			} 
 			set_country_flag = AST_cabinet_trust_complete_3_flag
-			clr_country_flag = AST_canberra_air_disaster_flag
 			hidden_effect = {
+				clr_country_flag = AST_canberra_air_disaster_flag
 				AST_cabinet_trust_swap_idea = yes #Removes Cabinet Trust Ideas 
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 		}
 
 		complete_effect = {
-
+			custom_effect_tooltip = AST_cabinet_trust_remove_tt	
+			custom_effect_tooltip = generic_skip_one_line_tt
 			IF = {
 				limit = {
 				 	NOT = {
@@ -1831,16 +1865,12 @@ AST_cabinet_trust_cat = {
 				}
 				country_event = { id = AST_canberra_air_disaster_events.2 hours = 1 }
 				custom_effect_tooltip = AST_castle_crumbling_mission_event_tt
-				effect_tooltip = {
-					add_country_leader_trait = AST_reliable
-				}
-
+				event_option_tooltip = AST_canberra_air_disaster_events.2.a
 				hidden_effect = {
+					clr_country_flag = AST_canberra_air_disaster_flag
 					AST_cabinet_trust_swap_idea = yes #Removes Cabinet Trust Ideas 
 				}
-			}
-
-			clr_country_flag = AST_canberra_air_disaster_flag	
+			}	
 		}
 	} 
 
@@ -2257,6 +2287,7 @@ AST_australia_first_movement_cat = {
 				}
 			}
 			custom_effect_tooltip = AST_lose_sufficient_funds_tt_100
+			activate_mission = AST_insufficient_funds_mission
 			hidden_effect = {
 				set_country_flag = {
 				    flag = AST_afm_summons
@@ -2316,6 +2347,13 @@ AST_australia_first_movement_cat = {
 				}
 			}
 			custom_effect_tooltip = AST_lose_sufficient_funds_tt_50
+			activate_mission = AST_insufficient_funds_mission
+			hidden_effect = {
+				add_days_mission_timeout = {
+				    mission = AST_insufficient_funds_mission
+				    days = -50
+				}
+			}
 		}
 	}
 
@@ -2367,6 +2405,7 @@ AST_australia_first_movement_cat = {
 				}
 			}
 			custom_effect_tooltip = AST_lose_sufficient_funds_tt_100
+			activate_mission = AST_insufficient_funds_mission
 			hidden_effect = {
 				set_country_flag = {
 				    flag = AST_afm_print
@@ -2426,6 +2465,13 @@ AST_australia_first_movement_cat = {
 				}
 			}
 			custom_effect_tooltip = AST_lose_sufficient_funds_tt_50
+			activate_mission = AST_insufficient_funds_mission
+			hidden_effect = {
+				add_days_mission_timeout = {
+				    mission = AST_insufficient_funds_mission
+				    days = -50
+				}
+			}
 		}
 	}
 
@@ -2435,10 +2481,10 @@ AST_australia_first_movement_cat = {
 		visible = {
 		}
 
-		cost = 20
+		cost = var:AST_call_on_fascists_cost
 
 		available = {
-			has_country_flag = AST_insufficient_funds 
+			has_active_mission = AST_insufficient_funds_mission
 		}
 
 		ai_will_do = {
@@ -2449,7 +2495,13 @@ AST_australia_first_movement_cat = {
 
 		complete_effect = {
 			custom_effect_tooltip = AST_sufficient_funds_tt_2
-			clr_country_flag = AST_insufficient_funds
+			effect_tooltip = {
+				remove_mission = AST_insufficient_funds_mission
+			}
+			set_country_flag = AST_call_on_fascists_flag
+			hidden_effect = {
+				add_to_variable = { AST_call_on_fascists_cost = 10 }
+			}
 		}
 	}
 
@@ -2475,6 +2527,36 @@ AST_australia_first_movement_cat = {
 		complete_effect = {
 			country_event = { id = AST_canberra_air_disaster_events.1 days = 1 }
 			custom_effect_tooltip = AST_a_convenient_disaster_tt 
+		}
+	}
+
+	AST_insufficient_funds_mission = {
+		icon = GFX_decision_generic_welfare  
+
+		is_good = no
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = AST_call_on_fascists
+				has_country_flag = AST_call_on_fascists_flag
+			} 
+		}
+
+		activation = { #Triggers by decisions
+			always = no 
+		}
+	                      
+		days_mission_timeout = 100
+
+		timeout_effect = {
+			custom_effect_tooltip = AST_sufficient_funds_tt_2
+			clr_country_flag = AST_insufficient_funds
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = AST_sufficient_funds_tt_2
+			clr_country_flag = AST_insufficient_funds
+			clr_country_flag = AST_call_on_fascists_flag
 		}
 	}
 
@@ -2701,6 +2783,10 @@ AST_vichy_out_of_africa_cat = {
 		}
 
 		complete_effect = {
+			hidden_effect = {
+				set_country_flag = AST_vichy_req_ongoing_flag
+			}
+
 			VIC = { country_event = { id = AST_diplomatic_events.56 days = 1 } }
 
 			543 = { 
@@ -2760,6 +2846,10 @@ AST_vichy_out_of_africa_cat = {
 		}
 
 		complete_effect = {
+			hidden_effect = {
+				set_country_flag = AST_vichy_req_ongoing_flag
+			}
+
 			VIC = { country_event = { id = AST_diplomatic_events.56 days = 1 } }
 
 			539 = { 
@@ -2828,6 +2918,10 @@ AST_vichy_out_of_africa_cat = {
 		}
 
 		complete_effect = {
+			hidden_effect = {
+				set_country_flag = AST_vichy_req_ongoing_flag
+			}
+
 			VIC = { country_event = { id = AST_diplomatic_events.56 days = 1 } }
 
 			272 = { 
@@ -2879,12 +2973,13 @@ AST_vichy_out_of_africa_cat = {
 
 prospect_for_resources = { 
 
-	AST_develop_port_kemla_steel_medium_decision = { 
+	AST_develop_port_kemla_steel_medium_decision = {
 
 		icon = steel
 
 		allowed = {
 			original_tag = AST
+			has_dlc = "Thunder at Our Gates"
 		}
 
 		available = {
@@ -2952,12 +3047,13 @@ prospect_for_resources = {
 		}
 	}
 
-	AST_scale_up_middleback_mines_steel_decision_1 = { 
+	AST_scale_up_middleback_mines_steel_decision_1 = {
 
 		icon = steel
 
 		allowed = {
 			original_tag = AST
+			has_dlc = "Thunder at Our Gates"
 		}
 
 		available = {
@@ -3028,12 +3124,13 @@ prospect_for_resources = {
 		}
 	}
 
-	AST_scale_up_middleback_mines_steel_decision_2 = { 
+	AST_scale_up_middleback_mines_steel_decision_2 = {
 
 		icon = steel
 
 		allowed = {
 			original_tag = AST
+			has_dlc = "Thunder at Our Gates"
 		}
 
 		available = {
@@ -3102,12 +3199,13 @@ prospect_for_resources = {
 		}
 	}
 
-	AST_scale_up_middleback_mines_steel_decision_3 = { 
+	AST_scale_up_middleback_mines_steel_decision_3 = {
 
 		icon = steel
 
 		allowed = {
 			original_tag = AST
+			has_dlc = "Thunder at Our Gates"
 		}
 
 		available = {
@@ -3176,12 +3274,13 @@ prospect_for_resources = {
 		}
 	}
 
-	AST_prospect_pilbara_iron_decision = { 
+	AST_prospect_pilbara_iron_decision = {
 
 		icon = steel
 
 		allowed = {
 			original_tag = AST
+			has_dlc = "Thunder at Our Gates"
 		}
 
 		available = {
@@ -3259,12 +3358,13 @@ prospect_for_resources = {
 		}
 	}
 
-	AST_scale_up_pilbara_mines_steel_decision = { 
+	AST_scale_up_pilbara_mines_steel_decision = {
 
 		icon = steel
 
 		allowed = {
 			original_tag = AST
+			has_dlc = "Thunder at Our Gates"
 		}
 
 		available = {

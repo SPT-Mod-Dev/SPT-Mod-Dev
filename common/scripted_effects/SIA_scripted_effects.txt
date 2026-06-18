@@ -1184,68 +1184,34 @@ SIA_generate_anandas_trait = {
 SIA_update_adc = {
 	if = {
 		limit = {
-			NOT = { 
-				has_dynamic_modifier = { modifier = idea_SIA_asian_democratic_compact } 
+			NOT = {
+				has_dynamic_modifier = { modifier = idea_SIA_asian_democratic_compact }
 			}
 		}
 
 		add_dynamic_modifier = { modifier = idea_SIA_asian_democratic_compact }
 	}
 
-	clear_variable = SIA_adc_land_mastery_gain_factor
-	clear_variable = SIA_adc_research_speed_factor
-	clear_variable = SIA_adc_max_command_power_mult
-	clear_variable = SIA_adc_army_defence_factor
-	clear_variable = SIA_adc_max_dig_in_factor
-	clear_variable = SIA_adc_army_defence_factor
-	clear_variable = SIA_acd_industrial_capacity_dockyard
-	clear_variable = SIA_acd_industrial_capacity_factory
-	clear_variable = SIA_adc_equipment_conversion_speed
-	clear_variable = SIA_adc_production_lack_of_resource_penalty_factor
-	clear_variable = SIA_adc_production_factory_max_efficiency_factor
-
-	set_variable = { SIA_adc_land_mastery_gain_factor = num_faction_members }
-	multiply_variable = { SIA_adc_land_mastery_gain_factor = SIA_adc_land_mastery_gain_factor_per_country }
-
-	set_variable = { SIA_adc_research_speed_factor = num_faction_members }
-	multiply_variable = { SIA_adc_research_speed_factor = SIA_adc_research_speed_factor_per_country }
-
-	set_variable = { SIA_adc_max_command_power_mult = num_faction_members }
-	multiply_variable = { SIA_adc_max_command_power_mult = SIA_adc_max_command_power_mult_per_country }
-
-	set_variable = { SIA_adc_army_defence_factor = num_faction_members }
-	multiply_variable = { SIA_adc_army_defence_factor = SIA_adc_army_defence_factor_per_country }
-
-	set_variable = { SIA_adc_army_org_factor = num_faction_members }
-	multiply_variable = { SIA_adc_army_org_factor = SIA_adc_army_org_factor_per_country }
-
-	set_variable = { SIA_adc_max_dig_in_factor = num_faction_members }
-	multiply_variable = { SIA_adc_max_dig_in_factor = SIA_adc_max_dig_in_factor_per_country }
-
-	set_variable = { SIA_acd_industrial_capacity_dockyard = num_faction_members }
-	multiply_variable = { SIA_acd_industrial_capacity_dockyard = SIA_acd_industrial_capacity_dockyard_per_country }
-
-	set_variable = { SIA_acd_industrial_capacity_factory = num_faction_members }
-	multiply_variable = { SIA_acd_industrial_capacity_factory = SIA_acd_industrial_capacity_factory_per_country }
-
-	set_variable = { SIA_adc_equipment_conversion_speed = num_faction_members }
-	multiply_variable = { SIA_adc_equipment_conversion_speed = SIA_adc_equipment_conversion_speed_per_country }
-
-	set_variable = { SIA_adc_production_lack_of_resource_penalty_factor = num_faction_members }
-	multiply_variable = { SIA_adc_production_lack_of_resource_penalty_factor = SIA_adc_production_lack_of_resource_penalty_factor_per_country }
-
-	set_variable = { SIA_adc_production_factory_max_efficiency_factor = num_faction_members }
-	multiply_variable = { SIA_adc_production_factory_max_efficiency_factor = SIA_adc_production_factory_max_efficiency_factor_per_country }
+	# Scale by independent members only, so releasing puppets can't inflate the bonus
+	set_variable = { SIA_adc_member_count = 0 }
+	for_each_scope_loop = {
+		array = faction_members
+		if = {
+			limit = { is_subject = no }
+			PREV = { add_to_variable = { SIA_adc_member_count = 1 } }
+		}
+	}
 
 	for_each_scope_loop = {
+		# PREV is the faction leader (SIA) this effect runs in; valid for both focus and on_join/on_leave callers
 		array = faction_members
 
 		clear_variable = SIA_adc_land_mastery_gain_factor
 		clear_variable = SIA_adc_research_speed_factor
 		clear_variable = SIA_adc_max_command_power_mult
 		clear_variable = SIA_adc_army_defence_factor
+		clear_variable = SIA_adc_army_org_factor
 		clear_variable = SIA_adc_max_dig_in_factor
-		clear_variable = SIA_adc_army_defence_factor
 		clear_variable = SIA_acd_industrial_capacity_dockyard
 		clear_variable = SIA_acd_industrial_capacity_factory
 		clear_variable = SIA_adc_equipment_conversion_speed
@@ -1266,59 +1232,59 @@ SIA_update_adc = {
 
 		if = {
 			limit = {
-				ROOT = { has_completed_focus = SIA_southeast_asia_joint_command }
+				PREV = { has_completed_focus = SIA_southeast_asia_joint_command }
 			}
 
-			set_variable = { SIA_adc_land_mastery_gain_factor = num_faction_members }
-			multiply_variable = { SIA_adc_land_mastery_gain_factor = ROOT.SIA_adc_land_mastery_gain_factor_per_country }
+			set_variable = { SIA_adc_land_mastery_gain_factor = PREV.SIA_adc_member_count }
+			multiply_variable = { SIA_adc_land_mastery_gain_factor = PREV.SIA_adc_land_mastery_gain_factor_per_country }
 
-			set_variable = { SIA_adc_research_speed_factor = num_faction_members }
-			multiply_variable = { SIA_adc_research_speed_factor = ROOT.SIA_adc_research_speed_factor_per_country }
+			set_variable = { SIA_adc_research_speed_factor = PREV.SIA_adc_member_count }
+			multiply_variable = { SIA_adc_research_speed_factor = PREV.SIA_adc_research_speed_factor_per_country }
 
-			set_variable = { SIA_adc_max_command_power_mult = num_faction_members }
-			multiply_variable = { SIA_adc_max_command_power_mult = ROOT.SIA_adc_max_command_power_mult_per_country }
+			set_variable = { SIA_adc_max_command_power_mult = PREV.SIA_adc_member_count }
+			multiply_variable = { SIA_adc_max_command_power_mult = PREV.SIA_adc_max_command_power_mult_per_country }
 		}
 
 		if = {
 			limit = {
-				ROOT = { has_completed_focus = SIA_pan_asian_weapon_standardization }
+				PREV = { has_completed_focus = SIA_pan_asian_weapon_standardization }
 			}
 
-			set_variable = { SIA_adc_equipment_conversion_speed = num_faction_members }
-			multiply_variable = { SIA_adc_equipment_conversion_speed = ROOT.SIA_adc_equipment_conversion_speed_per_country }
+			set_variable = { SIA_adc_equipment_conversion_speed = PREV.SIA_adc_member_count }
+			multiply_variable = { SIA_adc_equipment_conversion_speed = PREV.SIA_adc_equipment_conversion_speed_per_country }
 
-			set_variable = { SIA_adc_production_lack_of_resource_penalty_factor = num_faction_members }
-			multiply_variable = { SIA_adc_production_lack_of_resource_penalty_factor = ROOT.SIA_adc_production_lack_of_resource_penalty_factor_per_country }
+			set_variable = { SIA_adc_production_lack_of_resource_penalty_factor = PREV.SIA_adc_member_count }
+			multiply_variable = { SIA_adc_production_lack_of_resource_penalty_factor = PREV.SIA_adc_production_lack_of_resource_penalty_factor_per_country }
 
-			set_variable = { SIA_adc_production_factory_max_efficiency_factor = num_faction_members }
-			multiply_variable = { SIA_adc_production_factory_max_efficiency_factor = SIA_adc_production_factory_max_efficiency_factor_per_country }
+			set_variable = { SIA_adc_production_factory_max_efficiency_factor = PREV.SIA_adc_member_count }
+			multiply_variable = { SIA_adc_production_factory_max_efficiency_factor = PREV.SIA_adc_production_factory_max_efficiency_factor_per_country }
 
 		}
 
 		if = {
 			limit = {
-				ROOT = {  has_completed_focus = SIA_united_against_aggression }
+				PREV = {  has_completed_focus = SIA_united_against_aggression }
 			}
 
-			set_variable = { SIA_adc_army_defence_factor = num_faction_members }
-			multiply_variable = { SIA_adc_army_defence_factor = ROOT.SIA_adc_army_defence_factor_per_country }
+			set_variable = { SIA_adc_army_defence_factor = PREV.SIA_adc_member_count }
+			multiply_variable = { SIA_adc_army_defence_factor = PREV.SIA_adc_army_defence_factor_per_country }
 
-			set_variable = { SIA_adc_army_org_factor = num_faction_members }
-			multiply_variable = { SIA_adc_army_org_factor = SIA_adc_army_org_factor_per_country }
+			set_variable = { SIA_adc_army_org_factor = PREV.SIA_adc_member_count }
+			multiply_variable = { SIA_adc_army_org_factor = PREV.SIA_adc_army_org_factor_per_country }
 
-			set_variable = { SIA_adc_max_dig_in_factor = num_faction_members }
-			multiply_variable = { SIA_adc_max_dig_in_factor = ROOT.SIA_adc_max_dig_in_factor_per_country }
+			set_variable = { SIA_adc_max_dig_in_factor = PREV.SIA_adc_member_count }
+			multiply_variable = { SIA_adc_max_dig_in_factor = PREV.SIA_adc_max_dig_in_factor_per_country }
 		}
 
 		if = {
 			limit = {
-				ROOT = {  has_completed_focus = SIA_the_hammers_that_strike }
+				PREV = {  has_completed_focus = SIA_the_hammers_that_strike }
 			}
-			set_variable = { SIA_acd_industrial_capacity_dockyard = num_faction_members }
-			multiply_variable = { SIA_acd_industrial_capacity_dockyard = ROOT.SIA_acd_industrial_capacity_dockyard_per_country }
+			set_variable = { SIA_acd_industrial_capacity_dockyard = PREV.SIA_adc_member_count }
+			multiply_variable = { SIA_acd_industrial_capacity_dockyard = PREV.SIA_acd_industrial_capacity_dockyard_per_country }
 
-			set_variable = { SIA_acd_industrial_capacity_factory = num_faction_members }
-			multiply_variable = { SIA_acd_industrial_capacity_factory = ROOT.SIA_acd_industrial_capacity_factory_per_country }
+			set_variable = { SIA_acd_industrial_capacity_factory = PREV.SIA_adc_member_count }
+			multiply_variable = { SIA_acd_industrial_capacity_factory = PREV.SIA_acd_industrial_capacity_factory_per_country }
 		}
 
 

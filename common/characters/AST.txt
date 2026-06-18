@@ -133,6 +133,25 @@ characters={
                     value = -0.01 
                	}
                	AST_votes_change_effect = yes
+
+				owner = { 
+               		IF = {
+               			limit = {
+               				has_completed_focus = AST_war_is_coming
+               				has_country_leader = { 
+               					ruling_only = yes 
+               					character = AST_joseph_lyons 
+               				}
+               			}
+               			AST = { add_political_power = 35 }
+               		}
+               		ELSE_IF = {
+               			limit = {
+               				has_completed_focus = AST_war_is_coming
+               			}
+               			add_political_power = 50 
+               		}
+               	}
 			}
 			available = {
 				is_country_leader = no
@@ -143,7 +162,7 @@ characters={
 							tooltip = AST_uap_advisor_tt
 							check_variable = {
 								var = AST_ruling_party
-									value = 0
+								value = 0
 								compare = equals
 							}
 						}
@@ -190,6 +209,26 @@ characters={
 							compare = equals
 						}
 					}
+				}
+				on_remove = {
+					owner = { 
+	               		IF = {
+	               			limit = {
+	               				has_completed_focus = AST_war_is_coming
+	               				has_country_leader = { 
+	               					ruling_only = yes 
+	               					character = AST_joseph_lyons 
+	               				}
+	               			}
+	               			AST = { add_political_power = 35 }
+	               		}
+	               		ELSE_IF = {
+	               			limit = {
+	               				has_completed_focus = AST_war_is_coming
+	               			}
+	               			add_political_power = 50 
+	               		}
+	               	}
 				}
 			}
 		}
@@ -1578,9 +1617,16 @@ characters={
 			allowed = {
 				original_tag = AST
 			}
-			traits = {
-				army_chief_organizational_2
+			available = {
+				NOT = {
+					has_country_flag = AST_canberra_air_disaster_flag
+				}
 			}
+			traits = {
+				army_chief_organizational_1
+			}
+
+			can_be_fired = no
 
 			ai_will_do = {
 				factor = 1
@@ -1593,7 +1639,7 @@ characters={
 		name=AST_john_lavarack
 		portraits={
 			army={
-				small=GFX_portrait_AST_brudenell_white_small #OLD ONE: small="GFX_idea_AST_john_lavarack"
+				small=GFX_portrait_AST_john_lavarack_small #OLD ONE: small="GFX_idea_AST_john_lavarack"
 			}
 		}
 		advisor={
@@ -1687,7 +1733,7 @@ characters={
 			cost = 100
 
 			ai_will_do = {
-				factor = 1
+				factor = 2
 			}
 		}
 	}
@@ -1768,7 +1814,7 @@ characters={
 			cost = 100
 
 			ai_will_do = {
-				factor = 1
+				factor = 2
 			}
 		}	
 
@@ -1820,7 +1866,7 @@ characters={
 			cost = 50
 
 			ai_will_do = {
-				factor = 1
+				factor = 1.5
 			}
 		}	
 	}
@@ -1845,7 +1891,7 @@ characters={
 
 			ai_will_do = {
 
-				factor = 1.000
+				factor = 2
 			}
 		}		
 	}
@@ -2267,6 +2313,26 @@ characters={
 					has_completed_focus = AST_absorb_the_uap
 				}
 			}
+			on_remove = {
+				owner = { 
+               		IF = {
+               			limit = {
+               				has_completed_focus = AST_war_is_coming
+               				has_country_leader = { 
+               					ruling_only = yes 
+               					character = AST_joseph_lyons 
+               				}
+               			}
+               			AST = { add_political_power = 35 }
+               		}
+               		ELSE_IF = {
+               			limit = {
+               				has_completed_focus = AST_war_is_coming
+               			}
+               			add_political_power = 50 
+               		}
+               	}
+			}
 			ai_will_do = {
 				factor = 1
 				modifier = {
@@ -2316,6 +2382,25 @@ characters={
                     value = -0.01 
                	}
                	AST_votes_change_effect = yes
+
+               	owner = { 
+               		IF = {
+               			limit = {
+               				has_completed_focus = AST_war_is_coming
+               				has_country_leader = { 
+               					ruling_only = yes 
+               					character = AST_joseph_lyons 
+               				}
+               			}
+               			AST = { add_political_power = 35 }
+               		}
+               		ELSE_IF = {
+               			limit = {
+               				has_completed_focus = AST_war_is_coming
+               			}
+               			add_political_power = 50 
+               		}
+               	}
 			}
 			cost = 100
 			ai_will_do = {
@@ -2535,11 +2620,13 @@ characters={
 				allowed  = {
 					original_tag  = AST
 				}
+				available = {
+					NOT = { has_completed_focus = AST_australia_first }
+				}
 				traits  = {
 					AST_revolutionary_equalist
 				}
 				ai_will_do = {
-
 					factor = 1
 					modifier = {
 						NOT = { has_completed_focus = AST_against_war_and_fascism }
@@ -2745,8 +2832,10 @@ characters={
 				slot = political_advisor
 				idea_token = AST_lance_sharkey
 				allowed = {
-					always = no #SptChange set to always not allowed 
 					original_tag = AST
+				}
+				available = {
+					has_completed_focus = AST_against_war_and_fascism
 				}
 				traits = {
 					AST_orthodox_stalinist

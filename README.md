@@ -3,7 +3,7 @@
 ### 4.2.0 Thunder at our Mod
 
 #### General
- - Update to 1.18.3 and 1.19.01 with most changes, excluding:
+ - Update from 1.18.2 to 1.19.1 with most changes, excluding:
    - (1.19) Defense in Depth and Rotating Reserves HQ abilities
    - (1.19) ABDACOM shared tree
    - (1.19) Terrain nerfs to flame tanks
@@ -41,9 +41,8 @@
  - Focus 'Demand the Return of Lost Territories':
    - Only checks Indochina, not Malaysia
    - Can only be taken after Japan takes 'Occupy Indochina'
- - Focus 'Unconventional Tank Construction: IC -20%->-10%
-                                            Reliability -15%->-5%
- - Focus 'Conventional Tank Construction': German tank studies IC reduction -10%->-5%
+ - Focus 'Unconventional Tank Construction: IC -15%->-10%
+                                            Reliability -10%->-5%
 
 #### Soviet Union
  - Reverted focus 'PC of Mortar Armament' to give vanilla artillery research bonus directly to Soviet Union
