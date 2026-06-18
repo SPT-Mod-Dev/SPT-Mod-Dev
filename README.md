@@ -18,6 +18,7 @@
                                     Trucks 5->20
                                     Provides full breakthrough from motorized
  - Infantry Guns: Artillery 4->8
+ - Desperate Defense: Recruitable Population: +2.5%->+3%
 
 #### Australia
  - Disabled focus branch 'No. 1 Flying Training School'
@@ -38,6 +39,9 @@
  - Focus 'Develop New Fighters':
    - Research bonus now provides 1 year ahead-of-time reduction
    - Now grants Engine 3 technology
+
+#### Romania
+ - Now has access to Operations subdoctrine 'Desperate Defense'
 
 #### Siam
  - Instituted babby protection from civil war triggers

@@ -84,6 +84,7 @@ mission_type_tactics = {
     }
 }
 
+# Desperate Defense
 last_stand = {
     track = operations
     name = SUBDOCTRINE_LAST_STAND
@@ -99,7 +100,11 @@ last_stand = {
                     original_tag = INS
                 }
             }
-            has_defensive_war = yes
+            # SPTchange add romania
+            OR = {                
+                has_defensive_war = yes
+                original_tag = ROM
+            }
         }
         else = {
             OR = {
@@ -109,7 +114,7 @@ last_stand = {
         }
     }
     # EFFECTS
-    conscription = 0.025 # SPTchange 0.05 -> 0.025
+    conscription = 0.03 # SPTchange 0.05 -> 0.03
 
     ai_will_do = {
 
