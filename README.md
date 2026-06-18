@@ -35,6 +35,9 @@
  - Focus 'Empower the Shogun' no longer penalizes stability or adds war support
  - Focus 'Politicize the Education System' no longer penalizes stability or adds war support
  - Focus 'Purge the Kodoha Faction' stability: 10%->15%
+ - Focus 'Develop New Fighters':
+   - Research bonus now provides 1 year ahead-of-time reduction
+   - Now grants Engine 3 technology
 
 #### Siam
  - Instituted babby protection from civil war triggers
