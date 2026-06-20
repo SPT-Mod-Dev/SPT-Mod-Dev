@@ -27,10 +27,14 @@
  - Focus 'Owen Gun' Ahead of Time bonus: 2 years->1 year
  - Focus 'Second Australian Imperial Force' does not increase permitted conscription level
 
+#### Hungary
+ - Focuses 'Empower the Greenshirts' and 'Reestablish the Rongyos Garda' now grant militia technology
+
 #### Italy
  - Transferred 10 more coal from Moselland (Germany) to Piedmont (Italy), for a total of 31 coal
  - Focus 'Steel Industry in Terni' now grants 4 coal in Latium
  - Focus 'Power Plants in Terni' now grants 16 coal in Latium
+ - Focus 'Strengthen the Blackshirts' now grants milita technology
 
 #### Japan
  - Focus 'Occupy Siam' now grants compliance on former French Indochina as well
