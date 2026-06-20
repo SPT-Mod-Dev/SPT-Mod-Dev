@@ -9,7 +9,6 @@
    - (1.19) Terrain nerfs to flame tanks
    - (1.18.3) HMG and LMG module changes
    - (1.18.3) Most of Ship & Navy changes
- - Fully updated 'Fate of Czechoslovakia' event to Peace for our Time
  - Updated most resource prospecting decisions to allow excavation tech greater than or equal to the existing requirements
  - Heavy Weapons Company: Infantry Equipment 30->75
                           Support Equipment 5->7
@@ -24,8 +23,7 @@
  - Disabled focus branch 'No. 1 Flying Training School'
  - Removed +0.5% recruitable population from focus 'Populate or Perish'
  - Removed +1.0% recruitable population from focus 'Recruitment Drive'
- - Focus 'Owen Gun' Ahead of Time bonus: 2 years->1 year
- - Focus 'Second Australian Imperial Force' does not increase permitted conscription level
+ - Focus 'Second Australian Imperial Force' no longer increases permitted conscription level
 
 #### Germany
  - Focus 'Expanding the Luftwaffe' now adds or extends spirit 'Mobilizing for the Battle of Britain' for 3 years, granting:
@@ -55,6 +53,15 @@
  - Focus 'Develop New Fighters':
    - Research bonus now provides 1 year ahead-of-time reduction
    - Now grants Engine 3 technology
+
+#### Manchukuo
+ - Focus 'Strenghten the Manchukuo Imperial Army' now grants:
+   - Cold and Hot Acclimitization Factor: +40%
+   - Special forces capacity multiplier: +15%
+   - Special forces attack: +10%
+   - Special forces defense: +10%
+   - Special Forces Non-Combat Out of Supply Penalty: -25%
+ - Focus 'Chinese Panzers' now grants tank productino cost: -15%
 
 #### Romania
  - Now has access to Operations subdoctrine 'Desperate Defense'
