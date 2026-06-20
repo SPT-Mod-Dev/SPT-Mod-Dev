@@ -73,6 +73,7 @@
    - Can only be taken after Japan takes 'Occupy Indochina'
  - Focus 'Unconventional Tank Construction: IC -15%->-10%
                                             Reliability -10%->-5%
+ - Reduced research speed bonuses broadly
 
 #### Soviet Union
  - Reverted focus 'PC of Mortar Armament' to give vanilla artillery research bonus directly to Soviet Union
