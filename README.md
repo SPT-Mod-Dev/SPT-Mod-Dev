@@ -37,7 +37,9 @@
  - Focus 'Remove the Weeds from the Crop' no longer penalizes stability
  - Focus 'Empower the Shogun' no longer penalizes stability or adds war support
  - Focus 'Politicize the Education System' no longer penalizes stability or adds war support
+ - Focus 'Invest in Senbu' now grants 45% collaboration in China
  - Focus 'Purge the Kodoha Faction' stability: 10%->15%
+ - Focus 'The Imperial Rule Assistance Association' restores compliance after the reset from ideology change
  - Focus 'Develop New Fighters':
    - Research bonus now provides 1 year ahead-of-time reduction
    - Now grants Engine 3 technology
@@ -819,7 +821,7 @@
  - Ship Sonar 2 1939->1937
  - Changed AA CAS Damage reduction scaling. now linear to 90% reduction at 26.7 aa attack (was 75% at 10.8)
  - Research Years for Large/MK2 Air Cannons moved to 41/43 (-2 Years)
- - Jet Engines: Reduced Breakthrough point need by 1
+ - Jet Engines: Reduced Breakthrough point need 3->2
  - Jet Engines: reduced Range Malus by 20% each
 
 #### UK
