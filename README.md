@@ -27,6 +27,14 @@
  - Focus 'Owen Gun' Ahead of Time bonus: 2 years->1 year
  - Focus 'Second Australian Imperial Force' does not increase permitted conscription level
 
+#### Germany
+ - Focus 'Expanding the Luftwaffe' now adds or extends spirit 'Mobilizing for the Battle of Britain' for 3 years, granting:
+   - Rubber: 16
+   - Small Airframes production cost: -10%
+   - Medium Airframes production cost: -10%
+ - Focus 'Accelerate the Rearmament Program' now adds or extends spirit 'Mobilizing for the Battle of Britain' for 1 year, with same effects
+ - Focus 'Accelerate the Rearmament Program' now grants Lack of Resource Penalty -10%, moved from focus 'Form the Zentrale Planung"
+
 #### Hungary
  - Focuses 'Empower the Greenshirts' and 'Reestablish the Rongyos Garda' now grant militia technology
 
