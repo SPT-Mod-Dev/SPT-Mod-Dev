@@ -61,7 +61,7 @@
    - Special forces attack: +10%
    - Special forces defense: +10%
    - Special Forces Non-Combat Out of Supply Penalty: -25%
- - Focus 'Chinese Panzers' now grants tank productino cost: -15%
+ - Focus 'Chinese Panzers' now grants tank production cost: -15%
 
 #### Romania
  - Now has access to Operations subdoctrine 'Desperate Defense'
