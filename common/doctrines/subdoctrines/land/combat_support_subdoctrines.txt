@@ -32,8 +32,6 @@ fire_concentration = {
 
     category_line_artillery = {
         defense = 0.05
-    }
-    category_line_artillery = {
         max_organisation = 5
     }
 
@@ -56,9 +54,18 @@ fire_concentration = {
         }
         artillery_groups = {
         #3
-            category_line_artillery = {
+           category_regimental_support_artillery = {
+                soft_attack = 0.05
+                breakthrough = 0.05 # SPTchange 0.1->0.05			   
+		   }
+		   category_support_artillery = {
+                soft_attack = 0.05
+                breakthrough = 0.05 # SPTchange 0.1->0.05	
+		   }
+		   category_line_artillery  = {
+                soft_attack = 0.05
                 breakthrough = 0.05 # SPTchange 0.1->0.05
-            }
+		   }
         }
         dedicated_air_support = {
         #4
@@ -109,15 +116,18 @@ anti_tank_frontline = {
     rewards = {
         pakfront = {
         #1
-            anti_tank_brigade = {
-                defense = 0.1 # SPTchange 0.2->0.1
-                ap_attack = 0.05 # SPTchange 0.1->0.05
-                soft_attack = 0.1 # SPTchange 0.2->0.1
-            }
+			anti_tank_brigade = {
+                ap_attack = 0.1
+			}
+            anti_tank_battery = {
+                ap_attack = 0.1 # SPTchange 0.2->0.1
+                hard_attack = 0.1 # SPTchange 0.2->0.1
+			}
         }
         emplacement_rotation = {
         #2
             anti_tank_brigade = {
+                defense = 0.1 # SPTchange 0.2->0.1
                 max_organisation = 5 # SPTchange 10->5
             }
         }
@@ -126,6 +136,7 @@ anti_tank_frontline = {
             anti_tank_brigade = {
                 ap_attack = 0.05 # SPTchange 0.1->0.05
                 hard_attack = 0.05 # SPTchange 0.1->0.05
+                soft_attack = 0.1 # SPTchange 0.2->0.1
             }
         }
         offensive_deployments = {
@@ -226,8 +237,12 @@ flying_batteries = {
             armored_signal = {
                 battalion_mult = {
                     category = category_line_artillery
-                    initiative = 0.01 # SPTchange 0.02->0.01
                     supply_consumption = -0.01
+					add = yes
+                }
+                battalion_mult = {
+                    category = category_line_artillery
+                    initiative = 0.01 # SPTchange 0.02->0.01
                 }
             }
         }
@@ -374,6 +389,10 @@ mobile_recon_and_assault = {
                 maximum_speed = 0.05 # SPTchange 0.1->0.05
                 default_morale = 0.05 # SPTchange 0.1->0.05
             }
+			mot_fire_support = {
+                max_organisation = 10		
+                soft_attack = 0.1		
+			}
         }
         long_range_reconnaissance = {
             category_recon = {
@@ -416,6 +435,12 @@ mobile_recon_and_assault = {
                 recon = 0.1 # SPTchange 0.2->0.1
                 breakthrough = 0.05 # SPTchange 0.1->0.05
             }
+			category_tank_destroyer_regimental_support = {
+                breakthrough = 0.2				
+			}
+			category_self_propelled_anti_air_regimental_support = {
+                breakthrough = 0.2		
+			}
         }
     }
 }
@@ -580,31 +605,33 @@ self_propelled_support = {
                 maximum_speed = 0.15 # SPTchange 0.3->0.15
             }
         }
-        multirole_support_vehicles = {
-            category_self_propelled_artillery = {
-                hard_attack = 0.025 # SPTchange 0.05->0.025
-            }
-            category_self_propelled_anti_air = {
-                soft_attack = 0.05 # SPTchange 0.1->0.05
-                hard_attack = 0.025 # SPTchange 0.05->0.025
-            }
-            category_tank_destroyers = {
-                soft_attack = 0.05 # SPTchange 0.1->0.05
-            }
+        multirole_support_vehicles = {			
+			category_tank_destroyer_regimental_support = {
+                max_organisation = 10
+                hard_attack = 0.1
+                breakthrough = 0.2				
+			}
+			category_self_propelled_anti_air_regimental_support = {
+                max_organisation = 10
+				air_attack = 0.1
+                breakthrough = 0.2		
+			}
         }
         shoot_and_scoot = {
             category_self_propelled_artillery = {
-                max_organisation = 5 # SPTchange 10->5
-                default_morale = 0.1 # SPTchange 0.2->0.1
+                max_organisation = 5
+                default_morale = 0.15
+                soft_attack = 0.05
             }
             category_self_propelled_anti_air = {
-                max_organisation = 5 # SPTchange 10->5
-                default_morale = 0.1 # SPTchange 0.2->0.1
+                max_organisation = 5
+                default_morale = 0.15
+				air_attack = 0.05
             }
             category_tank_destroyers = {
-                max_organisation = 5 # SPTchange 10->5
-                hard_attack = 0.075 # SPTchange 0.15->0.075
-                default_morale = 0.1 # SPTchange 0.2->0.1
+                max_organisation = 5
+                default_morale = 0.15
+                hard_attack = 0.05
             }
         }
     }
@@ -717,6 +744,12 @@ siege_artillery = {
                     attack = 0.1 # SPTchange 0.2->0.1
                 }
             }
+			fire_support = {
+                soft_attack = 0.1
+			}
+			category_regimental_support_artillery = {
+                soft_attack = 0.1				
+			}
         }
         mobile_artillery_command = {
             category_support_artillery = {
@@ -793,6 +826,7 @@ field_engineering = {
                 battalion_mult = {
                     category = category_all_infantry
                     entrenchment = 0.01 # SPTchange 0.02->0.01
+                    add = yes
                 }
             }
             maintenance_company = {
@@ -820,6 +854,10 @@ field_engineering = {
                     soft_attack = 0.025 # SPTchange 0.05->0.025
                 }
             }
+			field_guns = {				
+				soft_attack = 0.1
+				defense = 0.1
+			}
         }
         smoke_projector_training = {
             engineer = {
@@ -843,6 +881,10 @@ field_engineering = {
             maintenance_company = {
                 max_organisation = 2.5 # SPTchange 5->2.5
             }
+			fire_support = {
+                max_organisation = 5
+				breakthrough = 0.1				
+			}
         }
     }
 }

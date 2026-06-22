@@ -2762,6 +2762,11 @@ focus_tree = {
 					type = steel
 					amount = 8
 				}
+				# SPTchange
+				add_resource = {
+					type = coal
+					amount = 4
+				}
 			}
 		}
 	}
@@ -2791,6 +2796,11 @@ focus_tree = {
 					type = industrial_complex
 					level = 1
 					instant_build = yes
+				}
+				# SPTchange
+				add_resource = {
+					type = coal
+					amount = 16
 				}
 			}
 		}
@@ -9847,21 +9857,28 @@ focus_tree = {
 					}
 				}
 			}
-			random_controlled_state = { #Create a few more Blackshirt Divs
-				limit = {
-					is_core_of = ROOT
-					is_fully_controlled_by = ROOT
-				}
-				prioritize = { 2 }
-				custom_effect_tooltip = ITA_strengthen_the_blackshirts_spawn_divs_tt
-				hidden_effect = {
-					create_unit = {
-						division = "division_template = \"Camicie Nere\" start_experience_factor = 0.4 start_equipment_factor = 1.0"
-						owner = ROOT
-						count = 3
-					}
-				}
+			# SPTchange
+			custom_effect_tooltip = generic_skip_one_line_tt
+			# SPTchange
+			set_technology = {
+				militia_tech = 1
+				popup = no
 			}
+			# random_controlled_state = { #Create a few more Blackshirt Divs
+			# 	limit = {
+			# 		is_core_of = ROOT
+			# 		is_fully_controlled_by = ROOT
+			# 	}
+			# 	prioritize = { 2 }
+			# 	custom_effect_tooltip = ITA_strengthen_the_blackshirts_spawn_divs_tt
+			# 	hidden_effect = {
+			# 		create_unit = {
+			# 			division = "division_template = \"Camicie Nere\" start_experience_factor = 0.4 start_equipment_factor = 1.0"
+			# 			owner = ROOT
+			# 			count = 3
+			# 		}
+			# 	}
+			# }
 		}
 	}
 
@@ -15839,6 +15856,7 @@ focus_tree = {
 		relative_position_id = ITA_negotiate_italian_claims
 		cost = 10
 		available = {
+			is_subject = no 
 			OR = {
 				AND = {
 					NOT = {

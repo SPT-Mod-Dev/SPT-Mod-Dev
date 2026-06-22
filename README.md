@@ -1,5 +1,91 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 4.2.0 Thunder at our Mod
+
+#### General
+ - Update from 1.18.2 to 1.19.1 with most changes, excluding:
+   - (1.19) Defense in Depth and Rotating Reserves HQ abilities
+   - (1.19) ABDACOM shared tree
+   - (1.19) Terrain nerfs to flame tanks
+   - (1.18.3) HMG and LMG module changes
+   - (1.18.3) Most of Ship & Navy changes
+ - Updated most resource prospecting decisions to allow excavation tech greater than or equal to the existing requirements
+ - Heavy Weapons Company: Infantry Equipment 30->75
+                          Support Equipment 5->7
+ - Motorized Heavy Weapons Company: Infantry Equipment 30->75
+                                    Support Equipment 5->10
+                                    Trucks 5->20
+                                    Provides full breakthrough from motorized
+ - Infantry Guns: Artillery 4->8
+ - Desperate Defense: Recruitable Population: +2.5%->+3%
+
+#### Australia
+ - Disabled focus branch 'No. 1 Flying Training School'
+ - Removed +0.5% recruitable population from focus 'Populate or Perish'
+ - Removed +1.0% recruitable population from focus 'Recruitment Drive'
+ - Focus 'Second Australian Imperial Force' no longer increases permitted conscription level
+
+#### Germany
+ - Focus 'Expanding the Luftwaffe' now adds or extends spirit 'Mobilizing for the Battle of Britain' for 3 years, granting:
+   - Rubber: 16
+   - Small Airframes production cost: -10%
+   - Medium Airframes production cost: -10%
+ - Focus 'Accelerate the Rearmament Program' now adds or extends spirit 'Mobilizing for the Battle of Britain' for 1 year, with same effects
+ - Focus 'Accelerate the Rearmament Program' now grants Lack of Resource Penalty -10%, moved from focus 'Form the Zentrale Planung"
+
+#### Hungary
+ - Focuses 'Empower the Greenshirts' and 'Reestablish the Rongyos Garda' now grant militia technology
+
+#### Italy
+ - Transferred 10 more coal from Moselland (Germany) to Piedmont (Italy), for a total of 31 coal
+ - Focus 'Steel Industry in Terni' now grants 4 coal in Latium
+ - Focus 'Power Plants in Terni' now grants 16 coal in Latium
+ - Focus 'Strengthen the Blackshirts' now grants milita technology
+
+#### Japan
+ - Focus 'Occupy Siam' now grants compliance on former French Indochina as well
+ - Focus 'Remove the Weeds from the Crop' no longer penalizes stability
+ - Focus 'Empower the Shogun' no longer penalizes stability or adds war support
+ - Focus 'Politicize the Education System' no longer penalizes stability or adds war support
+ - Focus 'Invest in Senbu' now grants 45% collaboration in China
+ - Focus 'Purge the Kodoha Faction' stability: 10%->15%
+ - Focus 'The Imperial Rule Assistance Association' restores compliance after the reset from ideology change
+ - Focus 'Develop New Fighters':
+   - Research bonus now provides 1 year ahead-of-time reduction
+   - Now grants Engine 3 technology
+
+#### Manchukuo
+ - Focus 'Strenghten the Manchukuo Imperial Army' now grants:
+   - Cold and Hot Acclimitization Factor: +40%
+   - Special forces capacity multiplier: +15%
+   - Special forces attack: +10%
+   - Special forces defense: +10%
+   - Special Forces Non-Combat Out of Supply Penalty: -25%
+ - Focus 'Chinese Panzers' now grants tank production cost: -15%
+
+#### Romania
+ - Now has access to Operations subdoctrine 'Desperate Defense'
+
+#### Siam
+ - Instituted babby protection from civil war triggers
+ - Focus 'Demand the Return of Lost Territories':
+   - Only checks Indochina, not Malaysia
+   - Can only be taken after Japan takes 'Occupy Indochina'
+ - Focus 'Unconventional Tank Construction: IC -15%->-10%
+                                            Reliability -10%->-5%
+ - Reduced research speed bonuses broadly
+
+#### Soviet Union
+ - Reverted focus 'PC of Mortar Armament' to give vanilla artillery research bonus directly to Soviet Union
+
+#### United Kingdom
+ - Fixed British decision to annex Malaya with compliance for new states
+
+### 4.1.3
+
+#### Spain
+ - Neutered spirit 'Awaiting the Rebellion' in case of further bugs
+
 ### 4.1.2 Deindustrialization of Germany
 
 #### General
@@ -755,7 +841,7 @@
  - Ship Sonar 2 1939->1937
  - Changed AA CAS Damage reduction scaling. now linear to 90% reduction at 26.7 aa attack (was 75% at 10.8)
  - Research Years for Large/MK2 Air Cannons moved to 41/43 (-2 Years)
- - Jet Engines: Reduced Breakthrough point need by 1
+ - Jet Engines: Reduced Breakthrough point need 3->2
  - Jet Engines: reduced Range Malus by 20% each
 
 #### UK

@@ -68,6 +68,10 @@ armored_spearhead = {
             medium_armor = {
                 max_organisation = 3
             }
+			category_self_propelled_anti_air_regimental_support = {			
+                max_organisation = 10
+                air_attack = 0.05
+			}
         }
         tank_on_tank_dominance = {
             #5 - Capstone: medium armor becomes a full combined-arms fist
@@ -168,6 +172,7 @@ armored_spearhead_no_lar = {
         }
     }
 }
+
 armored_infantry_support = {
     track = armor
     name = SUBDOCTRINE_ARMORED_INFANTRY_SUPPORT
@@ -222,6 +227,10 @@ armored_infantry_support = {
                 max_organisation = 3
                 default_morale = 0.05
             }
+			category_tank_destroyer_regimental_support = {			
+                max_organisation = 5
+				ap_attack = 0.1
+			}
         }
         armored_assault_groups = {
             #3 - Tanks take point on assaults; infantry clears what they can't
@@ -399,6 +408,7 @@ mobile_defense = {
         battalion_mult = {
             category = category_all_armor
             entrenchment = 0.02
+			add = yes
         }
     }
     category_all_armor = {
@@ -432,6 +442,10 @@ mobile_defense = {
             armored_signal = {
                 max_organisation = 5 # SPTchange 10->5
             }
+			category_self_propelled_anti_air_regimental_support = {			
+                max_organisation = 10
+                air_attack = 0.05
+			}
         }
         combined_anti_armor = {
             anti_tank = {
@@ -441,6 +455,11 @@ mobile_defense = {
                     ap_attack = 0.025 # SPTchange 0.05->0.025
                 }
             }
+			category_tank_destroyer_regimental_support = {			
+                max_organisation = 5
+                hard_attack = 0.05
+				ap_attack = 0.15
+			}
         }
         tank_on_tank_engagement = {
             category_all_armor = {
@@ -530,6 +549,14 @@ armored_cavalry = {
             }
             category_all_armor = {
                 breakthrough = 0.1
+            }
+            anti_tank_battery = {
+                ap_attack = 0.10
+            }
+            mot_fire_support = {
+                max_organisation = 5
+                soft_attack = 0.05
+                default_morale = 0.1
             }
         }
         pursuit_operations = {
@@ -683,6 +710,11 @@ armored_cavalry_no_lar = {
                 soft_attack = 0.05
                 default_morale = 0.1
             }
+            mot_fire_support = {
+                max_organisation = 5
+                soft_attack = 0.05
+                default_morale = 0.1
+            }
         }
     }
 }
@@ -754,6 +786,11 @@ tank_destroyer_force = {
                     ap_attack = 0.1 # SPTchange 0.2->0.1
                 }
             }
+			category_tank_destroyer_regimental_support = {			
+                max_organisation = 5
+				hard_attack = 0.1
+				ap_attack = 0.1
+			}
         }
 
 

@@ -18,7 +18,7 @@ if = {
 }
 
 # Starting tech
-set_stability = 0.8
+set_stability = 0.7
 set_war_support = 0.3
 
 set_technology = {
@@ -100,12 +100,37 @@ recruit_character = NZL_a_e_davy
 recruit_character = NZL_walter_nash
 recruit_character = NZL_w_a_veitch_milne
 recruit_character = NZL_peter_fraser
+recruit_character = NZL_bob_semple
+recruit_character = NZL_leslie_lefeaux
+recruit_character = NZL_thomas_leech
+recruit_character = NZL_william_polson
+recruit_character = NZL_alexander_galbraith
+recruit_character = NZL_john_a_lee
+recruit_character = NZL_bernard_ashwin
+recruit_character = NZL_vic_wilcox
 
 
 if = {
 	limit = { has_dlc = "Together for Victory" }
 
 	add_to_tech_sharing_group = commonwealth_research
+}
+
+add_ideas = {
+	NZL_railways_board
+	NZL_great_depression
+	NZL_commonwealth_loyalty
+}
+
+set_variable = { NZL_train_var = 40 }
+set_variable = { NZL_ministry_of_public_works_dynamic_modifier_stability_factor = 0.05 }
+set_variable = { NZL_ministry_of_public_works_dynamic_modifier_consumer_goods_factor = -0.05 }
+set_variable = { NZL_ministry_of_public_works_dynamic_modifier_conscription_factor = 0 }
+
+726 = {
+	start_resistance = yes
+	set_compliance = 10
+	set_resistance = 25
 }
 
 1939.1.1 = {
