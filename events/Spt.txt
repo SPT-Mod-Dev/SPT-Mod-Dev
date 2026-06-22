@@ -1077,6 +1077,31 @@ country_event = { # UK swipes Iraq
 	}
 }
 
+country_event = { # Japan compliance restored
+	id = spt.666
+	hidden = yes
+	is_triggered_only = yes
+	option = {
+		every_controlled_state = {
+			limit = {
+				OR = {						
+					is_core_of = KOR
+					is_core_of = CHI
+					is_core_of = VIN
+					is_core_of = LAO
+					is_core_of = CAM
+					is_core_of = FSM
+				}
+				NOT = {
+					is_core_of = JAP
+				}
+			}
+			log = "[?THIS.GetName] setting to: [?pre_fascist_compliance]"
+			set_compliance = pre_fascist_compliance
+		}
+	}
+}
+
 add_namespace = spt_man
 country_event = { 
 	id = spt_man.1
