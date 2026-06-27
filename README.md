@@ -8,6 +8,9 @@
  - Add Australia
  - Add Brazil
 
+#### Brazil
+ - Cannot use decision 'Annex Mexico' until the Soviet Union has beheaded the snake
+
 #### Siam
  - Focus 'Phibun's Premiership' now relaxes volunteer requirements
 
