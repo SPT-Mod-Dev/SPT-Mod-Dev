@@ -1,5 +1,16 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 4.2.1 Blaze it + 1
+
+#### No Asia Mode
+ - Focus 'Hold the Imperial Conference' no longer cares about Newfoundland
+ - Removed Raj
+ - Add Australia
+ - Add Brazil
+
+#### Siam
+ - Focus 'Phibun's Premiership' now relaxes volunteer requirements
+
 ### 4.2.0 Thunder at our Mod
 
 #### General
