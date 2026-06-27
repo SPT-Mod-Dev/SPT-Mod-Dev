@@ -11,6 +11,9 @@
 #### Brazil
  - Cannot use decision 'Annex Mexico' until the Soviet Union has beheaded the snake
 
+#### Hungary
+ - Classified several Military High Command characters as Army/Air, that Paradox didn't bother to do for some reason
+
 #### Siam
  - Focus 'Phibun's Premiership' now relaxes volunteer requirements
 
