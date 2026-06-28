@@ -9,7 +9,7 @@
  - Add Brazil
 
 #### Brazil
- - Cannot use decision 'Annex Mexico' until the Soviet Union has beheaded the snake
+ - Cannot use decision 'Annex Mexico' until the Soviet Union has beheaded the snake (or Stalin)
 
 #### Hungary
  - Classified several Military High Command characters as Army/Air, that Paradox didn't bother to do for some reason
