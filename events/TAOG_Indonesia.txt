@@ -471,7 +471,7 @@ country_event = {
 		INS = {
 			country_event = {
 				id = INS_political_events.13
-				hours = 12
+				# hours = 12 # SPTchange
 			}
 		}
 	}
@@ -508,35 +508,35 @@ country_event = {
 	is_triggered_only = yes
 
 	# Resist Occupation
-	option = {
-		name = INS_political_events.13.a
-		ai_chance = {
-			base = 2
-		}
-		complete_national_focus = INS_resist_occupation
-		FROM = {
-			country_event = {
-				id = INS_political_events.14
-				hours = 12
-			}
-		}
-	}
+	# option = {
+	# 	name = INS_political_events.13.a
+	# 	ai_chance = {
+	# 		base = 2
+	# 	}
+	# 	complete_national_focus = INS_resist_occupation
+	# 	FROM = {
+	# 		country_event = {
+	# 			id = INS_political_events.14
+	# 			hours = 1 # SPTchange
+	# 		}
+	# 	}
+	# }
 
 	# PETA
 	option = {
 		name = INS_political_events.13.b
-		ai_chance = {
-			base = 5
-			modifier = {
-				factor = 0
-				OR = {
-					HOL = {
-						has_completed_focus = HOL_taog_guarantee_colonial_loyalty
-					}
-					INS_check_plan_loyalist = yes
-				}
-			}
-		}
+		# ai_chance = {
+		# 	base = 5
+		# 	modifier = {
+		# 		factor = 0
+		# 		OR = {
+		# 			HOL = {
+		# 				has_completed_focus = HOL_taog_guarantee_colonial_loyalty
+		# 			}
+		# 			INS_check_plan_loyalist = yes
+		# 		}
+		# 	}
+		# }
 		if = {
 			limit = {
 				is_subject_of = HOL
@@ -548,12 +548,18 @@ country_event = {
 				}
 			}
 		}
-		complete_national_focus = INS_defenders_of_homeland
+		# complete_national_focus = INS_defenders_of_homeland
 		custom_effect_tooltip = INS_peta_explain_tt
 		set_variable = {
 			var = states_japan_owned_when_taking_INS
 			value = JAP.num_controlled_states
 		}
+		create_dynamic_country = {
+			original_tag = INS
+			copy_tag = INS
+			complete_national_focus = INS_defenders_of_homeland
+		}
+		complete_national_focus = INS_resist_occupation
 		FROM = {
 			country_event = {
 				id = INS_political_events.15

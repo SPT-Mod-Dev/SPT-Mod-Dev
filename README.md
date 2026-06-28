@@ -14,6 +14,10 @@
 #### Hungary
  - Classified several Military High Command characters as Army/Air, that Paradox didn't bother to do for some reason
 
+#### Japan
+ - Dutch East Indies must now capitulate for Sukarno to be given a chance to lead a puppet regime after 30 days
+ - AI will always accept a Japanese puppet regime under Sukarno; however, the regime will only own states occupied by Japan and direct allies. The remainder will continue to fight with the Allies
+
 #### Siam
  - Focus 'Phibun's Premiership' now relaxes volunteer requirements
 

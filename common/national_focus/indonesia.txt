@@ -32,7 +32,7 @@ focus_tree = {
 		
 		modifier = {
 			add = 10
-			tag = INS
+			original_tag = INS # SPTchange
 			has_dlc = "Thunder at Our Gates"
 		}
 	}
@@ -6794,7 +6794,43 @@ focus_tree = {
 							value = THIS
 						}
 					}
-					set_state_controller_to = ROOT
+					# set_state_controller_to = ROOT
+					transfer_state_to = ROOT
+				}
+			}
+			SIA = {
+				every_controlled_state = {
+					limit = {
+						is_in_array = {
+							array = INS.owned_states_at_game_start
+							value = THIS
+						}
+					}
+					transfer_state_to = ROOT
+				}
+			}
+			MAN = {
+				every_controlled_state = {
+					limit = {
+						is_in_array = {
+							array = INS.owned_states_at_game_start
+							value = THIS
+						}
+					}
+					transfer_state_to = ROOT
+				}
+			}			
+			every_possible_country = {
+				limit = { has_character = INS_sukarno }
+				random_character = {
+					limit = { is_character = INS_sukarno }
+					set_nationality = ROOT
+				}
+				every_unit_leader = {
+					limit = {
+						has_trait = INS_loyalty_to_indonesia
+					}
+					set_nationality = ROOT
 				}
 			}
 			ROOT = {
@@ -6911,6 +6947,10 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = INS_defenders_of_homeland
+
+		allow_branch = {
+			always = no # SPTchange
+		}
 
 		cost = 5
 

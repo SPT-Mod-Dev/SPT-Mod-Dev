@@ -68,16 +68,17 @@
  		}
  	}
 
- 	on_monthly_INS = {
- 		effect = {
- 			set_variable_to_random = {
- 				var = INS_random_seed
- 				min = 1
- 				max = 100
- 				integer = yes
- 			}
- 		}
- 	}
+	# SPTchange minor lag machine
+ 	# on_monthly_INS = {
+ 	# 	effect = {
+ 	# 		set_variable_to_random = {
+ 	# 			var = INS_random_seed
+ 	# 			min = 1
+ 	# 			max = 100
+ 	# 			integer = yes
+ 	# 		}
+ 	# 	}
+ 	# }
 
  	on_before_peace_conference_start = {
  		effect = {
@@ -275,66 +276,67 @@
 		}
 	}
 
-	on_daily_AST = { #Veterans_civil_war
-		effect = {
-			if = {
-				limit = {
-					has_country_flag = AST_veterans_revolt_active
-					has_stability < 0.40
-					NOT = { has_country_flag = AST_revolt_triggered_early }
-				}
-				set_country_flag = AST_revolt_triggered_early
-				set_country_flag = AST_veterans_revolt_fired
-				clr_country_flag = AST_veterans_revolt_active
-				custom_override_tooltip = {
-					tooltip = AST_peace_out_all_wars_tt
-					every_enemy_country = {
-						white_peace = PREV
-					}
-				}	
-				if = {
-				    limit = {
-				        check_variable = { AST.AST_seize_leadership_states^num = 0 }
-				    }
-				    start_civil_war = {
-				        ruling_party = communism
-				        ideology = ROOT
-				        size = 0.5
-				        states = { 518 517 285 521 872 520 870 522 871 674 873 523 979 737 1070 1073 1074 1075 }
-				    }
-				    set_capital = { state = 519 }
-				    else = {
-				        start_civil_war = {
-				            ruling_party = communism
-				            ideology = ROOT
-				            size = 0.5
-				            states = all
-				            states_filter = {
-				                NOT = {
-				                    is_in_array = { AST.AST_seize_leadership_states = THIS }
-				                }
-				            }
-				        }
-				    }
-				}
-				set_capital = { state = 285 }
-			custom_effect_tooltip = generic_skip_one_line_tt
-				add_ideas = idea_AST_civil_war_on_their_own
-				every_enemy_country = {
-					limit = { civilwar_target = ROOT }
-					hidden_effect = {
-						save_event_target_as = AST_revolter_country
-						every_enemy_country = {
-							limit = {
-								NOT = { original_tag = ROOT }
-							}
-							white_peace = event_target:AST_revolter_country
-						}
-					}
-				}
-			}
-		}
-	}
+	# SPTchange removed Communist path-only lag machine
+	# on_daily_AST = { #Veterans_civil_war
+	# 	effect = {
+	# 		if = {
+	# 			limit = {
+	# 				has_country_flag = AST_veterans_revolt_active
+	# 				has_stability < 0.40
+	# 				NOT = { has_country_flag = AST_revolt_triggered_early }
+	# 			}
+	# 			set_country_flag = AST_revolt_triggered_early
+	# 			set_country_flag = AST_veterans_revolt_fired
+	# 			clr_country_flag = AST_veterans_revolt_active
+	# 			custom_override_tooltip = {
+	# 				tooltip = AST_peace_out_all_wars_tt
+	# 				every_enemy_country = {
+	# 					white_peace = PREV
+	# 				}
+	# 			}	
+	# 			if = {
+	# 			    limit = {
+	# 			        check_variable = { AST.AST_seize_leadership_states^num = 0 }
+	# 			    }
+	# 			    start_civil_war = {
+	# 			        ruling_party = communism
+	# 			        ideology = ROOT
+	# 			        size = 0.5
+	# 			        states = { 518 517 285 521 872 520 870 522 871 674 873 523 979 737 1070 1073 1074 1075 }
+	# 			    }
+	# 			    set_capital = { state = 519 }
+	# 			    else = {
+	# 			        start_civil_war = {
+	# 			            ruling_party = communism
+	# 			            ideology = ROOT
+	# 			            size = 0.5
+	# 			            states = all
+	# 			            states_filter = {
+	# 			                NOT = {
+	# 			                    is_in_array = { AST.AST_seize_leadership_states = THIS }
+	# 			                }
+	# 			            }
+	# 			        }
+	# 			    }
+	# 			}
+	# 			set_capital = { state = 285 }
+	# 		custom_effect_tooltip = generic_skip_one_line_tt
+	# 			add_ideas = idea_AST_civil_war_on_their_own
+	# 			every_enemy_country = {
+	# 				limit = { civilwar_target = ROOT }
+	# 				hidden_effect = {
+	# 					save_event_target_as = AST_revolter_country
+	# 					every_enemy_country = {
+	# 						limit = {
+	# 							NOT = { original_tag = ROOT }
+	# 						}
+	# 						white_peace = event_target:AST_revolter_country
+	# 					}
+	# 				}
+	# 			}
+	# 		}
+	# 	}
+	# }
 
 	# ROOT is attacker, FROM is defender 
 	on_war_relation_added = {
@@ -927,6 +929,42 @@
 				}
 				ROOT = { AST_resolve_stuck_union_control_civil_war = yes }
 			}
+		}
+		# SPTchange moved from on_state_control_changed and simplified for SPT circumstances
+		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = INS
+						NOT = {
+							has_country_flag = INS_has_gotten_invasion_event
+							has_completed_focus = INSHOL_netherlands_indonesia_union
+						}
+					}
+					FROM = {
+						OR = {
+							original_tag = JAP
+							original_tag = SIA
+							original_tag = MAN
+						}
+					}
+				}
+				ROOT = {
+					set_country_flag = INS_has_gotten_invasion_event #ensures event only fires once
+				}
+				# JAP = {
+				# 	save_event_target_as = INS_invasion_event_invader
+				# }
+				# FROM.FROM = {
+				# 	save_event_target_as = INS_invasion_event_invaded_state
+				# }
+				JAP = {
+					country_event = {
+						id = INS_political_events.12
+						# hours = 12
+						days = 30 # SPTchange to allow evacuation by allies
+					}
+				}
 		}
 	}
 
@@ -2186,69 +2224,70 @@
 				SIA = { SIA_refresh_indochina_controllers = yes }
 			}
 		}
-		effect = {
-			if = {
-				limit = {
-					FROM = {
-						original_tag = INS
-						has_completed_focus = INS_the_jewel_in_the_crown
-						NOT = {
-							has_country_flag = INS_has_gotten_invasion_event
-							has_completed_focus = INSHOL_netherlands_indonesia_union
-						}
-					}
-					FROM.FROM = {
-						is_in_array = {
-							array = INS.owned_states_at_game_start
-							value = THIS
-						}
-					}
-					ROOT = {
-						is_major = yes
-						has_war_with = FROM
-					}
-				}
-				if = {
-					limit = {
-						ROOT = {
-							original_tag = JAP
-						}
-					}
-					FROM = {
-						set_country_flag = INS_has_gotten_invasion_event #ensures event only fires once
-					}
-					ROOT = {
-						save_event_target_as = INS_invasion_event_invader
-					}
-					FROM.FROM = {
-						save_event_target_as = INS_invasion_event_invaded_state
-					}
-					ROOT = {
-						country_event = {
-							id = INS_political_events.12
-							hours = 12
-						}
-					}
-				}
-				else = {
-					FROM = {
-						set_country_flag = INS_has_gotten_invasion_event #ensures event only fires once
-					}
-					ROOT = {
-						save_event_target_as = INS_invasion_event_invader
-					}
-					FROM.FROM = {
-						save_event_target_as = INS_invasion_event_invaded_state
-					}
-					FROM = {
-						country_event = {
-							id = INS_political_events.8
-							hours = 24
-						}
-					}
-				}
-			}
-		}
+		# SPTchange moved to on_capitulation and modified
+		# effect = {
+		# 	if = {
+		# 		limit = {
+		# 			FROM = {
+		# 				original_tag = INS
+		# 				has_completed_focus = INS_the_jewel_in_the_crown
+		# 				NOT = {
+		# 					has_country_flag = INS_has_gotten_invasion_event
+		# 					has_completed_focus = INSHOL_netherlands_indonesia_union
+		# 				}
+		# 			}
+		# 			FROM.FROM = {
+		# 				is_in_array = {
+		# 					array = INS.owned_states_at_game_start
+		# 					value = THIS
+		# 				}
+		# 			}
+		# 			ROOT = {
+		# 				is_major = yes
+		# 				has_war_with = FROM
+		# 			}
+		# 		}
+		# 		if = {
+		# 			limit = {
+		# 				ROOT = {
+		# 					original_tag = JAP
+		# 				}
+		# 			}
+		# 			FROM = {
+		# 				set_country_flag = INS_has_gotten_invasion_event #ensures event only fires once
+		# 			}
+		# 			ROOT = {
+		# 				save_event_target_as = INS_invasion_event_invader
+		# 			}
+		# 			FROM.FROM = {
+		# 				save_event_target_as = INS_invasion_event_invaded_state
+		# 			}
+		# 			ROOT = {
+		# 				country_event = {
+		# 					id = INS_political_events.12
+		# 					hours = 12
+		# 				}
+		# 			}
+		# 		}
+		# 		else = {
+		# 			FROM = {
+		# 				set_country_flag = INS_has_gotten_invasion_event #ensures event only fires once
+		# 			}
+		# 			ROOT = {
+		# 				save_event_target_as = INS_invasion_event_invader
+		# 			}
+		# 			FROM.FROM = {
+		# 				save_event_target_as = INS_invasion_event_invaded_state
+		# 			}
+		# 			FROM = {
+		# 				country_event = {
+		# 					id = INS_political_events.8
+		# 					hours = 24
+		# 				}
+		# 			}
+		# 		}
+		# 	}
+		# }
 	}
 
 
