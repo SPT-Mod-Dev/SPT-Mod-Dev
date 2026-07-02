@@ -124,12 +124,12 @@ ideas = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"
 						original_tag = SIA
-						NOT = { has_idea = civilian_economy }
 					}
 					if = {
 						limit = { check_variable = { SIA_current_economy_law > 0 } }
-						SIA_decrease_military_approval = yes
 						SIA_increase_civilian_approval = yes
+						SIA_decrease_military_approval = yes
+
 					}
 					else = {
 						SIA_increase_military_approval = yes
@@ -252,7 +252,6 @@ ideas = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"
 						original_tag = SIA
-						NOT = { has_idea = low_economic_mobilisation }
 					}
 					if = {
 						limit = { check_variable = { SIA_current_economy_law > 1 } }
@@ -417,7 +416,6 @@ ideas = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"
 						original_tag = SIA
-						NOT = { has_idea = partial_economic_mobilisation }
 					}
 					if = {
 						limit = { check_variable = { SIA_current_economy_law > 2 } }
@@ -640,7 +638,6 @@ ideas = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"
 						original_tag = SIA
-						NOT = { has_idea = war_economy }
 					}
 					if = {
 						limit = { check_variable = { SIA_current_economy_law > 3 } }
@@ -857,7 +854,6 @@ ideas = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"
 						original_tag = SIA
-						NOT = { has_idea = tot_economic_mobilisation }
 					}
 					if = {
 						limit = { check_variable = { SIA_current_economy_law > 4 } }
@@ -1364,21 +1360,20 @@ ideas = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"
 						original_tag = SIA
-						NOT = { has_idea = free_trade }
 					}
 					if = {
-						limit = { check_variable = { SIA_current_trade_law > -1 } }
+						limit = { check_variable = { SIA_current_trade_law > 0 } }
 
 
+						SIA_increase_civilian_approval = yes
+						SIA_decrease_military_approval = yes
+					}
+					else = {
 						SIA_increase_military_approval = yes
 						SIA_decrease_civilian_approval = yes
 					}
-					else = {
-						SIA_decrease_military_approval = yes
-						SIA_increase_civilian_approval = yes
-					}
 
-					set_variable = { SIA_current_trade_law = -1 }
+					set_variable = { SIA_current_trade_law = 0 }
 				}
    			}
 		}
@@ -1466,21 +1461,20 @@ ideas = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"
 						original_tag = SIA
-						NOT = { has_idea = export_focus }
 					}
 					if = {
-						limit = { check_variable = { SIA_current_trade_law > 0 } }
+						limit = { check_variable = { SIA_current_trade_law > 1 } }
 
 
+						SIA_increase_civilian_approval = yes
+						SIA_decrease_military_approval = yes
+					}
+					else = {
 						SIA_increase_military_approval = yes
 						SIA_decrease_civilian_approval = yes
 					}
-					else = {
-						SIA_decrease_military_approval = yes
-						SIA_increase_civilian_approval = yes
-					}
 
-					set_variable = { SIA_current_trade_law = 0 }
+					set_variable = { SIA_current_trade_law = 1 }
 				}
    			}
 		}
@@ -1616,21 +1610,20 @@ ideas = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"
 						original_tag = SIA
-						NOT = { has_idea = limited_exports }
 					}
 					if = {
-						limit = { check_variable = { SIA_current_trade_law > 1 } }
+						limit = { check_variable = { SIA_current_trade_law > 2 } }
 
 
-						SIA_increase_military_approval = yes
-						SIA_decrease_civilian_approval = yes
-					}
-					else = {
 						SIA_decrease_military_approval = yes
 						SIA_increase_civilian_approval = yes
 					}
+					else = {
+						SIA_increase_military_approval = yes
+						SIA_decrease_civilian_approval = yes
+					}
 
-					set_variable = { SIA_current_trade_law = 1 }
+					set_variable = { SIA_current_trade_law = 2 }
 				}
    			}
 		}
@@ -1850,21 +1843,20 @@ ideas = {
 					limit = {
 						has_dlc = "Thunder at Our Gates"
 						original_tag = SIA
-						NOT = { has_idea = closed_economy }
 					}
 					if = {
-						limit = { check_variable = { SIA_current_trade_law > 2 } }
+						limit = { check_variable = { SIA_current_trade_law > 3 } }
 
 
-						SIA_increase_military_approval = yes
-						SIA_decrease_civilian_approval = yes
-					}
-					else = {
 						SIA_decrease_military_approval = yes
 						SIA_increase_civilian_approval = yes
 					}
+					else = {
+						SIA_increase_military_approval = yes
+						SIA_decrease_civilian_approval = yes
+					}
 
-					set_variable = { SIA_current_trade_law = 2 }
+					set_variable = { SIA_current_trade_law = 3 }
 				}
    			}
 		}

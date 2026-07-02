@@ -123,6 +123,15 @@
 	on_monthly_SIA = {
 		effect = {
 
+			if = {
+				limit = {
+					has_dynamic_modifier = {
+						modifier = idea_SIA_asian_democratic_compact
+					}
+				}
+
+				SIA_update_adc = yes
+			}
 			#Investigation by the military beureu 
 			if = {
 				limit = { has_idea = idea_SIA_the_military_oversight_bureau }
@@ -185,6 +194,13 @@
 
 				remove_dynamic_modifier = { modifier = idea_SIA_agricultural_tax_reduction }
 				add_stability = var:SIA_agricultural_tax_reduction_stability_gain
+				add_tech_bonus = {
+					name = SIA_agricultural_tax_reduction
+					bonus = 0.25 
+					ahead_reduction = 2
+					uses = 1
+					category = industry 
+				}
 				
 			}
 		
@@ -383,11 +399,11 @@
 								to_province = 6318
 							}
 							create_unit = {
-								division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.5"
+								division = "name = \"Liverpool Dockworkers\" division_template = \"Infantry Division\" start_experience_factor = 0.5"
 								prioritize_location = 6384
 								allow_spawning_on_enemy_provs = yes
 								count = 2
-								owner = IRE
+								owner = AST
 							}
 						}
 					}
@@ -441,45 +457,7 @@
 						limit = {
 							has_completed_focus = SIA_thai_students_in_the_oss
 						}
-						if = {
-							limit = {
-								has_dlc = "La Resistance"
-							}
-							create_intelligence_agency = yes
-							upgrade_intelligence_agency = upgrade_form_department
-							upgrade_intelligence_agency = upgrade_commando_training
-							upgrade_intelligence_agency = upgrade_army_department
-							USA = {
-								create_intelligence_agency = yes
-								upgrade_intelligence_agency = upgrade_form_department
-								upgrade_intelligence_agency = upgrade_commando_training
-								upgrade_intelligence_agency = upgrade_army_department
-							}
-						}
-						add_intel = {
-							target = JAP
-							civilian_intel = 2
-							army_intel = 2
-							navy_intel = 2
-							airforce_intel = 2
-						}
-						add_decryption = {
-							target = JAP
-							ratio = 0.33
-						}
-						USA = {
-							add_intel = {
-								target = JAP
-								civilian_intel = 2
-								army_intel = 2
-								navy_intel = 2
-								airforce_intel = 2
-							}
-							add_decryption = {
-								target = JAP
-								ratio = 0.33
-							}
-						}
+						SIA_thai_students_in_the_oss_effect = yes
 					}
 					if = {
 						limit = {
@@ -767,41 +745,6 @@
 				} 
 			}
 		}
-
-		effect = {
-			IF = {
-				limit = {
-					OR = {
-						ROOT = {
-							original_tag = AST
-							has_country_flag = AST_scorch_the_north
-						}
-						FROM = {
-							original_tag = AST
-							has_country_flag = AST_scorch_the_north
-						}
-					}
-				}
-				AST = {
-					every_owned_state = {
-						limit = {
-							is_controlled_by = ROOT
-							infrastructure > 0
-							OR = {
-								state = 870
-								state = 520
-								state = 872
-							}
-						}
-						damage_building = {
-							type = infrastructure
-							damage = 3
-						}
-					}
-					clr_country_flag = AST_scorch_the_north
-				} 
-			}
-		}
 	}
 
 	# ROOT is capitulated country, FROM is winner
@@ -965,6 +908,7 @@
 						days = 30 # SPTchange to allow evacuation by allies
 					}
 				}
+			}
 		}
 	}
 
@@ -1099,6 +1043,10 @@
 					FROM = {
 						original_tag = HOL
 					}
+					NOT = {
+						INS = { has_cosmetic_tag = INS_UNION }
+						HOL = { has_cosmetic_tag = INS_UNION }
+					}
 				}
 				indonesia_free_effect = yes
 			}
@@ -1119,6 +1067,39 @@
 				mark_focus_tree_layout_dirty = yes
 			}
 		}
+
+		effect = {
+			IF = {
+				limit = {
+					ROOT = {
+						original_tag = AST
+						OR = {
+							has_completed_focus = AST_pankhurst_walsh
+							has_completed_focus = AST_stephensen
+						}
+					}
+				}
+				ROOT = {
+					IF = {
+						limit = {
+							AST_adela_walsh = {
+								has_character_flag = AST_fascist_leader
+							}
+						}
+						set_cosmetic_tag = AST_adela
+					}
+					ELSE_IF = {
+						limit = {
+							AST_percy_stephensen = {
+								has_character_flag = AST_fascist_leader
+							}
+						}
+						set_cosmetic_tag = AST_percy
+					}
+
+				}
+			}
+		}
 	}
 	
 	# Script Documentation - On Action ID 2: Removes Dutch-Loyal Generals, Admirals, Field Marshals from Indonesia, and sets a flag that among other things, removes dutch-loyal advisors/MHCs
@@ -1132,6 +1113,10 @@
 					}
 					FROM = {
 						original_tag = HOL
+					}
+					NOT = {
+						INS = { has_cosmetic_tag = INS_UNION }
+						HOL = { has_cosmetic_tag = INS_UNION }
 					}
 				}
 				indonesia_free_effect = yes
@@ -1637,43 +1622,6 @@
 				}
 			}
 
-			#Remove if don't end up using
-			#IF = { #UAP Arthur Fadden
-			#	limit = {
-			#		has_government = democratic
-			#		has_completed_focus = AST_war_is_coming
-			#		AST_arthur_fadden = {
-			#			is_hired_as_advisor = yes
-			#		}
-			#	}
-			#	add_to_variable = {
-			#		var = AST_uap_votes_var
-			#		value = 0.01 #Edit AST_advisor_uap_increase_modifier_tt /AND/ AST_arthur_fadden_votes /AND/ AST_alp_votes_change_var in on_add if changed
-			#	}
-			#	add_to_variable = {
-			#		var = AST_alp_votes_var
-			#		value = -0.01 #Edit AST_advisor_uap_increase_modifier_tt /AND/ AST_arthur_fadden_votes /AND/ AST_alp_votes_change_var in on_add if changed
-			#	}
-			#}
-			
-			#IF = { #ALP Ben Chifley
-			#	limit = {
-			#		has_government = democratic
-			#		has_completed_focus = AST_war_is_coming
-			#		AST_ben_chifley = {
-			#			is_hired_as_advisor = yes
-			#		}
-			#	}
-			#	add_to_variable = {
-			#		var = AST_alp_votes_var
-			#		value = 0.01 #Edit AST_advisor_alp_increase_modifier_tt /AND/ AST_ben_chifley_votes /AND/ AST_alp_votes_change_var in on_add if changed
-			#	}
-			#	add_to_variable = {
-			#		var = AST_uap_votes_var
-			#		value = -0.01 #Edit AST_advisor_alp_increase_modifier_tt /AND/ AST_ben_chifley_votes /AND/ AST_alp_votes_change_var in on_add if changed
-			#	}
-			#}
-
 			IF = { #ALP James Scullin
 				limit = {
 					has_government = democratic
@@ -1788,7 +1736,8 @@
 		effect = { #Launch event The 1938 Sesquicentenary 
 			IF = {
 				limit = {
-					tag = AST
+					original_tag = AST
+					has_dlc = "Thunder at Our Gates"
 					date > 1938.01.26
 					NOT = {
 						has_country_flag = AST_the_1938_sesquicentenary_trigger
@@ -1800,7 +1749,26 @@
 			}
 		}
 
-		effect = {
+		effect = { #Launch Platypus event
+			IF = {
+				limit = {
+					has_dlc = "Thunder at Our Gates"
+					ROOT = {
+						original_tag = AST
+						has_war = yes
+						OR = {
+							is_subject_of = ENG
+							is_in_faction_with = ENG
+						}
+					}
+					NOT = { has_country_flag = AST_platypus_event_trigger }
+				}
+				country_event = { id = AST_diplomatic_events.81 days = 90 }
+				set_country_flag = AST_platypus_event_trigger
+			}
+		}
+
+		effect = { #Launch War is Coming event
 			IF = {
 				limit = {
 					tag = AST
@@ -2301,7 +2269,7 @@
 						has_completed_focus = SIA_asian_democratic_compact
 					}
 				}
-
+				
 				FROM = { SIA_update_adc = yes }
 			}
 		}
@@ -2339,7 +2307,18 @@
 	}
 
 	on_offer_join_faction = {
-
+		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = SIA
+						has_completed_focus = SIA_asian_democratic_compact
+					}
+				}
+				
+				ROOT = { SIA_update_adc = yes }
+			}
+		}
 		# Late ABDACOM invite: covers add_to_faction and accepted offers
 		effect = {
 			if = {
@@ -2512,6 +2491,7 @@
 		}
 
 		effect = {
+
 			if = {
 				limit = {
 					FROM = {
@@ -2520,6 +2500,7 @@
 					}
 				}
 
+				
 				FROM = { SIA_update_adc = yes }
 			}
 		}
@@ -2690,15 +2671,39 @@
 		
 	}
 
-	on_ruling_party_change = {
+	# ROOT is invading country, scope is the state being invaded
+	on_naval_invasion = {
 		effect = {
 			if = {
 				limit = {
-					tag = AST
-					has_government = communism
-					has_idea = AST_strike_ongoing
+					ROOT = { has_war_with = AST }
+					OWNER = { 
+						original_tag = AST
+						has_country_flag = AST_scorch_the_north 
+					}
+					OR = {
+						state = 870
+						state = 520
+						state = 872
+					}
 				}
-				remove_ideas = AST_strike_ongoing
+				OWNER = {
+					every_owned_state = {
+						limit = {
+							infrastructure > 0
+							OR = {
+								state = 870
+								state = 520
+								state = 872
+							}
+						}
+						damage_building = {
+							type = infrastructure
+							damage = 3
+						}
+					}
+					clr_country_flag = AST_scorch_the_north
+				}
 			}
 		}
 	}

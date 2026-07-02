@@ -50,7 +50,7 @@ ideas = {
 			removal_cost = -1
 			modifier = {
 
-				compliance_gain = 0.1
+				compliance_gain = 0.05
 				political_power_gain = 0.05
 				production_speed_industrial_complex_factor = 0.1
 			}
@@ -196,6 +196,101 @@ ideas = {
 			}
 		}
 
+		idea_SIA_wing_promotion_disruption = {
+			picture = generic_disjointed_gov
+			allowed_civil_war = {
+				always = yes
+			}
+
+			allowed = {
+				original_tag = SIA
+			}
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = -0.15
+				army_defence_factor = -0.15
+				production_speed_arms_factory_factor = -0.15
+				production_speed_industrial_complex_factor = -0.15
+				production_factory_efficiency_gain_factor = -2 #200% of base not 200% absolute 
+			}
+		}
+
+		idea_SIA_military_wing_unrest = {
+			picture = SIA_military_rebellious
+			allowed_civil_war = {
+				always = yes
+			}
+
+			allowed = {
+				original_tag = SIA
+			}
+			removal_cost = -1
+			modifier = {
+				army_attack_factor = -0.2
+				army_defence_factor = -0.2
+				army_org_factor = -0.15
+				conscription_factor = -0.1
+				production_speed_arms_factory_factor = -0.2
+				war_support_factor = -0.1
+			}
+		}
+
+		idea_SIA_civilian_wing_unrest = {
+			picture = SIA_civillian_rebellious
+			allowed_civil_war = {
+				always = yes
+			}
+
+			allowed = {
+				original_tag = SIA
+			}
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.2
+				war_support_factor = -0.1
+				production_speed_industrial_complex_factor = -0.2
+				industrial_capacity_factory = -0.15
+				consumer_goods_factor = 0.1
+			}
+		}
+
+		idea_SIA_unified_khana_ratsadon = {
+			picture = generic_political_support
+			allowed_civil_war = {
+				always = yes
+			}
+
+			allowed = {
+				original_tag = SIA
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.1
+				stability_factor = 0.1
+				compliance_gain = 0.05
+				production_speed_industrial_complex_factor = 0.075
+				production_speed_arms_factory_factor = 0.075
+				conscription_factor = 0.15
+			}
+		}
+
+		idea_SIA_unwavering_civilian_support = {
+			picture = SIA_civillian_full_support
+			allowed_civil_war = {
+				always = yes
+			}
+
+			allowed = {
+				original_tag = SIA
+			}
+			removal_cost = -1
+			modifier = {
+				compliance_gain = 0.1
+				political_power_gain = 0.1
+				production_speed_industrial_complex_factor = 0.15
+			}
+		}
+
 		idea_SIA_defenders_of_constitutional_liberty = {
 			picture = generic_constitutional_guarantees
 			allowed_civil_war = {
@@ -243,7 +338,7 @@ ideas = {
 			}
 			removal_cost = -1
 			modifier = {
-				research_speed_factor = 0.06 # SPTchange 0.1->0.06
+				research_speed_factor = 0.06 # SPTchange 0.08->0.06
 				democratic_drift = 0.02
 				political_advisor_cost_factor = -0.2
 			}
@@ -338,6 +433,40 @@ ideas = {
 				consumer_goods_factor = -0.15
 				production_speed_buildings_factor = 0.05
 			}	
+		}
+
+		idea_SIA_oss_special_forces_training = {
+			picture = eng_special_air_service
+			allowed_civil_war = {
+				always = yes
+			}
+
+			allowed = {
+				original_tag = SIA
+			}
+			removal_cost = -1
+			modifier = {
+				special_forces_attack_factor = 0.10
+				special_forces_defence_factor = 0.10
+				special_forces_cap = 0.05
+				special_forces_training_time_factor = -0.20
+			}
+		}
+
+		idea_SIA_seized_japanese_funds = {
+			picture = generic_production_bonus
+			allowed_civil_war = {
+				always = yes
+			}
+
+			allowed = {
+				original_tag = SIA
+			}
+			removal_cost = -1
+			modifier = {
+				production_speed_buildings_factor = 0.10
+				industrial_capacity_factory = 0.10
+			}
 		}
 
 		idea_SIA_war_fervor = {
@@ -489,7 +618,7 @@ ideas = {
 				war_stability_factor = 0.1
 				political_power_factor = 0.08
 				resistance_target = -0.05
-				compliance_growth = 0.1
+				compliance_growth = 0.02
 				production_factory_start_efficiency_factor = 0.15
 			}
 		}
@@ -504,12 +633,16 @@ ideas = {
 			}
 			removal_cost = -1
 			modifier = {
+
 				party_popularity_stability_factor = 0.15
 				war_stability_factor = 0.1
 				political_power_factor = 0.08
+				resistance_target = -0.05
+				compliance_growth = 0.05
+				production_factory_start_efficiency_factor = 0.15
 				resistance_growth_on_our_occupied_states = 0.25
 				resistance_target_on_our_occupied_states = 0.15
-				recruitable_population_factor = 0.15
+				conscription_factor = 0.15
 			}
 		}
 		idea_SIA_songsuradet_ascendant_0 = {
@@ -1498,8 +1631,9 @@ ideas = {
 			equipment_bonus = {
 				light_tank_chassis = {
 					instant = yes
-					build_cost_ic = -0.1 # SPTchange -0.15->-0.1
-					reliability = -0.05 # SPTchange -0.10->0.05
+					build_cost_ic = -0.1
+					reliability = -0.05
+					# soft_attack = -0.05 # SPTchange
 				}
 			}
 		}

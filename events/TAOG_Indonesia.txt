@@ -431,7 +431,7 @@ country_event = {
 
 	# Ok
 	option = {
-		name = INS_political_events.10.a
+		name = INS_revolution_events.1.a
 		indonesia_seize_oppurtunity_reconquest_effect = yes
 	}
 }
@@ -2330,6 +2330,8 @@ country_event = {
 		}
 		effect_tooltip = { indonesia_volksraad_reject_25_effect = yes }
 		hidden_effect = { INS = { add_political_power = 12 } } #Dutch PP changes happen for Dutch-event, Indonesian PP changes happen for Indonesian event. Scripted effect should always be an effect tooltip
+
+		clr_country_flag = INS_is_taking_volksraad
 	}
 }
 
@@ -4599,6 +4601,9 @@ country_event = {
 	option = { # Acknowledge
 		name = INS_industrial_events.28.a
 		ai_chance = { base = 10 }
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
+		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
 			add_to_variable = { var = INS_great_depression_country_resource_cost_rubber value = 40 tooltip = country_resource_cost_rubber_tt }
@@ -4627,12 +4632,14 @@ country_event = {
 		name = INS_industrial_events.28.b
 		ai_chance = { base = 1 }
 		trigger = {
-			NOT = { has_country_flag = INS_selling_resource_flag }
 			has_resources_in_country = {
 				resource = rubber
 				amount > 39
 				extracted = no
 			}
+		}
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
 		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
@@ -4674,6 +4681,9 @@ country_event = {
 	option = { # Acknowledge
 		name = INS_industrial_events.28.a
 		ai_chance = { base = 10 }
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
+		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
 			add_to_variable = { var = INS_great_depression_country_resource_cost_rubber value = 24 tooltip = country_resource_cost_rubber_tt }
@@ -4702,12 +4712,15 @@ country_event = {
 		name = INS_industrial_events.28.b
 		ai_chance = { base = 1 }
 		trigger = {
-			NOT = { has_country_flag = INS_selling_resource_flag }
+			
 			has_resources_in_country = {
 				resource = rubber
 				amount > 23
 				extracted = no
 			}
+		}
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
 		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
@@ -4749,6 +4762,9 @@ country_event = {
 	option = { # Acknowledge
 		name = INS_industrial_events.28.a
 		ai_chance = { base = 10 }
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
+		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
 			add_to_variable = { var = INS_great_depression_country_resource_cost_rubber value = 32 tooltip = country_resource_cost_rubber_tt }
@@ -4762,12 +4778,15 @@ country_event = {
 		name = INS_industrial_events.28.b
 		ai_chance = { base = 1 }
 		trigger = {
-			NOT = { has_country_flag = INS_selling_resource_flag }
+			
 			has_resources_in_country = {
 				resource = rubber
 				amount > 31
 				extracted = no
 			}
+		}
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
 		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
@@ -4794,6 +4813,9 @@ country_event = {
 	option = { # Acknowledge
 		name = INS_industrial_events.28.a
 		ai_chance = { base = 10 }
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
+		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
 			add_to_variable = { var = INS_great_depression_country_resource_cost_rubber value = 16 tooltip = country_resource_cost_rubber_tt }
@@ -4806,12 +4828,15 @@ country_event = {
 		name = INS_industrial_events.28.b
 		ai_chance = { base = 1 }
 		trigger = {
-			NOT = { has_country_flag = INS_selling_resource_flag }
+			
 			has_resources_in_country = {
 				resource = rubber
 				amount > 15
 				extracted = no
 			}
+		}
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
 		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
@@ -4837,6 +4862,9 @@ country_event = {
 	option = { # Acknowledge
 		name = INS_industrial_events.28.a
 		ai_chance = { base = 10 }
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
+		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
 			add_to_variable = { var = INS_great_depression_country_resource_cost_rubber value = 40 tooltip = country_resource_cost_rubber_tt }
@@ -4880,12 +4908,15 @@ country_event = {
 		name = INS_industrial_events.28.b
 		ai_chance = { base = 1 }
 		trigger = {
-			NOT = { has_country_flag = INS_selling_resource_flag }
+			
 			has_resources_in_country = {
 				resource = rubber
 				amount > 39
 				extracted = no
 			}
+		}
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
 		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
@@ -4942,6 +4973,9 @@ country_event = {
 	option = { # Acknowledge
 		name = INS_industrial_events.28.a
 		ai_chance = { base = 10 }
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
+		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
 			add_to_variable = { var = INS_great_depression_country_resource_cost_rubber value = 16 tooltip = country_resource_cost_rubber_tt }
@@ -4957,13 +4991,16 @@ country_event = {
 		name = INS_industrial_events.28.b
 		ai_chance = { base = 1 }
 		trigger = {
-			NOT = { has_country_flag = INS_selling_resource_flag }
+			
 			has_tech = motorised_infantry
 			has_resources_in_country = {
 				resource = rubber
 				amount > 15
 				extracted = no
 			}
+		}
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
 		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
@@ -4992,6 +5029,9 @@ country_event = {
 	option = { # Acknowledge
 		name = INS_industrial_events.28.a
 		ai_chance = { base = 10 }
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
+		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
 			add_to_variable = { var = INS_great_depression_country_resource_cost_rubber value = 32 tooltip = country_resource_cost_rubber_tt }
@@ -5018,6 +5058,9 @@ country_event = {
 	option = { # Acknowledge
 		name = INS_industrial_events.28.a
 		ai_chance = { base = 10 }
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
+		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
 			add_to_variable = { var = INS_great_depression_country_resource_cost_rubber value = 90 tooltip = country_resource_cost_rubber_tt }
@@ -5053,6 +5096,9 @@ country_event = {
 	option = { # Acknowledge
 		name = INS_industrial_events.36.a
 		ai_chance = { base = 10 }
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
+		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
 			add_to_variable = { var = INS_great_depression_country_resource_cost_oil value = 24 tooltip = country_resource_cost_oil_tt }
@@ -5081,13 +5127,16 @@ country_event = {
 		name = INS_industrial_events.36.b
 		ai_chance = { base = 1 }
 		trigger = {
-			NOT = { has_country_flag = INS_selling_resource_flag }
+			
 			has_completed_focus = INS_invite_foreign_companies
 			has_resources_in_country = {
 				resource = oil
 				amount > 23
 				extracted = no
 			}
+		}
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
 		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
@@ -5129,6 +5178,9 @@ country_event = {
 	option = { # Acknowledge
 		name = INS_industrial_events.36.a
 		ai_chance = { base = 10 }
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
+		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
 			add_to_variable = { var = INS_great_depression_country_resource_cost_oil value = 24 tooltip = country_resource_cost_oil_tt }
@@ -5157,13 +5209,16 @@ country_event = {
 		name = INS_industrial_events.36.b
 		ai_chance = { base = 1 }
 		trigger = {
-			NOT = { has_country_flag = INS_selling_resource_flag }
+			
 			has_completed_focus = INS_invite_foreign_companies
 			has_resources_in_country = {
 				resource = oil
 				amount > 23
 				extracted = no
 			}
+		}
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
 		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
@@ -5205,6 +5260,9 @@ country_event = {
 	option = { # Acknowledge
 		name = INS_industrial_events.36.a
 		ai_chance = { base = 10 }
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
+		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
 			add_to_variable = { var = INS_great_depression_country_resource_cost_oil value = 32 tooltip = country_resource_cost_oil_tt }
@@ -5229,6 +5287,9 @@ country_event = {
 				amount > 31
 				extracted = no
 			}
+		}
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
 		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
@@ -5256,6 +5317,9 @@ country_event = {
 	option = { # Acknowledge
 		name = INS_industrial_events.36.a
 		ai_chance = { base = 10 }
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
+		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt
 			add_to_variable = { var = INS_great_depression_country_resource_cost_oil value = 40 tooltip = country_resource_cost_oil_tt }
@@ -5280,6 +5344,9 @@ country_event = {
 				amount > 39
 				extracted = no
 			}
+		}
+		hidden_effect = {
+			clr_country_flag = INS_selling_resource_flag
 		}
 		effect_tooltip = {
 			custom_effect_tooltip = INS_great_depression_tt

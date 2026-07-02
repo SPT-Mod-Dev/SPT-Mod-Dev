@@ -18006,3 +18006,271 @@ GOE_form_hindustan_category = {
 		}
 	}
 }
+
+AST_australia_formables_category = {
+
+	AST_form_australasia = {
+		icon = generic_form_nation
+
+		allowed = {
+			original_tag = AST
+			has_dlc = "Thunder at Our Gates"
+		}
+
+		fire_only_once = yes
+
+		on_map_mode = decision_view_only
+
+		highlight_states = { 
+			highlight_state_targets = {
+				# Australia
+				state = 518
+				state = 517
+				state = 285
+				state = 521
+				state = 873
+				state = 1075
+				state = 519
+				state = 674
+				state = 1074
+				state = 871
+				state = 522
+				state = 870
+				state = 520
+				state = 872
+
+				# Melanesia - West Papua New Guinea
+				state = 669
+				state = 1057
+
+				# Melanesia - East Papua New Guinea
+				state = 979
+				state = 523
+				state = 737
+				state = 1070
+				state = 1073
+
+				# Melanesia - Solomons
+				state = 634
+				state = 734
+
+				# Melanesia - New Hebrides & New Caledonia
+				state = 1071
+				state = 635
+
+				# Melanesia - Fiji
+				state = 636
+
+				# New Zealand
+				state = 1079
+				state = 284
+				state = 1080
+				state = 723
+				state = 1081
+			}
+		}
+
+		available = {
+			is_subject = no
+			custom_trigger_tooltip = {
+				tooltip = AST_form_australasia_malenesia_required_states_tt
+				# Melanesia - West Papua New Guinea
+				controls_state = 669
+				controls_state = 1057
+
+				# Melanesia - East Papua New Guinea
+				controls_state = 979
+				controls_state = 523 
+				controls_state = 737
+				controls_state = 1070
+				#controls_state = 1073 # Disregarded to prevent edge cases as it is impassible terrain
+
+				# Melanesia - Solomons
+				controls_state = 634
+				controls_state = 734
+
+				# Melanesia - New Hebrides & New Caledonia
+				controls_state = 1071
+				controls_state = 635
+
+				# Melanesia - Fiji
+				controls_state = 636
+			}
+			custom_trigger_tooltip = {
+				tooltip = AST_form_australasia_new_zealand_required_states_tt
+				# New Zealand
+				controls_state = 1079
+				controls_state = 284
+				controls_state = 1080
+				controls_state = 723
+				controls_state = 1081 
+			}
+		}
+
+		complete_effect = {
+			set_cosmetic_tag = AST_australasia
+			set_global_flag = AST_australasia_flag
+			custom_effect_tooltip = AST_form_australasia_malenesia_core_states_tt
+			hidden_effect = {
+				# Melanesia - West Papua New Guinea
+				669 = { add_core_of = ROOT }
+				1057 = { add_core_of = ROOT }
+
+				# Melanesia - East Papua New Guinea
+				979 = { add_core_of = ROOT }
+				523 = { add_core_of = ROOT }
+				737 = { add_core_of = ROOT }
+				1070 = { add_core_of = ROOT }
+				1073 = { add_core_of = ROOT }
+
+				# Melanesia - Solomons
+				634 = { add_core_of = ROOT }
+				734 = { add_core_of = ROOT }
+
+				# Melanesia - New Hebrides & New Caledonia
+				1071 = { add_core_of = ROOT }
+				635 = { add_core_of = ROOT }
+
+				# Melanesia - Fiji
+				636 = { add_core_of = ROOT }
+			}
+			# New Zealand
+			IF = {
+				limit = {
+					any_state = {
+						NOT = { 
+							is_core_of = ROOT
+						}
+						OR = {
+							state = 1079
+							state = 284
+							state = 1080
+							state = 723
+							state = 1081
+						}
+					}
+				}
+				custom_effect_tooltip = AST_form_australasia_new_zealand_core_states_tt
+				hidden_effect = {
+					1079 = { add_core_of = ROOT }
+					284 = { add_core_of = ROOT }
+					1080 = { add_core_of = ROOT }
+					723 = { add_core_of = ROOT }
+					1081 = { add_core_of = ROOT }
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 3
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+
+	AST_integrate_indonesia = {
+		icon = GFX_decision_INS_core_state
+
+		allowed = {
+			original_tag = AST
+			has_dlc = "Thunder at Our Gates"
+		}
+
+		visible = {
+			has_global_flag = AST_australasia_flag
+		}
+
+		fire_only_once = yes
+
+		on_map_mode = decision_view_only
+
+		highlight_states = { 
+			highlight_state_targets = {
+				# Indonesia
+				state = 1022
+				state = 1047
+				state = 1048
+				state = 1049
+				state = 1050
+				state = 1051
+				state = 1052
+				state = 1053
+				state = 1054
+				state = 1055
+				state = 1056
+				state = 1058
+				state = 334
+				state = 335
+				state = 667
+				state = 668
+				state = 672
+				state = 673
+				state = 738
+			}
+		}
+
+		available = {
+			has_global_flag = AST_australasia_flag
+			is_subject = no
+			custom_trigger_tooltip = {
+				tooltip = AST_integrate_indonesia_indonesia_required_states_tt
+				# Indonesia
+				controls_state = 1022
+				controls_state = 1047
+				controls_state = 1048
+				controls_state = 1049
+				controls_state = 1050
+				controls_state = 1051
+				controls_state = 1052
+				controls_state = 1053
+				controls_state = 1054
+				controls_state = 1055
+				controls_state = 1056
+				controls_state = 1058
+				controls_state = 334
+				controls_state = 335
+				controls_state = 667
+				controls_state = 668
+				controls_state = 672
+				controls_state = 673
+				controls_state = 738
+			}
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = AST_integrate_indonesia_indonesia_core_states_tt
+			hidden_effect = {
+				# Indonesia
+				1022 = { add_core_of = ROOT }
+				1047 = { add_core_of = ROOT }
+				1048 = { add_core_of = ROOT }
+				1049 = { add_core_of = ROOT }
+				1050 = { add_core_of = ROOT }
+				1051 = { add_core_of = ROOT }
+				1052 = { add_core_of = ROOT }
+				1053 = { add_core_of = ROOT }
+				1054 = { add_core_of = ROOT }
+				1055 = { add_core_of = ROOT }
+				1056 = { add_core_of = ROOT }
+				1058 = { add_core_of = ROOT }
+				334 = { add_core_of = ROOT }
+				335 = { add_core_of = ROOT }
+				667 = { add_core_of = ROOT }
+				668 = { add_core_of = ROOT }
+				672 = { add_core_of = ROOT }
+				673 = { add_core_of = ROOT }
+				738 = { add_core_of = ROOT }
+			}
+		}
+
+		ai_will_do = {
+			base = 3
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+}

@@ -1,5 +1,20 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 4.2.2 blazed too hard
+
+#### General
+ - Update to 1.19.2, see Balance section of official patch notes
+
+#### Australia
+ - Enabled focus branch 'No. 1 Flying Training School'
+ - Focus 'Aerodrome of Democracy': Air Attack 10%->5%
+                                   Air Defense 10%->5%
+ - Focus 'Death from Down Under': Air Mission Efficiency 10%->0%
+ - Focus 'Re-establish Central Flying School': Ace Effectiveness 25%->10%
+ - Focus 'Ride the Lightning': Light Aircraft Research Bonus 50%->100%
+                               Light Aircraft Research Bonus 2x->1x
+ - Fixed election system
+
 ### 4.2.1 Blaze it + 1
 
 #### General
