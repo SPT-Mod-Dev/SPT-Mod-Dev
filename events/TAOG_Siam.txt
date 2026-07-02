@@ -402,7 +402,6 @@ country_event = {
 				has_variable = SIA.limited_war_target
 				var:SIA.limited_war_target = {
 					exists = yes
-					has_capitulated = no
 				}
 			}
 			var:SIA.limited_war_target = { country_event = { id = siam.11 hours = 2 } }
@@ -460,6 +459,12 @@ country_event = {
 		}
 
 		FROM = { country_event = { id = siam.12 hours = 2 } }
+
+		if = {
+			limit = { has_country_flag = SIA_limited_war_could_join_factions }
+			set_rule = { can_join_factions = yes }
+			clr_country_flag = SIA_limited_war_could_join_factions
+		}
 	}
 
 	#Continue the war as Defender
@@ -2789,6 +2794,75 @@ country_event = {
 		}
 
 		custom_effect_tooltip  = SIA_dem_event_count_cw_scale_tt
+	}
+}
+
+#Choose the head of the new government after the Seri Thai uprising (fired from SIA_unseat_the_government)
+country_event = {
+	id = siam_dem.5
+	title = siam_dem.5.t
+	desc = siam_dem.5.desc
+	picture = GFX_report_event_asian_politicians
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = yes
+			}
+		}
+	}
+
+	option = { 
+		name = siam_dem.5.a
+		ai_chance = {
+			factor = 5
+			modifier = {
+				OR = {
+					has_country_flag = SIA_AI_RANDOM_DEMOCRATIC
+					has_game_rule = { rule = SIA_ai_behavior option = DEMOCRATIC }
+				}
+				factor = 10
+			}
+		}
+		add_country_leader_role = {
+			character = SIA_pridi_banomyong
+			promote_leader = yes
+			country_leader = {
+				ideology = socialism
+				traits = { JUNO_minister_of_foreign_affairs }
+			}
+		}
+		SIA_increase_civilian_approval = yes
+	}
+
+	option = {
+		name = siam_dem.5.b
+		ai_chance = { factor = 10 }
+		add_country_leader_role = {
+			character = SIA_kuang_abhayavongsa
+			promote_leader = yes
+			country_leader = {
+				ideology = conservatism
+				traits = { SIA_the_inoffensive_choice }
+			}
+		}
+		SIA_increase_civilian_approval = yes
+	}
+
+	option = { 
+		name = siam_dem.5.c
+		ai_chance = { factor = 5 }
+		add_country_leader_role = {
+			character = SIA_phin_choonhavan
+			promote_leader = yes
+			country_leader = {
+				ideology = conservatism
+				traits = { SIA_the_generals_mandate }
+			}
+		}
+		SIA_increase_military_approval = yes
 	}
 }
 

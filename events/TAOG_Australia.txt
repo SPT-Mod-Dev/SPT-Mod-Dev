@@ -105,7 +105,7 @@ country_event = { #Initial Democratic Election event
 
 		reduce_focus_completion_cost = {
 			focus = { AST_the_pacific_pact AST_advance_pacific_initiatives AST_domestic_industry AST_a_collapsing_league_of_nations AST_department_of_munitions AST_a_democratic_bulwark AST_call_for_a_referendum AST_rural_concessions }
-			cost = 5
+			cost = 7
 		}
 	}
 
@@ -587,10 +587,26 @@ country_event = { #NZL referendum success
 			limit = {
 				original_tag = AST
 			}
+			custom_effect_tooltip = AST_reclaim_the_lost_territory_tt
+			hidden_effect = {
+				NZL = {
+					transfer_units_fraction = {
+						target = AST         # the recipient
+						size = 1             # [0,1] Default value for the ratio below if they are not specified
+						stockpile_ratio = 1  # [0,1] Overrides size modifier for the stockpiled equipment and fuel
+						army_ratio = 1       # [0,1] Overrides size modifier for army
+						navy_ratio = 1      # [0,1] Overrides size modifier for navy
+						air_ratio = 1        # [0,1] Overrides size modifier for air		
+					}
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			AST = { annex_country = { target = NZL } }
 		
-			else = {
+			ELSE = {
 				effect_tooltip = {
+					custom_effect_tooltip = AST_reclaim_the_lost_territory_tt
+					custom_effect_tooltip = generic_skip_one_line_tt
 					AST = { annex_country = { target = NZL } }
 				}
 			}
@@ -767,6 +783,12 @@ country_event = { #Summons to British War Cabinet
 
 	is_triggered_only = yes
 
+	immediate = {
+		hidden_effect = {
+			add_to_variable = { AST_bwc_count = 1 }
+		}
+	}
+
 	option = { #Accept
 		name = AST_diplomatic_events.20.a
 		ai_chance = { 
@@ -786,6 +808,23 @@ country_event = { #Summons to British War Cabinet
 		custom_effect_tooltip = generic_skip_one_line_tt
 		AST_democratic_votes_decrease_5_effect = yes
 
+		IF = {
+			limit = {
+				check_variable = { AST_bwc_accept > 2 } #Var starts at 1 for tt reasons
+			}
+			effect_tooltip = {
+				country_event = { id = AST_diplomatic_events.22 }
+				custom_effect_tooltip = effects_of_event_tt
+				event_option_tooltip = AST_diplomatic_events.22.a
+			}
+		}
+		ELSE = {
+			custom_effect_tooltip = AST_bwc_accept_tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = AST_bwc_accept_effect_tt
+			event_option_tooltip = AST_diplomatic_events.22.a
+		}
+
 		hidden_effect = {
 			AST = { country_event = { id = AST_diplomatic_events.21 hours = 3 } }
 		}
@@ -803,9 +842,9 @@ country_event = { #Summons to British War Cabinet
 
 		custom_effect_tooltip = potential_consequence_tt
 		effect_tooltip = {
-			remove_dynamic_modifier = {
-				modifier = AST_british_war_cabinet_spirit
-			}
+			country_event = { id = AST_diplomatic_events.23 }
+			custom_effect_tooltip = effects_of_event_tt
+			event_option_tooltip = AST_diplomatic_events.23.a
 		}
 
 		add_to_variable = {
@@ -828,7 +867,7 @@ country_event = { #Runs Summons to British War Cabinet events
 
 		IF = { #If accepted summons 3 times, finish event chain with reward
 			limit = {
-				check_variable = { AST_bwc_accept = 3 }
+				check_variable = { AST_bwc_accept = 4 } #Var starts at 1 for tt reasons
 			}
 			AST = { country_event = { id = AST_diplomatic_events.22 days = 10 } }
 		}
@@ -857,7 +896,7 @@ country_event = { #Runs Summons to British War Cabinet events
 					AST = { country_event = { id = AST_diplomatic_events.23 days = 2 } }
 				}
 				75 = {
-					AST = { country_event = { id = AST_diplomatic_events.20 days = 90  random_days = 30 } } 
+					AST = { country_event = { id = AST_diplomatic_events.20 days = 90 random_days = 30 } } 
 				}
 			}
 		}
@@ -875,14 +914,14 @@ country_event = { #Runs Summons to British War Cabinet events
 					AST = { country_event = { id = AST_diplomatic_events.23 days = 2 } }
 				}
 				50 = {
-					AST = { country_event = { id = AST_diplomatic_events.20 days = 90  random_days = 30 } } 
+					AST = { country_event = { id = AST_diplomatic_events.20 days = 90 random_days = 30 } } 
 				}
 			}
 		}
 
 		ELSE_IF = { #Continue event chain of summons
 			limit = {
-				check_variable = { AST_bwc_accept < 3 }
+				check_variable = { AST_bwc_accept < 4 } #Var starts at 1 for tt reasons
 				check_variable = { AST_bwc_reject < 3 }
 				ENG = {
 					has_war = yes
@@ -890,7 +929,7 @@ country_event = { #Runs Summons to British War Cabinet events
 				}
 				
 			}
-			AST = { country_event = { id = AST_diplomatic_events.20 days = 90  random_days = 30 } } 
+			AST = { country_event = { id = AST_diplomatic_events.20 days = 90 random_days = 30 } } 
 		}
 	}
 }
@@ -906,7 +945,7 @@ country_event = { #British War Cabinet done with
 	option = { 
 		name = AST_diplomatic_events.22.a
 
-		add_or_modify_AST_british_war_cabinet_spirit = yes
+		custom_effect_tooltip = AST_british_war_cabinet_spirit_tt
 		set_variable = { AST_british_war_cabinet_stability_factor = 0 tooltip = stability_factor_tt }
 	}
 }
@@ -963,6 +1002,9 @@ country_event = { #ENG&AST: Australian Prime Minister takes over England
 					set_autonomy = {
 						target = AST
 						autonomy_state = autonomy_associated_dominion
+						freedom_level = 0.5
+						end_wars  = no
+						end_civil_wars = no
 					}
 				}
 				AST = {
@@ -1544,7 +1586,6 @@ country_event = { #JAP: Australia requests to divide Pacific territories
 		hidden_effect = {
 			FROM = { 
 				country_event = { id = AST_diplomatic_events.35 days = 1 } 
-				set_country_flag = AST_divide_the_pacific_flag
 			}
 		}
 	}
@@ -2363,19 +2404,21 @@ country_event = { #AST offers IRE an Anti-British Pact
 			relation = non_aggression_pact 
 			active = no
 		}
-		diplomatic_relation = { 
-			country = AST
-			relation = military_access 
-			active = yes
+		AST = {
+			diplomatic_relation = {
+				country = IRE
+				relation = military_access
+				active = yes
+			}
+			diplomatic_relation = {
+				country = IRE
+				relation = docking_rights
+				active = yes
+			}
 		}
-		diplomatic_relation = { 
+		diplomatic_relation = {
 			country = AST
-			relation = docking_rights 
-			active = yes
-		}
-		diplomatic_relation = { 
-			country = AST
-			relation = non_aggression_pact 
+			relation = non_aggression_pact
 			active = yes
 		}
 		hidden_effect = {
@@ -2669,7 +2712,7 @@ country_event = { #USA doesn't give Pacific Islands
     id = AST_diplomatic_events.73
 	title = AST_diplomatic_events.73.t
 	desc = AST_diplomatic_events.73.desc
-	picture = GFX_report_event_generic_handshake
+	picture = GFX_report_event_generic_read_write
 
 	is_triggered_only = yes
 
@@ -2706,6 +2749,11 @@ country_event = { #USA: AST requests PHI
 
     option = { 
 		name = AST_diplomatic_events.74.a
+		 trigger = {
+	        PHI = {
+	        	is_subject_of = USA
+	        }
+	    }
 		ai_chance = {
 	 		base = 1 
 		}
@@ -2730,7 +2778,8 @@ country_event = { #USA: AST requests PHI
 		}
 
         AST = { country_event = { id = AST_diplomatic_events.76 hours = 3 } }
-
+        custom_effect_tooltip = effects_of_event_tt
+        event_option_tooltip = AST_diplomatic_events.76.a
     }
 }
 
@@ -2757,7 +2806,7 @@ country_event = { #USA doesn't give PHI
     id = AST_diplomatic_events.76
 	title = AST_diplomatic_events.76.t
 	desc = AST_diplomatic_events.76.desc
-	picture = GFX_report_event_generic_handshake
+	picture = GFX_report_event_generic_read_write
 
 	is_triggered_only = yes
 
@@ -2766,14 +2815,13 @@ country_event = { #USA doesn't give PHI
 
 		IF = {
 			limit = {
-				has_country_flag = AST_divide_the_pacific_flag
 				JAP = {
-					is_ai = yes
 					NOT = { has_war_with = AST }
+					NOT = { is_in_faction_with = AST }
 				}
 			}
 			JAP = {
-				give_guarantee = AST
+				country_event = { id = AST_diplomatic_events.78 hours = 3 }
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 		}
@@ -2798,6 +2846,125 @@ country_event = { #Triggers War is Coming decisions and Canberra for 1939 start
     	set_country_flag = AST_war_is_coming_decisions_trigger
         AST = { country_event = { id = AST_political_events.8 days = 6 } }
     }
+}
+
+country_event = { #JAP: AST requests guarantee
+    id = AST_diplomatic_events.78
+	title = AST_diplomatic_events.78.t
+	desc = AST_diplomatic_events.78.desc
+	picture = GFX_report_event_generic_handshake
+
+	is_triggered_only = yes
+
+    option = { 
+		name = AST_diplomatic_events.78.a
+		ai_chance = {
+	 		base = 1
+	 		modifier = {
+	 			OR = {
+	 				is_in_faction_with = USA
+	 				has_non_aggression_pact_with = USA
+	 				has_guaranteed = USA
+	 			}
+	 			factor = 0 
+	 		} 
+		}
+
+		give_guarantee = AST
+		hidden_effect = {
+			AST = { country_event = { id = AST_diplomatic_events.79 hours = 1 } }
+		}
+	}
+
+	option = { 
+		name = AST_diplomatic_events.78.b
+		ai_chance = {
+	 		base = 0
+	 		modifier = {
+	 			OR = {
+	 				is_in_faction_with = USA
+	 				has_non_aggression_pact_with = USA
+	 				has_guaranteed = USA
+	 			}
+	 			add = 1 
+	 		} 
+		}
+
+		hidden_effect = {
+			AST = { country_event = { id = AST_diplomatic_events.80 hours = 1 } }
+		}
+	}
+}
+
+country_event = { #JAP agrees to guarantee
+    id = AST_diplomatic_events.79
+	title = AST_diplomatic_events.79.t
+	desc = AST_diplomatic_events.79.desc
+	picture = GFX_report_event_generic_handshake
+
+	is_triggered_only = yes
+
+    option = { 
+		name = AST_diplomatic_events.79.a
+
+		effect_tooltip = { 
+			JAP = { give_guarantee = AST }
+		}
+	}
+}
+
+country_event = { #JAP denies to guarantee
+    id = AST_diplomatic_events.80
+	title = AST_diplomatic_events.80.t
+	desc = AST_diplomatic_events.80.desc
+	picture = GFX_report_event_generic_read_write
+
+	is_triggered_only = yes
+
+    option = { 
+		name = AST_diplomatic_events.80.a
+	}
+}
+
+country_event = { #Send platypus to ENG PM
+    id = AST_diplomatic_events.81
+	title = AST_diplomatic_events.81.t
+	desc = AST_diplomatic_events.81.desc
+	picture = GFX_report_event_AST_winston_platypus_1
+
+	is_triggered_only = yes
+
+    option = { 
+		name = AST_diplomatic_events.81.a
+
+		every_country_with_original_tag = {
+			originaL_tag_to_check =	ENG
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = AST_platypus_modifier
+			}
+		}
+		hidden_effect = {
+			country_event = { id = AST_diplomatic_events.82 days = 45 }
+		}
+	}
+
+	option = { 
+		name = AST_diplomatic_events.81.b
+	}
+}
+
+country_event = { #Platypus has died
+    id = AST_diplomatic_events.82
+	title = AST_diplomatic_events.82.t
+	desc = AST_diplomatic_events.82.desc
+	picture = GFX_report_event_AST_winston_platypus_2
+
+	is_triggered_only = yes
+
+    option = { 
+		name = AST_diplomatic_events.82.a
+	}
 }
 
 #### Political Events ####
@@ -3051,6 +3218,12 @@ country_event = { #Canberra Air Crash
 	            activate_mission = AST_castle_crumbling_mission
 	            set_country_flag = AST_canberra_air_disaster_flag
 	        }
+	        IF = {
+	        	limit = {
+	        		has_completed_focus = AST_australia_first
+	        	}
+				set_country_flag = AST_a_convenient_disaster_flag
+	        }
 	    }
 	}
 
@@ -3197,11 +3370,27 @@ country_event = { #Government goes
 
 			IF = {
 				limit = {
+					AST_percy_stephensen = {
+						has_character_flag = AST_fascist_leader
+					}
+				}
+				effect_tooltip = {
+					set_cosmetic_tag = AST_percy_fascism
+				}
+				hidden_effect = {
+					set_cosmetic_tag = AST_percy
+				}
+			}
+
+			IF = {
+				limit = {
 					AST_adela_walsh = {
 						has_character_flag = AST_fascist_leader
 					}
 				}
-				set_cosmetic_tag = AST_adela_imperial_fascism
+				hidden_effect = {
+					set_cosmetic_tag = AST_adela_imperial
+				}
 			}
 		}
 
