@@ -1,5 +1,10 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 4.2.3
+
+#### Soviet Union
+ - Focus 'Behead the Snake' now automatically beheads the snake after 180 days
+
 ### 4.2.2 blazed too hard
 
 #### General
