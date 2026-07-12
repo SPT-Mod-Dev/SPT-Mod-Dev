@@ -3,7 +3,7 @@
 ### 4.2.3
 
 #### Soviet Union
- - Focus 'Behead the Snake' now automatically beheads the snake after 180 days
+ - Focus 'Behead the Snake' now automatically beheads the snake after 270 days
 
 ### 4.2.2 blazed too hard
 
