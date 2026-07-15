@@ -1,0 +1,307 @@
+#Cedillo ideas
+
+ideas = {
+	country = {
+
+		MEX_CED_cacique_network = {
+			picture = generic_disjointed_gov
+
+			allowed = {
+				original_tag = MEX
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				political_power_factor = -0.10
+				conscription = 0.01
+				stability_factor = 0.05
+			}
+		}
+
+		MEX_CED_agrarismo = {
+			picture = generic_agrarian_reform
+
+			allowed = {
+				original_tag = MEX
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				monthly_population = 0.10
+				stability_factor = 0.05
+				industrial_capacity_factory = -0.05
+			}
+		}
+
+		MEX_CED_oil_income = {
+			picture = generic_foreign_capital
+
+			allowed = {
+				original_tag = MEX
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = 0.10
+				industrial_capacity_factory = 0.05
+			}
+		}
+
+		MEX_CED_private_banking_idea = {
+			allowed = { always = no }
+			picture = GFX_idea_MEX_banco_de_mexico
+			cost = 75
+			research_bonus = {
+				industry = 0.15
+			}
+			modifier = {
+				economy_cost_factor = -0.25
+			}
+		}
+
+		MEX_CED_tank_production_programme = {
+    		allowed = { always = no }
+    		removal_cost = -1
+    		picture = GFX_idea_generic_armor
+
+    		equipment_bonus = {
+        		light_tank_chassis = {
+            		instant = yes
+            		build_cost_ic = -0.05
+     			}
+        		medium_tank_chassis = {
+            		instant = yes
+            		build_cost_ic = -0.05
+        		}
+        		heavy_tank_chassis = {
+            		instant = yes
+            		build_cost_ic = -0.05
+        		}
+        		mechanized_equipment = {
+            		instant = yes
+            		build_cost_ic = -0.05
+        		}
+    		}
+		}
+
+		MEX_CED_mass_weapons_production = {
+    		allowed = { always = no }
+    		removal_cost = -1
+    		picture = GFX_idea_generic_armor
+
+    		equipment_bonus = {
+        		infantry_equipment = {
+            		instant = yes
+            		build_cost_ic = -0.05
+     			}
+				support_equipment = {
+            		instant = yes
+            		build_cost_ic = -0.05
+     			}
+    		}
+		}
+
+		MEX_CED_aircraft_production = {
+    		allowed = { always = no }
+    		removal_cost = -1
+    		picture = GFX_idea_generic_armor
+
+    		equipment_bonus = {
+        		infantry_equipment = {
+            		instant = yes
+            		build_cost_ic = -0.05
+     			}
+				support_equipment = {
+            		instant = yes
+            		build_cost_ic = -0.05
+     			}
+    		}
+		}
+
+		MEX_CED_commonwealth_air_training_plan = {
+    		picture = generic_air_bonus
+
+    		allowed = {
+        		always = no
+    		}
+
+    		allowed_civil_war = {
+        	always = yes
+    		}
+
+    		removal_cost = -1
+
+    		modifier = {
+        		experience_gain_air = 0.05
+        		experience_gain_air_factor = 0.1
+        		air_mission_xp_gain_factor = 0.05
+        		air_training_xp_gain_factor = 0.2
+    		}
+		}
+
+		MEX_CED_industrialization_plan = {
+    		picture = generic_industry_concern_1
+    
+    		allowed = { always = no }
+    		allowed_civil_war = { always = yes }
+    		removal_cost = -1
+			
+    		modifier = {
+				consumer_goods_factor = -0.15
+        		production_speed_buildings_factor = 0.15
+        		industrial_capacity_factory = 0.15
+        		industrial_capacity_dockyard = 0.15
+    		}
+    
+    		on_remove = {
+        		add_to_variable = { MEX_CED_industria_construction_speed = 0.05 tooltip = production_speed_buildings_factor_tt }
+        		add_to_variable = { MEX_CED_industria_consumer_goods = -0.05 tooltip = consumer_goods_factor_tt }
+        		add_to_variable = { MEX_CED_industria_production_efficiency_cap = 0.05 tooltip = production_factory_max_efficiency_factor_tt }
+        		add_to_variable = { MEX_CED_industria_production_efficiency_gain = 0.05 tooltip = production_factory_efficiency_gain_factor_tt }
+        		set_country_flag = MEX_CED_industrialization_complete
+    		}
+		}
+
+		MEX_CED_instituto_tecnologico = {
+    		picture = generic_research_bonus
+    
+    		allowed = { always = no }
+    		allowed_civil_war = { always = yes }
+    		removal_cost = -1
+    
+    		modifier = {
+        		research_speed_factor = 0.20
+    		}
+    
+    		on_remove = {
+        		add_to_variable = { MEX_CED_industria_research_speed = 0.10 tooltip = research_speed_factor_tt }
+        		add_tech_bonus = {
+            		name = MEX_CED_electronics_bonus
+            		bonus = 0.5
+            		uses = 2
+            		category = electronics
+        		}
+				set_country_flag = MEX_CED_instituto_tecnologico_complete
+    		}
+		}
+
+		MEX_CED_rural_development_plan = {
+    		picture = generic_industry_concern_1
+    
+    		allowed = { always = no }
+    		allowed_civil_war = { always = yes }
+    		removal_cost = -1
+    
+    		modifier = {
+        		production_speed_infrastructure_factor = 0.15
+        		production_speed_industrial_complex_factor = 0.15
+    		}
+    
+    		on_remove = {
+        		add_to_variable = { MEX_CED_industria_consumer_goods = -0.05 tooltip = consumer_goods_factor_tt }
+        		add_to_variable = { MEX_CED_industria_construction_speed = 0.05 tooltip = production_speed_buildings_factor_tt }
+        		set_country_flag = MEX_CED_rural_development_done
+    		}
+		}
+
+		MEX_CED_military_industrial_base = {
+    		picture = generic_army_support
+			
+    		allowed = { always = no }
+    		allowed_civil_war = { always = yes }
+    		removal_cost = -1
+    
+    		modifier = {
+        		production_speed_arms_factory_factor = 0.15
+        		production_speed_dockyard_factor = 0.15
+    		}
+    
+    		on_remove = {
+        		add_to_variable = { MEX_CED_industria_factory_output = 0.05 tooltip = industrial_capacity_factory_tt }
+        		add_to_variable = { MEX_CED_industria_production_efficiency_cap = 0.05 tooltip = production_factory_max_efficiency_factor_tt }
+        		add_to_variable = { MEX_CED_industria_production_efficiency_gain = 0.05 tooltip = production_factory_efficiency_gain_factor_tt }
+        		set_country_flag = MEX_CED_military_industrial_done
+    		}
+		}
+		MEX_CED_land_development_programme = {
+    		picture = generic_industry_concern_1
+    
+    		allowed = { always = no }
+    		allowed_civil_war = { always = yes }
+    		removal_cost = -1
+    
+    		modifier = {
+        		production_factory_efficiency_gain_factor = 0.10
+        		production_factory_start_efficiency_factor = 0.05
+        		line_change_production_efficiency_factor = 0.05
+        		mobilization_speed = 0.15
+    		}
+    
+    		on_remove = {
+        		add_to_variable = { MEX_CED_industria_resource_efficiency = 0.10 tooltip = local_resources_factor_tt }
+    			add_to_variable = { MEX_CED_industria_building_slots = 0.10 tooltip = global_building_slots_factor_tt }
+        		set_country_flag = MEX_CED_land_development_done
+    		}
+		}
+
+		MEX_CED_good_neighbour_recognition = {
+    		picture = generic_political_support
+    		allowed = { always = no }
+    		allowed_civil_war = { always = yes }
+    		removal_cost = -1
+    		modifier = {
+        		political_power_factor = 0.05
+        		stability_weekly = 0.001
+    		}
+		}
+
+			MEX_CED_pan_american_recognition = {
+    			picture = generic_political_support
+    			allowed = { always = no }
+    			allowed_civil_war = { always = yes }
+    			removal_cost = -1
+    			modifier = {
+        			political_power_factor = 0.05
+        			stability_weekly = 0.0015
+        			war_support_weekly = 0.0015
+					monthly_population = 0.10
+    		}
+		}
+
+		MEX_CED_resource_compensation_1 = {
+    		picture = generic_consumer_goods
+    		allowed = { always = no }
+    		removal_cost = -1
+    		modifier = {
+        	consumer_goods_factor = 0.05
+    		}
+		}
+
+		MEX_CED_resource_compensation_2 = {
+    		picture = generic_consumer_goods
+    		allowed = { always = no }
+    		allowed_civil_war = { always = yes }
+    		removal_cost = -1
+    		modifier = {
+        		consumer_goods_factor = -0.05
+    		}
+		}
+
+		MEX_CED_resource_compensation_3 = {
+    		picture = generic_consumer_goods
+    		allowed = { always = no }
+    		removal_cost = -1
+    		modifier = {
+        	consumer_goods_factor = 0.10
+        	production_speed_buildings_factor = -0.10
+    		}
+		}
+	}
+}
+
+
+		

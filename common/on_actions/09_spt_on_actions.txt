@@ -65,12 +65,6 @@ on_actions = {
 						}
 					}
 					annex_country = { target = USA }
-					BRA = {
-						every_owned_state = {
-							add_core_of = ATF
-						}
-					}
-					annex_country = { target = BRA }
 					MEX = {
 						every_owned_state = {
 							add_core_of = ATF
@@ -118,6 +112,12 @@ on_actions = {
 							transfer_state_to = HTF
 						}
 					}
+					RAJ = {
+						every_owned_state = {
+							add_core_of = HTF
+						}
+					}
+					annex_country = { target = RAJ }
 
 					set_capital = { state = 608 } # Beijing, to make trade more realistic
 				}
@@ -141,12 +141,6 @@ on_actions = {
 						}
 					}
 					annex_country = { target = PHI }
-					AST = {
-						every_owned_state = {
-							add_core_of = PTF
-						}
-					}
-					annex_country = { target = AST }
 					NZL = {
 						every_owned_state = {
 							add_core_of = PTF
@@ -172,6 +166,14 @@ on_actions = {
 					country_event = {
 						id = spt_no_asia.2
 						days = 1120
+					}
+				}
+				
+				MON = {
+					country_event = {
+						# Arbitrary date, approx July 1937
+						id = spt_mongolia.15
+						months = 18
 					}
 				}
 			}
@@ -522,6 +524,13 @@ on_actions = {
 			# 		add_ideas = SPT_scw_thunderdome
 			# 	}
 			# }
+
+			# Activates Trait Lottery System
+			MEX = {
+				set_country_flag = listens_for_sf_tech
+				set_country_flag = listens_for_navy_tech
+			}
+			# Add more countries here/change to Limit - OR system
 		}
 	}
 	on_state_control_changed = {
@@ -1029,12 +1038,12 @@ on_actions = {
 						tag = CHI
 					}
 				}
-				MON = {
-					country_event = { 
-						id = spt_mongolia.13
-						days = 7
-					}
-				}
+				#MON = {
+				#	country_event = { 
+				#		id = spt_mongolia.13
+				#		days = 7
+				#	}
+				#}
 				MON = {
 					country_event = {
 						id = spt_mongolia.15
@@ -1826,4 +1835,19 @@ on_actions = {
 			}
 		}
 	}
+
+	# Trait Lottery System Trigger
+	on_daily = {
+        effect = {
+            if = {
+                limit = {
+					or ={ 
+						has_country_flag = listens_for_sf_tech
+						has_country_flag = listens_for_navy_tech
+					}
+                }
+                trigger_global_tech_listener_effect = yes
+            }
+        }
+    }
 }

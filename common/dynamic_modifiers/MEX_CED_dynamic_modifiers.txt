@@ -1,0 +1,118 @@
+### Dynamic Modifiers for Cedillo's Mexico
+### Variables are initialized in spt_mex.1 event and modified by focuses
+### Place in common/dynamic_modifiers/
+
+MEX_CED_ejercito_dynamic_modifier = {
+	enable = { always = yes }
+
+	icon = GFX_idea_generic_army_problems
+
+	# Base stats (start negative, cleared by army branch root)
+	army_org_factor = MEX_CED_ejercito_org_factor
+	army_attack_factor = MEX_CED_ejercito_attack_factor
+	army_defence_factor = MEX_CED_ejercito_defence_factor
+	experience_gain_army_factor = MEX_CED_ejercito_experience_gain_factor
+
+	# Mass infantry path
+	army_morale_factor = MEX_CED_ejercito_recovery_factor
+	land_reinforce_rate = MEX_CED_ejercito_reinforce_factor
+	army_infantry_defence_factor = MEX_CED_ejercito_infantry_defence_factor
+
+	# Armor path
+	army_armor_attack_factor = MEX_CED_ejercito_tank_attack_factor
+	army_armor_defence_factor = MEX_CED_ejercito_tank_defence_factor
+	mechanized_attack_factor = MEX_CED_ejercito_mech_attack_factor
+	mechanized_defence_factor = MEX_CED_ejercito_mech_defence_factor
+	coordination_bonus = MEX_CED_ejercito_coordination_factor
+
+	# Special forces path
+	special_forces_attack_factor = MEX_CED_ejercito_special_forces_attack_factor
+	special_forces_defence_factor = MEX_CED_ejercito_special_forces_defence_factor
+	special_forces_cap = MEX_CED_ejercito_special_forces_cap
+
+	# Branch root
+	land_doctrine_cost_factor = MEX_CED_ejercito_land_doctrine_cost_factor
+
+}
+
+MEX_CED_armada_dynamic_modifier = {
+	enable = { always = yes }
+
+	icon = GFX_idea_generic_navy_problems
+
+	# Base stats (start negative, cleared by navy branch root)
+	convoy_escort_efficiency = MEX_CED_armada_convoy_escort_efficiency
+	screening_efficiency = MEX_CED_armada_screening_efficiency
+	experience_gain_navy_factor = MEX_CED_armada_experience_gain_factor
+
+	# Destroyer/escort path
+	navy_submarine_detection_factor = MEX_CED_armada_sub_detection_factor
+	navy_max_range_factor = MEX_CED_armada_max_range_factor
+	navy_screen_attack_factor = MEX_CED_armada_screen_attack_factor
+	navy_screen_defence_factor = MEX_CED_armada_screen_defence_factor
+
+	# Submarine path
+	navy_visibility = MEX_CED_armada_sub_visibility_factor
+	convoy_raiding_efficiency_factor = MEX_CED_armada_convoy_raiding_efficiency_factor
+	naval_torpedo_reveal_chance_factor = MEX_CED_armada_torpedo_reveal_chance_factor
+	navy_submarine_attack_factor = MEX_CED_armada_sub_attack_factor
+	navy_submarine_defence_factor = MEX_CED_armada_sub_defence_factor
+	spotting_chance = MEX_CED_armada_spotting_chance
+
+	# Amphibious path
+	naval_invasion_penalty = MEX_CED_armada_naval_invasion_penalty
+	amphibious_invasion = MEX_CED_armada_landing_speed_factor
+	invasion_preparation = MEX_CED_armada_invasion_preparation
+
+	# Branch root
+	naval_doctrine_cost_factor = MEX_CED_armada_naval_doctrine_cost_factor
+}
+
+MEX_CED_fuerza_aerea_dynamic_modifier = {
+	enable = { always = yes }
+
+	icon = GFX_idea_generic_air_problems
+
+	# Base stats (start negative, cleared by air branch root)
+	air_agility_factor = MEX_CED_fuerza_aerea_agility_factor
+	air_attack_factor = MEX_CED_fuerza_aerea_attack_factor
+	experience_gain_air_factor = MEX_CED_fuerza_aerea_experience_gain_factor
+
+	# All paths / UK oil path
+	air_range_factor = MEX_CED_fuerza_aerea_range_factor
+	air_defence_factor = MEX_CED_fuerza_aerea_defence_factor
+
+	# Fighter and CAS paths
+	air_superiority_efficiency = MEX_CED_fuerza_aerea_superiority_mission_efficiency
+	air_ace_generation_chance_factor = MEX_CED_fuerza_aerea_ace_generation_factor
+	air_cas_efficiency = MEX_CED_fuerza_aerea_cas_mission_efficiency
+	air_cas_present_factor = MEX_CED_fuerza_aerea_ground_support
+	air_mission_efficiency = MEX_CED_fuerza_aerea_mission_efficiency_factor	
+	air_weather_penalty = MEX_CED_fuerza_aerea_weather_penalty
+
+	# Strategic path
+	air_strategic_bomber_bombing_factor = MEX_CED_fuerza_aerea_bombing_factor
+	strategic_bomb_visibility = MEX_CED_fuerza_aerea_strategic_bomb_visibility
+	air_strategic_bomber_night_penalty = MEX_CED_fuerza_aerea_strategic_bomber_night_penalty
+
+	# Branch root
+	air_doctrine_cost_factor = MEX_CED_fuerza_aerea_air_doctrine_cost_factor
+}
+
+MEX_CED_industria_dynamic_modifier = {
+	enable = { always = yes }
+
+	icon = GFX_idea_generic_industry_problems
+
+    production_speed_buildings_factor = MEX_CED_industria_construction_speed
+	production_speed_arms_factory_factor = MEX_CED_industria_mil_construction_speed
+    production_speed_dockyard_factor = MEX_CED_industria_dock_construction_speed
+    industrial_capacity_factory = MEX_CED_industria_factory_output
+	industrial_capacity_dockyard = MEX_CED_industria_dockyard_output
+    production_factory_max_efficiency_factor = MEX_CED_industria_production_efficiency_cap
+    production_factory_efficiency_gain_factor = MEX_CED_industria_production_efficiency_gain
+    consumer_goods_factor = MEX_CED_industria_consumer_goods
+	local_resources_factor = MEX_CED_industria_resource_efficiency    
+	global_building_slots_factor = MEX_CED_industria_building_slots
+    research_speed_factor = MEX_CED_industria_research_speed
+}
