@@ -2,6 +2,10 @@
 
 ### 4.2.3
 
+#### Mongolia
+ - In No Asia mode, Mongolia now automatically receives western Chinese provinces 18 months after start
+ - Removed event 'China Requests Our Help' as volunteer rules have changed
+
 #### Soviet Union
  - Focus 'Behead the Snake' now automatically beheads the snake after 270 days
 
