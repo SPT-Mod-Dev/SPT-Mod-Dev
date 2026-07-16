@@ -2383,8 +2383,10 @@ ENG_appeal_to_imperial_loyalists = {
 		}
 
 		visible = {
-			tag = CAN
-			ENG = { has_country_flag = ENG_prepare_coup_in_CAN }
+			hidden_trigger = {
+				tag = CAN
+				ENG = { has_country_flag = ENG_prepare_coup_in_CAN }
+			}
 		}
 
 		cancel_if_not_visible = yes
@@ -2464,11 +2466,13 @@ ENG_appeal_to_imperial_loyalists = {
 		fire_only_once = no
 
 		visible = {
-			OR = {
-				ENG = { has_country_flag = ENG_prepare_coup_in_CAN }
-				has_country_flag = CAN_suppressing_coup
+			hidden_trigger = {
+				OR = {
+					ENG = { has_country_flag = ENG_prepare_coup_in_CAN }
+					has_country_flag = CAN_suppressing_coup
+				}
+				NOT = { has_country_flag = ENG_prepare_coup_in_CAN_reset_flag }
 			}
-			NOT = { has_country_flag = ENG_prepare_coup_in_CAN_reset_flag }
 		}
 
 		cancel_if_not_visible = yes
@@ -2761,8 +2765,10 @@ ENG_appeal_to_imperial_loyalists = {
 		}
 
 		visible = {
-			tag = SAF
-			ENG = { has_country_flag = ENG_prepare_coup_in_SAF }
+			hidden_trigger = {
+				tag = SAF
+				ENG = { has_country_flag = ENG_prepare_coup_in_SAF }
+			}
 		}
 
 		cancel_if_not_visible = yes
@@ -2841,11 +2847,13 @@ ENG_appeal_to_imperial_loyalists = {
 		fire_only_once = no
 
 		visible = {
-			OR = {
-				FROM = { has_country_flag = ENG_prepare_coup_in_SAF }
-				has_country_flag = SAF_suppressing_coup
+			hidden_trigger = {
+				OR = {
+					FROM = { has_country_flag = ENG_prepare_coup_in_SAF }
+					has_country_flag = SAF_suppressing_coup
+				}
+				NOT = { has_country_flag = ENG_prepare_coup_in_SAF_reset_flag }
 			}
-			NOT = { has_country_flag = ENG_prepare_coup_in_SAF_reset_flag }
 		}
 
 		cancel_if_not_visible = yes
@@ -3150,8 +3158,10 @@ ENG_appeal_to_imperial_loyalists = {
 		}
 
 		visible = {
-			tag = AST
-			ENG = { has_country_flag = ENG_prepare_coup_in_AST }
+			hidden_trigger = {
+				tag = AST
+				ENG = { has_country_flag = ENG_prepare_coup_in_AST }
+			}
 		}
 
 		cancel_if_not_visible = yes
@@ -3176,14 +3186,22 @@ ENG_appeal_to_imperial_loyalists = {
 					}
 					add_opinion_modifier = { target = ENG modifier = ENG_imperial_loyalist }
 					set_cosmetic_tag = ENG_imperialist_australia
-					create_country_leader = {
-						name = "William Birdwood"
-						desc = "POLITICS_WILLIAM_BIRDWOOD_DESC"
-						picture = GFX_portrait_William_Birdwood
-						expire = "1965.1.1"
-						ideology = centrism
-						traits = {
-							
+					IF = {
+						limit = {
+							has_dlc = "Thunder at Our Gates"
+						}
+						#This will recruit default centrism leader, A. Hore-Ruthven
+					}
+					ELSE = {
+						create_country_leader = {
+							name = "William Birdwood"
+							desc = "POLITICS_WILLIAM_BIRDWOOD_DESC"
+							picture = GFX_portrait_William_Birdwood
+							expire = "1965.1.1"
+							ideology = centrism
+							traits = {
+								
+							}
 						}
 					}
 				}
@@ -3240,11 +3258,13 @@ ENG_appeal_to_imperial_loyalists = {
 		fire_only_once = no
 
 		visible = {
-			OR = {
-				FROM = { has_country_flag = ENG_prepare_coup_in_AST }
-				has_country_flag = AST_suppressing_coup
+			hidden_trigger = {
+				OR = {
+					FROM = { has_country_flag = ENG_prepare_coup_in_AST }
+					has_country_flag = AST_suppressing_coup
+				}
+				NOT = { has_country_flag = ENG_prepare_coup_in_AST_reset_flag }
 			}
-			NOT = { has_country_flag = ENG_prepare_coup_in_AST_reset_flag }
 		}
 
 		cancel_if_not_visible = yes
@@ -3563,8 +3583,10 @@ ENG_appeal_to_imperial_loyalists = {
 		}
 
 		visible = {
-			tag = NZL
-			ENG = { has_country_flag = ENG_prepare_coup_in_NZL }
+			hidden_trigger = {
+				tag = NZL
+				ENG = { has_country_flag = ENG_prepare_coup_in_NZL }
+			}
 		}
 
 		cancel_if_not_visible = yes
@@ -3643,11 +3665,13 @@ ENG_appeal_to_imperial_loyalists = {
 		fire_only_once = no
 
 		visible = {
-			OR = {
-				FROM = { has_country_flag = ENG_prepare_coup_in_NZL }
-				has_country_flag = NZL_suppressing_coup
+			hidden_trigger = {
+				OR = {
+					FROM = { has_country_flag = ENG_prepare_coup_in_NZL }
+					has_country_flag = NZL_suppressing_coup
+				}
+				NOT = { has_country_flag = ENG_prepare_coup_in_NZL_reset_flag }
 			}
-			NOT = { has_country_flag = ENG_prepare_coup_in_NZL_reset_flag }
 		}
 
 		cancel_if_not_visible = yes

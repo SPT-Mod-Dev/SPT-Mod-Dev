@@ -12630,6 +12630,14 @@ focus_tree = {
 					has_war_with = ROOT
 				}
 			}
+			INS = {
+				OR = {
+					exists = no
+					NOT = {
+						has_cosmetic_tag = INS_UNION
+					}
+				}
+			}
 			BEL = {
 				OR = {
 					exists = no
@@ -12650,6 +12658,14 @@ focus_tree = {
 			is_subject = no
 			OR = {
 				NOT = { HOL = { is_in_faction_with = GER } }
+				if = {
+					limit = {
+						INS = {
+							has_cosmetic_tag = INS_UNION
+						}
+					}
+					NOT = { INS = { is_in_faction_with = GER } }
+				}
 				NOT = { BEL = { is_in_faction_with = GER } }
 				NOT = { LUX = { is_in_faction_with = GER } }
 			}
@@ -12731,6 +12747,22 @@ focus_tree = {
 				}
 				HOL = {
 					country_event = { id = mtg_germany.1 hours = 6 }
+				}
+			}
+			if = {
+				limit = {
+					country_exists = INS
+					INS = {
+						has_cosmetic_tag = INS_UNION
+					}
+					NOT = { has_war_with = INS }
+					NOT = { INS = { is_in_faction_with = GER } }
+				}
+				create_wargoal = {
+					type = take_state_focus
+					target = INS
+					expire = 0
+					generator = { 7 }
 				}
 			}
 			if = {
@@ -33472,7 +33504,7 @@ focus_tree = {
 					state = 737
 					state = 684
 					state = 633
-					state = 634 # If Bougainville is ever made it's own state switch this and the associated decision from 634 to that!
+					state = 1070
 					state = 646
 					state = 726
 					state = 725
@@ -33517,7 +33549,7 @@ focus_tree = {
 							state = 737
 							state = 684
 							state = 633
-							state = 634 # If Bougainville is ever made it's own state switch this and the associated decision from 634 to that!
+							state = 1070
 							state = 646
 							state = 726
 							state = 725
@@ -34369,6 +34401,36 @@ focus_tree = {
 			NOT = { is_in_faction_with = FRA }
 		}
 
+		bypass = {
+			OR = {
+				if = {
+					limit = {
+						has_completed_focus = GER_franco_germanic_pact
+					}
+					has_war_with = ENG 
+				}
+				else = {
+					AND = {
+						has_war_with = ENG 
+						has_war_with = FRA
+					}
+				}
+				AND = { #Old colonial claims of Germany
+					777 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+					773 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+					895 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+					894 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+					541 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+					893 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+					634 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+					523 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+					979 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+					737 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+					1070 = { state_is_fully_controlled_by_ROOT_subject_or_faction_member = yes }
+				}
+			}
+		}
+
 		will_lead_to_war_with = ENG
 		will_lead_to_war_with = FRA
 		will_lead_to_war_with = BEL
@@ -34384,175 +34446,80 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 
 		completion_reward = {
-			
-			IF = {
+			every_other_country = {
 				limit = {
-					ENG = {
-						NOT = {
-							has_completed_focus = ENG_decolonization
-						}
+					OR = { #Target FRA and ENG and their faction members - the rest can wait
+						original_tag = FRA
+						is_ally_with = FRA
+						original_tag = ENG
+						is_ally_with = ENG
+					}
+					NOT = { #But don't bully our friends!
+						is_in_faction_with = ROOT
+						is_guaranteed_by = ROOT
+						has_a_german_trade_idea = yes
+					}
+					OR = { #Old colonial claims
+						controls_state = 523
+						controls_state = 773
+						controls_state = 541
+						controls_state = 546
+						controls_state = 737
+						controls_state = 684
+						controls_state = 633
+						controls_state = 646
+						controls_state = 647
+						controls_state = 726
+						controls_state = 777
+						controls_state = 768
+						controls_state = 769
+						controls_state = 979
+						controls_state = 895
+						controls_state = 894
+						controls_state = 893
+						controls_state = 634
+						controls_state = 1070
 					}
 				}
-				create_wargoal = {
-					type = annex_everything
-					target = ENG
-					expire = 0
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
-
-			IF = {
-				limit = {
-					NOT = {
-						has_completed_focus = GER_revive_the_kaiserreich_ww
-					}
-				}
-				custom_effect_tooltip = GER_break_anglo_french_colonial_hegemony_ww_tt
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
-			IF = {
-				limit = {
-					NOT = {
-						has_completed_focus = GER_franco_germanic_pact
-					}
-				}
-				create_wargoal = {
-					type = annex_everything
-					target = FRA
-					expire = 0
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
-			
-			if = {
-				limit = {
-					BEL = {
+				display_individual_scopes = yes
+				every_controlled_state = {
+					limit = {
 						OR = {
-							owns_state = 768
-							owns_state = 769
+							state = 523
+							state = 773
+							state = 541
+							state = 546
+							state = 737
+							state = 684
+							state = 633
+							state = 646
+							state = 647
+							state = 726
+							state = 777
+							state = 768
+							state = 769
+							state = 979
+							state = 895
+							state = 894
+							state = 893
+							state = 634
+							state = 1070
 						}
 					}
+					add_to_array = {
+						array = PREV.GER_old_colonial_claims
+						value = THIS
+					}
+					add_claim_by = ROOT
 				}
-				create_wargoal = {
-					type = take_state_focus
-					target = BEL
-					expire = 0
-					generator = { 768 769 }
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-			}
-			else_if = {
-				limit = {
-					COG = {
-						OR = {
-							owns_state = 768
-							owns_state = 769
-						}
+				ROOT = {
+					create_wargoal = {
+						type = take_state_focus
+						target = PREV
+						generator = PREV.GER_old_colonial_claims
 					}
 				}
-				create_wargoal = {
-					type = take_state_focus
-					target = COG
-					expire = 0
-					generator = { 768 769 }
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
 			}
-
-			if = {
-				limit = {
-					NOT = {
-						SAF = {
-							is_subject_of = ENG
-						}
-					}
-				}
-				create_wargoal = {
-					type = take_state_focus
-					target = SAF
-					expire = 0
-					generator = { 541 }
-				}
-			}
-			if = {
-				limit = {
-					country_exists = NMB
-				}
-				create_wargoal = {
-					type = take_state_focus
-					target = NMB
-					expire = 0
-					generator = { 541 }
-				}
-			}
-			if = {
-				limit = {
-					country_exists = CMR
-				}
-				create_wargoal = {
-					type = take_state_focus
-					target = CMR
-					expire = 0
-					generator = { 773 }
-				}
-			}
-			if = {
-				limit = {
-					country_exists = TOG
-				}
-				create_wargoal = {
-					type = take_state_focus
-					target = TOG
-					expire = 0
-					generator = { 777 }
-				}
-			}
-			if = {
-				limit = {
-					country_exists = TZN
-				}
-				create_wargoal = {
-					type = take_state_focus
-					target = TZN
-					expire = 0
-					generator = { 549 }
-				}
-			}
-			if = {
-				limit = {
-					country_exists = RWA
-				}
-				create_wargoal = {
-					type = take_state_focus
-					target = RWA
-					expire = 0
-					generator = { 768 }
-				}
-			}
-			if = {
-				limit = {
-					country_exists = BRD
-				}
-				create_wargoal = {
-					type = take_state_focus
-					target = BRD
-					expire = 0
-					generator = { 769 }
-				}
-			}
-			add_state_claim = 523
-			add_state_claim = 773
-			add_state_claim = 541
-			add_state_claim = 546
-			add_state_claim = 737
-			add_state_claim = 684
-			add_state_claim = 633
-			add_state_claim = 646
-			add_state_claim = 647
-			add_state_claim = 726
-			add_state_claim = 777
-			add_state_claim = 768
-			add_state_claim = 769
 		}
 	}
 
@@ -36138,6 +36105,7 @@ focus_tree = {
 			add_state_claim = 541
 			add_state_claim = 546
 			add_state_claim = 737
+			add_state_claim = 1070
 			add_state_claim = 684
 			add_state_claim = 633
 			add_state_claim = 646
