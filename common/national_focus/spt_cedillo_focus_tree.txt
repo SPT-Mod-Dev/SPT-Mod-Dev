@@ -1,7 +1,5 @@
-### Cedillo's Mexico - Secret Focus Tree
-
 focus_tree = {
-	id = mexico_cedillo_focus_tree
+	id = spt_cedillo_focus_tree
 
 	country = {
 		factor = 0
@@ -16,8 +14,8 @@ focus_tree = {
 	##############################
 
 	focus = {
-		id = MEX_CED_caudillo_in_power
-		icon = GFX_focus_mex_jefe_maximo
+		id = SPT_MEX_caudillo_in_power
+		icon = GFX_focus_mex_support_general_cedillo
 		x = 8
 		y = 0
 
@@ -37,17 +35,20 @@ focus_tree = {
 		
 		completion_reward = {
 			add_political_power = 75
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = MEX_saturnino_cedillo
 		}
 	}
 
 	focus = {
-		id = MEX_CED_crush_loyalists
-		icon = GFX_focus_generic_military_mission
-		prerequisite = { focus = MEX_CED_caudillo_in_power }
-		mutually_exclusive = { focus = MEX_CED_offer_amnesty }
+		id = SPT_MEX_crush_loyalists
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		prerequisite = { focus = SPT_MEX_caudillo_in_power }
+		mutually_exclusive = { focus = SPT_MEX_offer_amnesty }
 		x = -1
 		y = 1
-		relative_position_id = MEX_CED_caudillo_in_power
+		relative_position_id = SPT_MEX_caudillo_in_power
 
 		cost = 5
 
@@ -70,13 +71,13 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MEX_CED_offer_amnesty
-		icon = GFX_focus_generic_treaty
-		prerequisite = { focus = MEX_CED_caudillo_in_power }
-		mutually_exclusive = { focus = MEX_CED_crush_loyalists }
+		id = SPT_MEX_offer_amnesty
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = SPT_MEX_caudillo_in_power }
+		mutually_exclusive = { focus = SPT_MEX_crush_loyalists }
 		x = 1
 		y = 1
-		relative_position_id = MEX_CED_caudillo_in_power
+		relative_position_id = SPT_MEX_caudillo_in_power
 
 		cost = 10
 
@@ -93,18 +94,23 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-
 			add_stability = 0.15
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = MEX_alberto_pani
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = MEX_aaron_saenz
 		}
 	}
 
 	focus = {
-		id = MEX_CED_restore_church_relations
-		icon = GFX_focus_mex_reform_the_cristero_guard
-		prerequisite = { focus = MEX_CED_crush_loyalists focus = MEX_CED_offer_amnesty }
+		id = SPT_MEX_restore_church_relations
+		icon = GFX_focus_PHI_philippine_independent_church
+		prerequisite = { focus = SPT_MEX_crush_loyalists focus = SPT_MEX_offer_amnesty }
 		x = 0
 		y = 2
-		relative_position_id = MEX_CED_caudillo_in_power
+		relative_position_id = SPT_MEX_caudillo_in_power
 
 		cost = 5
 
@@ -128,7 +134,8 @@ focus_tree = {
 			}
 			else_if = {
 				limit = { has_idea = mex_church_power_3 }
-				add_stability = 0.05				
+				add_stability = 0.05
+				custom_effect_tooltip = generic_skip_one_line_tt				
 				swap_ideas = {
 					remove_idea = mex_church_power_3
 					add_idea = mex_church_power_4
@@ -137,6 +144,7 @@ focus_tree = {
 			else_if = {
 				limit = { has_idea = mex_church_power_2 }
 				add_stability = 0.05				
+				custom_effect_tooltip = generic_skip_one_line_tt
 				swap_ideas = {
 					remove_idea = mex_church_power_2
 					add_idea = mex_church_power_4
@@ -146,6 +154,7 @@ focus_tree = {
 			else_if = {
 				limit = { has_idea = mex_church_power_1 }
 				add_stability = 0.05
+				custom_effect_tooltip = generic_skip_one_line_tt
 				swap_ideas = {
 					remove_idea = mex_church_power_1
 					add_idea = mex_church_power_4
@@ -159,12 +168,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MEX_CED_cacique_system
-		icon = GFX_focus_generic_diplomatic_treaty
-		prerequisite = { focus = MEX_CED_restore_church_relations }
+		id = SPT_MEX_cacique_system
+		icon = GFX_focus_generic_commission
+		prerequisite = { focus = SPT_MEX_restore_church_relations }
 		x = -1
 		y = 1
-		relative_position_id = MEX_CED_restore_church_relations
+		relative_position_id = SPT_MEX_restore_church_relations
 
 		cost = 5
 
@@ -182,17 +191,18 @@ focus_tree = {
 
 		completion_reward = {
 			add_political_power = -50
-			add_ideas = MEX_CED_cacique_network
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_ideas = SPT_MEX_cacique_network
 		}
 	}
 
 	focus = {
-		id = MEX_CED_land_to_the_peasants
-		icon = GFX_focus_generic_self_management
-		prerequisite = { focus = MEX_CED_restore_church_relations }
+		id = SPT_MEX_land_to_the_peasants
+		icon = GFX_focus_CHI_students_to_the_countryside
+		prerequisite = { focus = SPT_MEX_restore_church_relations }
 		x = 1
 		y = 1
-		relative_position_id = MEX_CED_restore_church_relations
+		relative_position_id = SPT_MEX_restore_church_relations
 
 		cost = 5
 
@@ -209,18 +219,18 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_STABILITY FOCUS_FILTER_MANPOWER }
 
 		completion_reward = {
-			add_ideas = MEX_CED_agrarismo
+			add_ideas = SPT_MEX_agrarismo
 		}
 	}
 
 	focus = {
-		id = MEX_CED_caudillo_constitution
-		icon = GFX_focus_generic_self_managed_industry
-		prerequisite = { focus = MEX_CED_cacique_system }
-		prerequisite = { focus = MEX_CED_land_to_the_peasants }
+		id = SPT_MEX_caudillo_constitution
+		icon = GFX_focus_AUS_lawmaking_leniency
+		prerequisite = { focus = SPT_MEX_cacique_system }
+		prerequisite = { focus = SPT_MEX_land_to_the_peasants }
 		x = 0
 		y = 2
-		relative_position_id = MEX_CED_restore_church_relations
+		relative_position_id = SPT_MEX_restore_church_relations
 
 		cost = 5
 
@@ -239,6 +249,7 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.05
 			add_war_support = 0.05
+			custom_effect_tooltip = generic_skip_one_line_tt
 			if = {
 				limit = { has_idea = SPT_MEX_bad_caudillo }
 				remove_ideas = SPT_MEX_bad_caudillo
@@ -251,12 +262,12 @@ focus_tree = {
 	##############################
 
 	focus = {
-		id = MEX_CED_restore_oil_contracts
-		icon = GFX_focus_mex_nationalize_the_oil_fields
-		prerequisite = { focus = MEX_CED_caudillo_constitution }
+		id = SPT_MEX_restore_oil_contracts
+		icon = GFX_focus_RAJ_seek_allies_with_the_muslim_league
+		prerequisite = { focus = SPT_MEX_caudillo_constitution }
 		x = -6
 		y = 1
-		relative_position_id = MEX_CED_caudillo_constitution
+		relative_position_id = SPT_MEX_caudillo_constitution
 
 		cost = 5
 
@@ -274,8 +285,9 @@ focus_tree = {
 
 		completion_reward = {
 			add_political_power = 50
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = {
-				name = MEX_CED_restore_oil_contracts
+				name = SPT_MEX_restore_oil_contracts
 				bonus = 0.5
 				uses = 2
 				category = excavation_tech
@@ -285,13 +297,13 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MEX_CED_american_oil_deal
-		icon = GFX_focus_usa_reestablish_the_gold_standard
-		prerequisite = { focus = MEX_CED_restore_oil_contracts }
-		mutually_exclusive = { focus = MEX_CED_british_oil_deal }
+		id = SPT_MEX_american_oil_deal
+		icon = GFX_focus_generic_resource_extraction
+		prerequisite = { focus = SPT_MEX_restore_oil_contracts }
+		mutually_exclusive = { focus = SPT_MEX_british_oil_deal }
 		x = -1
 		y = 1
-		relative_position_id = MEX_CED_restore_oil_contracts
+		relative_position_id = SPT_MEX_restore_oil_contracts
 
 		cost = 5
 
@@ -309,6 +321,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_political_power = 75
+			custom_effect_tooltip = generic_skip_one_line_tt
 			every_state = {
 				limit = {
 					OR = {
@@ -322,18 +335,18 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			set_country_flag = MEX_CED_aligned_with_usa
+			set_country_flag = SPT_MEX_aligned_with_usa
 		}
 	}
 
 	focus = {
-		id = MEX_CED_british_oil_deal
-		icon = GFX_focus_mex_royal_dutch_shell
-		prerequisite = { focus = MEX_CED_restore_oil_contracts }
-		mutually_exclusive = { focus = MEX_CED_american_oil_deal }
+		id = SPT_MEX_british_oil_deal
+		icon = GFX_focus_IRQ_anglo_iraqi_oil_expansion
+		prerequisite = { focus = SPT_MEX_restore_oil_contracts }
+		mutually_exclusive = { focus = SPT_MEX_american_oil_deal }
 		x = 1
 		y = 1
-		relative_position_id = MEX_CED_restore_oil_contracts
+		relative_position_id = SPT_MEX_restore_oil_contracts
 
 		cost = 5
 
@@ -351,6 +364,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_political_power = 75
+			custom_effect_tooltip = generic_skip_one_line_tt
 			every_state = {
 				limit = {
 					OR = {
@@ -364,17 +378,20 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			set_country_flag = MEX_CED_aligned_with_uk
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = available_industrial_concern
+			show_ideas_tooltip = MEX_royal_dutch_shell
+			set_country_flag = SPT_MEX_aligned_with_uk
 		}
 	}
 
 	focus = {
-		id = MEX_CED_american_oil_revenue
-		icon = GFX_focus_mex_oil_revenue_reinvestment
-		prerequisite = { focus = MEX_CED_american_oil_deal }
+		id = SPT_MEX_american_oil_revenue
+		icon = GFX_focus_mex_privatisation
+		prerequisite = { focus = SPT_MEX_american_oil_deal }
 		x = -1
 		y = 2
-		relative_position_id = MEX_CED_restore_oil_contracts
+		relative_position_id = SPT_MEX_restore_oil_contracts
 
 		cost = 5
 
@@ -391,6 +408,8 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
+			add_ideas = SPT_MEX_oil_income
+			custom_effect_tooltip = generic_skip_one_line_tt
 			every_state = {
 				limit = {
 					OR = {
@@ -405,17 +424,16 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-				add_ideas = MEX_CED_oil_income
 		}
 	}
 
 	focus = {
-		id = MEX_CED_british_oil_revenue
-		icon = GFX_focus_mex_oil_revenue_reinvestment
-		prerequisite = { focus = MEX_CED_british_oil_deal }
+		id = SPT_MEX_british_oil_revenue
+		icon = GFX_focus_PER_increase_oil_sales
+		prerequisite = { focus = SPT_MEX_british_oil_deal }
 		x = 1
 		y = 2
-		relative_position_id = MEX_CED_restore_oil_contracts
+		relative_position_id = SPT_MEX_restore_oil_contracts
 
 		cost = 5
 
@@ -432,6 +450,8 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
+			add_ideas = SPT_MEX_oil_income
+			custom_effect_tooltip = generic_skip_one_line_tt
 			every_state = {
 				limit = {
 					OR = {
@@ -446,19 +466,18 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			add_ideas = MEX_CED_oil_income
 		}
 	}
 
 	focus = {
-		id = MEX_CED_american_military_inv
-		icon = GFX_focus_generic_construct_mil_factory
-		prerequisite = { focus = MEX_CED_american_oil_revenue }
+		id = SPT_MEX_american_military_inv
+		icon = GFX_focus_generic_american_investments
+		prerequisite = { focus = SPT_MEX_american_oil_revenue }
 		x = -1
 		y = 3
-		relative_position_id = MEX_CED_restore_oil_contracts
+		relative_position_id = SPT_MEX_restore_oil_contracts
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 100
@@ -474,12 +493,13 @@ focus_tree = {
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = MEX_CED_american_arms_1
+				name = SPT_MEX_american_arms_1
 				bonus = 1.0
 				uses = 2
 				category = infantry_weapons
 				category = artillery
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			every_state = {
 				limit = {
 					OR = {
@@ -498,14 +518,14 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MEX_CED_british_military_inv
-		icon = GFX_focus_generic_construct_mil_factory
-		prerequisite = { focus = MEX_CED_british_oil_revenue }
+		id = SPT_MEX_british_military_inv
+		icon = GFX_focus_SMB_purchase_aircraft
+		prerequisite = { focus = SPT_MEX_british_oil_revenue }
 		x = 1
 		y = 3
-		relative_position_id = MEX_CED_restore_oil_contracts
+		relative_position_id = SPT_MEX_restore_oil_contracts
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 100
@@ -521,12 +541,13 @@ focus_tree = {
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = MEX_CED_british_arms_1
+				name = SPT_MEX_british_arms_1
 				bonus = 1.0
 				uses = 2
 				category = light_air
 				category = medium_air
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			every_state = {
 				limit = {
 					OR = {
@@ -545,12 +566,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MEX_CED_escuela_superior_guerra
-		icon = GFX_focus_generic_military_mission
-		prerequisite = { focus = MEX_CED_american_military_inv focus = MEX_CED_british_military_inv }
+		id = SPT_MEX_escuela_superior_guerra
+		icon = GFX_focus_research
+		prerequisite = { focus = SPT_MEX_american_military_inv focus = SPT_MEX_british_military_inv }
 		x = 0
 		y = 4
-		relative_position_id = MEX_CED_restore_oil_contracts
+		relative_position_id = SPT_MEX_restore_oil_contracts
 
 		cost = 10
 
@@ -572,12 +593,12 @@ focus_tree = {
 	}
 
 	focus = {
-    	id = MEX_CED_usa_branch_1
-    	icon = GFX_focus_usa_reestablish_the_gold_standard
-    	prerequisite = { focus = MEX_CED_american_military_inv }
+    	id = SPT_MEX_usa_branch_1
+    	icon = GFX_focus_PHI_small_arms_and_artillery_requisition
+    	prerequisite = { focus = SPT_MEX_american_military_inv }
     	x = -2
     	y = 4
-    	relative_position_id = MEX_CED_restore_oil_contracts
+    	relative_position_id = SPT_MEX_restore_oil_contracts
 
     	cost = 5
 
@@ -585,6 +606,7 @@ focus_tree = {
 
     	available = { }
     	bypass = { }
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
     	available_if_capitulated = yes
@@ -607,14 +629,14 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MEX_CED_usa_branch_2
-		icon = GFX_focus_generic_political_moves
-		prerequisite = { focus = MEX_CED_usa_branch_1 }
+		id = SPT_MEX_usa_branch_2
+		icon = GFX_focus_USA_uncle_sam
+		prerequisite = { focus = SPT_MEX_usa_branch_1 }
 		x = 0
 		y = 1
-		relative_position_id = MEX_CED_usa_branch_1
+		relative_position_id = SPT_MEX_usa_branch_1
 
-		cost = 5
+		cost = 10
 
 		ai_will_do = {
 			factor = 100
@@ -632,21 +654,21 @@ focus_tree = {
 			hidden_effect = {
 				country_event = { id = spt_mex.5 days = 1 }
 			}
-			custom_effect_tooltip = SPT_MEX_CED_usa_choice_tt
+			custom_effect_tooltip = SPT_MEX_usa_choice_tt
 			custom_effect_tooltip = generic_skip_one_line_tt
 			effect_tooltip = {
-        		# Option A
         		custom_effect_tooltip = spt_mex.5.a
-        		add_to_variable = { MEX_CED_ejercito_attack_factor = 0.05 tooltip = army_attack_factor_tt }
-        		add_to_variable = { MEX_CED_ejercito_defence_factor = 0.05 tooltip = army_defence_factor_tt }
-        		custom_effect_tooltip = SPT_MEX_CED_american_advisor_tt
-        		# Option B
+				custom_effect_tooltip = SPT_MEX_modifies_fuerzas_armadas_tt
+        		add_to_variable = { SPT_MEX_ejercito_attack_factor = 0.05 tooltip = army_attack_factor_tt }
+        		add_to_variable = { SPT_MEX_ejercito_defence_factor = 0.05 tooltip = army_defence_factor_tt }
+        		custom_effect_tooltip = SPT_MEX_american_advisor_tt
         		custom_effect_tooltip = generic_skip_one_line_tt
 				custom_effect_tooltip = spt_mex.5.b
-        		add_to_variable = { MEX_CED_industria_factory_output = 0.10 tooltip = industrial_capacity_factory_tt }
-        		add_to_variable = { MEX_CED_industria_dockyard_output = 0.10 tooltip = industrial_capacity_dockyard_tt }
+				custom_effect_tooltip = SPT_MEX_modifies_industria_tt
+        		add_to_variable = { SPT_MEX_industria_factory_output = 0.10 tooltip = industrial_capacity_factory_tt }
+        		add_to_variable = { SPT_MEX_industria_dockyard_output = 0.10 tooltip = industrial_capacity_dockyard_tt }
         		add_tech_bonus = {
-            		name = MEX_CED_american_industry_knowledge
+            		name = SPT_MEX_american_industry_knowledge
             		bonus = 0.75
             		uses = 1
             		category = industry
@@ -656,12 +678,12 @@ focus_tree = {
 	}
 
 	focus = {
-    	id = MEX_CED_uk_branch_1
-    	icon = GFX_focus_generic_treaty
-    	prerequisite = { focus = MEX_CED_british_military_inv }
+    	id = SPT_MEX_uk_branch_1
+    	icon = GFX_focus_generic_combined_arms
+    	prerequisite = { focus = SPT_MEX_british_military_inv }
     	x = 2
     	y = 4
-    	relative_position_id = MEX_CED_restore_oil_contracts
+    	relative_position_id = SPT_MEX_restore_oil_contracts
 
     	cost = 5
 
@@ -669,6 +691,7 @@ focus_tree = {
 	
     	available = { }
     	bypass = { }
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
     	available_if_capitulated = yes
@@ -691,12 +714,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MEX_CED_uk_branch_2
-		icon = GFX_focus_generic_political_moves
-		prerequisite = { focus = MEX_CED_uk_branch_1 }
+		id = SPT_MEX_uk_branch_2
+		icon = GFX_goal_generic_air_fighter2
+		prerequisite = { focus = SPT_MEX_uk_branch_1 }
 		x = 0
 		y = 1
-		relative_position_id = MEX_CED_uk_branch_1
+		relative_position_id = SPT_MEX_uk_branch_1
 
 		cost = 10
 
@@ -713,10 +736,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			add_ideas = MEX_CED_commonwealth_air_training_plan
+			add_ideas = SPT_MEX_commonwealth_air_training_plan
 			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = MEX_CED_modifies_fuerza_aerea_tt
-			add_to_variable = { MEX_CED_fuerza_aerea_range_factor = 0.10  tooltip = air_range_factor_tt }
+			custom_effect_tooltip = SPT_MEX_modifies_fuerzas_armadas_tt
+			add_to_variable = { SPT_MEX_fuerza_aerea_range_factor = 0.10  tooltip = air_range_factor_tt }
 		}
 	}
 
@@ -725,65 +748,76 @@ focus_tree = {
 	##############################
 
 	focus = {
-    	id = MEX_CED_industrial_recovery
-    	icon = GFX_focus_generic_industry
-    	prerequisite = { focus = MEX_CED_caudillo_constitution }
+    	id = SPT_MEX_industrial_recovery
+    	icon = GFX_focus_generic_economic_recovery
+    	prerequisite = { focus = SPT_MEX_caudillo_constitution }
     	x = 10
     	y = 1
-    	relative_position_id = MEX_CED_caudillo_constitution
+    	relative_position_id = SPT_MEX_caudillo_constitution
 
     	cost = 7
+
     	ai_will_do = { factor = 100 }
+
     	available = { }
     	bypass = { }
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
     	available_if_capitulated = yes
     	search_filters = { FOCUS_FILTER_INDUSTRY }
 
     	completion_reward = {
-			custom_effect_tooltip = MEX_CED_modifies_industria_tt
-			add_to_variable = { MEX_CED_industria_consumer_goods = -0.05 tooltip = consumer_goods_factor_tt }
-			add_to_variable = { MEX_CED_industria_construction_speed = 0.05 tooltip =  production_speed_buildings_factor_tt }
-			add_to_variable = { MEX_CED_industria_factory_output = 0.05 tooltip = industrial_capacity_factory_tt }
+			custom_effect_tooltip = SPT_MEX_modifies_industria_tt
+			add_to_variable = { SPT_MEX_industria_consumer_goods = -0.05 tooltip = consumer_goods_factor_tt }
+			add_to_variable = { SPT_MEX_industria_construction_speed = 0.05 tooltip =  production_speed_buildings_factor_tt }
+			add_to_variable = { SPT_MEX_industria_factory_output = 0.05 tooltip = industrial_capacity_factory_tt }
+			add_to_variable = { SPT_MEX_industria_dockyard_output = 0.05 tooltip = industrial_capacity_dockyard_tt }
     	}
 	}
 
 	focus = {
-    	id = MEX_CED_private_banking
-    	icon = GFX_focus_mex_liberalize_the_banking_sector
-    	prerequisite = { focus = MEX_CED_industrial_recovery }
+    	id = SPT_MEX_private_banking
+    	icon = GFX_focus_PER_national_bank
+    	prerequisite = { focus = SPT_MEX_industrial_recovery }
     	x = -4
     	y = 1
-    	relative_position_id = MEX_CED_industrial_recovery
+    	relative_position_id = SPT_MEX_industrial_recovery
 
     	cost = 5
+
     	ai_will_do = { factor = 100 }
+
     	available = { }
     	bypass = { }
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
     	available_if_capitulated = yes
     	search_filters = { FOCUS_FILTER_INDUSTRY }
 
     	completion_reward = {
-			set_country_flag = MEX_CED_national_bank_done_flag
-			add_ideas = MEX_banco_de_mexico
+			set_country_flag = SPT_MEX_national_bank_done_flag
+			custom_effect_tooltip = available_industrial_concern
+			show_ideas_tooltip = MEX_banco_de_mexico
     	}
 	}
 
 	focus = {
-    	id = MEX_CED_invest_in_heartland
-    	icon = GFX_focus_mex_northern_steel_plants
-    	prerequisite = { focus = MEX_CED_industrial_recovery }
+    	id = SPT_MEX_invest_in_heartland
+    	icon = GFX_focus_generic_industry_investment
+    	prerequisite = { focus = SPT_MEX_industrial_recovery }
     	x = 0
     	y = 1
-    	relative_position_id = MEX_CED_industrial_recovery
+    	relative_position_id = SPT_MEX_industrial_recovery
 
     	cost = 10
+
     	ai_will_do = { factor = 100 }
+
     	available = { }
     	bypass = { }
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
     	available_if_capitulated = yes
@@ -809,17 +843,20 @@ focus_tree = {
 	}
 
 	focus = {
-    	id = MEX_CED_invest_in_countryside
-    	icon = GFX_focus_mex_rural_infrastructure
-    	prerequisite = { focus = MEX_CED_industrial_recovery }
+    	id = SPT_MEX_invest_in_countryside
+    	icon = GFX_focus_CHI_planned_economy
+    	prerequisite = { focus = SPT_MEX_industrial_recovery }
     	x = 4
     	y = 1
-    	relative_position_id = MEX_CED_industrial_recovery
+    	relative_position_id = SPT_MEX_industrial_recovery
 
     	cost = 10
+
     	ai_will_do = { factor = 100 }
+
     	available = { }
     	bypass = { }
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
     	available_if_capitulated = yes
@@ -845,28 +882,32 @@ focus_tree = {
 	}
 
 	focus = {
-    	id = MEX_CED_industry_1
-    	icon = GFX_focus_generic_construct_civ_factory
-    	prerequisite = { focus = MEX_CED_private_banking }
+    	id = SPT_MEX_industry_1
+    	icon = GFX_focus_generic_industry_2
+    	prerequisite = { focus = SPT_MEX_private_banking }
     	x = 0
     	y = 1
-    	relative_position_id = MEX_CED_private_banking
+    	relative_position_id = SPT_MEX_private_banking
 
     	cost = 7
+
     	ai_will_do = { factor = 100 }
+
     	available = { }
     	bypass = { }
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
     	available_if_capitulated = yes
     	search_filters = { FOCUS_FILTER_INDUSTRY }
 
     	completion_reward = {
-			custom_effect_tooltip = MEX_CED_modifies_industria_tt
-			add_to_variable = { MEX_CED_industria_consumer_goods = -0.05 tooltip = consumer_goods_factor_tt }
-			add_to_variable = { MEX_CED_industria_construction_speed = 0.05 tooltip =  production_speed_buildings_factor_tt }
+			custom_effect_tooltip = SPT_MEX_modifies_industria_tt
+			add_to_variable = { SPT_MEX_industria_consumer_goods = -0.05 tooltip = consumer_goods_factor_tt }
+			add_to_variable = { SPT_MEX_industria_construction_speed = 0.05 tooltip =  production_speed_buildings_factor_tt }
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = {
-    			name = MEX_CED_industry_1_bonus
+    			name = SPT_MEX_industry_1_bonus
     			bonus = 0.75
     			uses = 1
     			category = construction_tech
@@ -875,27 +916,32 @@ focus_tree = {
 	}
 
 	focus = {
-    	id = MEX_CED_industry_2
-    	icon = GFX_focus_generic_construct_civ_factory
-    	prerequisite = { focus = MEX_CED_industry_1 }
+    	id = SPT_MEX_industry_2
+    	icon = GFX_SOV_reorganize_the_pc_of_heavy_industry_ccp_2d_sov_compatibility
+    	prerequisite = { focus = SPT_MEX_industry_1 }
     	x = 0
     	y = 1
-    	relative_position_id = MEX_CED_industry_1
+    	relative_position_id = SPT_MEX_industry_1
 
-    	cost = 10
+    	cost = 7
+
     	ai_will_do = { factor = 100 }
+
     	available = { }
     	bypass = { }
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
     	available_if_capitulated = yes
     	search_filters = { FOCUS_FILTER_INDUSTRY }
 
     	completion_reward = {
-			custom_effect_tooltip = MEX_CED_modifies_industria_tt
-			add_to_variable = { MEX_CED_industria_factory_output = 0.05 tooltip = industrial_capacity_factory_tt }
+			custom_effect_tooltip = SPT_MEX_modifies_industria_tt
+			add_to_variable = { SPT_MEX_industria_factory_output = 0.05 tooltip = industrial_capacity_factory_tt }
+			add_to_variable = { SPT_MEX_industria_dockyard_output = 0.05 tooltip = industrial_capacity_dockyard_tt }
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = {
-    			name = MEX_CED_industry_1_bonus
+    			name = SPT_MEX_industry_1_bonus
     			bonus = 0.5
     			uses = 3
     			category = cat_production
@@ -906,27 +952,31 @@ focus_tree = {
 	}
 
 	focus = {
-    	id = MEX_CED_industry_3
-    	icon = GFX_focus_generic_construct_civ_factory
-    	prerequisite = { focus = MEX_CED_industry_2 }
+    	id = SPT_MEX_industry_3
+    	icon = GFX_focus_generic_mining_industry
+    	prerequisite = { focus = SPT_MEX_industry_2 }
     	x = 0
     	y = 1
-    	relative_position_id = MEX_CED_industry_2
+    	relative_position_id = SPT_MEX_industry_2
 
-    	cost = 7
+    	cost = 5
+
     	ai_will_do = { factor = 50 }
+
     	available = { }
     	bypass = { }
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
     	available_if_capitulated = yes
     	search_filters = { FOCUS_FILTER_INDUSTRY }
 
     	completion_reward = {
-			custom_effect_tooltip = MEX_CED_modifies_industria_tt
-			add_to_variable = { MEX_CED_industria_resource_efficiency = 0.10 tooltip = local_resources_factor_tt }
+			custom_effect_tooltip = SPT_MEX_modifies_industria_tt
+			add_to_variable = { SPT_MEX_industria_resource_efficiency = 0.10 tooltip = local_resources_factor_tt }
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = {
-    			name = MEX_CED_industry_3_bonus
+    			name = SPT_MEX_industry_3_bonus
     			bonus = 0.75
     			uses = 2
     			category = excavation_tech
@@ -935,17 +985,20 @@ focus_tree = {
 	}
 
 	focus = {
-    	id = MEX_CED_monterrey_steel
-    	icon = GFX_focus_mex_northern_steel_plants
-    	prerequisite = { focus = MEX_CED_invest_in_heartland }
+    	id = SPT_MEX_monterrey_steel
+    	icon = GFX_focus_generic_steel_mill
+    	prerequisite = { focus = SPT_MEX_invest_in_heartland }
     	x = 0
     	y = 1
-    	relative_position_id = MEX_CED_invest_in_heartland
+    	relative_position_id = SPT_MEX_invest_in_heartland
 
     	cost = 7
+
     	ai_will_do = { factor = 100 }
+
     	available = { }
     	bypass = { }
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
     	available_if_capitulated = yes
@@ -971,17 +1024,21 @@ focus_tree = {
 	}
 
 	focus = {
-    	id = MEX_CED_technical_institute
-    	icon = GFX_focus_generic_research_institution
-    	prerequisite = { focus = MEX_CED_invest_in_heartland focus = MEX_CED_private_banking }
+    	id = SPT_MEX_technical_institute
+    	icon = GFX_focus_ARG_universidad_de_buenos_aires
+    	prerequisite = { focus = SPT_MEX_invest_in_heartland }
+		prerequisite = { focus = SPT_MEX_private_banking }
     	x = -2
     	y = 1
-    	relative_position_id = MEX_CED_invest_in_heartland
+    	relative_position_id = SPT_MEX_invest_in_heartland
 
     	cost = 10
+
     	ai_will_do = { factor = 100 }
+
     	available = { }
     	bypass = { }
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
     	available_if_capitulated = yes
@@ -991,15 +1048,15 @@ focus_tree = {
     		add_research_slot = 1
 			custom_effect_tooltip = generic_skip_one_line_tt
     		add_timed_idea = {
-        		idea = MEX_CED_instituto_tecnologico
+        		idea = SPT_MEX_instituto_tecnologico
         		days = 180
     		}
     		custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = SPT_MEX_CED_timed_idea_converts_industry_tt
+			custom_effect_tooltip = SPT_MEX_timed_idea_converts_industry_tt
     		effect_tooltip = {
-        		add_to_variable = { MEX_CED_industria_research_speed = 0.10 tooltip = research_speed_factor_tt }
+        		add_to_variable = { SPT_MEX_industria_research_speed = 0.05 tooltip = research_speed_factor_tt }
 				add_tech_bonus = {
-            		name = MEX_CED_electronics_bonus
+            		name = SPT_MEX_electronics_bonus
             		bonus = 0.5
             		uses = 2
             		category = electronics
@@ -1009,111 +1066,127 @@ focus_tree = {
 	}
 
 	focus = {
-    	id = MEX_CED_industry_4
-    	icon = GFX_focus_generic_construct_mil_factory
-    	prerequisite = { focus = MEX_CED_monterrey_steel }
+    	id = SPT_MEX_industry_4
+    	icon = GFX_focus_generic_military_industry
+    	prerequisite = { focus = SPT_MEX_monterrey_steel }
     	x = 0
     	y = 1
-    	relative_position_id = MEX_CED_monterrey_steel
+    	relative_position_id = SPT_MEX_monterrey_steel
 
-    	cost = 7
+    	cost = 10
+
     	ai_will_do = { factor = 100 }
+
     	available = { }
     	bypass = { }
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
     	available_if_capitulated = yes
     	search_filters = { FOCUS_FILTER_INDUSTRY }
 
     	completion_reward = {
-			custom_effect_tooltip = MEX_CED_modifies_industria_tt
-			add_to_variable = { MEX_CED_industria_factory_output = 0.05 tooltip = industrial_capacity_factory_tt }
-			add_to_variable = { MEX_CED_industria_production_efficiency_cap = 0.05 tooltip = production_factory_max_efficiency_factor_tt }
-			add_to_variable = { MEX_CED_industria_production_efficiency_gain = 0.05 tooltip = production_factory_efficiency_gain_factor_tt }
+			custom_effect_tooltip = SPT_MEX_modifies_industria_tt
+			add_to_variable = { SPT_MEX_industria_production_efficiency_cap = 0.05 tooltip = production_factory_max_efficiency_factor_tt }
+			add_to_variable = { SPT_MEX_industria_production_efficiency_gain = 0.05 tooltip = production_factory_efficiency_gain_factor_tt }
+			add_to_variable = { SPT_MEX_industria_factory_output = 0.05 tooltip = industrial_capacity_factory_tt }
+			add_to_variable = { SPT_MEX_industria_dockyard_output = 0.05 tooltip = industrial_capacity_dockyard_tt }
 			custom_effect_tooltip = generic_skip_one_line_tt
 			hidden_effect = {
-				country_event = { id = spt_mex.8 days = 1 }
+				country_event = { id = spt_mex.6 days = 1 }
 			}
-			custom_effect_tooltip = SPT_MEX_CED_industry_choice_tt
+			custom_effect_tooltip = SPT_MEX_industry_choice_tt
 			custom_effect_tooltip = generic_skip_one_line_tt
 			effect_tooltip = {
-        		custom_effect_tooltip = spt_mex.8.a
-        		add_to_variable = { MEX_CED_industria_production_efficiency_cap = 0.05 tooltip = production_factory_max_efficiency_factor_tt }
-        		add_to_variable = { MEX_CED_industria_production_efficiency_gain = 0.05 tooltip = production_factory_efficiency_gain_factor_tt }
+        		custom_effect_tooltip = spt_mex.6.a
+				custom_effect_tooltip = SPT_MEX_modifies_industria_tt
+        		add_to_variable = { SPT_MEX_industria_production_efficiency_cap = 0.05 tooltip = production_factory_max_efficiency_factor_tt }
+        		add_to_variable = { SPT_MEX_industria_production_efficiency_gain = 0.05 tooltip = production_factory_efficiency_gain_factor_tt }
         		custom_effect_tooltip = generic_skip_one_line_tt
-				custom_effect_tooltip = spt_mex.8.b
-        		add_to_variable = { MEX_CED_industria_factory_output = 0.08 tooltip = industrial_capacity_factory_tt }
-        		add_to_variable = { MEX_CED_industria_dockyard_output = 0.08 tooltip = industrial_capacity_dockyard_tt }
+				custom_effect_tooltip = spt_mex.6.b
+				custom_effect_tooltip = SPT_MEX_modifies_industria_tt
+        		add_to_variable = { SPT_MEX_industria_factory_output = 0.15 tooltip = industrial_capacity_factory_tt }
+        		add_to_variable = { SPT_MEX_industria_dockyard_output = 0.15 tooltip = industrial_capacity_dockyard_tt }
         		custom_effect_tooltip = generic_skip_one_line_tt
-				custom_effect_tooltip = spt_mex.8.c
-        		add_to_variable = { MEX_CED_industria_mil_construction_speed = 0.12 tooltip = production_speed_arms_factory_factor_tt }
-        		add_to_variable = { MEX_CED_industria_dock_construction_speed = 0.12 tooltip = production_speed_dockyard_factor_tt }
+				custom_effect_tooltip = spt_mex.6.c
+				custom_effect_tooltip = SPT_MEX_modifies_industria_tt
+        		add_to_variable = { SPT_MEX_industria_mil_construction_speed = 0.10 tooltip = production_speed_arms_factory_factor_tt }
+        		add_to_variable = { SPT_MEX_industria_dock_construction_speed = 0.10 tooltip = production_speed_dockyard_factor_tt }
     		}
     	}
 	}
 
 	focus = {
-    	id = MEX_CED_mill_industry_1
-    	icon = GFX_focus_generic_construct_mil_factory
-    	prerequisite = { focus = MEX_CED_industry_4 }
-    	mutually_exclusive = { focus = MEX_CED_dock_industry_1 }
+    	id = SPT_MEX_mill_industry_1
+    	icon = GFX_focus_generic_reorient_production
+    	prerequisite = { focus = SPT_MEX_industry_4 }
+    	mutually_exclusive = { focus = SPT_MEX_dock_industry_1 }
     	x = -1
     	y = 1
-    	relative_position_id = MEX_CED_industry_4
+    	relative_position_id = SPT_MEX_industry_4
 
-    	cost = 7
+    	cost = 5
+
     	ai_will_do = { factor = 100 }
+
     	available = { }
     	bypass = { }
+
     	cancel_if_invalid = yes
    		continue_if_invalid = no
     	available_if_capitulated = yes
     	search_filters = { FOCUS_FILTER_INDUSTRY }
 
     	completion_reward = {
-			custom_effect_tooltip = MEX_CED_modifies_industria_tt
-			add_to_variable = { MEX_CED_industria_factory_output = 0.05 tooltip = industrial_capacity_factory_tt }
-    		add_to_variable = { MEX_CED_industria_mil_construction_speed = 0.10 tooltip = production_speed_arms_factory_factor_tt }
+			custom_effect_tooltip = SPT_MEX_modifies_industria_tt
+			add_to_variable = { SPT_MEX_industria_factory_output = 0.05 tooltip = industrial_capacity_factory_tt }
+    		add_to_variable = { SPT_MEX_industria_mil_construction_speed = 0.10 tooltip = production_speed_arms_factory_factor_tt }
     	}
 	}
 
 	focus = {
-    	id = MEX_CED_dock_industry_1
-    	icon = GFX_focus_generic_construct_naval_dockyard
-    	prerequisite = { focus = MEX_CED_industry_4 }
-    	mutually_exclusive = { focus = MEX_CED_mill_industry_1 }
+    	id = SPT_MEX_dock_industry_1
+    	icon = GFX_focus_generic_refit_civilian_ships
+    	prerequisite = { focus = SPT_MEX_industry_4 }
+    	mutually_exclusive = { focus = SPT_MEX_mill_industry_1 }
     	x = 1
     	y = 1
-    	relative_position_id = MEX_CED_industry_4
+    	relative_position_id = SPT_MEX_industry_4
 
-    	cost = 7
+    	cost = 5
+
     	ai_will_do = { factor = 100 }
+
     	available = { }
     	bypass = { }
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
    		available_if_capitulated = yes
     	search_filters = { FOCUS_FILTER_INDUSTRY }
 
     	completion_reward = {
-			custom_effect_tooltip = MEX_CED_modifies_industria_tt
-			add_to_variable = { MEX_CED_industria_dockyard_output = 0.05 tooltip = industrial_capacity_dockyard_tt }
-    		add_to_variable = { MEX_CED_industria_dock_construction_speed = 0.10 tooltip = production_speed_dockyard_factor_tt }
+			custom_effect_tooltip = SPT_MEX_modifies_industria_tt
+			add_to_variable = { SPT_MEX_industria_dockyard_output = 0.05 tooltip = industrial_capacity_dockyard_tt }
+    		add_to_variable = { SPT_MEX_industria_dock_construction_speed = 0.10 tooltip = production_speed_dockyard_factor_tt }
     	}
 	}
 
 	focus = {
-    	id = MEX_CED_mill_industry_2
-    	icon = GFX_focus_generic_construct_mil_factory
-    	prerequisite = { focus = MEX_CED_mill_industry_1 }
+    	id = SPT_MEX_mill_industry_2
+    	icon = GFX_goal_generic_construct_mil_factory
+    	prerequisite = { focus = SPT_MEX_mill_industry_1 }
     	x = 0
     	y = 1
-    	relative_position_id = MEX_CED_mill_industry_1
+    	relative_position_id = SPT_MEX_mill_industry_1
 
     	cost = 10
+
     	ai_will_do = { factor = 100 }
+
     	available = { }
     	bypass = { }
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
     	available_if_capitulated = yes
@@ -1140,17 +1213,20 @@ focus_tree = {
 	}
 
 	focus = {
-    	id = MEX_CED_dock_industry_2
-    	icon = GFX_focus_generic_construct_naval_dockyard
-    	prerequisite = { focus = MEX_CED_dock_industry_1 }
+    	id = SPT_MEX_dock_industry_2
+    	icon = GFX_goal_generic_construct_naval_dockyard
+    	prerequisite = { focus = SPT_MEX_dock_industry_1 }
     	x = 0
     	y = 1
-    	relative_position_id = MEX_CED_dock_industry_1
+    	relative_position_id = SPT_MEX_dock_industry_1
 
     	cost = 10
+
     	ai_will_do = { factor = 100 }
+
     	available = { }
     	bypass = { }
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
     	available_if_capitulated = yes
@@ -1177,48 +1253,55 @@ focus_tree = {
 	}		
 
 	focus = {
-    	id = MEX_CED_industry_capstone
-    	icon = GFX_focus_generic_industry
-    	prerequisite = { focus = MEX_CED_mill_industry_2 focus = MEX_CED_dock_industry_2 }
+    	id = SPT_MEX_industry_capstone
+    	icon = GFX_focus_generic_modernize_industry
+    	prerequisite = { focus = SPT_MEX_mill_industry_2 focus = SPT_MEX_dock_industry_2 }
     	x = 1
     	y = 1
-    	relative_position_id = MEX_CED_mill_industry_2
+    	relative_position_id = SPT_MEX_mill_industry_2
 
     	cost = 15
+
     	ai_will_do = { factor = 100 }
+
     	available = { 
-			has_country_flag = MEX_CED_industrialization_complete 
-			has_country_flag = MEX_CED_instituto_tecnologico_complete
+			has_country_flag = SPT_MEX_industrialization_complete 
+			has_country_flag = SPT_MEX_instituto_tecnologico_complete
 		}
     	bypass = { }
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
     	available_if_capitulated = yes
     	search_filters = { FOCUS_FILTER_INDUSTRY }
 
     	completion_reward = {
-			custom_effect_tooltip = MEX_CED_modifies_industria_tt
-			add_to_variable = { MEX_CED_industria_consumer_goods = -0.15 tooltip = consumer_goods_factor_tt }
-    		add_to_variable = { MEX_CED_industria_construction_speed = 0.10 tooltip = production_speed_buildings_factor_tt }
-    		add_to_variable = { MEX_CED_industria_factory_output = 0.15 tooltip = industrial_capacity_factory_tt }
-    		add_to_variable = { MEX_CED_industria_production_efficiency_cap = 0.05 tooltip = production_factory_max_efficiency_factor_tt }
-    		add_to_variable = { MEX_CED_industria_production_efficiency_gain = 0.05 tooltip = production_factory_efficiency_gain_factor_tt }
-			add_to_variable = { MEX_CED_industria_building_slots = 0.10 tooltip = global_building_slots_factor_tt }
+			custom_effect_tooltip = SPT_MEX_modifies_industria_tt
+			add_to_variable = { SPT_MEX_industria_consumer_goods = -0.15 tooltip = consumer_goods_factor_tt }
+    		add_to_variable = { SPT_MEX_industria_production_efficiency_cap = 0.05 tooltip = production_factory_max_efficiency_factor_tt }
+    		add_to_variable = { SPT_MEX_industria_production_efficiency_gain = 0.05 tooltip = production_factory_efficiency_gain_factor_tt }
+			add_to_variable = { SPT_MEX_industria_factory_output = 0.15 tooltip = industrial_capacity_factory_tt }
+			add_to_variable = { SPT_MEX_industria_dockyard_output = 0.15 tooltip = industrial_capacity_dockyard_tt }
+			add_to_variable = { SPT_MEX_industria_building_slots = 0.10 tooltip = global_building_slots_factor_tt }
     	}
 	}
 
 	focus = {
-    	id = MEX_CED_industry_5
-    	icon = GFX_focus_generic_construct_civ_factory
-    	prerequisite = { focus = MEX_CED_invest_in_heartland focus = MEX_CED_invest_in_countryside }
+    	id = SPT_MEX_industry_5
+    	icon = GFX_focus_mex_privatisation
+    	prerequisite = { focus = SPT_MEX_invest_in_heartland }
+		prerequisite = { focus = SPT_MEX_invest_in_countryside }
     	x = -2
     	y = 1
-    	relative_position_id = MEX_CED_invest_in_countryside
+    	relative_position_id = SPT_MEX_invest_in_countryside
 
     	cost = 10
+
     	ai_will_do = { factor = 100 }
+
     	available = { }
     	bypass = { }
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
    		available_if_capitulated = yes
@@ -1226,32 +1309,35 @@ focus_tree = {
 
     	completion_reward = {
     		add_timed_idea = {
-        		idea = MEX_CED_industrialization_plan
+        		idea = SPT_MEX_industrialization_plan
         		days = 360
     		}
 			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = SPT_MEX_CED_timed_idea_converts_industry_tt
+			custom_effect_tooltip = SPT_MEX_timed_idea_converts_industry_tt
     		effect_tooltip = {
-        		add_to_variable = { MEX_CED_industria_construction_speed = 0.05 tooltip = production_speed_buildings_factor_tt }
-        		add_to_variable = { MEX_CED_industria_consumer_goods = -0.05 tooltip = consumer_goods_factor_tt }
-        		add_to_variable = { MEX_CED_industria_production_efficiency_cap = 0.05 tooltip = production_factory_max_efficiency_factor_tt }
-        		add_to_variable = { MEX_CED_industria_production_efficiency_gain = 0.05 tooltip = production_factory_efficiency_gain_factor_tt }
+				add_to_variable = { SPT_MEX_industria_consumer_goods = -0.05 tooltip = consumer_goods_factor_tt }
+        		add_to_variable = { SPT_MEX_industria_construction_speed = 0.05 tooltip = production_speed_buildings_factor_tt }
+        		add_to_variable = { SPT_MEX_industria_production_efficiency_cap = 0.05 tooltip = production_factory_max_efficiency_factor_tt }
+        		add_to_variable = { SPT_MEX_industria_production_efficiency_gain = 0.05 tooltip = production_factory_efficiency_gain_factor_tt }
     		}
 		}
 	}
 
 	focus = {
-    	id = MEX_CED_industry_6
-    	icon = GFX_focus_generic_construct_civ_factory
-    	prerequisite = { focus = MEX_CED_invest_in_countryside }
+    	id = SPT_MEX_industry_6
+    	icon = GFX_goal_generic_construct_infrastructure
+    	prerequisite = { focus = SPT_MEX_invest_in_countryside }
     	x = 0
     	y = 1
-    	relative_position_id = MEX_CED_invest_in_countryside
+    	relative_position_id = SPT_MEX_invest_in_countryside
 
     	cost = 5
+
     	ai_will_do = { factor = 100 }
+
     	available = { }
     	bypass = { }
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
     	available_if_capitulated = yes
@@ -1259,32 +1345,35 @@ focus_tree = {
 
     	completion_reward = {
     		add_timed_idea = {
-        		idea = MEX_CED_rural_development_plan
+        		idea = SPT_MEX_rural_development_plan
         		days = 120
     		}
 			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = SPT_MEX_CED_timed_idea_converts_industry_tt
+			custom_effect_tooltip = SPT_MEX_timed_idea_converts_industry_tt
     		effect_tooltip = {
-				add_to_variable = { MEX_CED_industria_consumer_goods = -0.05 tooltip = consumer_goods_factor_tt }
-        		add_to_variable = { MEX_CED_industria_construction_speed = 0.05 tooltip = production_speed_buildings_factor_tt }
+				add_to_variable = { SPT_MEX_industria_consumer_goods = -0.05 tooltip = consumer_goods_factor_tt }
+        		add_to_variable = { SPT_MEX_industria_construction_speed = 0.05 tooltip = production_speed_buildings_factor_tt }
 			}
 		}
 	}
 
 	focus = {
-    	id = MEX_CED_industry_7
-    	icon = GFX_focus_generic_construct_civ_factory
-    	prerequisite = { focus = MEX_CED_industry_6 }
+    	id = SPT_MEX_industry_7
+    	icon = GFX_focus_generic_industry_3
+    	prerequisite = { focus = SPT_MEX_industry_6 }
     	x = 0
     	y = 1
-    	relative_position_id = MEX_CED_industry_6
+    	relative_position_id = SPT_MEX_industry_6
 
     	cost = 5
+
     	ai_will_do = { factor = 100 }
+
     	available = { 
-			has_country_flag = MEX_CED_rural_development_done
+			has_country_flag = SPT_MEX_rural_development_done
 		}
     	bypass = { }
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
     	available_if_capitulated = yes
@@ -1292,33 +1381,37 @@ focus_tree = {
 
     	completion_reward = {
     		add_timed_idea = {
-        		idea = MEX_CED_military_industrial_base
+        		idea = SPT_MEX_military_industrial_base
         		days = 120
     		}
 			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = SPT_MEX_CED_timed_idea_converts_industry_tt
+			custom_effect_tooltip = SPT_MEX_timed_idea_converts_industry_tt
     		effect_tooltip = {
-        		add_to_variable = { MEX_CED_industria_factory_output = 0.05 tooltip = industrial_capacity_factory_tt }
-        		add_to_variable = { MEX_CED_industria_production_efficiency_cap = 0.05 tooltip = production_factory_max_efficiency_factor_tt }
-        		add_to_variable = { MEX_CED_industria_production_efficiency_gain = 0.05 tooltip = production_factory_efficiency_gain_factor_tt }
-    		}
+        		add_to_variable = { SPT_MEX_industria_production_efficiency_cap = 0.05 tooltip = production_factory_max_efficiency_factor_tt }
+        		add_to_variable = { SPT_MEX_industria_production_efficiency_gain = 0.05 tooltip = production_factory_efficiency_gain_factor_tt }
+				add_to_variable = { SPT_MEX_industria_factory_output = 0.05 tooltip = industrial_capacity_factory_tt }
+				add_to_variable = { SPT_MEX_industria_dockyard_output = 0.05 tooltip = industrial_capacity_dockyard_tt }
+			}
 		}
 	}
 
 	focus = {
-    	id = MEX_CED_industry_8
-    	icon = GFX_focus_generic_construct_civ_factory
-    	prerequisite = { focus = MEX_CED_industry_7 }
+    	id = SPT_MEX_industry_8
+    	icon = GFX_SOV_increase_state_reserves_ccp_2d_sov_compatibility
+    	prerequisite = { focus = SPT_MEX_industry_7 }
     	x = 0
     	y = 1
-    	relative_position_id = MEX_CED_industry_7
+    	relative_position_id = SPT_MEX_industry_7
 
     	cost = 5
+
     	ai_will_do = { factor = 50 }
+
     	available = { 
-			has_country_flag = MEX_CED_military_industrial_done
+			has_country_flag = SPT_MEX_military_industrial_done
 		}
     	bypass = { }
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
     	available_if_capitulated = yes
@@ -1326,14 +1419,14 @@ focus_tree = {
 
 		completion_reward = {
     		add_timed_idea = {
-        		idea = MEX_CED_land_development_programme
+        		idea = SPT_MEX_land_development_programme
         		days = 120
     		}
 			custom_effect_tooltip = generic_skip_one_line_tt
-    		custom_effect_tooltip = SPT_MEX_CED_timed_idea_converts_industry_tt
+    		custom_effect_tooltip = SPT_MEX_timed_idea_converts_industry_tt
     		effect_tooltip = {
-        		add_to_variable = { MEX_CED_industria_resource_efficiency = 0.10 tooltip = local_resources_factor_tt }
-    			add_to_variable = { MEX_CED_industria_building_slots = 0.10 tooltip = global_building_slots_factor_tt }
+        		add_to_variable = { SPT_MEX_industria_resource_efficiency = 0.10 tooltip = local_resources_factor_tt }
+    			add_to_variable = { SPT_MEX_industria_building_slots = 0.10 tooltip = global_building_slots_factor_tt }
     		}
 		}
 	}
@@ -1343,17 +1436,20 @@ focus_tree = {
 	##############################
 
 	focus = {
-    	id = MEX_CED_good_neighbour_policy
+    	id = SPT_MEX_good_neighbour_policy
     	icon = GFX_focus_generic_diplomatic_treaty
-    	prerequisite = { focus = MEX_CED_caudillo_constitution }
+    	prerequisite = { focus = SPT_MEX_caudillo_constitution }
     	x = 1
     	y = 1
-    	relative_position_id = MEX_CED_caudillo_constitution
+    	relative_position_id = SPT_MEX_caudillo_constitution
 
-    	cost = 7
+    	cost = 5
+
     	ai_will_do = { factor = 100 }
+
     	available = { }
     	bypass = { }
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
     	available_if_capitulated = yes
@@ -1363,43 +1459,46 @@ focus_tree = {
 			USA = {
 				add_opinion_modifier = {
 					target = MEX
-					modifier = SPT_MEX_CED_good_neighbour_modifier
+					modifier = SPT_MEX_good_neighbour_modifier
 				}
 			}
 			CAN = {
 				add_opinion_modifier = {
 					target = MEX
-					modifier = SPT_MEX_CED_good_neighbour_modifier
+					modifier = SPT_MEX_good_neighbour_modifier
 				}
 			}
 			BRA = {
 				add_opinion_modifier = {
 					target = MEX
-					modifier = SPT_MEX_CED_good_neighbour_modifier
+					modifier = SPT_MEX_good_neighbour_modifier
 				}
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
     		add_timed_idea = {
-        		idea = MEX_CED_good_neighbour_recognition
+        		idea = SPT_MEX_good_neighbour_recognition
         		days = 140
     		}
 		}
 	}
 
 	focus = {
-    	id = MEX_CED_resource_rights_negotiations
-    	icon = GFX_focus_generic_diplomatic_treaty
-    	prerequisite = { focus = MEX_CED_good_neighbour_policy }
+    	id = SPT_MEX_resource_rights_negotiations
+    	icon = GFX_focus_generic_treaty
+    	prerequisite = { focus = SPT_MEX_good_neighbour_policy }
     	x = -2
     	y = 1
-    	relative_position_id = MEX_CED_good_neighbour_policy
+    	relative_position_id = SPT_MEX_good_neighbour_policy
 
-    	cost = 7
+    	cost = 10
+
     	ai_will_do = { factor = 100 }
+
     	available = { 
-			has_completed_focus = MEX_CED_restore_oil_contracts
-		 }
+			has_completed_focus = SPT_MEX_restore_oil_contracts
+		}
     	bypass = { }
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
     	available_if_capitulated = yes
@@ -1416,16 +1515,19 @@ focus_tree = {
 				remove_resource_rights = 476
 			}
 			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = available_industrial_concern
+			show_ideas_tooltip = MEX_pemex
+			custom_effect_tooltip = generic_skip_one_line_tt
     		if = {
-        		limit = { has_country_flag = MEX_CED_aligned_with_usa }
+        		limit = { has_country_flag = SPT_MEX_aligned_with_usa }
         		add_timed_idea = {
-            		idea = MEX_CED_resource_compensation_1
+            		idea = SPT_MEX_resource_compensation_1
             		days = 180
         		}
 				custom_effect_tooltip = generic_skip_one_line_tt
     			USA = {
         			add_timed_idea = {
-            			idea = MEX_CED_resource_compensation_2
+            			idea = SPT_MEX_resource_compensation_2
             			days = 180
         			}
     			}
@@ -1434,20 +1536,20 @@ focus_tree = {
         		ENG = {
             		add_opinion_modifier = {
                 		target = MEX
-                		modifier = SPT_MEX_CED_resource_rights_snub
+                		modifier = SPT_MEX_resource_rights_snub
             		}
         		}
     		}
     		else_if = {
-        		limit = { has_country_flag = MEX_CED_aligned_with_uk }
+        		limit = { has_country_flag = SPT_MEX_aligned_with_uk }
         		add_timed_idea = {
-            		idea = MEX_CED_resource_compensation_1
+            		idea = SPT_MEX_resource_compensation_1
             		days = 180
         		}
 				custom_effect_tooltip = generic_skip_one_line_tt
     			ENG = {
         			add_timed_idea = {
-            			idea = MEX_CED_resource_compensation_2
+            			idea = SPT_MEX_resource_compensation_2
             			days = 180
         			}
     			}
@@ -1456,13 +1558,13 @@ focus_tree = {
         		USA = {
             		add_opinion_modifier = {
                 		target = MEX
-                		modifier = SPT_MEX_CED_resource_rights_snub
+                		modifier = SPT_MEX_resource_rights_snub
             		}
         		}
     		}
     		else = {
         		add_timed_idea = {
-            		idea = MEX_CED_resource_compensation_3
+            		idea = SPT_MEX_resource_compensation_3
             		days = 180
         		}
 				custom_effect_tooltip = generic_skip_one_line_tt
@@ -1470,37 +1572,40 @@ focus_tree = {
         		USA = {
             		add_opinion_modifier = {
                 		target = MEX
-                		modifier = SPT_MEX_CED_resource_rights_snub
+                		modifier = SPT_MEX_resource_rights_snub
             		}
         		}
         		ENG = {
             		add_opinion_modifier = {
                 		target = MEX
-                		modifier = SPT_MEX_CED_resource_rights_snub
+                		modifier = SPT_MEX_resource_rights_snub
             		}
         		}
 				custom_effect_tooltip = generic_skip_one_line_tt
-				custom_effect_tooltip = SPT_MEX_CED_resource_rights_snub_tt
+				custom_effect_tooltip = SPT_MEX_resource_rights_snub_tt
     		}
 		}
 	}
 
 	focus = {
-    	id = MEX_CED_pan_american_relations
+    	id = SPT_MEX_pan_american_relations
     	icon = GFX_focus_generic_diplomatic_treaty
-    	prerequisite = { focus = MEX_CED_good_neighbour_policy }
+    	prerequisite = { focus = SPT_MEX_good_neighbour_policy }
     	x = 2
     	y = 1
-    	relative_position_id = MEX_CED_good_neighbour_policy
+    	relative_position_id = SPT_MEX_good_neighbour_policy
 
-    	cost = 7
+    	cost = 5
+
     	ai_will_do = { factor = 100 }
+
     	available = { 
-			has_idea = MEX_CED_good_neighbour_recognition
-		 }
+			has_idea = SPT_MEX_good_neighbour_recognition
+		}
     	bypass = { 
-			NOT = { has_idea = MEX_CED_good_neighbour_recognition }
-		 }
+			NOT = { has_idea = SPT_MEX_good_neighbour_recognition }
+		}
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
     	available_if_capitulated = yes
@@ -1509,175 +1614,299 @@ focus_tree = {
     	completion_reward = {
     		add_political_power = 50
 			custom_effect_tooltip = generic_skip_one_line_tt
-        	remove_ideas = MEX_CED_good_neighbour_recognition
+        	remove_ideas = SPT_MEX_good_neighbour_recognition
 			custom_effect_tooltip = generic_skip_one_line_tt
         	add_timed_idea = {
-            	idea = MEX_CED_pan_american_recognition
+            	idea = SPT_MEX_pan_american_recognition
             	days = 360
         	}
 		}
 	}
 
 	focus = {
-    	id = MEX_CED_commonwealth_cooperation
-    	icon = GFX_focus_generic_diplomatic_treaty
-    	prerequisite = { focus = MEX_CED_resource_rights_negotiations }
+    	id = SPT_MEX_commonwealth_cooperation
+    	icon = GFX_focus_chi_british_cooperation
+    	prerequisite = { focus = SPT_MEX_resource_rights_negotiations }
     	x = -1
     	y = 1
-    	relative_position_id = MEX_CED_resource_rights_negotiations
+    	relative_position_id = SPT_MEX_resource_rights_negotiations
 
-    	cost = 7
+    	cost = 5
+
     	ai_will_do = { factor = 100 }
-    	available = { }
+
+    	available = { 
+			OR = { 
+				has_country_flag = SPT_MEX_aligned_with_usa
+				has_country_flag = SPT_MEX_aligned_with_uk
+			}
+		}
     	bypass = { }
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
     	available_if_capitulated = yes
     	search_filters = { FOCUS_FILTER_POLITICAL }
 
-    	completion_reward = { }
+    	completion_reward = { 
+			if = {
+        		limit = { has_country_flag = SPT_MEX_aligned_with_uk }
+        		add_ideas = SPT_MEX_commonwealth_cooperation_full
+    		}
+    		else = {
+        		add_ideas = SPT_MEX_commonwealth_cooperation_partial
+    		}
+		 }
 	}
 
 	focus = {
-    	id = MEX_CED_us_cooperation
-    	icon = GFX_focus_generic_diplomatic_treaty
-    	prerequisite = { focus = MEX_CED_resource_rights_negotiations }
+    	id = SPT_MEX_us_cooperation
+    	icon = GFX_focus_generic_befriend_usa
+    	prerequisite = { focus = SPT_MEX_resource_rights_negotiations }
     	x = 1
     	y = 1
-    	relative_position_id = MEX_CED_resource_rights_negotiations
+    	relative_position_id = SPT_MEX_resource_rights_negotiations
 
-    	cost = 7
+    	cost = 5
+
     	ai_will_do = { factor = 100 }
-    	available = { }
+
+    	available = { 
+			OR = { 
+				has_country_flag = SPT_MEX_aligned_with_usa
+				has_country_flag = SPT_MEX_aligned_with_uk
+			}
+		}
     	bypass = { }
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
     	available_if_capitulated = yes
     	search_filters = { FOCUS_FILTER_POLITICAL }
 
-    	completion_reward = { }
+    	completion_reward = { 
+			if = {
+        		limit = { has_country_flag = SPT_MEX_aligned_with_usa }
+        		add_ideas = SPT_MEX_usa_cooperation_full
+    		}
+    		else = {
+        		add_ideas = SPT_MEX_usa_cooperation_partial
+    		}
+		 }
 	}
 
 	focus = {
-    	id = MEX_CED_mexico_brazil_treaty
-    	icon = GFX_focus_generic_diplomatic_treaty
-    	prerequisite = { focus = MEX_CED_pan_american_relations }
+    	id = SPT_MEX_mexico_brazil_treaty
+    	icon = GFX_focus_SIA_the_duty_of_the_thai_people_during_the_war_act
+    	prerequisite = { focus = SPT_MEX_pan_american_relations }
     	x = 0
     	y = 1
-    	relative_position_id = MEX_CED_pan_american_relations
+    	relative_position_id = SPT_MEX_pan_american_relations
 
-    	cost = 7
+    	cost = 5
+
     	ai_will_do = { factor = 100 }
+
     	available = { }
     	bypass = { }
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
     	available_if_capitulated = yes
     	search_filters = { FOCUS_FILTER_POLITICAL }
 
-    	completion_reward = { }
+    	completion_reward = { 
+			add_ideas = SPT_MEX_mex_bra_trade_1
+			custom_effect_tooltip = generic_skip_one_line_tt
+			BRA = { add_ideas = SPT_MEX_mex_bra_trade_2 }
+		 }
 	}
 
 	focus = {
-    	id = MEX_CED_join_the_allies
-    	icon = GFX_focus_generic_diplomatic_treaty
-    	prerequisite = { focus = MEX_CED_commonwealth_cooperation }
+    	id = SPT_MEX_join_the_allies
+    	icon = GFX_focus_ARG_join_the_allies
+    	prerequisite = { focus = SPT_MEX_commonwealth_cooperation }
     	x = 0
     	y = 1
-    	relative_position_id = MEX_CED_commonwealth_cooperation
+    	relative_position_id = SPT_MEX_commonwealth_cooperation
 
-    	cost = 10
+    	cost = 5
+
     	ai_will_do = { factor = 100 }
+
     	available = { }
-    	bypass = { }
+    	bypass = { 
+			OR = {
+        		is_in_faction_with = ENG
+        		is_in_faction_with = USA
+    		}	
+		}
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
     	available_if_capitulated = yes
     	search_filters = { FOCUS_FILTER_POLITICAL }
 
-    	completion_reward = { }
+    	completion_reward = { 
+			if = {
+        		limit = {
+            		ENG = { is_faction_leader = yes }
+        		}
+        		ENG = { add_to_faction = MEX }
+    		}
+    		else_if = {
+        		limit = {
+            		USA = { is_faction_leader = yes }
+        		}
+        		USA = { add_to_faction = MEX }
+    		}
+		 }
 	}
 
 	focus = {
-    	id = MEX_CED_joint_border_defence
-    	icon = GFX_focus_generic_diplomatic_treaty
-    	prerequisite = { focus = MEX_CED_us_cooperation }
+    	id = SPT_MEX_usa_training_program
+    	icon = GFX_focus_ARG_the_american_push
+    	prerequisite = { focus = SPT_MEX_us_cooperation }
     	x = 0
     	y = 1
-    	relative_position_id = MEX_CED_us_cooperation
+    	relative_position_id = SPT_MEX_us_cooperation
 
-    	cost = 7
+    	cost = 5
+
     	ai_will_do = { factor = 100 }
+
     	available = { }
     	bypass = { }
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
     	available_if_capitulated = yes
     	search_filters = { FOCUS_FILTER_POLITICAL }
 
-    	completion_reward = { }
+    	completion_reward = { 
+			add_ideas = SPT_MEX_joint_training_program
+		}
 	}
 
 	focus = {
-    	id = MEX_CED_american_trade_deal
-    	icon = GFX_focus_generic_diplomatic_treaty
-    	prerequisite = { focus = MEX_CED_us_cooperation }
-    	prerequisite = { focus = MEX_CED_mexico_brazil_treaty }
+    	id = SPT_MEX_american_trade_deal
+    	icon = GFX_goal_generic_positive_trade_relations
+    	prerequisite = { focus = SPT_MEX_us_cooperation }
+    	prerequisite = { focus = SPT_MEX_mexico_brazil_treaty }
     	x = 2
     	y = 1
-    	relative_position_id = MEX_CED_us_cooperation
+    	relative_position_id = SPT_MEX_us_cooperation
 
     	cost = 10
+
     	ai_will_do = { factor = 100 }
+
     	available = { }
     	bypass = { }
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
     	available_if_capitulated = yes
     	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INDUSTRY }
 
-    	completion_reward = { }
+    	completion_reward = { 
+			swap_ideas = {
+    			remove_idea = SPT_MEX_mex_bra_trade_1
+    			add_idea = SPT_MEX_pan_american_trade_mex
+			}
+    		custom_effect_tooltip = generic_skip_one_line_tt
+    		BRA = {
+				swap_ideas = {
+    				remove_idea = SPT_MEX_mex_bra_trade_2
+    				add_idea = SPT_MEX_pan_american_trade_bra
+				}
+			}	
+			custom_effect_tooltip = generic_skip_one_line_tt
+    		USA = { add_ideas = SPT_MEX_pan_american_trade_usa }
+			custom_effect_tooltip = generic_skip_one_line_tt
+    		CAN = { add_ideas = SPT_MEX_pan_american_trade_can }
+		 }
 	}
 
 	focus = {
-	    id = MEX_CED_joint_war_planning
-    	icon = GFX_focus_generic_diplomatic_treaty
-    	prerequisite = { focus = MEX_CED_join_the_allies }
-    	prerequisite = { focus = MEX_CED_joint_border_defence }
+	    id = SPT_MEX_joint_war_planning
+    	icon = GFX_goal_generic_occupy_states_ongoing_war
+    	prerequisite = { focus = SPT_MEX_join_the_allies }
+		prerequisite = { focus = SPT_MEX_usa_training_program }
     	x = 1
     	y = 1
-    	relative_position_id = MEX_CED_join_the_allies
+    	relative_position_id = SPT_MEX_join_the_allies
 
     	cost = 10
+
     	ai_will_do = { factor = 100 }
+
     	available = { }
     	bypass = { }
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
     	available_if_capitulated = yes
     	search_filters = { FOCUS_FILTER_POLITICAL }
 
-    	completion_reward = { }
+    	completion_reward = { 
+			hidden_effect = {
+        		remove_ideas = SPT_MEX_joint_training_program
+        		if = {
+            		limit = { has_country_flag = SPT_MEX_aligned_with_usa }
+            		remove_ideas = SPT_MEX_commonwealth_cooperation_partial
+            		remove_ideas = SPT_MEX_usa_cooperation_full
+            		add_ideas = SPT_MEX_joint_war_planning_usa
+        		}
+        		else_if = {
+            		limit = { has_country_flag = SPT_MEX_aligned_with_uk }
+            		remove_ideas = SPT_MEX_commonwealth_cooperation_full
+            		remove_ideas = SPT_MEX_usa_cooperation_partial
+            		add_ideas = SPT_MEX_joint_war_planning_uk
+        		}
+    		}
+    		effect_tooltip = {
+        		if = {
+            		limit = { has_country_flag = SPT_MEX_aligned_with_usa }
+            		add_ideas = SPT_MEX_joint_war_planning_usa
+        		}
+        		else_if = {
+            		limit = { has_country_flag = SPT_MEX_aligned_with_uk }
+            		add_ideas = SPT_MEX_joint_war_planning_uk
+        		}
+				else = {
+            		custom_effect_tooltip = SPT_MEX_joint_war_planning_no_path_tt
+        		}
+    		}
+		}
 	}
 
 	focus = {
-    	id = MEX_CED_american_tech_sharing
-    	icon = GFX_focus_generic_diplomatic_treaty
-    	prerequisite = { focus = MEX_CED_american_trade_deal }
+    	id = SPT_MEX_american_tech_sharing
+    	icon = GFX_goal_tfv_generic_tech_sharing
+    	prerequisite = { focus = SPT_MEX_american_trade_deal }
     	x = 0
     	y = 1
-    	relative_position_id = MEX_CED_american_trade_deal
+    	relative_position_id = SPT_MEX_american_trade_deal
 
     	cost = 10
+
     	ai_will_do = { factor = 100 }
+
     	available = { }
     	bypass = { }
+
     	cancel_if_invalid = yes
     	continue_if_invalid = no
     	available_if_capitulated = yes
     	search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH }
 
-    	completion_reward = { }
+    	completion_reward = { 
+			add_to_tech_sharing_group = american_research
+			USA = { add_to_tech_sharing_group = american_research }
+			BRA = { add_to_tech_sharing_group = american_research }
+			CAN = { add_to_tech_sharing_group = american_research }
+		}
 	}
 
 	##############################
@@ -1685,12 +1914,12 @@ focus_tree = {
 	##############################
 
 	focus = {
-		id = MEX_CED_military_reform
-		icon = GFX_focus_generic_military_mission
-		prerequisite = { focus = MEX_CED_caudillo_constitution }
+		id = SPT_MEX_military_reform
+		icon = GFX_focus_RAJ_military_into_the_workforce
+		prerequisite = { focus = SPT_MEX_caudillo_constitution }
 		x = 24
 		y = 1
-		relative_position_id = MEX_CED_caudillo_constitution
+		relative_position_id = SPT_MEX_caudillo_constitution
 
 		cost = 5
 
@@ -1698,15 +1927,14 @@ focus_tree = {
 
 		available = { }
 		bypass = { }
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ARMY_XP }
 
 		completion_reward = {
-			army_experience = 25
-			navy_experience = 25
-			air_experience = 25
+			remove_ideas = MEX_politicised_army
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = MEX_manuel_avila
@@ -1718,12 +1946,12 @@ focus_tree = {
 	##############################
 
 	focus = {
-		id = MEX_CED_army_reform
-		icon = GFX_focus_generic_army_problems
-		prerequisite = { focus = MEX_CED_military_reform }
+		id = SPT_MEX_army_reform
+		icon = GFX_focus_NORDIC_com_army
+		prerequisite = { focus = SPT_MEX_military_reform }
 		x = -5
 		y = 1
-		relative_position_id = MEX_CED_military_reform
+		relative_position_id = SPT_MEX_military_reform
 
 		cost = 5
 
@@ -1731,27 +1959,28 @@ focus_tree = {
 
 		available = { }
 		bypass = { }
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_ARMY_XP }
 
 		completion_reward = {
-			custom_effect_tooltip = MEX_CED_modifies_ejercito_tt
-			add_to_variable = { MEX_CED_ejercito_org_factor = 0.10  tooltip = army_org_factor_tt }
-			add_to_variable = { MEX_CED_ejercito_attack_factor = 0.05  tooltip = army_attack_factor_tt }
-			add_to_variable = { MEX_CED_ejercito_experience_gain_factor = 0.05  tooltip = experience_gain_army_factor_tt }
-			add_to_variable = { MEX_CED_ejercito_land_doctrine_cost_factor = -0.10  tooltip = land_doctrine_cost_factor_tt }
+			custom_effect_tooltip = SPT_MEX_modifies_fuerzas_armadas_tt
+			add_to_variable = { SPT_MEX_ejercito_org_factor = 0.10  tooltip = army_org_factor_tt }
+			add_to_variable = { SPT_MEX_ejercito_attack_factor = 0.05  tooltip = army_attack_factor_tt }
+			add_to_variable = { SPT_MEX_ejercito_experience_gain_factor = 0.05  tooltip = experience_gain_army_factor_tt }
+			add_to_variable = { SPT_MEX_ejercito_land_doctrine_cost_factor = -0.10  tooltip = land_doctrine_cost_factor_tt }
 		}
 	}
 
 	focus = {
-		id = MEX_CED_navy_reform
-		icon = GFX_focus_generic_navy_problems
-		prerequisite = { focus = MEX_CED_military_reform }
+		id = SPT_MEX_navy_reform
+		icon = GFX_focus_NORDIC_com_navy
+		prerequisite = { focus = SPT_MEX_military_reform }
 		x = 0
 		y = 1
-		relative_position_id = MEX_CED_military_reform
+		relative_position_id = SPT_MEX_military_reform
 
 		cost = 5
 
@@ -1759,27 +1988,28 @@ focus_tree = {
 
 		available = { }
 		bypass = { }
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_NAVY_XP }
 
 		completion_reward = {
-			custom_effect_tooltip = MEX_CED_modifies_armada_tt
-			add_to_variable = { MEX_CED_armada_convoy_escort_efficiency = 0.10  tooltip = convoy_escort_efficiency_tt }
-			add_to_variable = { MEX_CED_armada_screening_efficiency = 0.05  tooltip = screening_efficiency_tt }
-			add_to_variable = { MEX_CED_armada_experience_gain_factor = 0.05  tooltip = experience_gain_navy_factor_tt }
-			add_to_variable = { MEX_CED_armada_naval_doctrine_cost_factor = -0.10  tooltip = naval_doctrine_cost_factor_tt }
+			custom_effect_tooltip = SPT_MEX_modifies_fuerzas_armadas_tt
+			add_to_variable = { SPT_MEX_armada_convoy_escort_efficiency = 0.10  tooltip = convoy_escort_efficiency_tt }
+			add_to_variable = { SPT_MEX_armada_screening_efficiency = 0.05  tooltip = screening_efficiency_tt }
+			add_to_variable = { SPT_MEX_armada_experience_gain_factor = 0.05  tooltip = experience_gain_navy_factor_tt }
+			add_to_variable = { SPT_MEX_armada_naval_doctrine_cost_factor = -0.10  tooltip = naval_doctrine_cost_factor_tt }
 		}
 	}
 
 	focus = {
-		id = MEX_CED_air_reform
-		icon = GFX_focus_generic_air_problems
-		prerequisite = { focus = MEX_CED_military_reform }
+		id = SPT_MEX_air_reform
+		icon = GFX_focus_NORDIC_com_airforce
+		prerequisite = { focus = SPT_MEX_military_reform }
 		x = 5
 		y = 1
-		relative_position_id = MEX_CED_military_reform
+		relative_position_id = SPT_MEX_military_reform
 
 		cost = 5
 
@@ -1787,17 +2017,18 @@ focus_tree = {
 
 		available = { }
 		bypass = { }
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_AIR_XP }
 
 		completion_reward = {
-			custom_effect_tooltip = MEX_CED_modifies_fuerza_aerea_tt
-			add_to_variable = { MEX_CED_fuerza_aerea_agility_factor = 0.05  tooltip = air_agility_factor_tt }
-			add_to_variable = { MEX_CED_fuerza_aerea_attack_factor = 0.05  tooltip = air_attack_factor_tt }
-			add_to_variable = { MEX_CED_fuerza_aerea_experience_gain_factor = 0.05  tooltip = experience_gain_air_factor_tt }
-			add_to_variable = { MEX_CED_fuerza_aerea_air_doctrine_cost_factor = -0.10  tooltip = air_doctrine_cost_factor_tt }
+			custom_effect_tooltip = SPT_MEX_modifies_fuerzas_armadas_tt
+			add_to_variable = { SPT_MEX_fuerza_aerea_agility_factor = 0.05  tooltip = air_agility_factor_tt }
+			add_to_variable = { SPT_MEX_fuerza_aerea_attack_factor = 0.05  tooltip = air_attack_factor_tt }
+			add_to_variable = { SPT_MEX_fuerza_aerea_experience_gain_factor = 0.05  tooltip = experience_gain_air_factor_tt }
+			add_to_variable = { SPT_MEX_fuerza_aerea_air_doctrine_cost_factor = -0.10  tooltip = air_doctrine_cost_factor_tt }
 		}
 	}
 
@@ -1808,13 +2039,13 @@ focus_tree = {
 	# TANK PATH
 
 	focus = {
-		id = MEX_CED_armor
-		icon = GFX_focus_generic_armor
-		prerequisite = { focus = MEX_CED_army_reform }
-		mutually_exclusive = { focus = MEX_CED_mass_infantry focus = MEX_CED_special_forces }
+		id = SPT_MEX_armor
+		icon = GFX_focus_SIA_reverse_engineer_allied_tanks
+		prerequisite = { focus = SPT_MEX_army_reform }
+		mutually_exclusive = { focus = SPT_MEX_mass_infantry focus = SPT_MEX_special_forces }
 		x = -2
 		y = 1
-		relative_position_id = MEX_CED_army_reform
+		relative_position_id = SPT_MEX_army_reform
 
 		cost = 5
 
@@ -1822,6 +2053,7 @@ focus_tree = {
 
 		available = { }
 		bypass = { }
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -1829,22 +2061,22 @@ focus_tree = {
 
 		completion_reward = {
 			add_tech_bonus = {
-            	name = MEX_CED_armor_tech
+            	name = SPT_MEX_armor_tech
             	bonus = 1.0
             	uses = 2
             	category = armor
         	}
 			add_tech_bonus = {
-            	name = MEX_CED_armor_tech
+            	name = SPT_MEX_armor_tech
             	bonus = 1.0
             	uses = 1
             	category = motorized_equipment
         	}
         	add_doctrine_cost_reduction = {
-            	name = MEX_CED_armor_doctrine_1
+            	name = SPT_MEX_armor_doctrine_1
             	cost_reduction = 0.5
             	uses = 1
-            	category = cat_mobile_warfare
+            	category = land_doctrine
         	}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			IF = {
@@ -1870,12 +2102,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MEX_CED_armor_2
-		icon = GFX_focus_generic_armor
-		prerequisite = { focus = MEX_CED_armor }
+		id = SPT_MEX_armor_2
+		icon = GFX_focus_generic_mass_production
+		prerequisite = { focus = SPT_MEX_armor }
 		x = 0
 		y = 1
-		relative_position_id = MEX_CED_armor
+		relative_position_id = SPT_MEX_armor
  
 		cost = 7
  
@@ -1883,13 +2115,14 @@ focus_tree = {
  
 		available = { }
 		bypass = { }
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_INDUSTRY }
  
 		completion_reward = {
-			add_ideas = MEX_CED_tank_production_programme
+			add_ideas = SPT_MEX_tank_production_programme
 			custom_effect_tooltip = generic_skip_one_line_tt
 			random_owned_controlled_state = {
 				limit = {
@@ -1903,12 +2136,12 @@ focus_tree = {
 	}
 
 	focus = {
-		id = MEX_CED_armor_3
-		icon = GFX_focus_generic_armor
-		prerequisite = { focus = MEX_CED_armor_2 }
+		id = SPT_MEX_armor_3
+		icon = GFX_focus_ARG_the_war_machine
+		prerequisite = { focus = SPT_MEX_armor_2 }
 		x = 0
 		y = 1
-		relative_position_id = MEX_CED_armor_2
+		relative_position_id = SPT_MEX_armor_2
 
 		cost = 10
 
@@ -1916,21 +2149,22 @@ focus_tree = {
 
 		available = { }
 		bypass = { }
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_ARMY_XP }
 
 		completion_reward = {
-			custom_effect_tooltip = MEX_CED_modifies_ejercito_tt
-			add_to_variable = { MEX_CED_ejercito_tank_attack_factor = 0.05  tooltip = army_armor_attack_factor_tt }
-			add_to_variable = { MEX_CED_ejercito_tank_defence_factor = 0.05  tooltip = army_armor_defence_factor_tt }
-			add_to_variable = { MEX_CED_ejercito_mech_attack_factor = 0.05  tooltip = mechanized_attack_factor_tt }
-			add_to_variable = { MEX_CED_ejercito_mech_defence_factor = 0.05  tooltip = mechanized_defence_factor_tt }
-			add_to_variable = { MEX_CED_ejercito_coordination_factor = 0.05  tooltip = coordination_bonus_tt }
+			custom_effect_tooltip = SPT_MEX_modifies_fuerzas_armadas_tt
+			add_to_variable = { SPT_MEX_ejercito_tank_attack_factor = 0.05  tooltip = army_armor_attack_factor_tt }
+			add_to_variable = { SPT_MEX_ejercito_tank_defence_factor = 0.05  tooltip = army_armor_defence_factor_tt }
+			add_to_variable = { SPT_MEX_ejercito_mech_attack_factor = 0.05  tooltip = mechanized_attack_factor_tt }
+			add_to_variable = { SPT_MEX_ejercito_mech_defence_factor = 0.05  tooltip = mechanized_defence_factor_tt }
+			add_to_variable = { SPT_MEX_ejercito_coordination_factor = 0.05  tooltip = coordination_bonus_tt }
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_mastery_bonus = {
-    			name = MEX_CED_armor_mastery
+    			name = SPT_MEX_armor_mastery
    				 bonus = 0.15
     			days = 360
     			track = armor
@@ -1942,13 +2176,13 @@ focus_tree = {
 	# MASS INFANTRY PATH
 
 	focus = {
-		id = MEX_CED_mass_infantry
-		icon = GFX_focus_generic_infantry_doctrine
-		prerequisite = { focus = MEX_CED_army_reform }
-		mutually_exclusive = { focus = MEX_CED_armor focus = MEX_CED_special_forces }
+		id = SPT_MEX_mass_infantry
+		icon = GFX_focus_CZE_army_reform
+		prerequisite = { focus = SPT_MEX_army_reform }
+		mutually_exclusive = { focus = SPT_MEX_armor focus = SPT_MEX_special_forces }
 		x = 0
 		y = 1
-		relative_position_id = MEX_CED_army_reform
+		relative_position_id = SPT_MEX_army_reform
 
 		cost = 5
 
@@ -1956,6 +2190,7 @@ focus_tree = {
 
 		available = { }
 		bypass = { }
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -1963,34 +2198,34 @@ focus_tree = {
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = MEX_CED_infantry_tech_1
+				name = SPT_MEX_infantry_tech_1
 				bonus = 1.0
 				uses = 1
 				category = infantry_weapons
 				category = artillery
 			}
 			add_tech_bonus = {
-				name = MEX_CED_infantry_tech_2
+				name = SPT_MEX_infantry_tech_2
 				bonus = 0.5
 				uses = 2
 				category = support_tech
 			}
 			add_doctrine_cost_reduction = {
-				name = MEX_CED_inf_doctrine_1
+				name = SPT_MEX_inf_doctrine_1
 				cost_reduction = 0.5
 				uses = 2
-				category = cat_mass_assault
+				category = land_doctrine
 			}
 		}
 	}
 
 	focus = {
-		id = MEX_CED_mass_infantry_2
-		icon = GFX_focus_generic_infantry_doctrine
-		prerequisite = { focus = MEX_CED_mass_infantry }
+		id = SPT_MEX_mass_infantry_2
+		icon = GFX_focus_CHI_military_mission
+		prerequisite = { focus = SPT_MEX_mass_infantry }
 		x = 0
 		y = 1
-		relative_position_id = MEX_CED_mass_infantry
+		relative_position_id = SPT_MEX_mass_infantry
 
 		cost = 7
 
@@ -1998,13 +2233,15 @@ focus_tree = {
 
 		available = { }
 		bypass = { }
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			add_ideas = MEX_CED_mass_weapons_production
+			add_ideas = SPT_MEX_mass_weapons_production
+			custom_effect_tooltip = generic_skip_one_line_tt
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT
@@ -2019,13 +2256,13 @@ focus_tree = {
 	# INF/SF SHARED PATH
 
 	focus = {
-		id = MEX_CED_inf_sf_1
-		icon = GFX_focus_generic_infantry_doctrine
-		prerequisite = { focus = MEX_CED_mass_infantry_2 focus = MEX_CED_special_forces_2 }
-		mutually_exclusive = { focus = MEX_CED_sf_amph_1 }
+		id = SPT_MEX_inf_sf_1
+		icon = GFX_focus_mex_caudillo_private_armies
+		prerequisite = { focus = SPT_MEX_mass_infantry_2 focus = SPT_MEX_special_forces_2 }
+		mutually_exclusive = { focus = SPT_MEX_sf_amph_1 }
 		x = 1
 		y = 3
-		relative_position_id = MEX_CED_army_reform
+		relative_position_id = SPT_MEX_army_reform
 
 		cost = 10
 
@@ -2033,20 +2270,21 @@ focus_tree = {
 
 		available = { }
 		bypass = { }
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_ARMY_XP }
 
 		completion_reward = {
-			custom_effect_tooltip = MEX_CED_modifies_ejercito_tt
-			add_to_variable = { MEX_CED_ejercito_org_factor = 0.05  tooltip = army_org_factor_tt }
-			add_to_variable = { MEX_CED_ejercito_recovery_factor = 0.10 tooltip = army_morale_factor_tt }
-			add_to_variable = { MEX_CED_ejercito_reinforce_factor = 0.02 tooltip = land_reinforce_rate_tt }
-			add_to_variable = { MEX_CED_ejercito_infantry_defence_factor = 0.10  tooltip = army_infantry_defence_factor_tt }
+			custom_effect_tooltip = SPT_MEX_modifies_fuerzas_armadas_tt
+			add_to_variable = { SPT_MEX_ejercito_org_factor = 0.05  tooltip = army_org_factor_tt }
+			add_to_variable = { SPT_MEX_ejercito_recovery_factor = 0.10 tooltip = army_morale_factor_tt }
+			add_to_variable = { SPT_MEX_ejercito_reinforce_factor = 0.02 tooltip = land_reinforce_rate_tt }
+			add_to_variable = { SPT_MEX_ejercito_infantry_defence_factor = 0.10  tooltip = army_infantry_defence_factor_tt }
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_mastery_bonus = {
-    			name = MEX_CED_infantry_mastery
+    			name = SPT_MEX_infantry_mastery
    				 bonus = 0.15
     			days = 180
     			track = infantry
@@ -2058,13 +2296,13 @@ focus_tree = {
 	# SPECIAL FORCES PATH
 
 	focus = {
-		id = MEX_CED_special_forces
-		icon = GFX_focus_generic_special_forces
-		prerequisite = { focus = MEX_CED_army_reform }
-		mutually_exclusive = { focus = MEX_CED_armor focus = MEX_CED_mass_infantry }
+		id = SPT_MEX_special_forces
+		icon = GFX_focus_eng_special_air_service
+		prerequisite = { focus = SPT_MEX_army_reform }
+		mutually_exclusive = { focus = SPT_MEX_armor focus = SPT_MEX_mass_infantry }
 		x = 2
 		y = 1
-		relative_position_id = MEX_CED_army_reform
+		relative_position_id = SPT_MEX_army_reform
 
 		cost = 5
 
@@ -2072,6 +2310,7 @@ focus_tree = {
 
 		available = { }
 		bypass = { }
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -2079,13 +2318,14 @@ focus_tree = {
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = MEX_CED_sf_tech_1
+				name = SPT_MEX_sf_tech_1
 				bonus = 1.0
 				uses = 1
 				category = mountaineers_tech
 				category = para_tech
 				category = rangers_tech_cat
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT
@@ -2098,12 +2338,12 @@ focus_tree = {
 	}
 
 	focus = {
-    	id = MEX_CED_special_forces_2
-    	icon = GFX_focus_generic_special_forces
-    	prerequisite = { focus = MEX_CED_special_forces }
+    	id = SPT_MEX_special_forces_2
+    	icon = GFX_focus_SMB_special_forces_option_3
+    	prerequisite = { focus = SPT_MEX_special_forces }
     	x = 0
     	y = 1
-    	relative_position_id = MEX_CED_special_forces
+    	relative_position_id = SPT_MEX_special_forces
 
     	cost = 7
     	ai_will_do = { factor = 100 }
@@ -2115,8 +2355,8 @@ focus_tree = {
             	has_tech = paratroopers
         	}
     	}
+		bypass = { }
 
-    	bypass = { }
     	cancel_if_invalid = yes
     	continue_if_invalid = no
     	available_if_capitulated = yes
@@ -2181,9 +2421,10 @@ focus_tree = {
         
         	else = {
             	custom_effect_tooltip = SPT_sf_no_tech_tt
+				custom_effect_tooltip = generic_skip_one_line_tt
         	}
 			add_doctrine_cost_reduction = {
-				name = MEX_CED_sf_doctrine
+				name = SPT_MEX_sf_doctrine
 				cost_reduction = 0.25
 				uses = 1
 				category = special_forces_doctrine
@@ -2228,13 +2469,13 @@ focus_tree = {
 	# SF/AMPH SHARED PATH
 
 	focus = {
-		id = MEX_CED_sf_amph_1
-		icon = GFX_focus_generic_amphibious_assault
-		prerequisite = { focus = MEX_CED_special_forces_2 focus = MEX_CED_amphibious_2 }
-		mutually_exclusive = { focus = MEX_CED_inf_sf_1 }
+		id = SPT_MEX_sf_amph_1
+		icon = GFX_focus_CHI_guerrilla_warfare
+		prerequisite = { focus = SPT_MEX_special_forces_2 focus = SPT_MEX_amphibious_2 }
+		mutually_exclusive = { focus = SPT_MEX_inf_sf_1 }
 		x = 3
 		y = 3
-		relative_position_id = MEX_CED_army_reform
+		relative_position_id = SPT_MEX_army_reform
 
 		cost = 10
 
@@ -2242,24 +2483,25 @@ focus_tree = {
 
 		available = { }
 		bypass = { }
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_ARMY_XP FOCUS_FILTER_NAVY_XP }
 
 		completion_reward = {
-			custom_effect_tooltip = MEX_CED_modifies_ejercito_tt
-			add_to_variable = { MEX_CED_ejercito_special_forces_attack_factor = 0.05  tooltip = special_forces_attack_factor_tt }
-			add_to_variable = { MEX_CED_ejercito_special_forces_defence_factor = 0.05  tooltip = special_forces_defence_factor_tt }
-			add_to_variable = { MEX_CED_ejercito_special_forces_cap = 0.10 tooltip = special_forces_cap_tt }
+			custom_effect_tooltip = SPT_MEX_modifies_fuerzas_armadas_tt
+			add_to_variable = { SPT_MEX_ejercito_special_forces_attack_factor = 0.05  tooltip = special_forces_attack_factor_tt }
+			add_to_variable = { SPT_MEX_ejercito_special_forces_defence_factor = 0.05  tooltip = special_forces_defence_factor_tt }
+			add_to_variable = { SPT_MEX_ejercito_special_forces_cap = 0.10 tooltip = special_forces_cap_tt }
 			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = MEX_CED_modifies_armada_tt
-			add_to_variable = { MEX_CED_armada_naval_invasion_penalty = -0.10 tooltip = naval_invasion_penalty_tt }
-			add_to_variable = { MEX_CED_armada_landing_speed_factor = 0.10 tooltip = amphibious_invasion_speed_tt }
-			add_to_variable = { MEX_CED_armada_invasion_preparation = 0.10 tooltip = naval_invasion_prep_speed_tt }
+			custom_effect_tooltip = SPT_MEX_modifies_fuerzas_armadas_tt
+			add_to_variable = { SPT_MEX_armada_naval_invasion_penalty = -0.10 tooltip = naval_invasion_penalty_tt }
+			add_to_variable = { SPT_MEX_armada_landing_speed_factor = 0.10 tooltip = amphibious_invasion_speed_tt }
+			add_to_variable = { SPT_MEX_armada_invasion_preparation = 0.10 tooltip = naval_invasion_prep_speed_tt }
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_mastery_bonus = {
-    			name = MEX_CED_sf_mastery
+    			name = SPT_MEX_sf_mastery
    				 bonus = 0.15
     			days = 180
 				track = special_forces_first
@@ -2272,13 +2514,13 @@ focus_tree = {
 	##############################
 
 focus = {
-		id = MEX_CED_navy_1
-		icon = GFX_focus_generic_destroyer
-		prerequisite = { focus = MEX_CED_navy_reform }
-		mutually_exclusive = { focus = MEX_CED_amphibious }
+		id = SPT_MEX_navy_1
+		icon = GFX_focus_generic_navy_research_bonus
+		prerequisite = { focus = SPT_MEX_navy_reform }
+		mutually_exclusive = { focus = SPT_MEX_amphibious }
 		x = 1
 		y = 1
-		relative_position_id = MEX_CED_navy_reform
+		relative_position_id = SPT_MEX_navy_reform
  
 		cost = 5
  
@@ -2286,6 +2528,7 @@ focus = {
  
 		available = { }
 		bypass = { }
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -2293,14 +2536,14 @@ focus = {
  
 		completion_reward = {
 			add_tech_bonus = {
-				name = MEX_CED_naval_tech_1
+				name = SPT_MEX_naval_tech_1
 				bonus = 1.0
 				uses = 2
 				category = ss_tech
 				category = dd_tech
 			}
 			add_tech_bonus = {
-				name = MEX_CED_naval_tech_2
+				name = SPT_MEX_naval_tech_2
 				bonus = 0.5
 				uses = 3
 				category = ship_modules_tech
@@ -2309,12 +2552,12 @@ focus = {
 	}
  
 	focus = {
-		id = MEX_CED_navy_2
-		icon = GFX_focus_generic_destroyer
-		prerequisite = { focus = MEX_CED_navy_1 }
+		id = SPT_MEX_navy_2
+		icon = GFX_goal_generic_construct_naval_dockyard
+		prerequisite = { focus = SPT_MEX_navy_1 }
 		x = 0
 		y = 1
-		relative_position_id = MEX_CED_navy_1
+		relative_position_id = SPT_MEX_navy_1
  
 		cost = 10
  
@@ -2322,6 +2565,7 @@ focus = {
  
 		available = { }
 		bypass = { }
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -2356,12 +2600,12 @@ focus = {
 	}
  
 	focus = {
-		id = MEX_CED_navy_3
-		icon = GFX_focus_generic_destroyer
-		prerequisite = { focus = MEX_CED_navy_2 }
+		id = SPT_MEX_navy_3
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		prerequisite = { focus = SPT_MEX_navy_2 }
 		x = 0
 		y = 1
-		relative_position_id = MEX_CED_navy_2
+		relative_position_id = SPT_MEX_navy_2
  
 		cost = 7
  
@@ -2373,8 +2617,8 @@ focus = {
             	has_tech = basic_ship_hull_submarine
         	} 
 		}
-
 		bypass = { }
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -2417,9 +2661,10 @@ focus = {
         
         	else = {
             	custom_effect_tooltip = SPT_navy_no_tech_tt
+				custom_effect_tooltip = generic_skip_one_line_tt
         	}
 			add_doctrine_cost_reduction = {
-				name = MEX_CED_navy_doctrine
+				name = SPT_MEX_navy_doctrine
 				cost_reduction = 0.5
 				uses = 2
 				category = naval_doctrine
@@ -2453,13 +2698,13 @@ focus = {
 	}
  
 	focus = {
-		id = MEX_CED_navy_4
-		icon = GFX_focus_generic_destroyer
-		prerequisite = { focus = MEX_CED_navy_3 }
-		mutually_exclusive = { focus = MEX_CED_navy_5 }
+		id = SPT_MEX_navy_4
+		icon = GFX_goal_generic_navy_submarine
+		prerequisite = { focus = SPT_MEX_navy_3 }
+		mutually_exclusive = { focus = SPT_MEX_navy_5 }
 		x = -1
 		y = 1
-		relative_position_id = MEX_CED_navy_3
+		relative_position_id = SPT_MEX_navy_3
  
 		cost = 10
  
@@ -2467,22 +2712,23 @@ focus = {
  
 		available = { has_tech = basic_ship_hull_submarine }
 		bypass = { }
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_NAVY_XP }
  
 		completion_reward = {
-			custom_effect_tooltip = MEX_CED_modifies_armada_tt
-			add_to_variable = { MEX_CED_armada_sub_attack_factor = 0.05  tooltip = navy_submarine_attack_factor_tt }
-			add_to_variable = { MEX_CED_armada_sub_defence_factor = 0.05  tooltip = navy_submarine_defence_factor_tt }
-			add_to_variable = { MEX_CED_armada_convoy_raiding_efficiency = 0.10  tooltip = convoy_raiding_efficiency_factor_tt }
-			add_to_variable = { MEX_CED_armada_torpedo_reveal_chance_factor = -0.10  tooltip = naval_torpedo_reveal_chance_factor_tt }
-			add_to_variable = { MEX_CED_armada_sub_spotting_chance_factor = 0.10  tooltip = spotting_chance_tt }
-			add_to_variable = { MEX_CED_armada_sub_visibility_factor = -0.10  tooltip = navy_visibility_tt }
+			custom_effect_tooltip = SPT_MEX_modifies_fuerzas_armadas_tt
+			add_to_variable = { SPT_MEX_armada_sub_attack_factor = 0.05  tooltip = navy_submarine_attack_factor_tt }
+			add_to_variable = { SPT_MEX_armada_sub_defence_factor = 0.05  tooltip = navy_submarine_defence_factor_tt }
+			add_to_variable = { SPT_MEX_armada_convoy_raiding_efficiency = 0.10  tooltip = convoy_raiding_efficiency_factor_tt }
+			add_to_variable = { SPT_MEX_armada_torpedo_reveal_chance_factor = -0.10  tooltip = naval_torpedo_reveal_chance_factor_tt }
+			add_to_variable = { SPT_MEX_armada_sub_spotting_chance_factor = 0.10  tooltip = spotting_chance_tt }
+			add_to_variable = { SPT_MEX_armada_sub_visibility_factor = -0.10  tooltip = navy_visibility_tt }
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_mastery_bonus = {
-				name = MEX_CED_submarine_mastery
+				name = SPT_MEX_submarine_mastery
    				 bonus = 0.15
 				days = 360
 				track = submarines
@@ -2492,13 +2738,13 @@ focus = {
 	}
 
 	focus = {
-		id = MEX_CED_navy_5
+		id = SPT_MEX_navy_5
 		icon = GFX_focus_generic_destroyer
-		prerequisite = { focus = MEX_CED_navy_3 }
-		mutually_exclusive = { focus = MEX_CED_navy_4 }
+		prerequisite = { focus = SPT_MEX_navy_3 }
+		mutually_exclusive = { focus = SPT_MEX_navy_4 }
 		x = 1
 		y = 1
-		relative_position_id = MEX_CED_navy_3
+		relative_position_id = SPT_MEX_navy_3
  
 		cost = 10
  
@@ -2506,22 +2752,23 @@ focus = {
  
 		available = { has_tech = basic_ship_hull_light }
 		bypass = { }
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_NAVY_XP }
  
 		completion_reward = {
-			custom_effect_tooltip = MEX_CED_modifies_armada_tt
-			add_to_variable = { MEX_CED_armada_screen_attack_factor = 0.05  tooltip = navy_screen_attack_factor_tt }
-			add_to_variable = { MEX_CED_armada_screen_defence_factor = 0.05  tooltip = navy_screen_defence_factor_tt }
-			add_to_variable = { MEX_CED_armada_convoy_escort_efficiency = 0.10  tooltip = convoy_escort_efficiency_tt }
-			add_to_variable = { MEX_CED_armada_screening_efficiency = 0.10  tooltip = screening_efficiency_tt }
-			add_to_variable = { MEX_CED_armada_sub_detection_factor = 0.10  tooltip = navy_submarine_detection_factor_tt }
-			add_to_variable = { MEX_CED_armada_max_range_factor = 0.10  tooltip = navy_max_range_factor_tt }
+			custom_effect_tooltip = SPT_MEX_modifies_fuerzas_armadas_tt
+			add_to_variable = { SPT_MEX_armada_screen_attack_factor = 0.05  tooltip = navy_screen_attack_factor_tt }
+			add_to_variable = { SPT_MEX_armada_screen_defence_factor = 0.05  tooltip = navy_screen_defence_factor_tt }
+			add_to_variable = { SPT_MEX_armada_convoy_escort_efficiency = 0.10  tooltip = convoy_escort_efficiency_tt }
+			add_to_variable = { SPT_MEX_armada_screening_efficiency = 0.10  tooltip = screening_efficiency_tt }
+			add_to_variable = { SPT_MEX_armada_sub_detection_factor = 0.10  tooltip = navy_submarine_detection_factor_tt }
+			add_to_variable = { SPT_MEX_armada_max_range_factor = 0.10  tooltip = navy_max_range_factor_tt }
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_mastery_bonus = {
-				name = MEX_CED_destroyer_mastery
+				name = SPT_MEX_destroyer_mastery
    				 bonus = 0.15
 				days = 360
 				track = screens
@@ -2531,13 +2778,13 @@ focus = {
 	}
 
 	focus = {
-		id = MEX_CED_amphibious
-		icon = GFX_focus_generic_amphibious_assault
-		prerequisite = { focus = MEX_CED_navy_reform }
-		mutually_exclusive = { focus = MEX_CED_navy_1 }
+		id = SPT_MEX_amphibious
+		icon = GFX_goal_generic_amphibious_assault
+		prerequisite = { focus = SPT_MEX_navy_reform }
+		mutually_exclusive = { focus = SPT_MEX_navy_1 }
 		x = -1
 		y = 1
-		relative_position_id = MEX_CED_navy_reform
+		relative_position_id = SPT_MEX_navy_reform
 
 		cost = 5
 
@@ -2545,6 +2792,7 @@ focus = {
 
 		available = { }
 		bypass = { }
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -2552,14 +2800,14 @@ focus = {
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = MEX_CED_transport_research_1
+				name = SPT_MEX_transport_research_1
 				bonus = 1.0
 				ahead_reduction = 0
 				uses = 2
 				category = tp_tech
 			}
 			add_tech_bonus = {
-    			name = MEX_CED_marines_research
+    			name = SPT_MEX_marines_research
     			bonus = 1.0
     			uses = 1
     			category = marine_tech
@@ -2568,12 +2816,12 @@ focus = {
 	}
 
 	focus = {
-		id = MEX_CED_amphibious_2
-		icon = GFX_focus_generic_amphibious_assault
-		prerequisite = { focus = MEX_CED_amphibious }
+		id = SPT_MEX_amphibious_2
+		icon = GFX_focus_generic_naval_invasion
+		prerequisite = { focus = SPT_MEX_amphibious }
 		x = 0
 		y = 1
-		relative_position_id = MEX_CED_amphibious
+		relative_position_id = SPT_MEX_amphibious
 
 		cost = 7
 
@@ -2581,6 +2829,7 @@ focus = {
 
 		available = { }
 		bypass = { }
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -2602,8 +2851,9 @@ focus = {
                 	add_unit_leader_trait = naval_invader
             	}
             }
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_doctrine_cost_reduction = {
-				name = MEX_CED_marine_doctrine
+				name = SPT_MEX_marine_doctrine
 				cost_reduction = 0.25
 				uses = 1
 				category = special_forces_doctrine
@@ -2633,13 +2883,13 @@ focus = {
 	##############################
 
 	focus = {
-		id = MEX_CED_fighter_doctrine
-		icon = GFX_focus_generic_fighter_production
-		prerequisite = { focus = MEX_CED_air_reform }
-		mutually_exclusive = { focus = MEX_CED_tactical_bomber focus = MEX_CED_strategic_bomber }
+		id = SPT_MEX_fighter_doctrine
+		icon = GFX_focus_generic_air_research_boost
+		prerequisite = { focus = SPT_MEX_air_reform }
+		mutually_exclusive = { focus = SPT_MEX_tactical_bomber focus = SPT_MEX_strategic_bomber }
 		x = -2
 		y = 1
-		relative_position_id = MEX_CED_air_reform
+		relative_position_id = SPT_MEX_air_reform
 
 		cost = 5
 
@@ -2647,6 +2897,7 @@ focus = {
 
 		available = { }
 		bypass = { }
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -2654,7 +2905,7 @@ focus = {
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = MEX_CED_fighter_tech_2
+				name = SPT_MEX_fighter_tech_2
 				bonus = 0.25
 				uses = 4
 				category = cat_air_guns
@@ -2662,21 +2913,21 @@ focus = {
 				category = cat_air_engine
 			}
 			add_doctrine_cost_reduction = {
-				name = MEX_CED_fighter_doctrine_1
+				name = SPT_MEX_fighter_doctrine_1
 				cost_reduction = 0.5
 				uses = 2
-				category = cat_operational_integrity
+				category = air_doctrine
 			}
 		}
 	}
 
 	focus = {
-		id = MEX_CED_fighter_doctrine_2
-		icon = GFX_focus_generic_fighter_production
-		prerequisite = { focus = MEX_CED_fighter_doctrine }
+		id = SPT_MEX_fighter_doctrine_2
+		icon = GFX_goal_generic_air_fighter
+		prerequisite = { focus = SPT_MEX_fighter_doctrine }
 		x = 0
 		y = 1
-		relative_position_id = MEX_CED_fighter_doctrine
+		relative_position_id = SPT_MEX_fighter_doctrine
 
 		cost = 10
 
@@ -2684,17 +2935,18 @@ focus = {
 
 		available = { }
 		bypass = { }
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_AIR_XP FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			custom_effect_tooltip = MEX_CED_modifies_fuerza_aerea_tt
-			add_to_variable = { MEX_CED_fuerza_aerea_agility_factor = 0.05  tooltip = air_agility_factor_tt }
-			add_to_variable = { MEX_CED_fuerza_aerea_attack_factor = 0.05  tooltip = air_attack_factor_tt }
-			add_to_variable = { MEX_CED_fuerza_aerea_ace_generation_factor = 0.10  tooltip = air_ace_generation_chance_factor_tt }
-			add_to_variable = { MEX_CED_fuerza_aerea_superiority_mission_efficiency = 0.05  tooltip = air_superiority_efficiency_tt }
+			custom_effect_tooltip = SPT_MEX_modifies_fuerzas_armadas_tt
+			add_to_variable = { SPT_MEX_fuerza_aerea_agility_factor = 0.05  tooltip = air_agility_factor_tt }
+			add_to_variable = { SPT_MEX_fuerza_aerea_attack_factor = 0.05  tooltip = air_attack_factor_tt }
+			add_to_variable = { SPT_MEX_fuerza_aerea_ace_generation_factor = 0.10  tooltip = air_ace_generation_chance_factor_tt }
+			add_to_variable = { SPT_MEX_fuerza_aerea_superiority_mission_efficiency = 0.05  tooltip = air_superiority_efficiency_tt }
 			custom_effect_tooltip = generic_skip_one_line_tt
 			random_owned_controlled_state = {
 				limit = {
@@ -2708,13 +2960,13 @@ focus = {
 	}
 
 	focus = {
-		id = MEX_CED_tactical_bomber
-		icon = GFX_focus_generic_tactical_bomber_production
-		prerequisite = { focus = MEX_CED_air_reform }
-		mutually_exclusive = { focus = MEX_CED_fighter_doctrine focus = MEX_CED_strategic_bomber }
+		id = SPT_MEX_tactical_bomber
+		icon = GFX_focus_generic_air_research_boost
+		prerequisite = { focus = SPT_MEX_air_reform }
+		mutually_exclusive = { focus = SPT_MEX_fighter_doctrine focus = SPT_MEX_strategic_bomber }
 		x = 0
 		y = 1
-		relative_position_id = MEX_CED_air_reform
+		relative_position_id = SPT_MEX_air_reform
 
 		cost = 5
 
@@ -2722,6 +2974,7 @@ focus = {
 
 		available = { }
 		bypass = { }
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -2729,7 +2982,7 @@ focus = {
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = MEX_CED_fighter_tech_2
+				name = SPT_MEX_fighter_tech_2
 				bonus = 0.25
 				uses = 4
 				category = cat_air_bombs
@@ -2737,21 +2990,21 @@ focus = {
 				category = cat_air_engine
 			}
 			add_doctrine_cost_reduction = {
-				name = MEX_CED_fighter_doctrine_1
+				name = SPT_MEX_fighter_doctrine_1
 				cost_reduction = 0.5
 				uses = 2
-				category = cat_battlefield_support
+				category = air_doctrine
 			}
 		}
 	}
 
 	focus = {
-		id = MEX_CED_tactical_bomber_2
-		icon = GFX_focus_generic_tactical_bomber_production
-		prerequisite = { focus = MEX_CED_tactical_bomber }
+		id = SPT_MEX_tactical_bomber_2
+		icon = GFX_focus_generic_cas_aircraft
+		prerequisite = { focus = SPT_MEX_tactical_bomber }
 		x = 0
 		y = 1
-		relative_position_id = MEX_CED_tactical_bomber
+		relative_position_id = SPT_MEX_tactical_bomber
 
 		cost = 10
 
@@ -2759,16 +3012,17 @@ focus = {
 
 		available = { }
 		bypass = { }
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_AIR_XP FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			custom_effect_tooltip = MEX_CED_modifies_fuerza_aerea_tt
-			add_to_variable = { MEX_CED_fuerza_aerea_ground_support = 0.10  tooltip = air_cas_present_factor_tt }
-			add_to_variable = { MEX_CED_fuerza_aerea_range_factor = 0.05  tooltip = air_range_factor_tt }
-			add_to_variable = { MEX_CED_fuerza_aerea_cas_mission_efficiency = 0.05  tooltip = air_cas_efficiency_tt }
+			custom_effect_tooltip = SPT_MEX_modifies_fuerzas_armadas_tt
+			add_to_variable = { SPT_MEX_fuerza_aerea_ground_support = 0.10  tooltip = air_cas_present_factor_tt }
+			add_to_variable = { SPT_MEX_fuerza_aerea_range_factor = 0.05  tooltip = air_range_factor_tt }
+			add_to_variable = { SPT_MEX_fuerza_aerea_cas_mission_efficiency = 0.05  tooltip = air_cas_efficiency_tt }
 			custom_effect_tooltip = generic_skip_one_line_tt
 			random_owned_controlled_state = {
 				limit = {
@@ -2784,12 +3038,12 @@ focus = {
 	# FIGHTER/CAS SHARED FOCUS
 
 	focus = {
-		id = MEX_CED_air_superiority_support
-		icon = GFX_focus_generic_fighter_production
-		prerequisite = { focus = MEX_CED_fighter_doctrine_2  focus = MEX_CED_tactical_bomber_2 }
+		id = SPT_MEX_air_superiority_support
+		icon = GFX_focus_BRA_air_force
+		prerequisite = { focus = SPT_MEX_fighter_doctrine_2  focus = SPT_MEX_tactical_bomber_2 }
 		x = -1
 		y = 3
-		relative_position_id = MEX_CED_air_reform
+		relative_position_id = SPT_MEX_air_reform
 
 		cost = 10
 
@@ -2797,41 +3051,41 @@ focus = {
 
 		available = { }
 		bypass = { }
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_AIR_XP }
 
 		completion_reward = {
-			custom_effect_tooltip = MEX_CED_modifies_fuerza_aerea_tt
-			add_to_variable = { MEX_CED_fuerza_aerea_defence_factor = 0.05  tooltip = air_defence_factor_tt }
-			add_to_variable = { MEX_CED_fuerza_aerea_mission_efficiency_factor = 0.05  tooltip = air_mission_efficiency_tt }
-			add_to_variable = { MEX_CED_fuerza_aerea_weather_penalty = -0.15  tooltip = air_weather_penalty_tt }
+			custom_effect_tooltip = SPT_MEX_modifies_fuerzas_armadas_tt
+			add_to_variable = { SPT_MEX_fuerza_aerea_defence_factor = 0.05  tooltip = air_defence_factor_tt }
+			add_to_variable = { SPT_MEX_fuerza_aerea_mission_efficiency_factor = 0.05  tooltip = air_mission_efficiency_tt }
+			add_to_variable = { SPT_MEX_fuerza_aerea_weather_penalty = -0.15  tooltip = air_weather_penalty_tt }
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_mastery_bonus = {
-    			name = MEX_CED_fighter_mastery
+    			name = SPT_MEX_fighter_mastery
    				 bonus = 0.15
     			days = 360
     			track = fighter_aircraft
 			}
 			add_mastery_bonus = {
-    			name = MEX_CED_cas_mastery
+    			name = SPT_MEX_cas_mastery
    				 bonus = 0.15
     			days = 360
     			track = strike_aircraft
 			}
-			# Add production cost reduction for fighter and tactical bomber production in MIO's
 		}
 	}
 
 	focus = {
-		id = MEX_CED_strategic_bomber
-		icon = GFX_focus_generic_strategic_bomber_production
-		prerequisite = { focus = MEX_CED_air_reform }
-		mutually_exclusive = { focus = MEX_CED_fighter_doctrine focus = MEX_CED_tactical_bomber }
+		id = SPT_MEX_strategic_bomber
+		icon = GFX_focus_generic_air_research_boost
+		prerequisite = { focus = SPT_MEX_air_reform }
+		mutually_exclusive = { focus = SPT_MEX_fighter_doctrine focus = SPT_MEX_tactical_bomber }
 		x = 2
 		y = 1
-		relative_position_id = MEX_CED_air_reform
+		relative_position_id = SPT_MEX_air_reform
 
 		cost = 7
 
@@ -2839,6 +3093,7 @@ focus = {
 
 		available = { }
 		bypass = { }
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
@@ -2846,34 +3101,34 @@ focus = {
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = MEX_CED_strategic_bomber_tech_1
+				name = SPT_MEX_strategic_bomber_tech_1
 				bonus = 1.0
 				uses = 2
 				category = cat_strategic_bomber
 			}
 			add_tech_bonus = {
-				name = MEX_CED_fighter_tech_2
+				name = SPT_MEX_fighter_tech_2
 				bonus = 0.50
 				uses = 2
 				category = plane_modules_tech
 				category = cat_air_engine
 			}
 			add_doctrine_cost_reduction = {
-				name = MEX_CED_strat_doctrine_1
+				name = SPT_MEX_strat_doctrine_1
 				cost_reduction = 0.5
 				uses = 2
-				category = cat_strategic_destruction
+				category = air_doctrine
 			}
 		}
 	}
 
 	focus = {
-		id = MEX_CED_strategic_bomber_2
-		icon = GFX_focus_generic_strategic_bomber_production
-		prerequisite = { focus = MEX_CED_strategic_bomber }
+		id = SPT_MEX_strategic_bomber_2
+		icon = GFX_focus_generic_long_range_aircraft
+		prerequisite = { focus = SPT_MEX_strategic_bomber }
 		x = 0
 		y = 1
-		relative_position_id = MEX_CED_strategic_bomber
+		relative_position_id = SPT_MEX_strategic_bomber
 
 		cost = 5
 
@@ -2881,13 +3136,13 @@ focus = {
 
 		available = { }
 		bypass = { }
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_AIR_XP FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			# Add production cost reduction for strategic bomber production in MIO
 			random_owned_controlled_state = {
 				limit = {
 					is_core_of = ROOT
@@ -2900,12 +3155,12 @@ focus = {
 	}
 
 	focus = {
-		id = MEX_CED_strategic_bomber_3
-		icon = GFX_focus_generic_strategic_bomber_production
-		prerequisite = { focus = MEX_CED_strategic_bomber_2 }
+		id = SPT_MEX_strategic_bomber_3
+		icon = GFX_focus_FIN_expand_air_force_academy
+		prerequisite = { focus = SPT_MEX_strategic_bomber_2 }
 		x = 0
 		y = 1
-		relative_position_id = MEX_CED_strategic_bomber_2
+		relative_position_id = SPT_MEX_strategic_bomber_2
 
 		cost = 10
 
@@ -2913,21 +3168,22 @@ focus = {
 
 		available = { }
 		bypass = { }
+
 		cancel_if_invalid = yes
 		continue_if_invalid = no
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_AIR_XP FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			custom_effect_tooltip = MEX_CED_modifies_fuerza_aerea_tt
-			add_to_variable = { MEX_CED_fuerza_aerea_range_factor = 0.10  tooltip = air_range_factor_tt }
-			add_to_variable = { MEX_CED_fuerza_aerea_defence_factor = 0.10  tooltip = air_defence_factor_tt }
-			add_to_variable = { MEX_CED_fuerza_aerea_bombing_factor = 0.10  tooltip = air_strategic_bomber_bombing_factor_tt }
-			add_to_variable = { MEX_CED_fuerza_aerea_strategic_bomb_visibility = -0.10  tooltip = strategic_bomb_visibility_tt }
-			add_to_variable = { MEX_CED_fuerza_aerea_strategic_bomber_night_penalty = -0.15  tooltip = strat_bomber_night_penalty_tt }
+			custom_effect_tooltip = SPT_MEX_modifies_fuerzas_armadas_tt
+			add_to_variable = { SPT_MEX_fuerza_aerea_range_factor = 0.10  tooltip = air_range_factor_tt }
+			add_to_variable = { SPT_MEX_fuerza_aerea_defence_factor = 0.10  tooltip = air_defence_factor_tt }
+			add_to_variable = { SPT_MEX_fuerza_aerea_bombing_factor = 0.10  tooltip = air_strategic_bomber_bombing_factor_tt }
+			add_to_variable = { SPT_MEX_fuerza_aerea_strategic_bomb_visibility = -0.10  tooltip = strategic_bomb_visibility_tt }
+			add_to_variable = { SPT_MEX_fuerza_aerea_strategic_bomber_night_penalty = -0.15  tooltip = strat_bomber_night_penalty_tt }
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_mastery_bonus = {
-    			name = MEX_CED_cas_mastery
+    			name = SPT_MEX_cas_mastery
    				 bonus = 0.25
     			days = 240
     			track = heavy_aircraft
