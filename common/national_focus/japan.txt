@@ -11859,7 +11859,14 @@ focus_tree = {
 					}
 				}
 			}
-			
+
+			hidden_effect = { scoped_play_song = "domineer" } 
+			SIA = {
+				hidden_effect = { scoped_play_song = "domineer" } 
+			}
+			MAN = {
+				hidden_effect = { scoped_play_song = "domineer" } 
+			}			
 		}
 	}
 
@@ -13280,6 +13287,7 @@ focus_tree = {
 						state = 737
 						state = 634
 						state = 669
+						state = 1070
 						state = 734
 						state = 635
 					}
@@ -14102,9 +14110,13 @@ focus_tree = {
 			}
 		}
 
-		# SPTchange
 		bypass = {
-			SIA = { exists = no }
+			SIA = {
+				OR = {
+					exists = no
+					has_war_with = ROOT
+				}
+			}
 		}
 
 		will_lead_to_war_with = SIA
@@ -14426,6 +14438,9 @@ focus_tree = {
 
 		completion_reward = {
 			#spt change, reward is war, properly
+			hidden_effect = {
+				play_song = "empireofthesun"
+			}
 			every_country = {
 				limit = {
 					OR = {

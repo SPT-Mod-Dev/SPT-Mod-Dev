@@ -1,5 +1,44 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 4.2.2 blazed too hard
+
+#### General
+ - Update to 1.19.2, see Balance section of official patch notes
+
+#### Australia
+ - Enabled focus branch 'No. 1 Flying Training School'
+ - Focus 'Aerodrome of Democracy': Air Attack 10%->5%
+                                   Air Defense 10%->5%
+ - Focus 'Death from Down Under': Air Mission Efficiency 10%->0%
+ - Focus 'Re-establish Central Flying School': Ace Effectiveness 25%->10%
+ - Focus 'Ride the Lightning': Light Aircraft Research Bonus 50%->100%
+                               Light Aircraft Research Bonus 2x->1x
+ - Fixed election system
+
+### 4.2.1 Blaze it + 1
+
+#### General
+ - Added tooltip to Operations: Infiltration Tactics - Rough Terrain Mastery (no functional change)
+
+#### No Asia Mode
+ - Focus 'Hold the Imperial Conference' no longer cares about Newfoundland
+ - Removed Raj
+ - Add Australia
+ - Add Brazil
+
+#### Brazil
+ - Cannot use decision 'Annex Mexico' until the Soviet Union has beheaded the snake (or Stalin)
+
+#### Hungary
+ - Classified several Military High Command characters as Army/Air, that Paradox didn't bother to do for some reason
+
+#### Japan
+ - Dutch East Indies must now capitulate before being given a chance to establish an Indonesian puppet regime under Sukarno, after 30 days
+ - AI will always accept a Japanese puppet regime under Sukarno; however, the regime will only receive states occupied by Japan and direct allies. The remainder will continue to fight with the Allies
+
+#### Siam
+ - Focus 'Phibun's Premiership' now relaxes volunteer requirements
+
 ### 4.2.0 Thunder at our Mod
 
 #### General

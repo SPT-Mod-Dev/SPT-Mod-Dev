@@ -1184,112 +1184,116 @@ SIA_generate_anandas_trait = {
 SIA_update_adc = {
 	if = {
 		limit = {
-			NOT = {
-				has_dynamic_modifier = { modifier = idea_SIA_asian_democratic_compact }
-			}
+			is_faction_leader = yes
 		}
-
-		add_dynamic_modifier = { modifier = idea_SIA_asian_democratic_compact }
-	}
-
-	# Scale by independent members only, so releasing puppets can't inflate the bonus
-	set_variable = { SIA_adc_member_count = 0 }
-	for_each_scope_loop = {
-		array = faction_members
-		if = {
-			limit = { is_subject = no }
-			PREV = { add_to_variable = { SIA_adc_member_count = 1 } }
-		}
-	}
-
-	for_each_scope_loop = {
-		# PREV is the faction leader (SIA) this effect runs in; valid for both focus and on_join/on_leave callers
-		array = faction_members
-
-		clear_variable = SIA_adc_land_mastery_gain_factor
-		clear_variable = SIA_adc_research_speed_factor
-		clear_variable = SIA_adc_max_command_power_mult
-		clear_variable = SIA_adc_army_defence_factor
-		clear_variable = SIA_adc_army_org_factor
-		clear_variable = SIA_adc_max_dig_in_factor
-		clear_variable = SIA_acd_industrial_capacity_dockyard
-		clear_variable = SIA_acd_industrial_capacity_factory
-		clear_variable = SIA_adc_equipment_conversion_speed
-		clear_variable = SIA_adc_production_lack_of_resource_penalty_factor
-		clear_variable = SIA_adc_production_factory_max_efficiency_factor
-
-		if = {
-			limit = {
-				NOT = { 
-					has_dynamic_modifier = { modifier = idea_SIA_asian_democratic_compact } 
+	
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_dynamic_modifier = { modifier = idea_SIA_asian_democratic_compact }
+					}
 				}
-			}
 
-			add_dynamic_modifier = { modifier = idea_SIA_asian_democratic_compact }
+				add_dynamic_modifier = { modifier = idea_SIA_asian_democratic_compact }
+			}
 		}
 
-
-
-		if = {
-			limit = {
-				PREV = { has_completed_focus = SIA_southeast_asia_joint_command }
+		# Scale by independent members only, so releasing puppets can't inflate the bonus
+		set_variable = { SIA_adc_member_count = 0 }
+		for_each_scope_loop = {
+			array = faction_members
+			if = {
+				limit = { is_subject = no }
+				PREV = { add_to_variable = { SIA_adc_member_count = 1 } }
 			}
-
-			set_variable = { SIA_adc_land_mastery_gain_factor = PREV.SIA_adc_member_count }
-			multiply_variable = { SIA_adc_land_mastery_gain_factor = PREV.SIA_adc_land_mastery_gain_factor_per_country }
-
-			set_variable = { SIA_adc_research_speed_factor = PREV.SIA_adc_member_count }
-			multiply_variable = { SIA_adc_research_speed_factor = PREV.SIA_adc_research_speed_factor_per_country }
-
-			set_variable = { SIA_adc_max_command_power_mult = PREV.SIA_adc_member_count }
-			multiply_variable = { SIA_adc_max_command_power_mult = PREV.SIA_adc_max_command_power_mult_per_country }
 		}
 
-		if = {
-			limit = {
-				PREV = { has_completed_focus = SIA_pan_asian_weapon_standardization }
+		for_each_scope_loop = {
+			# PREV is the faction leader (SIA) this effect runs in; valid for both focus and on_join/on_leave callers
+			array = faction_members
+
+			clear_variable = SIA_adc_land_mastery_gain_factor
+			clear_variable = SIA_adc_research_speed_factor
+			clear_variable = SIA_adc_max_command_power_mult
+			clear_variable = SIA_adc_army_defence_factor
+			clear_variable = SIA_adc_army_org_factor
+			clear_variable = SIA_adc_max_dig_in_factor
+			clear_variable = SIA_acd_industrial_capacity_dockyard
+			clear_variable = SIA_acd_industrial_capacity_factory
+			clear_variable = SIA_adc_equipment_conversion_speed
+			clear_variable = SIA_adc_production_lack_of_resource_penalty_factor
+			clear_variable = SIA_adc_production_factory_max_efficiency_factor
+
+			if = {
+				limit = {
+					NOT = { 
+						has_dynamic_modifier = { modifier = idea_SIA_asian_democratic_compact } 
+					}
+				}
+
+				add_dynamic_modifier = { modifier = idea_SIA_asian_democratic_compact }
 			}
 
-			set_variable = { SIA_adc_equipment_conversion_speed = PREV.SIA_adc_member_count }
-			multiply_variable = { SIA_adc_equipment_conversion_speed = PREV.SIA_adc_equipment_conversion_speed_per_country }
 
-			set_variable = { SIA_adc_production_lack_of_resource_penalty_factor = PREV.SIA_adc_member_count }
-			multiply_variable = { SIA_adc_production_lack_of_resource_penalty_factor = PREV.SIA_adc_production_lack_of_resource_penalty_factor_per_country }
 
-			set_variable = { SIA_adc_production_factory_max_efficiency_factor = PREV.SIA_adc_member_count }
-			multiply_variable = { SIA_adc_production_factory_max_efficiency_factor = PREV.SIA_adc_production_factory_max_efficiency_factor_per_country }
+			if = {
+				limit = {
+					PREV = { has_completed_focus = SIA_southeast_asia_joint_command }
+				}
 
-		}
+				set_variable = { SIA_adc_land_mastery_gain_factor = PREV.SIA_adc_member_count }
+				multiply_variable = { SIA_adc_land_mastery_gain_factor = PREV.SIA_adc_land_mastery_gain_factor_per_country }
 
-		if = {
-			limit = {
-				PREV = {  has_completed_focus = SIA_united_against_aggression }
+				set_variable = { SIA_adc_research_speed_factor = PREV.SIA_adc_member_count }
+				multiply_variable = { SIA_adc_research_speed_factor = PREV.SIA_adc_research_speed_factor_per_country }
+
+				set_variable = { SIA_adc_max_command_power_mult = PREV.SIA_adc_member_count }
+				multiply_variable = { SIA_adc_max_command_power_mult = PREV.SIA_adc_max_command_power_mult_per_country }
 			}
 
-			set_variable = { SIA_adc_army_defence_factor = PREV.SIA_adc_member_count }
-			multiply_variable = { SIA_adc_army_defence_factor = PREV.SIA_adc_army_defence_factor_per_country }
+			if = {
+				limit = {
+					PREV = { has_completed_focus = SIA_pan_asian_weapon_standardization }
+				}
 
-			set_variable = { SIA_adc_army_org_factor = PREV.SIA_adc_member_count }
-			multiply_variable = { SIA_adc_army_org_factor = PREV.SIA_adc_army_org_factor_per_country }
+				set_variable = { SIA_adc_equipment_conversion_speed = PREV.SIA_adc_member_count }
+				multiply_variable = { SIA_adc_equipment_conversion_speed = PREV.SIA_adc_equipment_conversion_speed_per_country }
 
-			set_variable = { SIA_adc_max_dig_in_factor = PREV.SIA_adc_member_count }
-			multiply_variable = { SIA_adc_max_dig_in_factor = PREV.SIA_adc_max_dig_in_factor_per_country }
-		}
+				set_variable = { SIA_adc_production_lack_of_resource_penalty_factor = PREV.SIA_adc_member_count }
+				multiply_variable = { SIA_adc_production_lack_of_resource_penalty_factor = PREV.SIA_adc_production_lack_of_resource_penalty_factor_per_country }
 
-		if = {
-			limit = {
-				PREV = {  has_completed_focus = SIA_the_hammers_that_strike }
+				set_variable = { SIA_adc_production_factory_max_efficiency_factor = PREV.SIA_adc_member_count }
+				multiply_variable = { SIA_adc_production_factory_max_efficiency_factor = PREV.SIA_adc_production_factory_max_efficiency_factor_per_country }
+
 			}
-			set_variable = { SIA_acd_industrial_capacity_dockyard = PREV.SIA_adc_member_count }
-			multiply_variable = { SIA_acd_industrial_capacity_dockyard = PREV.SIA_acd_industrial_capacity_dockyard_per_country }
 
-			set_variable = { SIA_acd_industrial_capacity_factory = PREV.SIA_adc_member_count }
-			multiply_variable = { SIA_acd_industrial_capacity_factory = PREV.SIA_acd_industrial_capacity_factory_per_country }
+			if = {
+				limit = {
+					PREV = {  has_completed_focus = SIA_united_against_aggression }
+				}
+
+				set_variable = { SIA_adc_army_defence_factor = PREV.SIA_adc_member_count }
+				multiply_variable = { SIA_adc_army_defence_factor = PREV.SIA_adc_army_defence_factor_per_country }
+
+				set_variable = { SIA_adc_army_org_factor = PREV.SIA_adc_member_count }
+				multiply_variable = { SIA_adc_army_org_factor = PREV.SIA_adc_army_org_factor_per_country }
+
+				set_variable = { SIA_adc_max_dig_in_factor = PREV.SIA_adc_member_count }
+				multiply_variable = { SIA_adc_max_dig_in_factor = PREV.SIA_adc_max_dig_in_factor_per_country }
+			}
+
+			if = {
+				limit = {
+					PREV = {  has_completed_focus = SIA_the_hammers_that_strike }
+				}
+				set_variable = { SIA_acd_industrial_capacity_dockyard = PREV.SIA_adc_member_count }
+				multiply_variable = { SIA_acd_industrial_capacity_dockyard = PREV.SIA_acd_industrial_capacity_dockyard_per_country }
+
+				set_variable = { SIA_acd_industrial_capacity_factory = PREV.SIA_adc_member_count }
+				multiply_variable = { SIA_acd_industrial_capacity_factory = PREV.SIA_acd_industrial_capacity_factory_per_country }
+			}
 		}
-
-
-
-
 	}
 }
 
@@ -1706,4 +1710,64 @@ SIA_calc_dem_cw = {
 	set_variable = { SIA_dem_party_popularity_cw_scale = party_popularity@democratic }
 	multiply_variable =  { SIA_dem_party_popularity_cw_scale  = 0.25 }
 	add_to_variable = { SIA_dem_event_count_cw_scale = SIA_dem_party_popularity_cw_scale }		
+}
+
+SIA_thai_students_in_the_oss_effect = {
+	if = {
+		limit = {
+			has_dlc = "La Resistance"
+		}
+		create_intelligence_agency = yes
+		upgrade_intelligence_agency = upgrade_form_department
+		upgrade_intelligence_agency = upgrade_commando_training
+		upgrade_intelligence_agency = upgrade_army_department
+		custom_effect_tooltip = newline_tt
+		USA = {
+			create_intelligence_agency = yes
+			upgrade_intelligence_agency = upgrade_form_department
+			upgrade_intelligence_agency = upgrade_commando_training
+			upgrade_intelligence_agency = upgrade_army_department
+
+			add_decryption = {
+				target = JAP
+				ratio = 0.5
+			}
+		}
+		custom_effect_tooltip = newline_tt
+		add_decryption = {
+			target = JAP
+			ratio = 0.5
+		}
+	}
+	else = {
+		add_tech_bonus = {
+			name = SIA_thai_students_in_the_oss
+			bonus = 2
+			uses = 2
+			category = encryption_tech
+		}
+	}
+
+	add_intel = {
+		target = JAP
+		civilian_intel = 20
+		army_intel = 20
+		navy_intel = 20
+		airforce_intel = 20
+	}
+	custom_effect_tooltip = newline_tt
+	USA = {
+		add_intel = {
+			target = JAP
+			civilian_intel = 20
+			army_intel = 20
+			navy_intel = 20
+			airforce_intel = 20
+		}
+	}
+
+	add_offsite_building = {
+		type = industrial_complex
+		level = 2
+	}
 }
