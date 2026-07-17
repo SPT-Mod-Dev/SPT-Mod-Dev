@@ -15,7 +15,7 @@ country_event = { # Cedillo seizes power
 		hidden_effect = {
 			set_global_flag = flag_mexico_cedillo_has_revolted
 			load_focus_tree = mexico_cedillo_focus_tree
-			set_country_flag = MEX_CED_cedillo_in_power_flag
+			set_country_flag = SPT_MEX_cedillo_in_power_flag
 			set_country_flag = listens_for_tech_completion 
 			set_country_flag = MEX_listening_for_sf
 			retire_character = MEX_lazaro_cardenas
@@ -37,77 +37,75 @@ country_event = { # Cedillo seizes power
                 logistics_skill = 2
                 traits = { old_guard cavalry_leader }
             }
+			set_politics = {
+    			ruling_party = neutrality
+    			elections_allowed = no
+			}
 
-			# Ejército Mexicano
-			set_variable = { MEX_CED_ejercito_org_factor = -0.10 }
-			set_variable = { MEX_CED_ejercito_attack_factor = -0.05 }
-			set_variable = { MEX_CED_ejercito_defence_factor = 0.0 }
-			set_variable = { MEX_CED_ejercito_experience_gain_factor = -0.05 }
-			set_variable = { MEX_CED_ejercito_infantry_defence_factor = 0.0 }
-			set_variable = { MEX_CED_ejercito_recovery_factor = 0.0 }
-			set_variable = { MEX_CED_ejercito_reinforce_factor = 0.0 }
-			set_variable = { MEX_CED_ejercito_tank_attack_factor = 0.0 }
-			set_variable = { MEX_CED_ejercito_tank_defence_factor = 0.0 }
-			set_variable = { MEX_CED_ejercito_mech_attack_factor = 0.0 }
-			set_variable = { MEX_CED_ejercito_mech_defence_factor = 0.0 }
-			set_variable = { MEX_CED_ejercito_coordination_factor = 0.0 }
-			set_variable = { MEX_CED_ejercito_special_forces_attack_factor = 0.0 }
-			set_variable = { MEX_CED_ejercito_special_forces_defence_factor = 0.0 }
-			set_variable = { MEX_CED_ejercito_special_forces_cap = 0.0 }
-			set_variable = { MEX_CED_ejercito_land_doctrine_cost_factor = 0.0 }
-			add_dynamic_modifier = { modifier = MEX_CED_ejercito_dynamic_modifier }
-
-			# Armada Mexicana
-			set_variable = { MEX_CED_armada_screen_attack_factor = 0.0 }
-			set_variable = { MEX_CED_armada_screen_defence_factor = 0.0 }
-			set_variable = { MEX_CED_armada_max_range_factor = 0.0 }
-			set_variable = { MEX_CED_armada_convoy_escort_efficiency = -0.10 }
-			set_variable = { MEX_CED_armada_screening_efficiency = -0.05 }
-			set_variable = { MEX_CED_armada_experience_gain_factor = -0.05 }
-			set_variable = { MEX_CED_armada_sub_detection_factor = 0.0 }
-			set_variable = { MEX_CED_armada_sub_attack_factor = 0.0 }
-			set_variable = { MEX_CED_armada_sub_defence_factor = 0.0 }
-			set_variable = { MEX_CED_armada_convoy_raiding_efficiency = 0.0 }
-			set_variable = { MEX_CED_armada_torpedo_reveal_chance_factor = 0.0 }
-			set_variable = { MEX_CED_armada_sub_spotting_chance_factor = 0.0 }
-			set_variable = { MEX_CED_armada_sub_visibility_factor = 0.0 }
-			set_variable = { MEX_CED_armada_naval_invasion_penalty = 0.0 }
-			set_variable = { MEX_CED_armada_landing_speed_factor = 0.0 }
-			set_variable = { MEX_CED_armada_invasion_preparation = 0.0 }
-			set_variable = { MEX_CED_armada_naval_doctrine_cost_factor = 0.0 }
-			add_dynamic_modifier = { modifier = MEX_CED_armada_dynamic_modifier }
-
-			# Fuerza Aérea Mexicana
-			set_variable = { MEX_CED_fuerza_aerea_agility_factor = -0.05 }
-			set_variable = { MEX_CED_fuerza_aerea_attack_factor = -0.05 }
-			set_variable = { MEX_CED_fuerza_aerea_experience_gain_factor = -0.05 }
-			set_variable = { MEX_CED_fuerza_aerea_range_factor = 0.0 }
-			set_variable = { MEX_CED_fuerza_aerea_defence_factor = 0.0 }
-			set_variable = { MEX_CED_fuerza_aerea_superiority_mission_efficiency = 0.0 }
-			set_variable = { MEX_CED_fuerza_aerea_ace_generation_factor = 0.0 }
-			set_variable = { MEX_CED_fuerza_aerea_ground_support = 0.0 }
-			set_variable = { MEX_CED_fuerza_aerea_cas_mission_efficiency = 0.0 }
-			set_variable = { MEX_CED_fuerza_aerea_strategic_bomber_night_penalty = 0.0 }
-			set_variable = { MEX_CED_fuerza_aerea_strategic_bomb_visibility = 0.0 }
-			set_variable = { MEX_CED_fuerza_aerea_weather_penalty = 0.0 }
-			set_variable = { MEX_CED_fuerza_aerea_bombing_factor = 0.0 }
-			set_variable = { MEX_CED_fuerza_aerea_mission_efficiency_factor = 0.0 }
-			set_variable = { MEX_CED_fuerza_aerea_air_doctrine_cost_factor = 0.0 }
-			add_dynamic_modifier = { modifier = MEX_CED_fuerza_aerea_dynamic_modifier }
+			# Fuerzas Armadas de Mexico
+			set_variable = { SPT_MEX_ejercito_org_factor = -0.10 }
+			set_variable = { SPT_MEX_ejercito_attack_factor = -0.05 }
+			set_variable = { SPT_MEX_ejercito_defence_factor = 0.0 }
+			set_variable = { SPT_MEX_ejercito_experience_gain_factor = -0.05 }
+			set_variable = { SPT_MEX_ejercito_infantry_defence_factor = 0.0 }
+			set_variable = { SPT_MEX_ejercito_recovery_factor = 0.0 }
+			set_variable = { SPT_MEX_ejercito_reinforce_factor = 0.0 }
+			set_variable = { SPT_MEX_ejercito_tank_attack_factor = 0.0 }
+			set_variable = { SPT_MEX_ejercito_tank_defence_factor = 0.0 }
+			set_variable = { SPT_MEX_ejercito_mech_attack_factor = 0.0 }
+			set_variable = { SPT_MEX_ejercito_mech_defence_factor = 0.0 }
+			set_variable = { SPT_MEX_ejercito_coordination_factor = 0.0 }
+			set_variable = { SPT_MEX_ejercito_special_forces_attack_factor = 0.0 }
+			set_variable = { SPT_MEX_ejercito_special_forces_defence_factor = 0.0 }
+			set_variable = { SPT_MEX_ejercito_special_forces_cap = 0.0 }
+			set_variable = { SPT_MEX_ejercito_land_doctrine_cost_factor = 0.0 }
+			set_variable = { SPT_MEX_armada_screen_attack_factor = 0.0 }
+			set_variable = { SPT_MEX_armada_screen_defence_factor = 0.0 }
+			set_variable = { SPT_MEX_armada_max_range_factor = 0.0 }
+			set_variable = { SPT_MEX_armada_convoy_escort_efficiency = -0.10 }
+			set_variable = { SPT_MEX_armada_screening_efficiency = -0.05 }
+			set_variable = { SPT_MEX_armada_experience_gain_factor = -0.05 }
+			set_variable = { SPT_MEX_armada_sub_detection_factor = 0.0 }
+			set_variable = { SPT_MEX_armada_sub_attack_factor = 0.0 }
+			set_variable = { SPT_MEX_armada_sub_defence_factor = 0.0 }
+			set_variable = { SPT_MEX_armada_convoy_raiding_efficiency = 0.0 }
+			set_variable = { SPT_MEX_armada_torpedo_reveal_chance_factor = 0.0 }
+			set_variable = { SPT_MEX_armada_sub_spotting_chance_factor = 0.0 }
+			set_variable = { SPT_MEX_armada_sub_visibility_factor = 0.0 }
+			set_variable = { SPT_MEX_armada_naval_invasion_penalty = 0.0 }
+			set_variable = { SPT_MEX_armada_landing_speed_factor = 0.0 }
+			set_variable = { SPT_MEX_armada_invasion_preparation = 0.0 }
+			set_variable = { SPT_MEX_armada_naval_doctrine_cost_factor = 0.0 }
+			set_variable = { SPT_MEX_fuerza_aerea_agility_factor = -0.05 }
+			set_variable = { SPT_MEX_fuerza_aerea_attack_factor = -0.05 }
+			set_variable = { SPT_MEX_fuerza_aerea_experience_gain_factor = -0.05 }
+			set_variable = { SPT_MEX_fuerza_aerea_range_factor = 0.0 }
+			set_variable = { SPT_MEX_fuerza_aerea_defence_factor = 0.0 }
+			set_variable = { SPT_MEX_fuerza_aerea_superiority_mission_efficiency = 0.0 }
+			set_variable = { SPT_MEX_fuerza_aerea_ace_generation_factor = 0.0 }
+			set_variable = { SPT_MEX_fuerza_aerea_ground_support = 0.0 }
+			set_variable = { SPT_MEX_fuerza_aerea_cas_mission_efficiency = 0.0 }
+			set_variable = { SPT_MEX_fuerza_aerea_strategic_bomber_night_penalty = 0.0 }
+			set_variable = { SPT_MEX_fuerza_aerea_strategic_bomb_visibility = 0.0 }
+			set_variable = { SPT_MEX_fuerza_aerea_weather_penalty = 0.0 }
+			set_variable = { SPT_MEX_fuerza_aerea_bombing_factor = 0.0 }
+			set_variable = { SPT_MEX_fuerza_aerea_mission_efficiency_factor = 0.0 }
+			set_variable = { SPT_MEX_fuerza_aerea_air_doctrine_cost_factor = 0.0 }
+			add_dynamic_modifier = { modifier = SPT_MEX_fuerzas_armadas_dynamic_modifier }
 
 			# Industria Mexicana
-			set_variable = { MEX_CED_industria_construction_speed = -0.20 }
-			set_variable = { MEX_CED_industria_mil_construction_speed = 0.0 }
-			set_variable = { MEX_CED_industria_dock_construction_speed = 0.0 }
-			set_variable = { MEX_CED_industria_factory_output = -0.20 }
-			set_variable = { MEX_CED_industria_dockyard_output = 0.0 }
-			set_variable = { MEX_CED_industria_production_efficiency_cap = -0.15 }
-			set_variable = { MEX_CED_industria_production_efficiency_gain = -0.15 }
-			set_variable = { MEX_CED_industria_consumer_goods = 0.20 }
-			set_variable = { MEX_CED_industria_resource_efficiency = 0.0 }
-			set_variable = { MEX_CED_industria_building_slots = 0.0 }
-			set_variable = { MEX_CED_industria_research_speed = -0.10 }
-			add_dynamic_modifier = { modifier = MEX_CED_industria_dynamic_modifier }
+			set_variable = { SPT_MEX_industria_construction_speed = -0.20 }
+			set_variable = { SPT_MEX_industria_mil_construction_speed = 0.0 }
+			set_variable = { SPT_MEX_industria_dock_construction_speed = 0.0 }
+			set_variable = { SPT_MEX_industria_factory_output = -0.20 }
+			set_variable = { SPT_MEX_industria_dockyard_output = -0.20 }
+			set_variable = { SPT_MEX_industria_production_efficiency_cap = -0.15 }
+			set_variable = { SPT_MEX_industria_production_efficiency_gain = -0.15 }
+			set_variable = { SPT_MEX_industria_consumer_goods = 0.20 }
+			set_variable = { SPT_MEX_industria_resource_efficiency = 0.0 }
+			set_variable = { SPT_MEX_industria_building_slots = 0.0 }
+			set_variable = { SPT_MEX_industria_research_speed = -0.05 }
+			add_dynamic_modifier = { modifier = SPT_MEX_industria_dynamic_modifier }
 
 			add_timed_idea = {
 				idea = SPT_MEX_bad_caudillo
@@ -129,10 +127,10 @@ country_event = { # Cedillo seizes power
 				}
 				promote_leader = yes
 			}
-			add_dynamic_modifier = { modifier = MEX_CED_ejercito_dynamic_modifier }
-			add_dynamic_modifier = { modifier = MEX_CED_armada_dynamic_modifier }
-			add_dynamic_modifier = { modifier = MEX_CED_fuerza_aerea_dynamic_modifier }
-			add_dynamic_modifier = { modifier = MEX_CED_industria_dynamic_modifier }
+			add_dynamic_modifier = { modifier = SPT_MEX_fuerzas_armadas_dynamic_modifier }
+			custom_effect_tooltip = generic_skip_one_line_tt
+			add_dynamic_modifier = { modifier = SPT_MEX_industria_dynamic_modifier }
+			custom_effect_tooltip = generic_skip_one_line_tt
 			add_timed_idea = {
 				idea = SPT_MEX_bad_caudillo
 				days = 360
@@ -221,24 +219,24 @@ country_event = {
 
     option = {
         name = spt_mex.5.a
-        custom_effect_tooltip = MEX_CED_modifies_ejercito_tt
-        add_to_variable = { MEX_CED_ejercito_attack_factor = 0.05 tooltip = army_attack_factor_tt }
-        add_to_variable = { MEX_CED_ejercito_defence_factor = 0.05 tooltip = army_defence_factor_tt }
+        custom_effect_tooltip = SPT_MEX_modifies_fuerzas_armadas_tt
+        add_to_variable = { SPT_MEX_ejercito_attack_factor = 0.05 tooltip = army_attack_factor_tt }
+        add_to_variable = { SPT_MEX_ejercito_defence_factor = 0.05 tooltip = army_defence_factor_tt }
         hidden_effect = {
             random_army_leader = {
                 add_skill_level = 1
             }
         }
-        custom_effect_tooltip = SPT_MEX_CED_american_advisor_tt
+        custom_effect_tooltip = SPT_MEX_american_advisor_tt
     }
 
     option = {
         name = spt_mex.5.b
-        custom_effect_tooltip = MEX_CED_modifies_industria_tt
-        add_to_variable = { MEX_CED_industria_factory_output = 0.10 tooltip = industrial_capacity_factory_tt }
-        add_to_variable = { MEX_CED_industria_dockyard_output = 0.10 tooltip = industrial_capacity_dockyard_tt }
+        custom_effect_tooltip = SPT_MEX_modifies_industria_tt
+        add_to_variable = { SPT_MEX_industria_factory_output = 0.10 tooltip = industrial_capacity_factory_tt }
+        add_to_variable = { SPT_MEX_industria_dockyard_output = 0.10 tooltip = industrial_capacity_dockyard_tt }
         add_tech_bonus = {
-            name = MEX_CED_american_industry_knowledge
+            name = SPT_MEX_american_industry_knowledge
             bonus = 0.75
             uses = 1
             category = industry
@@ -247,32 +245,32 @@ country_event = {
 }
 
 country_event = {
-    id = spt_mex.8
-    title = spt_mex.8.t
-    desc = spt_mex.8.desc
+    id = spt_mex.6
+    title = spt_mex.6.t
+    desc = spt_mex.6.desc
     picture = GFX_report_event_generic_factory
 
     is_triggered_only = yes
     fire_only_once = yes
 
     option = {
-        name = spt_mex.8.a
-        custom_effect_tooltip = MEX_CED_modifies_industria_tt
-        add_to_variable = { MEX_CED_industria_production_efficiency_cap = 0.05 tooltip = production_factory_max_efficiency_factor_tt }
-        add_to_variable = { MEX_CED_industria_production_efficiency_gain = 0.05 tooltip = production_factory_efficiency_gain_factor_tt }
+        name = spt_mex.6.a
+        custom_effect_tooltip = SPT_MEX_modifies_industria_tt
+        add_to_variable = { SPT_MEX_industria_production_efficiency_cap = 0.05 tooltip = production_factory_max_efficiency_factor_tt }
+        add_to_variable = { SPT_MEX_industria_production_efficiency_gain = 0.05 tooltip = production_factory_efficiency_gain_factor_tt }
     }
 
     option = {
-        name = spt_mex.8.b
-        custom_effect_tooltip = MEX_CED_modifies_industria_tt
-        add_to_variable = { MEX_CED_industria_factory_output = 0.08 tooltip = industrial_capacity_factory_tt }
-        add_to_variable = { MEX_CED_industria_dockyard_output = 0.08 tooltip = industrial_capacity_dockyard_tt }
+        name = spt_mex.6.b
+        custom_effect_tooltip = SPT_MEX_modifies_industria_tt
+        add_to_variable = { SPT_MEX_industria_factory_output = 0.15 tooltip = industrial_capacity_factory_tt }
+        add_to_variable = { SPT_MEX_industria_dockyard_output = 0.15 tooltip = industrial_capacity_dockyard_tt }
     }
 
     option = {
-        name = spt_mex.8.c
-        custom_effect_tooltip = MEX_CED_modifies_industria_tt
-        add_to_variable = { MEX_CED_industria_mil_construction_speed = 0.12 tooltip = production_speed_arms_factory_factor_tt }
-        add_to_variable = { MEX_CED_industria_dock_construction_speed = 0.12 tooltip = production_speed_dockyard_factor_tt }
+        name = spt_mex.6.c
+        custom_effect_tooltip = SPT_MEX_modifies_industria_tt
+        add_to_variable = { SPT_MEX_industria_mil_construction_speed = 0.10 tooltip = production_speed_arms_factory_factor_tt }
+        add_to_variable = { SPT_MEX_industria_dock_construction_speed = 0.10 tooltip = production_speed_dockyard_factor_tt }
     }
 }
