@@ -1,5 +1,14 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 4.2.3
+
+#### Mongolia
+ - In No Asia mode, Mongolia now automatically receives western Chinese provinces 18 months after start
+ - Removed event 'China Requests Our Help' as volunteer rules have changed
+
+#### Soviet Union
+ - Focus 'Behead the Snake' now automatically beheads the snake after 270 days
+
 ### 4.2.2 blazed too hard
 
 #### General
