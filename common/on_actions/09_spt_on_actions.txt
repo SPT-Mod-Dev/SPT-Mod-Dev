@@ -524,6 +524,13 @@ on_actions = {
 			# 		add_ideas = SPT_scw_thunderdome
 			# 	}
 			# }
+
+			# Activates Trait Lottery System
+			MEX = {
+				set_country_flag = listens_for_sf_tech
+				set_country_flag = listens_for_navy_tech
+			}
+			# Add more countries here/change to Limit - OR system
 		}
 	}
 	on_state_control_changed = {
@@ -1828,4 +1835,19 @@ on_actions = {
 			}
 		}
 	}
+
+	# Trait Lottery System Trigger
+	on_daily = {
+        effect = {
+            if = {
+                limit = {
+					or ={ 
+						has_country_flag = listens_for_sf_tech
+						has_country_flag = listens_for_navy_tech
+					}
+                }
+                trigger_global_tech_listener_effect = yes
+            }
+        }
+    }
 }

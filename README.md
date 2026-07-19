@@ -9,6 +9,9 @@
 #### Soviet Union
  - Focus 'Behead the Snake' now automatically beheads the snake after 270 days
 
+ #### Mexico
+ - Rebellion is brewing... - New focus tree
+
 ### 4.2.2 blazed too hard
 
 #### General

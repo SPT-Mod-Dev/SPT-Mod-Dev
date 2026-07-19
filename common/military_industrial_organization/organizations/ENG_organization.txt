@@ -370,7 +370,8 @@ ENG_yarrow_shipbuilders_organization = {
 	
 	allowed = {	
 		OR = {
-			tag = ENG 
+			tag = ENG
+			tag = MEX # SPT change
 			AND = {
 				tag = BUL
 				has_dlc = "Battle for the Bosporus"
@@ -404,6 +405,14 @@ ENG_yarrow_shipbuilders_organization = {
 				NOT = { has_completed_focus = BUL_nationalization }
 			}
 		}
+		# SPT change
+		IF = {
+            limit = { FROM = { original_tag = MEX } }
+            FROM = {
+                has_completed_focus = SPT_MEX_uk_branch_1
+                has_country_flag = SPT_MEX_aligned_with_uk
+            }
+        }
 	}
 }
 
@@ -471,9 +480,29 @@ ENG_supermarine_organization = {
 	include = generic_high_agility_fighter_aircraft_organization
 	icon = GFX_idea_supermarine
 	
-	allowed = {	
-		tag = ENG
-		has_dlc = "Arms Against Tyranny"
+	allowed = {
+		OR = {
+			tag = ENG
+			tag = MEX # SPT change
+		}
+		has_dlc = "Arms Against Tyranny"	
+	}
+	
+	# SPT change
+	available = {
+    	IF = {
+        	limit = {
+            	FROM = { NOT = { original_tag = ENG } }
+        	}
+        	FROM = { NOT = { has_war_with = ENG } }
+    	}
+    	IF = {
+        	limit = { FROM = { original_tag = MEX } }
+        	FROM = {
+            	has_completed_focus = SPT_MEX_uk_branch_1
+            	has_country_flag = SPT_MEX_aligned_with_uk
+        	}
+    	}
 	}
 
 	equipment_type = {
@@ -568,8 +597,26 @@ ENG_hawker_organization = {
 		OR = {
 			tag = ENG
 			tag = SAF
+			tag = MEX # SPT change
 		}
 		has_dlc = "Arms Against Tyranny"
+	}
+
+	# SPT change
+	available = {
+    	IF = {
+        	limit = {
+            	FROM = { NOT = { original_tag = ENG } }
+        	}
+        	FROM = { NOT = { has_war_with = ENG } }
+    	}
+    	IF = {
+        	limit = { FROM = { original_tag = MEX } }
+        	FROM = {
+            	has_completed_focus = SPT_MEX_uk_branch_1
+            	has_country_flag = SPT_MEX_aligned_with_uk
+        	}
+    	}
 	}
 }
 
@@ -675,6 +722,7 @@ ENG_avro_organization = {
 	allowed = {	
 		OR = {
 			tag = ENG
+			tag = MEX # SPT change
 			AND = {
 				tag = BRA
 				has_dlc = "Trial of Allegiance"
@@ -698,6 +746,14 @@ ENG_avro_organization = {
 				}
 			}
 		}
+		# SPT change
+		IF = {
+        	limit = { FROM = { original_tag = MEX } }
+        	FROM = {
+            	has_completed_focus = SPT_MEX_uk_branch_1
+            	has_country_flag = SPT_MEX_aligned_with_uk
+        	}
+    	}
 	}
 }
 

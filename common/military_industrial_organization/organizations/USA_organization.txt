@@ -305,6 +305,7 @@ USA_detroit_arsenal_organization = {
 	allowed = {	
 		OR = {
 			tag = USA
+			tag = MEX # SPT change
 			PHI_SEA = yes
 		}
 	}
@@ -321,6 +322,15 @@ USA_detroit_arsenal_organization = {
 				FROM = { original_tag = USA } 
 			}
 			FROM = { has_completed_focus = USA_main_battle_tanks }
+		}
+
+		# SPT change
+		IF = {
+			limit = { FROM = { original_tag = MEX } }
+			FROM = {
+				has_completed_focus = SPT_MEX_usa_branch_1
+				has_country_flag = SPT_MEX_aligned_with_usa
+			}
 		}
 
 		if = {
@@ -578,9 +588,10 @@ USA_norfolk_naval_yard_organization = {
 USA_electric_boat_company_organization = {
 	include = generic_submarine_organization
 	icon = GFX_idea_electric_boat_company
-	allowed = {	
+	allowed = {
 		OR = {
-			tag = USA 
+			tag = USA
+			tag = MEX # SPT change 
 			PHI_SEA = yes
 		}
 	}
@@ -592,6 +603,15 @@ USA_electric_boat_company_organization = {
 			}
 			FROM = { NOT = { has_war_with = USA } }
 		}
+		
+		# SPT change
+    	IF = {
+        	limit = { FROM = { original_tag = MEX } }
+        	FROM = {
+            	has_completed_focus = SPT_MEX_usa_branch_1
+            	has_country_flag = SPT_MEX_aligned_with_usa
+        	}
+    	}
 		
 		if = {
 			limit = {
@@ -845,7 +865,8 @@ USA_north_american_aviation_organization = {
 	
 	allowed = {	
 		OR = {
-			tag = USA 
+			tag = USA
+			tag = MEX # SPT change 
 			AND = {
 				tag = BRA
 				has_dlc = "Trial of Allegiance"
@@ -871,6 +892,14 @@ USA_north_american_aviation_organization = {
 				}
 			}
 		}
+		# SPT change
+    	IF = {
+        	limit = { FROM = { original_tag = MEX } }
+        	FROM = {
+            	has_completed_focus = SPT_MEX_usa_branch_1
+            	has_country_flag = SPT_MEX_aligned_with_usa
+        	}
+    	}
 		else_if = {
 			limit = {
 				FROM = {
@@ -1170,8 +1199,28 @@ USA_boeing_organization = {
 	include = generic_heavy_aircraft_organization
 	icon = GFX_idea_boeing
 	
-	allowed = {	
-		tag = USA 
+	allowed = {
+		OR = {	
+			tag = USA
+			tag = MEX # SPT change
+		} 
+	}
+
+	# SPT change
+	available = {
+    	IF = {
+        	limit = {
+            	FROM = { NOT = { original_tag = USA } }
+        	}
+        	FROM = { NOT = { has_war_with = USA } }
+    	}
+    	IF = {
+        	limit = { FROM = { original_tag = MEX } }
+        	FROM = {
+            	has_completed_focus = SPT_MEX_usa_branch_1
+            	has_country_flag = SPT_MEX_aligned_with_usa
+        	}
+    	}
 	}
 	
 	override_trait = {

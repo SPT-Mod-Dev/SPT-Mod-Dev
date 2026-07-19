@@ -1407,3 +1407,157 @@ SPT_initialize_mastery_decision_variables = {
 		value = 0
 	}
 }
+
+# Trait Lottery System
+trigger_global_tech_listener_effect = {
+    if = {
+        limit = {
+            has_tech = tech_mountaineers
+            NOT = { has_country_flag = global_processed_tech_mountaineers }
+        }
+        set_country_flag = global_processed_tech_mountaineers
+        
+        if = {
+            limit = { 
+				has_country_flag = listens_for_sf_tech
+				NOT = { has_country_flag = sf_choice_locked } 
+			}
+            set_country_flag = sf_choice_locked
+            set_country_flag = sf_give_mountaineer
+            clr_country_flag = listens_for_sf_tech
+        }
+    }
+
+    if = {
+        limit = {
+            has_tech = rangers_tech
+            NOT = { has_country_flag = global_processed_tech_rangers }
+        }
+        set_country_flag = global_processed_tech_rangers
+        
+        if = {
+            limit = { 
+				has_country_flag = listens_for_sf_tech
+				NOT = { has_country_flag = sf_choice_locked } 
+			}
+            set_country_flag = sf_choice_locked
+            set_country_flag = sf_give_ranger
+            clr_country_flag = listens_for_sf_tech
+        }
+    }
+
+    if = {
+        limit = {
+            has_tech = paratroopers
+            NOT = { has_country_flag = global_processed_tech_paratroopers }
+        }
+        set_country_flag = global_processed_tech_paratroopers
+        
+        if = {
+            limit = { 
+				has_country_flag = listens_for_sf_tech
+				NOT = { has_country_flag = sf_choice_locked } 
+			}
+            set_country_flag = sf_choice_locked
+            set_country_flag = sf_give_urban
+            clr_country_flag = listens_for_sf_tech
+        }
+    }
+
+	if = {
+        limit = {
+            has_tech = basic_ship_hull_light
+            NOT = { has_country_flag = global_processed_basic_ship_hull_light }
+        }
+        set_country_flag = global_processed_basic_ship_hull_light
+        
+        if = {
+            limit = { 
+				has_country_flag = listens_for_navy_tech
+				NOT = { has_country_flag = navy_choice_locked } 
+			}
+            set_country_flag = navy_choice_locked
+            set_country_flag = navy_give_destroyer_leader
+            clr_country_flag = listens_for_navy_tech
+        }
+    }
+
+	if = {
+        limit = {
+            has_tech = basic_ship_hull_submarine
+            NOT = { has_country_flag = global_processed_basic_ship_hull_submarine }
+        }
+        set_country_flag = global_processed_basic_ship_hull_submarine
+        
+        if = {
+            limit = { 
+				has_country_flag = listens_for_navy_tech
+				NOT = { has_country_flag = navy_choice_locked } 
+			}
+            set_country_flag = navy_choice_locked
+            set_country_flag = navy_give_seawolf
+            clr_country_flag = listens_for_navy_tech
+        }
+    }
+}
+universal_sf_dynamic_effect_tt = {
+    random_unit_leader = {
+        limit = {
+            is_unit_leader = yes
+            has_unit_leader_flag = eligible_for_trait_rewards 
+            NOT = { has_unit_leader_flag = sf_choice_locked_on_character }
+            NOT = { has_trait = ranger }
+            NOT = { has_trait = trait_mountaineer }
+            NOT = { has_trait = urban_assault_specialist }
+        }
+        
+        if = {
+            limit = { ROOT = { has_country_flag = give_trait_mountaineer } }
+            add_trait = { trait = trait_mountaineer }
+        }
+        else_if = {
+            limit = { ROOT = { has_country_flag = give_trait_ranger } }
+            add_trait = { trait = ranger }
+        }
+        else_if = {
+            limit = { ROOT = { has_country_flag = give_trait_urban } }
+            add_trait = { trait = urban_assault_specialist }
+        }
+        else = {
+            custom_effect_tooltip = SPT_sf_no_tech_tt
+        }
+    }
+}
+universal_marine_dynamic_effect_tt = {
+    random_unit_leader = {
+        limit = {
+            is_unit_leader = yes
+            has_unit_leader_flag = eligible_for_trait_rewards
+            NOT = { has_unit_leader_flag = sf_choice_locked_on_character }
+            NOT = { has_trait = naval_invader }
+        }
+        add_trait = { trait = naval_invader }
+    }
+}
+universal_navy_dynamic_effect_tt = {
+    random_navy_leader = {
+        limit = {
+            has_unit_leader_flag = eligible_for_trait_rewards
+            NOT = { has_unit_leader_flag = navy_choice_locked_on_character }
+            NOT = { has_trait = seawolf }
+            NOT = { has_trait = destroyer_leader }
+        }
+        
+        if = {
+            limit = { ROOT = { has_country_flag = give_trait_seawolf } }
+            add_trait = { trait = seawolf }
+        }
+        else_if = {
+            limit = { ROOT = { has_country_flag = give_trait_destroyer_leader } }
+            add_trait = { trait = destroyer_leader }
+        }
+        else = {
+            custom_effect_tooltip = SPT_navy_no_tech_tt
+        }
+    }
+}
