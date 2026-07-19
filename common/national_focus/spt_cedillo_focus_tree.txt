@@ -493,7 +493,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = SPT_MEX_american_arms_1
+				name = SPT_MEX_american_military_inv
 				bonus = 1.0
 				uses = 2
 				category = infantry_weapons
@@ -541,7 +541,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = SPT_MEX_british_arms_1
+				name = SPT_MEX_british_military_inv
 				bonus = 1.0
 				uses = 2
 				category = light_air
@@ -665,10 +665,10 @@ focus_tree = {
         		custom_effect_tooltip = generic_skip_one_line_tt
 				custom_effect_tooltip = spt_mex.5.b
 				custom_effect_tooltip = SPT_MEX_modifies_industria_tt
-        		add_to_variable = { SPT_MEX_industria_factory_output = 0.10 tooltip = industrial_capacity_factory_tt }
-        		add_to_variable = { SPT_MEX_industria_dockyard_output = 0.10 tooltip = industrial_capacity_dockyard_tt }
+        		add_to_variable = { SPT_MEX_industria_factory_output = 0.075 tooltip = industrial_capacity_factory_tt }
+        		add_to_variable = { SPT_MEX_industria_dockyard_output = 0.075 tooltip = industrial_capacity_dockyard_tt }
         		add_tech_bonus = {
-            		name = SPT_MEX_american_industry_knowledge
+            		name = SPT_MEX_usa_branch_2
             		bonus = 0.75
             		uses = 1
             		category = industry
@@ -907,7 +907,7 @@ focus_tree = {
 			add_to_variable = { SPT_MEX_industria_construction_speed = 0.05 tooltip =  production_speed_buildings_factor_tt }
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = {
-    			name = SPT_MEX_industry_1_bonus
+    			name = SPT_MEX_industry_1
     			bonus = 0.75
     			uses = 1
     			category = construction_tech
@@ -941,7 +941,7 @@ focus_tree = {
 			add_to_variable = { SPT_MEX_industria_dockyard_output = 0.05 tooltip = industrial_capacity_dockyard_tt }
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = {
-    			name = SPT_MEX_industry_1_bonus
+    			name = SPT_MEX_industry_2
     			bonus = 0.5
     			uses = 3
     			category = cat_production
@@ -976,7 +976,7 @@ focus_tree = {
 			add_to_variable = { SPT_MEX_industria_resource_efficiency = 0.10 tooltip = local_resources_factor_tt }
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_tech_bonus = {
-    			name = SPT_MEX_industry_3_bonus
+    			name = SPT_MEX_industry_3
     			bonus = 0.75
     			uses = 2
     			category = excavation_tech
@@ -1056,7 +1056,7 @@ focus_tree = {
     		effect_tooltip = {
         		add_to_variable = { SPT_MEX_industria_research_speed = 0.05 tooltip = research_speed_factor_tt }
 				add_tech_bonus = {
-            		name = SPT_MEX_electronics_bonus
+            		name = SPT_MEX_technical_institute
             		bonus = 0.5
             		uses = 2
             		category = electronics
@@ -1100,18 +1100,18 @@ focus_tree = {
 			effect_tooltip = {
         		custom_effect_tooltip = spt_mex.6.a
 				custom_effect_tooltip = SPT_MEX_modifies_industria_tt
-        		add_to_variable = { SPT_MEX_industria_production_efficiency_cap = 0.05 tooltip = production_factory_max_efficiency_factor_tt }
-        		add_to_variable = { SPT_MEX_industria_production_efficiency_gain = 0.05 tooltip = production_factory_efficiency_gain_factor_tt }
+        		add_to_variable = { SPT_MEX_industria_production_efficiency_cap = 0.025 tooltip = production_factory_max_efficiency_factor_tt }
+        		add_to_variable = { SPT_MEX_industria_production_efficiency_gain = 0.025 tooltip = production_factory_efficiency_gain_factor_tt }
         		custom_effect_tooltip = generic_skip_one_line_tt
 				custom_effect_tooltip = spt_mex.6.b
 				custom_effect_tooltip = SPT_MEX_modifies_industria_tt
-        		add_to_variable = { SPT_MEX_industria_factory_output = 0.15 tooltip = industrial_capacity_factory_tt }
-        		add_to_variable = { SPT_MEX_industria_dockyard_output = 0.15 tooltip = industrial_capacity_dockyard_tt }
+        		add_to_variable = { SPT_MEX_industria_factory_output = 0.075 tooltip = industrial_capacity_factory_tt }
+        		add_to_variable = { SPT_MEX_industria_dockyard_output = 0.075 tooltip = industrial_capacity_dockyard_tt }
         		custom_effect_tooltip = generic_skip_one_line_tt
 				custom_effect_tooltip = spt_mex.6.c
 				custom_effect_tooltip = SPT_MEX_modifies_industria_tt
-        		add_to_variable = { SPT_MEX_industria_mil_construction_speed = 0.10 tooltip = production_speed_arms_factory_factor_tt }
-        		add_to_variable = { SPT_MEX_industria_dock_construction_speed = 0.10 tooltip = production_speed_dockyard_factor_tt }
+        		add_to_variable = { SPT_MEX_industria_mil_construction_speed = 0.05 tooltip = production_speed_arms_factory_factor_tt }
+        		add_to_variable = { SPT_MEX_industria_dock_construction_speed = 0.05 tooltip = production_speed_dockyard_factor_tt }
     		}
     	}
 	}
@@ -1606,8 +1606,8 @@ focus_tree = {
 			NOT = { has_idea = SPT_MEX_good_neighbour_recognition }
 		}
 
-    	cancel_if_invalid = yes
-    	continue_if_invalid = no
+    	cancel_if_invalid = no
+    	continue_if_invalid = yes
     	available_if_capitulated = yes
     	search_filters = { FOCUS_FILTER_POLITICAL }
 
@@ -2061,19 +2061,19 @@ focus_tree = {
 
 		completion_reward = {
 			add_tech_bonus = {
-            	name = SPT_MEX_armor_tech
+            	name = SPT_MEX_armor
             	bonus = 1.0
             	uses = 2
             	category = armor
         	}
 			add_tech_bonus = {
-            	name = SPT_MEX_armor_tech
+            	name = SPT_MEX_armor
             	bonus = 1.0
             	uses = 1
             	category = motorized_equipment
         	}
         	add_doctrine_cost_reduction = {
-            	name = SPT_MEX_armor_doctrine_1
+            	name = SPT_MEX_armor
             	cost_reduction = 0.5
             	uses = 1
             	category = land_doctrine
@@ -2198,20 +2198,20 @@ focus_tree = {
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = SPT_MEX_infantry_tech_1
+				name = SPT_MEX_mass_infantry
 				bonus = 1.0
 				uses = 1
 				category = infantry_weapons
 				category = artillery
 			}
 			add_tech_bonus = {
-				name = SPT_MEX_infantry_tech_2
+				name = SPT_MEX_mass_infantry
 				bonus = 0.5
 				uses = 2
 				category = support_tech
 			}
 			add_doctrine_cost_reduction = {
-				name = SPT_MEX_inf_doctrine_1
+				name = SPT_MEX_mass_infantry
 				cost_reduction = 0.5
 				uses = 2
 				category = land_doctrine
@@ -2318,7 +2318,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = SPT_MEX_sf_tech_1
+				name = SPT_MEX_special_forces
 				bonus = 1.0
 				uses = 1
 				category = mountaineers_tech
@@ -2424,7 +2424,7 @@ focus_tree = {
 				custom_effect_tooltip = generic_skip_one_line_tt
         	}
 			add_doctrine_cost_reduction = {
-				name = SPT_MEX_sf_doctrine
+				name = SPT_MEX_special_forces_2
 				cost_reduction = 0.25
 				uses = 1
 				category = special_forces_doctrine
@@ -2493,7 +2493,7 @@ focus_tree = {
 			custom_effect_tooltip = SPT_MEX_modifies_fuerzas_armadas_tt
 			add_to_variable = { SPT_MEX_ejercito_special_forces_attack_factor = 0.05  tooltip = special_forces_attack_factor_tt }
 			add_to_variable = { SPT_MEX_ejercito_special_forces_defence_factor = 0.05  tooltip = special_forces_defence_factor_tt }
-			add_to_variable = { SPT_MEX_ejercito_special_forces_cap = 0.10 tooltip = special_forces_cap_tt }
+			add_to_variable = { SPT_MEX_ejercito_special_forces_cap = 0.05 tooltip = special_forces_cap_tt }
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = SPT_MEX_modifies_fuerzas_armadas_tt
 			add_to_variable = { SPT_MEX_armada_naval_invasion_penalty = -0.10 tooltip = naval_invasion_penalty_tt }
@@ -2536,14 +2536,14 @@ focus = {
  
 		completion_reward = {
 			add_tech_bonus = {
-				name = SPT_MEX_naval_tech_1
+				name = SPT_MEX_navy_1
 				bonus = 1.0
 				uses = 2
 				category = ss_tech
 				category = dd_tech
 			}
 			add_tech_bonus = {
-				name = SPT_MEX_naval_tech_2
+				name = SPT_MEX_navy_1
 				bonus = 0.5
 				uses = 3
 				category = ship_modules_tech
@@ -2664,7 +2664,7 @@ focus = {
 				custom_effect_tooltip = generic_skip_one_line_tt
         	}
 			add_doctrine_cost_reduction = {
-				name = SPT_MEX_navy_doctrine
+				name = SPT_MEX_navy_3
 				cost_reduction = 0.5
 				uses = 2
 				category = naval_doctrine
@@ -2800,14 +2800,14 @@ focus = {
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = SPT_MEX_transport_research_1
+				name = SPT_MEX_amphibious
 				bonus = 1.0
 				ahead_reduction = 0
 				uses = 2
 				category = tp_tech
 			}
 			add_tech_bonus = {
-    			name = SPT_MEX_marines_research
+    			name = SPT_MEX_amphibious
     			bonus = 1.0
     			uses = 1
     			category = marine_tech
@@ -2853,7 +2853,7 @@ focus = {
             }
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_doctrine_cost_reduction = {
-				name = SPT_MEX_marine_doctrine
+				name = SPT_MEX_amphibious_2
 				cost_reduction = 0.25
 				uses = 1
 				category = special_forces_doctrine
@@ -2905,7 +2905,7 @@ focus = {
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = SPT_MEX_fighter_tech_2
+				name = SPT_MEX_fighter_doctrine
 				bonus = 0.25
 				uses = 4
 				category = cat_air_guns
@@ -2913,7 +2913,7 @@ focus = {
 				category = cat_air_engine
 			}
 			add_doctrine_cost_reduction = {
-				name = SPT_MEX_fighter_doctrine_1
+				name = SPT_MEX_fighter_doctrine
 				cost_reduction = 0.5
 				uses = 2
 				category = air_doctrine
@@ -2982,7 +2982,7 @@ focus = {
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = SPT_MEX_fighter_tech_2
+				name = SPT_MEX_tactical_bomber
 				bonus = 0.25
 				uses = 4
 				category = cat_air_bombs
@@ -2990,7 +2990,7 @@ focus = {
 				category = cat_air_engine
 			}
 			add_doctrine_cost_reduction = {
-				name = SPT_MEX_fighter_doctrine_1
+				name = SPT_MEX_tactical_bomber
 				cost_reduction = 0.5
 				uses = 2
 				category = air_doctrine
@@ -3101,20 +3101,20 @@ focus = {
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = SPT_MEX_strategic_bomber_tech_1
+				name = SPT_MEX_strategic_bomber
 				bonus = 1.0
 				uses = 2
 				category = cat_strategic_bomber
 			}
 			add_tech_bonus = {
-				name = SPT_MEX_fighter_tech_2
+				name = SPT_MEX_strategic_bomber
 				bonus = 0.50
 				uses = 2
 				category = plane_modules_tech
 				category = cat_air_engine
 			}
 			add_doctrine_cost_reduction = {
-				name = SPT_MEX_strat_doctrine_1
+				name = SPT_MEX_strategic_bomber
 				cost_reduction = 0.5
 				uses = 2
 				category = air_doctrine
