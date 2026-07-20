@@ -1,6 +1,9 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 4.2.3
+### 4.2.3 ¡Hola supermercado! ¡Telebancos por aquí!
+
+### France
+ - Removed 'Communists in Government?' election event
 
 #### Mongolia
  - In No Asia mode, Mongolia now automatically receives western Chinese provinces 18 months after start
@@ -10,7 +13,8 @@
  - Focus 'Behead the Snake' now automatically beheads the snake after 270 days
 
  #### Mexico
- - Rebellion is brewing... - New focus tree
+ - Rebellion is brewing... 
+ - New focus tree
 
 ### 4.2.2 blazed too hard
 
