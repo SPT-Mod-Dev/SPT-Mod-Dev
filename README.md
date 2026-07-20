@@ -2,7 +2,10 @@
 
 ### 4.2.3 ¡Hola supermercado! ¡Telebancos por aquí!
 
-### France
+#### General
+ - Event 'Fascists Demand Referendum' now restores compliance after the reset from ideology change
+
+#### France
  - Removed 'Communists in Government?' election event
 
 #### Mongolia
@@ -12,7 +15,13 @@
 #### Soviet Union
  - Focus 'Behead the Snake' now automatically beheads the snake after 270 days
 
- #### Mexico
+#### Spain
+ - Idea 'La Division Azul' volunteer divisions: 3->10
+ - Focus 'Adopt the 26 Points':
+    - Changes ideology to fascism
+    - Restores compliance after the reset from ideology change
+
+#### Mexico
  - Rebellion is brewing... 
  - New focus tree
 
