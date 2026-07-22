@@ -4,11 +4,20 @@
 
 #### General
  - Removed Mediterranean and Pacific War Balances of Power
- - Increased max mils per Railway Gun line to 150 (UI not fully compatible)
+ - Increased max mils per Heavy Artillery and Railway Gun line to 150 (UI not fully compatible)
 
 #### Soviet Union
  - Focus 'Soviet Artillery': Research Bonus 50%->75%
                              Ahead-of-Time Penalty Reduction: 0->2 years
+
+#### United States
+ - Now begins with Greenland annexed
+
+#### United Kingdom
+ - Now begins with Iceland Annexed
+
+#### France
+ - Increased the maximum building slots in French West And Central Africa
 
 ### 4.2.3 ¡Hola supermercado! ¡Telebancos por aquí!
 
