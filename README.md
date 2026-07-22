@@ -1,5 +1,14 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 4.3.0
+
+#### General
+ - Removed Mediterranean and Pacific War Balances of Power
+
+#### Soviet Union
+ - Focus 'Soviet Artillery': Research Bonus 50%->75%
+                             Ahead-of-Time Penalty Reduction: 0->2 years
+
 ### 4.2.3 ¡Hola supermercado! ¡Telebancos por aquí!
 
 #### General

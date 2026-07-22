@@ -590,245 +590,245 @@ on_actions = {
 			# 	}
 			# }
 
-			#Pacific front checks
-			#USA takes island
-			if = {
-				limit = {
-					FROM.FROM = {
-						OR = {
-							state = 629
-							state = 630
-							state = 631
-							state = 632
-							state = 638
-							state = 327
-							state = 627
-							state = 634
-							state = 523
-							state = 737
-							state = 526
-							state = 524
-							state = 645
-							state = 648
-							state = 646
-							state = 684
-							state = 647
-							state = 633
-							state = 555
-							state = 591
-						}
-					}
-					OR = {
-						ROOT = {
-							original_tag = USA
-						}
-						ROOT = {
-							is_ally_with = USA
-						}
-					}
-					OR = {
-						FROM = {
-							original_tag = JAP
-						}
-						FROM = {
-							is_ally_with = JAP
-						}
-					}
-				}
-				JAP = {
-					add_power_balance_value = {
-						id = JAP_PAC_pacific_front
-						value = -0.1
-					}
-					country_event = {
-						id = spt.13
-						days = 3
-					}
-				}
-				USA = {
-					add_power_balance_value = {
-						id = USA_PAC_pacific_front
-						value = 0.1
-					}
-					if = {
-						limit = {
-							has_active_mission = USA_PAC_secure_island
-						}
-						set_country_flag = USA_captured_island
-					}
-				}
-			}
-			#Japan takes island
-			if = {
-				limit = {
-					FROM.FROM = {
-						OR = {
-							state = 629
-							state = 630
-							state = 631
-							state = 632
-							state = 638
-							state = 327
-							state = 627
-							state = 634
-							state = 523
-							state = 737
-							state = 526
-							state = 524
-							state = 645
-							state = 648
-							state = 646
-							state = 684
-							state = 647
-							state = 633
-							state = 555
-							state = 591
-						}
-					}
-					OR = {
-						ROOT = {
-							original_tag = JAP
-						}
-						ROOT = {
-							is_ally_with = JAP
-						}
-					}
-					OR = {
-						FROM = {
-							original_tag = USA
-						}
-						FROM = {
-							is_ally_with = USA
-						}
-					}
-				}
-				JAP = {
-					add_power_balance_value = {
-						id = JAP_PAC_pacific_front
-						value = 0.1
-					}
-					if = {
-						limit = {
-							has_active_mission = JAP_PAC_secure_island
-						}
-						set_country_flag = JAP_captured_island
-					}
-				}
-				USA = {
-					add_power_balance_value = {
-						id = USA_PAC_pacific_front
-						value = -0.1
-					}
-					country_event = spt.13
-				}
-			}
-			#Med front checks
-			#ENG takes position
-			if = {
-				limit = {
-					FROM.FROM = {
-						OR = {
-							state = 114
-							state = 115
-							state = 182
-							state = 164
-							state = 448
-							state = 450
-							state = 116
-							state = 446
-							state = 118
-							state = 1
-							state = 183
-							state = 459
-						}
-					}
-					OR = {
-						ROOT = {
-							original_tag = ENG
-						}
-						ROOT = {
-							is_ally_with = ENG
-						}
-					}
-					OR = {
-						FROM = {
-							original_tag = ITA
-						}
-						FROM = {
-							is_ally_with = ITA
-						}
-					}
-				}
-				ITA = {
-					add_power_balance_value = {
-						id = ITA_MED_med_front
-						value = -0.15
-					}
-					country_event = {
-						id = spt.16
-						days = 3
-					}
-				}
-				ENG = {
-					add_power_balance_value = {
-						id = ENG_MED_med_front
-						value = 0.15
-					}
-				}
-			}
-			#ITA takes position
-			if = {
-				limit = {
-					FROM.FROM = {
-						OR = {
-							state = 114
-							state = 115
-							state = 182
-							state = 164
-							state = 448
-							state = 450
-							state = 116
-							state = 446
-							state = 118
-							state = 1
-							state = 183
-							state = 459
-						}
-					}
-					OR = {
-						ROOT = {
-							original_tag = ITA
-						}
-						ROOT = {
-							is_ally_with = ITA
-						}
-					}
-					OR = {
-						FROM = {
-							original_tag = ENG
-						}
-						FROM = {
-							is_ally_with = ENG
-						}
-					}
-				}
-				ENG = {
-					add_power_balance_value = {
-						id = ENG_MED_med_front
-						value = -0.15
-					}
-					country_event = {
-						id = spt.16
-						days = 3
-					}
-				}
-				ITA = {
-					add_power_balance_value = {
-						id = ITA_MED_med_front
-						value = 0.15
-					}
-				}
-			}
+			# #Pacific front checks
+			# #USA takes island
+			# if = {
+			# 	limit = {
+			# 		FROM.FROM = {
+			# 			OR = {
+			# 				state = 629
+			# 				state = 630
+			# 				state = 631
+			# 				state = 632
+			# 				state = 638
+			# 				state = 327
+			# 				state = 627
+			# 				state = 634
+			# 				state = 523
+			# 				state = 737
+			# 				state = 526
+			# 				state = 524
+			# 				state = 645
+			# 				state = 648
+			# 				state = 646
+			# 				state = 684
+			# 				state = 647
+			# 				state = 633
+			# 				state = 555
+			# 				state = 591
+			# 			}
+			# 		}
+			# 		OR = {
+			# 			ROOT = {
+			# 				original_tag = USA
+			# 			}
+			# 			ROOT = {
+			# 				is_ally_with = USA
+			# 			}
+			# 		}
+			# 		OR = {
+			# 			FROM = {
+			# 				original_tag = JAP
+			# 			}
+			# 			FROM = {
+			# 				is_ally_with = JAP
+			# 			}
+			# 		}
+			# 	}
+			# 	JAP = {
+			# 		add_power_balance_value = {
+			# 			id = JAP_PAC_pacific_front
+			# 			value = -0.1
+			# 		}
+			# 		country_event = {
+			# 			id = spt.13
+			# 			days = 3
+			# 		}
+			# 	}
+			# 	USA = {
+			# 		add_power_balance_value = {
+			# 			id = USA_PAC_pacific_front
+			# 			value = 0.1
+			# 		}
+			# 		if = {
+			# 			limit = {
+			# 				has_active_mission = USA_PAC_secure_island
+			# 			}
+			# 			set_country_flag = USA_captured_island
+			# 		}
+			# 	}
+			# }
+			# #Japan takes island
+			# if = {
+			# 	limit = {
+			# 		FROM.FROM = {
+			# 			OR = {
+			# 				state = 629
+			# 				state = 630
+			# 				state = 631
+			# 				state = 632
+			# 				state = 638
+			# 				state = 327
+			# 				state = 627
+			# 				state = 634
+			# 				state = 523
+			# 				state = 737
+			# 				state = 526
+			# 				state = 524
+			# 				state = 645
+			# 				state = 648
+			# 				state = 646
+			# 				state = 684
+			# 				state = 647
+			# 				state = 633
+			# 				state = 555
+			# 				state = 591
+			# 			}
+			# 		}
+			# 		OR = {
+			# 			ROOT = {
+			# 				original_tag = JAP
+			# 			}
+			# 			ROOT = {
+			# 				is_ally_with = JAP
+			# 			}
+			# 		}
+			# 		OR = {
+			# 			FROM = {
+			# 				original_tag = USA
+			# 			}
+			# 			FROM = {
+			# 				is_ally_with = USA
+			# 			}
+			# 		}
+			# 	}
+			# 	JAP = {
+			# 		add_power_balance_value = {
+			# 			id = JAP_PAC_pacific_front
+			# 			value = 0.1
+			# 		}
+			# 		if = {
+			# 			limit = {
+			# 				has_active_mission = JAP_PAC_secure_island
+			# 			}
+			# 			set_country_flag = JAP_captured_island
+			# 		}
+			# 	}
+			# 	USA = {
+			# 		add_power_balance_value = {
+			# 			id = USA_PAC_pacific_front
+			# 			value = -0.1
+			# 		}
+			# 		country_event = spt.13
+			# 	}
+			# }
+			# #Med front checks
+			# #ENG takes position
+			# if = {
+			# 	limit = {
+			# 		FROM.FROM = {
+			# 			OR = {
+			# 				state = 114
+			# 				state = 115
+			# 				state = 182
+			# 				state = 164
+			# 				state = 448
+			# 				state = 450
+			# 				state = 116
+			# 				state = 446
+			# 				state = 118
+			# 				state = 1
+			# 				state = 183
+			# 				state = 459
+			# 			}
+			# 		}
+			# 		OR = {
+			# 			ROOT = {
+			# 				original_tag = ENG
+			# 			}
+			# 			ROOT = {
+			# 				is_ally_with = ENG
+			# 			}
+			# 		}
+			# 		OR = {
+			# 			FROM = {
+			# 				original_tag = ITA
+			# 			}
+			# 			FROM = {
+			# 				is_ally_with = ITA
+			# 			}
+			# 		}
+			# 	}
+			# 	ITA = {
+			# 		add_power_balance_value = {
+			# 			id = ITA_MED_med_front
+			# 			value = -0.15
+			# 		}
+			# 		country_event = {
+			# 			id = spt.16
+			# 			days = 3
+			# 		}
+			# 	}
+			# 	ENG = {
+			# 		add_power_balance_value = {
+			# 			id = ENG_MED_med_front
+			# 			value = 0.15
+			# 		}
+			# 	}
+			# }
+			# #ITA takes position
+			# if = {
+			# 	limit = {
+			# 		FROM.FROM = {
+			# 			OR = {
+			# 				state = 114
+			# 				state = 115
+			# 				state = 182
+			# 				state = 164
+			# 				state = 448
+			# 				state = 450
+			# 				state = 116
+			# 				state = 446
+			# 				state = 118
+			# 				state = 1
+			# 				state = 183
+			# 				state = 459
+			# 			}
+			# 		}
+			# 		OR = {
+			# 			ROOT = {
+			# 				original_tag = ITA
+			# 			}
+			# 			ROOT = {
+			# 				is_ally_with = ITA
+			# 			}
+			# 		}
+			# 		OR = {
+			# 			FROM = {
+			# 				original_tag = ENG
+			# 			}
+			# 			FROM = {
+			# 				is_ally_with = ENG
+			# 			}
+			# 		}
+			# 	}
+			# 	ENG = {
+			# 		add_power_balance_value = {
+			# 			id = ENG_MED_med_front
+			# 			value = -0.15
+			# 		}
+			# 		country_event = {
+			# 			id = spt.16
+			# 			days = 3
+			# 		}
+			# 	}
+			# 	ITA = {
+			# 		add_power_balance_value = {
+			# 			id = ITA_MED_med_front
+			# 			value = 0.15
+			# 		}
+			# 	}
+			# }
 
 			#ENG loses Suez or Gibraltar (triggers Shipping Routes Disrupted event for ENG)
 			if = {
@@ -1154,64 +1154,64 @@ on_actions = {
 	}
 	on_war_relation_added = {
 		effect = {
-			#Check if usa is at war with jap and add bop
-			if = {
-				limit = {
-					USA = {
-						has_war_with = JAP
-						NOT = {
-							has_power_balance = {
-								id = USA_PAC_pacific_front
-							}
-						}
-					}
-					NOT = {
-						has_global_flag = Pacific_War
-					}
-				}
-				USA = {
-					country_event = {
-						id = spt.14
-						days = 3
-					}
-				}
-				JAP = {
-					country_event = {
-						id = spt.14
-						days = 3
-					}
-				}
-				set_global_flag = Pacific_War
-			}
-			#Check if eng is at war with ita and add bop
-			if = {
-				limit = {
-					ENG = {
-						has_war_with = ITA
-						NOT = {
-							has_power_balance = {
-								id = ENG_MED_med_front
-							}
-						}
-					}
-					NOT = {
-						has_global_flag = Med_War
-					}
-				}
-				ENG = {
-					country_event = {
-						id = spt.15
-						days = 3
-					}
-				}
-				ITA = {
-					country_event = {
-						id = spt.15
-						days = 3
-					}
-				}
-				set_global_flag = Med_War
-			}
+			# #Check if usa is at war with jap and add bop
+			# if = {
+			# 	limit = {
+			# 		USA = {
+			# 			has_war_with = JAP
+			# 			NOT = {
+			# 				has_power_balance = {
+			# 					id = USA_PAC_pacific_front
+			# 				}
+			# 			}
+			# 		}
+			# 		NOT = {
+			# 			has_global_flag = Pacific_War
+			# 		}
+			# 	}
+			# 	USA = {
+			# 		country_event = {
+			# 			id = spt.14
+			# 			days = 3
+			# 		}
+			# 	}
+			# 	JAP = {
+			# 		country_event = {
+			# 			id = spt.14
+			# 			days = 3
+			# 		}
+			# 	}
+			# 	set_global_flag = Pacific_War
+			# }
+			# #Check if eng is at war with ita and add bop
+			# if = {
+			# 	limit = {
+			# 		ENG = {
+			# 			has_war_with = ITA
+			# 			NOT = {
+			# 				has_power_balance = {
+			# 					id = ENG_MED_med_front
+			# 				}
+			# 			}
+			# 		}
+			# 		NOT = {
+			# 			has_global_flag = Med_War
+			# 		}
+			# 	}
+			# 	ENG = {
+			# 		country_event = {
+			# 			id = spt.15
+			# 			days = 3
+			# 		}
+			# 	}
+			# 	ITA = {
+			# 		country_event = {
+			# 			id = spt.15
+			# 			days = 3
+			# 		}
+			# 	}
+			# 	set_global_flag = Med_War
+			# }
 			#Check if HOL is at war with GER and add HOL to allies
 			if = {
 				limit = {
@@ -1275,58 +1275,58 @@ on_actions = {
 		}
 	}
 	on_peace = {
-		effect = {
-			#Check if usa is at peace with jap and remove bop
-			if = {
-				limit = {
-					USA = {
-						NOT = {
-							has_war_with = JAP
-						}
-						has_power_balance = {
-							id = USA_PAC_pacific_front
-						}
-					}
-				}
-				USA = {
-					remove_power_balance = {
-						id = USA_PAC_pacific_front
-					}
-				}
-				JAP = {
-					remove_power_balance = {
-						id = JAP_PAC_pacific_front
-					}
-				}
-				clr_global_flag = Pacific_War
-			}
-		}
-		effect = {
-			#Check if eng is at peace with ita and remove bop
-			if = {
-				limit = {
-					ENG = {
-						NOT = {
-							has_war_with = ITA
-						}
-						has_power_balance = {
-							id = ENG_MED_med_front
-						}
-					}
-				}
-				ENG = {
-					remove_power_balance = {
-						id = ENG_MED_med_front
-					}
-				}
-				ITA = {
-					remove_power_balance = {
-						id = ITA_MED_med_front
-					}
-				}
-				clr_global_flag = Med_War
-			}
-		}
+		# effect = {
+		# 	#Check if usa is at peace with jap and remove bop
+		# 	if = {
+		# 		limit = {
+		# 			USA = {
+		# 				NOT = {
+		# 					has_war_with = JAP
+		# 				}
+		# 				has_power_balance = {
+		# 					id = USA_PAC_pacific_front
+		# 				}
+		# 			}
+		# 		}
+		# 		USA = {
+		# 			remove_power_balance = {
+		# 				id = USA_PAC_pacific_front
+		# 			}
+		# 		}
+		# 		JAP = {
+		# 			remove_power_balance = {
+		# 				id = JAP_PAC_pacific_front
+		# 			}
+		# 		}
+		# 		clr_global_flag = Pacific_War
+		# 	}
+		# }
+		# effect = {
+		# 	#Check if eng is at peace with ita and remove bop
+		# 	if = {
+		# 		limit = {
+		# 			ENG = {
+		# 				NOT = {
+		# 					has_war_with = ITA
+		# 				}
+		# 				has_power_balance = {
+		# 					id = ENG_MED_med_front
+		# 				}
+		# 			}
+		# 		}
+		# 		ENG = {
+		# 			remove_power_balance = {
+		# 				id = ENG_MED_med_front
+		# 			}
+		# 		}
+		# 		ITA = {
+		# 			remove_power_balance = {
+		# 				id = ITA_MED_med_front
+		# 			}
+		# 		}
+		# 		clr_global_flag = Med_War
+		# 	}
+		# }
 	}
 	on_operation_completed = {
 		effect = {
