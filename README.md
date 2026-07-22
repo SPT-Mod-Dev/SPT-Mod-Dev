@@ -4,6 +4,7 @@
 
 #### General
  - Removed Mediterranean and Pacific War Balances of Power
+ - Increased max mils per Railway Gun line to 150 (UI not fully compatible)
 
 #### Soviet Union
  - Focus 'Soviet Artillery': Research Bonus 50%->75%
