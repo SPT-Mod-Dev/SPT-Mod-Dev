@@ -7984,7 +7984,7 @@ focus_tree = {
 		available = {
 			has_government = communism
 			NOT = { has_global_flag = AAT_trotsky_sent_to_stalin }
-			has_global_flag = AAT_trotsky_in_mexico
+			#has_global_flag = AAT_trotsky_in_mexico #SPT change, we don't really care where Trotsky is
 		}
 		
 		search_filters = {FOCUS_FILTER_SOV_POLITICAL_PARANOIA}
@@ -7994,7 +7994,7 @@ focus_tree = {
 				limit = {
 					has_dlc = "La Resistance"
 				}
-				custom_effect_tooltip = SOV_behead_the_snake_lar_tt
+				custom_effect_tooltip = SPT_SOV_behead_the_snake_lar_tt
 				create_operative_leader = {
 					name = "Ramón Mercader"
 					GFX = GFX_portrait_SOV_ramon_mercader
@@ -8007,6 +8007,11 @@ focus_tree = {
 				#Extra operative slot
 				set_variable = { SOV_the_politburo_operative_slot = 1 }
 				custom_effect_tooltip = SOV_behead_the_snake_ns_tt
+				news_event = { 
+					id = news.37 
+					days = 270
+				} #SPTchange
+				
 			}
 			else = {
 				custom_effect_tooltip = SOV_behead_the_snake_no_lar_tt
