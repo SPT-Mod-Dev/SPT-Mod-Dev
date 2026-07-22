@@ -5,7 +5,7 @@
 #### General
  - Removed Mediterranean and Pacific War Balances of Power
  - Increased max mils per Heavy Artillery and Railway Gun line to 150 (UI not fully compatible)
- - Lowered the initial cost of research facilities to token amounts. Increased the cost of the second facility correspondingly.
+ - Lowered the initial cost of naval, air and land research facilities to token amounts. Increased the cost of the second facility correspondingly.
 
 #### Soviet Union
  - Focus 'Soviet Artillery': Research Bonus 50%->75%
