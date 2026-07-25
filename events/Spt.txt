@@ -1077,23 +1077,16 @@ country_event = { # UK swipes Iraq
 	}
 }
 
-country_event = { # Japan compliance restored
+# Compliance resetter. Make sure to actually save the pre_fascist_compliance variable for relevant states beforehand
+country_event = {
 	id = spt.666
 	hidden = yes
 	is_triggered_only = yes
 	option = {
 		every_controlled_state = {
 			limit = {
-				OR = {						
-					is_core_of = KOR
-					is_core_of = CHI
-					is_core_of = VIN
-					is_core_of = LAO
-					is_core_of = CAM
-					is_core_of = FSM
-				}
 				NOT = {
-					is_core_of = JAP
+					is_core_of = ROOT
 				}
 			}
 			log = "[?THIS.GetName] setting to: [?pre_fascist_compliance]"

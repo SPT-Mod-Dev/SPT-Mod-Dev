@@ -118,3 +118,5 @@ NDefines.NMilitary.PLAN_COHESION_WEIGHTS = { 1.0, 40.0, 80.0, 100.0 } 	-- for ea
 NDefines.NDoctrines.BASE_MASTERY_GAIN_TARGET_MANPOWER = 50000.0           -- Beyond this amount of manpower contributing to mastery, mastery gain will start having diminishing returns (see doctrines documentation)
 NDefines.NDoctrines.TRAINING_MASTERY_GAIN_FACTOR = 0.4                     -- How much training contributes to doctrine mastery relative to combat/missions
 NDefines.NDoctrines.MASTERY_BANK_CONVERSION_RATE = 1                    -- How much training contributes to doctrine mastery relative to combat/missions
+
+NDefines.NProduction.RAILWAY_GUN_MAX_MIL_FACTORIES_PER_LINE = 150

@@ -1,6 +1,32 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 4.2.3
+### 4.3.0
+
+#### General
+ - Removed Mediterranean and Pacific War Balances of Power
+ - Increased max mils per Heavy Artillery and Railway Gun line to 150 (UI not fully compatible)
+ - Lowered the initial cost of naval, air and land research facilities to token amounts. Increased the cost of the second facility correspondingly.
+
+#### Soviet Union
+ - Focus 'Soviet Artillery': Research Bonus 50%->75%
+                             Ahead-of-Time Penalty Reduction: 0->2 years
+
+#### United States
+ - Now begins with Greenland annexed
+
+#### United Kingdom
+ - Now begins with Iceland Annexed
+
+#### France
+ - Increased the maximum building slots in French West And Central Africa
+
+### 4.2.3 ¡Hola supermercado! ¡Telebancos por aquí!
+
+#### General
+ - Event 'Fascists Demand Referendum' now restores compliance after the reset from ideology change
+
+#### France
+ - Removed 'Communists in Government?' election event
 
 #### Mongolia
  - In No Asia mode, Mongolia now automatically receives western Chinese provinces 18 months after start
@@ -9,8 +35,15 @@
 #### Soviet Union
  - Focus 'Behead the Snake' now automatically beheads the snake after 270 days
 
- #### Mexico
- - Rebellion is brewing... - New focus tree
+#### Spain
+ - Idea 'La Division Azul' volunteer divisions: 3->10
+ - Focus 'Adopt the 26 Points':
+    - Changes ideology to fascism
+    - Restores compliance after the reset from ideology change
+
+#### Mexico
+ - Rebellion is brewing... 
+ - New focus tree
 
 ### 4.2.2 blazed too hard
 

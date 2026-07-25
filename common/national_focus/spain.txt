@@ -4693,6 +4693,29 @@ focus_tree = {
 			    ideology = fascism
 			    popularity = 0.1
 			}
+			# SPTchange
+			every_controlled_state = {
+				limit = {
+					NOT = {
+						is_core_of = ROOT
+					}
+				}
+				set_variable = {
+					pre_fascist_compliance = THIS.compliance
+				}
+				log = "[?THIS.GetName]: [?pre_fascist_compliance]"
+			}
+			set_politics = {
+				ruling_party = fascism
+				elections_allowed = no
+			}
+			hidden_effect = {
+				country_event = {
+					id = spt.666
+					days = 5
+				}	
+			}
+
 			if = {
 				limit = {
 					NOT = {
