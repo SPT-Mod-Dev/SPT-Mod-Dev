@@ -120,3 +120,8 @@ NDefines.NDoctrines.TRAINING_MASTERY_GAIN_FACTOR = 0.4                     -- Ho
 NDefines.NDoctrines.MASTERY_BANK_CONVERSION_RATE = 1                    -- How much training contributes to doctrine mastery relative to combat/missions
 
 NDefines.NProduction.RAILWAY_GUN_MAX_MIL_FACTORIES_PER_LINE = 150
+
+NDefines.NMilitary.UNIT_LEADER_ASSIGN_TRAIT_COST = 0
+NDefines.NPolitics.ARMY_LEADER_MAX_COST = 0
+NDefines.NPolitics.NAVY_LEADER_MAX_COST = 0
+NDefines.NMilitary.PROMOTE_LEADER_CP_COST = 0
