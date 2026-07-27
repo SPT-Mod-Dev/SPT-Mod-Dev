@@ -10,6 +10,11 @@
     - Cost is now 250 Political Power, adds -5% stability and no longer reduces Recruitable Manpower 
  - Made assigning traits, hiring new generals/admirals and promoting generals to field marshals cost 0 command power
 
+#### Doctrine
+ - Reverted most doctrines to vanilla
+    - Compensated Armored Spearhead and Streamlined Deployment accordingly
+ - Added Dispersed Operations to the Operations track
+
 #### Decisions
  - Added License decisions
  - Added Recommended Template decisions
@@ -17,6 +22,8 @@
 #### MIO's
  - Generic Tank Manufacturer (think Daimler-Benz and Detroit Tank Arsenal): Now available to all tank types
  - Added Vauxhall (Infantry Tank) to Canada
+ - Reverted Air MIO changes back to vanilla
+    - Effectively nothing changed
 
 #### Soviet Union
  - Focus 'Soviet Artillery': 
