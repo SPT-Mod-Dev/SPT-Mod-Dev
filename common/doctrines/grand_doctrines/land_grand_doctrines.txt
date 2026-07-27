@@ -28,7 +28,7 @@ new_mobile_warfare = {
     }
 
     # EFFECTS
-    planning_speed = 0.10 # SPTchange 0.20->0.10
+	planning_speed = 0.20
     army_speed_factor = 0.10
     enable_tactic = tactic_unexpected_thrust
     #SPTchange, brigade size now lives here
@@ -39,7 +39,7 @@ new_mobile_warfare = {
         {
             #Infantry
             org_loss_when_moving = -0.15
-            land_reinforce_rate = 0.01 # SPTchange 0.02->0.01
+            land_reinforce_rate = 0.02
             enable_tactic = tactic_delay
 
             effect = {
@@ -58,8 +58,8 @@ new_mobile_warfare = {
         }
         {
             #Artillery/Support
-            planning_speed = 0.05 # SPTchange 0.1->0.05
-            org_loss_at_low_org_factor = -0.05 # SPTchange -0.1->-0.05
+	        planning_speed = 0.1
+            org_loss_at_low_org_factor = -0.1
             enable_tactic = tactic_overwhelming_fire
             effect = {
                 if = {
@@ -97,7 +97,7 @@ new_mobile_warfare = {
         }
         {
             #Operations
-            planning_speed = 0.1 # SPTchange 0.2->0.1
+	        planning_speed = 0.2
             category_regimental_support_battalions = {
                 max_organisation = 10
                 breakthrough = 0.1
@@ -155,10 +155,10 @@ superior_firepower = {
     #SPTchange, brigade size now lives here
     additional_brigade_column_size = 1
     category_line_artillery = {
-        soft_attack = 0.05 # SPTchange 0.1->0.05
+        soft_attack = 0.1
     }
     category_support_artillery = {
-        soft_attack = 0.025 # SPTchange 0.05->0.025
+        soft_attack = 0.05
     }
 
 
@@ -166,7 +166,7 @@ superior_firepower = {
         {
             #Infantry
             enable_tactic = tactic_elastic_defense
-            supply_consumption_factor = -0.05 # SPTchange -0.1->-0.05
+            supply_consumption_factor = -0.1
 
             effect = {
                 if = {
@@ -187,9 +187,9 @@ superior_firepower = {
             #SPTchange, moved brigade size to basi grand doctrine bonus
             #additional_brigade_column_size = 1
             category_support_battalions = {
-                max_organisation = 5 # SPTchange 10->5
+                max_organisation = 10
             }
-            planning_decay_rate_factor = -0.05 # SPTchange -0.1->-0.05
+            planning_decay_rate_factor = -0.1
             enable_tactic = tactic_barrage
 
             effect = {
@@ -211,7 +211,7 @@ superior_firepower = {
             #Armor
             enable_tactic = tactic_delay
             category_army = {
-                default_morale = 0.05 # SPTchange 0.1->0.05
+                default_morale = 0.1
             }
             category_regimental_support_battalions = {
                 soft_attack = 0.05
@@ -236,9 +236,9 @@ superior_firepower = {
             #Operations
             enable_tactic = tactic_tactical_withdrawal
             category_army = {
-                default_morale = 0.1 # SPTchange 0.2->0.1
+                default_morale = 0.2
             }
-            planning_decay_rate_factor = -0.05 # SPTchange -0.1->-0.05
+            planning_decay_rate_factor = -0.1
 
             effect = {
                 if = {
@@ -314,7 +314,7 @@ grand_battleplan = {
         }
         {
             #Artillery/Support
-            coordination_bonus = 0.05 # SPTchange 0.1->0.05
+            coordination_bonus = 0.1
             category_regimental_support_battalions = {
                 defense = 0.1
                 entrenchment = 0.2
@@ -356,8 +356,8 @@ grand_battleplan = {
         }
         {
             #Operations
-            coordination_bonus = 0.05 # SPTchange 0.1->0.05
-            max_command_power = 15 # SPTchange 30->15
+            coordination_bonus = 0.1
+            max_command_power = 30
 
             effect = {
                 if = {
@@ -436,7 +436,7 @@ mass_assault = {
         {
             #Artillery/Support
             enable_tactic = tactic_elastic_defense
-            out_of_supply_factor = -0.1 # SPTchange -0.05->-0.1
+            out_of_supply_factor = -0.05
             minimum_training_level = -0.05
 
             effect = {
