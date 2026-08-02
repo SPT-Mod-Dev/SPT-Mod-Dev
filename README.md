@@ -49,6 +49,9 @@
  - Removed a bunch of noob-trap focuses
  - Removed the Non-Aligned focus branch
  - Locked the 'Ministry of Colonial Affairs' focus, the 'Ichioku Isshin' focus and the focuses below 'Fund the RIKEN Institute' until March 1st 1941
+ - Added a decision to annex Siam
+    - Removed the occupy Siam focus
+ - Added 32 oil to Kanto
  
 
 #### Spain
