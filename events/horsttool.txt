@@ -233,7 +233,7 @@ country_event = {
     option = {
         name = "Yes, move the host tool"
         # Store new host globally BEFORE clearing flags
-        set_global_variable = { new_host_country = temp_new_host }
+        MTF = { set_variable = { new_host_country = temp_new_host } }
         # Clear host flag from everyone
         every_country = {
             clr_country_flag = host
@@ -268,7 +268,7 @@ news_event = {
     option = {
         name = "Understood"
         # Clear the global variable after showing the notification
-        clear_global_variable = new_host_country
+        MTF = { clear_variable = new_host_country }
     }
 }
 # Pause blocker events
@@ -294,8 +294,8 @@ news_event = {
     is_triggered_only = yes
     option = {
         name = "War in my war game?Bruh"
-        clear_global_variable = war_declarer
-        clear_global_variable = war_target
+        MTF = { clear_variable = war_declarer }
+        MTF = { clear_variable = war_target }
     }
 }
 
@@ -309,8 +309,8 @@ news_event = {
     is_triggered_only = yes
     option = {
         name = "Hope they like their new home!"
-        clear_global_variable = switch_from
-        clear_global_variable = switch_to
+        MTF = { clear_variable = switch_from }
+        MTF = { clear_variable = switch_to }
     }
 }
 
@@ -695,8 +695,8 @@ news_event = {
     is_triggered_only = yes
     option = {
         name = "Acknowledged"
-        clear_global_variable = compliance_value
-        clear_global_variable = compliance_state
+        MTF = { clear_variable = compliance_value }
+        MTF = { clear_variable = compliance_state }
     }
 }
 
@@ -710,8 +710,8 @@ news_event = {
     is_triggered_only = yes
     option = {
         name = "Acknowledged"
-        clear_global_variable = resistance_value
-        clear_global_variable = resistance_state
+        MTF = { clear_variable = resistance_value }
+        MTF = { clear_variable = resistance_state }
     }
 }
 

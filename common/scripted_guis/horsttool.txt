@@ -526,7 +526,6 @@ st_country_powers = {
 			if = { limit = { check_variable = { ROOT.target = ROOT.taker } } }
 			else = {
 				var:ROOT.target = {
-					pow_before_annex = yes
 					var:ROOT.taker = {
 						annex_country = { target = PREV transfer_troops = yes }
 						every_state = { 
@@ -636,9 +635,11 @@ st_country_powers = {
 				clear_variable = pause_blocker_variable 
 				set_variable = { var = pause_blocker_variable value = 1 } 
 			} 
-			ROOT = { clr_global_flag = blocking_pauses }
+			ROOT = { 
+				clr_global_flag = blocking_pauses
+				news_event = { id = hosttool.20 }
+			}
 			clear_variable = pause_dropdown_open
-			news_event = { id = hosttool.20 }
 		}
 
 		pause_blocker_host_click = { 
@@ -646,9 +647,11 @@ st_country_powers = {
 				clear_variable = pause_blocker_variable 
 				set_variable = { var = pause_blocker_variable value = 2 } 
 			} 
-			ROOT = { clr_global_flag = blocking_pauses }
+			ROOT = { 
+				clr_global_flag = blocking_pauses
+				news_event = { id = hosttool.20 }
+			}
 			clear_variable = pause_dropdown_open
-			news_event = { id = hosttool.20 }
 		}
 
 		pause_blocker_major_click = {
@@ -656,9 +659,11 @@ st_country_powers = {
 				clear_variable = pause_blocker_variable 
 				set_variable = { var = pause_blocker_variable value = 3 } 
 			}
-			ROOT = { clr_global_flag = blocking_pauses }
+			ROOT = { 
+				clr_global_flag = blocking_pauses
+				news_event = { id = hosttool.20 }
+			}
 			clear_variable = pause_dropdown_open
-			news_event = { id = hosttool.20 }
 		}
 		pause_blocker_unblock_country_click = {
 			owner = {
@@ -727,13 +732,9 @@ st_country_powers = {
 			toogle_mark = { frame = mark_status }
 			target_flag = {
 				image = "[?ROOT.target_country.GetFlag]"
-				frame = "[?ROOT.target_country.GetFlagFrame]"
-				visible = "[?ROOT.target_country.GetFlag]"
 			}
 			receiver_flag = {
 				image = "[?ROOT.receiver_country.GetFlag]"
-				frame = "[?ROOT.receiver_country.GetFlagFrame]"
-				visible = "[?ROOT.receiver_country.GetFlag]"
 			}
 		}
 	triggers = {
