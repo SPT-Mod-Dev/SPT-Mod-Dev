@@ -10,6 +10,8 @@
     - Cost is now 250 Political Power, adds -5% stability and no longer reduces Recruitable Manpower 
  - Made assigning traits, hiring new generals/admirals and promoting generals to field marshals cost 0 command power
  - Upgraded the host tool
+ - HQ distance rebalanced: 
+    - 3 tiles behind the frontline is now neutral — closer grants bonuses, farther grants debuffs.
 
 #### Doctrine
  - Reverted most doctrines to vanilla
@@ -48,12 +50,11 @@
 
 #### Japan
  - Removed a bunch of noob-trap focuses
- - Removed the Non-Aligned focus branch
+ - Disabled the Non-Aligned focus branch
  - Locked the 'Ministry of Colonial Affairs' focus, the 'Ichioku Isshin' focus and the focuses below 'Fund the RIKEN Institute' until March 1st 1941
  - Added a decision to annex Siam
     - Removed the occupy Siam focus
  - Added 32 oil to Kanto
- 
 
 #### Spain
  - Idea 'La Division Azul':
@@ -62,6 +63,12 @@
 
 #### Mexico
  - Nerfed a couple of industry focuses
+
+#### Bulgaria
+ - Disabled the Non-Aligned focus branch
+
+#### Brazil
+ - Disabled the Continue Centralization (Democratic Right) focus branch
 
 ### 4.2.3 ¡Hola supermercado! ¡Telebancos por aquí!
 
