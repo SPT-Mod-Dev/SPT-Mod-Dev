@@ -9,6 +9,7 @@
  - Total Mobilization is now available after January 1st 1940 and integrated Women in the Workforce into Total Mobilization:
     - Cost is now 250 Political Power, adds -5% stability and no longer reduces Recruitable Manpower 
  - Made assigning traits, hiring new generals/admirals and promoting generals to field marshals cost 0 command power
+ - Upgraded the host tool
 
 #### Doctrine
  - Reverted most doctrines to vanilla
