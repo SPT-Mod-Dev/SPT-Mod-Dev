@@ -32,6 +32,7 @@
  - Focus 'Soviet Artillery': 
     - Research Bonus: 2x 50% -> 2x 75%
     - Ahead-of-Time Penalty Reduction: 0 -> 2x 2 years
+ - Removed the 'Declaring Country is Considered Major' faction rule
 
 #### United States
  - Now begins with Greenland annexed
@@ -53,7 +54,8 @@
  - Disabled the Non-Aligned focus branch
  - Locked the 'Ministry of Colonial Affairs' focus, the 'Ichioku Isshin' focus and the focuses below 'Fund the RIKEN Institute' until March 1st 1941
  - Added a decision to annex Siam
-    - Removed the occupy Siam focus
+    - Removed the 'Occupy Siam' focus
+ - Reverted the 'Revisit the Thirteen Demands' focus to vanilla
  - Added 32 oil to Kanto
 
 #### Spain
@@ -68,7 +70,7 @@
  - Disabled the Non-Aligned focus branch
 
 #### Brazil
- - Disabled the Continue Centralization (Democratic Right) focus branch
+ - Disabled the 'Continue Centralization' (Democratic Right) focus branch
 
 ### 4.2.3 ¡Hola supermercado! ¡Telebancos por aquí!
 
