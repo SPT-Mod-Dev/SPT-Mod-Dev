@@ -1,0 +1,1303 @@
+guiTypes = {
+
+	containerWindowType = {
+		name = "pause_block_window"
+		size = { width = 200 height = 40 } 
+		position = { x=58 y =0 }
+		visible = {
+                NOT = { has_country_flag = host }
+        }  	 	
+		background = {
+			name = "Background"
+			spriteType = "GFX_tiled_window_transparent"
+		}
+	}
+	
+	containerWindowType = {
+		name = "horsttool_open_container"
+		position = { x = -505 y = 4 }
+		Orientation = UPPER_RIGHT
+		buttonType = {
+			name = "tool_open"
+			#quadTextureSprite = "GFX_generic_bg"
+			quadTextureSprite = "GFX_generic_box_96"
+			position = { x = 0 y = 0 }
+			scale=1
+			pdx_tooltip = "[ST_TOOLTIP]"
+			clicksound = click_ok
+			oversound = ui_menu_over
+		}
+		
+		instantTextboxType = {
+			name = "title"
+			position = { x = 5 y = 7 }
+			font = "hoi_18mbs"
+			text = "[transfer_states_tooltip]"
+			maxWidth = 93
+			maxHeight = 23
+			format = left
+		}
+	}
+	containerWindowType = { 
+		name = "horsttool_container"
+		position = { x = 0 y = 20 }
+		size = { width = 650 height = 650 }
+		
+		fade_time = 900
+		fade_type = linear
+		moveable = no
+		
+		background = {
+			name = "Background"
+			#spriteType = "GFX_generic_bg_307x113"
+			spriteType = "GFX_diplo_action_imp_relations_bg"
+		}
+		
+		
+		instantTextboxType = {
+			name = "Owner Title"
+			position = {x = 113 y = 15}
+			font = "hoi_36header"
+			text = "[This.Owner.GetName]"
+			maxWidth = 300
+			maxHeight = 60
+			format = centre
+		}
+		buttonType = {
+			name = "change_host_nation" 
+			position = {x=465 y=143}   
+			spriteType = "GFX_change_host_nation"
+            scale = 1
+			pdx_tooltip = "CHANGE_HOST_NATION_TT"
+			#pdx_tooltip_delayed = "CHANGE_HOST_NATION_TT_DELAYED"
+		}
+		#Add a pop up window or what ever when you click this that says
+		#"Are you sure you want to move the host tool to X nation"
+		#Also add a warning if you're moving it to an AI nation and that is irreversible unless with commands
+		#buttonType = { # Old tag switch just missing a spacer between tag and switch so its getting cut off
+		#	name = "tagswtich_host"
+		#	position = { x=55 y=252 }
+		#	spriteType = "GFX_tag_switch_button"
+		#	pdx_tooltip = "TAGSWTICH_HOST"
+		#	pdx_tooltip_delayed = "TAGSWTICH_HOST_DELAYED"
+		#	scale = 0.70
+		#}
+		buttonType = { 
+			name = "fix_production"  
+			position = {x=484 y=280}	  
+			spriteType = "GFX_topbar_production_horst_tool"
+			scale = 0.7
+            #frame = 2
+			pdx_tooltip = "FIX_PRODUCTION_TT" 
+			pdx_tooltip_delayed = "FIX_PRODUCTION_TT_DELAYED"
+		}
+		# New tag switch button between target and receiver , need a target mark and then reciver 
+		buttonType = {
+			name = "tag_switch_button"
+			position = { x=10 y=250 }
+			spriteType = "GFX_tag_switch_button"
+			pdx_tooltip = "TAGSWTICH_HOST"
+			pdx_tooltip_delayed = "TAGSWTICH_HOST_DELAYED"
+			scale = 0.8
+		}
+		buttonType = {
+			name = "observer" 
+			position = {x=58 y=250}
+			spriteType = "GFX_observer_button"
+         	pdx_tooltip = "OBSERVER"
+			pdx_tooltip_delayed = "OBSERVER_DELAYED"
+			scale = 0.8
+		}
+		buttonType = { # also uses the target and reciver system stuff
+			name = "declare_war_button"
+			position = { x = 100 y = 245 }
+			spriteType = "GFX_decision_generic_ignite_civil_war"
+			pdx_tooltip = "DECLARE_WAR"
+			pdx_tooltip_delayed = "DECLARE_WAR_DELAYED"
+			scale = 1.7
+		}
+		buttonType = {
+			name = "whitepeace"	
+			position = {x=140 y=255}
+			spriteType = "GFX_relation_truce"
+            scale = 1.5
+			pdx_tooltip = "WHITEPEACE"
+			pdx_tooltip_delayed = "WHITEPEACE_DELAYED"
+		}
+		# pause blocker from horsttool
+		iconType = {
+			name = "pause_blocker_status_icon"  # Changed from pause_blocker_shield
+			position = {x=280 y=252}
+			spriteType = "GFX_show_dismissed_alerts_icon"
+			pdx_tooltip = "pause_blocker_status_tt"
+			pdx_tooltip_delayed = "pause_blocker_status_delayed_tt"
+			scale = 0.75
+		}
+		buttonType = {
+			name = "pause_blocker_option"
+			position = {x=280 y=270}
+			spriteType = "GFX_generic_box_125"
+			pdx_tooltip = "pause_blocker_selected_tt"
+			pdx_tooltip_delayed = "pause_blocker_selected_delayed_tt"
+		}
+
+		instantTextboxType = {
+			name = "pause_blocker_option_text"
+			position = {x=280 y=274}
+			font = "hoi_18mbs"
+			text = "Current:[pause_selected]"
+			maxWidth = 380
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+		buttonType = {
+			name = "pause_blocker_major"
+			position = {x=280 y=300}
+			spriteType = "GFX_generic_box_125"
+			visible = {
+    has_variable = pause_dropdown_open
+}
+		}
+
+		instantTextboxType = {
+			name = "pause_blocker_major_text"
+			position = {x=280 y=304}
+			font = "hoi_18mbs"
+			text = "PAUSE3"
+			maxWidth = 380
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+			visible = {
+    has_variable = pause_dropdown_open
+}
+		}
+
+		buttonType = {
+			name = "pause_blocker_all"
+			position = {x=280 y=323}
+			spriteType = "GFX_generic_box_125"
+			visible = {
+    has_variable = pause_dropdown_open
+}
+		}
+
+		instantTextboxType = {
+			name = "pause_blocker_all_text"
+			position = {x=280 y=327}
+			font = "hoi_18mbs"
+			text = "PAUSE1"
+			maxWidth = 380
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+			visible = {
+    has_variable = pause_dropdown_open
+}
+		}
+
+		buttonType = {
+			name = "pause_blocker_host"
+			position = {x=280 y=345}
+			spriteType = "GFX_generic_box_125"
+			visible = {
+    has_variable = pause_dropdown_open
+}
+		}
+
+		instantTextboxType = {
+			name = "pause_blocker_host_text"
+			position = {x=280 y=349}
+			font = "hoi_18mbs"
+			text = "PAUSE2"
+			maxWidth = 380
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+			visible = {
+    has_variable = pause_dropdown_open
+}
+		}
+		buttonType = {
+			name = "pause_blocker_unblock_country"
+			position = {x=246 y=263}
+			spriteType = "GFX_checkbox_small_red"
+			pdx_tooltip = "pause_blocker_unblock_country_tt"
+			pdx_tooltip_delayed = "pause_blocker_unblock_country_delayed_tt"
+			scale = 1.1
+		}
+
+		buttonType = {
+			name = "pause_blocker_block_country"
+			position = {x=246 y=263}
+			spriteType = "GFX_checkbox_small_green"
+			pdx_tooltip = "pause_blocker_block_country_tt"
+			pdx_tooltip_delayed = "pause_blocker_block_country_delayed_tt"
+			scale = 1.1
+		}
+		containerWindowType = { #target window
+			name = "horsttool_target_window"
+			position = { x = 11   y = 300 }
+			size = { width = 100%%   height = 100%% }
+			Orientation = upper_left
+			moveable = no
+			clipping = no
+
+			background = {
+				name = "horsttool_target_bg"
+				spriteType = "GFX_generic_box_96"
+			}
+
+			instantTextBoxType = {
+				name = "horsttool_target_title_text"
+				position = { x = 9 y = 7 }
+				font = "hoi_16mbs"
+				format = left
+				text = "Target"
+				maxWidth = 100
+				maxHeight = 20
+				fixedsize = yes
+			}
+
+			instantTextBoxType = {
+				name = "horsttool_target_text"
+				position = { x = 9 y = 25 }
+				font = "hoi_16mbs"
+				format = left
+				text = "[?ROOT.target_country.GetName|None]"
+				maxWidth = 100
+				maxHeight = 20
+				fixedsize = yes
+			}
+			buttonType = {
+				name = "horsttool_target_toggle_on_button"
+				position = { x = 92 y = 0 }
+				spriteType = "GFX_toggle_off_click"
+				pdx_tooltip = "Select current country as target"
+				scale = 1.35
+			}
+
+			buttonType = {
+				name = "horsttool_target_toggle_off_button"
+				position = { x = 92  y = 0 }
+				spriteType = "GFX_toggle_on_click"  
+				pdx_tooltip = "Clear target selection"
+				scale = 1.35
+			}
+			
+			# Add flag for target country
+			iconType = {
+				name = "target_flag"
+				position = { x = 70 y = 0 }
+				quadTextureSprite = "GFX_flag_small"
+				pdx_tooltip = "TARGET_COUNTRY_FLAG"
+			}
+		}
+		containerWindowType = { #receiver window
+			name = "horsttool_receiver_window"
+			position = { x = 125 y = 300 }
+			size = { width = 100%%   height = 100%% }
+			Orientation = upper_left
+			moveable = no
+			clipping = no
+
+			background = {
+				name = "horsttool_receiver_bg"
+				spriteType = "GFX_generic_box_96"
+			}
+
+			instantTextBoxType = {
+				name = "horsttool_receiver_title_text"
+				position = { x = 9 y = 7 }
+				font = "hoi_16mbs"
+				format = left
+				text = "Receiver"
+				maxWidth = 100
+				maxHeight = 20
+				fixedsize = yes
+			}
+
+			instantTextBoxType = {
+				name = "horsttool_receiver_text"
+				position = { x = 9 y = 25 }
+				font = "hoi_16mbs"
+				format = left
+				text = "[?ROOT.receiver_country.GetName|None]"
+				maxWidth = 100
+				maxHeight = 20
+				fixedsize = yes
+			}
+
+			buttonType = {
+				name = "horsttool_receiver_toggle_on_button"
+				position = { x = 92 y = 0 }
+				spriteType = "GFX_toggle_off_click"
+				pdx_tooltip = "Select current country as receiver"
+				scale = 1.35
+			}
+			
+			buttonType = {
+				name = "horsttool_receiver_toggle_off_button"
+				position = { x = 92 y = 0 }
+				spriteType = "GFX_toggle_on_click"
+				pdx_tooltip = "Clear receiver selection"
+				scale = 1.35
+			}
+			
+			# Add flag for receiver country
+			iconType = {
+			name = "receiver_flag"
+			position = { x = 70 y = 0 }
+			quadTextureSprite = "GFX_flag_small"
+			pdx_tooltip = "RECEIVER_COUNTRY_FLAG"
+		}
+		}
+		#buttonType = { #Invision code to test stuff
+		#	name = "target_country_toggle"
+		#	position = { x = 510 y = 140 }
+		#	spriteType = "GFX_toggle_off_click"
+		#	pdx_tooltip = "SELECT_TARGET"
+		#	pdx_tooltip_delayed = "SELECT_TARGET_DELAYED"
+		#	scale = 0.70
+		#}
+		
+		#buttonType = {
+		#	name = "receiver_country_toggle"
+		#	position = { x = 510 y = 170 }
+		#	spriteType = "GFX_toggle_on_click"
+		#	pdx_tooltip = "SELECT_RECEIVER"
+		#	pdx_tooltip_delayed = "SELECT_RECEIVER_DELAYED"
+		#	scale = 0.70
+		#}
+		buttonType = {
+			name = "mill_add"	
+			position = {x=10 y=162}
+			spriteType = "GFX_horst_mill_plus"
+			pdx_tooltip = "MILADD"
+			pdx_tooltip_delayed = "MILADD_DELAYED"
+			scale = 0.95
+		}
+		buttonType = { 
+			name = "civ_add"	
+			position = {x=55 y=162}
+			spriteType = "GFX_horst_civ_plus"
+			pdx_tooltip = "CIVADD"
+			pdx_tooltip_delayed = "CIVADD_DELAYED"
+			scale = 0.95
+		}
+		#Change CIV MILL DOCK to work like the compl/res buttons - scraped loool instead make it 1+/-1 and remove the cheat for -1
+		buttonType = { 
+			name = "dock_add"	
+			position = {x=100 y=162}
+			spriteType = "GFX_horst_dock_plus"
+			pdx_tooltip = "DOCKADD"
+			pdx_tooltip_delayed = "DOCKADD_DELAYED"
+			scale = 0.95
+		}
+		buttonType = {
+			name = "mill_remove"	
+			position = {x=10 y=200}
+			spriteType = "GFX_horst_mill_remove"
+			pdx_tooltip = "MILLREMOVE"
+			pdx_tooltip_delayed = "MILLREMOVE_DELAYED"
+			scale = 0.95
+		}
+		buttonType = { 
+			name = "civ_remove"	
+			position = {x=55 y=200}
+			spriteType = "GFX_horst_civ_remove"
+			pdx_tooltip = "CIVREMOVE"
+			pdx_tooltip_delayed = "DOCKREMOVE_DELAYED"
+			scale = 0.95
+		}
+		buttonType = { 
+			name = "dock_remove"	
+			position = {x=100 y=200}
+			spriteType = "GFX_horst_dock_remove"
+			pdx_tooltip = "DOCKREMOVE"
+			pdx_tooltip_delayed = "DOCKREMOVE_DELAYED"
+			scale = 0.95
+		}
+		buttonType = { 
+			name = "wt_add"	
+			position = {x=400 y=250}
+			spriteType = "GFX_horst_increase_wt"
+			pdx_tooltip = "WTADD"
+			pdx_tooltip_delayed = "WTADD_DELAYED"
+			scale = 1
+		}
+
+		buttonType = { 
+			name = "wt_remove"	
+			position = {x=442 y=250}
+			spriteType = "GFX_horst_decrease_wt"
+			pdx_tooltip = "WTREMOVE"
+			pdx_tooltip_delayed = "WTREMOVE_DELAYED"
+			scale = 1
+		}
+
+		buttonType = {
+            name = "horsttool_helpbutton" 
+            position = {x=485 y=35}
+            spriteType = "GFX_horst_help"
+            scale = 0.7
+            pdx_tooltip = "HORST_HELP"
+            pdx_tooltip_delayed = "HOST_HELP_DELAYED"
+        }
+		buttonType = {
+			name = "add_cheat" 
+			position = {x=5 y=116}
+			spriteType = "GFX_horst_addcheat"
+            scale = 0.6
+			pdx_tooltip = "ADD_CHEAT"
+			pdx_tooltip_delayed = "ADD_CHEAT_DELAYED"
+		}
+		buttonType = {
+			name = "addpp"	
+			position = {x=50 y=112}
+			spriteType = "GFX_horst_addpp"
+            scale=1
+			pdx_tooltip = "ADDPP"
+			pdx_tooltip_delayed = "ADDPP_DELAYED"
+		}
+		buttonType = {
+			name = "addmanpower"	
+			position = {x=95 y=115}
+			spriteType = "GFX_focus_generic_manpower"
+			scale=0.58
+			pdx_tooltip = "ADDMANPOWER"
+			pdx_tooltip_delayed = "ADDMANPOWER_DELAYED"
+		}
+		# buttonType = {
+#     name = "addws"	
+#     position = {x=90 y=130}
+#     spriteType = "GFX_horst_addws"
+#     scale=0.5
+#     pdx_tooltip = "ADDWS"
+#     pdx_tooltip_delayed = "ADDWS_DELAYED"
+# }
+		# buttonType = {
+#     name = "addst"	
+#     position = {x=20 y=130}
+#     spriteType = "GFX_horst_addst"
+#     scale=0.5
+#     pdx_tooltip = "ADDST"
+#     pdx_tooltip_delayed = "ADDST_DELAYED"
+# }
+		buttonType = {
+			name = "addtungsten"	
+			position = {x=150 y=80}
+			spriteType = "GFX_tungsten"
+            scale=1.1
+			pdx_tooltip = "ADDTUNGSTEN"
+			pdx_tooltip_delayed = "ADD_TUNGSTEN_DELAYED"
+		}
+		buttonType = {
+			name = "addsteel"	
+			position = {x=180 y=80}
+			spriteType = "GFX_steel"
+            scale=1.1
+			pdx_tooltip = "ADDSTEEL"
+			pdx_tooltip_delayed = "ADD_STEEL_DELAYED"
+		}
+		buttonType = {
+			name = "addchromuim"	
+			position = {x=148 y=110}
+			spriteType = "GFX_chromuim"
+            scale=1.1
+			pdx_tooltip = "ADDCHROMUIM"
+			pdx_tooltip_delayed = "ADD_CHROMUIM_DELAYED"
+		}
+		buttonType = {
+			name = "addaluminium"	
+			position = {x=180 y=110}
+			spriteType = "GFX_aluminium"
+            scale=1.1
+			pdx_tooltip = "ADDALUMINIUM"
+			pdx_tooltip_delayed = "ADD_ALUMINIUM_DELAYED"
+		}
+		buttonType = {
+			name = "addrubber"	
+			position = {x=210 y=110}
+			spriteType = "GFX_rubber"
+            scale=1.1
+			pdx_tooltip = "ADDRUBBER"
+			pdx_tooltip_delayed = "ADD_RUBBER_DELAYED"
+		}
+		buttonType = {
+			name = "addoil"	
+			position = {x=210 y=80}
+			spriteType = "GFX_oil"
+            scale=1.1
+			pdx_tooltip = "ADDOIL"
+			pdx_tooltip_delayed = "ADD_OIL_DELAYED"
+		}
+		buttonType = {
+			name = "addcoal"	
+			position = {x=148 y=150}
+			spriteType = "GFX_coal"
+            scale=1.1
+			pdx_tooltip = "ADDCOAL"
+			pdx_tooltip_delayed = "ADD_COAL_DELAYED"
+		}
+		buttonType = {
+			name = "award_states" 
+			position = {x=218 y=210}	
+			spriteType = "GFX_global_diplorequest_icons"
+            frame = 13
+			pdx_tooltip = "TRANSFER_STATES"
+			pdx_tooltip_delayed = "TRANSFER_STATES_DELAYED"
+			scale = 1
+		}
+		buttonType = {
+			name = "annex_country" 
+			position = {x=261 y=210}	
+			spriteType = "GFX_global_diplorequest_icons"
+            frame = 2
+			pdx_tooltip = "ANNEX_COUNTRY"
+			pdx_tooltip_delayed = "ANNEX_COUNTRY_DELAYED"
+			scale = 1
+		}
+		buttonType = {
+			name = "add_cores" 
+			position = {x=305 y=210}	
+			spriteType = "GFX_global_diplorequest_icons"
+            frame = 12
+			pdx_tooltip = "ADD_CORES"
+			pdx_tooltip_delayed = "ADD_CORES_DELAYED"
+			scale = 1
+		}
+		buttonType = {
+			name = "remove_cores" 
+			position = {x=349 y=210}	
+			spriteType = "GFX_global_diplorequest_icons"
+            frame = 7
+			pdx_tooltip = "REMOVE_CORES"
+			pdx_tooltip_delayed = "REMOVE_CORES_DELAYED"
+			scale = 1
+		}
+		buttonType = {
+			name = "add_cores_to_all_cores_of_selected_nation" 
+			position = {x=392 y=210}	
+			spriteType = "GFX_global_diplorequest_icons"
+            frame = 12
+			pdx_tooltip = "ADD_CORES_TO_ALL_CORES_SELECTED_NATION"
+			pdx_tooltip_delayed = "ADD_CORES_TO_ALL_CORES_SELECTED_NATION_DELAYED"
+			scale = 1
+		}
+		buttonType = {
+			name = "puppet_country" 
+			position = {x=436 y=210}	
+			spriteType = "GFX_global_diplorequest_icons"
+            frame = 5
+			pdx_tooltip = "PUPPET_COUNTRY"
+			pdx_tooltip_delayed = "PUPPET_COUNTRY_DELAYED"
+			scale = 1
+		}
+		buttonType = {
+			name = "free_country" 
+			position = {x=480 y=210}	
+			spriteType = "GFX_global_diplorequest_icons"
+            frame = 1
+			pdx_tooltip = "FREE_COUNTRY"
+			pdx_tooltip_delayed = "FREE_COUNTRY_DELAYED"
+			scale = 1
+		}
+		# War Support controls (similar layout to compliance)
+		buttonType = {
+			name = "ws_sub_5"
+			position = {x=375 y=143}
+			spriteType = "GFX_sub_5_button"
+			scale = 1
+			pdx_tooltip = "WS_SUB_5_TT"
+		}
+		buttonType = {
+			name = "ws_add_5"
+			position = {x=430 y=143}
+			spriteType = "GFX_add_5_button"
+			scale = 1
+			pdx_tooltip = "WS_ADD_5_TT"
+		}
+		buttonType = {
+			name = "ws_set_icon" 
+			position = { x=398 y=143 }
+			spriteType = "GFX_horst_addws"
+			pdx_tooltip = "WS_ICON_TT"
+			scale = 0.5
+		}
+
+		# Stability controls (below war support)
+		buttonType = {
+			name = "st_sub_5"
+			position = {x=375 y=173}
+			spriteType = "GFX_sub_5_button"
+			scale = 1
+			pdx_tooltip = "ST_SUB_5_TT"
+		}
+		buttonType = {
+			name = "st_add_5"
+			position = {x=430 y=173}
+			spriteType = "GFX_add_5_button"
+			scale = 1
+			pdx_tooltip = "ST_ADD_5_TT"
+		}
+		buttonType = {
+			name = "st_set_icon" 
+			position = { x=398 y=173 }
+			spriteType = "GFX_horst_addst"
+			pdx_tooltip = "ST_ICON_TT"
+			scale = 0.5
+		}
+		buttonType = {
+			name = "compliance_negative" 
+			position = {x=280 y=143}
+			spriteType = "GFX_subtract_10"
+			scale = 0.9
+			pdx_tooltip = "COMP_DECREASE" 
+		}
+		buttonType = {
+			name = "compliance_positive" 
+			position = {x=325 y=143}
+			spriteType = "GFX_add_10"
+			scale = 0.9
+			pdx_tooltip = "COMP_INCREASE" 
+		}
+		instantTextboxType = {
+			name = "compliance_number"  
+			position = {x=292 y=143}
+			Orientation = "Centre" 
+			font = "hoi_20b"
+			text = "2[?ROOT.compl]"
+			maxWidth = 40
+			maxHeight = 23
+			format = centre
+			pdx_tooltip = "COMP_AMOUNT_COMP"
+		}
+		buttonType = {
+			name = "compliance_set_one" 
+			position = { x=253 y=143 }
+			spriteType = "GFX_compliance_icon"
+			pdx_tooltip = "COMP_SET"
+			scale = 0.9
+		}
+		buttonType = {
+			name = "resistance_negative" 
+			position = {x=280 y=173}
+			spriteType = "GFX_subtract_10"
+			scale = 0.9
+			pdx_tooltip = "REST_DECREASE" 
+		}
+		buttonType = {
+			name = "resistance_positive" 
+			position = {x=325 y=173}
+			spriteType = "GFX_add_10"
+			scale = 0.9
+			pdx_tooltip = "REST_INCREASE" 
+		}
+		instantTextboxType = {
+			name = "resistance_number"  
+			position = {x=292 y=173}
+			Orientation = "Centre" 
+			font = "hoi_20b"
+			text = "R[?ROOT.rest]"
+			maxWidth = 40
+			maxHeight = 23
+			format = centre
+			pdx_tooltip = "REST_AMOUNT_REST"
+		}
+		buttonType = {
+			name = "resistance_set_one" 
+			position = { x=253 y=173 }
+			spriteType = "GFX_resistance_icon"
+			pdx_tooltip = "REST_SET"
+			scale = 0.9
+		}
+		buttonType = {
+			name = "building_drop_menu" 
+			position = { x=180 y=150 }
+			spriteType = "GFX_state_constructions"
+			pdx_tooltip = "BUILDING_MENU"
+			pdx_tooltip_delayed = "BUILDING_MENU_DELAYED"
+			scale = 1.5
+		}
+		buttonType = {
+			name = "cheat1"
+			position = {x=20 y=90}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat2"
+			position = {x=20 y=116}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat3"
+			position = {x=20 y=142}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat4"
+			position = {x=20 y=168}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat5"
+			position = {x=20 y=194}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat6"
+			position = {x=20 y=220}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat7"
+			position = {x=20 y=246}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat8"
+			position = {x=20 y=272}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat9"
+			position = {x=20 y=298}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat10"
+			position = {x=20 y=324}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat11"
+			position = {x=20 y=350}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat12"
+			position = {x=20 y=376}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat13"
+			position = {x=20 y=402}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat14"
+			position = {x=20 y=428}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat15"
+			position = {x=160 y=90}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat16"
+			position = {x=160 y=116}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat17"
+			position = {x=160 y=142}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat18"
+			position = {x=160 y=168}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat19"
+			position = {x=160 y=194}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat20"
+			position = {x=160 y=220}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat21"
+			position = {x=160 y=246}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat22"
+			position = {x=160 y=272}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat23"
+			position = {x=160 y=298}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat24"
+			position = {x=160 y=324}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat25"
+			position = {x=160 y=350}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat26"
+			position = {x=160 y=376}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat27"
+			position = {x=160 y=402}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat28"
+			position = {x=160 y=428}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat29"
+			position = {x=300 y=90}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat30"
+			position = {x=300 y=116}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat31"
+			position = {x=300 y=142}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat32"
+			position = {x=300 y=168}
+			spriteType = "GFX_generic_box_125"
+		}
+		buttonType = {
+			name = "cheat33"
+			position = {x=300 y=194}
+			spriteType = "GFX_generic_box_125"
+		}
+		instantTextboxType = {
+			name = "cheat1_text"
+			position = {x=25 y=95}
+			font = "hoi_18mbs"
+			text = "[cheat_selected]"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat2_text"
+			position = {x=25 y=121}
+			font = "hoi_18mbs"
+			text = "CHEAT2"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat3_text"
+			position = {x=25 y=147}
+			font = "hoi_18mbs"
+			text = "CHEAT3"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat4_text"
+			position = {x=25 y=173}
+			font = "hoi_18mbs"
+			text = "CHEAT4"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat5_text"
+			position = {x=25 y=199}
+			font = "hoi_18mbs"
+			text = "CHEAT5"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat6_text"
+			position = {x=25 y=225}
+			font = "hoi_18mbs"
+			text = "CHEAT6"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat7_text"
+			position = {x=25 y=251}
+			font = "hoi_18mbs"
+			text = "CHEAT7"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat8_text"
+			position = {x=25 y=277}
+			font = "hoi_18mbs"
+			text = "CHEAT8"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat9_text"
+			position = {x=25 y=303}
+			font = "hoi_18mbs"
+			text = "CHEAT9"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat10_text"
+			position = {x=25 y=329}
+			font = "hoi_18mbs"
+			text = "CHEAT10"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat11_text"
+			position = {x=25 y=355}
+			font = "hoi_18mbs"
+			text = "CHEAT11"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat12_text"
+			position = {x=25 y=381}
+			font = "hoi_18mbs"
+			text = "CHEAT12"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat13_text"
+			position = {x=25 y=407}
+			font = "hoi_18mbs"
+			text = "CHEAT13"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat14_text"
+			position = {x=25 y=433}
+			font = "hoi_18mbs"
+			text = "CHEAT14"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+		instantTextboxType = {
+			name = "cheat15_text"
+			position = {x=165 y=95}
+			font = "hoi_18mbs"
+			text = "CHEAT15"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat16_text"
+			position = {x=165 y=121}
+			font = "hoi_18mbs"
+			text = "CHEAT16"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat17_text"
+			position = {x=165 y=147}
+			font = "hoi_18mbs"
+			text = "CHEAT17"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat18_text"
+			position = {x=165 y=173}
+			font = "hoi_18mbs"
+			text = "CHEAT18"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat19_text"
+			position = {x=165 y=199}
+			font = "hoi_18mbs"
+			text = "CHEAT19"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat20_text"
+			position = {x=165 y=225}
+			font = "hoi_18mbs"
+			text = "CHEAT20"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat21_text"
+			position = {x=165 y=251}
+			font = "hoi_18mbs"
+			text = "CHEAT21"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat22_text"
+			position = {x=165 y=277}
+			font = "hoi_18mbs"
+			text = "CHEAT22"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat23_text"
+			position = {x=165 y=303}
+			font = "hoi_18mbs"
+			text = "CHEAT23"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat24_text"
+			position = {x=165 y=329}
+			font = "hoi_18mbs"
+			text = "CHEAT24"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat25_text"
+			position = {x=165 y=355}
+			font = "hoi_18mbs"
+			text = "CHEAT25"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat26_text"
+			position = {x=165 y=381}
+			font = "hoi_18mbs"
+			text = "CHEAT26"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat27_text"
+			position = {x=165 y=407}
+			font = "hoi_18mbs"
+			text = "CHEAT27"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat28_text"
+			position = {x=165 y=433}
+			font = "hoi_18mbs"
+			text = "CHEAT28"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat29_text"
+			position = {x=305 y=95}
+			font = "hoi_18mbs"
+			text = "CHEAT29"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat30_text"
+			position = {x=305 y=121}
+			font = "hoi_18mbs"
+			text = "CHEAT30"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat31_text"
+			position = {x=305 y=147}
+			font = "hoi_18mbs"
+			text = "CHEAT31"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat32_text"
+			position = {x=305 y=173}
+			font = "hoi_18mbs"
+			text = "CHEAT32"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextboxType = {
+			name = "cheat33_text"
+			position = {x=305 y=199}
+			font = "hoi_18mbs"
+			text = "CHEAT33"
+			maxWidth = 340
+			maxHeight = 23
+			format = left
+			alwaystransparent = yes
+		}
+
+		buttonType = {
+			name = "toogle_mark" 
+			position = {x=203 y=35}
+			spriteType = "GFX_button_123x34"
+			frame = 0
+			pdx_tooltip = "ST_STATE_MARK_FOR_TRANSFER"
+		}
+		
+####################################################################
+		containerWindowType = {
+		name = "st_state_manager_powers_container"
+		position = {x=250 y=70}
+		size = { width=400 height=300}
+
+		fade_time = 300
+		fade_type = linear 
+		moveable = no 
+		
+		background = {
+			name = "Background" 
+			spriteType = "GFX_st_background"
+		}
+
+		instantTextboxType = {
+			name = "title"  
+			position = {x=0 y=6}
+			Orientation = "Centre" 
+			font = "hoi_24header"
+			text = "[This.GetName]"
+			maxWidth = 250
+			maxHeight = 23
+			format = centre
+		}
+		buttonType = {
+			name = "toogle_mark" 
+			position = {x=40 y=35}
+			text = "Mark"
+			font = "hoi_24header"
+			spriteType = "GFX_sort_button_100x29"
+			pdx_tooltip = "ST_STATE_MARK_FOR_TRANSFER"
+		}
+		buttonType = {
+			name = "clear_all_markings" 
+			position = {x=180 y=30}
+			spriteType = "GFX_global_alert_icons"
+            frame = 38
+			pdx_tooltip = "CLEAR_ALL_MARKINGS"
+			pdx_tooltip_delayed = "CLEAR_ALL_MARKINGS_DELAYED"
+			scale = 0.85
+		}
+	}
+	}
+}

@@ -1,0 +1,952 @@
+scripted_gui = {
+
+	pause_is_blocked = {
+		context_type = player_context
+		window_name = "pause_block_window"
+		parent_window_name = time_control_window
+		visible = {
+			OR ={ 
+				AND = { MTF = { check_variable = { pause_blocker_variable = 2 } } NOT = { has_country_flag = host } }
+				AND = { MTF = { check_variable = { pause_blocker_variable = 3 } } NOT = { is_major = yes } } #COME BACK TO THIS WHEN YOU FIX THE MAP
+				AND = { check_variable = { pause_blocker_variable = 4 } NOT = { has_country_flag = host } }
+			}
+		}
+	}
+
+
+st_country_powers = {	
+	context_type = selected_state_context	
+	window_name = "horsttool_container"	
+	visible = {
+		ROOT = {
+			has_country_flag = host
+			has_country_flag = transfer_enabled
+		}
+	}	
+	effects = {
+		horsttool_helpbutton_click = {
+			ROOT = {
+				country_event = { id = hosttool.999 }
+			}
+    	}
+		tagswtich_host_click = {
+			if = {
+                limit = { 
+                    check_variable = { target_switch_var = 0 }
+                }
+                owner = {
+                    ROOT = { set_variable = { target_switch_var = PREV } }
+                }
+            }
+            else = {
+                every_country = {
+                    limit = { is_ai = no }
+                    change_tag_from = ROOT.target_switch_var
+                }
+                clear_variable = target_switch_var
+            }
+			clear_variable = target_country
+    		clear_variable = receiver_country
+		}
+		
+		observer_click = { 
+			owner = {
+					set_temp_variable = { ROOT.marks = this}
+					SOL = {change_tag_from =var:marks}
+					news_event = { id = hosttool.30 }
+			}
+		}
+
+		change_host_nation_click = {
+			owner = {
+				ROOT = { set_variable = { temp_new_host = PREV } }
+			}
+			ROOT = {
+				country_event = { id = hosttool.1000 }
+			}
+		}
+		
+		whitepeace_click  = {
+			owner = {
+				set_temp_variable = { ROOT.marks = this}
+				var:marks = {
+					declare_war_on = { target = VEN type = annex_everything }
+					every_enemy_country = { white_peace = PREV }
+				}
+			}
+		}
+		horsttool_target_toggle_on_button_click = {
+			if = {
+				limit = { 
+					check_variable = { ROOT.target_country = 0 }
+					# Prevent setting same country as both target and receiver
+					OR = {
+						check_variable = { ROOT.receiver_country = 0 }
+						NOT = { check_variable = { ROOT.receiver_country = OWNER } }
+					}
+				}
+				owner = {
+					ROOT = { set_variable = { target_country = PREV } }
+				}
+			}
+		}
+
+		horsttool_target_toggle_off_button_click = {
+			clear_variable = target_country
+		}
+
+		horsttool_receiver_toggle_on_button_click = {
+			if = {
+				limit = { 
+					check_variable = { ROOT.receiver_country = 0 }
+					# Prevent setting same country as both target and receiver
+					OR = {
+						check_variable = { ROOT.target_country = 0 }
+						NOT = { check_variable = { ROOT.target_country = OWNER } }
+					}
+				}
+				owner = {
+					ROOT = { set_variable = { receiver_country = PREV } }
+				}
+			}
+		}
+
+		horsttool_receiver_toggle_off_button_click = {
+			clear_variable = receiver_country
+		}
+		# Target country selection
+		target_country_toggle_click = {
+			if = {
+				limit = { check_variable = { ROOT.target_country = 0 } }
+				owner = {
+					ROOT = { set_variable = { target_country = PREV } }
+				}
+			}
+			else = {
+				clear_variable = target_country
+			}
+		}
+
+		# Receiver country selection
+		receiver_country_toggle_click = {
+			if = {
+				limit = { check_variable = { ROOT.receiver_country = 0 } }
+				owner = {
+					ROOT = { set_variable = { receiver_country = PREV } }
+				}
+			}
+			else = {
+				clear_variable = receiver_country
+			}
+		}
+		# Tag switch between target and receiver
+		tag_switch_button_click = {
+                if = {
+                    limit = { 
+                        NOT = { check_variable = { ROOT.target_country = 0 } }
+                        NOT = { check_variable = { ROOT.receiver_country = 0 } }
+                        var:ROOT.target_country = { is_ai = no }
+                        NOT = { check_variable = { ROOT.target_country = ROOT.receiver_country } }
+                    }
+                    var:ROOT.receiver_country = { change_tag_from = var:ROOT.target_country }
+                    clear_variable = ROOT.target_country
+                    clear_variable = ROOT.receiver_country
+                }
+        }
+
+		#Declaring war on le countries clicke
+		declare_war_button_click = {
+			if = {
+				limit = {
+					NOT = { check_variable = { ROOT.target_country = 0 } }
+					NOT = { check_variable = { ROOT.receiver_country = 0 } }
+					NOT = { var:ROOT.target_country = { has_war_with = var:ROOT.receiver_country } }
+					NOT = { check_variable = { ROOT.target_country = ROOT.receiver_country } }
+				}
+				var:ROOT.target_country = {
+					declare_war_on = {
+						target = var:ROOT.receiver_country
+						type = annex_everything
+					}
+				}
+				# Clear variables to reset flags
+				clear_variable = ROOT.target_country
+				clear_variable = ROOT.receiver_country
+			}
+			
+		}
+		addpp_click = {
+			owner={
+				set_temp_variable = { ROOT.marks = this}
+				var:marks = { add_political_power = 50 news_event = { id = hosttool.4 } }
+			}
+		}
+		addws_click = {
+			owner={
+				set_temp_variable = { ROOT.marks = this}
+				var:marks = { add_war_support = 0.1 news_event = { id = hosttool.10 } }
+			}
+		}
+		addst_click = {
+			owner={
+				set_temp_variable = { ROOT.marks = this}
+				var:marks = { add_stability = 0.1 news_event = { id = hosttool.11 } }
+			}
+		}
+		addsteel_click = {
+			owner={
+				set_temp_variable = { ROOT.marks = this}
+				var:marks = {
+					capital_scope = {
+						add_resource = { type = steel amount = 5 }
+					}
+					news_event = { id =  hosttool.12 }
+				}
+			}
+		}
+
+		addtungsten_click = {
+			owner={
+				set_temp_variable = { ROOT.marks = this}
+				var:marks = {
+					capital_scope = {
+						add_resource = { type = tungsten amount = 5 }
+					}
+					news_event = { id =  hosttool.13 }
+				}
+			}
+		}
+		addchromuim_click = {
+			owner={
+				set_temp_variable = { ROOT.marks = this}
+				var:marks = {
+					capital_scope = {
+						add_resource = { type = chromium amount = 5 }
+					}
+					news_event = { id = hosttool.16 }
+				}
+			}
+		}
+		addaluminium_click = {
+			owner={
+				set_temp_variable = { ROOT.marks = this}
+				var:marks = {
+					capital_scope = {
+						add_resource = { type = aluminium amount = 5 }
+					}
+					news_event = { id =  hosttool.14 }
+				}
+			}
+		}
+		addoil_click = {
+			owner={
+				set_temp_variable = { ROOT.marks = this}
+				var:marks = {
+					capital_scope = {
+						add_resource = { type = oil amount = 5 }
+					}
+					news_event = { id =  hosttool.15 }
+				}
+			}
+		}
+		addrubber_click = {
+			owner={
+				set_temp_variable = { ROOT.marks = this}
+				var:marks = {
+					capital_scope = {
+						add_resource = { type = rubber amount = 5 }
+					}
+					news_event = { id =  hosttool.17 } 
+				}
+			}
+		}
+		addcoal_click = {
+			owner={
+				set_temp_variable = { ROOT.marks = this}
+				var:marks = {
+					capital_scope = {
+						add_resource = { type = coal amount = 5 }
+					}
+					#news_event = { id =  hosttool.17 } 
+				}
+			}
+		}
+		addmanpower_click = {
+			owner = {
+				set_temp_variable = { ROOT.marks = this }
+				var:marks = { 
+					add_manpower = 25000 
+					news_event = { id =  hosttool.27 } 
+				}
+			}
+		}
+		clear_all_markings_click = {
+			ROOT = {
+				for_each_scope_loop = {
+					array = marked_states
+					clear_variable = mark_status
+				}
+				clear_array = marked_states
+				clear_variable = target_country
+				clear_variable = receiver_country
+				#if = {
+				#	limit = { 
+				#		check_variable = { target_switch_var = 0 }
+				#	}
+				#	owner = {
+				#		ROOT = { set_variable = { target_switch_var = PREV } }
+				#	}
+				#}
+				#else = {
+				#	every_country = {
+				#		limit = { is_ai = no }
+				#		change_tag_from = ROOT.target_switch_var
+				#	}
+				#	clear_variable = target_switch_var
+				#}
+				clear_variable = selected_cheat
+				clr_country_flag = cheating
+				every_country = {
+					clear_variable = pause_blocker_variable
+				}
+				
+				MTF = { 
+					clear_variable = pause_blocker_variable 
+					set_variable = { var = pause_blocker_variable value = 1 } 
+				}
+				if = {
+					limit = { has_variable = pause_dropdown_open }
+					clear_variable = pause_dropdown_open
+				}
+				# Notification
+				#news_event = { id = horsttool.clear }
+			}
+		}
+	
+		add_cores_click = {
+			owner = {
+				set_temp_variable = { ROOT.taker = this }
+				for_each_loop = {
+					array = ROOT.marked_states
+					value = state
+					var:state = { add_core_of = var:taker }
+				}
+				ROOT = {
+					for_each_scope_loop = {
+						array = marked_states
+						clear_variable = mark_status
+					}
+					clear_array = marked_states
+					clear_variable = first_marked_state
+				}
+			}
+		}
+
+		remove_cores_click = {
+			for_each_loop = {
+				array = ROOT.marked_states
+				value = state
+				var:state = { 
+					set_temp_variable = { state_owner = owner }
+					remove_core_of = var:state_owner
+				}
+			}
+			ROOT = {
+				for_each_scope_loop = {
+					array = marked_states
+					clear_variable = mark_status
+				}
+				clear_array = marked_states
+				clear_variable = first_marked_state
+			}
+		}
+
+		add_cores_to_all_cores_of_selected_nation_click = {			
+			owner = { set_variable = { ROOT.taker = this } }
+			var:ROOT.marked_states^0 = { owner = { set_variable = { ROOT.target = this } } }
+			if = { limit = { check_variable = { ROOT.target = ROOT.taker } } }
+			else={
+				var:ROOT.target = {
+					var:ROOT.taker = {
+						#every_state = { limit = { is_core_of = var:ROOT.target} add_core_of = var:ROOT.taker}
+							every_state = { limit = { is_core_of = var:ROOT.target } add_core_of = var:ROOT.taker }
+						}
+					}
+				}
+				
+			ROOT = {
+				for_each_scope_loop = {
+					array = marked_states
+					clear_variable = mark_status
+				}
+				clear_array = marked_states
+				clear_variable = target
+				clear_variable = taker
+				clear_variable = first_marked_state
+			}
+		}
+
+
+		fix_production_click = { owner = { news_event = { id = horsttool.3 } add_timed_idea = { idea = fix_production_idea days = 1 } } }
+
+		award_states_click = {
+			owner = {
+				for_each_loop = {
+					array = ROOT.marked_states
+					value = state
+					transfer_state = state
+				}
+				for_each_loop = {
+					array = ROOT.marked_states
+					value = state
+					var:state = {add_core_of = var:taker}
+				}
+				ROOT = {
+					for_each_scope_loop = {
+						array = marked_states
+						clear_variable = mark_status
+					}
+					clear_array = marked_states
+				}
+			}
+		}
+		compliance_negative_click = { 
+			add_to_variable = { ROOT.compl = -10 }
+			# Cap at -100
+			if = {
+				limit = { check_variable = { ROOT.compl < -100 } }
+				set_variable = { ROOT.compl = -100 }
+			}
+    	}
+		compliance_positive_click = { 
+			add_to_variable = { ROOT.compl = 10 }
+			# Cap at +100
+			if = {
+				limit = { check_variable = { ROOT.compl > 100 } }
+				set_variable = { ROOT.compl = 100 }
+			}
+    	}
+		
+		resistance_negative_click = { 
+			add_to_variable = { ROOT.rest = -10 }
+			# Cap at -100
+			if = {
+				limit = { check_variable = { ROOT.rest < -100 } }
+				set_variable = { ROOT.rest = -100 }
+			}
+    	}
+		resistance_positive_click = { 
+			add_to_variable = { ROOT.rest = 10 }
+			# Cap at +100
+			if = {
+				limit = { check_variable = { ROOT.rest > 100 } }
+				set_variable = { ROOT.rest = 100 }
+			}
+   	 	}
+		ws_sub_5_click = {
+			owner = {
+				add_war_support = -0.05
+				ROOT = { country_event = { id = hosttool.51 } }
+			}
+		}
+		
+		ws_add_5_click = {
+			owner = {
+				add_war_support = 0.05
+				ROOT = { country_event = { id = hosttool.50 } }
+			}
+		}
+
+		st_sub_5_click = {
+			owner = {
+				add_stability = -0.05
+			}
+		}
+		
+		st_add_5_click = {
+			owner = {
+				add_stability = 0.05
+			}
+		}
+		compliance_set_one_click = {
+			set_compliance = ROOT.compl				
+		}
+		resistance_set_one_click = {
+			set_resistance = ROOT.rest			
+		}
+		add_cheat_click = {
+			set_variable = { ROOT.taker = this}
+			var:taker = {
+				owner = { set_variable = { Root.target_country = this }
+					if = { limit= { check_variable = { Root.selected_cheat = 1 } } generic_bonus_1 = yes }
+					if = { limit= { check_variable = { Root.selected_cheat = 2 } } generic_bonus_3 = yes }
+					if = { limit= { check_variable = { Root.selected_cheat = 3 } } generic_bonus_2y = yes }
+					if = { limit= { check_variable = { Root.selected_cheat = 4 } } generic_bonus_999 = yes }
+					if = { limit = { check_variable = { Root.selected_cheat = 5 } } add_tech_bonus = { name=armor_bonus bonus = 1 uses = 1 category = armor } }
+					if = { limit = { check_variable = { Root.selected_cheat = 6 } } add_tech_bonus = { name=armor_bonus ahead_reduction = 2 uses = 1 category = armor } }
+					if = { limit = { check_variable = { Root.selected_cheat = 7 } } add_tech_bonus = { name=air_equipment bonus = 1 uses = 1 category = air_equipment } }
+					if = { limit = { check_variable = { Root.selected_cheat = 8 } } add_tech_bonus = { name=industry_bonus bonus = 1 uses = 1 category = industry } }
+					if = { limit = { check_variable = { Root.selected_cheat = 9 } } scoped_sound_effect = "earrape_sound_effect" }
+					if = { limit = { check_variable = { Root.selected_cheat = 10 } } army_experience = 50 }
+					if = { limit = { check_variable = { Root.selected_cheat = 11 } } air_experience = 50 }
+					if = { limit = { check_variable = { Root.selected_cheat = 12 } } navy_experience = 50 }
+					if = { limit = { check_variable = { Root.selected_cheat = 13 } } scoped_sound_effect = "schizophrenic_meltdown_sound_effect" }
+					if = { limit = { check_variable = { Root.selected_cheat = 14 } } add_command_power = 25 }
+					if = { limit = { check_variable = { Root.selected_cheat = 15 } } armor_bonus_50 = yes }
+					if = { limit = { check_variable = { Root.selected_cheat = 16 } } armor_bonus_999 = yes }
+					if = { limit = { check_variable = { Root.selected_cheat = 17 } } armor_bonus_1y = yes }
+					if = { limit = { check_variable = { Root.selected_cheat = 18 } } air_bonus_50 = yes }
+					if = { limit = { check_variable = { Root.selected_cheat = 19 } } air_bonus_1y = yes }
+					if = { limit = { check_variable = { Root.selected_cheat = 20 } } air_bonus_2y = yes }
+					if = { limit = { check_variable = { Root.selected_cheat = 21 } } air_bonus_999 = yes }
+					if = { limit = { check_variable = { Root.selected_cheat = 22 } } industry_bonus_50 = yes }
+					if = { limit = { check_variable = { Root.selected_cheat = 23 } } industry_bonus_1y = yes }
+					if = { limit = { check_variable = { Root.selected_cheat = 24 } } industry_bonus_2y = yes }
+					if = { limit = { check_variable = { Root.selected_cheat = 25 } } industry_bonus_999 = yes }
+					if = { limit = { check_variable = { Root.selected_cheat = 26 } } naval_bonus_50 = yes }
+					if = { limit = { check_variable = { Root.selected_cheat = 27 } } naval_bonus_100 = yes }
+					if = { limit = { check_variable = { Root.selected_cheat = 28 } } naval_bonus_999 = yes }
+					if = { limit = { check_variable = { Root.selected_cheat = 29 } } naval_bonus_1y = yes }
+					if = { limit = { check_variable = { Root.selected_cheat = 30 } } naval_bonus_2y = yes }
+					if = { limit = { check_variable = { Root.selected_cheat = 31 } } add_equipment_to_stockpile = { type = convoy_1 amount = 100 } }
+					if = { limit = { check_variable = { Root.selected_cheat = 32 } } add_fuel = 50000 }
+					if = { limit = { check_variable = { Root.selected_cheat = 33 } } add_mastery = { amount = 50 } }
+				}	
+			}
+			GER={
+				set_variable = { this.target_country = Root.target_country }
+				set_variable = { this.selected_cheat = Root.selected_cheat }
+				news_event = { id = horsttool.1}
+			}
+			clear_variable = ROOT.taker
+		}
+		annex_country_click = {
+			owner = { set_variable = { ROOT.taker = this } }
+			var:ROOT.marked_states^0 = { owner = { set_variable = { ROOT.target = this } } }
+			if = { limit = { check_variable = { ROOT.target = ROOT.taker } } }
+			else = {
+				var:ROOT.target = {
+					pow_before_annex = yes
+					var:ROOT.taker = {
+						annex_country = { target = PREV transfer_troops = yes }
+						every_state = { 
+							limit = { 
+								is_owned_by = var:ROOT.taker 
+								is_core_of = var:ROOT.target
+							}
+							add_compliance = 80
+						}
+					}
+				}
+			}
+			
+			ROOT = {
+				for_each_scope_loop = {
+					array = marked_states
+					clear_variable = mark_status
+				}
+				clear_array = marked_states
+				clear_variable = target
+				clear_variable = taker
+				clear_variable = first_marked_state
+			}
+		}
+		puppet_country_click = {
+			owner = {
+				set_variable = { ROOT.taker = this }
+			}
+			var:ROOT.marked_states^0 = { owner = { set_variable = { ROOT.target = this } } }
+			if ={ 
+				limit = { check_variable = { ROOT.target = ROOT.taker } }
+			}
+			else={
+				var:ROOT.target = {
+					var:ROOT.taker = {
+						puppet = PREV
+					}
+				}
+			}
+
+			ROOT = {
+				for_each_scope_loop = {
+					array = marked_states
+					clear_variable = mark_status
+				}
+				clear_array = marked_states
+				clear_variable = target
+				clear_variable = taker
+				clear_variable = first_marked_state
+			}
+
+		}
+
+		free_country_click = { 
+			owner = {
+				set_country_flag = puppetee
+				OVERLORD = {
+					set_temp_variable = { ROOT.puppeteer = this}
+				}
+			}
+				every_country = {
+					limit = { has_country_flag = puppetee }
+						var:puppeteer = {
+							set_autonomy = {
+								target = PREV
+								autonomy_state = autonomy_free
+							}
+						}
+					clr_country_flag = puppetee
+				}
+		}
+		
+		toogle_mark_click = {
+			if = {
+				limit = { check_variable = { mark_status = 0 } }
+				set_variable = { mark_status = 2 }
+				add_to_array = { ROOT.marked_states = THIS }
+			}
+			else = {
+				clear_variable = mark_status
+				remove_from_array = { ROOT.marked_states = THIS }
+			}
+			set_variable = { ROOT.first_marked_state = ROOT.marked_states^0 }
+		}				
+		mill_add_click = { owner = { news_event = { id = hosttool.2 days = 0} add_offsite_building = { type = arms_factory level = 1 }	} }
+		civ_add_click = { owner = { news_event = { id = hosttool.3 days = 0} add_offsite_building = { type = industrial_complex level = 1 } } }
+		dock_add_click = { owner = { news_event = { id =  hosttool.23 days = 0} add_offsite_building = { type = dockyard level = 1 }	} }
+		#The evil version
+		mill_remove_click = { owner = { news_event = { id = hosttool.25 days = 0} add_offsite_building = { type = arms_factory level = -1 }	} }
+		civ_remove_click = { owner = { news_event = { id = hosttool.26 days = 0} add_offsite_building = { type = industrial_complex level = -1 } } }
+		dock_remove_click = { owner = { news_event = { id = hosttool.24 days = 0} add_offsite_building = { type = dockyard level = -1 }	} }
+		building_drop_menu_click = {
+			
+		}
+		pause_blocker_option_click = {
+			if = {
+				limit = { NOT = { has_variable = pause_dropdown_open } }
+				set_variable = { pause_dropdown_open = 1 }
+			}
+			else = {
+				clear_variable = pause_dropdown_open
+			}
+		}
+
+		pause_blocker_all_click = { 
+			MTF = { 
+				clear_variable = pause_blocker_variable 
+				set_variable = { var = pause_blocker_variable value = 1 } 
+			} 
+			ROOT = { clr_global_flag = blocking_pauses }
+			clear_variable = pause_dropdown_open
+			news_event = { id = hosttool.20 }
+		}
+
+		pause_blocker_host_click = { 
+			MTF = { 
+				clear_variable = pause_blocker_variable 
+				set_variable = { var = pause_blocker_variable value = 2 } 
+			} 
+			ROOT = { clr_global_flag = blocking_pauses }
+			clear_variable = pause_dropdown_open
+			news_event = { id = hosttool.20 }
+		}
+
+		pause_blocker_major_click = {
+			MTF = { 
+				clear_variable = pause_blocker_variable 
+				set_variable = { var = pause_blocker_variable value = 3 } 
+			}
+			ROOT = { clr_global_flag = blocking_pauses }
+			clear_variable = pause_dropdown_open
+			news_event = { id = hosttool.20 }
+		}
+		pause_blocker_unblock_country_click = {
+			owner = {
+				set_temp_variable = { ROOT.marks = this }
+				var:marks = {
+					clear_variable = pause_blocker_variable
+				}
+			}
+		}
+		pause_blocker_block_country_click = {
+			owner = {
+				set_temp_variable = { ROOT.marks = this }
+				var:marks = {
+					set_variable = { pause_blocker_variable = 4 }
+				}
+			}
+		}
+		wt_add_click = { 
+			MTF = { add_threat = 1 } 
+			owner={
+				news_event = { id =  hosttool.29 } 
+			}
+		}
+		wt_remove_click = { 
+			MTF = { add_threat = -1 } 
+			owner={
+				news_event = { id =  hosttool.28 } 
+			} 
+		}
+
+		cheat1_click = { if = { limit = { Root = { has_country_flag = cheating } } set_variable = { Root.selected_cheat = 1 } ROOT = { clr_country_flag = cheating } } else = { ROOT = { set_country_flag = cheating } } }
+		cheat2_click = { set_variable = { Root.selected_cheat = 2 } ROOT = { clr_country_flag = cheating } }
+		cheat3_click = { set_variable = { Root.selected_cheat = 3 } ROOT = { clr_country_flag = cheating } }
+		cheat4_click = { set_variable = { Root.selected_cheat = 4 } ROOT = { clr_country_flag = cheating } }
+		cheat5_click = { set_variable = { Root.selected_cheat = 5 } ROOT = { clr_country_flag = cheating } }
+		cheat6_click = { set_variable = { Root.selected_cheat = 6 } ROOT = { clr_country_flag = cheating } }
+		cheat7_click = { set_variable = { Root.selected_cheat = 7 } ROOT = { clr_country_flag = cheating } }
+		cheat8_click = { set_variable = { Root.selected_cheat = 8 } ROOT = { clr_country_flag = cheating } }
+		cheat9_click = { set_variable = { Root.selected_cheat = 9 } ROOT = { clr_country_flag = cheating } }
+		cheat10_click = { set_variable = { Root.selected_cheat = 10 } ROOT = { clr_country_flag = cheating } }
+		cheat11_click = { set_variable = { Root.selected_cheat = 11 } ROOT = { clr_country_flag = cheating } }
+		cheat12_click = { set_variable = { Root.selected_cheat = 12 } ROOT = { clr_country_flag = cheating } }
+		cheat13_click = { set_variable = { Root.selected_cheat = 13 } ROOT = { clr_country_flag = cheating } }
+		cheat14_click = { set_variable = { Root.selected_cheat = 14 } ROOT = { clr_country_flag = cheating } }
+		cheat15_click = { set_variable = { Root.selected_cheat = 15 } ROOT = { clr_country_flag = cheating } }
+		cheat16_click = { set_variable = { Root.selected_cheat = 16 } ROOT = { clr_country_flag = cheating } }
+		cheat17_click = { set_variable = { Root.selected_cheat = 17 } ROOT = { clr_country_flag = cheating } }
+		cheat18_click = { set_variable = { Root.selected_cheat = 18 } ROOT = { clr_country_flag = cheating } }
+		cheat19_click = { set_variable = { Root.selected_cheat = 19 } ROOT = { clr_country_flag = cheating } }
+		cheat20_click = { set_variable = { Root.selected_cheat = 20 } ROOT = { clr_country_flag = cheating } }
+		cheat21_click = { set_variable = { Root.selected_cheat = 21 } ROOT = { clr_country_flag = cheating } }
+		cheat22_click = { set_variable = { Root.selected_cheat = 22 } ROOT = { clr_country_flag = cheating } }
+		cheat23_click = { set_variable = { Root.selected_cheat = 23 } ROOT = { clr_country_flag = cheating } }
+		cheat24_click = { set_variable = { Root.selected_cheat = 24 } ROOT = { clr_country_flag = cheating } }
+		cheat25_click = { set_variable = { Root.selected_cheat = 25 } ROOT = { clr_country_flag = cheating } }
+		cheat26_click = { set_variable = { Root.selected_cheat = 26 } ROOT = { clr_country_flag = cheating } }
+		cheat27_click = { set_variable = { Root.selected_cheat = 27 } ROOT = { clr_country_flag = cheating } }
+		cheat28_click = { set_variable = { Root.selected_cheat = 28 } ROOT = { clr_country_flag = cheating } }
+		cheat29_click = { set_variable = { Root.selected_cheat = 29 } ROOT = { clr_country_flag = cheating } }
+		cheat30_click = { set_variable = { Root.selected_cheat = 30 } ROOT = { clr_country_flag = cheating } }
+		cheat31_click = { set_variable = { Root.selected_cheat = 31 } ROOT = { clr_country_flag = cheating } }
+		cheat32_click = { set_variable = { Root.selected_cheat = 32 } ROOT = { clr_country_flag = cheating } }
+		cheat33_click = { set_variable = { Root.selected_cheat = 33 } ROOT = { clr_country_flag = cheating } }
+		}
+		properties = {
+			toogle_mark = { frame = mark_status }
+			target_flag = {
+				image = "[?ROOT.target_country.GetFlag]"
+				frame = "[?ROOT.target_country.GetFlagFrame]"
+				visible = "[?ROOT.target_country.GetFlag]"
+			}
+			receiver_flag = {
+				image = "[?ROOT.receiver_country.GetFlag]"
+				frame = "[?ROOT.receiver_country.GetFlagFrame]"
+				visible = "[?ROOT.receiver_country.GetFlag]"
+			}
+		}
+	triggers = {
+		observer_click_enabled = { owner = { is_ai = no } }
+		observer_visible = {}
+		tagswtich_host_click_enabled = { owner = { is_ai = yes } }
+		tagswtich_host_visible = { }
+		compliance_negative_click_enabled = { check_variable = { ROOT.compl > -100 } }
+		compliance_positive_click_enabled = { check_variable = { ROOT.compl < 100 }  }
+		resistance_negative_click_enabled = { check_variable = { ROOT.rest > -100 }  }# Can click until -100
+		resistance_positive_click_enabled = { check_variable = { ROOT.rest < 100 } } # Can click until +100
+		
+
+		add_cheat_click_enabled = { check_variable = { Root.selected_cheat>0 } }
+		free_country_click_enabled = { owner = { is_subject = yes } }
+		
+		# Target and receiver triggers
+		target_country_toggle_click_enabled = { owner = { exists = yes } }
+		receiver_country_toggle_click_enabled = { owner = { exists = yes } }
+		
+		cheat1_visible = {}
+		cheat1_text_visible = {}
+		cheat2_visible = { ROOT = { has_country_flag = cheating } }
+		cheat2_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat3_visible = { ROOT = { has_country_flag = cheating } }
+		cheat3_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat4_visible = { ROOT = { has_country_flag = cheating } }
+		cheat4_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat5_visible = { ROOT = { has_country_flag = cheating } }
+		cheat5_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat6_visible = { ROOT = { has_country_flag = cheating } }
+		cheat6_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat7_visible = { ROOT = { has_country_flag = cheating } }
+		cheat7_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat8_visible = { ROOT = { has_country_flag = cheating } }
+		cheat8_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat9_visible = { ROOT = { has_country_flag = cheating } }
+		cheat9_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat10_visible = { ROOT = { has_country_flag = cheating } }
+		cheat10_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat11_visible = { ROOT = { has_country_flag = cheating } }
+		cheat11_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat12_visible = { ROOT = { has_country_flag = cheating } }
+		cheat12_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat13_visible = { ROOT = { has_country_flag = cheating } }
+		cheat13_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat14_visible = { ROOT = { has_country_flag = cheating } }
+		cheat14_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat15_visible = { ROOT = { has_country_flag = cheating } }
+		cheat15_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat16_visible = { ROOT = { has_country_flag = cheating } }
+		cheat16_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat17_visible = { ROOT = { has_country_flag = cheating } }
+		cheat17_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat18_visible = { ROOT = { has_country_flag = cheating } }
+		cheat18_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat19_visible = { ROOT = { has_country_flag = cheating } }
+		cheat19_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat20_visible = { ROOT = { has_country_flag = cheating } }
+		cheat20_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat21_visible = { ROOT = { has_country_flag = cheating } }
+		cheat21_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat22_visible = { ROOT = { has_country_flag = cheating } }
+		cheat22_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat23_visible = { ROOT = { has_country_flag = cheating } }
+		cheat23_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat24_visible = { ROOT = { has_country_flag = cheating } }
+		cheat24_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat25_visible = { ROOT = { has_country_flag = cheating } }
+		cheat25_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat26_visible = { ROOT = { has_country_flag = cheating } }
+		cheat26_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat27_visible = { ROOT = { has_country_flag = cheating } }
+		cheat27_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat28_visible = { ROOT = { has_country_flag = cheating } }
+		cheat28_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat29_visible = { ROOT = { has_country_flag = cheating } }
+		cheat29_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat30_visible = { ROOT = { has_country_flag = cheating } }
+		cheat30_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat31_visible = { ROOT = { has_country_flag = cheating } }
+		cheat31_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat32_visible = { ROOT = { has_country_flag = cheating } }
+		cheat32_text_visible = { ROOT = { has_country_flag = cheating } }
+		cheat33_visible = { ROOT = { has_country_flag = cheating } }
+		cheat33_text_visible = { ROOT = { has_country_flag = cheating } }
+		pause_blocker_option_visible = { }
+		pause_blocker_option_text_visible = { }
+		pause_blocker_all_visible = { 
+			has_variable = pause_dropdown_open
+		}
+		pause_blocker_major_visible = { 
+			has_variable = pause_dropdown_open
+		}
+		pause_blocker_host_visible = {
+			has_variable = pause_dropdown_open
+		}
+		pause_blocker_all_text_visible = { 
+			has_variable = pause_dropdown_open
+		}
+		pause_blocker_major_text_visible = { 
+			has_variable = pause_dropdown_open
+		}
+		pause_blocker_host_text_visible = {
+			has_variable = pause_dropdown_open
+		}
+		building_drop_menu_visible = {
+			
+		}
+		pause_blocker_unblock_country_visible = {
+			owner = {
+				NOT = { has_country_flag = host }
+				has_variable = pause_blocker_variable
+				check_variable = { pause_blocker_variable = 4 }
+			}
+		}
+		pause_blocker_block_country_visible = {
+			owner = {
+				NOT = { has_country_flag = host }
+				OR = {
+					NOT = { has_variable = pause_blocker_variable }
+					NOT = { check_variable = { pause_blocker_variable = 4 } }
+				}
+			}
+		}
+		clear_all_markings_click_enabled = { 
+			OR = {
+				check_variable = { ROOT.marked_states^num > 0 } 
+				check_variable = { ROOT.target_country > 0 } 
+				check_variable = { ROOT.receiver_country > 0 }
+				check_variable = { ROOT.selected_cheat > 0 }
+				ROOT = { has_country_flag = cheating }
+			}
+		}	
+		award_states_click_enabled = { check_variable = { ROOT.marked_states^num > 0 } }
+		annex_country_click_enabled = {	check_variable = { ROOT.marked_states^num > 0 }	}
+		puppet_country_click_enabled = { check_variable = { ROOT.marked_states^num > 0 } }
+		add_cores_click_enabled = { check_variable = { ROOT.marked_states^num > 0 }	}
+		add_cores_to_all_cores_of_selected_nation_click_enabled = { check_variable = { ROOT.marked_states^num > 0 }	}
+		remove_cores_click_enabled = {check_variable = { ROOT.marked_states^num > 0 }}
+
+		mill_add_click_enabled = {}
+		civ_add_click_enabled = {}
+		dock_add_click_enabled = {}
+
+		mill_remove_click_enabled = {}
+		civ_remove_click_enabled = {}
+		dock_remove_click_enabled = {}
+
+		addmanpower_click_enabled = {}
+
+		wt_add_click_enabled = {}
+		wt_remove_click_enabled = {}
+
+		snek_tped_click_enabled = {}
+
+		change_host_nation_click_enabled = {}
+
+		fix_production_click_enabled = {}
+		declare_war_button_click_enabled = {
+                NOT = { check_variable = { ROOT.target_country = 0 } }
+                NOT = { check_variable = { ROOT.receiver_country = 0 } }
+                NOT = { var:ROOT.target_country = { has_war_with = var:ROOT.receiver_country } }
+                NOT = { check_variable = { ROOT.target_country = ROOT.receiver_country } }
+        }
+		tag_switch_button_click_enabled = {
+                NOT = { check_variable = { ROOT.target_country = 0 } }
+                NOT = { check_variable = { ROOT.receiver_country = 0 } }
+                var:ROOT.target_country = { is_ai = no }
+                NOT = { check_variable = { ROOT.target_country = ROOT.receiver_country } }
+        }
+		horsttool_target_toggle_on_button_visible = {
+			check_variable = { ROOT.target_country = 0 }
+		}
+
+		horsttool_target_toggle_off_button_visible = {
+			NOT = { check_variable = { ROOT.target_country = 0 } }
+		}
+
+		horsttool_receiver_toggle_on_button_visible = {
+			check_variable = { ROOT.receiver_country = 0 }
+		}
+		horsttool_target_toggle_on_button_click_enabled = {
+        # Prevent setting same country as both target and receiver
+			OR = {
+				check_variable = { ROOT.receiver_country = 0 }
+				NOT = { check_variable = { ROOT.receiver_country = OWNER } }
+			}
+		}
+		horsttool_receiver_toggle_on_button_click_enabled = {
+        # Prevent setting same country as both target and receiver
+			OR = {
+				check_variable = { ROOT.target_country = 0 }
+				NOT = { check_variable = { ROOT.target_country = OWNER } }
+			}
+		}
+		horsttool_receiver_toggle_off_button_visible = {
+			NOT = { check_variable = { ROOT.receiver_country = 0 } }
+		}
+		target_flag_visible = {
+			NOT = { check_variable = { ROOT.target_country = 0 } }
+		}
+		
+		receiver_flag_visible = {
+			NOT = { check_variable = { ROOT.receiver_country = 0 } }
+		}
+		# War Support triggers
+		ws_sub_5_click_enabled = { owner = { has_war_support > 0.00 } }
+		ws_add_5_click_enabled = { owner = { has_war_support < 0.99 } }
+
+		# Stability triggers
+		st_sub_5_click_enabled = { owner = { has_stability > 0.00 } }
+		st_add_5_click_enabled = { owner = { has_stability < 0.99 } }
+	}   
+    }
+}
