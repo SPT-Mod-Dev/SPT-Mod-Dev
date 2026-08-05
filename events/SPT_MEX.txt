@@ -10,8 +10,26 @@ country_event = { # Cedillo seizes power
 	fire_only_once = yes
 	
 	is_triggered_only = yes
-		
-	immediate = {
+
+	option = {
+        name = spt_mex.1.a
+
+        add_timed_idea = {
+			idea = SPT_MEX_bad_caudillo_1
+			days = 360
+		}
+
+		if = {
+			limit = {
+				has_global_flag = flag_second_mexican_civil_war
+			}
+			country_event = spt_mex.4
+		}
+    }
+
+	option = {
+		name = spt_mex.1.b
+
 		hidden_effect = {
 			set_global_flag = flag_mexico_cedillo_has_revolted
 			load_focus_tree = spt_cedillo_focus_tree
@@ -108,15 +126,12 @@ country_event = { # Cedillo seizes power
 			add_dynamic_modifier = { modifier = SPT_MEX_industria_dynamic_modifier }
 
 			add_timed_idea = {
-				idea = SPT_MEX_bad_caudillo
+				idea = SPT_MEX_bad_caudillo_2
 				days = 360
 			}
 		}
-	}
-
-	option = {
-		name = spt_mex.1.a
-
+		custom_effect_tooltip = spt_mex.1.b_tt
+		custom_effect_tooltip = generic_skip_one_line_tt
 		effect_tooltip = {
 			add_country_leader_role = {
 				character = MEX_saturnino_cedillo
@@ -128,11 +143,27 @@ country_event = { # Cedillo seizes power
 				promote_leader = yes
 			}
 			add_dynamic_modifier = { modifier = SPT_MEX_fuerzas_armadas_dynamic_modifier }
+			add_to_variable = { SPT_MEX_ejercito_experience_gain_factor = -0.05 tooltip = experience_gain_army_factor_tt }
+			add_to_variable = { SPT_MEX_ejercito_org_factor = -0.10 tooltip = army_org_factor_tt }
+    		add_to_variable = { SPT_MEX_ejercito_attack_factor = -0.05 tooltip = army_attack_factor_tt }
+			add_to_variable = { SPT_MEX_armada_experience_gain_factor = -0.05 tooltip = experience_gain_navy_factor_tt }
+    		add_to_variable = { SPT_MEX_armada_convoy_escort_efficiency = -0.10 tooltip = convoy_escort_efficiency_tt }
+    		add_to_variable = { SPT_MEX_armada_screening_efficiency = -0.05 tooltip = screening_efficiency_tt }
+			add_to_variable = { SPT_MEX_fuerza_aerea_experience_gain_factor = -0.05	tooltip = experience_gain_air_factor_tt }
+			add_to_variable = { SPT_MEX_fuerza_aerea_agility_factor = -0.05 tooltip = air_agility_factor_tt }
+			add_to_variable = { SPT_MEX_fuerza_aerea_attack_factor = -0.05 tooltip = air_attack_factor_tt }
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_dynamic_modifier = { modifier = SPT_MEX_industria_dynamic_modifier }
+			add_to_variable = { SPT_MEX_industria_consumer_goods = 0.20 tooltip = consumer_goods_factor_tt }
+			add_to_variable = { SPT_MEX_industria_construction_speed = -0.20 tooltip = production_speed_buildings_factor_tt }
+			add_to_variable = { SPT_MEX_industria_factory_output = -0.20 tooltip = industrial_capacity_factory_tt }
+			add_to_variable = { SPT_MEX_industria_dockyard_output = -0.20 tooltip = industrial_capacity_dockyard_tt }
+			add_to_variable = { SPT_MEX_industria_research_speed = -0.05 tooltip = research_speed_factor_tt }
+			add_to_variable = { SPT_MEX_industria_production_efficiency_cap = -0.15 tooltip = production_factory_max_efficiency_factor_tt }
+			add_to_variable = { SPT_MEX_industria_production_efficiency_gain = -0.15 tooltip = production_factory_efficiency_gain_factor_tt }
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_timed_idea = {
-				idea = SPT_MEX_bad_caudillo
+				idea = SPT_MEX_bad_caudillo_2
 				days = 360
 			}
 		}
@@ -233,8 +264,8 @@ country_event = {
     option = {
         name = spt_mex.5.b
         custom_effect_tooltip = SPT_MEX_modifies_industria_tt
-        add_to_variable = { SPT_MEX_industria_factory_output = 0.10 tooltip = industrial_capacity_factory_tt }
-        add_to_variable = { SPT_MEX_industria_dockyard_output = 0.10 tooltip = industrial_capacity_dockyard_tt }
+        add_to_variable = { SPT_MEX_industria_factory_output = 0.075 tooltip = industrial_capacity_factory_tt }
+        add_to_variable = { SPT_MEX_industria_dockyard_output = 0.075 tooltip = industrial_capacity_dockyard_tt }
         add_tech_bonus = {
             name = SPT_MEX_american_industry_knowledge
             bonus = 0.75
@@ -256,21 +287,21 @@ country_event = {
     option = {
         name = spt_mex.6.a
         custom_effect_tooltip = SPT_MEX_modifies_industria_tt
-        add_to_variable = { SPT_MEX_industria_production_efficiency_cap = 0.05 tooltip = production_factory_max_efficiency_factor_tt }
-        add_to_variable = { SPT_MEX_industria_production_efficiency_gain = 0.05 tooltip = production_factory_efficiency_gain_factor_tt }
+        add_to_variable = { SPT_MEX_industria_production_efficiency_cap = 0.025 tooltip = production_factory_max_efficiency_factor_tt }
+        add_to_variable = { SPT_MEX_industria_production_efficiency_gain = 0.025 tooltip = production_factory_efficiency_gain_factor_tt }
     }
 
     option = {
         name = spt_mex.6.b
         custom_effect_tooltip = SPT_MEX_modifies_industria_tt
-        add_to_variable = { SPT_MEX_industria_factory_output = 0.15 tooltip = industrial_capacity_factory_tt }
-        add_to_variable = { SPT_MEX_industria_dockyard_output = 0.15 tooltip = industrial_capacity_dockyard_tt }
+        add_to_variable = { SPT_MEX_industria_factory_output = 0.075 tooltip = industrial_capacity_factory_tt }
+        add_to_variable = { SPT_MEX_industria_dockyard_output = 0.075 tooltip = industrial_capacity_dockyard_tt }
     }
 
     option = {
         name = spt_mex.6.c
         custom_effect_tooltip = SPT_MEX_modifies_industria_tt
-        add_to_variable = { SPT_MEX_industria_mil_construction_speed = 0.10 tooltip = production_speed_arms_factory_factor_tt }
-        add_to_variable = { SPT_MEX_industria_dock_construction_speed = 0.10 tooltip = production_speed_dockyard_factor_tt }
+        add_to_variable = { SPT_MEX_industria_mil_construction_speed = 0.05 tooltip = production_speed_arms_factory_factor_tt }
+        add_to_variable = { SPT_MEX_industria_dock_construction_speed = 0.05 tooltip = production_speed_dockyard_factor_tt }
     }
 }

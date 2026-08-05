@@ -2815,9 +2815,12 @@ focus_tree = {
 		y = 1
 		relative_position_id = ITA_steel_industry_in_terni
 		cost = 5
-		available = {
-			has_tech = synth_oil_experiments
-		}
+		available = { 
+			OR = {
+				has_tech = concentrated_industry3
+				has_tech = dispersed_industry3
+			}
+		} # SPTchange - removed synthetic tech 1 requirement, added industry 3 requirement
 
 		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
 

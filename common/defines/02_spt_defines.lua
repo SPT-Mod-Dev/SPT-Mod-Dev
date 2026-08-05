@@ -118,3 +118,24 @@ NDefines.NMilitary.PLAN_COHESION_WEIGHTS = { 1.0, 40.0, 80.0, 100.0 } 	-- for ea
 NDefines.NDoctrines.BASE_MASTERY_GAIN_TARGET_MANPOWER = 50000.0           -- Beyond this amount of manpower contributing to mastery, mastery gain will start having diminishing returns (see doctrines documentation)
 NDefines.NDoctrines.TRAINING_MASTERY_GAIN_FACTOR = 0.4                     -- How much training contributes to doctrine mastery relative to combat/missions
 NDefines.NDoctrines.MASTERY_BANK_CONVERSION_RATE = 1                    -- How much training contributes to doctrine mastery relative to combat/missions
+
+NDefines.NProduction.RAILWAY_GUN_MAX_MIL_FACTORIES_PER_LINE = 150
+
+NDefines.NMilitary.UNIT_LEADER_ASSIGN_TRAIT_COST = 0
+NDefines.NPolitics.ARMY_LEADER_MAX_COST = 0
+NDefines.NPolitics.NAVY_LEADER_MAX_COST = 0
+NDefines.NMilitary.PROMOTE_LEADER_CP_COST = 0
+
+NDefines.NMilitary.COMMS_MAX_DISTANCE = 7
+NDefines.NMilitary.PLANNING_CAP_COMMS_SCALING = { 1.075, 1.05, 1.025, 1.0, 0.975, 0.95, 0.925, 0.9 }
+NDefines.NMilitary.PLANNING_CAP_NO_HQ_SCALING = 0.8
+NDefines.NMilitary.PLANNING_SPEED_COMMS_SCALING = { 1.075, 1.05, 1.025, 1.0, 0.975, 0.95, 0.925, 0.9 }
+NDefines.NMilitary.PLANNING_SPEED_NO_HQ_SCALING = 0.8
+NDefines.NMilitary.LEADER_MOD_COMMS_SCALING = { 1.07, 1.06, 1.05, 1.04, 1.03, 1.02, 1.01, 1.0 }
+NDefines.NMilitary.LEADER_MOD_NO_HQ_SCALING = 0.9
+NDefines.NMilitary.ABILITY_COMMS_SCALING = { 1.07, 1.06, 1.05, 1.04, 1.03, 1.02, 1.01, 1.0 }
+NDefines.NMilitary.ABILITY_NO_HQ_SCALING = 0.9
+NDefines.NMilitary.GENERAL_PROXIMITY_CLOSE = 3
+NDefines.NMilitary.GENERAL_PROXIMITY_MEDIUM = 5
+NDefines.NMilitary.GENERAL_PROXIMITY_FAR = 7
+NDefines.NMilitary.GENERAL_PROXIMITY_DEFAULT = 3								

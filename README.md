@@ -1,5 +1,77 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 4.3.0
+
+#### General
+ - Removed Mediterranean and Pacific War Balances of Power
+ - Increased max mils per Heavy Artillery and Railway Gun line to 150 (UI not fully compatible)
+ - Lowered the initial cost of naval, air and land research facilities to token amounts. Increased the cost of the second facility correspondingly.
+ - Total Mobilization is now available after January 1st 1940 and integrated Women in the Workforce into Total Mobilization:
+    - Cost is now 250 Political Power, adds -5% stability and no longer reduces Recruitable Manpower 
+ - Made assigning traits, hiring new generals/admirals and promoting generals to field marshals cost 0 command power
+ - Upgraded the host tool
+ - HQ distance rebalanced: 
+    - 3 tiles behind the frontline is now neutral — closer grants bonuses, farther grants debuffs.
+
+#### Doctrine
+ - Reverted most doctrines to vanilla
+    - Compensated Armored Spearhead and Streamlined Deployment accordingly
+ - Added Dispersed Operations to the Operations track
+
+#### Decisions
+ - Added License decisions
+ - Added Recommended Template decisions
+
+#### MIO's
+ - Generic Tank Manufacturer (think Daimler-Benz and Detroit Tank Arsenal): Now available to all tank types
+ - Added Vauxhall (Infantry Tank) to Canada
+ - Reverted Air MIO changes back to vanilla
+    - Effectively nothing changed
+
+#### Soviet Union
+ - Focus 'Soviet Artillery': 
+    - Research Bonus: 2x 50% -> 2x 75%
+    - Ahead-of-Time Penalty Reduction: 0 -> 2x 2 years
+ - Removed the 'Declaring Country is Considered Major' faction rule
+
+#### United States
+ - Now begins with Greenland annexed
+
+#### United Kingdom
+ - Now begins with Iceland Annexed
+
+#### France
+ - Increased the maximum building slots in French West And Central Africa
+ - Added the 'Revive the National Bloc' focus branch
+
+#### Italy
+ - Focus 'Industria della Gomma Sintetica': 
+    - Removed Synthetic Oil Experiment requirement
+    - Added Concentrated/Dispersed 3 requirement
+
+#### Japan
+ - Removed a bunch of noob-trap focuses
+ - Disabled the Non-Aligned focus branch
+ - Locked the 'Ministry of Colonial Affairs' focus, the 'Ichioku Isshin' focus and the focuses below 'Fund the RIKEN Institute' until March 1st 1941
+ - Added a decision to annex Siam
+    - Removed the 'Occupy Siam' focus
+ - Reverted the 'Revisit the Thirteen Demands' focus to vanilla
+ - Added 32 oil to Kanto
+
+#### Spain
+ - Idea 'La Division Azul':
+    - Volunteer divisions: 10 -> 90
+    - Division requirement: -25% -> -100%
+
+#### Mexico
+ - Nerfed a couple of industry focuses
+
+#### Bulgaria
+ - Disabled the Non-Aligned focus branch
+
+#### Brazil
+ - Disabled the 'Continue Centralization' (Democratic Right) focus branch
+
 ### 4.2.3 ¡Hola supermercado! ¡Telebancos por aquí!
 
 #### General

@@ -32,8 +32,8 @@ armored_spearhead = {
 
     # Base bonus: medium armor gets a head start on the offensive
     medium_armor = {
-        breakthrough = 0.05
-        soft_attack = 0.05
+        breakthrough = 0.1
+        soft_attack = 0.1
     }
 
     rewards = {
@@ -53,16 +53,22 @@ armored_spearhead = {
         tactical_fire_and_movement = {
             #3 - Medium armor refines its attack
             medium_armor = {
+                hard_attack = 0.05
                 soft_attack = 0.1
                 breakthrough = 0.05
                 default_morale = 0.1
             }
+            # SPTchange
+            category_tank_destroyer_regimental_support = {			
+                max_organisation = 5
+		        ap_attack = 0.1
+		    }
         }
         combined_arms_pressure = {
             #4 - Mechanized infantry keeps up with the tanks
             mechanized = {
-                breakthrough = 0.05
-                soft_attack = 0.05
+                breakthrough = 0.1
+                soft_attack = 0.1
                 max_organisation = 5
             }
             medium_armor = {
@@ -123,8 +129,8 @@ armored_spearhead_no_lar = {
     enable_tactic = tactic_breakthrough
 
     medium_armor = {
-        breakthrough = 0.05
-        soft_attack = 0.05
+        breakthrough = 0.1
+        soft_attack = 0.1
     }
 
     rewards = {
@@ -144,6 +150,7 @@ armored_spearhead_no_lar = {
         tactical_fire_and_movement = {
             #3
             medium_armor = {
+                hard_attack = 0.05
                 soft_attack = 0.1
                 breakthrough = 0.05
                 default_morale = 0.1
@@ -227,10 +234,11 @@ armored_infantry_support = {
                 max_organisation = 3
                 default_morale = 0.05
             }
-			category_tank_destroyer_regimental_support = {			
-                max_organisation = 5
-				ap_attack = 0.1
-			}
+           # SPTchange -> moved to Armored Spearhead and Streamlined Deployment
+		   # category_tank_destroyer_regimental_support = {			
+           #    max_organisation = 5
+		   #    ap_attack = 0.1
+		   # }
         }
         armored_assault_groups = {
             #3 - Tanks take point on assaults; infantry clears what they can't
@@ -312,8 +320,8 @@ streamlined_deployment = {
 
     # Base bonus: heavy armor identity — defense and anti-armor punch
     heavy_armor = {
-        defense = 0.05
-        hard_attack = 0.05
+        soft_attack = 0.1
+        hard_attack = 0.1
         ap_attack = 0.05
     }
     category_all_armor = {
@@ -338,7 +346,7 @@ streamlined_deployment = {
             #2 - Heavy armor becomes a true battering ram
             heavy_armor = {
                 breakthrough = 0.05
-                soft_attack = 0.1
+                soft_attack = 0.05
                 max_organisation = 5
             }
         }
@@ -349,6 +357,11 @@ streamlined_deployment = {
                 max_organisation = 3
                 reliability = 0.03
             }
+            # SPTchange
+            category_tank_destroyer_regimental_support = {			
+                max_organisation = 5
+		        ap_attack = 0.1
+		    }
         }
         fuel_conservation = {
             #4 - Heavy armor's chief weakness addressed
@@ -363,8 +376,9 @@ streamlined_deployment = {
             #5 - Capstone: heavy armor fires the killing blow
             heavy_armor = {
                 hard_attack = 0.1
+                breakthrough = 0.1
+                defense = 0.1
                 ap_attack = 0.05
-                defense = 0.05
                 max_organisation = 3
             }
             category_all_armor = {
@@ -372,8 +386,6 @@ streamlined_deployment = {
             }
         }
     }
-
-
 }
 
 mobile_defense = {
@@ -412,35 +424,35 @@ mobile_defense = {
         }
     }
     category_all_armor = {
-        defense = 0.05 # SPTchange 0.1->0.05
+        defense = 0.1
     }
 
     rewards = {
         mechanized_offensive = {
             mechanized = {
-                defense = 0.05 # SPTchange 0.1->0.05
-                soft_attack = 0.05 # SPTchange 0.1->0.05
+                defense = 0.1
+                soft_attack = 0.1
             }
         }
         advance_under_fire = {
             light_armor = {
-                breakthrough = 0.05 # SPTchange 0.1->0.05
+                breakthrough = 0.1
                 default_morale = 0.2
             }
             medium_armor = {
-                breakthrough = 0.05 # SPTchange 0.1->0.05
+                breakthrough = 0.1
                 default_morale = 0.1
             }
         }
         attached_support = {
             assault_engineer = {
-                max_organisation = 5 # SPTchange 10->5
+                max_organisation = 10
             }
             armored_engineer = {
-                max_organisation = 5 # SPTchange 10->5
+                max_organisation = 10
             }
             armored_signal = {
-                max_organisation = 5 # SPTchange 10->5
+                max_organisation = 10
             }
 			category_self_propelled_anti_air_regimental_support = {			
                 max_organisation = 10
@@ -451,8 +463,8 @@ mobile_defense = {
             anti_tank = {
                 battalion_mult = {
                     category = category_all_armor
-                    hard_attack = 0.025 # SPTchange 0.05->0.025
-                    ap_attack = 0.025 # SPTchange 0.05->0.025
+                    hard_attack = 0.05
+                    ap_attack = 0.05
                 }
             }
 			category_tank_destroyer_regimental_support = {			
@@ -739,18 +751,18 @@ tank_destroyer_force = {
     }
 
     category_all_armor = {
-        defense = 0.05 # SPTchange 0.1->0.05
-        hard_attack = 0.05 # SPTchange 0.1->0.05
-        ap_attack = 0.05 # SPTchange 0.1->0.05
+        defense = 0.1
+        hard_attack = 0.1
+        ap_attack = 0.1
     }
 
     rewards = {
 
         mobile_anti_tank = {
             mot_anti_tank_brigade = {
-                max_organisation = 4 # SPTchange 8->4
-                hard_attack = 0.05 # SPTchange 0.1->0.05
-                ap_attack = 0.05 # SPTchange 0.1->0.05
+                max_organisation = 8
+                hard_attack = 0.1
+                ap_attack = 0.1
             }
 
         }
@@ -758,23 +770,23 @@ tank_destroyer_force = {
             assault_engineer = {
                 battalion_mult = {
                     category = category_tank_destroyers
-                    reliability = 0.01 # SPTchange 0.02->0.01
-                    soft_attack = 0.025 # SPTchange 0.05->0.025
-                    hard_attack = 0.05 # SPTchange 0.1->0.05
+                    reliability = 0.02
+                    soft_attack = 0.05
+                    hard_attack = 0.1
                 }
             }
         }
         redeployment_priority = {
             category_tank_destroyers = {
-                supply_consumption = -0.01 # SPTchange -0.02->-0.01
-                default_morale = 0.05 # SPTchange 0.1->0.05
+                supply_consumption = -0.02
+                default_morale = 0.1
             }
         }
 
         independent_counterattacks = {
             category_tank_destroyers = {
-                max_organisation = 3 # SPTchange 6->3
-                initiative = 0.005 # SPTchange 0.01->0.005
+                max_organisation = 6
+                initiative = 0.01
             }
         }
 
@@ -782,8 +794,8 @@ tank_destroyer_force = {
             armored_signal = {
                 battalion_mult = {
                     category = category_tank_destroyers
-                    hard_attack = 0.05 # SPTchange 0.1->0.05
-                    ap_attack = 0.1 # SPTchange 0.2->0.1
+                    hard_attack = 0.1
+                    ap_attack = 0.1
                 }
             }
 			category_tank_destroyer_regimental_support = {			
@@ -792,8 +804,5 @@ tank_destroyer_force = {
 				ap_attack = 0.1
 			}
         }
-
-
-
     }
 }
