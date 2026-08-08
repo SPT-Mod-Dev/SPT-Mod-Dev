@@ -5,6 +5,7 @@
 #### General
  - Made hiring new generals/admirals cost CP again
     - Up to 50 CP (Vanilla is up to 80)
+ - Added back leader abilities 'Defense in Depth' and 'Rotating Reserves'
 
 #### United States
  - Focus 'Total War' is now also available 6 months after they join the war
