@@ -6,11 +6,11 @@
  - Made hiring new generals/admirals cost CP again
     - Up to 50 CP (Vanilla is up to 80)
 
-#### USA
+#### United States
  - Focus 'Total War' is now also available 6 months after they join the war
  - Fixed Greenland events and decisions
 
-#### ENG
+#### United Kingdom
  - Now begins with Faroe Island annexed
  - Fixed Iceland and Faroe Island events and decisions
  - Added decisions to fortify Iceland and Faroe Islands

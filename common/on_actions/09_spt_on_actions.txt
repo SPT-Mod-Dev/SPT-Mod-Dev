@@ -1272,6 +1272,23 @@ on_actions = {
 					country_event = {id = spt.113 hours = 0}
 				}
 			}
+			# USA total mob timer
+			if = {
+    			limit = {
+        			USA = {
+            			NOT = { has_country_flag = SPT_USA_war_entry_checked }
+            			OR = {
+                			has_war_with = GER
+                			has_war_with = ITA
+                			has_war_with = JAP
+            			}
+        			}
+    			}
+    			USA = {
+        			set_country_flag = SPT_USA_war_entry_checked
+        			add_timed_idea = { idea = SPT_USA_total_mob_timer days = 180 }
+    			}
+			}
 		}
 	}
 	on_peace = {
@@ -1837,7 +1854,7 @@ on_actions = {
 	}
 
 	# Trait Lottery System Trigger
-	on_daily = {
+	on_daily_MEX = {
         effect = {
             if = {
                 limit = {
