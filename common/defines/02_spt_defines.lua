@@ -122,8 +122,8 @@ NDefines.NDoctrines.MASTERY_BANK_CONVERSION_RATE = 1                    -- How m
 NDefines.NProduction.RAILWAY_GUN_MAX_MIL_FACTORIES_PER_LINE = 150
 
 NDefines.NMilitary.UNIT_LEADER_ASSIGN_TRAIT_COST = 0
-NDefines.NPolitics.ARMY_LEADER_MAX_COST = 0
-NDefines.NPolitics.NAVY_LEADER_MAX_COST = 0
+NDefines.NPolitics.ARMY_LEADER_MAX_COST = 50
+NDefines.NPolitics.NAVY_LEADER_MAX_COST = 50
 NDefines.NMilitary.PROMOTE_LEADER_CP_COST = 0
 
 NDefines.NMilitary.COMMS_MAX_DISTANCE = 7
