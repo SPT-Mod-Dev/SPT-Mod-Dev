@@ -96,7 +96,7 @@
 		id = SAF_emergency_workers
 		icon = GFX_spt_focus_foreign_workers
 		prerequisite = { focus = SAF_war_measures_act }
-		x = -1
+		x = -2
 		y = 1
 		relative_position_id = SAF_war_measures_act
 
@@ -124,10 +124,11 @@
 	}
 
 	focus = {
+		allow_branch = {always = no} # Sptchange
 		id = SAF_cape_garrison_artillery
 		icon = GFX_goal_generic_fortify_city
 		prerequisite = { focus = SAF_emergency_workers }
-		x = -1
+		x = -2
 		y = 2
 		relative_position_id = SAF_war_measures_act
 
@@ -180,9 +181,9 @@
 	focus = {
 		id = SAF_reconstitute_the_cape_corps
 		icon = GFX_goal_generic_allies_build_infantry
-		prerequisite = { focus = SAF_cape_garrison_artillery}
-		x = -1
-		y = 4
+		prerequisite = { focus = SAF_emergency_workers }
+		x = -2
+		y = 2.5
 		relative_position_id = SAF_war_measures_act
 
 		cost = 10
@@ -216,8 +217,8 @@
 		icon = GFX_spt_focus_cape_corps
 		prerequisite = { focus = SAF_reconstitute_the_cape_corps }
 		mutually_exclusive = { focus = SAF_outlaw_strikes }
-		x = -1
-		y = 5
+		x = -2
+		y = 4
 		relative_position_id = SAF_war_measures_act
 
 		cost = 10
@@ -259,7 +260,7 @@
 		prerequisite = { focus = SAF_work_for_all_poor }
 		mutually_exclusive = { focus = SAF_expand_the_cape_corps }
 		x = 4
-		y = 5
+		y = 4
 		relative_position_id = SAF_war_measures_act
 
 		cost = 10
@@ -407,6 +408,7 @@
 	}
 
 	focus = {
+		allow_branch = {always = no} # Sptchange
 		id = SAF_joint_air_training_scheme
 		icon = GFX_goal_generic_air_fighter2
 		prerequisite = { focus = SAF_csir }
@@ -440,9 +442,9 @@
 	focus = {
 		id = SAF_desert_equipment
 		icon = GFX_goal_generic_allies_build_infantry
-		prerequisite = { focus = SAF_joint_air_training_scheme }
+		prerequisite = { focus = SAF_csir }
 		x = -4
-		y = 3
+		y = 2
 		relative_position_id = SAF_support_the_policy_of_appeasement
 
 		cost = 10
@@ -471,10 +473,10 @@
 	focus = {
 		id = SAF_suppress_the_stormjaers
 		icon = GFX_goal_generic_military_sphere
-		prerequisite = { focus = SAF_joint_air_training_scheme }
+		prerequisite = { focus = SAF_csir }
 		prerequisite = { focus = SAF_police_windhoek }
 		x = -2
-		y = 3
+		y = 2
 		relative_position_id = SAF_support_the_policy_of_appeasement
 
 		cost = 10
@@ -511,7 +513,7 @@
 		prerequisite = { focus = SAF_suppress_the_stormjaers }
 		prerequisite = { focus = SAF_desert_equipment }
 		x = -3
-		y = 4
+		y = 3
 		relative_position_id = SAF_support_the_policy_of_appeasement
 
 		cost = 10
@@ -2650,7 +2652,7 @@
 	focus = {
 		id = SAF_special_service_battalion
 		icon = GFX_goal_generic_army_doctrines
-		x = 14
+		x = 16
 		y = 0
 
 		cost = 5 #SPTChange 10 to 5
@@ -3038,6 +3040,7 @@
 	############################
 
 	focus = {
+		allow_branch = {always = no} # Sptchange
 		id = SAF_commit_to_the_five_year_plan
 		icon = GFX_goal_generic_build_airforce
 		x = 18
@@ -3342,6 +3345,7 @@
 	############################
 
 	focus = {
+		allow_branch = {always = no} # Sptchange
 		id = SAF_seaward_defence_force
 		icon = GFX_goal_generic_navy_doctrines_tactics
 		x = 22

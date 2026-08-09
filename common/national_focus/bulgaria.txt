@@ -38,7 +38,7 @@ focus_tree = {
 		id = BUL_acquire_modern_tools
 
 		icon = GFX_goal_generic_production2
-		x = 12
+		x = 8
 		y = 0
 		cost = 5
 
@@ -65,7 +65,7 @@ focus_tree = {
 		prerequisite = { focus = BUL_acquire_modern_tools }
 		icon = GFX_goal_generic_construction
 		relative_position_id = BUL_acquire_modern_tools
-		x = -9
+		x = -5
 		y = 1
 		cost = 10
 
@@ -599,6 +599,70 @@ focus_tree = {
 					instant_build = yes
 				}	
 			}
+			# SPTchange
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_BUL_military_factories
+
+		prerequisite = { focus = BUL_steel_plant_in_pernik }
+		icon = GFX_focus_CHL_focus_on_cattle_and_wool
+		relative_position_id = BUL_steel_plant_in_pernik
+		x = -1
+		y = 1
+		cost = 10
+
+
+		available = { }
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
 		}
 	}
 
@@ -702,6 +766,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = {always = no} # Sptchange
 		id = BUL_georgi_benkovski_aircraft_repair_facilities
 
 		prerequisite = { focus = BUL_acquire_modern_tools }
@@ -798,7 +863,7 @@ focus_tree = {
 		prerequisite = { focus = BUL_acquire_modern_tools }
 		icon = GFX_focus_generic_combined_arms
 		relative_position_id = BUL_acquire_modern_tools
-		x = 0
+		x = 2
 		y = 1
 		cost = 5
 		bypass = {
@@ -956,6 +1021,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = {always = no} # Sptchange
 		id = BUL_foreign_aircraft_designers
 
 		prerequisite = { focus = BUL_reorganize_the_military_industry }
@@ -1006,6 +1072,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = {always = no} # Sptchange
 		id = BUL_kaproni_bulgarski
 
 		prerequisite = { focus = BUL_reorganize_the_military_industry }
@@ -1062,7 +1129,7 @@ focus_tree = {
 		prerequisite = { focus = BUL_reorganize_the_military_industry }
 		icon = GFX_goal_generic_construct_mil_factory
 		relative_position_id = BUL_reorganize_the_military_industry
-		x = 1
+		x = -1
 		y = 1
 		cost = 10
 
@@ -1163,7 +1230,7 @@ focus_tree = {
 		prerequisite = { focus = BUL_reorganize_the_military_industry }
 		icon = GFX_focus_generic_license_production
 		relative_position_id = BUL_reorganize_the_military_industry
-		x = 3
+		x = 1
 		y = 1
 		cost = 5
 
@@ -1230,7 +1297,7 @@ focus_tree = {
 		prerequisite = { focus = BUL_reorganize_the_military_industry }
 		icon = GFX_focus_generic_little_entente
 		relative_position_id = BUL_reorganize_the_military_industry
-		x = 5
+		x = 3
 		y = 1
 		cost = 10
 
@@ -1367,7 +1434,7 @@ focus_tree = {
 		prerequisite = { focus = BUL_negotiate_bulgarian_rearmament }
 		icon = GFX_focus_generic_military_academy
 		relative_position_id = BUL_negotiate_bulgarian_rearmament
-		x = 7
+		x = 5
 		y = 1
 		cost = 5
 
@@ -1516,6 +1583,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = {always = no} # Sptchange
 		id = BUL_a_black_sea_fleet
 
 		prerequisite = { focus = BUL_negotiate_bulgarian_rearmament }
@@ -2375,6 +2443,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = {always = no} # Sptchange
 		id = BUL_expand_varna_naval_base
 
 		prerequisite = { focus = BUL_acquire_modern_tools }
@@ -6351,7 +6420,7 @@ focus_tree = {
 
 		icon = GFX_focus_BUL_power_to_the_tsar
 		relative_position_id = BUL_acquire_modern_tools
-		x = 24
+		x = 16
 		y = 0
 		cost = 10
 		mutually_exclusive = { focus = BUL_oppose_the_royal_dictatorship }

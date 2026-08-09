@@ -5,16 +5,61 @@
 #### General
  - Made hiring new generals/admirals cost CP again
     - Up to 50 CP (Vanilla is up to 80)
+ - Removed useless focus paths on almost all playable nations
  - Added back leader abilities 'Defense in Depth' and 'Rotating Reserves'
 
 #### United States
- - Focus 'Total War' is now also available 6 months after they join the war
+ - The 'Total War' focus is now also available 6 months after entering the war
  - Fixed Greenland events and decisions
+ - Reduced the following focuses from 70 to 35 days:
+    - 'Defense of the Pacific'
+    - 'Naval Radar'
 
 #### United Kingdom
  - Now begins with Faroe Island annexed
  - Fixed Iceland and Faroe Island events and decisions
  - Added decisions to fortify Iceland and Faroe Islands
+ - Reduced the following focuses from 70 to 35 days:
+    - 'The Burma Road'
+    - 'RADAR'
+
+#### Italy
+ - Reduced the following focuses from 70 to 35 days:
+    - 'Army Leaders'
+    - 'Italian Tankettes'
+    - 'Bersaglieri'
+    - 'Self-Propelled Guns'
+    - 'Divisioni Alpini'
+    - 'Fanti dell'Aria'
+    - 'Ferrea Mole Ferreo Cuore'
+
+#### Germany
+ - Reduced the following focuses from 70 to 35 days:
+    - 'Build the Rur Dam'
+
+#### Canada
+ - Reduced the following focuses from 70 to 35 days:
+    - 'The Canadian Citizenship Act'
+    - 'A Motorized Army'
+    - 'Red Deer Training Camp'
+    - 'The Black Devils'
+    - 'The Rocky Mountain Rangers'
+    - '1st Canadian Parachute Battalion'
+    - 'War Bonds'
+    - 'If Day'
+    - 'Retool Angus Shops'
+ - 'Mine the Shield' focus:
+    - Steel: 4 -> 16
+    - Chromium: 3 -> 12
+
+#### Hungary
+ - Reduced the following focuses from 70 to 35 days:
+    - 'Strengthen the Turáni Vadászok'
+    - 'Promote Increased Urbanization'
+
+#### Bulgaria 
+ - Added 1 Civilian Factory to the 'Steel Plant in Pernik' focus
+ - Added the 'Bulgarian Milk Factories' focus
 
 ### 4.3.0
 
