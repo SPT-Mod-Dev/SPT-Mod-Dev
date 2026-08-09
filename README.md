@@ -6,6 +6,7 @@
  - Made hiring new generals/admirals cost CP again
     - Up to 50 CP (Vanilla is up to 80)
  - Removed useless focus paths on almost all playable nations
+ - Added back leader abilities 'Defense in Depth' and 'Rotating Reserves'
 
 #### United States
  - The 'Total War' focus is now also available 6 months after entering the war
