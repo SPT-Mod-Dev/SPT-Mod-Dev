@@ -503,7 +503,7 @@ focus_tree = {
 		id = BRA_departamendo_de_propaganda
 		icon = GFX_focus_BRA_department_of_propaganda
 		prerequisite = { focus = BRA_autarky focus = BRA_corporatism }
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = BRA_autarky
 		cost = 5
@@ -518,6 +518,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = {always = no} # Sptchange
 		id = BRA_departamento_de_ordem_politica_e_social
 		icon = GFX_focus_SWI_embrace_rote_drei
 		prerequisite = { focus = BRA_corporatism focus = BRA_autarky  }
@@ -831,7 +832,7 @@ focus_tree = {
 		prerequisite = { focus = BRA_reward_army_loyalty}
 		#mutually_exclusive = { focus = BRA_the_international_crisis }
 		x = 0
-		y = 4
+		y = 3
 		relative_position_id = BRA_reward_army_loyalty
 		cost = 10
 		ai_will_do = {
@@ -1764,6 +1765,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = {always = no} # Sptchange
 		id = BRA_fabrica_nacional_de_motores
 		icon = GFX_focus_BRA_fabrica_national_de_motores
 		prerequisite = { focus = BRA_invest_in_road_infrastructure  }
@@ -1812,8 +1814,8 @@ focus_tree = {
 		id = BRA_expand_fordlandia
 		icon = GFX_focus_SWE_lynx_armored_car
 		prerequisite = { focus = BRA_invest_in_road_infrastructure  }
-		x = 1
-		y = 2
+		x = 2
+		y = 1
 		relative_position_id = BRA_invest_in_road_infrastructure
 		mutually_exclusive = { focus = BRA_fabrica_nacional_de_motores }
 		cost = 10
@@ -2071,6 +2073,7 @@ focus_tree = {
 	##### Cooperation in the Americas Branch #####
 
 	focus = {
+		allow_branch = {always = no} # Sptchange
 		id = BRA_cooperation_in_the_americas
 		icon = GFX_focus_BRA_good_neighbor_policy
 		mutually_exclusive = { focus = BRA_domination_of_the_americas }
@@ -2143,12 +2146,12 @@ focus_tree = {
 		id = BRA_defense_spending
 		icon = GFX_focus_BRA_for_the_fatherland
 		prerequisite = { 
-			focus = BRA_cooperation_in_the_americas 
+			focus = BRA_washington_accords 
 			#focus = BRA_the_international_crisis
 		}
-		x = 1
+		x = 0
 		y = 1
-		relative_position_id = BRA_cooperation_in_the_americas
+		relative_position_id = BRA_washington_accords
 		cost = 10
 		ai_will_do = {
 			factor = 20
@@ -2524,13 +2527,11 @@ focus_tree = {
 	focus = {
 		id = BRA_washington_accords
 		icon = GFX_focus_chi_mission_to_the_us
-		prerequisite = { 
-			focus = BRA_cooperation_in_the_americas 
-		}
-		x = -1
-		y = 1
+		prerequisite = { focus = BRA_the_international_crisis focus = BRA_secure_our_borders }
+		x = 0
+		y = 0
 		relative_position_id = BRA_cooperation_in_the_americas
-		cost = 5
+		cost = 10
 		ai_will_do = {
 			factor = 20
 		}
@@ -2575,6 +2576,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = {always = no} # Sptchange
 		id = BRA_disrupt_operation_bolivar
 		icon = GFX_focus_BRA_disrupt_bolivar
 		prerequisite = { 
@@ -2619,6 +2621,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = {always = no} # Sptchange
 		id = BRA_potenji_river_conference
 		icon = GFX_focus_BRA_rio_protocol
 		prerequisite = { 
@@ -2671,6 +2674,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = {always = no} # Sptchange
 		id = BRA_natal_naval_base
 
 		icon = GFX_focus_generic_air_bases
@@ -4903,7 +4907,7 @@ focus_tree = {
 		id = BRA_implement_a_national_guard
 		icon = GFX_focus_BRA_national_guard
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = BRA_greater_federalism
 		prerequisite = { focus = BRA_greater_federalism }
 		cost = 10
@@ -5352,6 +5356,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = {always = no} # Sptchange
 		id = BRA_combat_separatism
 		icon = GFX_goal_generic_national_unity
 		x = -2
@@ -7971,7 +7976,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = BRA_support_the_landowners
 		mutually_exclusive = { focus = BRA_consolidation_of_labor_laws }
-		cost = 10
+		cost = 5
 		ai_will_do = {
 			factor = 5
 		}

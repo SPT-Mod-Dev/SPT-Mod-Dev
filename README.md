@@ -5,6 +5,7 @@
 #### General
  - Made hiring new generals/admirals cost CP again
     - Up to 50 CP (Vanilla is up to 80)
+ - Removed useless focus paths on almost all playable nations
 
 #### United States
  - Focus 'Total War' is now also available 6 months after they join the war
@@ -14,6 +15,10 @@
  - Now begins with Faroe Island annexed
  - Fixed Iceland and Faroe Island events and decisions
  - Added decisions to fortify Iceland and Faroe Islands
+
+#### Bulgaria 
+ - Added 1 Civilian Factory to the 'Steel Plant in Pernik' focus
+ - Added the 'Bulgarian Milk Factories' focus
 
 ### 4.3.0
 
