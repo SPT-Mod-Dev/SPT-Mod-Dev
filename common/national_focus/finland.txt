@@ -11005,6 +11005,45 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = {
+		id = SPT_FIN_dockyard
+		icon = GFX_focus_BEL_antwerp_maritime_academy
+		relative_position_id = FIN_increase_military_budget
+		prerequisite = { focus = FIN_increase_military_budget }
+		x = 2
+		y = 1
+		cost = 5
+
+		search_filters = {  FOCUS_FILTER_INDUSTRY }
+		
+		available_if_capitulated = yes
+
+
+		available = {
+			any_controlled_state = {
+				is_coastal = yes
+			}
+		}
+		
+		completion_reward = {
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}		
+			}
+		}
 	
 	focus = {
 		id = FIN_suomen_maavoimat

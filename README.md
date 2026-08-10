@@ -6,6 +6,7 @@
  - Made hiring new generals/admirals cost CP again
     - Up to 50 CP (Vanilla is up to 80)
  - Removed useless focus paths on almost all playable nations
+    - Added a Dockyard Focus to Bulgaria, Finland, Spain, India, Brazil, New Zealand and South Africa so they dont run out of convoys
  - Added back leader abilities 'Defense in Depth' and 'Rotating Reserves'
 
 #### United States
@@ -36,6 +37,14 @@
 #### Germany
  - Reduced the following focuses from 70 to 35 days:
     - 'Build the Rur Dam'
+ - Removed manpower requirements from the following focuses:
+    - 'Anchluss'
+    - 'Demand Sudetenland'
+    - 'Fate of Czechoslovakia'
+    - 'Second Vienna Award'
+    - 'Molotov-Ribbentrop Pact'
+    - 'Danzig or War'
+ - the focus 'Anchluss' as now available from April 1st 1936 onwards
 
 #### Canada
  - Reduced the following focuses from 70 to 35 days:
