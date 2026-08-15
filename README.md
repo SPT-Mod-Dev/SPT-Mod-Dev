@@ -51,6 +51,9 @@
     - 'Danzig or War'
  - the focus 'Anchluss' as now available from April 1st 1936 onwards
 
+#### France
+ - Nerfed the building slots in West-Africa
+
 #### Canada
  - Reduced the following focuses from 70 to 35 days:
     - 'The Canadian Citizenship Act'
