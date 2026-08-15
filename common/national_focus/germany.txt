@@ -1365,6 +1365,7 @@ focus_tree = {
 	}
 	
 	focus = {
+		allow_branch = { always = no } # SPTchange
 		id = GER_expand_the_reichsautobahn_south
 		icon = GFX_goal_generic_construct_infrastructure
 		prerequisite = { focus = GER_kdf_wagen_factories }
@@ -1479,6 +1480,7 @@ focus_tree = {
 	}
 	
 	focus = {
+		allow_branch = { always = no } # SPTchange
 		id = GER_expand_the_reichsautobahn_east
 		icon = GFX_goal_generic_construct_infrastructure
 		prerequisite = { focus = GER_kdf_wagen_factories }
@@ -1598,7 +1600,7 @@ focus_tree = {
 		prerequisite = { focus = GER_kdf_wagen_factories }
 
 		x = 0
-		y = 2
+		y = 1
 		relative_position_id = GER_kdf_wagen_factories
 		cost = 10
 		available = {
@@ -8827,7 +8829,7 @@ focus_tree = {
 		icon = GFX_goal_generic_navy_cruiser
 		prerequisite = { focus = GER_war_preparations }
 
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = GER_war_preparations
 		cost = 10
@@ -8863,6 +8865,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no } # SPTchange
 		id = GER_reorganize_secret_services
 		icon = GFX_focus_generic_secret_service_agency
 		prerequisite = { focus = GER_war_preparations }
@@ -9342,36 +9345,37 @@ focus_tree = {
 		available = {
 			has_war = no
 			is_subject = no
-			IF = {
-				limit = { has_dlc = "Gotterdammerung" }
+			date > 1936.04.01
+		#	IF = {
+		#		limit = { has_dlc = "Gotterdammerung" }
 
-				custom_trigger_tooltip = {
-					tooltip = GER_anschluss_army_trigger_tt
-					fighting_army_strength_ratio = {
-						tag = AUS
-						ratio > global.deployed_manpower_ratio_needed_for_anschluss
-					}
-				}
-			}
+		#		custom_trigger_tooltip = {
+		#			tooltip = GER_anschluss_army_trigger_tt
+		#			fighting_army_strength_ratio = {
+		#				tag = AUS
+		#				ratio > global.deployed_manpower_ratio_needed_for_anschluss
+		#			}
+		#		}
+		#	}
 
-			ELSE = {
-				has_army_manpower = { size > 499999 }
+		#	ELSE = {
+		#		has_army_manpower = { size > 499999 }
 				
-				custom_trigger_tooltip = {
-				 	tooltip = GER_anschluss_eq_trigger_tt
-				 	check_variable = { num_equipment_in_armies_k@infantry_equipment > 50 }
-				}
-			}
+		#		custom_trigger_tooltip = {
+		#		 	tooltip = GER_anschluss_eq_trigger_tt
+		#		 	check_variable = { num_equipment_in_armies_k@infantry_equipment > 50 }
+		#		}
+		#	}
 			
-			NOT = { has_idea = rhineland_challenge_met }
-			if = {
-				limit = {
-					SWI = { has_completed_focus = SWI_gotthard_union }
-				}
-				NOT = { 
-					AUS = { has_idea = SWI_swiss_democratic_propaganda }
-				}
-			}
+		#	NOT = { has_idea = rhineland_challenge_met }
+		#	if = {
+		#		limit = {
+		#			SWI = { has_completed_focus = SWI_gotthard_union }
+		#		}
+		#		NOT = { 
+		3			AUS = { has_idea = SWI_swiss_democratic_propaganda }
+		#		}
+		#	}
 
 		}
 
@@ -9792,6 +9796,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no } # SPTchange
 		id = GER_strafbataillon
 		icon = GFX_focus_GER_strafbataillon
 
@@ -9921,6 +9926,7 @@ focus_tree = {
 	}
 	
 	focus = {
+		allow_branch = { always = no } # SPTchange
 		id = GER_expand_the_truppenschulen
 		icon = GFX_focus_generic_military_mission #GFX_focus_generic_military_academy
 		prerequisite = { focus = GER_autonomy_in_the_kriegsschulen }
@@ -10012,6 +10018,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no } # SPTchange
 		id = GER_uplift_the_rosenberg_office
 		icon = GFX_focus_ger_reichskommisariats
 		alternate_icon = GFX_focus_ger_reichskommisariats_historical
@@ -10248,7 +10255,7 @@ focus_tree = {
 
 		available = {
 			is_subject = no
-			has_army_manpower = { size > 724999 } #80 div
+			#has_army_manpower = { size > 724999 } #80 div - SPTChange
 		}
 		
 		cancel = {
@@ -10631,7 +10638,7 @@ focus_tree = {
 		
 		available = { 
 			is_subject = no
-			has_army_manpower = { size > 749999 }
+			#has_army_manpower = { size > 749999 } - SPTChange
 		}
 
 		search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_FILTER_HISTORICAL }
@@ -10691,6 +10698,7 @@ focus_tree = {
 
 	#Peace For Our Time#
 	focus = { #All related content and local will be in Czech related files and local locations
+		allow_branch = { always = no } # SPTchange
 		id = GER_integrate_czech_manufacturers
 		icon = GFX_focus_PER_czech_tanks
 		prerequisite = { focus = GER_integrate_czechoslovakia  focus = GER_fate_of_czechoslovakia }
@@ -11483,7 +11491,7 @@ focus_tree = {
 		}
 		available = {
 			is_subject = no
-			has_army_manpower = { size > 749999 }
+			#has_army_manpower = { size > 749999 } - SPTChange
 			has_capitulated = no
 		}
 		bypass = {
@@ -11595,6 +11603,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no } # SPTchange
 		id = GER_alliance_with_spain
 		icon = GFX_focus_intervention_spain_nationalists
 		# prerequisite = { focus = GER_form_rome_berlin_axis focus = GER_invade_italy }
@@ -12173,10 +12182,10 @@ focus_tree = {
 						}
 					}
 				}
-				has_army_manpower = { size > 724999 } #80 div
+				#has_army_manpower = { size > 724999 } #80 div - SPTChange
 			}
 			else = {
-				has_army_manpower = { size > 849999 } #ca 90 div
+				#has_army_manpower = { size > 849999 } #ca 90 div - SPTCChange
 			}
 			SOV = {
 				NOT = { has_war_with = GER }
@@ -12307,7 +12316,7 @@ focus_tree = {
 		available = {
 			date > 1939.1.1
 			is_subject = no
-			has_army_manpower = { size > 949999 } #100 div			
+			#has_army_manpower = { size > 949999 } #100 div - SPTChange		
 			#Make custom trigger tooltip here
 			85 = {
 				owner = {
@@ -12506,6 +12515,7 @@ focus_tree = {
 	}
 	
 	focus = {
+		allow_branch = { always = no } # SPTchange
 		id = GER_subjugate_romanian_economy
 		icon = GFX_focus_GER_subjugate_romanian_economy
 		#prerequisite = { focus = GER_danzig_for_slovakia focus = GER_danzig_or_war }
@@ -13941,6 +13951,7 @@ focus_tree = {
 	}
 	
 	focus = {
+		allow_branch = { always = no } # SPTchange
 		id = GER_establish_protectorates_in_america
 		icon = GFX_focus_GER_establish_protectorates_in_america
 		#prerequisite = { focus = GER_challenge_the_monroe_doctrine focus = GER_shatter_usas_hegemony }
@@ -15278,7 +15289,7 @@ focus_tree = {
 
 		prerequisite = { focus = GER_anti_comintern_pact }
 		mutually_exclusive = { focus = GER_alliance_with_the_ussr }
-		x = -1
+		x = 0
 		y = 1
 		relative_position_id = GER_anti_comintern_pact
 		cost = 2 #SPT change 10 -> 2
@@ -15462,6 +15473,7 @@ focus_tree = {
 	# }
 
 	focus = {
+		allow_branch = { always = no } # SPTchange
 		id = GER_treaty_with_the_ussr
 		icon = GFX_goal_generic_scientific_exchange
 		#prerequisite = { focus = GER_molotov_ribbentrop_pact }
@@ -16230,6 +16242,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no } # SPTchange
 		id = GER_befriend_japan
 
 		icon = GFX_focus_chi_collaboration_with_the_japanese
