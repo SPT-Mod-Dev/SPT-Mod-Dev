@@ -14,6 +14,17 @@
  - Close Combat 
     - Torpedo Cooldown: -20% -> -25%
 
+#### Decisions
+ - Changed the following license decision unlock timers
+    - Gun 3: Jan 1st 1941 -> Jul 1st 1941
+    - Arty 3: Jan 1st 1941 -> Jul 1st 1941
+    - AT 3: Jan 1st 1941 -> Jul 1st 1941
+    - Rocket Arty 1: Jul 1st 1939 -> Jan 1st 1940
+    - Rocket Arty 2: Jul 1st 1941 -> Jan 1st 1942
+ - Now hides the license and division decisions once used
+ - Changed some templates to match the meta more
+ - Added Mountaineer templates
+
 #### United States
  - The 'Total War' focus is now also available 6 months after entering the war
  - Fixed Greenland events and decisions
@@ -77,6 +88,9 @@
 #### Bulgaria 
  - Added 1 Civilian Factory to the 'Steel Plant in Pernik' focus
  - Added the 'Bulgarian Milk Factories' focus
+
+#### No Asia
+ - Fixed invite American investors decision for the Soviet Union
 
 ### 4.3.0
 
