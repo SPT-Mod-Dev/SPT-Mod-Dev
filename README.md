@@ -92,6 +92,9 @@
 #### No Asia
  - Fixed invite American investors decision for the Soviet Union
 
+#### Japan
+ - Admiral Yamamoto Isoroku no longer dies from American precision strikes
+
 ### 4.3.0
 
 #### General
