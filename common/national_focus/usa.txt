@@ -2668,7 +2668,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = USA_wartime_industry
-		cost = 1
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -2678,6 +2678,7 @@ focus_tree = {
 			OR = {
 				USA = { surrender_progress > 0.05 }
 				ENG = { surrender_progress > 0.5 }
+				NOT = { has_idea = SPT_USA_total_mob_timer }
 			}
 		}
 		completion_reward = {
@@ -8287,7 +8288,7 @@ focus_tree = {
 		x = 3
 		y = 2
 		relative_position_id = USA_intervention_in_asia
-		cost = 10
+		cost = 5
 		#ai_will_do = {
 		#	factor = 1
 		#}
@@ -9072,12 +9073,13 @@ focus_tree = {
 	focus = {
 		id = USA_tank_experiments
 		icon = GFX_goal_generic_army_tanks
-		x = 2
-		y = 2
+		x = 1
+		y = 1
 		prerequisite = {
-			focus = USA_support_rock_island
+			focus = USA_main_battle_tanks
+			focus = USA_tank_destroyer_doctrine
 		}
-		relative_position_id = USA_selective_training_act
+		relative_position_id = USA_tank_destroyer_doctrine
 		cost = 5 #SPT change, 10 -> 5
 		ai_will_do = {
 			factor = 1
@@ -9110,7 +9112,7 @@ focus_tree = {
 		icon = GFX_focus_usa_tank_destroyer_doctrine
 		x = 2
 		y = 3
-		prerequisite = { focus = USA_tank_experiments }
+		prerequisite = { focus = USA_armored_infantry }
 		mutually_exclusive = { focus = USA_main_battle_tanks }
 		relative_position_id = USA_selective_training_act
 		cost = 5 #SPT change, 10 -> 5
@@ -9154,7 +9156,7 @@ focus_tree = {
 		icon = GFX_focus_generic_combined_arms
 		x = 4
 		y = 3
-		prerequisite = { focus = USA_tank_experiments }
+		prerequisite = { focus = USA_armored_infantry }
 		mutually_exclusive = { focus = USA_tank_destroyer_doctrine }
 		relative_position_id = USA_selective_training_act
 		cost = 5 #SPT change, 10 -> 5
@@ -9196,10 +9198,9 @@ focus_tree = {
 		id = USA_armored_infantry
 		icon = GFX_goal_generic_build_tank
 		x = 2
-		y = 4
+		y = 2
 		prerequisite = {
-			focus = USA_main_battle_tanks
-			focus = USA_tank_destroyer_doctrine
+			focus = USA_support_rock_island
 		}
 		relative_position_id = USA_selective_training_act
 		cost = 10
@@ -9550,7 +9551,7 @@ focus_tree = {
 	focus = {
 		id = USA_two_ocean_navy_act
 		icon = GFX_focus_generic_navy_battleship2
-		x = 8
+		x = 10
 		y = 1
 		prerequisite = {
 			focus = USA_war_department
@@ -9676,7 +9677,7 @@ focus_tree = {
 	focus = {
 		id = USA_maritime_commission
 		icon = GFX_goal_generic_production2
-		x = -3
+		x = -5
 		y = 1
 		prerequisite = {
 			focus = USA_two_ocean_navy_act
@@ -9703,7 +9704,7 @@ focus_tree = {
 		prerequisite = {
 			focus = USA_maritime_commission
 		}
-		x = -3
+		x = -5
 		y = 2
 		relative_position_id = USA_two_ocean_navy_act
 		cost = 5 #SPT change 10 -> 5
@@ -9785,6 +9786,7 @@ focus_tree = {
 		}
 	}
 	focus = {
+		allow_branch = { always = no } # SPTchange
 		id = USA_advanced_mahanian_doctrine
 		icon = GFX_goal_generic_navy_doctrines_tactics
 		prerequisite = {
@@ -9910,6 +9912,7 @@ focus_tree = {
 		}
 	}
 	focus = {
+		allow_branch = { always = no } # SPTchange
 		id = USA_bureau_of_aeronautics
 		icon = GFX_goal_generic_air_naval_bomber
 		prerequisite = {
@@ -9939,13 +9942,13 @@ focus_tree = {
 	focus = {
 		id = USA_naval_radar
 		icon = GFX_goal_generic_radar
-		x = 0
+		x = -4
 		y = 1
 		prerequisite = {
-			focus = USA_bureau_of_aeronautics
+			focus = USA_fund_the_navy
 		}
-		relative_position_id = USA_bureau_of_aeronautics
-		cost = 10
+		relative_position_id = USA_fund_the_navy
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}

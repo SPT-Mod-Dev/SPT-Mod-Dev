@@ -421,7 +421,7 @@
 		y = 3
 		relative_position_id = CAN_rowell_sirois_commission
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 75
@@ -595,7 +595,7 @@
 		y = 0
 		relative_position_id = CAN_defence_of_canada_regulations
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 80
@@ -889,7 +889,7 @@
 				}
 				add_resource = {
 					type = steel
-					amount = 2
+					amount = 8 # SPTChange 2 -> 8
 				}
 			}
 			random_owned_controlled_state = {
@@ -899,7 +899,7 @@
 				}
 				add_resource = {
 					type = steel
-					amount = 2
+					amount = 8 # SPTChange 2 -> 8
 				}
 			}
 			random_owned_controlled_state = {
@@ -909,7 +909,7 @@
 				}
 				add_resource = {
 					type = chromium
-					amount = 3
+					amount = 12 # SPTChange 3 -> 12
 				}
 			}
 		}
@@ -1573,7 +1573,7 @@
 		y = 5
 		relative_position_id = CAN_defence_of_canada_regulations
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 25
@@ -1638,6 +1638,7 @@
 	}
 
 	focus = {
+		allow_branch = { always = no } # SPTchange
 		id = CAN_uranium_mining
 		icon = GFX_focus_wonderweapons
 		prerequisite = { focus = CAN_polymer_corporation focus = CAN_national_steel_car }
@@ -2187,7 +2188,7 @@
 		y = 3
 		relative_position_id = CAN_army_modernization 
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 25
@@ -2236,7 +2237,7 @@
 		y = 4
 		relative_position_id = CAN_army_modernization 
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 25
@@ -2274,7 +2275,7 @@
 		y = 4
 		relative_position_id = CAN_army_modernization 
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 25
@@ -2319,7 +2320,7 @@
 		y = 5
 		relative_position_id = CAN_army_modernization 
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 25
@@ -2357,7 +2358,7 @@
 		y = 5
 		relative_position_id = CAN_army_modernization 
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 25
@@ -2615,7 +2616,7 @@
 		id = CAN_montreal_laboratory_collaboration
 		icon = GFX_goal_tfv_generic_tech_sharing
 		prerequisite = { focus = CAN_strengthen_the_commonwealth_ties }
-		x = 2
+		x = 1
 		y = 1
 		relative_position_id = CAN_strengthen_the_commonwealth_ties
 
@@ -2685,11 +2686,12 @@
 	}
 
 	focus = {
+		
 		id = CAN_camp_x
 		icon = GFX_goal_generic_intelligence_exchange 
-		prerequisite = { focus = CAN_montreal_laboratory_collaboration focus = CAN_permanent_joint_defense_board }
-		x = 2
-		y = 2
+		prerequisite = { focus = CAN_strengthen_the_commonwealth_ties }
+		x = 3
+		y = 1
 		relative_position_id = CAN_strengthen_the_commonwealth_ties
 
 		cost = 5 #SPTChange 10 to 5
@@ -2740,8 +2742,8 @@
 	focus = {
 		id = CAN_supply_the_empire
 		icon = GFX_goal_generic_construction2
-		prerequisite = { focus = CAN_the_plan}
-		prerequisite = { focus = CAN_camp_x }
+		prerequisite = { focus = CAN_the_plan }
+		prerequisite = { focus = CAN_montreal_laboratory_collaboration }
 		x = 0
 		y = 3
 		relative_position_id = CAN_strengthen_the_commonwealth_ties
@@ -3197,7 +3199,7 @@
 		prerequisite = {focus = CAN_supply_the_empire }
 		relative_position_id = CAN_supply_the_empire
 
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 10
@@ -4397,7 +4399,7 @@
 	focus = {
 		id = CAN_rcaf_station_borden
 		icon = GFX_goal_generic_build_airforce
-		x = 26
+		x = 27
 		y = 0
 
 		cost = 10
@@ -4959,7 +4961,7 @@
 	focus = {
 		id = CAN_halifax_shipyards
 		icon = GFX_goal_generic_construct_naval_dockyard
-		x = 30
+		x = 31
 		y = 0
 
 		cost = 10

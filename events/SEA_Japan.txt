@@ -14451,67 +14451,67 @@ country_event = {
 ### Yamamoto death events 
 
 # Operation Vengeance - Event Dispatcher
-country_event = {
-	id = SEA_japan_air_accidents_events.10
+# country_event = {
+# 	id = SEA_japan_air_accidents_events.10
 
-	hidden = yes
+# 	hidden = yes
 
-	fire_only_once = yes
+# 	fire_only_once = yes
 
-	trigger = {
-		original_tag = JAP
-		has_character = JAP_isoroku_yamamoto
-		NOT = {
-			has_completed_focus = JAP_yamamotos_premiership
-			focus_progress = {
-				focus = JAP_yamamotos_premiership
-				progress > 0
-			}
-			has_country_leader = {
-				ruling_only = yes
-				character = JAP_isoroku_yamamoto
-			}	
-		}
-		USA = {
-			has_war_with = ROOT
-		}
-	}
+# 	trigger = {
+# 		original_tag = JAP
+# 		has_character = JAP_isoroku_yamamoto
+# 		NOT = {
+# 			has_completed_focus = JAP_yamamotos_premiership
+# 			focus_progress = {
+# 				focus = JAP_yamamotos_premiership
+# 				progress > 0
+# 			}
+# 			has_country_leader = {
+# 				ruling_only = yes
+# 				character = JAP_isoroku_yamamoto
+# 			}	
+# 		}
+# 		USA = {
+# 			has_war_with = ROOT
+# 		}
+# 	}
 
-	mean_time_to_happen = {
-		days = 180
-		modifier = {
-			factor = 0.5
-			date < 1943.01.01
-		}
-	}
+# 	mean_time_to_happen = {
+# 		days = 180
+# 		modifier = {
+# 			factor = 0.5
+# 			date < 1943.01.01
+# 		}
+# 	}
 
-	immediate = {
-		random_list = {
-			10 = { # Yamamoto dies - Historical
-				modifier = {
-					factor = 10
-					is_historical_focus_on = yes
-				}
-				modifier = {
-					factor = 0.5
-					has_completed_focus = JAP_escort_efficiency
-				}
-				modifier = {
-					factor = 0
-					has_completed_focus = JAP_sea_sturdy_aircraft
-				}
-				country_event = { id = SEA_japan_air_accidents_events.01 hours = 16 random_hours = 8 }
-			}
-			10 = { # No one dies
-				modifier = {
-					factor = 2.5
-					has_completed_focus = JAP_escort_efficiency
-				}
-				country_event = { id = SEA_japan_air_accidents_events.02 hours = 16 random_hours = 8 }
-			}
-		}
-	}
-}
+# 	immediate = {
+# 		random_list = {
+# 			10 = { # Yamamoto dies - Historical
+# 				modifier = {
+# 					factor = 10
+# 					is_historical_focus_on = yes
+# 				}
+# 				modifier = {
+# 					factor = 0.5
+# 					has_completed_focus = JAP_escort_efficiency
+# 				}
+# 				modifier = {
+# 					factor = 0
+# 					has_completed_focus = JAP_sea_sturdy_aircraft
+# 				}
+# 				country_event = { id = SEA_japan_air_accidents_events.01 hours = 16 random_hours = 8 }
+# 			}
+# 			10 = { # No one dies
+# 				modifier = {
+# 					factor = 2.5
+# 					has_completed_focus = JAP_escort_efficiency
+# 				}
+# 				country_event = { id = SEA_japan_air_accidents_events.02 hours = 16 random_hours = 8 }
+# 			}
+# 		}
+# 	}
+# }
 
 # Operation Vengeance - Yamamoto dies
 country_event = {

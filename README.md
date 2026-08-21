@@ -1,5 +1,100 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 4.3.1
+
+#### General
+ - Made hiring new generals/admirals cost CP again
+    - Up to 50 CP (Vanilla is up to 80)
+ - Removed useless focus paths on almost all playable nations
+    - Added a Dockyard Focus to Bulgaria, Finland, Spain, India, Brazil, New Zealand and South Africa so they dont run out of convoys
+ - Added back leader abilities 'Defense in Depth' and 'Rotating Reserves'
+ - Changed the First Vienna Award event so it now also gives Carpathia to Hungary
+
+#### Spirits
+ - Close Combat 
+    - Torpedo Cooldown: -20% -> -25%
+
+#### Decisions
+ - Changed the following license decision unlock timers
+    - Gun 3: Jan 1st 1941 -> Jul 1st 1941
+    - Arty 3: Jan 1st 1941 -> Jul 1st 1941
+    - AT 3: Jan 1st 1941 -> Jul 1st 1941
+    - Rocket Arty 1: Jul 1st 1939 -> Jan 1st 1940
+    - Rocket Arty 2: Jul 1st 1941 -> Jan 1st 1942
+ - Now hides the license and division decisions once used
+ - Changed some templates to match the meta more
+ - Added Mountaineer templates
+
+#### United States
+ - The 'Total War' focus is now also available 6 months after entering the war
+ - Fixed Greenland events and decisions
+ - Reduced the following focuses from 70 to 35 days:
+    - 'Defense of the Pacific'
+    - 'Naval Radar'
+
+#### United Kingdom
+ - Now begins with Faroe Island annexed
+ - Fixed Iceland and Faroe Island events and decisions
+ - Added decisions to fortify Iceland and Faroe Islands
+ - Reduced the following focuses from 70 to 35 days:
+    - 'The Burma Road'
+    - 'RADAR'
+
+#### Italy
+ - Reduced the following focuses from 70 to 35 days:
+    - 'Army Leaders'
+    - 'Italian Tankettes'
+    - 'Bersaglieri'
+    - 'Self-Propelled Guns'
+    - 'Divisioni Alpini'
+    - 'Fanti dell'Aria'
+    - 'Ferrea Mole Ferreo Cuore'
+
+#### Germany
+ - Reduced the following focuses from 70 to 35 days:
+    - 'Build the Rur Dam'
+ - Removed manpower requirements from the following focuses:
+    - 'Anchluss'
+    - 'Demand Sudetenland'
+    - 'Fate of Czechoslovakia'
+    - 'Second Vienna Award'
+    - 'Molotov-Ribbentrop Pact'
+    - 'Danzig or War'
+ - the focus 'Anchluss' as now available from April 1st 1936 onwards
+
+#### France
+ - Nerfed the building slots in West-Africa
+
+#### Canada
+ - Reduced the following focuses from 70 to 35 days:
+    - 'The Canadian Citizenship Act'
+    - 'A Motorized Army'
+    - 'Red Deer Training Camp'
+    - 'The Black Devils'
+    - 'The Rocky Mountain Rangers'
+    - '1st Canadian Parachute Battalion'
+    - 'War Bonds'
+    - 'If Day'
+    - 'Retool Angus Shops'
+ - 'Mine the Shield' focus:
+    - Steel: 4 -> 16
+    - Chromium: 3 -> 12
+
+#### Hungary
+ - Reduced the following focuses from 70 to 35 days:
+    - 'Strengthen the Turáni Vadászok'
+    - 'Promote Increased Urbanization'
+
+#### Bulgaria 
+ - Added 1 Civilian Factory to the 'Steel Plant in Pernik' focus
+ - Added the 'Bulgarian Milk Factories' focus
+
+#### No Asia
+ - Fixed invite American investors decision for the Soviet Union
+
+#### Japan
+ - Admiral Yamamoto Isoroku no longer dies from American precision strikes
+
 ### 4.3.0
 
 #### General

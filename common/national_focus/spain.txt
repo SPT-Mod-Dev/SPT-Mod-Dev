@@ -1038,6 +1038,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = {always = no} # Sptchange
 		id = SPA_obtain_training_staff
 		available = {
 			NOT = { has_global_flag = scw_over }
@@ -1090,7 +1091,7 @@ focus_tree = {
 		prerequisite = { focus = SPA_equipment_shipments }
 		
 		icon = GFX_goal_generic_army_doctrines
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = SPA_equipment_shipments
 		cost = 5
@@ -1448,6 +1449,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = {always = no} # Sptchange
 		id = SPA_prepare_the_pyrenees_defenses
 		available = {
 			has_full_control_of_state = 792
@@ -2602,6 +2604,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = {always = no} # Sptchange
 		id = SPA_expand_the_air_branch
 		available = {
 		}
@@ -3036,6 +3039,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = {always = no} # Sptchange
 		id = SPA_italian_shipbuilding_expertise
 		available = {
 			is_in_faction_with = ITA
@@ -4067,6 +4071,45 @@ focus_tree = {
 	}
 
 	focus = {
+		id = SPT_SPR_dockyard
+		icon = GFX_focus_ICE_the_viking_spirit
+		relative_position_id = SPA_fuse_the_parties
+		prerequisite = { focus = SPA_fuse_the_parties }
+		x = -8.5
+		y = 1
+		cost = 5
+
+		search_filters = {  FOCUS_FILTER_INDUSTRY }
+		
+		available_if_capitulated = yes
+
+
+		available = {
+			any_controlled_state = {
+				is_coastal = yes
+			}
+		}
+		
+		completion_reward = {
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}		
+			}
+		}
+
+	focus = {
 		id = SPA_join_the_allies
 		allow_branch = { always = no }
 		available = {
@@ -4835,6 +4878,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = {always = no} # Sptchange
 		id = SPA_invest_in_naval_infrastructure
 		available = {
 		# 	has_completed_focus = SPA_unify_the_nationalist_front # SPTChange remove requirement

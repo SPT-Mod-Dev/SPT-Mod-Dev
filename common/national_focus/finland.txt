@@ -6858,6 +6858,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = {always = no} # Sptchange
 		id = FIN_parmis_devils
 		icon = GFX_focus_FIN_parmis_devils
 		prerequisite = { focus = FIN_union_of_finnish_brothers_in_arms }
@@ -10963,7 +10964,7 @@ focus_tree = {
 		id = FIN_increase_military_budget
 		icon = GFX_focus_FIN_increase_military_budget
 
-		x = 17
+		x = 11
 		y = 0
 		relative_position_id = FIN_enhance_southern_infrastructure
 		cost = 5
@@ -11004,13 +11005,52 @@ focus_tree = {
 			}
 		}
 	}
+
+	focus = {
+		id = SPT_FIN_dockyard
+		icon = GFX_focus_BEL_antwerp_maritime_academy
+		relative_position_id = FIN_increase_military_budget
+		prerequisite = { focus = FIN_increase_military_budget }
+		x = 2
+		y = 1
+		cost = 5
+
+		search_filters = {  FOCUS_FILTER_INDUSTRY }
+		
+		available_if_capitulated = yes
+
+
+		available = {
+			any_controlled_state = {
+				is_coastal = yes
+			}
+		}
+		
+		completion_reward = {
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = dockyard
+							size > 2
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = dockyard
+						level = 3
+						instant_build = yes
+					}
+				}		
+			}
+		}
 	
 	focus = {
 		id = FIN_suomen_maavoimat
 		icon = GFX_focus_FIN_suomen_maavoimat
 		prerequisite = { focus = FIN_increase_military_budget }
 
-		x = -6
+		x = 0
 		y = 1
 		relative_position_id = FIN_increase_military_budget
 		cost = 10
@@ -11419,6 +11459,7 @@ focus_tree = {
 	}
 	
 	focus = {
+		allow_branch = {always = no} # Sptchange
 		id = FIN_foreign_armor
 		icon = GFX_focus_FIN_foreign_anti_air
 		prerequisite = { focus = FIN_salvaged_and_retooled }
@@ -11561,6 +11602,7 @@ focus_tree = {
 	}
 	
 	focus = {
+		allow_branch = {always = no} # Sptchange
 		id = FIN_national_armor_focus
 		icon = GFX_focus_generic_tank_production
 		prerequisite = { focus = FIN_salvaged_and_retooled }
@@ -12043,6 +12085,7 @@ focus_tree = {
 	}
 	
 	focus = {
+		allow_branch = {always = no} # Sptchange
 		id = FIN_suomen_ilmavoimat
 		icon = GFX_focus_FIN_suomen_ilmavoimat
 		prerequisite = { focus = FIN_increase_military_budget }
@@ -13038,6 +13081,7 @@ focus_tree = {
 	}
 	
 	focus = {
+		allow_branch = {always = no} # Sptchange
 		id = FIN_suomen_merivoimat
 		icon = GFX_focus_FIN_suomen_merivoimat
 		prerequisite = { focus = FIN_increase_military_budget }
