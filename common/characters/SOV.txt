@@ -3642,57 +3642,70 @@ characters = {
 			logistics_skill = 3
 			legacy_id = 0
 			visible = {
-				OR = {
-					has_idea = SOV_grigory_semyonov
-					has_completed_focus = SOV_approach_semyonov
-				}
+				always = yes # SPTchange
+		#		OR = {
+		#			has_idea = SOV_grigory_semyonov
+		#			has_completed_focus = SOV_approach_semyonov
+		#		}
 			}
 		}
 
 		advisor = {
-			slot = political_advisor
+			#slot = political_advisor
+			slot = high_command # SPTchange
 			idea_token = SOV_grigory_semyonov
 			allowed = {
-				OR = {
-					original_tag = SOV
-					original_tag = MAN # This is where he starts the game
-				}
+				original_tag = MON # SPTchange	
+			#	OR = {
+			#		original_tag = SOV
+			#		original_tag = MAN # This is where he starts the game
+			#	}
 			}
 			available = {
-				if = { 
-					limit = { original_tag = MAN }
-					custom_trigger_tooltip = {
-					 	tooltip = SOV_grigory_semyonov_man_tt
-					 	IF = {
-					 		limit = {
-					 			SOV = { 
-					 				has_completed_focus = SOV_approach_semyonov 
-					 			}
-					 		}
-					 		SOV_soviet_civil_war_not_started = yes 
-					 	}
-					}
+				always = yes # SPTchange
+			#	if = { 
+			#		limit = { original_tag = MAN }
+			#		custom_trigger_tooltip = {
+			#		 	tooltip = SOV_grigory_semyonov_man_tt
+			#		 	IF = {
+			#		 		limit = {
+			#		 			SOV = { 
+			#		 				has_completed_focus = SOV_approach_semyonov 
+			#		 			}
+			#		 		}
+			#		 		SOV_soviet_civil_war_not_started = yes 
+			#		 	}
+			#		}
 				}
 				
-				if = {
-					limit = { original_tag = SOV }
-					has_completed_focus = SOV_approach_semyonov
-				}
-				if = {
-					limit = {
-						has_character_flag = SOV_exiled_flag
-					}
-					NOT = { has_character_flag = SOV_exiled_flag }
-				}
-			}
+			#	if = {
+			#		limit = { original_tag = SOV }
+			#		has_completed_focus = SOV_approach_semyonov
+			#	}
+			#	if = {
+			#		limit = {
+			#			has_character_flag = SOV_exiled_flag
+			#		}
+			#		NOT = { has_character_flag = SOV_exiled_flag }
+			#	}
+			#}
 			visible = {
-				NOT = {
-					has_character_flag = SOV_character_purged_flag 
+				always = yes # SPTchange
+			#	NOT = {
+			#		has_character_flag = SOV_character_purged_flag 
+			#	}
+			}
+			#traits = {
+			#	ataman_transbaikal_host
+			#}
+
+			# SPTchange
+			ledger = army
+				traits = {
+					army_CombinedArms_2
 				}
-			}
-			traits = {
-				ataman_transbaikal_host
-			}
+				cost = 100
+
 			ai_will_do = {
 				base = 1
 			}

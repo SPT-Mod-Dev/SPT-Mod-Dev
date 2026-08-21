@@ -4294,7 +4294,7 @@ SOV_gosproyektstroy_decision_category = {
 			base = 10
 		}
 
-		targets = { USA ENG GER JAP ATF } # SPTchange no asia fix
+		targets = { USA ENG GER JAP }
 
 		#target_trigger = {
 		#	FROM = { SOV_is_valid_subject = yes }
@@ -4307,18 +4307,17 @@ SOV_gosproyektstroy_decision_category = {
 		available = {
 			has_idea = SOV_gosproyektstroy_1
 			NOT = { has_country_flag = SOV_gosproyektstroy_upgrade_in_progress_flag }
-           	FROM = {
-            	has_opinion = { target = ROOT value > 29 }
-            	SOV_is_valid_subject = yes
-            	NOT = { has_war_with = ROOT }
-        	}
-			# SPTchange no asia fix
-            NOT = {
-        		AND = {
-            		FROM = { tag = ATF }
-            		country_exists = USA
-        		}
-    		}
+			OR = {
+				FROM = {
+					has_opinion = {
+						target = ROOT
+						value > 29
+					}
+					SOV_is_valid_subject = yes
+					NOT = { has_war_with = ROOT }
+				}
+				NOT = { country_exists = ROOT } # SPTChange no asia fix for usa
+			}
 		}
 
 		days_remove = SOV_gosproyektstroy_decision_time
@@ -4332,13 +4331,6 @@ SOV_gosproyektstroy_decision_category = {
 			country_exists = FROM
 			NOT = { has_war_with = FROM }
 			FROM = { SOV_is_valid_subject = yes }
-			# SPTchange no asia fix
-            NOT = {
-        		AND = {
-            		FROM = { tag = ATF }
-            		country_exists = USA
-        		}
-    		}
 		}
 
 		cost = SOV_gosproyektstroy_decision_cost
@@ -4362,16 +4354,6 @@ SOV_gosproyektstroy_decision_category = {
 					add_idea = SOV_gosproyektstroy_2_usa
 				}
 			}
-			# SPTchange no asia fix
-			else_if = {
-            		limit = { FROM = { tag = ATF } 
-				}
-            	set_country_flag = { flag = SOV_gosproyektstroy_level_2_flag value = 1 }
-            	swap_ideas = { 
-					remove_idea = SOV_gosproyektstroy_1  
-					add_idea = SOV_gosproyektstroy_2_usa 
-				}
-        	}
 			else_if = {
 				limit = {
 					FROM = { tag = ENG }
@@ -5399,6 +5381,10 @@ SOV_diplomacy_baltic_decision_category = {
 				has_capitulated = no
 				NOT = { has_war_with = ROOT }
 				is_subject = no
+			}
+			# SPTchange - incorperated soviet rule #1
+			GER = { 
+				has_completed_focus = GER_molotov_ribbentrop_pact
 			}
 		}
 
