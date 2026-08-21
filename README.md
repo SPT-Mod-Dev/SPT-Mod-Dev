@@ -1,5 +1,23 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 4.3.2
+
+#### Soviet Union
+ - Locked the 'Send Ultimatum to the Baltic Confederation' decision and the 'Claim on Bessarabia' focus until Germany has completed the 'Molotov Ribbentrop Pact' focus
+
+#### Germany
+ - The 'Build the Rur Dam' focus is now 35 days
+    - This time its true
+
+#### Brazil
+ - Actually removed all useless focuses
+
+#### Mongolia
+ - Now starts with a Mechanized advisor
+
+#### No Asia
+ - Mongolia no longer loses Sinkiang to the Pacific Trade Federation
+
 ### 4.3.1
 
 #### General
