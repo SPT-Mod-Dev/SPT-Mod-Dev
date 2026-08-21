@@ -8,6 +8,7 @@
 #### Germany
  - The 'Build the Rur Dam' focus is now 35 days
     - This time its true
+ - Reduced political power nerfs from the Inner Circle from -0.3 to -0.15
 
 #### Brazil
  - Actually removed all useless focuses
