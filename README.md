@@ -2,6 +2,9 @@
 
 ### 4.3.2
 
+#### General
+ - The 'Prepare Collaboration Government' spy mission now always adds 45% collaboration
+
 #### Soviet Union
  - Locked the 'Send Ultimatum to the Baltic Confederation' decision and the 'Claim on Bessarabia' focus until Germany has completed the 'Molotov Ribbentrop Pact' focus
 
@@ -9,6 +12,8 @@
  - The 'Build the Rur Dam' focus is now 35 days
     - This time its true
  - Reduced political power nerfs from the Inner Circle from -0.3 to -0.15
+ - Added the 'European Integration'
+    - Adds 45% collaboration to Poland, Belgium, Netherlands, Denmark and Norway
 
 #### Brazil
  - Actually removed all useless focuses
