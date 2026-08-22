@@ -5,9 +5,6 @@
 #### General
  - The 'Prepare Collaboration Government' spy mission now always adds 45% collaboration
 
-#### Soviet Union
- - Locked the 'Send Ultimatum to the Baltic Confederation' decision and the 'Claim on Bessarabia' focus until Germany has completed the 'Molotov Ribbentrop Pact' focus
-
 #### Germany
  - The 'Build the Rur Dam' focus is now 35 days
     - This time its true
