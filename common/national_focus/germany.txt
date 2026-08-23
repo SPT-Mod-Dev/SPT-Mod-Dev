@@ -3932,8 +3932,8 @@ focus_tree = {
 		completion_reward = {
 			GER_modify_army_modifier = yes
 			add_to_variable = { 
-				GER_military_special_forces_cap = 0.05
-				tooltip = special_forces_cap_tt
+				#GER_military_special_forces_cap = 0.05 # SPTchange
+				#tooltip = special_forces_cap_tt
 			}
 			add_to_variable = { 
 				GER_military_acclimatization_cold_climate_gain_factor = 0.1
@@ -5805,8 +5805,8 @@ focus_tree = {
 
 			GER_modify_army_modifier = yes
 			add_to_variable = { 
-				GER_military_special_forces_cap = 0.05
-				tooltip = special_forces_cap_tt
+				#GER_military_special_forces_cap = 0.05 # SPTchange
+				#tooltip = special_forces_cap_tt
 			}
 
 			custom_effect_tooltip = generic_skip_one_line_tt
@@ -7680,8 +7680,8 @@ focus_tree = {
 			custom_effect_tooltip = generic_skip_one_line_tt
 			GER_modify_army_modifier = yes
 			add_to_variable = { 
-				GER_military_special_forces_cap = 0.05
-				tooltip = special_forces_cap_tt
+				#GER_military_special_forces_cap = 0.05 # SPTchange
+				#tooltip = special_forces_cap_tt
 			}
 		}
 	}
@@ -9614,6 +9614,51 @@ focus_tree = {
 					}
 				}
 				add_state_core = 976
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_GER_collabs
+		icon = GFX_focus_generic_the_council_of_europe
+		prerequisite = { focus = GER_molotov_ribbentrop_pact }
+		allow_branch = {}
+
+		x = 0
+		y = 1
+		relative_position_id = GER_molotov_ribbentrop_pact
+
+		cost = 10
+
+		bypass = { }
+		available = { }
+		
+		ai_will_do = {
+			factor = 10
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }	
+
+		completion_reward = {
+			add_collaboration = {
+				target = POL
+				value = 0.45
+			}
+			add_collaboration = {
+				target = BEL
+				value = 0.45
+			}
+			add_collaboration = {
+				target = HOL
+				value = 0.45
+			}
+			add_collaboration = {
+				target = DEN
+				value = 0.45
+			}
+			add_collaboration = {
+				target = NOR
+				value = 0.45
 			}
 		}
 	}
@@ -12285,7 +12330,7 @@ focus_tree = {
 		#prerequisite = { focus = GER_reassert_eastern_claims }
 		mutually_exclusive = { focus = GER_danzig_for_slovakia }
 		#SPT change, changed prereqs and mutual exclusivity
-		prerequisite = { focus = GER_molotov_ribbentrop_pact}
+		prerequisite = { focus = SPT_GER_collabs }
 		prerequisite = { focus = GER_fate_of_czechoslovakia }
 		x = 0
 		y = 3

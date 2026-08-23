@@ -18,51 +18,52 @@ country_event = {
 	picture = GFX_report_event_INS_new_governor_general
 	is_triggered_only = yes
 	
+	# SPTchange
 	# A.T. Van Starkenborgh Stachouwer
-	option = {
-		name = INS_political_events.1.a
-		ai_chance = {
-			base = 5
-			modifier = {
-				factor = 2
-				has_completed_focus = INS_underground_revolution
-			}
-		}
-		INS_a_t_van_starkenborgh_stachouwer = {
-			add_country_leader_role = {
-				promote_leader = yes
-				country_leader = {
-					ideology = oligarchism
-					expire = "1965.1.1.1"
-					traits = { TAOG_liberal_colonial_leader }
-				}
-			}
-			add_country_leader_role = {
-				country_leader = {
-					ideology = conservatism
-					expire = "1965.1.1.1"
-					traits = { TAOG_liberal_colonial_leader }
-				}
-			}
-		}
-		set_country_flag = INS_leader_is_tjarda
-		if = {
-			limit = {
-				NOT = {
-					has_completed_focus = INS_underground_revolution
-				}
-			}
-			custom_effect_tooltip = available_focus_tt
-			custom_effect_tooltip = INS_governor_general_tjarda
-			custom_effect_tooltip = INS_electrical_investments
-			custom_effect_tooltip = INS_reduce_land_taxes
-			custom_effect_tooltip = INS_invest_in_batavian_education
-			custom_effect_tooltip = INS_javanese_education_investments
-		}
-		else = {
-			add_political_power = 50
-		}
-	}
+	#option = {
+	#	name = INS_political_events.1.a
+	#	ai_chance = {
+	#		base = 5
+	#		modifier = {
+	#			factor = 2
+	#			has_completed_focus = INS_underground_revolution
+	#		}
+	#	}
+	#	INS_a_t_van_starkenborgh_stachouwer = {
+	#		add_country_leader_role = {
+	#			promote_leader = yes
+	#			country_leader = {
+	#				ideology = oligarchism
+	#				expire = "1965.1.1.1"
+	#				traits = { TAOG_liberal_colonial_leader }
+	#			}
+	#		}
+	#		add_country_leader_role = {
+	#			country_leader = {
+	#				ideology = conservatism
+	#				expire = "1965.1.1.1"
+	#				traits = { TAOG_liberal_colonial_leader }
+	#			}
+	#		}
+	#	}
+	#	set_country_flag = INS_leader_is_tjarda
+	#	if = {
+	#		limit = {
+	#			NOT = {
+	#				has_completed_focus = INS_underground_revolution
+	#			}
+	#		}
+	#		custom_effect_tooltip = available_focus_tt
+	#		custom_effect_tooltip = INS_governor_general_tjarda
+	#		custom_effect_tooltip = INS_electrical_investments
+	#		custom_effect_tooltip = INS_reduce_land_taxes
+	#		custom_effect_tooltip = INS_invest_in_batavian_education
+	#		custom_effect_tooltip = INS_javanese_education_investments
+	#	}
+	#	else = {
+	#		add_political_power = 50
+	#	}
+	#}
 	
 	# Keep Cornelis
 	option = {

@@ -2,19 +2,38 @@
 
 ### 4.3.2
 
-#### Soviet Union
- - Locked the 'Send Ultimatum to the Baltic Confederation' decision and the 'Claim on Bessarabia' focus until Germany has completed the 'Molotov Ribbentrop Pact' focus
+#### General
+ - The 'Prepare Collaboration Government' spy mission now always adds 45% collaboration
+ - Disabled the Commonwealth focus branch
+ - Special forces are now heavily limited
+    - Special forces battalion count is no longer dependent on total battalion count
+    - Special forces doctrines no longer reduce combat width or cap contribution
+    - All % cap increases have been removed from all sources
+    - Majors have a minimum special forces cap of 216 battalions ( 12 x 36 width )
+    - Minors have a minimum special forces cap of 108 battalions ( 6 x 36 width )
+    - These are all preliminary changes and will be changed further upon a full scale special forces rework
 
 #### Germany
  - The 'Build the Rur Dam' focus is now 35 days
     - This time its true
  - Reduced political power nerfs from the Inner Circle from -0.3 to -0.15
+ - Added the 'European Integration' focus
+    - Adds 45% collaboration to Poland, Belgium, Netherlands, Denmark and Norway
+
+#### United Kingdom
+ - Added the 'Further Malaysian Exploitation' focus
+    - Modifies Malayia's 'Colonial Exploitation' idea by
+        - Stability: -10%
+        - Resources to market: +25%
 
 #### Brazil
  - Actually removed all useless focuses
 
 #### Mongolia
  - Now starts with a Mechanized advisor
+
+#### Indonesia
+ - Now actually has rubber for export
 
 #### No Asia
  - Mongolia no longer loses Sinkiang to the Pacific Trade Federation
