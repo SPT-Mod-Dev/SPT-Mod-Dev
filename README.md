@@ -8,7 +8,7 @@
  - Special forces are now heavily limited
     - Special forces battalion count is no longer dependent on total battalion count
     - Special forces doctrines no longer reduce combat width or cap contribution
-    - All % cap increases have been removed from all sources
+    - All cap increases, both flat and percentage, have been removed from all sources
     - Majors have a minimum special forces cap of 216 battalions ( 12 x 36 width )
     - Minors have a minimum special forces cap of 108 battalions ( 6 x 36 width )
     - These are all preliminary changes and will be changed further upon a full scale special forces rework
@@ -16,7 +16,7 @@
 #### Germany
  - The 'Build the Rur Dam' focus is now 35 days
     - This time its true
- - Reduced political power nerfs from the Inner Circle from -0.3 to -0.15
+ - Reduced political power gain from the Inner Circle advisors from -0.3 to -0.15
  - Added the 'European Integration' focus
     - Adds 45% collaboration to Poland, Belgium, Netherlands, Denmark and Norway
 

@@ -3553,7 +3553,7 @@ SPT_templates = {
 		visible = {
 			is_ai = no
 			NOT = { has_country_flag = Clear_Template_Decision }
-			NOT = { has_country_flag = a2w_selected }
+			NOT = { has_country_flag = spam_selected }
 		}
 		
 		fire_only_once = no
@@ -3567,7 +3567,7 @@ SPT_templates = {
 					infantry = { x = 0 y = 0 }			
 				}
 			}
-			set_country_flag = a2w_selected
+			set_country_flag = spam_selected
 		}
 	}
 	a18cw_template = {
@@ -3575,7 +3575,7 @@ SPT_templates = {
 		visible = {
 			is_ai = no
 			NOT = { has_country_flag = Clear_Template_Decision }
-			NOT = { has_country_flag = a18w_selected }
+			NOT = { has_country_flag = infsmall_selected }
 		}
 		available = {
 			has_tech = support_weapons
@@ -3611,7 +3611,7 @@ SPT_templates = {
 					infantry={ x=2 y=2 }
 				}
 			}
-			set_country_flag = a18w_selected
+			set_country_flag = infsmall_selected
 		}
 	}
 	a19cwAT_template = {
@@ -3619,7 +3619,7 @@ SPT_templates = {
 		visible = {
 			is_ai = no
 			NOT = { has_country_flag = Clear_Template_Decision }
-			NOT = { has_country_flag = a19wat_selected }
+			NOT = { has_country_flag = infsmallat_selected }
 		}
 		available = {
 			has_tech = support_weapons
@@ -3657,7 +3657,7 @@ SPT_templates = {
 					anti_tank_brigade={ x=3 y=0 }
 				}
 			}
-			set_country_flag = a19wat_selected
+			set_country_flag = infsmallat_selected
 		}
 	}
 	a19cwAA_template = {
@@ -3665,7 +3665,7 @@ SPT_templates = {
 		visible = {
 			is_ai = no
 			NOT = { has_country_flag = Clear_Template_Decision }
-			NOT = { has_country_flag = a19waa_selected }
+			NOT = { has_country_flag = infsmallaa_selected }
 		}
 		available = {
 			has_tech = support_weapons
@@ -3702,7 +3702,7 @@ SPT_templates = {
 					anti_air_brigade={ x=3 y=0 }
 				}
 			}
-			set_country_flag = a19waa_selected
+			set_country_flag = infsmallaa_selected
 		}
 	}
 	a36cw_template = {
@@ -3710,7 +3710,7 @@ SPT_templates = {
 		visible = {
 			is_ai = no
 			NOT = { has_country_flag = Clear_Template_Decision }
-			NOT = { has_country_flag = a36w_selected }
+			NOT = { has_country_flag = infbig_selected }
 		}
 		available = {
 			has_tech = support_weapons
@@ -3759,7 +3759,7 @@ SPT_templates = {
 					infantry={ x=4 y=2 }
 				}
 			}
-			set_country_flag = a36w_selected
+			set_country_flag = infbig_selected
 		}
 	}
 	a36cwAT_template = {
@@ -3767,7 +3767,7 @@ SPT_templates = {
 		visible = {
 			is_ai = no
 			NOT = { has_country_flag = Clear_Template_Decision }
-			NOT = { has_country_flag = a36wat_selected }
+			NOT = { has_country_flag = infbigat_selected }
 		}
 		available = {
 			has_tech = support_weapons
@@ -3816,7 +3816,7 @@ SPT_templates = {
 					infantry={ x=4 y=2 }
 				}
 			}
-			set_country_flag = a36wat_selected
+			set_country_flag = infbigat_selected
 		}
 	}
 	a36cwAA_template = {
@@ -3824,7 +3824,7 @@ SPT_templates = {
 		visible = {
 			is_ai = no
 			NOT = { has_country_flag = Clear_Template_Decision }
-			NOT = { has_country_flag = a36waa_selected }
+			NOT = { has_country_flag = infbigaa_selected }
 		}
 		available = {
 			has_tech = support_weapons
@@ -3872,7 +3872,7 @@ SPT_templates = {
 					infantry={ x=4 y=2 }
 				}
 			}
-			set_country_flag = a36waa_selected
+			set_country_flag = infbigaa_selected
 		}
 	}
 	a36wmarine_template = {
@@ -3893,7 +3893,7 @@ SPT_templates = {
 		
 		complete_effect = {
 			division_template = {
-				name = "36W Marine - CWS"
+				name = "36W Marine"
 
 				regimental_support={
 					field_guns={ x=0 y=0 }
@@ -3918,7 +3918,6 @@ SPT_templates = {
 					marine={ x=1 y=1 }
 					marine={ x=1 y=2 }
 					marine={ x=1 y=3 }
-					marine={ x=1 y=4 }
 					mountaineers={ x=2 y=0 }
 					mountaineers={ x=2 y=1 }
 					mountaineers={ x=2 y=2 }
@@ -3931,63 +3930,6 @@ SPT_templates = {
 				}
 			}
 			set_country_flag = marinea_selected
-		}
-	}
-	b36wmarine_template = {
-		icon = generic_military
-		visible = {
-			is_ai = no
-			NOT = { has_country_flag = Clear_Template_Decision }
-			NOT = { has_country_flag = marineb_selected }
-		}
-		available = {
-			has_tech = marines
-			has_tech = tech_mountaineers
-			is_special_project_completed = sp:sp_land_flamethrower_tank
-		}
-		
-		fire_only_once = no
-		#days_remove = 7
-		
-		complete_effect = {
-			division_template = {
-				name = "36W Marine - ETM"
-
-				regimental_support={
-					field_guns={ x=0 y=0 }
-					field_guns={ x=1 y=0 }
-					field_guns={ x=2 y=0 }
-					field_guns={ x=3 y=0 }
-					field_guns={ x=4 y=0 }
-				}
-				support={
-					pioneer_support={ x=0 y=0 }
-					super_heavy_artillery={ x=0 y=1 }
-					artillery={ x=0 y=2 }
-					medium_flame_tank={ x=0 y=3 }
-				}
-				regiments={
-					marine={ x=0 y=0 }
-					marine={ x=0 y=1 }
-					marine={ x=0 y=2 }
-					marine={ x=0 y=3 }
-					marine={ x=1 y=0 }
-					marine={ x=1 y=1 }
-					marine={ x=1 y=2 }
-					marine={ x=1 y=3 }
-					mountaineers={ x=2 y=0 }
-					mountaineers={ x=2 y=1 }
-					mountaineers={ x=2 y=2 }
-					marine={ x=2 y=3 }
-					mountaineers={ x=3 y=0 }
-					mountaineers={ x=3 y=1 }
-					mountaineers={ x=3 y=2 }
-					mountaineers={ x=4 y=0 }
-					mountaineers={ x=4 y=1 }
-					mountaineers={ x=4 y=2 }
-				}
-			}
-			set_country_flag = marineb_selected
 		}
 	}
 	a32wmountaineer_template = {
@@ -4007,7 +3949,7 @@ SPT_templates = {
 		
 		complete_effect = {
 			division_template = {
-				name = "32W Mountaineer - CWS"
+				name = "32W Mountaineer"
 
 				regimental_support={
 					field_guns={ x=0 y=0 }
@@ -4030,11 +3972,9 @@ SPT_templates = {
 					mountaineers={ x=1 y=0 }
 					mountaineers={ x=1 y=1 }
 					mountaineers={ x=1 y=2 }
-					mountaineers={ x=1 y=3 }
 					mountaineers={ x=2 y=0 }
 					mountaineers={ x=2 y=1 }
 					mountaineers={ x=2 y=2 }
-					mountaineers={ x=2 y=3 }
 					mountaineers={ x=3 y=0 }
 					mountaineers={ x=3 y=1 }
 					mountaineers={ x=3 y=2 }
@@ -4044,60 +3984,6 @@ SPT_templates = {
 				}
 			}
 			set_country_flag = mountaineera_selected
-		}
-	}
-	b32wmountaineer_template = {
-		icon = generic_military
-		visible = {
-			is_ai = no
-			NOT = { has_country_flag = Clear_Template_Decision }
-			NOT = { has_country_flag = mountaineerb_selected }
-		}
-		available = {
-			has_tech = tech_mountaineers
-			is_special_project_completed = sp:sp_land_flamethrower_tank
-		}
-		
-		fire_only_once = no
-		#days_remove = 7
-		
-		complete_effect = {
-			division_template = {
-				name = "32W Mountaineer - ETM"
-
-				regimental_support={
-					field_guns={ x=0 y=0 }
-					field_guns={ x=1 y=0 }
-					field_guns={ x=2 y=0 }
-					field_guns={ x=3 y=0 }
-					field_guns={ x=4 y=0 }
-				}
-				support={
-					rangers_support={ x=0 y=0 }
-					super_heavy_artillery={ x=0 y=1 }
-					artillery={ x=0 y=2 }
-					medium_flame_tank={ x=0 y=3 }
-				}
-				regiments={
-					mountaineers={ x=0 y=0 }
-					mountaineers={ x=0 y=1 }
-					mountaineers={ x=0 y=2 }
-					mountaineers={ x=0 y=3 }
-					mountaineers={ x=1 y=0 }
-					mountaineers={ x=1 y=1 }
-					mountaineers={ x=1 y=2 }
-					mountaineers={ x=2 y=0 }
-					mountaineers={ x=2 y=1 }
-					mountaineers={ x=2 y=2 }
-					mountaineers={ x=3 y=0 }
-					mountaineers={ x=3 y=1 }
-					mountaineers={ x=3 y=2 }
-					mountaineers={ x=4 y=0 }
-					mountaineers={ x=4 y=1 }
-					mountaineers={ x=4 y=2 }
-				}
-			}
-			set_country_flag = mountaineerb_selected
 		}
 	}
 	a38wtankM_template = {
