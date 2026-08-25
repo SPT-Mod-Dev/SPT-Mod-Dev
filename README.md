@@ -32,6 +32,13 @@
 #### Mongolia
  - Now starts with a Mechanized advisor
 
+#### Siam
+ - Reduced the following focuses from 70 to 35 days:
+    - 'Expand Domestic Arms Workshops'
+    - 'Domestic Arms Industry'
+    - 'Royal Thai Ordnance Factory'
+ - Swapped the 'Expand Domestic Arms Workshops' and 'Prepare for the Next Blockade' focuses
+
 #### Indonesia
  - Now actually has rubber for export
 
