@@ -883,28 +883,6 @@ focus_tree = {
 		completion_reward = {
 			add_ideas = ENG_special_air_service_idea
 			custom_effect_tooltip = generic_skip_one_line_tt
-			custom_effect_tooltip = available_political_advisor
-			show_ideas_tooltip = ENG_david_stirling
-		}
-	}
-
-	focus = {
-		id = ENG_parachute_regiments
-		prerequisite = { focus = ENG_special_air_service }
-		allow_branch = {
-			has_dlc = "Arms Against Tyranny"
-		}
-		continue_if_invalid = yes
-
-		icon = GFX_focus_generic_paratrooper
-		x = 0
-		y = 1
-		relative_position_id = ENG_special_air_service
-		cost = 10
-		ai_will_do = {
-			factor = 1
-		}	
-		completion_reward = {
 			add_potential_special_forces_tree = yes
 			add_doctrine_cost_reduction = {
 				name = ENG_parachute_regiments
@@ -912,8 +890,39 @@ focus_tree = {
 				uses = 2
 				category = special_forces_doctrine
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = ENG_david_stirling
 		}
 	}
+
+	# SPTchange - folded into SAS focus
+	# focus = {
+	# 	id = ENG_parachute_regiments
+	# 	prerequisite = { focus = ENG_special_air_service }
+	# 	allow_branch = {
+	# 		has_dlc = "Arms Against Tyranny"
+	# 	}
+	# 	continue_if_invalid = yes
+
+	# 	icon = GFX_focus_generic_paratrooper
+	# 	x = 0
+	# 	y = 1
+	# 	relative_position_id = ENG_special_air_service
+	# 	cost = 10
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}	
+	# 	completion_reward = {
+	# 		add_potential_special_forces_tree = yes
+	# 		add_doctrine_cost_reduction = {
+	# 			name = ENG_parachute_regiments
+	# 			cost_reduction = 0.25
+	# 			uses = 2
+	# 			category = special_forces_doctrine
+	# 		}
+	# 	}
+	# }
 	
 	focus = {
 		id = royal_ordinance_focus
@@ -6375,13 +6384,49 @@ focus_tree = {
 	}
 
 	focus = {
+		id = SPT_ENG_malaysia_rubber
+		prerequisite = { focus = peninsular_focus }
+		icon = GFX_focus_generic_rubber_plantations
+		x = 1
+		y = 1
+		relative_position_id = peninsular_focus
+		cost = 10
+		ai_will_do = {
+			factor = 3
+		}
+
+		available = {
+			has_war = yes
+			country_exists = MAL
+			MAL = {
+				has_capitulated = no
+			}
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+
+		completion_reward = {
+			MAL = {
+				swap_ideas = {
+					remove_idea = MAL_colonial_administration_idea
+					add_idea = SPT_MAL_colonial_administration_idea_2
+				}
+			}
+		}
+	}
+
+	focus = {
 		id = ENG_sarawakrangers_focus 
 
 		prerequisite = { focus = peninsular_focus }
 
 		icon = GFX_focus_CHI_guerrilla_warfare
 
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = peninsular_focus
 

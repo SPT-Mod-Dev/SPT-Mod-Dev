@@ -30,6 +30,35 @@ ideas = {
 			}
 		}
 
+		SPT_sf_cap_minor = {
+
+			allowed = {
+			}
+
+			allowed_civil_war = {
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				special_forces_min = 108
+			}
+		}
+
+		SPT_sf_cap_major = {
+
+			allowed = {
+			}
+
+			allowed_civil_war = {
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				special_forces_min = 216
+			}
+		}
 	}
 
 	country = {
@@ -386,7 +415,7 @@ ideas = {
 		SPT_raj_cap = {
 			picture = ENG_special_air_service
             modifier = {
-                special_forces_cap = 0.10
+                #special_forces_cap = 0.10 # SPTchange
             }
 		}
 
@@ -556,6 +585,32 @@ ideas = {
 				medium_plane_airframe = {
 					build_cost_ic = -0.10 instant = yes
 				}
+			}
+		}
+
+		SPT_MAL_colonial_administration_idea_2 = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				is_subject = yes 
+			}
+
+			cancel = {
+				is_subject = no 
+			}
+
+			removal_cost = -1
+
+			picture = ARG_resource_extration_focus
+
+			modifier = {
+				resources_to_overlord_factor = 0.1
+				cic_to_overlord_factor = 0.15
+				stability_factor = -0.10
+				min_export = 0.25
 			}
 		}
 	}

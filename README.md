@@ -1,5 +1,50 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 4.3.2
+
+#### General
+ - The 'Prepare Collaboration Government' spy mission now always adds 45% collaboration
+ - Disabled the Commonwealth focus branch
+ - Special forces are now heavily limited
+    - Special forces battalion count is no longer dependent on total battalion count
+    - Special forces doctrines no longer reduce combat width or cap contribution
+    - All cap increases, both flat and percentage, have been removed from all sources
+    - Majors have a minimum special forces cap of 216 battalions ( 12 x 36 width )
+    - Minors have a minimum special forces cap of 108 battalions ( 6 x 36 width )
+    - These are all preliminary changes and will be changed further upon a full scale special forces rework
+
+#### Germany
+ - The 'Build the Rur Dam' focus is now 35 days
+    - This time its true
+ - Reduced political power gain from the Inner Circle advisors from -0.3 to -0.15
+ - Added the 'European Integration' focus
+    - Adds 45% collaboration to Poland, Belgium, Netherlands, Denmark and Norway
+
+#### United Kingdom
+ - Added the 'Further Malaysian Exploitation' focus
+    - Modifies Malayia's 'Colonial Exploitation' idea by
+        - Stability: -10%
+        - Resources to market: +25%
+
+#### Brazil
+ - Actually removed all useless focuses
+
+#### Mongolia
+ - Now starts with a Mechanized advisor
+
+#### Siam
+ - Reduced the following focuses from 70 to 35 days:
+    - 'Expand Domestic Arms Workshops'
+    - 'Domestic Arms Industry'
+    - 'Royal Thai Ordnance Factory'
+ - Swapped the 'Expand Domestic Arms Workshops' and 'Prepare for the Next Blockade' focuses
+
+#### Indonesia
+ - Now actually has rubber for export
+
+#### No Asia
+ - Mongolia no longer loses Sinkiang to the Pacific Trade Federation
+
 ### 4.3.1
 
 #### General

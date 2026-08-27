@@ -86,6 +86,7 @@ focus_tree = {
 
 	# <Sukarno Shared Branch - Infiltrate the Colonial Administration>
 	focus = {
+		allow_branch = { always = no } # SPTchange
 		id = INS_underground_revolution
 		icon = GFX_focus_generic_limited_social_mobilization
 
@@ -502,6 +503,7 @@ focus_tree = {
 
 	# <Central Independence Branch - Militias>
 	focus = {
+		allow_branch = { always = no } # SPTchange
 		id = INS_the_declaration_of_independence
 		icon = GFX_focus_INS_the_declaration_of_independence
 
@@ -5402,10 +5404,11 @@ focus_tree = {
 				exists = yes
 				NOT = { has_war_with = ROOT }
 			}
-			has_resources_in_country = {
-				resource = rubber
-				amount > 399
-			}
+			# SPTchange
+			#has_resources_in_country = {
+			#	resource = rubber
+			#	amount > 399
+			#}
 		}
 		prerequisite = { focus = INS_realign_supply_chains focus = INS_first_come_first_serve }
 		mutually_exclusive = {  }
