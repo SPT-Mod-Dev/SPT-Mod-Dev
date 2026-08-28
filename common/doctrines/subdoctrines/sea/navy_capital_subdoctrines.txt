@@ -78,81 +78,82 @@ line_of_battle = {
     }
 }
 
-battlecruiser_supremacy = {
-    track = capital_ships
-    name = SUBDOCTRINE_BATTLECRUISER_SUPREMACY
-    description = SUBDOCTRINE_BATTLECRUISER_SUPREMACY_DESC
-    icon = GFX_doctrine_battlecruiser_supremacy_medium
+# SPTchange - disabled rarely used doctrines to make doctrines easier to balance overall
+# battlecruiser_supremacy = {
+#     track = capital_ships
+#     name = SUBDOCTRINE_BATTLECRUISER_SUPREMACY
+#     description = SUBDOCTRINE_BATTLECRUISER_SUPREMACY_DESC
+#     icon = GFX_doctrine_battlecruiser_supremacy_medium
 
-    xp_cost = 100
-    xp_type = navy
+#     xp_cost = 100
+#     xp_type = navy
 
-    available = {
-        always = yes
-    }
+#     available = {
+#         always = yes
+#     }
 
-    ai_will_do = { 
-        base = 1
-        modifier = {
-            factor = 75
-            original_tag = FRA
-        }
-    }
+#     ai_will_do = { 
+#         base = 1
+#         modifier = {
+#             factor = 75
+#             original_tag = FRA
+#         }
+#     }
 
-    # EFFECTS
-    naval_supply_consumption_factor = -0.05
-    naval_critical_score_chance_factor = 0.03
+#     # EFFECTS
+#     naval_supply_consumption_factor = -0.05
+#     naval_critical_score_chance_factor = 0.03
 
-    rewards = {
-        ship_of_the_line={
-            battle_cruiser= {
-                max_organisation = 10
-            }
-            heavy_cruiser = {
-				max_organisation = 10
-            }
-        }
-        coordinated_strike_protocol = {
-            battle_cruiser = {
-				hg_attack = 0.10
-				lg_attack = 0.05
-            }
-            battleship = {
-				lg_attack = 0.05
-            }
-        }
-        open_water_patrolling = {
-            battle_cruiser = {
-				surface_detection = 0.05
-            }
-            heavy_cruiser = {
-				surface_detection = 0.10
-            }
-        }
-        planning_at_speed = {
-            battleship = {
-				naval_speed = 0.1
-            }
-            battle_cruiser = {
-				naval_speed = 0.05
-            }
-            heavy_cruiser = {
-				naval_speed = 0.05
-            }
-        }
-        capital_drills={
-            battleship = {
-				max_organisation = 5
-            }
-            battle_cruiser= {
-                max_organisation = 10
-            }
-            heavy_cruiser = {
-				max_organisation = 5
-            }
-        }
-    }
-}
+#     rewards = {
+#         ship_of_the_line={
+#             battle_cruiser= {
+#                 max_organisation = 10
+#             }
+#             heavy_cruiser = {
+# 				max_organisation = 10
+#             }
+#         }
+#         coordinated_strike_protocol = {
+#             battle_cruiser = {
+# 				hg_attack = 0.10
+# 				lg_attack = 0.05
+#             }
+#             battleship = {
+# 				lg_attack = 0.05
+#             }
+#         }
+#         open_water_patrolling = {
+#             battle_cruiser = {
+# 				surface_detection = 0.05
+#             }
+#             heavy_cruiser = {
+# 				surface_detection = 0.10
+#             }
+#         }
+#         planning_at_speed = {
+#             battleship = {
+# 				naval_speed = 0.1
+#             }
+#             battle_cruiser = {
+# 				naval_speed = 0.05
+#             }
+#             heavy_cruiser = {
+# 				naval_speed = 0.05
+#             }
+#         }
+#         capital_drills={
+#             battleship = {
+# 				max_organisation = 5
+#             }
+#             battle_cruiser= {
+#                 max_organisation = 10
+#             }
+#             heavy_cruiser = {
+# 				max_organisation = 5
+#             }
+#         }
+#     }
+# }
 
 armored_raiders = {
     track = capital_ships
@@ -228,71 +229,72 @@ armored_raiders = {
     }
 }
 
-coastal_defence_fleet = {
-    track = capital_ships
-    name = SUBDOCTRINE_COASTAL_DEFENCE
-    description = SUBDOCTRINE_COASTAL_DEFENCE_DESC
-    icon = GFX_doctrine_floating_fortress_medium
+# SPTchange - disabled rarely used doctrines to make doctrines easier to balance overall
+# coastal_defence_fleet = {
+#     track = capital_ships
+#     name = SUBDOCTRINE_COASTAL_DEFENCE
+#     description = SUBDOCTRINE_COASTAL_DEFENCE_DESC
+#     icon = GFX_doctrine_floating_fortress_medium
 
-    xp_cost = 100
-    xp_type = navy
+#     xp_cost = 100
+#     xp_type = navy
 
-    visible = {
-        has_dlc = "No Compromise, No Surrender"
-    }
+#     visible = {
+#         has_dlc = "No Compromise, No Surrender"
+#     }
 
-    ai_will_do = { }
+#     ai_will_do = { }
 
-    # EFFECTS
-    effect = {
-        IF = {
-            limit = {
-                NOT = {
-                    has_tech = coastal_defense_ships
-                }
-            }
-            set_technology = { 
-                coastal_defense_ships = 1 
-            }
-        }
-    }
-    naval_supply_consumption_factor = -0.15
-    navy_max_range_factor = -0.10
+#     # EFFECTS
+#     effect = {
+#         IF = {
+#             limit = {
+#                 NOT = {
+#                     has_tech = coastal_defense_ships
+#                 }
+#             }
+#             set_technology = { 
+#                 coastal_defense_ships = 1 
+#             }
+#         }
+#     }
+#     naval_supply_consumption_factor = -0.15
+#     navy_max_range_factor = -0.10
 
 
-    rewards = {
-        aging_navy={
-            modifier = { refit_speed = 0.15 }
-        }
-        casemate_upgrades = {
-            equipment_bonus = {
-                ship_hull_cruiser_coastal_defense_ship = {
-                    anti_air_attack = 0.15
-                    lg_attack = 0.05
-                    instant = yes
-                }
-            }
-        }
-        escort_duties= {
-            heavy_cruiser= {
-                sub_detection = 0.15
-            }
-            light_cruiser= {
-                sub_detection = 0.10
-            }
-        }
-        hail_of_fire = {
-            modifier = {
-				naval_light_gun_hit_chance_factor = 0.05
-            }
-        }
-        spare_part_logistics={
-            modifier = {
-				refit_ic_cost = -0.15
-            }
-        }
-    }
-}
+#     rewards = {
+#         aging_navy={
+#             modifier = { refit_speed = 0.15 }
+#         }
+#         casemate_upgrades = {
+#             equipment_bonus = {
+#                 ship_hull_cruiser_coastal_defense_ship = {
+#                     anti_air_attack = 0.15
+#                     lg_attack = 0.05
+#                     instant = yes
+#                 }
+#             }
+#         }
+#         escort_duties= {
+#             heavy_cruiser= {
+#                 sub_detection = 0.15
+#             }
+#             light_cruiser= {
+#                 sub_detection = 0.10
+#             }
+#         }
+#         hail_of_fire = {
+#             modifier = {
+# 				naval_light_gun_hit_chance_factor = 0.05
+#             }
+#         }
+#         spare_part_logistics={
+#             modifier = {
+# 				refit_ic_cost = -0.15
+#             }
+#         }
+#     }
+# }
 
 naval_gunfire_support = {
     track = capital_ships
