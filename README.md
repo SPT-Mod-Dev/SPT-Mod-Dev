@@ -1,5 +1,13 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 4.3.3
+
+#### General
+ - Focus can now be held for 30 days instead of 10
+
+#### Germany
+ - Fixed AI for testbuilds
+
 ### 4.3.2
 
 #### General
