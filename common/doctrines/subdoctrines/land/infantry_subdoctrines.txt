@@ -8,7 +8,7 @@ mobile_infantry = {
     xp_type = army
 
     available = {
-        always = yes
+        has_doctrine = new_mobile_warfare # SPTchange
     }
 
     ai_will_do = { 
@@ -163,7 +163,7 @@ large_unit_tactics = {
     xp_type = army
 
     available = {
-        always = yes
+        has_doctrine = mass_assault # SPTchange
     }
 
     ai_will_do = {
@@ -492,7 +492,7 @@ commandos = {
     xp_type = army
 
     available = {
-       
+       has_doctrine = grand_battleplan # SPTchange
     }
     visible = {
         has_dlc = "No Compromise, No Surrender"
@@ -619,277 +619,278 @@ commandos = {
     }
 }
 
-irregulars = {
-    track = infantry
-    name = SUBDOCTRINE_IRREGULARS
-    description = SUBDOCTRINE_IRREGULARS_DESC
-    icon = GFX_doctrine_irregulars_medium
+# SPTchange - disabled rarely used doctrines to make doctrines easier to balance overall
+# irregulars = {
+#     track = infantry
+#     name = SUBDOCTRINE_IRREGULARS
+#     description = SUBDOCTRINE_IRREGULARS_DESC
+#     icon = GFX_doctrine_irregulars_medium
 
-    xp_cost = 50
-    xp_type = army
+#     xp_cost = 50
+#     xp_type = army
 
-    available = {
+#     available = {
         
-    }
-    visible = {
-        has_dlc = "No Compromise, No Surrender"
-    }
+#     }
+#     visible = {
+#         has_dlc = "No Compromise, No Surrender"
+#     }
 
 
-    ai_will_do = { 
-        base = 1
-        modifier = {
-            factor = 2
-            is_major = no
-        }
-        modifier = {
-            factor = 0
-            NOT = {
-                OR = {
-                has_template_containing_unit = irregular_infantry
-                has_template_containing_unit = militia
-                }
-            }
-        }
-    }
-    irregular_infantry = {
-        defense = 0.1
-        supply_consumption = -0.05
-    }
-    militia = {
-        defense = 0.1
-        supply_consumption = -0.01
-    }
+#     ai_will_do = { 
+#         base = 1
+#         modifier = {
+#             factor = 2
+#             is_major = no
+#         }
+#         modifier = {
+#             factor = 0
+#             NOT = {
+#                 OR = {
+#                 has_template_containing_unit = irregular_infantry
+#                 has_template_containing_unit = militia
+#                 }
+#             }
+#         }
+#     }
+#     irregular_infantry = {
+#         defense = 0.1
+#         supply_consumption = -0.05
+#     }
+#     militia = {
+#         defense = 0.1
+#         supply_consumption = -0.01
+#     }
 
-    # EFFECTS
+#     # EFFECTS
 
-    rewards = {
-        service_by_lot = { 
-            mobilization_speed = 0.05
-        }
-        partisan_regiments = {
-            irregular_infantry = {
-                combat_width = -0.4
-            }
-            militia = {
-                combat_width = -0.4
-            }
-            category_light_infantry = {
-                defense = 0.1
-            }
-        }
+#     rewards = {
+#         service_by_lot = { 
+#             mobilization_speed = 0.05
+#         }
+#         partisan_regiments = {
+#             irregular_infantry = {
+#                 combat_width = -0.4
+#             }
+#             militia = {
+#                 combat_width = -0.4
+#             }
+#             category_light_infantry = {
+#                 defense = 0.1
+#             }
+#         }
 
         
-        improvised_officer_groups = {
-            category_light_infantry = {
-                max_organisation = 10
-                soft_attack = 0.1
-                breakthrough = 0.1
-            }
+#         improvised_officer_groups = {
+#             category_light_infantry = {
+#                 max_organisation = 10
+#                 soft_attack = 0.1
+#                 breakthrough = 0.1
+#             }
             
             
-        }
-        levee_en_masse = {
-            conscription = 0.02
-            mobilization_speed = 0.05
+#         }
+#         levee_en_masse = {
+#             conscription = 0.02
+#             mobilization_speed = 0.05
 
-        }
-        standardization_efforts = {
-            category_light_infantry = {
-                max_organisation = 10
-                soft_attack = 0.1
-            }
+#         }
+#         standardization_efforts = {
+#             category_light_infantry = {
+#                 max_organisation = 10
+#                 soft_attack = 0.1
+#             }
 
-            effect = {
-                add_tech_bonus = {
-                    bonus = 0.5
-                    uses = 2
-                    category = support_tech
-                    name = SUBDOCTRINE_IRREGULARS
-                }
-             }
-        }
+#             effect = {
+#                 add_tech_bonus = {
+#                     bonus = 0.5
+#                     uses = 2
+#                     category = support_tech
+#                     name = SUBDOCTRINE_IRREGULARS
+#                 }
+#              }
+#         }
 
-    }
-}
+#     }
+# }
 
-peoples_war = {
-    track = infantry
-    name = SUBDOCTRINE_PEOPLES_WAR
-    description = SUBDOCTRINE_PEOPLES_WAR_DESC
-    icon = GFX_doctrine_peoples_war_medium
+# peoples_war = {
+#     track = infantry
+#     name = SUBDOCTRINE_PEOPLES_WAR
+#     description = SUBDOCTRINE_PEOPLES_WAR_DESC
+#     icon = GFX_doctrine_peoples_war_medium
    
-    xp_cost = 50
-    xp_type = army
+#     xp_cost = 50
+#     xp_type = army
 
-    available = {
-        if = {
-            limit = {
-                NOT = {
-                    original_tag = INS
-                }
-            }
-            has_government = communism
-        }
-        else = {
-            OR = {
-                has_government = communism
-                AND = {
-                    original_tag = INS
-                    has_completed_focus = INS_underground_revolution
-                }
-            }
-        }
-    }
-    visible = {
-        always = no
-    }
-    ai_will_do = {
+#     available = {
+#         if = {
+#             limit = {
+#                 NOT = {
+#                     original_tag = INS
+#                 }
+#             }
+#             has_government = communism
+#         }
+#         else = {
+#             OR = {
+#                 has_government = communism
+#                 AND = {
+#                     original_tag = INS
+#                     has_completed_focus = INS_underground_revolution
+#                 }
+#             }
+#         }
+#     }
+#     visible = {
+#         always = no
+#     }
+#     ai_will_do = {
 
-        base = 1
-        modifier = {
-            factor = 95
-            original_tag = PRC
-        }
+#         base = 1
+#         modifier = {
+#             factor = 95
+#             original_tag = PRC
+#         }
 
-        modifier = {
-            factor = 2
-            is_major = no
-        }
+#         modifier = {
+#             factor = 2
+#             is_major = no
+#         }
 
-    }
+#     }
 
-    # EFFECTS
-    enable_tactic = tactic_guerrilla_tactics
+#     # EFFECTS
+#     enable_tactic = tactic_guerrilla_tactics
 
-    militia = {
-        soft_attack = 0.1
-        defense = 0.2
-    }
+#     militia = {
+#         soft_attack = 0.1
+#         defense = 0.2
+#     }
 
-    rewards = {
-        revolutionary_base_area = {
-        #1
-            mastery = 50
-            militia = {
-                defense = 0.1
-                supply_consumption = -0.02
-            }
-            category_light_infantry = {
-                max_organisation = 5
-            }
+#     rewards = {
+#         revolutionary_base_area = {
+#         #1
+#             mastery = 50
+#             militia = {
+#                 defense = 0.1
+#                 supply_consumption = -0.02
+#             }
+#             category_light_infantry = {
+#                 max_organisation = 5
+#             }
 
-        }
-        destruction_over_land_gains = {
-        #2
-            mastery =  50
-            category_light_infantry = {
-                default_morale = 0.1
-            }
-            militia = {
-                equipment_capture_factor = 0.01
-            }
-			field_guns = {
-				soft_attack = 0.15				
-			}
-        }
-        quick_decision_offensive_warfare = {
-        #3
-            militia = {
-                initiative = 0.015
-                max_organisation = 10
-                 breakthrough = 0.2
-            }
-        }
-        people_not_things = {
-        #4
-            mastery = 50
-            category_light_infantry = {
-                soft_attack = 0.1
-                max_strength = 0.15
-            }
-        }
-    }
-}
+#         }
+#         destruction_over_land_gains = {
+#         #2
+#             mastery =  50
+#             category_light_infantry = {
+#                 default_morale = 0.1
+#             }
+#             militia = {
+#                 equipment_capture_factor = 0.01
+#             }
+# 			field_guns = {
+# 				soft_attack = 0.15				
+# 			}
+#         }
+#         quick_decision_offensive_warfare = {
+#         #3
+#             militia = {
+#                 initiative = 0.015
+#                 max_organisation = 10
+#                  breakthrough = 0.2
+#             }
+#         }
+#         people_not_things = {
+#         #4
+#             mastery = 50
+#             category_light_infantry = {
+#                 soft_attack = 0.1
+#                 max_strength = 0.15
+#             }
+#         }
+#     }
+# }
 
-great_war_infantry = {
-    track = infantry
-    name = SUBDOCTRINE_GREAT_WAR_INFANTRY
-    description = SUBDOCTRINE_GREAT_WAR_INFANTRY_DESC
-    icon = GFX_doctrine_great_war_infantry_medium
+# great_war_infantry = {
+#     track = infantry
+#     name = SUBDOCTRINE_GREAT_WAR_INFANTRY
+#     description = SUBDOCTRINE_GREAT_WAR_INFANTRY_DESC
+#     icon = GFX_doctrine_great_war_infantry_medium
 
-    xp_cost = 50
-    xp_type = army
+#     xp_cost = 50
+#     xp_type = army
 
-    available = {
-        always = yes
+#     available = {
+#         always = yes
 
-    }
+#     }
 
-    ai_will_do = {
-        base = 1
-        modifier = {
-            factor = 95
-            original_tag = FRA
-        }
-    }
-     # EFFECTS
-    #OTHER BASE REWARDS
-    category_cavalry = {
-        supply_consumption = -0.02
-    }
-    category_light_infantry = {
-        defense = 0.1
-    }
-    production_speed_bunker_factor = 0.25
+#     ai_will_do = {
+#         base = 1
+#         modifier = {
+#             factor = 95
+#             original_tag = FRA
+#         }
+#     }
+#      # EFFECTS
+#     #OTHER BASE REWARDS
+#     category_cavalry = {
+#         supply_consumption = -0.02
+#     }
+#     category_light_infantry = {
+#         defense = 0.1
+#     }
+#     production_speed_bunker_factor = 0.25
 
-    rewards = {
-        traverse_digging = {
-            dig_in_speed_factor = 0.05
-			fire_support = {
-                soft_attack = 0.1		
-                defense = 0.1
-			}
-            engineer = {
-                battalion_mult = {
-                    category = category_light_infantry
-                    entrenchment = 0.05
-					add = yes
-                }
-            }
+#     rewards = {
+#         traverse_digging = {
+#             dig_in_speed_factor = 0.05
+# 			fire_support = {
+#                 soft_attack = 0.1		
+#                 defense = 0.1
+# 			}
+#             engineer = {
+#                 battalion_mult = {
+#                     category = category_light_infantry
+#                     entrenchment = 0.05
+# 					add = yes
+#                 }
+#             }
 			
             
-        }
-        sapping_operations = {
-            category_light_infantry = {
-                defense = 0.1
-            }
-            field_hospital = {
-                casualty_trickleback = 0.1
-            }
-        }
-        centralized_artillery_control = {
-            artillery = {
-                soft_attack = 0.1
-                battalion_mult = {
-                    category = category_light_infantry
-                    soft_attack = 0.1
-                    breakthrough = 0.05
-                }
-            }
-			category_regimental_support_artillery = {
-                soft_attack = 0.2				
-			}
-        }
-        field_fortification_emphasis = {
-            category_light_infantry = {
-                reliability = 0.05
-                defense = 0.05
-                max_organisation = 5
-            }
-        }
-        redoubt_networks = {
-            dig_in_speed_factor = 0.10
-        }
-    }
-}
+#         }
+#         sapping_operations = {
+#             category_light_infantry = {
+#                 defense = 0.1
+#             }
+#             field_hospital = {
+#                 casualty_trickleback = 0.1
+#             }
+#         }
+#         centralized_artillery_control = {
+#             artillery = {
+#                 soft_attack = 0.1
+#                 battalion_mult = {
+#                     category = category_light_infantry
+#                     soft_attack = 0.1
+#                     breakthrough = 0.05
+#                 }
+#             }
+# 			category_regimental_support_artillery = {
+#                 soft_attack = 0.2				
+# 			}
+#         }
+#         field_fortification_emphasis = {
+#             category_light_infantry = {
+#                 reliability = 0.05
+#                 defense = 0.05
+#                 max_organisation = 5
+#             }
+#         }
+#         redoubt_networks = {
+#             dig_in_speed_factor = 0.10
+#         }
+#     }
+# }

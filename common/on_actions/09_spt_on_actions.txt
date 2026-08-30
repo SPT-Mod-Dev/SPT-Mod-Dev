@@ -534,67 +534,64 @@ on_actions = {
 
 			# SF cap
 			USA = {
-				add_ideas = SPT_sf_cap_major
+				add_ideas = SPT_sf_cap_14N
 			}
 			ENG = {
-				add_ideas = SPT_sf_cap_major
+				add_ideas = SPT_sf_cap_14N
 			}
 			SOV = {
-				add_ideas = SPT_sf_cap_major
+				add_ideas = SPT_sf_cap_12R
 			}
 			GER = {
-				add_ideas = SPT_sf_cap_major
+				add_ideas = SPT_sf_cap_12R
 			}
 			ITA = {
-				add_ideas = SPT_sf_cap_major
-			}
-			JAP = {
-				add_ideas = SPT_sf_cap_major
+				add_ideas = SPT_sf_cap_14N
 			}
 			CAN = {
-				add_ideas = SPT_sf_cap_minor
+				add_ideas = SPT_sf_cap_6N
 			}
 			MEX = {
-				add_ideas = SPT_sf_cap_minor
+				add_ideas = SPT_sf_cap_4N
 			}
 			BRA = {
-				add_ideas = SPT_sf_cap_minor
+				add_ideas = SPT_sf_cap_8N
 			}
 			FRA = {
-				add_ideas = SPT_sf_cap_minor
+				add_ideas = SPT_sf_cap_8N
 			}
 			SAF = {
-				add_ideas = SPT_sf_cap_minor
+				add_ideas = SPT_sf_cap_4N
 			}
 			RAJ = {
-				add_ideas = SPT_sf_cap_minor
+				add_ideas = SPT_sf_cap_10M
 			}
 			AST = {
-				add_ideas = SPT_sf_cap_minor
+				add_ideas = SPT_sf_cap_6N
 			}
 			NZL = {
-				add_ideas = SPT_sf_cap_minor
+				add_ideas = SPT_sf_cap_4N
 			}
 			MON = {
-				add_ideas = SPT_sf_cap_minor
+				add_ideas = SPT_sf_cap_6R
 			}
 			SPR = {
-				add_ideas = SPT_sf_cap_minor
+				add_ideas = SPT_sf_cap_12R
 			}
 			HUN = {
-				add_ideas = SPT_sf_cap_minor
+				add_ideas = SPT_sf_cap_12R
 			}
 			ROM = {
-				add_ideas = SPT_sf_cap_minor
+				add_ideas = SPT_sf_cap_6N
 			}
 			BUL = {
-				add_ideas = SPT_sf_cap_minor
+				add_ideas = SPT_sf_cap_6R
 			}
 			FIN = {
-				add_ideas = SPT_sf_cap_minor
+				add_ideas = SPT_sf_cap_6R
 			}
 			SIA = {
-				add_ideas = SPT_sf_cap_minor
+				add_ideas = SPT_sf_cap_10M
 			}
 		}
 	}
@@ -1932,4 +1929,30 @@ on_actions = {
             }
         }
     }
+	on_daily_JAP = {
+		effect = {
+            if = {
+                limit = {
+                    tag = JAP
+					OR = {
+						SIA = { is_ai = yes }
+						SIA = { exists = no }
+					}
+                    NOT = { has_idea = SPT_sf_cap_28Nplus10M }
+                }
+                remove_ideas = SPT_sf_cap_28N
+                add_ideas = SPT_sf_cap_28Nplus10M
+            }
+            if = {
+                limit = {
+                    tag = JAP
+                    SIA = { is_ai = no }
+					SIA = { exists = yes }
+                    NOT = { has_idea = SPT_sf_cap_28N }
+                }
+                remove_ideas = SPT_sf_cap_28Nplus10M
+                add_ideas = SPT_sf_cap_28N
+            }
+        }
+	}
 }

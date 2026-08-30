@@ -68,7 +68,8 @@ mountaineers_1 = {
 		reward_3 = {
 			mastery = 60
 			category_mountaineers = {
-				defense = 0.10
+				defense = 0.15 # SPTchange 10 -> 15
+				breakthrough = 0.10 # SPTchange
 			}
 		# SPTchange
 		#	mountaineers = {
@@ -168,8 +169,9 @@ mountaineers_2 = {
 		    category_mountaineers = {
 		    	initiative = 0.01
 		    }
-			unit_mountaineers_design_cost_factor = -0.50
-			unit_rangers_support_design_cost_factor = -0.50
+			# SPTchange - useless since nothing has xp costs
+			# unit_mountaineers_design_cost_factor = -0.50
+			# unit_rangers_support_design_cost_factor = -0.50
 		}
 		reward_3 = {
 			mastery = 60
@@ -267,7 +269,7 @@ marines_1 = {
 		
 		reward_2 = {
 			mastery = 60
-			unit_marine_design_cost_factor = -0.50
+			# unit_marine_design_cost_factor = -0.50
 			marine = {
 				max_organisation = 5
 			}
@@ -480,13 +482,25 @@ paratroopers_1 = {
     rewards = {
 		reward_1 = {
 			mastery = 60
-			transport_plane = {
-				air_defence = 0.20
-			}			
-			effect = {
-				# Display only — real effect fires in on_units_paradropped_in_state (00_on_actions.txt), gated on has_mastery_level of paratroopers_1
-				custom_effect_tooltip = SF_PARAS_sabotage_effect_tt
-			}
+			# SPTchange - useless because no paradrops
+			# transport_plane = {
+			# 	air_defence = 0.20
+			# }			
+			# effect = {
+			 	# Display only — real effect fires in on_units_paradropped_in_state (00_on_actions.txt), gated on has_mastery_level of paratroopers_1
+			# 	custom_effect_tooltip = SF_PARAS_sabotage_effect_tt
+			# }
+			# SPTchange
+			paratrooper = {
+        		desert = { 
+					attack = 0.1 
+					defence = 0.1 
+				}
+        		plains = { 
+					attack = 0.1 
+					defence = 0.1 
+				}
+    		}
 		}
 		reward_2 = {
 			mastery = 60
@@ -576,16 +590,29 @@ paratroopers_2 = {
 				default_morale = 0.15
 		}
 	}
-	paradrop_organization_factor = 0.5
+	# paradrop_organization_factor = 0.5
     
     rewards = {
 		reward_1 = {
 	    	mastery = 60
 	    	#paratroopers_special_forces_contribution_factor = -0.25 # SPTchange
-			effect = {
-				# Display only — real effect fires in on_units_paradropped_in_state (00_on_actions.txt), gated on has_mastery_level of paratroopers_2
-				custom_effect_tooltip = SF_PARAS_combat_effect_tt
-			}
+			# SPTchange - useless because no paradrops
+			# effect = {
+			 	# Display only — real effect fires in on_units_paradropped_in_state (00_on_actions.txt), gated on has_mastery_level of paratroopers_2
+			# 	custom_effect_tooltip = SF_PARAS_combat_effect_tt
+			# }
+			# SPTchange
+			paratrooper = {
+        		night = { attack = 0.2 }
+				urban = { 
+					attack = 0.1 
+					defence = 0.1 
+				}
+        		fort = { 
+					attack = 0.1 
+					defence = 0.1 
+				}
+    		}
 		}	
 		reward_2 = {
 			mastery = 60
@@ -603,8 +630,22 @@ paratroopers_2 = {
 		}
 		reward_4 = {
 	    	mastery = 60
-	    	paratrooper_weight_factor = -0.5
-	    	paratrooper_aa_defense = 0.1
+			# SPTchange - useless because no paradrops
+	    	# paratrooper_weight_factor = -0.5
+	    	# paratrooper_aa_defense = 0.1
+			# SPTchange
+			anti_tank = {
+				battalion_mult = {
+					category = category_paratroopers
+					hard_attack = 0.2
+				}
+			}
+			anti_tank_battery = {
+				battalion_mult = {
+					category = category_paratroopers
+					hard_attack = 0.2
+				}
+			}
 		}
 	reward_5 = {
 			mastery = 60
