@@ -154,6 +154,17 @@
  - Heavy Cannon rework
     - Moved Heavy Cannon 1 to Anti-Tank Upgrade and Anti-Air Upgrade (1939 tech)
     - moved Heavy Cannon 2 to Improved Anti-Tank Upgrade I (1941 tech)
+### 4.3.3
+
+#### General
+ - Focus can now be held for 30 days instead of 10
+
+#### Germany
+ - Fixed AI for testbuilds
+
+#### Italy
+ - Fixed the 'A Colonial Empire' focus overlapping with the 'Gain the Blackshirt's Loyalty' focus
+ - Fixed army and navy tooltips so they are now accurate regarding special forces cap
 
 ### 4.3.2
 
@@ -186,6 +197,13 @@
 
 #### Mongolia
  - Now starts with a Mechanized advisor
+
+#### Siam
+ - Reduced the following focuses from 70 to 35 days:
+    - 'Expand Domestic Arms Workshops'
+    - 'Domestic Arms Industry'
+    - 'Royal Thai Ordnance Factory'
+ - Swapped the 'Expand Domestic Arms Workshops' and 'Prepare for the Next Blockade' focuses
 
 #### Indonesia
  - Now actually has rubber for export
