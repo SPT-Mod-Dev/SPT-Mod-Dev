@@ -2,6 +2,9 @@
 
 ### 4.4.0
 
+#### General
+ - Focus can now be held for 30 days instead of 10
+
 #### Special Forces
  - Reworked the Special Forces cap mechanic
     - Japan now has a minimum special forces cap of 504 battalions (28 x 36 widths) if Siam is a player and a minimum special forces cap of 664 battalions (28 x 36 widths + 10 x 32 widths) if Siam is AI/doesn't exist.
@@ -57,7 +60,7 @@
         - 'Fire Concentration' is now only available with 'Superior Firepower'
         - 'Fire Concentration'
             - Added recon buffs from 'Flying Batteries'
-            - Added organisation and combat with reduction buffs form 'Flying Batteries'
+            - Added organisation and combat with reduction buffs from 'Flying Batteries'
                 - The width reductions are now working
     - Armor
         - Removed the following subdoctrines
@@ -68,7 +71,7 @@
                 - Soft attack: 0% -> +20%
                 - Hard attack: +10% -> +15%
                 - Piercing: 0% -> +5%
-                - Defense: 0% → +10%
+                - Defense: 0% -> +10%
                 - Breakthrough: +30% -> +25%
                 - Organisation: +8 -> +11
                 - Recovery rate: 0.15 -> 0.2
@@ -81,12 +84,12 @@
                 - Breakthrough +2.5% -> +5%
                 - Max speed: +2.5% -> +5%
             - Light tank recon
-                - Organisation: +2 → +5
-                - Hard attack: 0% → +5%
+                - Organisation: +2 -> +5
+                - Hard attack: 0% -> +5%
             - Armored car recon
-                - Organisation: +3 → +5
-                - Hard attack: 0% → +5%
-            - Removed all Anti tank, Motorized recon and Tank stats
+                - Organisation: +3 -> +5
+                - Hard attack: 0% -> +5%
+            - Removed all Anti-tank, Motorized recon and Tank stats
                 - Tank stats are folded into the Light tank stats, so no value is lost
     - Operations
         - Removed the following subdoctrines
@@ -153,11 +156,7 @@
     - Removed Small Cannon 3
  - Heavy Cannon rework
     - Moved Heavy Cannon 1 to Anti-Tank Upgrade and Anti-Air Upgrade (1939 tech)
-    - moved Heavy Cannon 2 to Improved Anti-Tank Upgrade I (1941 tech)
-### 4.3.3
-
-#### General
- - Focus can now be held for 30 days instead of 10
+    - Moved Heavy Cannon 2 to Improved Anti-Tank Upgrade I (1941 tech)
 
 #### Germany
  - Fixed AI for testbuilds
