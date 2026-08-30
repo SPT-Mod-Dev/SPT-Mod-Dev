@@ -9070,17 +9070,16 @@ focus_tree = {
 			}
 		}
 	}
-	focus = {
-		id = USA_tank_experiments
-		icon = GFX_goal_generic_army_tanks
-		x = 1
-		y = 1
+	focus = { # SPTchange - swapped with USA_tank_experiments for error reasons
+		id = USA_armored_infantry
+		icon = GFX_goal_generic_build_tank
+		x = 2
+		y = 2
 		prerequisite = {
-			focus = USA_main_battle_tanks
-			focus = USA_tank_destroyer_doctrine
+			focus = USA_support_rock_island
 		}
-		relative_position_id = USA_tank_destroyer_doctrine
-		cost = 5 #SPT change, 10 -> 5
+		relative_position_id = USA_selective_training_act
+		cost = 10
 		ai_will_do = {
 			factor = 1
 		}
@@ -9095,15 +9094,11 @@ focus_tree = {
 			FOCUS_FILTER_RESEARCH
 		}
 		completion_reward = {
-			add_breakthrough_progress = {
-				specialization = specialization_land
-				value = 0.5
-			}
 			add_tech_bonus = {
-				name = USA_tank_experiments
-				uses = 1
+				name = USA_armored_infantry
+				uses = 2
 				bonus = 1
-				category = armor
+				category = motorized_equipment
 			}
 		}
 	}
@@ -9194,16 +9189,17 @@ focus_tree = {
 			}
 		}
 	}
-	focus = {
-		id = USA_armored_infantry
-		icon = GFX_goal_generic_build_tank
-		x = 2
-		y = 2
+	focus = { # SPTchange - swapped with USA_armored_infantry for error reasons
+		id = USA_tank_experiments
+		icon = GFX_goal_generic_army_tanks
+		x = 1
+		y = 1
 		prerequisite = {
-			focus = USA_support_rock_island
+			focus = USA_main_battle_tanks
+			focus = USA_tank_destroyer_doctrine
 		}
-		relative_position_id = USA_selective_training_act
-		cost = 10
+		relative_position_id = USA_tank_destroyer_doctrine
+		cost = 5 #SPT change, 10 -> 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -9218,11 +9214,15 @@ focus_tree = {
 			FOCUS_FILTER_RESEARCH
 		}
 		completion_reward = {
+			add_breakthrough_progress = {
+				specialization = specialization_land
+				value = 0.5
+			}
 			add_tech_bonus = {
-				name = USA_armored_infantry
-				uses = 2
+				name = USA_tank_experiments
+				uses = 1
 				bonus = 1
-				category = motorized_equipment
+				category = armor
 			}
 		}
 	}

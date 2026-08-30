@@ -2142,97 +2142,6 @@ focus_tree = {
 		}
 	}
 
-	focus = {
-		id = BRA_defense_spending
-		icon = GFX_focus_BRA_for_the_fatherland
-		prerequisite = { 
-			focus = BRA_washington_accords 
-			#focus = BRA_the_international_crisis
-		}
-		x = 0
-		y = 1
-		relative_position_id = BRA_washington_accords
-		cost = 10
-		ai_will_do = {
-			factor = 20
-		}
-		available = {
-			any_country = {
-				has_war = yes
-				has_civil_war = no
-			}
-		}
-
-		search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-
-			random_core_state = {
-				limit = {
-					free_building_slots = {
-						building = arms_factory
-						size > 0 
-						include_locked = yes
-					}
-					is_owned_and_controlled_by = ROOT
-					NOT = {
-						OR = {
-							state = 961
-							state = 962
-							state = 963
-							state = 964
-							state = 965
-							state = 966
-							state = 967
-							state = 968
-						}
-					}
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				} 
-			}
-			random_core_state = {
-				limit = {
-					free_building_slots = {
-						building = dockyard
-						size > 0 
-						include_locked = yes
-					}
-					is_owned_and_controlled_by = ROOT
-					is_coastal = yes
-					NOT = {
-						OR = {
-							state = 961
-							state = 962
-							state = 963
-							state = 964
-							state = 965
-							state = 966
-							state = 967
-							state = 968
-						}
-					}
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = dockyard
-					level = 1
-					instant_build = yes
-				} 
-			}
-
-			add_timed_idea = {
-				idea = BRA_national_defence_fund_idea
-				days = 360
-			}
-
-		}
-	}
-
 	#focus = {
 	#	id = BRA_rio_conference
 	#	#icon = 
@@ -2572,6 +2481,97 @@ focus_tree = {
 			}
 			custom_effect_tooltip = BRA_washington_accords_tt
 			event_option_tooltip = JUNO_brazil_events.16.a
+		}
+	}
+
+	focus = { # SPTchange - moved below BRA_washington_accords for error reasons
+		id = BRA_defense_spending
+		icon = GFX_focus_BRA_for_the_fatherland
+		prerequisite = { 
+			focus = BRA_washington_accords 
+			#focus = BRA_the_international_crisis
+		}
+		x = 0
+		y = 1
+		relative_position_id = BRA_washington_accords
+		cost = 10
+		ai_will_do = {
+			factor = 20
+		}
+		available = {
+			any_country = {
+				has_war = yes
+				has_civil_war = no
+			}
+		}
+
+		search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+
+			random_core_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0 
+						include_locked = yes
+					}
+					is_owned_and_controlled_by = ROOT
+					NOT = {
+						OR = {
+							state = 961
+							state = 962
+							state = 963
+							state = 964
+							state = 965
+							state = 966
+							state = 967
+							state = 968
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				} 
+			}
+			random_core_state = {
+				limit = {
+					free_building_slots = {
+						building = dockyard
+						size > 0 
+						include_locked = yes
+					}
+					is_owned_and_controlled_by = ROOT
+					is_coastal = yes
+					NOT = {
+						OR = {
+							state = 961
+							state = 962
+							state = 963
+							state = 964
+							state = 965
+							state = 966
+							state = 967
+							state = 968
+						}
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				} 
+			}
+
+			add_timed_idea = {
+				idea = BRA_national_defence_fund_idea
+				days = 360
+			}
+
 		}
 	}
 

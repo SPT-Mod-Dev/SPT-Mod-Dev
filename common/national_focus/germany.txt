@@ -9619,51 +9619,6 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SPT_GER_collabs
-		icon = GFX_focus_generic_the_council_of_europe
-		prerequisite = { focus = GER_molotov_ribbentrop_pact }
-		allow_branch = {}
-
-		x = 0
-		y = 1
-		relative_position_id = GER_molotov_ribbentrop_pact
-
-		cost = 10
-
-		bypass = { }
-		available = { }
-		
-		ai_will_do = {
-			factor = 10
-		}
-
-		search_filters = { FOCUS_FILTER_POLITICAL }	
-
-		completion_reward = {
-			add_collaboration = {
-				target = POL
-				value = 0.45
-			}
-			add_collaboration = {
-				target = BEL
-				value = 0.45
-			}
-			add_collaboration = {
-				target = HOL
-				value = 0.45
-			}
-			add_collaboration = {
-				target = DEN
-				value = 0.45
-			}
-			add_collaboration = {
-				target = NOR
-				value = 0.45
-			}
-		}
-	}
-
-	focus = {
 		id = GER_bribe_senior_officers
 		icon = GFX_goal_generic_dangerous_deal
 		prerequisite = { focus = GER_remilitarize_the_rhineland }
@@ -12317,6 +12272,51 @@ focus_tree = {
 				country_event = { id = germany.11 days = 1 }
 				custom_effect_tooltip = GER_mol_rib_pact_tt
 				custom_effect_tooltip = needs_approval
+			}
+		}
+	}
+
+	focus = {
+		id = SPT_GER_collabs
+		icon = GFX_focus_generic_the_council_of_europe
+		prerequisite = { focus = GER_molotov_ribbentrop_pact }
+		allow_branch = {}
+
+		x = 0
+		y = 1
+		relative_position_id = GER_molotov_ribbentrop_pact
+
+		cost = 10
+
+		bypass = { }
+		available = { }
+		
+		ai_will_do = {
+			factor = 10
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }	
+
+		completion_reward = {
+			add_collaboration = {
+				target = POL
+				value = 0.45
+			}
+			add_collaboration = {
+				target = BEL
+				value = 0.45
+			}
+			add_collaboration = {
+				target = HOL
+				value = 0.45
+			}
+			add_collaboration = {
+				target = DEN
+				value = 0.45
+			}
+			add_collaboration = {
+				target = NOR
+				value = 0.45
 			}
 		}
 	}
