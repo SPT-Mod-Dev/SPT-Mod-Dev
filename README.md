@@ -12,6 +12,33 @@
     - Canada, Australia and Romania now have a minimum special forces cap of 108 battalions (6 x 36 widths)
     - Finland, Bulgaria and Mongolia now have a minimum special forces cap of 90 battalions (6 x 30 widths)
     - Mexico, South Africa and New Zealand now have a minimum special forces cap of 72 battalions (4 x 36 widths)
+ - Doctrines
+    - 'Cold Weather Specialists'
+        - Mountaineers
+            - Defense: +10% -> +15%
+            - Breakthrough: 0% -> +10%
+    - 'Sabotage Parties'
+        - Paratroopers
+            - Desert
+                - Attack: 0% -> 10%
+                - Defense: 0% -> 10%
+            - Plains
+                - Attack: 0% -> 10%
+                - Defense: 0% -> 10%
+    - 'Concentrated Drops'
+        - Paratroopers
+            - Night
+                - Attack: 0% -> 20%
+            - Urban
+                - Attack: 0% -> 10%
+                - Defense: 0% -> 10%
+            - Forts
+                - Attack: 0% -> 10%
+                - Defense: 0% -> 10% 
+            - Anti-tank Support
+                - Hard Attack: 0% -> 20%
+            - Anti-tank Regimental Support
+                - Hard Attack: 0% -> 20%
 
 #### Doctrines
  - Land
@@ -63,7 +90,7 @@
                 - Tank stats are folded into the Light tank stats, so no value is lost
     - Operations
         - Removed the following subdoctrines
-            - 'Infiltration Tactics
+            - 'Infiltration Tactics'
             - 'Deep Battle'
             - 'Expeditionary Warfare'
         - 'Desperate Defense' is no longer available with 'Mass Assault'
