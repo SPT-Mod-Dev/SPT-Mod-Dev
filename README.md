@@ -8,6 +8,10 @@
 #### Germany
  - Fixed AI for testbuilds
 
+#### Italy
+ - Fixed the 'A Colonial Empire' focus overlapping with the 'Gain the Blackshirt's Loyalty' focus
+ - Fixed army and navy tooltips so they are now accurate regarding special forces cap
+
 ### 4.3.2
 
 #### General
