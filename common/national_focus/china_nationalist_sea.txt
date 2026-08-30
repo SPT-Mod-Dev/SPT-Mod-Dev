@@ -12099,19 +12099,18 @@ focus_tree = {
 			factor = 10 
 		}
 		completion_reward = {
-			# SPTchange - removed doctrine
-			# IF = {
-			# 	limit = {
-			# 		has_doctrine = air_subdoctrine_escort_fighter
-			# 	}
-			# 	add_daily_mastery = {
-			# 		amount = 1
-			# 		days = 75
-			# 		name =  CHI_escort_efficiency
-			# 		track = fighter_aircraft
-			# 	}
-			# }
-			IF = { # SPTchange - was ELSE_IF
+			IF = {
+				limit = {
+					has_doctrine = air_subdoctrine_escort_fighter
+				}
+				add_daily_mastery = {
+					amount = 1
+					days = 75
+					name =  CHI_escort_efficiency
+					track = fighter_aircraft
+				}
+			}
+			ELSE_IF = {
 				limit ={
 					has_subdoctrine_in_track = fighter_aircraft
 				}
@@ -12122,10 +12121,10 @@ focus_tree = {
 					track = fighter_aircraft
 				}
 			}
-			# SPTchange - removed doctrine
-			# ELSE = {
-			# 	set_sub_doctrine = air_subdoctrine_escort_fighter
-			# }
+			SPTchange - removed doctrine
+			ELSE = {
+				set_sub_doctrine = air_subdoctrine_escort_fighter
+			}
 			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = CHI_modify_ROCAF_tt
 			add_to_variable = { 
