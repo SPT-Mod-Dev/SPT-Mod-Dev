@@ -31,6 +31,7 @@
         - 'Fire Concentration'
             - Added recon buffs from 'Flying Batteries'
             - Added organisation and combat with reduction buffs form 'Flying Batteries'
+                - The width reductions are now working
     - Armor
         - Removed the following subdoctrines
             - 'Mobile Defense'
