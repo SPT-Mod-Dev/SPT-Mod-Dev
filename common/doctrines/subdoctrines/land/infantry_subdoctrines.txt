@@ -619,101 +619,101 @@ commandos = {
     }
 }
 
+irregulars = {
+    track = infantry
+    name = SUBDOCTRINE_IRREGULARS
+    description = SUBDOCTRINE_IRREGULARS_DESC
+    icon = GFX_doctrine_irregulars_medium
+
+    xp_cost = 75 # SPTchange 50 -> 75
+    xp_type = army
+
+    available = {
+        
+    }
+    visible = {
+        has_dlc = "No Compromise, No Surrender"
+    }
+
+
+    ai_will_do = { 
+        base = 1
+        modifier = {
+            factor = 2
+            is_major = no
+        }
+        modifier = {
+            factor = 0
+            NOT = {
+                OR = {
+                has_template_containing_unit = irregular_infantry
+                has_template_containing_unit = militia
+                }
+            }
+        }
+    }
+    irregular_infantry = {
+        defense = 0.1
+        supply_consumption = -0.05
+    }
+    militia = {
+        defense = 0.1
+        supply_consumption = -0.01
+    }
+
+    # EFFECTS
+
+    rewards = {
+        service_by_lot = { 
+            mobilization_speed = 0.05
+        }
+        partisan_regiments = {
+            irregular_infantry = {
+                combat_width = -0.4
+            }
+            militia = {
+                combat_width = -0.4
+            }
+            category_light_infantry = {
+                defense = 0.05 # SPTchange 0.1 -> 0.05
+            }
+        }
+
+        
+        improvised_officer_groups = {
+            category_light_infantry = {
+                max_organisation = 10
+                soft_attack = 0.1
+                breakthrough = 0.1
+            }
+            
+            
+        }
+        levee_en_masse = {
+            # conscription = 0.02 # SPTchange
+            mobilization_speed = 0.05
+
+        }
+        standardization_efforts = {
+            category_light_infantry = {
+                max_organisation = 10
+                soft_attack = 0.05 # SPTchange 0.1 -> 0.05
+            }
+
+            effect = {
+                add_tech_bonus = {
+                    bonus = 0.5
+                    uses = 2
+                    category = support_tech
+                    name = SUBDOCTRINE_IRREGULARS
+                }
+             }
+        }
+
+    }
+}
+
 # SPTchange - disabled rarely used doctrines to make doctrines easier to balance overall
-# irregulars = {
-#     track = infantry
-#     name = SUBDOCTRINE_IRREGULARS
-#     description = SUBDOCTRINE_IRREGULARS_DESC
-#     icon = GFX_doctrine_irregulars_medium
-
-#     xp_cost = 50
-#     xp_type = army
-
-#     available = {
-        
-#     }
-#     visible = {
-#         has_dlc = "No Compromise, No Surrender"
-#     }
-
-
-#     ai_will_do = { 
-#         base = 1
-#         modifier = {
-#             factor = 2
-#             is_major = no
-#         }
-#         modifier = {
-#             factor = 0
-#             NOT = {
-#                 OR = {
-#                 has_template_containing_unit = irregular_infantry
-#                 has_template_containing_unit = militia
-#                 }
-#             }
-#         }
-#     }
-#     irregular_infantry = {
-#         defense = 0.1
-#         supply_consumption = -0.05
-#     }
-#     militia = {
-#         defense = 0.1
-#         supply_consumption = -0.01
-#     }
-
-#     # EFFECTS
-
-#     rewards = {
-#         service_by_lot = { 
-#             mobilization_speed = 0.05
-#         }
-#         partisan_regiments = {
-#             irregular_infantry = {
-#                 combat_width = -0.4
-#             }
-#             militia = {
-#                 combat_width = -0.4
-#             }
-#             category_light_infantry = {
-#                 defense = 0.1
-#             }
-#         }
-
-        
-#         improvised_officer_groups = {
-#             category_light_infantry = {
-#                 max_organisation = 10
-#                 soft_attack = 0.1
-#                 breakthrough = 0.1
-#             }
-            
-            
-#         }
-#         levee_en_masse = {
-#             conscription = 0.02
-#             mobilization_speed = 0.05
-
-#         }
-#         standardization_efforts = {
-#             category_light_infantry = {
-#                 max_organisation = 10
-#                 soft_attack = 0.1
-#             }
-
-#             effect = {
-#                 add_tech_bonus = {
-#                     bonus = 0.5
-#                     uses = 2
-#                     category = support_tech
-#                     name = SUBDOCTRINE_IRREGULARS
-#                 }
-#              }
-#         }
-
-#     }
-# }
-
 # peoples_war = {
 #     track = infantry
 #     name = SUBDOCTRINE_PEOPLES_WAR

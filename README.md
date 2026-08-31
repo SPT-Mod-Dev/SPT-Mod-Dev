@@ -47,12 +47,16 @@
  - Land
     - Infantry
         - Removed the following subdoctrines
-            - 'Irregulars'
             - 'People's Militia'
             - 'Great War Infantry'
         - 'Mobile Infantry' is now only available with 'Mobile Warfare'
         - 'Large Unit Tactics' is now only available with 'Mass Assault'
-        - 'Individual Excellence' is now only available with 'Grand Assault'
+        - 'Individual Excellence' is now only available with 'Grand Battleplan'
+        - 'Irregulars'
+            - Unlock cost: 50 xp -> 75 xp
+            - Soft attack: +20% -> +15%
+            - Defense: +20% -> +15%
+            - Recruitable population: 2% -> 0% 
     - Artillery & Combat Support
         - Removed the following subdoctrines
             - 'Flying Batteries'
@@ -60,7 +64,7 @@
         - 'Fire Concentration' is now only available with 'Superior Firepower'
         - 'Fire Concentration'
             - Added recon buffs from 'Flying Batteries'
-            - Added organisation and combat with reduction buffs from 'Flying Batteries'
+            - Added organisation and combat width reduction buffs from 'Flying Batteries'
                 - The width reductions are now working
     - Armor
         - Removed the following subdoctrines
