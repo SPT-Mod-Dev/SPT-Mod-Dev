@@ -1,6 +1,6 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
-### 4.4.0
+### 4.4.0 They said my special forces were weak
 
 #### General
  - Focus can now be held for 30 days instead of 10
@@ -102,7 +102,7 @@
             - 'Deep Battle'
             - 'Expeditionary Warfare'
         - 'Desperate Defense' is no longer available with 'Mass Assault'
-        - 'Guerilla Warfare' is now only available with 'Mass Assault'
+        - 'Guerilla War' is now only available with 'Mass Assault'
         - 'Rapid Domination' is now only available with 'Superior Firepower'
         - 'Desperate Defense'
             - No longer gated by casualties
