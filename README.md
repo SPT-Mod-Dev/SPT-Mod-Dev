@@ -4,6 +4,7 @@
 
 #### General
  - Focus can now be held for 30 days instead of 10
+ - Training no longer gives attrition
 
 #### Special Forces
  - Reworked the Special Forces cap mechanic
@@ -152,6 +153,9 @@
     - 'Operational Reserve'
         - Health: +10% -> +5%
         - CAS damage reduction: +10% -> +5%
+    - 'Reserve Officers'
+        - No longer requires 'Superior Firepower'
+        - Division training time: -50% -> -75%
 
 #### Technology
  - Small Cannon rework
