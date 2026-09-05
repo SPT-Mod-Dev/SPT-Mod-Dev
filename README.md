@@ -166,6 +166,9 @@
     - Moved Heavy Cannon 1 to Anti-Tank Upgrade and Anti-Air Upgrade (1939 tech)
     - Moved Heavy Cannon 2 to Improved Anti-Tank Upgrade I (1941 tech)
 
+#### Brazil
+ - Remove ideology check from focus 'End the Military Interference'
+
 #### Germany
  - Fixed AI for testbuilds
 
