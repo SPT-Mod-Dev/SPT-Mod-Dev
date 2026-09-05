@@ -173,6 +173,9 @@
  - Fixed the 'A Colonial Empire' focus overlapping with the 'Gain the Blackshirt's Loyalty' focus
  - Fixed army and navy tooltips so they are now accurate regarding special forces cap
 
+#### Mexico
+ - Focuses 'Triumph over the Cristeros', 'Antidisestablishmentarianism', and 'Catholic Politics' no longer cancel if church power has changed during the focus
+
 ### 4.3.2
 
 #### General
