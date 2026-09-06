@@ -166,15 +166,19 @@
     - Moved Heavy Cannon 1 to Anti-Tank Upgrade and Anti-Air Upgrade (1939 tech)
     - Moved Heavy Cannon 2 to Improved Anti-Tank Upgrade I (1941 tech)
 
-#### Brazil
- - Remove ideology check from focus 'End the Military Interference'
-
 #### Germany
  - Fixed AI for testbuilds
 
 #### Italy
  - Fixed the 'A Colonial Empire' focus overlapping with the 'Gain the Blackshirt's Loyalty' focus
  - Fixed army and navy tooltips so they are now accurate regarding special forces cap
+
+#### Hungary
+ - First Vienna Award now also gives Burgenland to Hungary
+    - Moved the Civilian Factory from Burgenland to Vienna
+
+#### Brazil
+ - Remove ideology check from focus 'End the Military Interference'
 
 #### Mexico
  - Focuses 'Triumph over the Cristeros', 'Antidisestablishmentarianism', and 'Catholic Politics' no longer cancel if church power has changed during the focus
