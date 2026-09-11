@@ -183,6 +183,10 @@
 #### Mexico
  - Focuses 'Triumph over the Cristeros', 'Antidisestablishmentarianism', and 'Catholic Politics' no longer cancel if church power has changed during the focus
 
+#### No Asia
+ - Fixed invite American investors decision for the Soviet Union
+    - For real this time
+
 ### 4.3.2
 
 #### General
