@@ -179,6 +179,7 @@
 
 #### Brazil
  - Remove ideology check from focus 'End the Military Interference'
+ - The 'Build Neymar's Yacht' focus now removes the 'Legacy of the Naval Arms Race' idea
 
 #### Mexico
  - Focuses 'Triumph over the Cristeros', 'Antidisestablishmentarianism', and 'Catholic Politics' no longer cancel if church power has changed during the focus
