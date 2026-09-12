@@ -3075,23 +3075,24 @@ focus_tree = {
 			custom_effect_tooltip = GER_gain_totaler_krieg_remove_total_mob_tt
 			add_ideas = totaler_krieg_economy
 
-			if = {
-				limit = {
-					NOT = {
-						OR = {
-							has_completed_focus = GER_womens_rights_and_equality 
-							has_decision = women_in_the_workforce 
-						}
-					}
-				}
-				custom_effect_tooltip = generic_skip_one_line_tt
-				unlock_decision_tooltip = {
-					decision = women_in_the_workforce
-					show_effect_tooltip = yes # default is no
-					show_modifiers = yes # default is no
-				} 
-				activate_decision = women_in_the_workforce
-			}
+			# SPTchange - disabled Women in the Workforce decision since its integrated into Total Mobilization
+			# if = {
+			# 	limit = {
+			# 		NOT = {
+			# 			OR = {
+			# 				has_completed_focus = GER_womens_rights_and_equality 
+			# 				has_decision = women_in_the_workforce 
+			# 			}
+			# 		}
+			# 	}
+			# 	custom_effect_tooltip = generic_skip_one_line_tt
+			# 	unlock_decision_tooltip = {
+			# 		decision = women_in_the_workforce
+			# 		show_effect_tooltip = yes # default is no
+			# 		show_modifiers = yes # default is no
+			# 	} 
+			# 	activate_decision = women_in_the_workforce
+			# }
 		}
 	}
 
