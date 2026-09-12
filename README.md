@@ -24,25 +24,25 @@
     - 'Sabotage Parties'
         - Paratroopers
             - Desert
-                - Attack: 0% -> 10%
-                - Defense: 0% -> 10%
+                - Attack: 0% -> +10%
+                - Defense: 0% -> +10%
             - Plains
-                - Attack: 0% -> 10%
-                - Defense: 0% -> 10%
+                - Attack: 0% -> +10%
+                - Defense: 0% -> +10%
     - 'Concentrated Drops'
         - Paratroopers
             - Night
-                - Attack: 0% -> 20%
+                - Attack: 0% -> +20%
             - Urban
-                - Attack: 0% -> 10%
-                - Defense: 0% -> 10%
+                - Attack: 0% -> +10%
+                - Defense: 0% -> +10%
             - Forts
-                - Attack: 0% -> 10%
-                - Defense: 0% -> 10% 
+                - Attack: 0% -> +10%
+                - Defense: 0% -> +10% 
             - Anti-tank Support
-                - Hard Attack: 0% -> 20%
+                - Hard Attack: 0% -> +20%
             - Anti-tank Regimental Support
-                - Hard Attack: 0% -> 20%
+                - Hard Attack: 0% -> +20%
 
 #### Doctrines
  - Land
@@ -57,7 +57,7 @@
             - Unlock cost: 50 xp -> 75 xp
             - Soft attack: +20% -> +15%
             - Defense: +20% -> +15%
-            - Recruitable population: 2% -> 0% 
+            - Recruitable population: +2% -> 0% 
     - Artillery & Combat Support
         - Removed the following subdoctrines
             - 'Flying Batteries'
@@ -79,7 +79,7 @@
                 - Defense: 0% -> +10%
                 - Breakthrough: +30% -> +25%
                 - Organisation: +8 -> +11
-                - Recovery rate: 0.15 -> 0.2
+                - Recovery rate: +0.15 -> +0.2
             - Armored cars
                 - Soft attack: +15% -> +25%
                 - Hard attack: 0% -> +10%
@@ -106,7 +106,7 @@
         - 'Rapid Domination' is now only available with 'Superior Firepower'
         - 'Desperate Defense'
             - No longer gated by casualties
-            - Recruitable population: 3% -> 2.5%
+            - Recruitable population: +3% -> +2.5%
  - Air
     - Fighter Aircraft
         - Removed the following subdoctrines
