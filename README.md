@@ -5,6 +5,8 @@
 #### General
  - Focus can now be held for 30 days instead of 10
  - Training no longer gives attrition
+ - Updated the following AI focus orders so they prioritise eco focuses:
+    - Baltic Federation
 
 #### Special Forces
  - Reworked the Special Forces cap mechanic
@@ -182,6 +184,10 @@
     - The event now fires 1 week after France capitulates instead
  - 'National Defense State' economy law
     - Expected number of factories put on Consumer Goods: +15% -> +10%
+
+#### Soviet Union
+ - 'New Economic Policy' economy law
+  - - Expected number of factories put on Consumer Goods: +15% -> +10%
 
 #### Hungary
  - First Vienna Award now also gives Burgenland to Hungary
