@@ -168,6 +168,9 @@
 
 #### Germany
  - Fixed AI for testbuilds
+ - 'Totaler Krieg' economy law
+    - Recruitable population: -2% -> 0%
+    - Expected number of factories put on Consumer Goods: +15% -> +10%
 
 #### Italy
  - Fixed the 'A Colonial Empire' focus overlapping with the 'Gain the Blackshirt's Loyalty' focus
@@ -177,6 +180,8 @@
  - The 'Invest in Aerial Escorts' focus no longer requires Japan to be at war
  - Removed the 'Occupy Indochina' focus
     - The event now fires 1 week after France capitulates instead
+ - 'National Defense State' economy law
+    - Expected number of factories put on Consumer Goods: +15% -> +10%
 
 #### Hungary
  - First Vienna Award now also gives Burgenland to Hungary
