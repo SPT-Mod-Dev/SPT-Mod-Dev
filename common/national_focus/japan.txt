@@ -13633,6 +13633,7 @@ focus_tree = {
 	}
 
 	focus = {
+		allow_branch = { always = no } # SPTchange, moved event to on_action - on_capitulation
 		id = JAP_occupy_indochina
 		icon = GFX_focus_JAP_occupy_indochina
 		#mutually_exclusive = { focus = JAP_the_harakiri_debate }
@@ -14011,9 +14012,9 @@ focus_tree = {
 		# relative_position_id = JAP_demand_tonkinese_bases
 
 		# prerequisite = { focus = JAP_demand_tonkinese_bases }
-		relative_position_id = JAP_occupy_indochina
+		relative_position_id = JAP_nanshin_ron
 		prerequisite = {
-			focus = JAP_occupy_indochina
+			focus = JAP_nanshin_ron
 		}
 
 		cost = 2 #spt change, 5 -> 2
@@ -14189,7 +14190,7 @@ focus_tree = {
 		id = SPT_trans_chinese_railroad
         icon = GFX_goal_generic_construct_infrastructure
 		x = 2
-		y = 2
+		y = 1
 		relative_position_id = JAP_occupy_indochina
 		prerequisite = {
 			focus = JAP_sea_pressure_siam
@@ -14358,9 +14359,9 @@ focus_tree = {
 		id = JAP_strike_the_southern_road
 		icon = GFX_focus_jap_strike_south
 		#mutually_exclusive = { focus = JAP_sea_pressure_siam }
-		x = -1
-		y = 0
-		relative_position_id = JAP_occupy_siam
+		x = 0
+		y = 1
+		relative_position_id = JAP_sea_pressure_siam
 
 		prerequisite = { focus = JAP_occupy_siam focus = JAP_sea_pressure_siam }
 
@@ -30863,7 +30864,7 @@ focus_tree = {
 		}
 
 		available = {
-			has_war = yes
+			# has_war = yes - # SPTchange
 		}
 
 		bypass = {

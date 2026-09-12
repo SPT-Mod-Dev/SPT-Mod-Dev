@@ -173,6 +173,11 @@
  - Fixed the 'A Colonial Empire' focus overlapping with the 'Gain the Blackshirt's Loyalty' focus
  - Fixed army and navy tooltips so they are now accurate regarding special forces cap
 
+#### Japan
+ - The 'Invest in Aerial Escorts' focus no longer requires Japan to be at war
+ - Removed the 'Occupy Indochina' focus
+    - The event now fires 1 week after France capitulates instead
+
 #### Hungary
  - First Vienna Award now also gives Burgenland to Hungary
     - Moved the Civilian Factory from Burgenland to Vienna
