@@ -214,6 +214,7 @@
 #### No Asia
  - Fixed invite American investors decision for the Soviet Union
     - For real this time
+ - Australia now owns and has cores on New Zealand
 
 ### 4.3.2
 
