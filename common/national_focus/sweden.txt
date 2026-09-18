@@ -1,23 +1,22 @@
 focus_tree = {
 	id = sweden_focus
+	
 	country = {
 		factor = 0
+		
 		modifier = {
 			add = 10
 			tag = SWE
 			has_dlc = "Arms Against Tyranny"
 		}
 	}
+	
 	default = no
-	continuous_focus_position = {
-		x = 50
-		y = 2500
-	}
+
+	continuous_focus_position = { x = 50 y = 2500 }
 	shared_focus = NORDIC_form_joint_alliance
-	continuous_focus_position = {
-		x = 20
-		y = 1000
-	}
+
+	continuous_focus_position = { x = 20 y = 1000 }  
 	initial_show_position = {
 		x = 37
 		y = 0
@@ -55,9 +54,9 @@ focus_tree = {
 
 		completion_reward = {
 			custom_effect_tooltip = SWE_defense_act_tt
-			country_event = {
-				id = AAT_Sweden.1
-			}
+			country_event = { id = AAT_Sweden.1 }
+			add_stability = 0.03
+		
 		}
 	}
 
@@ -85,7 +84,7 @@ focus_tree = {
 		available = {
 			OR = {
 				threat > 0.1
-				has_war_support > 0.1
+				has_war_support > 0.08
 			}
 		}
 
@@ -96,12 +95,8 @@ focus_tree = {
 		cancel_if_invalid = no
 		continue_if_invalid = no
 		available_if_capitulated = no
-		search_filters = {
-			FOCUS_FILTER_WAR_SUPPORT
-			FOCUS_FILTER_INDUSTRY
-			FOCUS_FILTER_POLITICAL
-			FOCUS_FILTER_ARMY_XP
-		}
+		search_filters = {  FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_INDUSTRY FOCUS_FILTER_POLITICAL FOCUS_FILTER_ARMY_XP }
+
 		completion_reward = {
 			add_war_support = 0.03
 			army_experience = 40
@@ -2794,7 +2789,8 @@ focus_tree = {
 				category = cat_anti_tank				# optional 
 				# tecnology  = technology_id # optional
 			}
-			custom_effect_tooltip = SWE_bofors_anti_tank_gun_tt
+			custom_effect_tooltip = tech_effect|SWE_bofors_antitank_gun
+			#custom_effect_tooltip = SWE_bofors_anti_tank_gun_tt
 			hidden_effect = {
 				set_technology = {
 					SWE_bofors_antitank_gun = 1

@@ -318,6 +318,22 @@ leader_traits = {
 		experience_gain_army_factor = 0.2
 	}
 
+	INS_leader_of_the_people_2 = {
+		random = no
+
+		neutrality_drift = 0.1 #Just as a safety to prevent drifting back
+		war_support_factor = 0.25
+		experience_gain_army_factor = 0.35
+		stability_factor = 0.05
+	}
+
+	INS_leader_of_the_people_fascist = {
+		random = no
+
+		fascism_drift = 0.1
+		war_support_factor = 0.25
+	}
+
 	INS_leader_of_the_people_advisor = {
 		random = no
 		sprite = 12
@@ -410,7 +426,7 @@ leader_traits = {
 		random = no
 		sprite = 13
 		political_power_factor = 0.07
-		# research_speed_factor = 0.04
+		# research_speed_factor = 0.04 # SPTchange
 		conscription_factor = 0.06
 	}	
 
@@ -885,6 +901,7 @@ leader_traits = {
 		random = no
 		stability_factor = 0.05
 		communism_drift = 0.1
+		political_power_gain = 0.1
 	}
 
 	AST_dated_communist_leader = { 
@@ -905,9 +922,23 @@ leader_traits = {
 		war_support_factor = 0.08
 	}
 
+	AST_the_commander = {
+		random = no
+		opinion_gain_monthly_same_ideology = 0.5
+		subjects_autonomy_gain = -0.5
+	}
+
+	AST_king_of_australia = {
+		random = no
+		political_power_factor = 0.1
+		army_core_attack_factor = 0.05
+		army_core_defence_factor = 0.05
+	}
+
 	AST_motherland_advocate_leader = { 
 		random = no
 		war_support_factor = 0.1
+		fascism_drift = 0.1
 	}
 
 	AST_motherland_advocate_pa = { 
@@ -920,13 +951,16 @@ leader_traits = {
 	AST_the_matriarch_leader = { 
 		random = no
 		stability_factor = 0.1
+		consumer_goods_factor = -0.05
+		economy_cost_factor = -0.20
 	}
 
 	AST_the_matriarch_pa = { 
 		random = no
 		sprite = 13
 		stability_factor = 0.05
-		fascism_drift = 0.1
+		consumer_goods_factor = -0.05
+		economy_cost_factor = -0.15
 	}
 
 	AST_governor_general = { 
