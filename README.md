@@ -3,6 +3,16 @@
 ### 4.4.0 They said my special forces were weak
 
 #### General
+ - Update to 1.19.3 with most changes, excluding:
+    - Tank module changes
+    - Some doctrine changes:
+        - Great War Infantry
+        - People's Militia
+        - Flying Batteries
+        - All tank doctrines
+        - Desperate Defense
+        - Infiltration Tactics
+        - Hunter Killer Groups
  - Focus can now be held for 30 days instead of 10
  - Training no longer gives attrition
  - Updated the following AI focus orders so they prioritise eco focuses:

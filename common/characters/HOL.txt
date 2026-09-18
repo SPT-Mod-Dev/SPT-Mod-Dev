@@ -694,10 +694,7 @@ characters={
 				visible = {
 					OR = {
 						original_tag = HOL
-						AND = {
 							original_tag = INS
-							has_cosmetic_tag = INS_UNION
-						}
 					}
 				}
 				available = {
@@ -1079,11 +1076,28 @@ characters={
 			idea_token = HOL_prince_bernhard
 			cost  = 100.000
 				allowed  = {
+				OR = {
 					original_tag  = HOL
+					original_tag  = INS
+				}
 					has_dlc = "Man the Guns"
 				}
+			visible = {
+				OR = {
+					original_tag = HOL
+					AND = {
+						original_tag = INS
+						has_cosmetic_tag = INS_UNION
+					}
+				}
+			}
 				available  = {
-					has_completed_focus  = HOL_replace_the_defeatist_government 
+				if = {
+					limit = {
+						original_tag = HOL
+					}
+					has_completed_focus  = HOL_the_only_man_in_the_dutch_government 
+				}
 				}
 				traits  = {
 					adventurous_daredevil 
