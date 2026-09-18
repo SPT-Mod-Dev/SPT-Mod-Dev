@@ -15,6 +15,7 @@
         - Hunter Killer Groups
  - Focus can now be held for 30 days instead of 10
  - Training no longer gives attrition
+ - Spy networks no longer give buffs/debuffs
  - Updated the following AI focus orders so they prioritise eco focuses:
     - Baltic Federation
 
