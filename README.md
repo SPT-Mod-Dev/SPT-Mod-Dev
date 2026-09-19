@@ -18,6 +18,7 @@
  - Spy networks no longer give buffs/debuffs
  - Updated the following AI focus orders so they prioritise eco focuses:
     - Baltic Federation
+    - Mongolia
     - Norway
     - Denmark
     - Poland
@@ -26,6 +27,9 @@
     - Portugal
     - Yugoslavia
     - Greece
+    - Manchukuo
+    - Mexico
+    - South Africa
 
 #### Special Forces
  - Reworked the Special Forces cap mechanic
