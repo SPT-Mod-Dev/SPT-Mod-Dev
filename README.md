@@ -156,7 +156,7 @@
  - Navy
     - Submarines
         - Removed the following subdoctrines
-            - 'Capital Hunters'
+            - 'Fleet Operations'
             - 'Coastal Defense'
             - 'Coastal Minelaying'
     - Screens
