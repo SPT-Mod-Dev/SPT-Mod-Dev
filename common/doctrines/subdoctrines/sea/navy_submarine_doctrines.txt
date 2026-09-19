@@ -59,124 +59,125 @@ wolfpacks = {
     }
 }
 
-submarine_fleet_operations = {
-    track = submarines
-    name = SUBDOCTRINE_SUBMARINE_FLEET_OPERATIONS
-    description = SUBDOCTRINE_SUBMARINE_FLEET_OPERATIONS_DESC
-    icon = GFX_doctrine_submarine_operations_medium
-
-    xp_cost = 100
-    xp_type = navy
-
-    available = {
-        always = yes
-    }
-
-    ai_will_do = { 
-        base = 1
-        modifier = {
-            factor = 25
-            original_tag = USA
-        }
-        modifier = {
-            factor = 25
-            original_tag = FRA
-        }
-        modifier = {
-            factor = 25
-            original_tag = ITA
-        }
-        modifier = {
-            factor = 25
-            original_tag = SOV
-        }
-    }
-
-    # EFFECTS
-    naval_torpedo_screen_penetration_factor = 0.05
-
-    rewards = {
-        long_range_patrol_schedule = {
-            submarine = {
-				surface_detection = 0.30
-				naval_range = 0.1 #TODO: does this work?
-            }
-        }
-        sustained_operations = {
-            submarine = {
-				max_organisation = 15
-            }
-        }
-        ambush_tactics = {
-            navy_submarine_attack_factor = 0.10
-        }
-        predictive_search_patterns = {
-            submarine = {
-				surface_detection = 0.20
-				convoy_raiding_coordination = 0.20
-            }
-        }
-        diverse_operations = {
-            # submarine = { mines_planting = 0.20 }
-        }
-    }
-}
-
 # SPTchange - disabled rarely used doctrines to make doctrines easier to balance overall
-# capital_hunters = {
+# submarine_fleet_operations = {
 #     track = submarines
-#     name = SUBDOCTRINE_SUBMARINE_CAPITAL_HUNTERS
-#     description = SUBDOCTRINE_SUBMARINE_CAPITAL_HUNTERS_DESC
-#     icon = GFX_doctrine_unrestricted_submarine_warfare_medium
+#     name = SUBDOCTRINE_SUBMARINE_FLEET_OPERATIONS
+#     description = SUBDOCTRINE_SUBMARINE_FLEET_OPERATIONS_DESC
+#     icon = GFX_doctrine_submarine_operations_medium
 
 #     xp_cost = 100
 #     xp_type = navy
+
+#     available = {
+#         always = yes
+#     }
 
 #     ai_will_do = { 
 #         base = 1
 #         modifier = {
 #             factor = 25
-#             original_tag = JAP
+#             original_tag = USA
+#         }
+#         modifier = {
+#             factor = 25
+#             original_tag = FRA
+#         }
+#         modifier = {
+#             factor = 25
+#             original_tag = ITA
+#         }
+#         modifier = {
+#             factor = 25
+#             original_tag = SOV
 #         }
 #     }
-#     available = {
-#         always = yes
-#     }
 
-#     naval_torpedo_reveal_chance_factor = -0.1
+#     # EFFECTS
+#     naval_torpedo_screen_penetration_factor = 0.05
 
 #     rewards = {
-#         fire_protocol_drills = {
+#         long_range_patrol_schedule = {
 #             submarine = {
-#     			naval_torpedo_hit_chance_factor = 0.15
+# 				surface_detection = 0.30
+# 				naval_range = 0.1 #TODO: does this work?
 #             }
 #         }
-#         battle_line_priority = {
-#     		naval_torpedo_screen_penetration_factor = 0.05
-#         }
-#         quick_reload_procedures = {
+#         sustained_operations = {
 #             submarine = {
-#     			torpedo_attack = 0.1
+# 				max_organisation = 15
 #             }
 #         }
-#         battleship_chase = {
-#             submarine = {
-#     			fuel_consumption = -0.1
-#     			naval_range = 0.1
-#             }
-
+#         ambush_tactics = {
+#             navy_submarine_attack_factor = 0.10
 #         }
-#         escape_when_empty = {
+#         predictive_search_patterns = {
 #             submarine = {
-#     			sub_visibility = -0.05
-#     			naval_speed = 0.1
+# 				surface_detection = 0.20
+# 				convoy_raiding_coordination = 0.20
 #             }
-#     		sub_retreat_speed = 0.1
-
+#         }
+#         diverse_operations = {
+#             submarine = { mines_planting = 0.20 }
 #         }
 #     }
 # }
 
+capital_hunters = {
+    track = submarines
+    name = SUBDOCTRINE_SUBMARINE_CAPITAL_HUNTERS
+    description = SUBDOCTRINE_SUBMARINE_CAPITAL_HUNTERS_DESC
+    icon = GFX_doctrine_unrestricted_submarine_warfare_medium
+
+    xp_cost = 100
+    xp_type = navy
+
+    ai_will_do = { 
+        base = 1
+        modifier = {
+            factor = 25
+            original_tag = JAP
+        }
+    }
+    available = {
+        always = yes
+    }
+
+    naval_torpedo_reveal_chance_factor = -0.1
+
+    rewards = {
+        fire_protocol_drills = {
+            submarine = {
+    			naval_torpedo_hit_chance_factor = 0.15
+            }
+        }
+        battle_line_priority = {
+    		naval_torpedo_screen_penetration_factor = 0.05
+        }
+        quick_reload_procedures = {
+            submarine = {
+    			torpedo_attack = 0.1
+            }
+        }
+        battleship_chase = {
+            submarine = {
+    			fuel_consumption = -0.1
+    			naval_range = 0.1
+            }
+
+        }
+        escape_when_empty = {
+            submarine = {
+    			sub_visibility = -0.05
+    			naval_speed = 0.1
+            }
+    		sub_retreat_speed = 0.1
+
+        }
+    }
+}
+
+# SPTchange - disabled rarely used doctrines to make doctrines easier to balance overall
 # submarine_coastal_defense = {
 #     track = submarines
 #     name = SUBDOCTRINE_SUBMARINE_COASTAL_DEFENSE

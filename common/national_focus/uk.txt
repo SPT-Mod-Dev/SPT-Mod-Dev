@@ -5416,6 +5416,47 @@ focus_tree = {
 	}
 
 	focus = {
+		id = SPT_uk_irregulars
+		prerequisite = { focus = uk_colonial_focus }
+		icon = GFX_focus_GER_afrikakorps
+		x = 2
+		y = 1
+		relative_position_id = uk_colonial_focus
+		cost = 5
+
+		available = {
+			has_war = yes
+		}
+
+		available_if_capitulated = no
+		search_filters = {FOCUS_FILTER_RESEARCH FOCUS_FILTER_MANPOWER}
+		completion_reward = {
+			set_technology = {
+				irregulars_tech = 1
+				popup = no
+			}
+
+			set_sub_doctrine = irregulars
+
+			add_mastery = {
+   				amount = 200
+    			track = infantry
+			}
+
+			create_corps_commander = {
+			name = "Seth Anthony"
+			gfx = GFX_Portrait_South_Africa_Army_Generic
+			traits={ irregulars_officer }
+			skill=1
+			attack_skill=1
+			defense_skill=1
+			maneuvering_skill=1
+			coordination_skill=1
+			}
+		}
+	}
+
+	focus = {
 		id = uk_asia_focus 
 		prerequisite = { focus = uk_colonial_focus }
 		

@@ -4226,6 +4226,13 @@ focus_tree = {
 				add_ideas = ITA_bandits_war_no_lar
 			}
 
+			# SPTchange
+			custom_effect_tooltip = generic_skip_one_line_tt
+			set_technology = {
+				irregulars_tech = 1
+				popup = no
+			}
+
 			# AI will never swap to another doctrine tree once they have started one, regardless of the AI weights, so AI needs to have it replaced manually
 			hidden_effect = {
 				if = {
@@ -9874,28 +9881,21 @@ focus_tree = {
 					}
 				}
 			}
-			# SPTchange
-			custom_effect_tooltip = generic_skip_one_line_tt
-			# SPTchange
-			set_technology = {
-				militia_tech = 1
-				popup = no
+			random_controlled_state = { #Create a few more Blackshirt Divs
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+				}
+				prioritize = { 2 }
+				custom_effect_tooltip = ITA_strengthen_the_blackshirts_spawn_divs_tt
+				hidden_effect = {
+					create_unit = {
+						division = "division_template = \"Camicie Nere\" start_experience_factor = 0.4 start_equipment_factor = 1.0"
+						owner = ROOT
+						count = 3
+					}
+				}
 			}
-			# random_controlled_state = { #Create a few more Blackshirt Divs
-			# 	limit = {
-			# 		is_core_of = ROOT
-			# 		is_fully_controlled_by = ROOT
-			# 	}
-			# 	prioritize = { 2 }
-			# 	custom_effect_tooltip = ITA_strengthen_the_blackshirts_spawn_divs_tt
-			# 	hidden_effect = {
-			# 		create_unit = {
-			# 			division = "division_template = \"Camicie Nere\" start_experience_factor = 0.4 start_equipment_factor = 1.0"
-			# 			owner = ROOT
-			# 			count = 3
-			# 		}
-			# 	}
-			# }
 		}
 	}
 
