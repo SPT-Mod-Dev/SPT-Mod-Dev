@@ -16,6 +16,15 @@
  - Focus can now be held for 30 days instead of 10
  - Training no longer gives attrition
  - Spy networks no longer give buffs/debuffs
+ - Militia stats reworked
+    - Compared to Infantry
+        - Soft attack: 0% -> -5%
+        - Breakthrough: 0% -> -5%
+        - Defense: 0% -> -10%
+        - Urban
+            - Attack: 0% -> +5%
+            - Defense: 0% -> +10%
+    - Guns per Battalion: 100 -> 90
  - Updated the following AI focus orders so they prioritise eco focuses:
     - Baltic Federation
     - Mongolia
@@ -79,10 +88,11 @@
         - 'Large Unit Tactics' is now only available with 'Mass Assault'
         - 'Individual Excellence' is now only available with 'Grand Battleplan'
         - 'Irregulars'
+            - Now requires either Militia or Irregular Infantry to be selected
             - Unlock cost: 50 xp -> 75 xp
             - Soft attack: +20% -> +15%
             - Defense: +20% -> +15%
-            - Recruitable population: +2% -> 0% 
+            - Recruitable population: +2% -> 1% 
     - Artillery & Combat Support
         - Removed the following subdoctrines
             - 'Flying Batteries'
@@ -132,6 +142,11 @@
         - 'Desperate Defense'
             - No longer gated by casualties
             - Recruitable population: +3% -> +2.5%
+        - 'Guerilla War'
+            - Irregular Infantry
+                - Urban
+                    - Attack: 0% -> +10%
+                    - Defense: 0% -> +10% 
  - Air
     - Fighter Aircraft
         - Removed the following subdoctrines
@@ -200,6 +215,9 @@
 #### Italy
  - Fixed the 'A Colonial Empire' focus overlapping with the 'Gain the Blackshirt's Loyalty' focus
  - Fixed army and navy tooltips so they are now accurate regarding special forces cap
+ - The 'A Bandit's War' focus now unlocks Irregular Infantry
+ - The 'Strengthen the Blackshirts' focus is reverted to vanilla
+    - No longer unlocks Militia
 
 #### Japan
  - The 'Invest in Aerial Escorts' focus no longer requires Japan to be at war
@@ -209,8 +227,12 @@
     - Expected number of factories put on Consumer Goods: +15% -> +10%
 
 #### Soviet Union
+ - Now starts with Militia
  - 'New Economic Policy' economy law
   - - Expected number of factories put on Consumer Goods: +15% -> +10%
+
+#### United Kingdom
+ - Added the 'Mobilize African Irregulars' focus
 
 #### Hungary
  - First Vienna Award now also gives Burgenland to Hungary
@@ -222,6 +244,9 @@
 
 #### Mexico
  - Focuses 'Triumph over the Cristeros', 'Antidisestablishmentarianism', and 'Catholic Politics' no longer cancel if church power has changed during the focus
+
+#### Mongolia
+ - Now starts with Militia
 
 #### No Asia
  - Fixed invite American investors decision for the Soviet Union
