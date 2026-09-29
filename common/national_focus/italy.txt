@@ -4226,6 +4226,13 @@ focus_tree = {
 				add_ideas = ITA_bandits_war_no_lar
 			}
 
+			# SPTchange
+			custom_effect_tooltip = generic_skip_one_line_tt
+			set_technology = {
+				irregulars_tech = 1
+				popup = no
+			}
+
 			# AI will never swap to another doctrine tree once they have started one, regardless of the AI weights, so AI needs to have it replaced manually
 			hidden_effect = {
 				if = {
@@ -4456,7 +4463,9 @@ focus_tree = {
 			#add_to_variable = { ITA_re_special_forces_cap = 0.05 } # SPTchange
 			add_to_variable = { ITA_re_special_forces_attack_factor = 0.03 }
 			add_to_variable = { ITA_re_special_forces_defence_factor = 0.03 }
-			custom_effect_tooltip = ITA_bersaglieri_re_tt
+			# SPTchange
+			custom_effect_tooltip = SPT_ITA_bersaglieri_re_tt
+			# custom_effect_tooltip = ITA_bersaglieri_re_tt
 
 			army_experience = 15
 
@@ -4512,7 +4521,9 @@ focus_tree = {
 			#add_to_variable = { ITA_re_special_forces_cap = 0.02 } # SPTchange
 			add_to_variable = { ITA_re_modifier_army_sub_unit_mountaineers_defence_factor = 0.03 }
 			add_to_variable = { ITA_re_modifier_army_sub_unit_mountaineers_max_org_factor = 0.05 }
-			custom_effect_tooltip = ITA_divisioni_alpine_re_tt
+			# SPTchange
+			custom_effect_tooltip = SPT_ITA_divisioni_alpine_re_tt
+			# custom_effect_tooltip = ITA_divisioni_alpine_re_tt
 
 			army_experience = 15
 
@@ -4545,7 +4556,9 @@ focus_tree = {
 			#add_to_variable = { ITA_re_special_forces_cap = 0.02 } # SPTchange
 			add_to_variable = { ITA_re_special_forces_out_of_supply_factor = -0.1 }
 			add_to_variable = { ITA_re_modifier_army_sub_unit_paratrooper_max_org_factor = 0.05 }
-			custom_effect_tooltip = ITA_fanti_dell_aria_re_tt
+			# SPTchange
+			custom_effect_tooltip = SPT_ITA_fanti_dell_aria_re_tt
+			# custom_effect_tooltip = ITA_fanti_dell_aria_re_tt
 
 			army_experience = 15
 
@@ -6472,7 +6485,9 @@ focus_tree = {
 			add_to_variable = { ITA_rm_amphibious_invasion = 0.05 }
 			add_to_variable = { ITA_rm_naval_invasion_capacity = 2 }
 			add_to_variable = { ITA_rm_invasion_preparation = -0.1 }
-			custom_effect_tooltip = ITA_forza_navale_especiale_rm_tt
+			# SPTchange
+			custom_effect_tooltip = SPT_ITA_forza_navale_especiale_rm_tt
+			# custom_effect_tooltip = ITA_forza_navale_especiale_rm_tt
 
 			hidden_effect = {
 				if = {
@@ -9866,28 +9881,21 @@ focus_tree = {
 					}
 				}
 			}
-			# SPTchange
-			custom_effect_tooltip = generic_skip_one_line_tt
-			# SPTchange
-			set_technology = {
-				militia_tech = 1
-				popup = no
+			random_controlled_state = { #Create a few more Blackshirt Divs
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+				}
+				prioritize = { 2 }
+				custom_effect_tooltip = ITA_strengthen_the_blackshirts_spawn_divs_tt
+				hidden_effect = {
+					create_unit = {
+						division = "division_template = \"Camicie Nere\" start_experience_factor = 0.4 start_equipment_factor = 1.0"
+						owner = ROOT
+						count = 3
+					}
+				}
 			}
-			# random_controlled_state = { #Create a few more Blackshirt Divs
-			# 	limit = {
-			# 		is_core_of = ROOT
-			# 		is_fully_controlled_by = ROOT
-			# 	}
-			# 	prioritize = { 2 }
-			# 	custom_effect_tooltip = ITA_strengthen_the_blackshirts_spawn_divs_tt
-			# 	hidden_effect = {
-			# 		create_unit = {
-			# 			division = "division_template = \"Camicie Nere\" start_experience_factor = 0.4 start_equipment_factor = 1.0"
-			# 			owner = ROOT
-			# 			count = 3
-			# 		}
-			# 	}
-			# }
 		}
 	}
 
@@ -10728,6 +10736,30 @@ focus_tree = {
 		y = 5
 		relative_position_id = ITA_strengthen_the_regime
 		cost = 10
+
+		offset = {
+			x = 1
+			y = 1
+			trigger = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+				has_completed_focus = ITA_convene_the_grand_council
+			}
+		}
+		offset = {
+			x = 0
+			y = -3
+			trigger = {
+				has_game_rule = {
+					rule = obsolete_focus_branches_visibility
+					option = HIDE
+				}
+				has_completed_focus = ITA_culto_del_duce
+			}
+		}
+		
 		available = {
 		}
 

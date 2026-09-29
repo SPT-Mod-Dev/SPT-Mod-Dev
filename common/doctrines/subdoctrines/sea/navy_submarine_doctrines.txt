@@ -59,68 +59,69 @@ wolfpacks = {
     }
 }
 
-submarine_fleet_operations = {
-    track = submarines
-    name = SUBDOCTRINE_SUBMARINE_FLEET_OPERATIONS
-    description = SUBDOCTRINE_SUBMARINE_FLEET_OPERATIONS_DESC
-    icon = GFX_doctrine_submarine_operations_medium
+# SPTchange - disabled rarely used doctrines to make doctrines easier to balance overall
+# submarine_fleet_operations = {
+#     track = submarines
+#     name = SUBDOCTRINE_SUBMARINE_FLEET_OPERATIONS
+#     description = SUBDOCTRINE_SUBMARINE_FLEET_OPERATIONS_DESC
+#     icon = GFX_doctrine_submarine_operations_medium
 
-    xp_cost = 100
-    xp_type = navy
+#     xp_cost = 100
+#     xp_type = navy
 
-    available = {
-        always = yes
-    }
+#     available = {
+#         always = yes
+#     }
 
-    ai_will_do = { 
-        base = 1
-        modifier = {
-            factor = 25
-            original_tag = USA
-        }
-        modifier = {
-            factor = 25
-            original_tag = FRA
-        }
-        modifier = {
-            factor = 25
-            original_tag = ITA
-        }
-        modifier = {
-            factor = 25
-            original_tag = SOV
-        }
-    }
+#     ai_will_do = { 
+#         base = 1
+#         modifier = {
+#             factor = 25
+#             original_tag = USA
+#         }
+#         modifier = {
+#             factor = 25
+#             original_tag = FRA
+#         }
+#         modifier = {
+#             factor = 25
+#             original_tag = ITA
+#         }
+#         modifier = {
+#             factor = 25
+#             original_tag = SOV
+#         }
+#     }
 
-    # EFFECTS
-    naval_torpedo_screen_penetration_factor = 0.05
+#     # EFFECTS
+#     naval_torpedo_screen_penetration_factor = 0.05
 
-    rewards = {
-        long_range_patrol_schedule = {
-            submarine = {
-				surface_detection = 0.30
-				naval_range = 0.1 #TODO: does this work?
-            }
-        }
-        sustained_operations = {
-            submarine = {
-				max_organisation = 15
-            }
-        }
-        ambush_tactics = {
-            navy_submarine_attack_factor = 0.10
-        }
-        predictive_search_patterns = {
-            submarine = {
-				surface_detection = 0.20
-				convoy_raiding_coordination = 0.20
-            }
-        }
-        diverse_operations = {
-            # submarine = { mines_planting = 0.20 }
-        }
-    }
-}
+#     rewards = {
+#         long_range_patrol_schedule = {
+#             submarine = {
+# 				surface_detection = 0.30
+# 				naval_range = 0.1 #TODO: does this work?
+#             }
+#         }
+#         sustained_operations = {
+#             submarine = {
+# 				max_organisation = 15
+#             }
+#         }
+#         ambush_tactics = {
+#             navy_submarine_attack_factor = 0.10
+#         }
+#         predictive_search_patterns = {
+#             submarine = {
+# 				surface_detection = 0.20
+# 				convoy_raiding_coordination = 0.20
+#             }
+#         }
+#         diverse_operations = {
+#             submarine = { mines_planting = 0.20 }
+#         }
+#     }
+# }
 
 capital_hunters = {
     track = submarines
@@ -176,123 +177,124 @@ capital_hunters = {
     }
 }
 
-submarine_coastal_defense = {
-    track = submarines
-    name = SUBDOCTRINE_SUBMARINE_COASTAL_DEFENSE
-    description = SUBDOCTRINE_SUBMARINE_COASTAL_DEFENSE_DESC
-    icon = GFX_doctrine_undersea_blockade_medium
+# SPTchange - disabled rarely used doctrines to make doctrines easier to balance overall
+# submarine_coastal_defense = {
+#     track = submarines
+#     name = SUBDOCTRINE_SUBMARINE_COASTAL_DEFENSE
+#     description = SUBDOCTRINE_SUBMARINE_COASTAL_DEFENSE_DESC
+#     icon = GFX_doctrine_undersea_blockade_medium
 
-    xp_cost = 100
-    xp_type = navy
+#     xp_cost = 100
+#     xp_type = navy
 
-    available = {
-        is_special_project_completed = sp:sp_naval_midget_submarine
-    }
-    visible = {
-        has_dlc = "No Compromise, No Surrender"
-    }
+#     available = {
+#         is_special_project_completed = sp:sp_naval_midget_submarine
+#     }
+#     visible = {
+#         has_dlc = "No Compromise, No Surrender"
+#     }
 
-    submarine = {
-        supply_consumption = -0.02
-    }
+#     submarine = {
+#         supply_consumption = -0.02
+#     }
 
-    rewards = {
+#     rewards = {
 
-        optimized_compartments = {
-            equipment_bonus = {
-                ship_hull_midget_submarine = {
-                    reliability = 0.2
-                    instant = yes
-                }
-            }
-        }
-        patrol_vigilance = {
-            submarine = {
-    			max_organisation = 20
-    			surface_detection = 0.2
-            }
-        }
-        maneuever_fire = {
-            equipment_bonus = {
-                ship_hull_midget_submarine = {
-                    torpedo_attack = 0.1
-                    instant = yes
-                }
-            }
-        }
-        locals_knowledge = {
-            submarine = {
-    			sub_visibility = -0.05
-            }
-        }
-        counter_submarine_operations = {
-            submarine = {
-    			torpedo_attack = 0.1
-            }
-            equipment_bonus = {
-                ship_hull_midget_submarine = {
-                    sub_visibility = -0.05
+#         optimized_compartments = {
+#             equipment_bonus = {
+#                 ship_hull_midget_submarine = {
+#                     reliability = 0.2
+#                     instant = yes
+#                 }
+#             }
+#         }
+#         patrol_vigilance = {
+#             submarine = {
+#     			max_organisation = 20
+#     			surface_detection = 0.2
+#             }
+#         }
+#         maneuever_fire = {
+#             equipment_bonus = {
+#                 ship_hull_midget_submarine = {
+#                     torpedo_attack = 0.1
+#                     instant = yes
+#                 }
+#             }
+#         }
+#         locals_knowledge = {
+#             submarine = {
+#     			sub_visibility = -0.05
+#             }
+#         }
+#         counter_submarine_operations = {
+#             submarine = {
+#     			torpedo_attack = 0.1
+#             }
+#             equipment_bonus = {
+#                 ship_hull_midget_submarine = {
+#                     sub_visibility = -0.05
 
-                    instant = yes
-                }
-            }
-        }
-    }
-}
+#                     instant = yes
+#                 }
+#             }
+#         }
+#     }
+# }
 
-coastal_minelaying = {
-    track = submarines
-    name = SUBDOCTRINE_SUBMARINE_COASTAL_MINELAYING
-    description = SUBDOCTRINE_SUBMARINE_COASTAL_MINELAYING_DESC
-    icon = GFX_doctrine_convoy_interdiction_medium
+# coastal_minelaying = {
+#     track = submarines
+#     name = SUBDOCTRINE_SUBMARINE_COASTAL_MINELAYING
+#     description = SUBDOCTRINE_SUBMARINE_COASTAL_MINELAYING_DESC
+#     icon = GFX_doctrine_convoy_interdiction_medium
 
-    xp_cost = 100
-    xp_type = navy
+#     xp_cost = 100
+#     xp_type = navy
 
-    available = {
-        always = no # SPTchange
-    }
-    visible = {
-        has_dlc = "No Compromise, No Surrender"
-    }
+#     available = {
+#         always = no # SPTchange
+#     }
+#     visible = {
+#         has_dlc = "No Compromise, No Surrender"
+#     }
 
-    naval_mines_effect_reduction = 0.1
+#     naval_mines_effect_reduction = 0.1
 
-    rewards = {
+#     rewards = {
 
-    	covert_buildup = {
-    		submarine = {
-    			naval_speed = 0.1
-    			mines_planting = 0.25
-    		}
+#     	covert_buildup = {
+#     		submarine = {
+#     			naval_speed = 0.1
+#     			mines_planting = 0.25
+#     		}
 
-        }
+#         }
 
-    	placement_for_effect = {
-    		naval_mines_damage_factor = 0.25
-    	}
+#     	placement_for_effect = {
+#     		naval_mines_damage_factor = 0.25
+#     	}
 
 
-    	minefield_patrols = {
-    		destroyer = {
-    			mines_planting = 0.25
-    			lg_attack = 0.1
-    		}
+#     	minefield_patrols = {
+#     		destroyer = {
+#     			mines_planting = 0.25
+#     			lg_attack = 0.1
+#     		}
 
-    	}
-    	overhead_protection = {
-    		destroyer = {
-    			anti_air_attack = 0.1
-    		}
+#     	}
+#     	overhead_protection = {
+#     		destroyer = {
+#     			anti_air_attack = 0.1
+#     		}
 
-    	}
-    	clearing_procedures = {
-    		destroyer = {
-    			mines_sweeping = 0.25
-    		}
-    	}
-    }
-}
+#     	}
+#     	clearing_procedures = {
+#     		destroyer = {
+#     			mines_sweeping = 0.25
+#     		}
+#     	}
+#     }
+# }
 
 long_range_submarines = {
     track = submarines

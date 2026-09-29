@@ -68,7 +68,7 @@
  		}
  	}
 
-	# SPTchange minor lag machine
+	# SPTchange - minor lag machine
  	# on_monthly_INS = {
  	# 	effect = {
  	# 		set_variable_to_random = {
@@ -76,6 +76,34 @@
  	# 			min = 1
  	# 			max = 100
  	# 			integer = yes
+ 	# 		}
+ 	# 	}
+ 	# 	effect = {
+ 	# 		if = {
+ 	# 			limit = {
+ 	# 				has_completed_focus = INS_the_three_year_plan
+ 	# 				NOT = {
+ 	# 					has_country_flag = INS_three_year_plan_capped
+ 	# 				}
+ 	# 				check_variable = {
+ 	# 					var = INS_the_three_year_plan_modifier_production_speed_buildings_factor
+ 	# 					value = 0.27
+ 	# 					compare = less_than
+ 	# 				}
+ 	# 			}
+ 	# 			add_to_variable = {
+ 	# 				INS_the_three_year_plan_modifier_production_speed_buildings_factor = 0.01
+ 	# 			}
+ 	# 		}
+ 	# 		else_if = {
+ 	# 			limit = {
+ 	# 				check_variable = {
+ 	# 					var = INS_the_three_year_plan_modifier_production_speed_buildings_factor
+ 	# 					value = 0.26
+ 	# 					compare = greater_than_or_equals
+ 	# 				}
+ 	# 			}
+ 	# 			set_country_flag = INS_three_year_plan_capped
  	# 		}
  	# 	}
  	# }
@@ -195,7 +223,7 @@
 				remove_dynamic_modifier = { modifier = idea_SIA_agricultural_tax_reduction }
 				add_stability = var:SIA_agricultural_tax_reduction_stability_gain
 				add_tech_bonus = {
-					name = SIA_agricultural_tax_reduction
+					name = SIA_reduction_of_agricultural_yield_taxes
 					bonus = 0.25 
 					ahead_reduction = 2
 					uses = 1
@@ -357,6 +385,16 @@
 	# ROOT is attacker, FROM is defender 
 	on_war_relation_added = {
 		effect = {
+			# Charges planted in the Indochinese ports go off once we are at war with whoever holds them
+			if = {
+				limit = {
+					OR = {
+						ROOT = { original_tag = SIA }
+						FROM = { original_tag = SIA }
+					}
+				}
+				SIA_detonate_indochina_port_charges = yes
+			}
 			if = {
 				limit = {
 					ROOT = {
@@ -411,15 +449,19 @@
 			}
 			if = {
 				limit = {
-					FROM = {
+					ROOT = {
 						original_tag = SIA
 						has_completed_focus = SIA_plan_for_a_short_war
+						NOT = { has_country_flag = SIA_plan_for_a_short_war_fire_once }
 						NOT = { has_idea = idea_SIA_short_war_temp_buff }
 					}
 				}
+				ROOT = {
+					set_country_flag = SIA_plan_for_a_short_war_fire_once
 				add_timed_idea = {
 					idea = idea_SIA_short_war_temp_buff
-					days = 120
+						days = 90
+					}
 				}
 			}
 			if = {
@@ -1095,9 +1137,44 @@
 							}
 						}
 						set_cosmetic_tag = AST_percy
-					}
 
+						IF = {
+							limit = {
+								is_in_faction_with = ENG
+							}
+							ENG = {
+								remove_from_faction = AST
+							}
+						}
+					}
 				}
+			}
+		}
+
+		effect = {
+			IF = {
+				limit = {
+					has_dlc = "Thunder at Our Gates"
+					ROOT = {
+						original_tag = AST
+						has_government = neutrality
+					}
+				}
+				set_cosmetic_tag = AST
+			}
+		}
+
+		effect = { #Making sure cosmetic tag chosen previously stays
+			IF = {
+				limit = {
+					has_dlc = "Thunder at Our Gates"
+					ROOT = {
+						original_tag = AST
+						has_government = democratic
+						has_country_flag = AST_change_democratic_flag_flag
+					}
+				}
+				set_cosmetic_tag = AST_independent
 			}
 		}
 	}
@@ -1719,19 +1796,20 @@
 			}
 		}
 
-		effect = { #Communist: Launch Canberra Air Disaster on historical date if not launched before
-			IF = {
-				limit = {
-					date > 1940.08.12
-					has_completed_focus = AST_against_war_and_fascism
-					NOT = { #Event has not been/waiting on to be triggered yet
-						has_country_flag = AST_com_late_canberra
-					}
-				}
-				country_event = { id = AST_canberra_air_disaster_events.1 hours = 1 }
-				set_country_flag = AST_com_late_canberra #Make sure it doesn't trigger again, although it's not actually late canberra
-			}
-		}
+		# SPTchange - commie path removed so on_daily is not needed
+		# effect = { #Communist: Launch Canberra Air Disaster on historical date if not launched before
+		# 	IF = {
+		# 		limit = {
+		# 			date > 1940.08.12
+		# 			has_completed_focus = AST_against_war_and_fascism
+		# 			NOT = { #Event has not been/waiting on to be triggered yet
+		# 				has_country_flag = AST_com_late_canberra
+		# 			}
+		# 		}
+		# 		country_event = { id = AST_canberra_air_disaster_events.1 hours = 1 }
+		# 		set_country_flag = AST_com_late_canberra #Make sure it doesn't trigger again, although it's not actually late canberra
+		# 	}
+		# }
 
 		effect = { #Launch event The 1938 Sesquicentenary 
 			IF = {
@@ -1767,6 +1845,24 @@
 				set_country_flag = AST_platypus_event_trigger
 			}
 		}
+
+		# SPTchange - moved to on_monthly for optimization reasons
+		# effect = { #Launch Battle of Brisbane event
+		# 	IF = {
+		# 		limit = {
+		# 			has_dlc = "Thunder at Our Gates"
+		# 			date > 1942.10.27
+		# 			ROOT = {
+		# 				original_tag = AST
+		# 				has_war = yes
+		# 				is_in_faction_with = USA
+		# 			}
+		# 			NOT = { has_country_flag = AST_brisbane_event_trigger }
+		# 		}
+		# 		country_event = { id = AST_political_events.10 days = 30 }
+		# 		set_country_flag = AST_brisbane_event_trigger
+		# 	}
+		# }
 
 		effect = { #Launch War is Coming event
 			IF = {
@@ -1883,7 +1979,56 @@
 				set_country_flag = AST_bound_once_more_visible
 			}
 		}
+
+		# SPTchange - New Guard Spirit cant be added so on_daily is not needed
+		# effect = {
+		# 	IF = {
+		# 		limit = {
+		# 			original_tag = AST
+		# 			has_dlc = "Thunder at Our Gates"
+		# 			has_idea = AST_new_guard_spirit
+					
+		# 		}
+		# 		add_to_variable = { 
+		# 			var = AST_ng_members_var 
+		# 			value = AST_ng_daily_var 
+		# 		}
+		# 		clamp_variable = {
+		# 			var = AST_ng_members_var
+		# 			min = 0
+		# 			max = 50000
+		# 		}
+		# 		IF = {
+		# 			limit = {
+		# 				check_variable = { AST_ng_members_var > 49999 } 
+		# 			}
+		# 			set_variable = { AST_ng_daily_var = 0 }
+		# 		} 
+		# 	}
+		# }
 		
+	}
+
+	on_monthly_AST = {
+
+		 effect = { #Launch Battle of Brisbane event
+			IF = {
+				limit = {
+					has_dlc = "Thunder at Our Gates"
+					date > 1942.10.27
+					ROOT = {
+						original_tag = AST
+						has_war = yes
+						is_in_faction_with = USA
+					}
+					NOT = { has_country_flag = AST_brisbane_event_trigger }
+				}
+				# SPTchange - changed from 30 days to 26 days to make it roughly trigger at the same time as if using on_daily
+				country_event = { id = AST_political_events.10 days = 26 }
+				set_country_flag = AST_brisbane_event_trigger
+			}
+		}
+
 	}
 
 	on_new_term_election = {
@@ -1897,6 +2042,7 @@
 					has_government = democratic
 				}
 				AST = {
+					clr_country_flag = AST_has_natunity_flag
 					remove_ideas = AST_election_campaign_pp_cost_hidden_idea
 					set_variable = {
                         var = AST_campaigning_for_party
@@ -2176,6 +2322,26 @@
 	#ROOT is new controller, FROM is old controller, FROM.FROM is state ID
 	on_state_control_changed = {
 		effect = {
+			if = {
+				limit = {
+					SIA = { has_active_mission = SIA_limited_war_indochina }
+					is_in_array = {
+						array = SIA.limited_war_states
+						value = FROM.FROM
+					}
+					FROM = {
+						original_tag = SIA.limited_war_target
+					}
+					ROOT = {
+						NOT = { original_tag = SIA }
+						NOT = { original_tag = SIA.limited_war_targets }
+					}
+				}
+				remove_from_array = {
+					array = SIA.limited_war_states
+					value = FROM.FROM
+				}
+			}
 			if = {
 				limit = {
 					has_dlc = "Thunder at Our Gates"
@@ -2581,6 +2747,21 @@
 					}
 				}
 				add_to_tech_sharing_group = cominwealth_allied_research
+			}
+		}
+
+		effect = {	# Add Pan-Asian Economic Area to joining subject-faction members of the Pan-Asian Union
+			if = {
+				limit = {
+					FROM = {
+						original_tag = INS
+						has_completed_focus = INS_pan_economic_area
+					}
+					ROOT = {
+						is_subject_of = FROM
+					}
+				}
+				add_ideas = INS_pan_asian_economic_area_subject
 			}
 		}
 

@@ -1,5 +1,258 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 4.4.0 They said my special forces were weak
+
+#### General
+ - Update to 1.19.3 with most changes, excluding:
+    - Tank module changes
+    - Some doctrine changes:
+        - Great War Infantry
+        - People's Militia
+        - Flying Batteries
+        - All tank doctrines
+        - Desperate Defense
+        - Infiltration Tactics
+        - Hunter Killer Groups
+ - Focus can now be held for 30 days instead of 10
+ - Training no longer gives attrition
+ - Spy networks no longer give buffs/debuffs
+ - Militia stats reworked
+    - Compared to Infantry
+        - Soft attack: 0% -> -5%
+        - Breakthrough: 0% -> -5%
+        - Defense: 0% -> -10%
+        - Urban
+            - Attack: 0% -> +5%
+            - Defense: 0% -> +10%
+    - Guns per Battalion: 100 -> 90
+ - Updated the following AI focus orders so they prioritise eco focuses:
+    - Baltic Federation
+    - Mongolia
+    - Norway
+    - Denmark
+    - Poland
+    - Netherlands
+    - Belgium
+    - Portugal
+    - Yugoslavia
+    - Greece
+    - Manchukuo
+    - Mexico
+    - South Africa
+
+#### Special Forces
+ - Reworked the Special Forces cap mechanic
+    - Japan now has a minimum special forces cap of 504 battalions (28 x 36 widths) if Siam is a player and a minimum special forces cap of 664 battalions (28 x 36 widths + 10 x 32 widths) if Siam is AI/doesn't exist.
+    - USA, UK and Italy now have a minimum special forces cap of 252 battalions (14 x 36 widths)
+    - Soviets, Germany, Hungary and Spain now have a minimum special forces cap of 180 battalions (12 x 30 widths)
+    - Raj and Siam now have a minimum special forces cap of 160 battalions (10 x 32 widths)
+    - Brazil and France now have a minimum special forces cap of 144 battalions (8 x 36 widths)
+    - Canada, Australia and Romania now have a minimum special forces cap of 108 battalions (6 x 36 widths)
+    - Finland, Bulgaria and Mongolia now have a minimum special forces cap of 90 battalions (6 x 30 widths)
+    - Mexico, South Africa and New Zealand now have a minimum special forces cap of 72 battalions (4 x 36 widths)
+ - Doctrines
+    - 'Cold Weather Specialists'
+        - Mountaineers
+            - Defense: +10% -> +15%
+            - Breakthrough: 0% -> +10%
+    - 'Sabotage Parties'
+        - Paratroopers
+            - Desert
+                - Attack: 0% -> +10%
+                - Defense: 0% -> +10%
+            - Plains
+                - Attack: 0% -> +10%
+                - Defense: 0% -> +10%
+    - 'Concentrated Drops'
+        - Paratroopers
+            - Night
+                - Attack: 0% -> +20%
+            - Urban
+                - Attack: 0% -> +10%
+                - Defense: 0% -> +10%
+            - Forts
+                - Attack: 0% -> +10%
+                - Defense: 0% -> +10% 
+            - Anti-tank Support
+                - Hard Attack: 0% -> +20%
+            - Anti-tank Regimental Support
+                - Hard Attack: 0% -> +20%
+
+#### Doctrines
+ - Land
+    - Infantry
+        - Removed the following subdoctrines
+            - 'People's Militia'
+            - 'Great War Infantry'
+        - 'Mobile Infantry' is now only available with 'Mobile Warfare'
+        - 'Large Unit Tactics' is now only available with 'Mass Assault'
+        - 'Individual Excellence' is now only available with 'Grand Battleplan'
+        - 'Irregulars'
+            - Now requires either Militia or Irregular Infantry to be selected
+            - Unlock cost: 50 xp -> 75 xp
+            - Soft attack: +20% -> +15%
+            - Defense: +20% -> +15%
+            - Recruitable population: +2% -> 1% 
+    - Artillery & Combat Support
+        - Removed the following subdoctrines
+            - 'Flying Batteries'
+            - 'Air Cavalry'
+        - 'Fire Concentration' is now only available with 'Superior Firepower'
+        - 'Fire Concentration'
+            - Added recon buffs from 'Flying Batteries'
+            - Added organisation and combat width reduction buffs from 'Flying Batteries'
+                - The width reductions are now working
+    - Armor
+        - Removed the following subdoctrines
+            - 'Mobile Defense'
+            - 'Tank Destroyer Force'
+        - 'Armored Cavalry'
+            - Light tanks
+                - Soft attack: 0% -> +20%
+                - Hard attack: +10% -> +15%
+                - Piercing: 0% -> +5%
+                - Defense: 0% -> +10%
+                - Breakthrough: +30% -> +25%
+                - Organisation: +8 -> +11
+                - Recovery rate: +0.15 -> +0.2
+            - Armored cars
+                - Soft attack: +15% -> +25%
+                - Hard attack: 0% -> +10%
+                - Piercing: 0% -> +5%
+            - Mechanized
+                - Defense: +5% -> +10%
+                - Breakthrough +2.5% -> +5%
+                - Max speed: +2.5% -> +5%
+            - Light tank recon
+                - Organisation: +2 -> +5
+                - Hard attack: 0% -> +5%
+            - Armored car recon
+                - Organisation: +3 -> +5
+                - Hard attack: 0% -> +5%
+            - Removed all Anti-tank, Motorized recon and Tank stats
+                - Tank stats are folded into the Light tank stats, so no value is lost
+    - Operations
+        - Removed the following subdoctrines
+            - 'Infiltration Tactics'
+            - 'Deep Battle'
+            - 'Expeditionary Warfare'
+        - 'Desperate Defense' is no longer available with 'Mass Assault'
+        - 'Guerilla War' is now only available with 'Mass Assault'
+        - 'Rapid Domination' is now only available with 'Superior Firepower'
+        - 'Desperate Defense'
+            - No longer gated by casualties
+            - Recruitable population: +3% -> +2.5%
+        - 'Guerilla War'
+            - Irregular Infantry
+                - Urban
+                    - Attack: 0% -> +10%
+                    - Defense: 0% -> +10% 
+ - Air
+    - Fighter Aircraft
+        - Removed the following subdoctrines
+            - 'Knights of the Air'
+            - 'Naval Aviation'
+    - Strike Aircraft
+        - Removed the following subdoctrines
+            - 'Sea-To-Shore Air Power'
+            - 'Precision Naval Bombing'
+            - 'Torpedo Swarm Tactics'
+    - Medium Aircraft
+        - Removed the following subdoctrines
+            - 'Long-Range Escort'
+            - 'Theater Interdiction'
+            - 'Aerial Recon'
+    - Heavy Aircraft
+        - Removed the following subdoctrines
+            - 'Night Strategic Bombing'
+            - 'Flying Fortresses'
+            - 'Coastal Air Patrol'
+            - 'Deep Ocean Air Patrol'
+ - Navy
+    - Submarines
+        - Removed the following subdoctrines
+            - 'Fleet Operations'
+            - 'Coastal Defense'
+            - 'Coastal Minelaying'
+    - Screens
+        - Removed the following subdoctrines
+            - 'Integrated Operations'
+            - 'Hunter Killer Groups'
+            - 'Screen Support Focus'
+    - Carriers
+        - Removed the following subdoctrines
+            - 'Carrier Battlegroups'
+            - 'Generalized Support'
+    - Capital Ships
+        - Removed the following subdoctrines
+            - 'Fast Battleships'
+            - 'Coastal Defense Fleet'
+
+#### Spirits
+ - Army
+    - 'Operational Reserve'
+        - Health: +10% -> +5%
+        - CAS damage reduction: +10% -> +5%
+    - 'Reserve Officers'
+        - No longer requires 'Superior Firepower'
+        - Division training time: -50% -> -75%
+
+#### Technology
+ - Small Cannon rework
+    - Small Cannon 1 now has the stats of the old Small Cannon 2
+    - Small Cannon 2 now has the stats of the old Small Cannon 3
+    - Removed Small Cannon 3
+ - Heavy Cannon rework
+    - Moved Heavy Cannon 1 to Anti-Tank Upgrade and Anti-Air Upgrade (1939 tech)
+    - Moved Heavy Cannon 2 to Improved Anti-Tank Upgrade I (1941 tech)
+
+#### Germany
+ - Fixed AI for testbuilds
+ - 'Totaler Krieg' economy law
+    - Recruitable population: -2% -> 0%
+    - Expected number of factories put on Consumer Goods: +15% -> +10%
+
+#### Italy
+ - Fixed the 'A Colonial Empire' focus overlapping with the 'Gain the Blackshirt's Loyalty' focus
+ - Fixed army and navy tooltips so they are now accurate regarding special forces cap
+ - The 'A Bandit's War' focus now unlocks Irregular Infantry
+ - The 'Strengthen the Blackshirts' focus is reverted to vanilla
+    - No longer unlocks Militia
+
+#### Japan
+ - The 'Invest in Aerial Escorts' focus no longer requires Japan to be at war
+ - Removed the 'Occupy Indochina' focus
+    - The event now fires 1 week after France capitulates instead
+ - 'National Defense State' economy law
+    - Expected number of factories put on Consumer Goods: +15% -> +10%
+
+#### Soviet Union
+ - Now starts with Militia
+ - 'New Economic Policy' economy law
+  - - Expected number of factories put on Consumer Goods: +15% -> +10%
+
+#### United Kingdom
+ - Added the 'Mobilize African Irregulars' focus
+
+#### Hungary
+ - First Vienna Award now also gives Burgenland to Hungary
+    - Moved the Civilian Factory from Burgenland to Vienna
+
+#### Brazil
+ - Remove ideology check from focus 'End the Military Interference'
+ - The 'Build Neymar's Yacht' focus now removes the 'Legacy of the Naval Arms Race' idea
+
+#### Mexico
+ - Focuses 'Triumph over the Cristeros', 'Antidisestablishmentarianism', and 'Catholic Politics' no longer cancel if church power has changed during the focus
+
+#### Mongolia
+ - Now starts with Militia
+
+#### No Asia
+ - Fixed invite American investors decision for the Soviet Union
+    - For real this time
+ - Australia now owns and has cores on New Zealand
+
 ### 4.3.2
 
 #### General

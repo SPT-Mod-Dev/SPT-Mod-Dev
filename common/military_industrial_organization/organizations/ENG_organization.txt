@@ -15,6 +15,7 @@ ENG_vickers_armstrong_eng_organization = {
 	allowed = {	
 		OR = {
 			tag = ENG
+			# SPTchange
 			tag = SAF
 			tag = CAN
 			tag = AST
@@ -216,6 +217,15 @@ ENG_vauxhall_organization = {
 				}
 			}
 		}
+		IF = {
+			limit = { FROM = { original_tag = IRQ } }
+			FROM = {
+				OR = {
+					has_idea = IRQ_anglo_iraqi_treaty
+					has_idea = IRQ_anglo_iraqi_mutual_defense_agreement
+				}
+			}
+		}
 	}
 
 	initial_trait = {
@@ -241,8 +251,48 @@ ENG_harland_wolff_organization = {
 	icon = GFX_idea_harland_wolff
 	
 	allowed = {	
+		OR = {
+			AND = {
 		tag = ENG
 		has_dlc = "Arms Against Tyranny"
+			}
+
+			AND = {
+				original_tag = AST 
+				has_dlc = "Thunder at Our Gates"
+			}
+		}
+	}
+
+	visible = {
+		IF = {
+			limit = { 
+				FROM = { original_tag = AST } 
+			}
+			FROM = { 
+				OR = {
+					has_idea = AST_monarchist_intervention_spirit
+					has_completed_focus = AST_for_crown_and_empire
+				}
+			}
+		}
+	}
+
+	available = {
+		# When in a Foreign MIO, countries need to be at peace with original country
+		IF = {
+			limit = {
+				FROM = { NOT = { original_tag = ENG } }
+			}
+			FROM = { NOT = { has_war_with = ENG } }
+		}
+
+		IF = {
+			limit = { 
+				FROM = { original_tag = AST } 
+			}
+			FROM = { has_country_flag = AST_harland_wolff_mio_trigger }
+		}
 	}
 
 	override_trait = {
@@ -1002,6 +1052,10 @@ ENG_crossley_motors_organization = {
 				tag = LIT
 				has_dlc = "No Step Back"
 			}
+			AND = {
+				tag = IRQ
+				has_dlc = "Graveyard of Empires"
+			}
 		}
 	}
 
@@ -1041,6 +1095,15 @@ ENG_crossley_motors_organization = {
 			}
 		}
 
+		IF = {
+			limit = { FROM = { original_tag = IRQ } }
+			FROM = {
+				OR = {
+					has_idea = IRQ_anglo_iraqi_treaty
+					has_idea = IRQ_anglo_iraqi_mutual_defense_agreement
+				}
+			}
+		}
 	}
 }
 
