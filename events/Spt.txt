@@ -1650,3 +1650,42 @@ country_event = {
 		add_ideas = spt_ai_market_idea
 	}
 }
+
+add_namespace = spt_ger_endsieg
+
+country_event = {
+    id = spt_ger_endsieg.1
+    title = spt_ger_endsieg.1.t
+    desc = spt_ger_endsieg.1.desc
+    picture = GFX_report_event_spr_anarchist_uprising2
+
+    is_triggered_only = yes
+
+    immediate = {
+        set_country_flag = GER_unlocked_militia
+    }
+
+	option = {
+        name = spt_ger_endsieg.1.a
+    }
+
+    option = {
+        name = spt_ger_endsieg.1.b
+		set_technology = {
+				militia_tech = 1
+				popup = no
+		}
+
+		set_sub_doctrine = irregulars
+		add_mastery = {
+   			amount = 200
+    		track = infantry
+		}
+
+		set_sub_doctrine = guerilla_war
+		add_mastery = {
+   			amount = 200
+    		track = operations
+		}
+    }
+}

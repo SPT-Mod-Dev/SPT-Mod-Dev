@@ -1,5 +1,10 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 4.4.1
+
+#### Germany
+ - Added an event that adds militia that fires onces all hope seems lost
+
 ### 4.4.0 They said my special forces were weak
 
 #### General
