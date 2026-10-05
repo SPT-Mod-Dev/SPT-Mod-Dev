@@ -1,5 +1,17 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 4.4.1
+
+#### General
+ - Swapped the 'Armored Train' and 'War Austerity Train' technologies
+ - Amtracs now actually work with the MIO
+
+#### Germany
+ - Added an event that adds militia that fires onces all hope seems lost
+
+#### No Asia
+ - UK now gets 15 civs and resource rights in some US states in mid 1940
+
 ### 4.4.0 They said my special forces were weak
 
 #### General
