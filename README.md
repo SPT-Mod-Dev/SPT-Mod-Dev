@@ -5,6 +5,7 @@
 #### General
  - Swapped the 'Armored Train' and 'War Austerity Train' technologies
  - Amtracs now actually work with the MIO
+ - Reduced the amount of convoys needed for fuel lend-lease by around a factor of 10
 
 #### Germany
  - Added an event that adds militia that fires onces all hope seems lost
