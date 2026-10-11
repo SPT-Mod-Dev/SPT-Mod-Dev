@@ -772,7 +772,7 @@ news_event = {
     }
 }
 
-# Fix AI control: hidden return event, fired 2h after the player was parked on AIF. It is
+# Fix AI control: hidden return event, fired 2h after the player was parked on SOL. It is
 # scheduled on EVERY existing country (fix_ai_control_click) so the cleanup below runs even if
 # the host, MTF or the glitched country disappears meanwhile; whichever copy runs first does
 # the work and releases the guard, the others find it released and do nothing.
@@ -790,12 +790,12 @@ country_event = {
             limit = { has_variable = global.ai_fix_return_country }
             if = {
                 limit = { event_target:ht_aifix_country = { exists = yes } }
-                event_target:ht_aifix_country = { change_tag_from = AIF }
+                event_target:ht_aifix_country = { change_tag_from = SOL }
                 event_target:ht_aifix_country = { save_global_event_target_as = ai_fix_country }
                 # news hosttool.62 is major: one send reaches every player
                 news_event = { id = hosttool.62 }
             }
-            # else: the glitched country died while the player was parked; they stay on AIF,
+            # else: the glitched country died while the player was parked; they stay on SOL,
             # which is also the observer tag, and the guards below are released.
             clear_variable = global.ai_fix_return_country
             clear_global_event_target = ht_aifix_country

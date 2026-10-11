@@ -1,6 +1,18 @@
 on_actions = {
 	on_startup = {
 		effect = {
+			# Initialize SPT's existing landless observer tag before parking players.
+			SOL = {
+				if = {
+					limit = { NOT = { any_owned_state = { always = yes } } }
+					create_country_leader = {
+						name = "Provisional Council"
+						picture = "GFX_portrait_unknown"
+						ideology = conservatism
+						expire = "1965.1.1"
+					}
+				}
+			}
 			if = {
 				limit = { has_game_rule = {rule = select_host_country option = GER} GER = { exists = yes } }
 				set_variable = { host = GER.id }

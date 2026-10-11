@@ -35,14 +35,14 @@ st_country_powers = {
 			owner = {
 				set_temp_variable = { ROOT.marks = this}
 				if = {
-					# AIF is shared with the AI-fix parking flow: never move an observer in
+					# SOL is shared with the AI-fix parking flow: never move an observer in
 					# while a parked player waits there for the hosttool.60 return event,
-					# and never move a second observer onto an occupied AIF.
+					# and never move a second observer onto an occupied SOL.
 					limit = {
 						NOT = { check_variable = { global.ai_fix_return_country > 0 } }
-						AIF = { is_ai = yes }
+						SOL = { is_ai = yes NOT = { any_owned_state = { always = yes } } }
 					}
-					AIF = {change_tag_from =var:marks}
+					SOL = {change_tag_from =var:marks}
 					news_event = { id = hosttool.30 }
 				}
 			}
@@ -53,16 +53,16 @@ st_country_powers = {
 			if = {
 				limit = {
 					NOT = { check_variable = { global.ai_fix_return_country > 0 } }
-					AIF = { is_ai = yes } # AIF shared with observer mode: do not park onto a human observer
+					SOL = { is_ai = yes NOT = { any_owned_state = { always = yes } } } # SOL shared with observer mode: do not park onto a human observer
 				}
 				owner = {
 					set_temp_variable = { ROOT.marks = this }
 					set_variable = { global.ai_fix_return_country = this }
 					save_global_event_target_as = ht_aifix_country
-					AIF = { change_tag_from = var:marks }
+					SOL = { change_tag_from = var:marks }
 				}
 				# The return event must run even if the glitched country dies meanwhile, or the player
-				# is wedged on AIF and the guard above never releases. AIF itself owns no states, so
+				# is wedged on SOL and the guard above never releases. SOL is only used for parking while landless, so
 				# it is not guaranteed to process queued events, and in SPT no single country is sure
 				# to survive the two hours (MTF, the global holder, is an ordinary annexable country).
 				# Every existing country gets a copy: the first to run does the work and releases the
@@ -1375,7 +1375,7 @@ st_country_powers = {
 			toogle_mark = { frame = mark_status }
 		}
 	triggers = {
-		observer_click_enabled = { owner = { is_ai = no } NOT = { check_variable = { global.ai_fix_return_country > 0 } } AIF = { is_ai = yes } }
+		observer_click_enabled = { owner = { is_ai = no } NOT = { check_variable = { global.ai_fix_return_country > 0 } } SOL = { is_ai = yes NOT = { any_owned_state = { always = yes } } } }
 		observer_visible = {}
 		compliance_negative_click_enabled = { check_variable = { ROOT.compl > 0 } }
 		compliance_positive_click_enabled = { check_variable = { ROOT.compl < 100 }  }
@@ -1532,7 +1532,7 @@ st_country_powers = {
 
 		fix_ai_control_click_enabled = {
 			NOT = { check_variable = { global.ai_fix_return_country > 0 } }
-			AIF = { is_ai = yes }
+			SOL = { is_ai = yes NOT = { any_owned_state = { always = yes } } }
 		}
 		declare_war_button_click_enabled = {
 			check_variable = { ROOT.marked_states^num > 0 }
