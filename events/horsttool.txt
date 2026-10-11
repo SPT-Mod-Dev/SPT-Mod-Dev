@@ -8,7 +8,7 @@ news_event = { #HELP I NEEED HELP MEDIIIC
     picture = GFX_news_event_001
     major = no
     is_triggered_only = yes
-    
+
     option = {
         name = "Got it!But still can you repeat that?"
     }
@@ -23,7 +23,8 @@ news_event = {
 	is_triggered_only = yes
 	option = {
 		name = "Ja... Commandant"
-		clear_variable=this.selected_cheat
+		# no selected_cheat clear: that is the host's live selection, and a late
+		# acknowledgement must not wipe a newer one
 		clear_variable=this.target_country
 	}
 }
@@ -48,7 +49,7 @@ news_event = {
 	is_triggered_only = yes
 	option = {
 		name = "ok cool"
-		clear_variable=this.selected_cheat 
+		# no selected_cheat clear (see horsttool.1)
 		clear_variable=this.target_country
 	}
 }
@@ -56,12 +57,12 @@ news_event = {
 news_event = {
 	id = hosttool.2
 	title = "Hosttool"
-	
+
 	desc = " [From.Getname] gave one military factory to [From.From.Owner.Getname]"
 	picture = GFX_news_event_001
 	major = yes
 	is_triggered_only = yes
-	option = {
+	option = { clr_country_flag = ht_notify_cd
 		name = "ok cool"
 	}
 }
@@ -72,7 +73,7 @@ news_event = {
 	picture = GFX_news_event_001
 	major = yes
 	is_triggered_only = yes
-	option = {
+	option = { clr_country_flag = ht_notify_cd
 		name = "ok cool"
 	}	
 }
@@ -83,7 +84,7 @@ news_event = {
 	picture = GFX_news_event_001
 	major =  yes
 	is_triggered_only = yes
-	option = {
+	option = { clr_country_flag = ht_notify_cd
 		name = "ok cool"
 	}	
 }
@@ -164,7 +165,7 @@ news_event = {
 	picture = GFX_news_event_001
 	major =  yes
 	is_triggered_only = yes
-	option = {
+	option = { clr_country_flag = ht_notify_cd
 		name = "ok cool"
 	}	
 }
@@ -175,7 +176,7 @@ news_event = {
 	picture = GFX_news_event_001
 	major =  yes
 	is_triggered_only = yes
-	option = {
+	option = { clr_country_flag = ht_notify_cd
 		name = "ok cool"
 	}	
 }
@@ -186,7 +187,7 @@ news_event = {
 	picture = GFX_news_event_001
 	major =  yes
 	is_triggered_only = yes
-	option = {
+	option = { clr_country_flag = ht_notify_cd
 		name = "ok cool"
 	}	
 }
@@ -197,7 +198,7 @@ news_event = {
 	picture = GFX_news_event_001
 	major =  yes
 	is_triggered_only = yes
-	option = {
+	option = { clr_country_flag = ht_notify_cd
 		name = "ok cool"
 	}	
 }
@@ -208,7 +209,7 @@ news_event = {
 	picture = GFX_news_event_001
 	major =  yes
 	is_triggered_only = yes
-	option = {
+	option = { clr_country_flag = ht_notify_cd
 		name = "ok cool"
 	}	
 }
@@ -219,40 +220,95 @@ news_event = {
 	picture = GFX_news_event_001
 	major =  yes
 	is_triggered_only = yes
-	option = {
+	option = { clr_country_flag = ht_notify_cd
 		name = "ok cool"
 	}	
 }
 country_event = {
     id = hosttool.1000
     title = "Move Host Tool Confirmation"
-    desc = hosttool.1000.desc
+    # each popup names its own request; the global fallback covers a popup without a copy
+    desc = { text = hosttool.1000.desc_req trigger = { has_event_target = ht_req_token } }
+    desc = { text = hosttool.1000.desc trigger = { NOT = { has_event_target = ht_req_token } } }
     picture = GFX_report_event_001
     is_triggered_only = yes
-    
+
     option = {
         name = "Yes, move the host tool"
-        # Store new host globally BEFORE clearing flags
-        MTF = { set_variable = { new_host_country = temp_new_host } }
-        # Clear host flag from everyone
-        every_country = {
-            clr_country_flag = host
-            clr_country_flag = pause_blocked
-            clr_country_flag = transfer_enabled
+        ai_chance = { factor = 0 } # an AI host (dropped player) must never hand the tool away
+        # ht_new_host was captured as an ENGINE-MANAGED event target at click time
+        # (change_host_nation_click). The engine invalidates it if the country died
+        # while this popup sat open, so a stale confirm is a safe NO-OP - the raw
+        # temp_new_host object var is never dereferenced here, and host flags are
+        # only cleared once the target is proven alive.
+        # Only the CURRENT host's live request may act (ht_host_move_request_is_live): a popup
+        # orphaned by Clear All or a handoff can never move the tool for a newer request.
+        if = {
+            limit = { ht_host_move_request_is_live = yes }
+            if = {
+                limit = { event_target:ht_new_host = { exists = yes } }
+                # Full privilege handoff: host flags AND all host-only admin state,
+                # so the former host keeps no working picker/decision categories.
+                every_country = {
+                    clr_country_flag = host
+                    clr_country_flag = pause_blocked
+                    clr_country_flag = transfer_enabled
+                    clr_country_flag = ht_focus_unc
+                    clr_country_flag = ht_focus_com
+                    clr_country_flag = ht_law_mode
+                    clr_country_flag = ht_spirit_add
+                    clr_country_flag = ht_spirit_remove
+                    clr_country_flag = ht_annex_pending
+                    clr_country_flag = ht_host_move_pending
+                }
+                clear_variable = global.ht_focus_state
+                clear_global_event_target = ht_focus_state
+                # the old host's open annex request dies with its authority
+                clear_global_event_target = ht_annexed_country
+                clear_global_event_target = ht_annexer_country
+                every_state = {
+                    limit = { OR = { has_state_flag = ht_live_annex_req has_state_flag = ht_live_move_req } }
+                    clr_state_flag = ht_live_annex_req
+                    clr_state_flag = ht_live_move_req
+                }
+                # Old host's marked states must not leak into the new host's session
+                for_each_scope_loop = {
+                    array = marked_states
+                    clear_variable = mark_status
+                }
+                clear_array = marked_states
+                event_target:ht_new_host = {
+                    set_country_flag = host
+                    set_country_flag = transfer_enabled
+                    # notification copy: the broadcast renders after ht_new_host is cleared
+                    save_global_event_target_as = ht_note_new_host
+                }
+                # Send ONE global notification
+                news_event = { id = hosttool.1001 }
+            }
+            # else: target died before the confirm - keep the current host untouched
+            clr_country_flag = ht_host_move_pending
+            every_state = { limit = { has_state_flag = ht_live_move_req } clr_state_flag = ht_live_move_req }
+            clear_global_event_target = ht_new_host
         }
-        # Set new host
-        var:temp_new_host = { 
-            set_country_flag = host 
-            set_country_flag = transfer_enabled
-        }
-        # Send ONE global notification
-        news_event = { id = hosttool.1001 }
         clear_variable = temp_new_host
+        # this popup is answered: free its token, live or orphaned
+        ht_release_request_token = yes
     }
-    
+
     option = {
         name = "No, cancel"
+        ai_chance = { factor = 1 }
+        # cancels only its own live request, never a newer one
+        if = {
+            limit = { ht_host_move_request_is_live = yes }
+            clr_country_flag = ht_host_move_pending
+            every_state = { limit = { has_state_flag = ht_live_move_req } clr_state_flag = ht_live_move_req }
+            clear_global_event_target = ht_new_host
+        }
         clear_variable = temp_new_host
+        # this popup is answered: free its token, live or orphaned
+        ht_release_request_token = yes
     }
 }
 
@@ -264,11 +320,12 @@ news_event = {
     picture = GFX_news_event_001
     major = yes
     is_triggered_only = yes
-    
+
     option = {
         name = "Understood"
-        # Clear the global variable after showing the notification
-        MTF = { clear_variable = new_host_country }
+        # Broadcast acknowledgements never clear event targets: every player clicks this at a
+        # different time, and a late click must not wipe a newer request's targets.
+        clear_variable = global.new_host_country
     }
 }
 # Pause blocker events
@@ -288,14 +345,14 @@ news_event = {
 news_event = {
     id = hosttool.21
     title = "War Declared by Host Tool"
-    desc = "[From.GetName] used the host tool to make [?global.war_declarer.GetName] declare war on [?global.war_target.GetName]."
+    desc = "[From.GetName] used the host tool to make [?event_target:ht_note_war_a.GetName] declare war on [?event_target:ht_note_war_b.GetName]."
     picture = GFX_news_event_001
     major = yes
     is_triggered_only = yes
     option = {
         name = "War in my war game?Bruh"
-        MTF = { clear_variable = war_declarer }
-        MTF = { clear_variable = war_target }
+        clear_variable = global.war_declarer
+        clear_variable = global.war_target
     }
 }
 
@@ -303,14 +360,14 @@ news_event = {
 news_event = {
     id = hosttool.22
     title = "Player Tag Switched"
-    desc = "[From.GetName] used the host tool to move a player from [?global.switch_from.GetName] to [?global.switch_to.GetName]. Musical chairs, but with entire nations!"
+    desc = "[From.GetName] used the host tool to move a player from [?event_target:ht_switch_from.GetName] to [?event_target:ht_switch_to.GetName]. Musical chairs, but with entire nations!"
     picture = GFX_news_event_001
     major = yes
     is_triggered_only = yes
     option = {
         name = "Hope they like their new home!"
-        MTF = { clear_variable = switch_from }
-        MTF = { clear_variable = switch_to }
+        clear_variable = global.switch_from
+        clear_variable = global.switch_to
     }
 }
 
@@ -322,7 +379,7 @@ news_event = {
     picture = GFX_news_event_001
     major = yes
     is_triggered_only = yes
-    option = {
+    option = { clr_country_flag = ht_notify_cd
         name = "Anchors aweigh!"
     }
 }
@@ -334,7 +391,7 @@ news_event = {
     picture = GFX_news_event_001
     major = yes
     is_triggered_only = yes
-    option = {
+    option = { clr_country_flag = ht_notify_cd
         name = "That's rough, buddy"
     }
 }
@@ -347,7 +404,7 @@ news_event = {
     picture = GFX_news_event_001
     major = yes
     is_triggered_only = yes
-    option = {
+    option = { clr_country_flag = ht_notify_cd
         name = "Industrial sabotage!"
     }
 }
@@ -359,7 +416,7 @@ news_event = {
     picture = GFX_news_event_001
     major = yes
     is_triggered_only = yes
-    option = {
+    option = { clr_country_flag = ht_notify_cd
         name = "Economic warfare!"
     }
 }
@@ -370,7 +427,7 @@ news_event = {
     picture = GFX_news_event_001
     major = yes
     is_triggered_only = yes
-    option = {
+    option = { clr_country_flag = ht_notify_cd
         name = "Guerilla tacticz"
     }
 }
@@ -381,7 +438,7 @@ news_event = {
     picture = GFX_news_event_001
     major = yes
     is_triggered_only = yes
-    option = {
+    option = { clr_country_flag = ht_notify_cd
         name = "Oh nein!Meine var zuppord"
     }
 }
@@ -392,7 +449,7 @@ news_event = {
     picture = GFX_news_event_001
     major = yes
     is_triggered_only = yes
-    option = {
+    option = { clr_country_flag = ht_notify_cd
         name = "Oh JAAAH!Meine var zuppord!!"
     }
 }
@@ -642,7 +699,7 @@ news_event = {
     picture = GFX_news_event_001
     major = yes
     is_triggered_only = yes
-    option = {
+    option = { clr_country_flag = ht_notify_cd
         name = "Acknowledged"
     }
 }
@@ -654,7 +711,7 @@ news_event = {
     picture = GFX_news_event_001
     major = yes
     is_triggered_only = yes
-    option = {
+    option = { clr_country_flag = ht_notify_cd
         name = "Acknowledged"
     }
 }
@@ -667,7 +724,7 @@ news_event = {
     picture = GFX_news_event_001
     major = yes
     is_triggered_only = yes
-    option = {
+    option = { clr_country_flag = ht_notify_cd
         name = "Acknowledged"
 		clear_variable=this.target_country
     }
@@ -680,7 +737,7 @@ news_event = {
     picture = GFX_news_event_001
     major = yes
     is_triggered_only = yes
-    option = {
+    option = { clr_country_flag = ht_notify_cd
         name = "Acknowledged"
     }
 }
@@ -695,8 +752,8 @@ news_event = {
     is_triggered_only = yes
     option = {
         name = "Acknowledged"
-        MTF = { clear_variable = compliance_value }
-        MTF = { clear_variable = compliance_state }
+        clear_variable = global.compliance_value
+        clear_variable = global.compliance_state
     }
 }
 
@@ -710,19 +767,272 @@ news_event = {
     is_triggered_only = yes
     option = {
         name = "Acknowledged"
-        MTF = { clear_variable = resistance_value }
-        MTF = { clear_variable = resistance_state }
+        clear_variable = global.resistance_value
+        clear_variable = global.resistance_state
+    }
+}
+
+# Fix AI control: hidden return event, fired 2h after the player was parked on AIF. It is
+# scheduled on EVERY existing country (fix_ai_control_click) so the cleanup below runs even if
+# the host, MTF or the glitched country disappears meanwhile; whichever copy runs first does
+# the work and releases the guard, the others find it released and do nothing.
+country_event = {
+    id = hosttool.60
+    title = "Fix AI Control"
+    desc = "Returning player control"
+    picture = GFX_report_event_001
+    hidden = yes
+    is_triggered_only = yes
+
+    option = {
+        name = "Return the player"
+        if = {
+            limit = { has_variable = global.ai_fix_return_country }
+            if = {
+                limit = { event_target:ht_aifix_country = { exists = yes } }
+                event_target:ht_aifix_country = { change_tag_from = AIF }
+                event_target:ht_aifix_country = { save_global_event_target_as = ai_fix_country }
+                # news hosttool.62 is major: one send reaches every player
+                news_event = { id = hosttool.62 }
+            }
+            # else: the glitched country died while the player was parked; they stay on AIF,
+            # which is also the observer tag, and the guards below are released.
+            clear_variable = global.ai_fix_return_country
+            clear_global_event_target = ht_aifix_country
+        }
     }
 }
 
 news_event = {
-	id = hosttool.56
-	title = "Hosttool"
-	desc = " [From.Getname] gave 50 Mastery to [From.From.Owner.Getname]"
-	picture = GFX_news_event_001
-	major =  yes
-	is_triggered_only = yes
-	option = {
-		name = "ok cool"
-	}
+    id = hosttool.61
+    title = "Host Tool - AI Control Fix"
+    desc = "The host is fixing AI control on [?event_target:ht_aifix_country.GetName]. The player has been parked and will be returned automatically after 2 in-game hours - keep the game unpaused for a moment."
+    picture = GFX_news_event_001
+    major = yes
+    is_triggered_only = yes
+    option = {
+        name = "Understood"
+    }
+}
+
+news_event = {
+    id = hosttool.62
+    title = "Host Tool - AI Control Fixed"
+    desc = "Player control of [?event_target:ai_fix_country.GetName] has been restored. The ghost AI is gone."
+    picture = GFX_news_event_001
+    major = yes
+    is_triggered_only = yes
+    option = {
+        name = "Welcome back"
+    }
+}
+
+# Annex confirmation (fired to the host; vars target/taker were set by annex_country_click)
+country_event = {
+    id = hosttool.63
+    title = "Annex Confirmation"
+    # each popup names its own request; the global fallback covers a popup without a copy
+    desc = { text = hosttool.63.desc_req trigger = { has_event_target = ht_req_token } }
+    desc = { text = hosttool.63.desc trigger = { NOT = { has_event_target = ht_req_token } } }
+    picture = GFX_report_event_001
+    is_triggered_only = yes
+
+    option = {
+        name = "Yes, annex them"
+        ai_chance = { factor = 0 } # an AI host (dropped player) must never confirm an annex
+        # Only the CURRENT host's live request may act (ht_annex_request_is_live): a popup
+        # orphaned by Clear All or a host handoff can never annex or clear a newer request.
+        if = {
+            limit = { ht_annex_request_is_live = yes }
+            clr_country_flag = ht_annex_pending
+            every_state = { limit = { has_state_flag = ht_live_annex_req } clr_state_flag = ht_live_annex_req }
+            # AMSB: both sides were captured as ENGINE-MANAGED global event targets at click time
+            # (annex_country_click). The engine invalidates them if either country dies before this
+            # option runs, so the liveness guard turns a stale confirm into a safe no-op instead of
+            # a use-after-free. Raw object vars (ROOT.target/taker) are never dereferenced here.
+            if = {
+                limit = {
+                    event_target:ht_annexed_country = { exists = yes NOT = { tag = ROOT } }
+                    event_target:ht_annexer_country = { exists = yes }
+                }
+                # crash-correlation breadcrumb: the annex EXECUTES here, not at click time
+                # AMSB 2026-08-12: annex also CORES the annexed land for the annexer (user request).
+                # Runs before annex_country while the target still owns its states; event targets
+                # only, same liveness guard as the annex itself (add_core_of = event_target: has
+                # in-tree precedent at common/decisions/RAJ_GOE.txt:726).
+                event_target:ht_annexed_country = {
+                    every_owned_state = {
+                        add_core_of = event_target:ht_annexer_country
+                    }
+                    # notification copy: the broadcast renders after the operation targets
+                    # below are cleared
+                    save_global_event_target_as = ht_note_annexed
+                }
+                event_target:ht_annexer_country = { save_global_event_target_as = ht_note_annexer }
+                log = "HOSTTOOL: annex_executed [ht_annexed_country.GetName] -> [ht_annexer_country.GetName]"
+                event_target:ht_annexer_country = {
+                    annex_country = { target = event_target:ht_annexed_country transfer_troops = yes }
+                }
+                news_event = { id = hosttool.64 }
+            }
+            # else: stale/dead confirm, annex skipped
+            clear_global_event_target = ht_annexed_country
+            clear_global_event_target = ht_annexer_country
+            for_each_scope_loop = {
+                array = marked_states
+                clear_variable = mark_status
+            }
+            clear_array = marked_states
+            clear_variable = target
+            clear_variable = taker
+            clear_variable = first_marked_state
+        }
+        # this popup is answered: free its token, live or orphaned
+        ht_release_request_token = yes
+    }
+
+    option = {
+        name = "No, cancel"
+        ai_chance = { factor = 1 }
+        # cancels only its own live request, never a newer one
+        if = {
+            limit = { ht_annex_request_is_live = yes }
+            clr_country_flag = ht_annex_pending
+            every_state = { limit = { has_state_flag = ht_live_annex_req } clr_state_flag = ht_live_annex_req }
+            clear_variable = target
+            clear_variable = taker
+            clear_global_event_target = ht_annexed_country
+            clear_global_event_target = ht_annexer_country
+        }
+        # this popup is answered: free its token, live or orphaned
+        ht_release_request_token = yes
+    }
+}
+
+news_event = {
+    id = hosttool.64
+    title = "Host Tool - Country Annexed"
+    desc = "[ht_note_annexed.GetName] has been annexed into [ht_note_annexer.GetName] by the host tool."
+    picture = GFX_news_event_001
+    major = yes
+    is_triggered_only = yes
+    option = {
+        name = "So it goes"
+        # Broadcast acknowledgements never clear event targets: every player clicks this at a
+        # different time, and a late click must not wipe a newer request's targets.
+        clear_variable = global.ht_diplo_a
+        clear_variable = global.ht_diplo_b
+    }
+}
+
+news_event = {
+    id = hosttool.65
+    title = "Host Tool - White Peace"
+    desc = "The host has white peaced [?event_target:ht_note_wp_a.GetName] with [?event_target:ht_note_wp_b.GetName]."
+    picture = GFX_news_event_001
+    major = yes
+    is_triggered_only = yes
+    option = {
+        name = "Peace in our time"
+        clear_variable = global.ht_diplo_a
+        clear_variable = global.ht_diplo_b
+    }
+}
+
+news_event = {
+    id = hosttool.67
+    title = "Host Tool - Truce Cleared"
+    desc = "The host has cleared the truce between [?event_target:ht_note_tr_a.GetName] and [?event_target:ht_note_tr_b.GetName]."
+    picture = GFX_news_event_001
+    major = yes
+    is_triggered_only = yes
+    option = {
+        name = "Gloves off"
+        clear_variable = global.ht_diplo_a
+        clear_variable = global.ht_diplo_b
+    }
+}
+
+news_event = {
+    id = hosttool.68
+    title = "Host Tool - Joined Faction"
+    desc = "The host has added [?event_target:ht_note_fa_b.GetName] to [?event_target:ht_note_fa_a.GetName]'s faction."
+    picture = GFX_news_event_001
+    major = yes
+    is_triggered_only = yes
+    option = {
+        name = "Welcome aboard"
+        clear_variable = global.ht_diplo_a
+        clear_variable = global.ht_diplo_b
+    }
+}
+
+news_event = {
+    id = hosttool.70
+    title = "Host Tool - Kicked from Faction"
+    desc = "The host has removed [?event_target:ht_note_fk_b.GetName] from [?event_target:ht_note_fk_a.GetName]'s faction."
+    picture = GFX_news_event_001
+    major = yes
+    is_triggered_only = yes
+    option = {
+        name = "Out you go"
+        clear_variable = global.ht_diplo_a
+        clear_variable = global.ht_diplo_b
+    }
+}
+
+news_event = {
+    id = hosttool.71
+    title = "Host Tool - War Goals Removed"
+    desc = "The host has removed all war goals between [?event_target:ht_note_wg_a.GetName] and [?event_target:ht_note_wg_b.GetName] (both directions)."
+    picture = GFX_news_event_001
+    major = yes
+    is_triggered_only = yes
+    option = {
+        name = "Stand down"
+        clear_variable = global.ht_diplo_a
+        clear_variable = global.ht_diplo_b
+    }
+}
+
+news_event = {
+    id = hosttool.72
+    title = "Host Tool - Autonomy Changed"
+    desc = "The host has changed the autonomy level of [?event_target:ht_note_au_a.GetName]."
+    picture = GFX_news_event_001
+    major = yes
+    is_triggered_only = yes
+    option = {
+        name = "New management terms"
+        clear_variable = global.ht_diplo_a
+        clear_variable = global.ht_diplo_b
+    }
+}
+
+news_event = {
+    id = hosttool.73
+    title = "Host Tool - Focus Tree Modified"
+    desc = "The host has modified the focus tree of [?event_target:ht_note_fp_a.GetName] (completed or uncompleted a focus)."
+    picture = GFX_news_event_001
+    major = yes
+    is_triggered_only = yes
+    option = {
+        name = "History rewritten"
+        clear_variable = global.ht_diplo_a
+        clear_variable = global.ht_diplo_b
+    }
+}
+
+news_event = {
+    id = hosttool.74
+    title = "Host Tool - White Peace (All Wars)"
+    desc = "The host has white peaced [?event_target:ht_note_wp_a.GetName] out of all of its wars."
+    picture = GFX_news_event_001
+    major = yes
+    is_triggered_only = yes
+    option = {
+        name = "Peace in our time"
+        clear_variable = global.ht_diplo_a
+        clear_variable = global.ht_diplo_b
+    }
 }

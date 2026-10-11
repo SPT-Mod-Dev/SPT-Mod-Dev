@@ -1,0 +1,23 @@
+# Host tool: law-changer + national-spirit picker (add/remove) decision categories
+host_tool_law_category = {
+	icon = generic_research
+	priority = 1000
+	allowed = { always = yes }
+	visible = {
+		has_country_flag = host
+		has_country_flag = ht_law_mode
+	}
+}
+
+host_tool_spirit_category = {
+	icon = generic_research
+	priority = 1000
+	allowed = { always = yes }
+	visible = {
+		has_country_flag = host
+		OR = {
+			has_country_flag = ht_spirit_add
+			has_country_flag = ht_spirit_remove
+		}
+	}
+}
