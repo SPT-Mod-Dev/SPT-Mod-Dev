@@ -2,7 +2,7 @@
  
  marked_states_hosttool:0 "Shows states marked by host tool"
 
- ST_STATE_MARK_FOR_TRANSFER:0 "§HMark State for Transfer§!\nMark the selected state so it can be transferred \n"
+ ST_STATE_MARK_FOR_TRANSFER:0 "§HMark State for Transfer§!\nMark the selected state so it can be transfered \n"
  ST_STATE_UNMARK_FOR_TRANSFER:0 "§HUnmark State§!\nUnmarks the selected state\n"
  mark_state_yes:0 ""
  mark_state_no:0 "\n  §RMarked!§!"
@@ -14,14 +14,13 @@
  OBSERVER:0 "§HObserve§!\nMoves player to observer mode\n\n"
  OBSERVER_DELAYED:0 ""
 
- WHITEPEACE:0 "§HWhitepeace§!\nCountry will be whitepeaced with every enemy\n\n"
- WHITEPEACE_DELAYED:0 ""
-
  CLEAR_ALL_MARKINGS:0 "§HClear Every single mark§!\nResets all host tool settings including marked states, target/receiver countries, pause blocking, and cheat selection\n\n"
  CLEAR_ALL_MARKINGS_DELAYED:0 "This is the big red button that resets everything. Use it when you want to refresh the host tool or remove something you did not want to select."
 
+ TRANSFER_OCCUPATION:0 "§HTransfer Occupation§!\nHand CONTROL (occupation) of the marked states to [This.Owner.GetName] - ownership is untouched.\nMark the occupied states, select a state of the receiving country, then click.\n\n"
+ TRANSFER_OCCUPATION_DELAYED:0 ""
  TRANSFER_STATES:0 "§HTransfer States§!\nTransfer marked states to [This.Owner.GetName]\n\n"
- TRANSFER_STATES_DELAYED:0 ""
+ TRANSFER_STATES_DELAYED:0 "Moves ownership of every marked state to the selected country. It does NOT grant cores - use Give Cores for that - so a transfer can be undone by transferring the states back."
  
  ADD_CORES:0 "§HAdd cores§!\nAdd cores to marked states for [This.Owner.GetName]\n\n"
  ADD_CORES_DELAYED:0 ""
@@ -29,13 +28,13 @@
  REMOVE_CORES:0 "§HRemove cores§!\nRemove cores to marked states for this country\n\n"
  REMOVE_CORES_DELAYED:0 ""
 
- ADD_CORES_TO_ALL_CORES_SELECTED_NATION:0 "§HGive [This.Owner.GetName] cores for cores of marked nation.§!\n[This.Owner.GetName] gets cores on the owner's cores of the selected nation.\n\nFor example, if you first mark an Australian state, then select a German state, and then press this button, it will give Germany cores on every Australian core, but not on Australia's non-core states.\n\n"
+ ADD_CORES_TO_ALL_CORES_SELECTED_NATION:0 "§HGive [This.Owner.GetName] cores for cores of marked nation.§!\n[This.Owner.GetName] gets cores on the owner's cores of the selected nation.\n\nFor example if you first mark a Australian state, then select a German state and then press this button it will give Germany cores on every Australian core but not non-core states of Australia\n\n"
  ADD_CORES_TO_ALL_CORES_SELECTED_NATION_DELAYED:0 ""
  
- ANNEX_COUNTRY:0 "§HAnnex§!\n[This.Owner.GetName] annexes the owner of the selected state\n\n"
+ ANNEX_COUNTRY:0 "§HAnnex§!\nThe owner of the SELECTED state annexes the owner of the MARKED state.\nMark a state of the country to annex, select a state of the annexing country, then click.\nYou cannot annex the country that has the host tool. Move the host tool to another country first.\n\n"
  ANNEX_COUNTRY_DELAYED:0 ""
  
- PUPPET_COUNTRY:0 "§HPuppet§!\n[This.Owner.GetName] puppets the owner of the selected state\n\n"
+ PUPPET_COUNTRY:0 "§HPuppet§!\nThe owner of the SELECTED state puppets the owner of the MARKED state.\nMark a state of the country to puppet, select a state of the overlord country, then click.\n\n"
  PUPPET_COUNTRY_DELAYED:0 ""
  
  FREE_COUNTRY:0 "§HFree Country§!\nSelected country is set free from any overlord\n\n"
@@ -54,12 +53,12 @@
  WTREMOVE_DELAYED:0 ""
 
  SNEK_TP:0 "§HSnek teleported...§!\nSnek teleported again...\n\n"
- SNEK_TP_DELAYED:0 "§"
+ SNEK_TP_DELAYED:0 ""
 
- CIVADD:0 "§HAdd 1 Civilian Factory§!\nClicking this button will add one off-map civilian factory to [This.Owner.GetName].\n\n"
+ CIVADD:0 "§HAdd 1 Civillian Factory§!\nClicking this button will add one offmap civillian factory to [This.Owner.GetName].\n\n"
  CIVADD_DELAYED:0 ""
 
- MILADD:0 "§HAdd 1 Military Factories§!\nClicking this button will add one off-map military factory to [This.Owner.GetName].\n\n"
+ MILADD:0 "§HAdd 1 Military Factories§!\nClicking this button will add one offmap military factory to [This.Owner.GetName].\n\n"
  MILADD_DELAYED:0 ""
 
  ADDPP:0 "§HAdd 50 Political Power§!\nClicking this button will add 50 political power to [This.Owner.GetName].\n\n"
@@ -87,26 +86,25 @@
  transfer_states_on:0 "Host Tool:£trigger_no"
  transfer_states_off:0 "Host Tool:£trigger_yes"
 
- COMP_AMOUNT_COMP:0 "The compliance level that will be §2SET§W in the state"
+ HT_COMPLIANCE_VALUE:0 "§G[?ROOT.compl]§!"
+ HT_RESISTANCE_VALUE:0 "§R[?ROOT.rest]§!"
+ COMP_AMOUNT_COMP:0 "The selected state's compliance will be §GSET§! to this amount"
  COMP_INCREASE:0 "Increase the selected state's compliance"
- COMP_DECREASE:0"Lower the selected state's compliance"
- COMP_SET:0 "§2Set compliance"
+ COMP_DECREASE:0 "Lower the selected state's compliance"
+ COMP_SET:0 "§GSet compliance§!"
 
- REST_AMOUNT_REST:0 "The resistance level that will be §RSET§W in the state"
+ REST_AMOUNT_REST:0 "The selected state's resistance will be §RSET§! to this amount"
  REST_INCREASE:0 "Increase the selected state's resistance"
- REST_DECREASE:0"Lower the selected state's resistance"
- REST_SET:0 "§RSet resistance"
+ REST_DECREASE:0 "Lower the selected state's resistance"
+ REST_SET:0 "§RSet resistance§!"
 
 
- BUILDING_MENU_DELAYED:0 "§RTO BE MADE!"
- BUILDING_MENU:0 "State Builder Menu - Dropdown"
-
- WS_SUB_5_TT:0"§H§RRemove 5% War Support§W"
- WS_ADD_5_TT:0"§H§GAdd 5% War Support§W"
- WS_ICON_TT:0"§H§YBy clicking either +5% or -5% on a country's selected state, you will add/remove 5WS§W to that country."
- ST_SUB_5_TT:0"§H§RRemove 5% Stability§W"
- ST_ADD_5_TT:0"§H§GAdd 5% Stability§W"
- ST_ICON_TT:0"§H§YBy clicking either +5% or -5% on a country's selected state, you will add/remove 5ST§W to that country."
+ WS_SUB_5_TT:0 "§RRemove 5% War Support§!"
+ WS_ADD_5_TT:0 "§GAdd 5% War Support§!"
+ WS_ICON_TT:0 "§YBy clicking either 5%+/- on a country selected state you will remove/add 5WS§!"
+ ST_SUB_5_TT:0 "§RRemove 5% Stability§!"
+ ST_ADD_5_TT:0 "§GAdd 5% Stability§!"
+ ST_ICON_TT:0 "§YBy clicking either 5%+/- on a country selected state you will remove/add 5ST§!"
 
  CHEAT_SELECT:0   "Select cheat"
  CHEAT1:0   "Generic - 50%"
@@ -148,20 +146,21 @@
  PAUSE2:0 "Host Only"
  PAUSE3:0 "Majors Only"
  pause_blocker_status_tt:0 "§HPause Blocker Function§!"
- pause_blocker_status_delayed_tt:0 "By default, anyone can pause the game, but if you want to restrict pausing to just the host (you) or majors, then you can select the 'Majors Only' setting (first on the list) or 'Host Only' setting to prevent pausing by most or all other nations. Or you can use the individual pause settings for each nation."
+ pause_blocker_status_delayed_tt:0 "By default anyone can pause the game, but if you want to restrict pausing to just the host (you) or majors then you can select the 'Majors Only' setting (first on the list) or 'Host Only' setting to prevent pausing by most or all other nations.Or you can use the individual pause settings for each nation."
 
  fix_production_idea:0 "Production Fixer"
 
  mark_status_marked:0   "     Unmark State "
  mark_status_unmarked:0 "      Mark State  "
 
- hosttool.999.desc:0 "New to this host tool? Almost every button explains what it does in its tooltip if you hover over it with your mouse. Buttons will also sometimes have delayed tooltips with longer explanations. Just read every tooltip under each button (if there is one) and you will get the hang of it!"
+ hosttool.999.desc:0 "New with this host tool?Well don't worry heres a simple quick word guide for you:\n\n So basiaclly almost everything is self explanatory in every button since there are tooltips that you can read and get an idea what they can do. But the host tool is pretty straigh forward and very easy to use.Just read every tooltip under each button (If there is one) and you will get the hang of it!"
 
- hosttool.1000.desc:0 "§MAre you sure you want to move the Host Tool to [?temp_new_host.GetName] ([?temp_new_host.GetTag])?\n\n§MThis will transfer all host privileges to that nation.§!\n\n[?temp_new_host.GetAIStatus]"
+ hosttool.1000.desc:0 "Are you sure you want to move the Host Tool to [?event_target:ht_new_host.GetName] ([?event_target:ht_new_host.GetTag])?\n\nThis will transfer all host privileges to that nation.\n\n[?event_target:ht_new_host.GetAIStatus]"
+ hosttool.1000.desc_req:0 "Are you sure you want to move the Host Tool to [?event_target:ht_req_new_host.GetName] ([?event_target:ht_req_new_host.GetTag])?\n\nThis will transfer all host privileges to that nation.\n\n[?event_target:ht_req_new_host.GetAIStatus]"
 
- hosttool.1001.desc:0 "§MThe Host Tool has been transferred to [?global.new_host_country.GetName] ([?global.new_host_country.GetTag]).\n\n§MAll host privileges and controls are now with this nation.§!"
+ hosttool.1001.desc:0 "The Host Tool has been transferred to [?event_target:ht_note_new_host.GetName] ([?event_target:ht_note_new_host.GetTag]).\n\nAll host privileges and controls are now with this nation."
 
- ai_status_human:0 "§MThis nation is controlled by a human player.§!"
+ ai_status_human:0 "§YThis nation is controlled by a human player.§!"
  ai_status_ai:0 "§RWARNING: This nation is controlled by AI! Moving the host tool to an AI nation may make it irreversible unless you use console commands!§!"
 
 
@@ -175,23 +174,23 @@
  PAUSE_BLOCKER_MAJORS_DELAYED:0 "Oligarchy mode: Only the big boys get to pause. Minors cry in corner."
 
 
- DECLARE_WAR:0 "§HDeclare War§!\n[?ROOT.target_country.GetName] will declare war on [?ROOT.receiver_country.GetName]\n\n"
- DECLARE_WAR_DELAYED:0 "Time for some good old fashioned violence! Make sure you selected the right countries or this will be awkward..."
+ DECLARE_WAR:0 "§HDeclare War§!\nMark the DEFENDER's state, select the attacker's state, click\n\n"
+ DECLARE_WAR_DELAYED:0 "Mark a state of the country being declared ON, then select a state of the attacker and click. Make sure you picked the right countries or this will be awkward..."
 
  
- TAGSWTICH_HOST:0 "§HTag Switch Players§!\nMove player from [?ROOT.target_country.GetName] to [?ROOT.receiver_country.GetName]\n\n"
- TAGSWTICH_HOST_DELAYED:0 "Musical chairs, but with countries! Player gets yeeted from one nation to another."
+ TAGSWTICH_HOST:0 "§HTag Switch Players§!\nMark the player's CURRENT country's state, select the destination, click\n\n"
+ TAGSWTICH_HOST_DELAYED:0 "Mark a state of the country the player is ON (from), then select a state of the destination country (to) and click. Musical chairs, but with countries!"
 
- DOCKADD:0 "§HAdd 1 Dockyard§!\nClicking this button will add one off-map dockyard to [This.Owner.GetName].\n\n"
+ DOCKADD:0 "§HAdd 1 Dockyard§!\nClicking this button will add one offmap dockyard to [This.Owner.GetName].\n\n"
  DOCKADD_DELAYED:0 "More boats = more problems. But also more naval supremacy!"
  
- DOCKREMOVE:0 "§HRemove 1 Dockyard§!\nClicking this button will remove one off-map dockyard from [This.Owner.GetName].\n\n"
+ DOCKREMOVE:0 "§HRemove 1 Dockyard§!\nClicking this button will remove one offmap dockyard from [This.Owner.GetName].\n\n"
  DOCKREMOVE_DELAYED:0 "Oops, someone 'accidentally' demolished a shipyard. Totally not sabotage."
 
- MILLREMOVE:0 "§HRemove 1 Military Factory§!\nClicking this button will remove one off-map military factory from [This.Owner.GetName].\n\n"
+ MILLREMOVE:0 "§HRemove 1 Military Factory§!\nClicking this button will remove one offmap military factory from [This.Owner.GetName].\n\n"
  MILLREMOVE_DELAYED:0 "Factory goes boom! Someone's having a bad industrial day."
 
- CIVREMOVE:0 "§HRemove 1 Civilian Factory§!\nClicking this button will remove one off-map civilian factory from [This.Owner.GetName].\n\n"
+ CIVREMOVE:0 "§HRemove 1 Civilian Factory§!\nClicking this button will remove one offmap civilian factory from [This.Owner.GetName].\n\n"
  CIVREMOVE_DELAYED:0 "Civilian factory mysteriously vanishes. Probably aliens. Or incompetent management."
 
  TARGET_SELECT:0 "§HSelect Target Country§!\nMark [This.Owner.GetName] as the target country for operations\n\n"
@@ -210,5 +209,74 @@
  pause_blocked_country:0 "§RPause Blocked§!"
  pause_unblocked_country:0 "§GPause Unblocked§!"
 
- HORST_HELP:0 "§HHelp§!\nClicking this button will trigger a small help event explaining how to use the host tool.\n\n"
- HOST_HELP_DELAYED:0 "Need help with the host tool? Waza hana ktzet ezra."
+ HORST_HELP:0 "§HHelp§!\nClicking this button will trigger a small help event explaning how to use the host tool.\n\n"
+ HOST_HELP_DELAYED:0 "Need help with the host tool?Waza hana ktzet ezra."
+
+ pause_blocker_selected_tt:0 "§HPause Setting§!\nClick to cycle through the pause settings\n\n"
+ pause_blocker_selected_delayed_tt:0 "Choose who is allowed to pause the game: Everyone, Host Only or Majors Only."
+
+ ADDPP_DELAYED:0 ""
+ ADDWS_DELAYED:0 ""
+ ADDST_DELAYED:0 ""
+ ADD_TUNGSTEN_DELAYED:0 ""
+ ADD_STEEL_DELAYED:0 ""
+ ADD_COAL_DELAYED:0 ""
+ ADD_ALUMINIUM_DELAYED:0 ""
+ ADD_RUBBER_DELAYED:0 ""
+ ADD_OIL_DELAYED:0 ""
+ ADD_CHROMUIM_DELAYED:0 ""
+
+ FIX_AI_CONTROL:0 "§HFix AI Control§!\nFixes the glitch where the AI is enabled on a player's country\n\n"
+ FIX_AI_CONTROL_DELAYED:0 "Briefly parks the player of the selected country on a dummy nation, then automatically returns them after 2 in-game hours. Re-assigning the human resets the game's control flag and removes the ghost AI.\n\nUnpause for a moment so the return can fire. One player at a time - the button is greyed out while a fix is in progress."
+
+
+ BUILDING_MENU:0 "§HState Builder§!\nToggle the building +/- panel\n\n"
+ BUILDING_MENU_DELAYED:0 "Opens a panel under the host tool with +/- buttons for 8 building types. They apply to ALL marked states if any are marked, otherwise the selected state."
+
+ HT_BLD_ADD_TT:0 "§GAdd one level§! of this building - to ALL marked states if any are marked, otherwise the selected state (instant)"
+ HT_BLD_REM_TT:0 "§RRemove one level§! of this building - from ALL marked states if any are marked, otherwise the selected state"
+
+ HT_WP_TT:0 "§HWhite Peace§!\nTwo countries: peace between the selected and marked country\nOne country: it peaces out of ALL its wars\n\n"
+ HT_WP_TT_DELAYED:0 "One button, two modes. Mark a state of one country and select a state of a DIFFERENT country to end only the war between those two. Mark or select a single country on its own and that country is white peaced out of every war it is in."
+ HT_TRUCE_CLR_TT:0 "§HClear Truce§!\nMark one country's state, select the other, click\n\n"
+ HT_TRUCE_CLR_TT_DELAYED:0 "Clears the truce in both directions so an agreed war can happen immediately. Mark a state of one country and select a state of the other."
+ HT_WG_TT:0 "§HDelete War Goals§!\nWipes ALL justifications between two countries, both directions\n\n"
+ HT_WG_TT_DELAYED:0 "Mark a state of one country and select a state of the other. Every justification type between the two is removed, in both directions."
+ HT_FADD_TT:0 "§HJoin Faction§!\nMark a state of any faction member, select the joiner's state, click\n\n"
+ HT_FADD_TT_DELAYED:0 "Mark one state of ANY country in the destination faction, then select a state of the country that should join and press this. The tool finds the faction leader itself."
+ HT_FKICK_TT:0 "§HKick from Faction§!\nKicks the SELECTED country out of its current faction\n\n"
+ HT_FKICK_TT_DELAYED:0 "No marking or pickers needed - select a state of the country and press this. Faction leaders cannot be kicked from their own faction."
+
+ HT_AUTO_UP_TT:0 "§HRaise Autonomy§!\nSelected subject moves one level up (toward Dominion)\n\n"
+ HT_AUTO_DOWN_TT:0 "§HLower Autonomy§!\nSelected subject moves one level down (toward Integrated Puppet)\n\n"
+ HT_AUTO_TT_DELAYED:0 "Steps the standard ladder: Integrated Puppet - Puppet - Colony - Dominion. Only works if the selected state's owner is already a subject. Use Puppet / Free Country for entering or leaving subject status; special modded subject types are not touched."
+
+ HT_FUNC_TT:0 "§HFocus: Undo Mode§!\nToggle the focus UNDO picker for the selected country\n\n"
+ HT_FCOM_TT:0 "§HFocus: Add Mode§!\nToggle the focus COMPLETE picker for the selected country\n\n"
+ HT_FOCUS_TT_DELAYED:0 "Select a state of the country first, then toggle this mode. A new decision category appears on YOUR country listing that country's focuses - Undo mode lists completed focuses, Add mode lists not-yet-completed ones. Click a decision to apply it. Toggle the mode off when done."
+
+ hosttool.63.desc:0 "§YAre you sure?§!\n\n§R[ht_annexed_country.GetName] ([ht_annexed_country.GetTag])§! will be annexed into §G[ht_annexer_country.GetName] ([ht_annexer_country.GetTag])§!.\n\nAll of [ht_annexed_country.GetName]'s states, troops and equipment will be transferred, and every annexed state will become a core of [ht_annexer_country.GetName]."
+ hosttool.63.desc_req:0 "§YAre you sure?§!\n\n§R[ht_req_annexed.GetName] ([ht_req_annexed.GetTag])§! will be annexed into §G[ht_req_annexer.GetName] ([ht_req_annexer.GetTag])§!.\n\nAll of [ht_req_annexed.GetName]'s states, troops and equipment will be transferred, and every annexed state will become a core of [ht_req_annexer.GetName]."
+
+ host_tool_focus_category:0 "Host Tool - Focus Picker"
+ host_tool_focus_category_desc:0 "Host-only focus surgery. Undo mode lists the picked country's completed focuses; Add mode lists its not-yet-completed ones. Toggle the mode off in the host tool when done."
+
+ hosttool.7.desc:0 "The host used the host tool."
+ hosttool.69.t:0 "Host Tool"
+ hosttool.69.desc:0 "The host did something with the host tool."
+ hosttool.69.a:0 "Nice"
+ HT_LAW_TT:0 "§HLaws Mode§!\nToggle the economy/trade/mobilization law changer for the selected country\n\n"
+ HT_LAW_TT_DELAYED:0 "Select a state of the target country first, then toggle this. A decision category appears on YOUR country listing every economy, trade, and mobilization law - click one to set it on the marked country. Mutually exclusive with the focus/spirit modes. Toggle off when done."
+ HT_SPIRIT_ADD_TT:0 "§HIdeas: Add Mode§!\nToggle the idea ADD picker for the selected country\n\n"
+ HT_SPIRIT_REM_TT:0 "§HIdeas: Remove Mode§!\nToggle the idea REMOVE picker for the selected country\n\n"
+ HT_SPIRIT_TT_DELAYED:0 "Select a state of the target country first, then toggle Add or Rem. A decision category appears on YOUR country: Rem lists the ideas that country currently HAS; Add lists the ideas its focus tree(s) can grant that it lacks. Click one to apply. Only ideas with a proper name are listed - unnamed internal ideas are not. Mutually exclusive with focus/law modes. Toggle off when done."
+
+ HT_POL_TT:0 "§HPolitics§!\nToggle the party-popularity and government panel\n\n"
+ HT_POL_TT_DELAYED:0 "Opens a panel under the host tool with +/- buttons for each ideology's party popularity and a button to force the ruling party. Everything here applies to the §Yselected state's owner§!. Shares space with the State Builder, so opening one closes the other."
+ HT_POL_ADD_TT:0 "§GAdd 10%§! popularity to this party for the selected state's owner"
+ HT_POL_SUB_TT:0 "§RRemove 10%§! popularity from this party for the selected state's owner"
+ HT_POL_GOV_TT:0 "§HSet Government§!\nForce the selected state's owner to this ruling ideology. Democratic re-enables elections; the others disable them.\n\n"
+ host_tool_law_category:0 "Host Tool - Laws"
+ host_tool_law_category_desc:0 "Host-only: set any law on the marked state's owner."
+ host_tool_spirit_category:0 "Host Tool - Ideas"
+ host_tool_spirit_category_desc:0 "Host-only: add or remove ideas on the marked state's owner."

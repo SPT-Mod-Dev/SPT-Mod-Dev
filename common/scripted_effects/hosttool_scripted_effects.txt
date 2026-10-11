@@ -656,29 +656,90 @@ naval_bonus_2y = {
     }
 }
 
-#Country scope
-ROOT_inherit_current_scope_wars_effect = {
-	custom_effect_tooltip = ROOT_inherit_current_scope_wars_effect
-	hidden_effect = {
-		every_country = {
-			limit = {
-				has_defensive_war_with = PREV
+# Host tool: clears every wargoal type in BOTH directions between event_target:ht_wg_a and event_target:ht_wg_b
+ht_clear_wargoals_both = {
+	event_target:ht_wg_a = {
+		event_target:ht_wg_b = {
+			PREV = {
+				remove_wargoal = { type = annex_everything target = PREV }
+				remove_wargoal = { type = take_state target = PREV }
+				remove_wargoal = { type = take_state_focus target = PREV }
+				remove_wargoal = { type = take_core_state target = PREV }
+				remove_wargoal = { type = take_claimed_state target = PREV }
+				remove_wargoal = { type = puppet_wargoal_focus target = PREV }
+				remove_wargoal = { type = topple_government target = PREV }
+				remove_wargoal = { type = liberate_wargoal target = PREV }
+				remove_wargoal = { type = independence_wargoal target = PREV }
+				remove_wargoal = { type = civil_war target = PREV }
 			}
-			ROOT = { declare_war_on = { target = PREV type = annex_everything } }
-		}
-		every_country = {
-			limit = {
-				has_offensive_war_with = PREV
-			}
-			declare_war_on = { target = ROOT type = annex_everything }
+			remove_wargoal = { type = annex_everything target = PREV }
+			remove_wargoal = { type = take_state target = PREV }
+			remove_wargoal = { type = take_state_focus target = PREV }
+			remove_wargoal = { type = take_core_state target = PREV }
+			remove_wargoal = { type = take_claimed_state target = PREV }
+			remove_wargoal = { type = puppet_wargoal_focus target = PREV }
+			remove_wargoal = { type = topple_government target = PREV }
+			remove_wargoal = { type = liberate_wargoal target = PREV }
+			remove_wargoal = { type = independence_wargoal target = PREV }
+			remove_wargoal = { type = civil_war target = PREV }
 		}
 	}
 }
-on_daily = {
 
+# Host tool confirmation popups: gives the request being opened an identity token, a state saved
+# as the LOCAL event target ht_req_token, which the engine copies into the popup fired afterwards;
+# the caller flags that state as the live request. A popup may act only while its own token still
+# carries the live flag (ht_*_request_is_live), so a popup orphaned by Clear All or a handoff can
+# never act on a later request, even one for the same countries.
+# A token stays reserved until its own popup is answered (both options release it, live or not),
+# so an orphaned popup's token is never handed to a later request. Temp ht_req_token_ok = 1 tells
+# the caller a token was issued; if every state is reserved (over a thousand unanswered popups)
+# none is, and the caller must not open a popup.
+ht_issue_request_token = {
+	set_temp_variable = { ht_req_token_ok = 0 }
+	random_state = {
+		limit = { NOT = { has_state_flag = ht_req_reserved } }
+		set_state_flag = ht_req_reserved
+		save_event_target_as = ht_req_token
+		set_temp_variable = { ht_req_token_ok = 1 }
+	}
 }
 
-leave_the_league_of_nations = {
-	custom_effect_tooltip = leave_the_league_of_nations_tt
-	hidden_effect = { remove_ideas = league_of_nations_member_idea }
+# Popup option, any outcome: frees this popup's own token for reuse.
+ht_release_request_token = {
+	if = {
+		limit = { has_event_target = ht_req_token }
+		event_target:ht_req_token = { clr_state_flag = ht_req_reserved }
+	}
 }
+
+# State scope; ROOT.compl is the host-tool value selected in the scripted GUI.
+ht_set_compliance_from_root_value = {
+	if = { limit = { check_variable = { ROOT.compl < 5 } } set_compliance = 0 }
+	else_if = { limit = { check_variable = { ROOT.compl < 15 } } set_compliance = 10 }
+	else_if = { limit = { check_variable = { ROOT.compl < 25 } } set_compliance = 20 }
+	else_if = { limit = { check_variable = { ROOT.compl < 35 } } set_compliance = 30 }
+	else_if = { limit = { check_variable = { ROOT.compl < 45 } } set_compliance = 40 }
+	else_if = { limit = { check_variable = { ROOT.compl < 55 } } set_compliance = 50 }
+	else_if = { limit = { check_variable = { ROOT.compl < 65 } } set_compliance = 60 }
+	else_if = { limit = { check_variable = { ROOT.compl < 75 } } set_compliance = 70 }
+	else_if = { limit = { check_variable = { ROOT.compl < 85 } } set_compliance = 80 }
+	else_if = { limit = { check_variable = { ROOT.compl < 95 } } set_compliance = 90 }
+	else = { set_compliance = 100 }
+}
+
+# State scope; ROOT.rest is the host-tool value selected in the scripted GUI.
+ht_set_resistance_from_root_value = {
+	if = { limit = { check_variable = { ROOT.rest < 5 } } set_resistance = 0 }
+	else_if = { limit = { check_variable = { ROOT.rest < 15 } } set_resistance = 10 }
+	else_if = { limit = { check_variable = { ROOT.rest < 25 } } set_resistance = 20 }
+	else_if = { limit = { check_variable = { ROOT.rest < 35 } } set_resistance = 30 }
+	else_if = { limit = { check_variable = { ROOT.rest < 45 } } set_resistance = 40 }
+	else_if = { limit = { check_variable = { ROOT.rest < 55 } } set_resistance = 50 }
+	else_if = { limit = { check_variable = { ROOT.rest < 65 } } set_resistance = 60 }
+	else_if = { limit = { check_variable = { ROOT.rest < 75 } } set_resistance = 70 }
+	else_if = { limit = { check_variable = { ROOT.rest < 85 } } set_resistance = 80 }
+	else_if = { limit = { check_variable = { ROOT.rest < 95 } } set_resistance = 90 }
+	else = { set_resistance = 100 }
+}
+

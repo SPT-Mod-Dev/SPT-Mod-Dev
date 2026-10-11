@@ -1,121 +1,108 @@
-on_actions = { #Originally from Host Tool Updated
+on_actions = {
 	on_startup = {
 		effect = {
+			# Initialize SPT's existing landless observer tag before parking players.
+			SOL = {
+				if = {
+					limit = { NOT = { any_owned_state = { always = yes } } }
+					create_country_leader = {
+						name = "Provisional Council"
+						picture = "GFX_portrait_unknown"
+						ideology = conservatism
+						expire = "1965.1.1"
+					}
+				}
+			}
 			if = {
-				limit = {has_game_rule = {rule = select_host_country option = GER}}
+				limit = { has_game_rule = {rule = select_host_country option = GER} GER = { exists = yes } }
+				set_variable = { host = GER.id }
+			}
+			else_if = {
+				limit = { has_game_rule = {rule = select_host_country option = ITA} ITA = { exists = yes } }
+				set_variable = { host = ITA.id }
+			}
+			else_if = {
+				limit = { has_game_rule = {rule = select_host_country option = SPR} SPR = { exists = yes } }
+				set_variable = { host = SPR.id }
+			}
+			else_if = {
+				limit = { has_game_rule = {rule = select_host_country option = ROM} ROM = { exists = yes } }
+				set_variable = { host = ROM.id }
+			}
+			else_if = {
+				limit = { has_game_rule = {rule = select_host_country option = HUN} HUN = { exists = yes } }
+				set_variable = { host = HUN.id }
+			}
+			else_if = {
+				limit = { has_game_rule = {rule = select_host_country option = FIN} FIN = { exists = yes } }
+				set_variable = { host = FIN.id }
+			}
+			else_if = {
+				limit = { has_game_rule = {rule = select_host_country option = BUL} BUL = { exists = yes } }
+				set_variable = { host = BUL.id }
+			}
+			else_if = {
+				limit = { has_game_rule = {rule = select_host_country option = JAP} JAP = { exists = yes } }
+				set_variable = { host = JAP.id }
+			}
+			else_if = {
+				limit = { has_game_rule = {rule = select_host_country option = MAN} MAN = { exists = yes } }
+				set_variable = { host = MAN.id }
+			}
+			else_if = {
+				limit = { has_game_rule = {rule = select_host_country option = SIA} SIA = { exists = yes } }
+				set_variable = { host = SIA.id }
+			}
+			else_if = {
+				limit = { has_game_rule = {rule = select_host_country option = ENG} ENG = { exists = yes } }
+				set_variable = { host = ENG.id }
+			}
+			else_if = {
+				limit = { has_game_rule = {rule = select_host_country option = USA} USA = { exists = yes } }
+				set_variable = { host = USA.id }
+			}
+			else_if = {
+				limit = { has_game_rule = {rule = select_host_country option = FRA} FRA = { exists = yes } }
+				set_variable = { host = FRA.id }
+			}
+			else_if = {
+				limit = { has_game_rule = {rule = select_host_country option = RAJ} RAJ = { exists = yes } }
+				set_variable = { host = RAJ.id }
+			}
+			else_if = {
+				limit = { has_game_rule = {rule = select_host_country option = CAN} CAN = { exists = yes } }
+				set_variable = { host = CAN.id }
+			}
+			else_if = {
+				limit = { has_game_rule = {rule = select_host_country option = AST} AST = { exists = yes } }
+				set_variable = { host = AST.id }
+			}
+			else_if = {
+				limit = { has_game_rule = {rule = select_host_country option = SAF} SAF = { exists = yes } }
+				set_variable = { host = SAF.id }
+			}
+			else_if = {
+				limit = { has_game_rule = {rule = select_host_country option = BRA} BRA = { exists = yes } }
+				set_variable = { host = BRA.id }
+			}
+			else_if = {
+				limit = { has_game_rule = {rule = select_host_country option = NZL} NZL = { exists = yes } }
+				set_variable = { host = NZL.id }
+			}
+			else_if = {
+				limit = { has_game_rule = {rule = select_host_country option = SOV} SOV = { exists = yes } }
+				set_variable = { host = SOV.id }
+			}
+			else_if = {
+				limit = { has_game_rule = {rule = select_host_country option = MON} MON = { exists = yes } }
+				set_variable = { host = MON.id }
+			}
+			# Fallback: if the selected host country does not exist in the chosen start
+			# date, default the tool to GER so the session always has a working host.
+			if = {
+				limit = { NOT = { has_variable = host } }
 				set_variable={host = GER.id}
 			}
-
-			else_if = {
-					limit = {has_game_rule = {rule = select_host_country option = AST}}
-					set_variable={host = AST.id}
-				}
-		
-			else_if = {
-					limit = {has_game_rule = {rule = select_host_country option = BRA}}
-					set_variable={host = BRA.id}
-				}
-		
-			else_if = {
-					limit = {has_game_rule = {rule = select_host_country option = RAJ}}
-					set_variable={host = RAJ.id}
-				}
-		
-			else_if = {
-					limit = {has_game_rule = {rule = select_host_country option = BUL}}
-					set_variable={host = BUL.id}
-				}
-		
-			else_if = {
-					limit = {has_game_rule = {rule = select_host_country option = CAN}}
-					set_variable={host = CAN.id}
-				}
-		
-			else_if = {
-					limit = {has_game_rule = {rule = select_host_country option = FRA}}
-					set_variable={host = FRA.id}
-				}
-		
-			else_if = {
-					limit = {has_game_rule = {rule = select_host_country option = GER}}
-					set_variable={host = GER.id}
-				}
-		
-			else_if = {
-					limit = {has_game_rule = {rule = select_host_country option = ITA}}
-					set_variable={host = ITA.id}
-				}
-		
-			else_if = {
-					limit = {has_game_rule = {rule = select_host_country option = JAP}}
-					set_variable={host = JAP.id}
-				}
-		
-			else_if = {
-					limit = {has_game_rule = {rule = select_host_country option = HUN}}
-					set_variable={host = HUN.id}
-				}
-		
-			else_if = {
-					limit = {has_game_rule = {rule = select_host_country option = ROM}}
-					set_variable={host = ROM.id}
-				}
-		
-			else_if = {
-					limit = {has_game_rule = {rule = select_host_country option = MAN}}
-					set_variable={host = MAN.id}
-				}
-		
-			else_if = {
-					limit = {has_game_rule = {rule = select_host_country option = MON}}
-					set_variable={host = MON.id}
-				}
-		
-			else_if = {
-					limit = {has_game_rule = {rule = select_host_country option = NZL}}
-					set_variable={host = NZL.id}
-				}
-		
-			else_if = {
-		  		limit = {has_game_rule = {rule = select_host_country option = SIA}}
-			 	set_variable={host = SIA.id}
-			}
-		
-			else_if = {
-					limit = {has_game_rule = {rule = select_host_country option = SAF}}
-					set_variable={host = SAF.id}
-				}
-		
-			else_if = {
-					limit = {has_game_rule = {rule = select_host_country option = SOV}}
-					set_variable={host = SOV.id}
-				}
-		
-			 else_if = {
-					limit = {has_game_rule = {rule = select_host_country option = SPR}}
-					set_variable={host = SPR.id}
-			 	}
-		
-			else_if = {
-					limit = {has_game_rule = {rule = select_host_country option = ENG}}
-					set_variable={host = ENG.id}
-				}
-		
-			else_if = {
-					limit = {has_game_rule = {rule = select_host_country option = USA}}
-					set_variable={host = USA.id}
-				}
-
-			else_if = {
-				limit = {has_game_rule = {rule = select_host_country option = FIN}}
-				set_variable={host = FIN.id}
-			}
-
-			# Default Germany
-			else = {
-				set_variable={host = GER.id}
-			}
-
 			var:host = {
 				set_variable = { host_marked_states = 0 }
 				set_country_flag = host
