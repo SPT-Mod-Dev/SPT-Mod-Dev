@@ -10,6 +10,9 @@
 #### Germany
  - Added an event that adds militia that fires onces all hope seems lost
 
+#### Italy
+ - Added the 'Fiat-S.P.A.' armored car MIO
+
 #### No Asia
  - UK now gets 15 civs and resource rights in some US states in mid 1940
 
