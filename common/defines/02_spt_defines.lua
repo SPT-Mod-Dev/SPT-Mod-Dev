@@ -84,6 +84,7 @@ NDefines.NNavy.NAVY_PIERCING_THRESHOLD_DAMAGE_VALUES = {	-- 0 armor will always 
 NDefines.NNavy.CONVOY_RAID_MAX_REGION_TO_TASKFORCE_RATIO                        = 1
 
 NDefines.NDiplomacy.EMBARGO_THREAT_THRESHOLD = 50
+NDefines.NDiplomacy.REVOKE_EMBARGO_COST = 5
 
 NDefines.NDiplomacy.PEACE_SCORE_DISTRIBUTION = { 1, 1, 1, 1, 1 }
 

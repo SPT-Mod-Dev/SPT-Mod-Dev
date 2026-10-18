@@ -16,6 +16,7 @@
 
 #### No Asia
  - UK now gets 15 civs and resource rights in some US states in mid 1940
+ - The HTF now embargo's all axis nations after France capitulates
 
 ### 4.4.0 They said my special forces were weak
 
