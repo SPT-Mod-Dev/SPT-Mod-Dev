@@ -763,7 +763,7 @@ ITA_missiolinis = {
 		}
 
 		available = { #GOAL
-			custom_trigger_tooltip = { #TODO_Manu: This should be replaced by the appropriate check once Red king merges stuff (Factories BUILD check)
+			custom_trigger_tooltip = {
 				tooltip = ITA_missiolini_strengthen_heavy_industry_trigger_tt
 				num_of_civilian_factories > ROOT.ITA_missiolinis_required_civs
 			}
@@ -811,11 +811,6 @@ ITA_missiolinis = {
 		}
 
 		available = { #GOAL
-			#has_army_manpower = { size > ROOT.ITA_missiolinis_fielded_manpower_goal } #1kk #TODO_Manu: Code support to use vars in has_army_manpower
-			#if = { #FIRST TIME - FIXED AMOUNT #TODO_Manu: NEED CODE SUPPORT (see line above)
-			#	limit = {
-			#		NOT = { has_country_flag = ITA_missiolini_strengthen_the_army_repeatable_flag } #First time it's a fixed amopunt. Then if the mission is repeated it will require +500k MP in the field (compare to current)
-			#	}
 				if = {
 					limit = {
 						ITA_has_missiolini_easier_goals = yes
@@ -825,10 +820,6 @@ ITA_missiolinis = {
 				else = {
 					has_army_manpower = { size > 750000 } #750k
 				}
-			#}
-			#else = { #IF REPEATING
-			#	has_army_manpower = { size > 1000000 } #TODO_Manu: Current MP + 500 -> Code Support for this (has_army_manpower does not take vars)
-			#}
 		}
 
 		activation = {
@@ -873,7 +864,7 @@ ITA_missiolinis = {
 		}
 
 		available = { #GOAL
-			has_equipment = { #TODO_Manu: Code Support to also get the trucks in the field // Alternatively, check for trucks produced (Code support too!)
+			has_equipment = {
 				motorized_equipment_1 > ROOT.ITA_missiolinis_trucks_to_produce
 			}
 		}
@@ -1119,7 +1110,7 @@ ITA_missiolinis = {
 				has_tech = construction5
 			}
 			else = { #Absurd fallback just in case
-				has_tech = nukes
+				is_special_project_completed = sp:sp_nuclear_bomb
 			}
 		}
 
@@ -3551,7 +3542,7 @@ ITA_balance_of_power_category = {
 		}
 
 		modifier = {
-			consumer_goods_factor = -0.03
+			consumer_goods_factor = -0.10
 		}
 
 		ai_will_do = {
@@ -3660,7 +3651,7 @@ ETH_italian_occupation_category = {
 			}
 		}
 		target_root_trigger = { tag = ITA } # For now - change if making it generic
-		state_target = yes
+		state_target = africa
 		on_map_mode = map_only
 
 		cost = 75
@@ -3763,7 +3754,7 @@ ETH_italian_occupation_category = {
 			}
 		}
 		target_root_trigger = { tag = ITA } # For now - change if making it generic
-		state_target = yes
+		state_target = any_controlled_state
 		on_map_mode = map_only
 		fire_only_once = yes # Only once per State
 		available = {
@@ -3788,7 +3779,7 @@ ETH_italian_occupation_category = {
 		cost = 25
 
 		modifier = {
-			consumer_goods_factor = 0.05
+			consumer_goods_factor = 0.10
 		}
 
 		complete_effect = {
@@ -4626,132 +4617,118 @@ ITA_colonial_management_dec_cat = {
 			custom_trigger_tooltip = {
 				tooltip = aoi_required_ethiopian_states
 				AND = {
+					271 = { # Shewa
+						owner = {
 					OR = {
-						ITA = {
-						owns_state = 271 # Shewa
+								tag = ROOT
+								is_subject_of = ROOT
 						}
-						any_country = {
-							is_subject_of = ITA
-							owns_state = 271 # Shewa
 						}
 					}
+					843 = { # Wallo
+						owner = {
 					OR = {
-						ITA = {
-						owns_state = 843 # Wello
+								tag = ROOT
+								is_subject_of = ROOT
 						}
-						any_country = {
-							is_subject_of = ITA
-							owns_state = 843 # Wello
 						}
 					}
+					908 = { # Afar
+						owner = {
 					OR = {
-						ITA = {
-						owns_state = 908 # Afar
+								tag = ROOT
+								is_subject_of = ROOT
 						}
-						any_country = {
-							is_subject_of = ITA
-							owns_state = 908 # Afar
 						}
 					}
+					842 = { # Tigray
+						owner = {
 					OR = {
-						ITA = {
-						owns_state = 842 # Tigray
+								tag = ROOT
+								is_subject_of = ROOT
 						}
-						any_country = {
-							is_subject_of = ITA
-							owns_state = 842 # Tigray
 						}
 					}
+					841 = { # Begemder
+						owner = {
 					OR = {
-						ITA = {
-						owns_state = 841 # Begemder
+								tag = ROOT
+								is_subject_of = ROOT
 						}
-						any_country = {
-							is_subject_of = ITA
-							owns_state = 841 # Begemder
 						}
 					}
+					840 = { # Gojjam
+						owner = {
 					OR = {
-						ITA = {
-						owns_state = 840 # Gojjam
+								tag = ROOT
+								is_subject_of = ROOT
 						}
-						any_country = {
-							is_subject_of = ITA
-							owns_state = 840 # Gojjamm
 						}
 					}
+					839 = { #Welega
+						owner = {
 					OR = {
-						ITA = {
-						owns_state = 839 # Welega
+								tag = ROOT
+								is_subject_of = ROOT
 						}
-						any_country = {
-							is_subject_of = ITA
-							owns_state = 839 # Welega
 						}
 					}
+					838 = { # Illubabor-Kaffa
+						owner = {
 					OR = {
-						ITA = {
-						owns_state = 838 # Illubabor-Kaffa
+								tag = ROOT
+								is_subject_of = ROOT
 						}
-						any_country = {
-							is_subject_of = ITA
-							owns_state = 838 # Illubabor-Kaffa
 						}
 					}
+					837 = { # Sidamo
+						owner = {
 					OR = {
-						ITA = {
-						owns_state = 837 # Sidamo
+								tag = ROOT
+								is_subject_of = ROOT
 						}
-						any_country = {
-							is_subject_of = ITA
-							owns_state = 837 # Sidamo
 						}
 					}
+					836 = { # Bale
+						owner = {
 					OR = {
-						ITA = {
-						owns_state = 836 # Bale
+								tag = ROOT
+								is_subject_of = ROOT
 						}
-						any_country = {
-							is_subject_of = ITA
-							owns_state = 836 # Bale
 						}
 					}
+					835 = { # Hararghe
+						owner = {
 					OR = {
-						ITA = {
-						owns_state = 835 # Hararghe
+								tag = ROOT
+								is_subject_of = ROOT
 						}
-						any_country = {
-							is_subject_of = ITA
-							owns_state = 835 # Hararghe
 						}
 					}
 				}
 			}
+			550 = { # Eritrea
+				owner = {
 			OR = {
-				ITA = {
-				owns_state = 550 # Eritrea
+						tag = ROOT
+						is_subject_of = ROOT
 				}
-				any_country = {
-					is_subject_of = ITA
-					owns_state = 550 # Eritrea
 				}
 			}
+			559 = { # Somaliland
+				owner = {
 			OR = {
-				ITA = {
-				owns_state = 559 # Somaliland
+						tag = ROOT
+						is_subject_of = ROOT
 				}
-				any_country = {
-					is_subject_of = ITA
-					owns_state = 559 # Somaliland
 				}
 			}
+			844 = { # Jubaland
+				owner = {
 			OR = {
-				ITA = {
-				owns_state = 844 # Jubaland
+						tag = ROOT
+						is_subject_of = ROOT
 				}
-				any_country = {
-					is_subject_of = ITA
-					owns_state = 844 # Jubaland
 				}
 			}
 
@@ -4915,13 +4892,12 @@ ITA_colonial_management_dec_cat = {
 			AOI = {
 				exists = yes
 			}
+			269 = {
+				controller = {
 			OR = {
-				ITA = {
-				controls_state = 269 # British Somaliland
+						tag = ROOT
+						is_subject_of = ROOT
 				}
-				any_country = {
-					is_subject_of = ITA
-					controls_state = 269 # British Somaliland
 				}
 			}
 		}
@@ -4968,13 +4944,12 @@ ITA_colonial_management_dec_cat = {
 			AOI = {
 				exists = yes
 			}
+			268 = {
+				controller = {
 			OR = {
-				ITA = {
-				controls_state = 268 # French Somaliland
+						tag = ROOT
+						is_subject_of = ROOT
 				}
-				any_country = {
-					is_subject_of = ITA
-					controls_state = 268 # French Somaliland
 				}
 			}
 		}
@@ -5021,13 +4996,12 @@ ITA_colonial_management_dec_cat = {
 			AOI = {
 				exists = yes
 			}
+			903 = {
+				controller = {
 			OR = {
-				ITA = {
-				controls_state = 903 # Garissa
+						tag = ROOT
+						is_subject_of = ROOT
 				}
-				any_country = {
-					is_subject_of = ITA
-					controls_state = 903 # Garissa
 				}
 			}
 		}
@@ -5167,7 +5141,7 @@ ITA_colonial_management_dec_cat = {
 			every_state = {
 				limit = {
 					is_owned_and_controlled_by = AOI
-					has_resistance = yes
+					has_resistance = yes # SPTChange remove errors
 				}
 				add_resistance = -5
 			}
@@ -5390,7 +5364,7 @@ ITA_naval_cooperation_programs_dec_cat = {
 				navy_experience = 50
 				add_doctrine_cost_reduction = {
 					name = ITA_joint_maneuvers_with_country_doctrine_bonus
-					cost_reduction = 0.75
+					cost_reduction = 0.50
 					uses = 1
 					category = naval_doctrine
 				}
@@ -5398,7 +5372,7 @@ ITA_naval_cooperation_programs_dec_cat = {
 					navy_experience = 50
 					add_doctrine_cost_reduction = {
 						name = ITA_joint_maneuvers_with_country_doctrine_bonus
-						cost_reduction = 0.75
+						cost_reduction = 0.50
 						uses = 1
 						category = naval_doctrine
 					}
@@ -5876,6 +5850,7 @@ ITA_diplomacy_balkan_decision_category = {
 				set_country_flag = ITA_ultimatum_sent_flag
 				country_event = { id = NSB_soviet_foreign_politics_events.200 hours = 16 random_hours = 8 }
 			}
+			# SPTchange
 			custom_effect_tooltip = ITA_ultimatum_generic_effects_tt
 			#custom_effect_tooltip = SOV_decision_will_be_locked_tt #
 		}
@@ -6272,7 +6247,7 @@ ITA_diplomacy_balkan_decision_category = {
 			ALB = {
 				division_template = {
 				    name = "Milicia Fashiste Shqiptare"
-				    is_locked = no
+				    is_locked = no #SPTchange
 				    division_names_group = ALB_INF_01
 				    regiments = {
 				        infantry = { x = 0 y = 0 }
@@ -6585,15 +6560,16 @@ ITA_diplomacy_balkan_decision_category = {
 					original_tag = MNT
 					controls_state = 105
 				}
-				any_country = {
-					is_subject_of = ITA
+				any_subject_country = {
 					controls_state = 105
 				}
 			}
-			any_country = {
-				controls_state = 105
+
+			105 = {
+				controller = {
 				NOT = {
 					has_war_with = ROOT
+					}
 				}
 			}
 		}
@@ -6735,12 +6711,14 @@ ITA_diplomacy_balkan_decision_category = {
 			ITA = {
 				has_completed_focus = ITA_befriend_greece
 			}
-			any_country = {
-				controls_state = 342
+			
+			342 = {
+				controller = {
 				controls_state = 339
 				has_war = no
 				NOT = {
 					is_in_faction_with = ITA
+					}
 				}
 			}
 		}

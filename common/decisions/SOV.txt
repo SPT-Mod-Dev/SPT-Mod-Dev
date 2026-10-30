@@ -1,7 +1,7 @@
 ####### NO STEP BACK! #######
 @DAYS_DETERMINED = 180 #Used for propaganda campaign SOV_heroes_forward -> Value should be the same as SOV_default_propaganda_campaign_duration
 
-debug_decisions = { #TODO_Manu: Comment these out
+debug_decisions = {
 	SOV_debug_show_paranoia_system = { #This is a duplicate of the decision present in the Paranoia category
 		priority = 202
 
@@ -939,7 +939,7 @@ SOV_paranoia_system = {
 
 
 
-	SOV_DEBUG_ACTIVATE_PARANOIA = { #TODO_Manu: Comment out
+	SOV_DEBUG_ACTIVATE_PARANOIA = {
 		priority = 281
 
 		icon = eng_ally_imperialist_coup
@@ -965,7 +965,7 @@ SOV_paranoia_system = {
 		}
 	}
 
-	SOV_DEBUG_DEACTIVATE_PARANOIA = { #TODO_Manu: Comment out
+	SOV_DEBUG_DEACTIVATE_PARANOIA = {
 		priority = 281
 
 		icon = eng_ally_imperialist_coup
@@ -991,7 +991,7 @@ SOV_paranoia_system = {
 		}
 	}
 
-	SOV_DEBUG_show_debug_purge_decisions = { #TODO_Manu: Comment out
+	SOV_DEBUG_show_debug_purge_decisions = {
 		priority = 281
 
 		icon = eng_ally_imperialist_coup
@@ -1017,7 +1017,7 @@ SOV_paranoia_system = {
 		}
 	}
 
-	SOV_DEBUG_hide_debug_purge_decisions = { #TODO_Manu: Comment out
+	SOV_DEBUG_hide_debug_purge_decisions = {
 		priority = 201
 
 		icon = eng_ally_imperialist_coup
@@ -2890,16 +2890,11 @@ SOV_propaganda_campaigns = {
 		available = {
 			SOV_propaganda_poster_slot_available = yes
 
-			any_country = {
+			any_country_of = {
+				exists = yes
+				target = {ENG FRA GER ITA USA JAP}
+
 				has_government = democratic
-				OR = {
-					tag = ENG
-					tag = FRA
-					tag = GER
-					tag = ITA
-					tag = USA
-					tag = JAP
-				}
 			}
 		}
 
@@ -3146,16 +3141,10 @@ SOV_propaganda_campaigns = {
 		available = {
 			SOV_propaganda_poster_slot_available = yes
 
-			any_country = {
+			any_country_of = {
+				exists = yes
+				target = {ENG FRA GER ITA USA JAP}
 				has_government = fascism
-				OR = {
-					tag = ENG
-					tag = FRA
-					tag = GER
-					tag = ITA
-					tag = USA
-					tag = JAP
-				}
 			}
 		}
 
@@ -4308,7 +4297,10 @@ SOV_gosproyektstroy_decision_category = {
 			has_idea = SOV_gosproyektstroy_1
 			NOT = { has_country_flag = SOV_gosproyektstroy_upgrade_in_progress_flag }
 			FROM = {
-            	has_opinion = { target = ROOT value > 29 }
+				has_opinion = {
+					target = ROOT
+					value > 29
+				}
             	SOV_is_valid_subject = yes
             	NOT = { has_war_with = ROOT }
         	}
@@ -5458,8 +5450,8 @@ SOV_diplomacy_baltic_decision_category = {
 				add = 0.01
 				has_stability > 0.4
 				NOT = { #Join if it will not lead to a new war against a major
-					any_country = {
-						is_major = yes
+					any_collection_element = {
+						collection = game:all_majors
 						has_war_with = FROM
 						NOT = { has_war_with = ROOT }
 					}
@@ -5699,8 +5691,8 @@ SOV_diplomacy_nordic_decision_category = {
 				add = 0.01
 				has_stability > 0.4
 				NOT = { #Join if it will not lead to a new war against a major
-					any_country = {
-						is_major = yes
+					any_collection_element = {
+						collection = game:all_majors
 						has_war_with = FROM
 						NOT = { has_war_with = ROOT }
 					}
@@ -5992,8 +5984,8 @@ SOV_diplomacy_balkan_decision_category = {
 				add = 0.01
 				has_stability > 0.4
 				NOT = { #Join if it will not lead to a new war against a major
-					any_country = {
-						is_major = yes
+					any_collection_element = {
+						collection = game:all_majors
 						has_war_with = FROM
 						NOT = { has_war_with = ROOT }
 					}
@@ -6312,8 +6304,8 @@ SOV_diplomacy_middle_east_decision_category = {
 				add = 0.01
 				has_stability > 0.4
 				NOT = { #Join if it will not lead to a new war against a major
-					any_country = {
-						is_major = yes
+					any_collection_element = {
+						collection = game:all_majors
 						has_war_with = FROM
 						NOT = { has_war_with = ROOT }
 					}
@@ -6440,7 +6432,7 @@ SOV_diplomacy_middle_east_decision_category = {
 					type = puppet_wargoal_focus
 				}
 			}
-			else = { #SOV + ENG invading together
+			else = { #SOV + ENG invading together, SOV perspective
 				if = { #SOV triggers the actual effects
 					limit = {
 						original_tag = SOV
@@ -6467,12 +6459,23 @@ SOV_diplomacy_middle_east_decision_category = {
 					hidden_effect = { news_event = { id = nsb_news.104 days = 4 random_days = 2 } } #Only ENG sends the news event.
 				}
 			}
+
 			activate_mission = SOV_operation_countenance
 			if = { #Activate mission for ENG if joint operation
 				limit = {
 					has_global_flag = SOV_agreed_anglo_soviet_invasion_of_iran_flag
+					tag = SOU
 				}
 				ENG = {
+					activate_mission = SOV_operation_countenance
+				}
+			}
+			if = { #Activate mission for ENG if joint operation
+				limit = {
+					has_global_flag = SOV_agreed_anglo_soviet_invasion_of_iran_flag
+					tag = ENG
+				}
+				SOU = {
 					activate_mission = SOV_operation_countenance
 				}
 			}
@@ -6569,9 +6572,9 @@ SOV_diplomacy_middle_east_decision_category = {
 						transfer_state = 420 #Gilan (AZB)
 						transfer_state = 416 #Khorasan
 					}
-					give_resource_rights = { receiver = SOV state = 411 }
-					give_resource_rights = { receiver = SOV state = 412 }
-					give_resource_rights = { receiver = SOV state = 413 }
+					give_resource_rights = { receiver = FROM state = 411 }
+					give_resource_rights = { receiver = FROM state = 412 }
+					give_resource_rights = { receiver = FROM state = 413 }
 				}
 				else_if = {
 					limit = {
@@ -6818,9 +6821,6 @@ SOV_diplomacy_asia_decision_category = {
 					add_core_of = ROOT
 				}
 				555 = {
-					add_core_of = ROOT
-				}
-				536 = {
 					add_core_of = ROOT
 				}
 				transfer_state = 537
@@ -10750,7 +10750,6 @@ SOV_kill_trotsky_dec_cat = {
 			FROM = {
 				owns_state = 277
 			}
-			
 		}
 
 		allowed = {
@@ -11013,8 +11012,16 @@ SOV_industry_relocation = {
 				}
 			}
 			modifier = {
+				add = 1000 # move everything while the front is still far away
+				any_enemy_country = { is_major = yes }
+			}
+			modifier = {
 				factor = 0
 				SOV_save_pp_for_manpower_trouble = yes
+			}
+			modifier = {
+				factor = 0 # keep a train reserve, each move borrows 80 for 60 days
+				NOT = { has_equipment = { train_equipment > 199 } }
 			}
 		}
 
@@ -11023,7 +11030,6 @@ SOV_industry_relocation = {
 		target_trigger = {
 			FROM = {
 				is_core_of = ROOT
-				is_fully_controlled_by = ROOT
 				is_on_continent = europe
 				OR = {
 					has_state_category = town
@@ -11033,7 +11039,6 @@ SOV_industry_relocation = {
 					has_state_category = megalopolis
 					has_state_category = metropolis
 				}
-				infrastructure > 2
 			}
 		}
 
@@ -11070,7 +11075,7 @@ SOV_industry_relocation = {
 
 		cancel_if_not_visible = no
 
-		cost = 25
+		cost = 10
 
 		days_remove = SOV_industrial_relocation_days
 
@@ -11358,8 +11363,8 @@ SOV_infiltrate_foreign_atomic_programs_dec_cat = {
 			modifier = {
 				factor = 0.5
 				OR = {
-					has_tech = nukes
-					is_researching_technology = nukes
+					is_special_project_completed = sp:sp_nuclear_bomb
+					is_special_project_being_researched = sp:sp_nuclear_bomb
 				}
 			}
 		}
@@ -11955,10 +11960,10 @@ SOV_great_patriotic_war = {
 
 		ai_hint_pp_cost = 15
 		custom_cost_trigger = {
-			command_power > 49
+			command_power > 24
 			has_political_power > 14
 		}
-		custom_cost_text = decision_cost_CP_50_pp_15
+		custom_cost_text = decision_cost_CP_25_pp_15
 
 		days_remove = 90
 
@@ -11968,7 +11973,7 @@ SOV_great_patriotic_war = {
 
 		complete_effect = {
 			hidden_effect = {
-				add_command_power = -50
+				add_command_power = -25
 				add_political_power = -15
 			}
 		}
@@ -12003,10 +12008,10 @@ SOV_great_patriotic_war = {
 
 		ai_hint_pp_cost = 50
 		custom_cost_trigger = {
-			command_power > 49
+			command_power > 24
 			has_political_power > 49
 		}
-		custom_cost_text = decision_cost_CP_50_pp_50
+		custom_cost_text = decision_cost_CP_25_pp_50
 
 		fire_only_once = yes
 		visible = {
@@ -12026,7 +12031,7 @@ SOV_great_patriotic_war = {
 
 		complete_effect = {
 			hidden_effect = {
-				add_command_power = -50
+				add_command_power = -25
 				add_political_power = -50
 			}
 			set_country_flag = SOV_order_227_flag
@@ -12416,9 +12421,12 @@ SOV_great_patriotic_war = {
 				NOT = { state = 5 }
 				NOT = { state = 85 }
 			}
-			any_other_country = {
-				is_major = yes
-				NOT = { is_in_faction_with = ROOT }
+			any_collection_element = {
+				collection = game:all_majors
+				NOT = {
+					tag = ROOT
+					is_in_faction_with = ROOT
+				}
 				has_war_with = GER
 				any_controlled_state = {
 					is_core_of = GER
@@ -12433,9 +12441,12 @@ SOV_great_patriotic_war = {
 			any_controlled_state = {
 				is_core_of = GER
 			}
-			any_other_country = {
-				is_major = yes
-				NOT = { is_in_faction_with = ROOT }
+			any_collection_element = {
+				collection = game:all_majors
+				NOT = {
+					tag = ROOT
+					is_in_faction_with = ROOT
+				}
 				has_war_with = GER
 			}
 		}
@@ -12502,12 +12513,12 @@ SOV_great_patriotic_war = {
 		timeout_effect = {
 			add_stability = 0.05
 			add_war_support = 0.05
-			217 = { save_event_target_as = state }
+			217 = { save_event_target_as = soviet_city }
 			country_event = wtt_soviet_hold_city.1
 		}
 		#Fail
 		complete_effect = {
-			217 = { save_event_target_as = state }
+			217 = { save_event_target_as = soviet_city }
 			country_event = wtt_soviet_hold_city.2
 		}
 	}
@@ -12556,12 +12567,12 @@ SOV_great_patriotic_war = {
 		timeout_effect = {
 			add_stability = 0.05
 			add_war_support = 0.05
-			195 = { save_event_target_as = state }
+			195 = { save_event_target_as = soviet_city }
 			country_event = wtt_soviet_hold_city.3
 		}
 		#Fail
 		complete_effect = {
-			195 = { save_event_target_as = state }
+			195 = { save_event_target_as = soviet_city }
 			country_event = wtt_soviet_hold_city.4
 		}
 	}
@@ -12607,12 +12618,12 @@ SOV_great_patriotic_war = {
 		timeout_effect = {
 			add_stability = 0.05
 			add_war_support = 0.05
-			219 = { save_event_target_as = state }
+			219 = { save_event_target_as = soviet_city }
 			country_event = wtt_soviet_hold_city.5
 		}
 		#Fail
 		complete_effect = {
-			219 = { save_event_target_as = state }
+			219 = { save_event_target_as = soviet_city }
 			country_event = wtt_soviet_hold_city.6
 		}
 	}

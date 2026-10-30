@@ -912,7 +912,7 @@ ideas = {
 			picture = generic_goods_red_bonus
 			
 			modifier = {
-				consumer_goods_factor = -0.05
+				consumer_goods_factor = -0.15
 			}
 		}
 		spiritual_mobilization_idea = {
@@ -930,7 +930,7 @@ ideas = {
 			picture = imperial_glory_idea # was generic_manpower_bonus
 			
 			modifier = {
-				conscription = 0.025
+				conscription = 0.03
 			}
 		}
 
@@ -1056,7 +1056,7 @@ ideas = {
 			}
 
 			allowed_civil_war = {
-				always = yes
+				has_government = communism
 			}
 			
 			removal_cost = -1
@@ -1101,7 +1101,7 @@ ideas = {
 				production_speed_arms_factory_factor = 0.10
 				production_speed_dockyard_factor = 0.05
 				industrial_capacity_factory = 0.05
-				consumer_goods_factor = 0.1
+				consumer_goods_factor = 0.10
 			}
 		}
 
@@ -1146,7 +1146,7 @@ ideas = {
 			}
 
 			allowed_civil_war = {
-				always = yes
+				has_government = neutrality
 			}
 			
 			removal_cost = -1
@@ -1310,9 +1310,7 @@ ideas = {
 				always = no
 			}
 
-			available = { 
-				has_stability < 0.5 
-			}
+			available = { has_stability < 0.7 }
 			
 			removal_cost = -1
 
@@ -1462,11 +1460,11 @@ ideas = {
 			}
 			
 			modifier = {
-				production_speed_arms_factory_factor = 0.2
-				production_speed_dockyard_factor = -0.15
+				production_speed_arms_factory_factor = 0.1
+				production_speed_dockyard_factor = -0.2
 				industrial_capacity_factory = 0.1
-				industrial_capacity_dockyard = -0.15
-				naval_doctrine_cost_factor = 0.05
+				industrial_capacity_dockyard = -0.2
+				naval_doctrine_cost_factor = 0.1
 				land_doctrine_cost_factor = -0.05
 			}
 		}
@@ -1485,8 +1483,8 @@ ideas = {
 			picture = jap_interservice_rivalry_army_strengthened
 			
 			modifier = {
-				production_speed_arms_factory_factor = 0.1
-				production_speed_dockyard_factor = -0.05
+				production_speed_arms_factory_factor = 0.05
+				production_speed_dockyard_factor = -0.1
 				industrial_capacity_factory = 0.05
 				industrial_capacity_dockyard = -0.1
 			}
@@ -1520,9 +1518,9 @@ ideas = {
 			picture = jap_interservice_rivalry_navy_strengthened
 			
 			modifier = {
-				production_speed_arms_factory_factor = -0.05
+				production_speed_arms_factory_factor = -0.1
 				production_speed_dockyard_factor = 0.1
-				industrial_capacity_factory = -0.1
+				industrial_capacity_factory = -0.05
 				industrial_capacity_dockyard = 0.05
 			}
 		}
@@ -1541,11 +1539,12 @@ ideas = {
 			picture = jap_interservice_rivalry_navy_dominant
 
 			modifier = {
-				production_speed_arms_factory_factor = -0.15
+				production_speed_arms_factory_factor = -0.2
 				production_speed_dockyard_factor = 0.2
-				industrial_capacity_factory = -0.15
+				planning_speed = -0.1
+				industrial_capacity_factory = -0.05
 				industrial_capacity_dockyard = 0.1
-				land_doctrine_cost_factor = 0.05
+				land_doctrine_cost_factor = 0.1
 				naval_doctrine_cost_factor = -0.05
 			}
 		}		
@@ -1563,12 +1562,14 @@ ideas = {
 
 			picture = jap_supremacy_of_technology
 			
+			modifier = {
+				special_project_speed_factor = 0.05
+				military_industrial_organization_funds_gain = 0.1 # SPTchange
+			}
+			
 			research_bonus = {
 				infantry_weapons = 0.1 #SPTChange 0.05 -> 0.1
 				armor = 0.1 #SPTChange 0.05 -> 0.1
-			}
-			modifier = { # SPTChange, added modifiers
-				military_industrial_organization_funds_gain = 0.1
 			}
 		}
 
@@ -2153,10 +2154,13 @@ ideas = {
 			modifier = {
 				naval_damage_factor = 0.10 # SPTChange, added naval damage
 				port_strike = 1
+				# carrier_capacity_penalty_reduction = -0.5 # SPTchange
 				sortie_efficiency = 0.5
 				naval_strike_attack_factor = 0.25
 				naval_strike_targetting_factor = 0.25
 				naval_strike_agility_factor = 0.25
+				naval_invasion_planning_bonus_speed = 0.2
+				naval_invasion_prep_days = -5
 			}
 		}
 
@@ -2229,10 +2233,10 @@ ideas = {
 					build_cost_ic = -0.2 instant = yes
 				}
 				cv_small_plane_cas_airframe = {
-					build_cost_ic = -0.2 instant = yes
+					build_cost_ic = -0.2 instant = yes # SPTchange
 				}
 				cv_small_plane_naval_bomber_airframe = {
-					build_cost_ic = -0.2 instant = yes
+					build_cost_ic = -0.2 instant = yes # SPTchange
 				}
 				small_plane_naval_bomber_airframe = {
 					build_cost_ic = -0.2 instant = yes
@@ -2907,6 +2911,47 @@ ideas = {
 				stability_factor = -0.05
 				war_support_factor = -0.05
 				conscription_factor = 0.15
+			}
+
+		}
+
+		JAP_ketsugo_field_expedients = {
+
+			picture = generic_fortify_the_borders
+
+			allowed = {
+				original_tag = JAP
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				dig_in_speed_factor = 0.1
+				max_dig_in = 1
+				army_core_defence_factor = 0.1
+				land_bunker_effectiveness_factor = 0.15
+				coastal_bunker_effectiveness_factor = 0.15
+				mobilization_speed = 0.15 # the emergency puts every reservist on a train at once
+				stability_factor = -0.1 # the army requisitions what the towns were living on
+				consumer_goods_factor = 0.1
+				production_speed_industrial_complex_factor = -0.15 # concrete and steel go to the beaches, not to new factories
+				custom_modifier_tooltip = JAP_ketsugo_field_expedients_tt
+			}
+
+			# Rifles built to the plainest pattern the arsenals will accept
+			equipment_bonus = {
+				infantry_equipment = {
+					instant = yes
+					build_cost_ic = -0.1
+				}
+			}
+
+			cancel = {
+				has_war = no
 			}
 
 		}
@@ -4968,8 +5013,8 @@ ideas = {
 			}
 			
 			modifier = {
-				stability_weekly_factor = 0.002
-				war_support_weekly_factor = 0.002
+				stability_weekly = 0.002
+				war_support_weekly = 0.002
 				army_org_factor = 0.1
 				research_speed_factor = 0.05
 			}
@@ -5131,6 +5176,10 @@ ideas = {
 				always = yes
 			}
 
+			available = {
+				always = no
+			}
+
 			removal_cost = -1
 
 			picture = JAP_japanese_economy
@@ -5156,6 +5205,10 @@ ideas = {
 				always = yes
 			}
 
+			available = {
+				always = no
+			}
+
 			removal_cost = -1
 
 			picture = state_shintoism
@@ -5177,6 +5230,10 @@ ideas = {
 
 			allowed_civil_war = {
 				always = yes
+			}
+
+			available = {
+				always = no
 			}
 
 			removal_cost = -1
@@ -5212,12 +5269,14 @@ ideas = {
 			modifier = {
 				repair_speed_factor = -0.05
 				navy_anti_air_attack_factor = -0.1
+				navy_intel_factor = -0.05 
 			}
 
 			targeted_modifier = {
 				tag = JAP
 				spotting_chance_against = -0.1
 				navy_capital_ship_attack_factor_against = -0.1	
+				navy_screen_attack_factor_against = -0.1 
 			}
 		}
 
@@ -5241,12 +5300,14 @@ ideas = {
 			modifier = {
 				repair_speed_factor = -0.1
 				navy_anti_air_attack_factor = -0.2
+				navy_intel_factor = -0.1 
 			}
 
 			targeted_modifier = {
 				tag = JAP
 				spotting_chance_against = -0.25
 				navy_capital_ship_attack_factor_against = -0.25		
+				navy_screen_attack_factor_against = -0.25  
 			}
 		}
 
@@ -5270,12 +5331,14 @@ ideas = {
 			modifier = {
 				repair_speed_factor = -0.15
 				navy_anti_air_attack_factor = -0.25
+				navy_intel_factor = -0.15 
 			}
 
 			targeted_modifier = {
 				tag = JAP
 				spotting_chance_against = -0.4
 				navy_capital_ship_attack_factor_against = -0.4		
+				navy_screen_attack_factor_against = -0.4 
 			}
 		}
 
@@ -7844,7 +7907,7 @@ ideas = {
 
 		JAP_nippon_sharyo = {
 
-			name = "JAP_nippon_sharyo_organization"
+			name = JAP_nippon_sharyo_organization
 
 			picture = JAP_nippon_sharyo
 
@@ -7961,6 +8024,7 @@ ideas = {
 						
 			allowed = {
 				original_tag = JAP
+				has_dlc = "La Resistance"
 			}
 
 			available = {

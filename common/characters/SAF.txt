@@ -183,6 +183,17 @@ characters={
 			}
 			ai_will_do = {
 				factor = 0.000
+				modifier = {
+					add = 10
+					NOT = { has_government = fascism }
+					OR = {
+						has_country_flag = SAF_AI_RANDOM_FASCIST
+						has_game_rule = {
+							rule = SAF_ai_behavior
+							option = FASCIST
+						}
+					}
+				}
 			}
 		}
 	}
@@ -544,6 +555,17 @@ characters={
 			}
 			ai_will_do = {
 				factor = 0.000
+				modifier = {
+					add = 10
+					NOT = { has_government = communism }
+					OR = {
+						has_country_flag = SAF_AI_RANDOM_COMMUNIST
+						has_game_rule = {
+							rule = SAF_ai_behavior
+							option = COMMUNIST
+						}
+					}
+				}
 			}
 		}		
 	}

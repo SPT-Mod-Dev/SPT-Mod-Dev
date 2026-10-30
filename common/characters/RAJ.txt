@@ -46,7 +46,10 @@ characters={
 				}
 				visible = {
 					NOT = { has_completed_focus = RAJ_incorporation_of_the_east_india_company }
+					OR = {
 					has_completed_focus = RAJ_mahatma
+						RAJ_gandhian_branch_open = yes
+					}
 				}
 				available = {
 					has_completed_focus = RAJ_mahatma
@@ -157,8 +160,11 @@ characters={
 					OR = {
 						has_country_flag = has_swayed_bose_to_communism
 						AND = {
-							has_completed_focus = RAJ_forward_bloc 
 							NOT = { has_country_flag = has_arrested_bose }
+							OR = {
+							has_completed_focus = RAJ_forward_bloc 
+								RAJ_league_branch_open = yes
+							}
 						}
 					}
 				}
@@ -318,6 +324,7 @@ characters={
 			portraits={
 				civilian={
 					large="GFX_RAJ_pattabhi_sitaramayya"
+					small="GFX_idea_RAJ_pattabhi_sitaramayya"
 				}
 			}
 			country_leader={
@@ -333,6 +340,29 @@ characters={
 			portraits={
 				civilian={
 					large="GFX_RAJ_pattabhi_sitaramayya"
+					small="GFX_portrait_RAJ_pattabhi_sitaramayya_small"
+				}
+			}
+			advisor={
+				slot = political_advisor
+				idea_token = RAJ_b_p_sitaramayya
+				allowed = {
+					original_tag = RAJ
+				}
+				visible = {
+					OR = {
+						has_completed_focus = RAJ_swadeshi_movement
+						RAJ_swaraj_branch_open = yes
+					}
+				}
+				available = {
+					has_completed_focus = RAJ_swadeshi_movement
+				}
+				traits = {
+					RAJ_founder_of_andhra_bank
+				}
+				ai_will_do = {
+					factor = 1
 				}
 			}
 		}
@@ -589,8 +619,14 @@ characters={
 			idea_token = RAJ_GOE_arcot_doraiswamy_loganadan
 			allowed = {
 				original_tag = RAJ
+				has_dlc = "Graveyard of Empires"
 			}
-			visible = {   has_completed_focus = RAJ_azad_hind_dlc } 
+			visible = {
+				OR = {
+					has_completed_focus = RAJ_azad_hind_dlc
+					RAJ_forward_bloc_branch_open = yes
+				}
+			} 
 			available = { has_completed_focus = RAJ_azad_hind_dlc }
 			traits = {
 				governor_of_the_andaman_islands 
@@ -598,6 +634,49 @@ characters={
 
 			ai_will_do = {
 				factor = 0.000
+			}
+		}	
+	}
+
+	RAJ_GOE_subbier_appadurai_ayer = {
+		name = RAJ_GOE_subbier_appadurai_ayer
+		portraits = {
+			civilian = {
+				small = GFX_portrait_RAJ_subbier_appadurai_ayer_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = RAJ_GOE_subbier_appadurai_ayer
+			allowed = {
+				original_tag = RAJ
+				has_dlc = "Graveyard of Empires"
+			}
+			visible = {
+				OR = {
+					has_completed_focus = RAJ_azad_hind_dlc_radio
+					RAJ_forward_bloc_branch_open = yes
+				}
+			}
+			available = {
+				has_completed_focus = RAJ_azad_hind_dlc_radio
+			}
+			on_add = {
+				hidden_effect = {
+					ROOT = {
+						set_country_flag = RAJ_GOE_ayer_in_cabinet
+					}
+				}
+			}
+			on_remove = {
+				hidden_effect = {
+					ROOT = {
+						clr_country_flag = RAJ_GOE_ayer_in_cabinet
+					}
+				}
+			}
+			traits = {
+				RAJ_GOE_minister_of_publicity_and_propaganda
 			}
 		}	
 	}
@@ -657,8 +736,14 @@ characters={
 			idea_token = RAJ_GOE_shah_nawaz_khan
 			allowed = {
 				original_tag = RAJ
+				has_dlc = "Graveyard of Empires"
 			}
-			visible = { has_completed_focus = RAJ_azad_hind_dlc } 
+			visible = {
+				OR = {
+					has_completed_focus = RAJ_azad_hind_dlc
+					RAJ_forward_bloc_branch_open = yes
+				}
+			} 
 			available = {
 
 				has_completed_focus = RAJ_azad_hind_dlc
@@ -704,14 +789,11 @@ characters={
 			idea_token = RAJ_orde_wingate
 			allowed = {
 				original_tag = RAJ
+				has_dlc = "Graveyard of Empires"
 			}
 			available = { has_completed_focus = RAJ_chindits_dlc }
 			traits = {
 				special_operations_specialist 
-			}
-
-			visible = {
-				has_completed_focus = RAJ_chindits_dlc
 			}
 
 			ai_will_do = {
@@ -992,7 +1074,12 @@ characters={
 				available = {
 					has_completed_focus = RAJ_seek_domestic_allies
 				}
-				visible = { has_completed_focus = RAJ_seek_domestic_allies }
+				visible = {
+					OR = {
+						has_completed_focus = RAJ_seek_domestic_allies
+						RAJ_forward_bloc_branch_open = yes
+					}
+				}
 			}
 		}
 	}
@@ -1515,6 +1602,29 @@ characters={
 		}
 	}
 
+	RAJ_GOE_asghar_khan = {
+		name = RAJ_GOE_asghar_khan
+		portraits = {
+			army = {
+				small = GFX_portrait_RAJ_asghar_khan_small
+			}
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = RAJ_GOE_asghar_khan
+			allowed = {
+				original_tag = RAJ
+			}
+			traits = {
+				air_chief_night_operations_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
 
 	### MILITARY HIGH COMMAND ###
 
@@ -1606,6 +1716,30 @@ characters={
 			}
 			traits = {
 				air_close_air_support_3
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	RAJ_GOE_richard_peirse = {
+		name = RAJ_GOE_richard_peirse
+		portraits = {
+			army = {
+				small = GFX_portrait_RAJ_richard_peirse_small
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = RAJ_GOE_richard_peirse
+			ledger = air
+			allowed = {
+				original_tag = RAJ
+			}
+			traits = {
+				air_strategic_bombing_2
 			}
 			cost = 100
 			ai_will_do = {
@@ -1744,12 +1878,18 @@ characters={
 			idea_token = RAJ_GOE_ukkirapandi_muthuramalinga_thevar
 			allowed = {
 				original_tag = RAJ
+				has_dlc = "Graveyard of Empires"
 			}
 			available = {
 				has_completed_focus = RAJ_seek_domestic_allies
 			}
 
-			visible = { has_completed_focus = RAJ_seek_domestic_allies }
+			visible = {
+				OR = {
+					has_completed_focus = RAJ_seek_domestic_allies
+					RAJ_forward_bloc_branch_open = yes
+				}
+			}
 			traits = {
 				social_agitator
 			}
@@ -1772,12 +1912,18 @@ characters={
 			idea_token = RAJ_GOE_sarat_bose
 			allowed = {
 				original_tag = RAJ
+				has_dlc = "Graveyard of Empires"
 			}
 			available = {
 				has_completed_focus = RAJ_seek_domestic_allies
 			}
 
-			visible = { has_completed_focus = RAJ_seek_domestic_allies }
+			visible = {
+				OR = {
+					has_completed_focus = RAJ_seek_domestic_allies
+					RAJ_forward_bloc_branch_open = yes
+				}
+			}
 			traits = {
 				revolutionary_barrister
 			}
@@ -1844,7 +1990,10 @@ characters={
 				has_dlc = "Graveyard of Empires"
 			}
 			visible = {
+				OR = {
 				has_completed_focus = RAJ_mahatma
+					RAJ_gandhian_branch_open = yes
+				}
 			}
 			available = {
 				has_completed_focus = RAJ_mahatma
@@ -1860,6 +2009,50 @@ characters={
 		portraits={
 			civilian={
 				large = GFX_portrait_RAJ_m_n_roy
+			}
+		}
+	}
+
+	RAJ_GOE_vallabhbhai_patel = {
+		name = RAJ_GOE_vallabhbhai_patel
+		portraits = {
+			civilian = {
+				small = GFX_portrait_RAJ_vallabhbhai_patel_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = RAJ_GOE_vallabhbhai_patel
+			allowed = {
+				original_tag = RAJ
+				has_dlc = "Graveyard of Empires"
+			}
+			visible = {
+				OR = {
+					has_completed_focus = RAJ_a_congress_resurgent
+					RAJ_gandhian_branch_open = yes
+				}
+			}
+			available = {
+				has_completed_focus = RAJ_a_congress_resurgent
+			}
+			on_add = {
+				ROOT = {
+					hidden_effect = {
+						set_country_flag = RAJ_GOE_patel_in_cabinet
+					}
+					RAJ_GOE_patel_partition_pressure_effect = yes
+				}
+			}
+			on_remove = {
+				hidden_effect = {
+					ROOT = {
+						clr_country_flag = RAJ_GOE_patel_in_cabinet
+					}
+				}
+			}
+			traits = {
+				RAJ_GOE_iron_man_of_india
 			}
 		}
 	}
@@ -1911,6 +2104,7 @@ characters={
 				OR = {
 					has_completed_focus = RAJ_the_punjab_accord
 					has_completed_focus = RAJ_sikh_religious_guarantees
+					NOT = { has_completed_focus = RAJ_great_depression_price_controls }
 				}
 			}
 			available = {
@@ -1941,7 +2135,10 @@ characters={
 				has_dlc = "Graveyard of Empires"
 			}
 			visible = {
+				OR = {
 				has_completed_focus = RAJ_seek_japanese_support
+					RAJ_forward_bloc_branch_open = yes
+				}
 			}
 			available = {
 				has_completed_focus = RAJ_seek_japanese_support
@@ -2645,8 +2842,15 @@ characters={
 			idea_token = RAJ_jim_corbett
 			allowed = {
 				original_tag = RAJ
+				has_dlc = "Graveyard of Empires"
 			}
 			visible = {
+				OR = {
+					has_completed_focus = RAJ_lobby_parliment
+					RAJ_eic_branch_open = yes
+				}
+			}
+			available = {
 				has_completed_focus = RAJ_lobby_parliment
 			}
 			traits = {
@@ -2669,8 +2873,15 @@ characters={
 			idea_token = RAJ_puran_chand_joshi
 			allowed = {
 				original_tag = RAJ
+				has_dlc = "Graveyard of Empires"
 			}
 			visible = {
+				OR = {
+					has_completed_focus = RAJ_rally_the_indian_left
+					RAJ_league_branch_open = yes
+				}
+			}
+			available = {
 				has_completed_focus = RAJ_rally_the_indian_left
 			}
 			traits = {
@@ -2693,8 +2904,15 @@ characters={
 			idea_token = RAJ_bhalchandra_trimbak_ranadive
 			allowed = {
 				original_tag = RAJ
+				has_dlc = "Graveyard of Empires"
 			}
 			visible = {
+				OR = {
+					has_completed_focus = RAJ_rally_the_indian_left
+					RAJ_league_branch_open = yes
+				}
+			}
+			available = {
 				has_completed_focus = RAJ_rally_the_indian_left
 			}
 			traits = {
@@ -2716,8 +2934,15 @@ characters={
 			idea_token = RAJ_elamkulam_manakkal_sakaran_namboodiripad
 			allowed = {
 				original_tag = RAJ
+				has_dlc = "Graveyard of Empires"
 			}
 			visible = {
+				OR = {
+					has_completed_focus = RAJ_rally_the_indian_left
+					RAJ_league_branch_open = yes
+				}
+			}
+			available = {
 				has_completed_focus = RAJ_rally_the_indian_left
 			}
 			traits = {
@@ -2739,8 +2964,15 @@ characters={
 			idea_token = RAJ_shripad_amrit_dange
 			allowed = {
 				original_tag = RAJ
+				has_dlc = "Graveyard of Empires"
 			}
 			visible = {
+				OR = {
+					has_completed_focus = RAJ_rally_the_indian_left
+					RAJ_league_branch_open = yes
+				}
+			}
+			available = {
 				has_completed_focus = RAJ_rally_the_indian_left
 			}
 			traits = {
@@ -2763,8 +2995,15 @@ characters={
 			idea_token = RAJ_sahajanand_saraswati
 			allowed = {
 				original_tag = RAJ
+				has_dlc = "Graveyard of Empires"
 			}
 			visible = {
+				OR = {
+					has_completed_focus = RAJ_rally_the_indian_left
+					RAJ_league_branch_open = yes
+				}
+			}
+			available = {
 				has_completed_focus = RAJ_rally_the_indian_left
 			}
 			traits = {
@@ -2788,7 +3027,16 @@ characters={
 				has_dlc = "Graveyard of Empires"
 			}
 			visible = {
+				OR = {
 				has_country_flag = RAJ_industrialists_joined_eic 
+					RAJ_eic_branch_open = yes
+				}
+			}
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = RAJ_industrialists_joined_eic_tt
+					has_country_flag = RAJ_industrialists_joined_eic
+				}
 			}
 			traits = {
 
@@ -2811,7 +3059,25 @@ RAJ_GOE_g_d_birla= {
 				has_dlc = "Graveyard of Empires"
 			}
 			visible = {
+				OR = {
 				has_country_flag = RAJ_industrialists_joined_eic 
+					has_completed_focus = RAJ_concessions_to_the_industrialists
+					RAJ_eic_branch_open = yes
+					NOT = {
+						has_completed_focus = RAJ_great_depression_price_controls
+						has_completed_focus = RAJ_provincial_autonomy
+						has_completed_focus = RAJ_empower_provincial_authorities
+					}
+				}
+			}
+			available = {
+				OR = {
+					custom_trigger_tooltip = {
+						tooltip = RAJ_industrialists_joined_eic_tt
+						has_country_flag = RAJ_industrialists_joined_eic
+					}
+					has_completed_focus = RAJ_concessions_to_the_industrialists
+				}
 			}
 			traits = {
 				motor_tycoon
@@ -2834,7 +3100,25 @@ RAJ_GOE_j_r_d_tata= {
 				has_dlc = "Graveyard of Empires"
 			}
 			visible = {
+				OR = {
 				has_country_flag = RAJ_industrialists_joined_eic 
+					has_completed_focus = RAJ_concessions_to_the_industrialists
+					RAJ_eic_branch_open = yes
+					NOT = {
+						has_completed_focus = RAJ_great_depression_price_controls
+						has_completed_focus = RAJ_provincial_autonomy
+						has_completed_focus = RAJ_empower_provincial_authorities
+					}
+				}
+			}
+			available = {
+				OR = {
+					custom_trigger_tooltip = {
+						tooltip = RAJ_industrialists_joined_eic_tt
+						has_country_flag = RAJ_industrialists_joined_eic
+					}
+					has_completed_focus = RAJ_concessions_to_the_industrialists
+				}
 			}
 			traits = {
 				tata_chairman
@@ -2857,7 +3141,16 @@ RAJ_GOE_william_rhodes_davis= {
 				has_dlc = "Graveyard of Empires"
 			}
 			visible = {
+				OR = {
 				has_country_flag = RAJ_industrialists_joined_eic 
+					RAJ_eic_branch_open = yes
+				}
+			}
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = RAJ_industrialists_joined_eic_tt
+					has_country_flag = RAJ_industrialists_joined_eic
+				}
 			}
 
 			on_add = {
@@ -2899,7 +3192,16 @@ RAJ_GOE_william_rhodes_davis= {
 				has_dlc = "Graveyard of Empires"
 			}
 			visible = {
+				OR = {
 				has_country_flag = RAJ_industrialists_joined_eic 
+					RAJ_eic_branch_open = yes
+				}
+			}
+			available = {
+				custom_trigger_tooltip = {
+					tooltip = RAJ_industrialists_joined_eic_tt
+					has_country_flag = RAJ_industrialists_joined_eic
+				}
 			}
 			traits = {
 				banking_mogul
@@ -3103,7 +3405,7 @@ RAJ_GOE_william_rhodes_davis= {
 				original_tag = RAJ
 			}
 			traits = {
-				air_chief_night_operations_2
+				air_chief_safety_2
 			}
 			cost = 100
 			ai_will_do = {

@@ -3947,7 +3947,7 @@ DEN_overlord_category = {
 		icon = GFX_decision_oppression
 
 		ai_will_do = {
-			base = 10
+			base = 5
 			modifier = {
 				factor = 2
 				ROOT = {
@@ -4026,7 +4026,7 @@ DEN_overlord_category = {
 		icon = GFX_decision_eng_trade_unions_demand
 
 		ai_will_do = {
-			base = 25
+			base = 10
 			modifier = {
 				factor = 2
 				ROOT = {
@@ -4130,8 +4130,7 @@ DEN_overlord_category = {
 					DEN = {
 						has_government = communism
 					}
-					any_country = {
-						has_war_with = ROOT
+					any_enemy_country = {
 						has_government = communism
 					}
 				}
@@ -4139,8 +4138,7 @@ DEN_overlord_category = {
 					DEN = {
 						has_government = fascism
 					}
-					any_country = {
-						has_war_with = ROOT
+					any_enemy_country = {
 						has_government = fascism
 					}
 				}
@@ -4188,8 +4186,7 @@ DEN_overlord_category = {
 			DEN = {
 				NOT = { has_government = communism }
 			}
-			any_country = {
-				has_war_with = ROOT
+			any_enemy_country = {
 				has_government = communism
 			}
 		}
@@ -4201,8 +4198,7 @@ DEN_overlord_category = {
 				NOT = { has_government = communism }
 				NOT = { has_country_flag = DEN_banned_communism_flag }
 			}
-			any_country = {
-				has_war_with = ROOT
+			any_enemy_country = {
 				has_government = communism
 			}
 		}
@@ -4229,8 +4225,7 @@ DEN_overlord_category = {
 			DEN = {
 				NOT = { has_government = fascism }
 			}
-			any_country = {
-				has_war_with = ROOT
+			any_enemy_country = {
 				has_government = fascism
 			}
 		}
@@ -4242,8 +4237,7 @@ DEN_overlord_category = {
 				NOT = { has_government = fascism }
 				NOT = { has_country_flag = DEN_banned_fascism_flag }
 			}
-			any_country = {
-				has_war_with = ROOT
+			any_enemy_country = {
 				has_government = fascism
 			}
 		}
@@ -4262,7 +4256,7 @@ DEN_overlord_category = {
 		icon = GFX_decision_generic_prepare_civil_war
 
 		ai_will_do = { 
-			base = 25
+			base = 10
 			modifier = {
 				factor = 2
 				has_opinion = {
@@ -4324,7 +4318,7 @@ DEN_overlord_category = {
 		icon = GFX_decision_generic_military
 
 		ai_will_do = { 
-			base = 25
+			base = 10
 			modifier = {
 				factor = 2
 				has_opinion = {
@@ -4522,9 +4516,8 @@ DEN_trade_deal_category = {
 			base = 0
 			modifier = {
 				add = 25
-				has_opinion = {
-					target = DEN
-					value < -50
+				DEN = {
+					has_added_tension_amount > 24
 				}
 			}
 		}
@@ -4581,16 +4574,8 @@ DEN_trade_deal_category = {
 			base = 0
 			modifier = {
 				add = 25
-				has_opinion = {
-					target = FROM
-					value < -25
-				}
-			}
-			modifier = {
-				factor = 2
-				has_opinion = {
-					target = FROM
-					value < -50
+				FROM = {
+					has_added_tension_amount > 24
 				}
 			}
 		}
@@ -7345,7 +7330,7 @@ DEN_danish_faction_category = {
 		}
 
 		visible = {	
-			always = no
+			always = no #SPTchange?
 			OR = {
 				has_completed_focus = DEN_denmark_first
 				has_country_flag = DEN_create_northern_national_front_flag
@@ -7490,7 +7475,7 @@ DEN_danish_faction_category = {
 		}
 
 		visible = {	
-			always = no
+			always = no #SPTchange?
 			has_tech_sharing_feature = yes
 			OR = {
 				has_completed_focus = DEN_denmark_first

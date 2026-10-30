@@ -248,7 +248,7 @@ characters={
 		name=CAN_george_volkoff
 		portraits={
 			army={
-				large = GFX_portrait_generic_europe_male_01 #TODO_Manu: GFX_portrait_CAN_george_volkoff
+				large = GFX_portrait_CAN_george_volkoff
 				small="GFX_idea_CAN_george_volkoff" #small="GFX_idea_generic_political_advisor_europe_2"
 			}
 		}
@@ -706,6 +706,17 @@ characters={
 			}
 			ai_will_do = {
 				factor = 0.000
+				modifier = {
+					add = 10
+					NOT = { has_government = fascism }
+					OR = {
+						has_country_flag = CAN_AI_RANDOM_FASCIST
+						has_game_rule = {
+							rule = CAN_ai_behavior
+							option = FASCIST
+						}
+					}
+				}
 			}
 		}
 	}
@@ -797,6 +808,17 @@ characters={
 			}
 			ai_will_do = {
 				factor = 0.000
+				modifier = {
+					add = 10
+					NOT = { has_government = communism }
+					OR = {
+						has_country_flag = CAN_AI_RANDOM_COMMUNIST
+						has_game_rule = {
+							rule = CAN_ai_behavior
+							option = COMMUNIST
+						}
+					}
+				}
 			}
 		}
 	}

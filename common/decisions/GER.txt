@@ -296,6 +296,22 @@ GER_seize_gold_reserves_cat = {
 				NOT = { #Don't seize France's gold reserves too soon; set up Vichy France first. Set in event France.10 and cleared in event france.14
 					has_country_flag = GER_dont_seize_gold_reserves_flag
 				}
+				if = {
+					limit = {
+						has_country_flag = GER_has_capitulated_to_germany_is_dynamic_country #it will have lost its cores so the regular method wont work
+					}
+					set_temp_variable = {
+						var = country_tag
+						value = var:GER_has_capitulated_to_germany_dynamic_country_original_tag
+					}
+				}
+				else = {
+					set_temp_variable = {
+						var = country_tag
+						value = THIS
+					}
+				}
+				var:country_tag = {
 				any_core_state = {
 					is_controlled_by = ROOT
 					NOT = { is_core_of = ROOT }
@@ -304,6 +320,7 @@ GER_seize_gold_reserves_cat = {
 						check_variable = { industrial_complex_level > 0 }
 						check_variable = { arms_factory_level > 0 }
 						check_variable = { building_level@dockyard > 0 }
+						}
 					}
 				}
 			}
@@ -331,9 +348,31 @@ GER_seize_gold_reserves_cat = {
 
 		complete_effect = {
 			set_temp_variable = { occupied_state_num_factory = 0 } #This will show how many factories in total Germany controls from FROM's cores
-			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_military_factories_in_cores@GER }
-			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_civilian_factories_in_cores@GER }
-			add_to_temp_variable = { GER.occupied_state_num_factory = FROM.num_of_naval_factories_in_cores@GER }
+			if = {
+				limit = {
+					FROM = {
+						has_country_flag = GER_has_capitulated_to_germany_is_dynamic_country #it will have lost its cores so the regular method wont work #set in 00_on_actions when a country capitulates to germany
+					}
+				}
+				FROM = {
+					set_temp_variable = {
+						var = country_tag #this variable will be set to the original tag if relevant, otherwise the variable is just set to the tag as usual
+						value = var:GER_has_capitulated_to_germany_dynamic_country_original_tag #set in 00_on_actions when a country capitulates to germany
+					}
+				}
+			}
+			else = {
+				FROM = {
+					set_temp_variable = {
+						var = country_tag #this is what happens 99% of the time. typically, var:country_tag=FROM
+						value = THIS
+					}
+				}
+			}
+			# factories in states germany controls cored by var:country_tag (typically means FROM) are added
+			add_to_temp_variable = { occupied_state_num_factory = var:country_tag:num_of_military_factories_in_cores@GER }
+			add_to_temp_variable = { occupied_state_num_factory = var:country_tag:num_of_civilian_factories_in_cores@GER }
+			add_to_temp_variable = { occupied_state_num_factory = var:country_tag:num_of_naval_factories_in_cores@GER }
 
 			if = {
 				limit = {
@@ -344,6 +383,7 @@ GER_seize_gold_reserves_cat = {
 					}
 				}
 				FROM = {
+					var:country_tag = {
 					every_core_state = {
 						limit = {
 							is_on_continent = europe
@@ -354,11 +394,13 @@ GER_seize_gold_reserves_cat = {
 						add_resistance = 10
 						set_state_flag = GER_seize_gold_reserves_state_flag
 						add_dynamic_modifier = { modifier = GER_overburdened_state_modifier days = 90 }
+						}
 					}
 				}
 			}
 			else = {
 				FROM = {
+					var:country_tag = {
 					every_core_state = {
 						limit = {
 							is_fully_controlled_by = ROOT
@@ -368,6 +410,7 @@ GER_seize_gold_reserves_cat = {
 						add_resistance = 10
 						set_state_flag = GER_seize_gold_reserves_state_flag
 						add_dynamic_modifier = { modifier = GER_overburdened_state_modifier days = 90 }
+						}
 					}
 				}
 			}
@@ -386,12 +429,12 @@ GER_seize_gold_reserves_cat = {
 				}
 				subtract_from_temp_variable = { occupied_state_num_factory = GER_reduce_russian_CG_bonus }
 			}
-			
 			custom_effect_tooltip = GER_modify_economy_of_conquest_modifier_tt
 			add_to_variable = {
 				GER_industrial_consumer_goods_factor = occupied_state_num_factory
 				tooltip = consumer_goods_factor_tt
 			}
+
 			GER_reduce_mefo_bills_penalty = yes
 		}
 	}
@@ -3303,11 +3346,11 @@ GER_hilfskreuzer_cat = {
 		}
 
 		remove_effect = {
-			if = {
+			IF = {
 				limit = {
 					has_dlc = "Man the Guns"
 				}
-				if = {
+				IF = {
 					limit = {
 						NOT = { has_country_flag = GER_create_merchant_raider_variant }
 					}
@@ -3339,8 +3382,8 @@ GER_hilfskreuzer_cat = {
 				}
 				hidden_effect = { add_to_variable = { GER_convoy_to_cruiser_count = 1 } } # SPTChange limit clicks
 			}
-			else = {
-				if = {
+			ELSE = {
+				IF = {
 					limit = {
 						NOT = { has_country_flag = GER_create_merchant_raider_variant }
 					}
@@ -3451,6 +3494,20 @@ GER_case_anton_category = {
 
 		icon = generic_operation
 
+		visible = {
+			original_tag = GER
+			has_government = fascism
+			any_country_with_original_tag = {
+				original_tag_to_check = FRA
+				has_government = fascism
+				OR = {
+					is_subject_of = GER
+					has_focus_tree = vichy_french_focus
+				}
+				NOT = { has_war_with = GER }
+			}
+		}
+
 		available = {
 			original_tag = GER
 			has_war = yes
@@ -3497,27 +3554,14 @@ GER_case_anton_category = {
 		cost = 50
 		fire_only_once = yes
 
-		visible = {
-			original_tag = GER
-			has_government = fascism
-			any_country_with_original_tag = {
-				original_tag_to_check = FRA
-				has_government = fascism
-				OR = {
-					is_subject_of = GER
-					has_focus_tree = vichy_french_focus
-				}
-				NOT = { has_war_with = GER }
-			}
-		}
 		ai_will_do = {
-			factor = 25
-
+			base = 25 
 			modifier = {
 				factor = 0
 				VIC = { is_ai = no }
 			}
 		}
+
 		complete_effect = {
 			custom_effect_tooltip = GER_case_anton_tt
 			hidden_effect = {
@@ -3535,7 +3579,9 @@ GER_case_anton_category = {
 				}
 			}
 		}
+
 	}
+	
 }
 
 # REICHSKOMMISARIATS 
@@ -4041,7 +4087,7 @@ GER_reichskommissariats = {
 						}
 					}
 					transfer_state_to = RKB
-					add_compliance = 25
+					add_core_of = RKB
 				}
 				every_state = {	
 					limit = {
@@ -4106,6 +4152,9 @@ GER_reichskommissariats = {
 			has_completed_focus = GER_uplift_the_rosenberg_office
 			RKO = {
 				exists = no
+			}
+			NOT = {
+				has_country_flag = GER_block_ostland_rk
 			}
 		}
 
@@ -4251,6 +4300,17 @@ GER_reichskommissariats = {
 
 		ai_will_do = {
 			base = 5
+			modifier = {
+				factor = 0
+				POL = {
+					is_ai = no
+					is_subject_of = ROOT
+					OR = {
+						has_completed_focus = POL_seek_german_alignment
+						has_completed_focus = POL_beck_ribbentrop
+					}
+				}
+			}
 			modifier = {
 				add = 50
 				SOV = { has_capitulated = yes }
@@ -4423,6 +4483,9 @@ GER_reichskommissariats = {
 			has_completed_focus = GER_uplift_the_rosenberg_office
 			RKU = {
 				exists = no
+			}
+			NOT = {
+				has_country_flag = GER_block_ukraine_rk
 			}
 		}
 
@@ -4618,6 +4681,16 @@ GER_reichskommissariats = {
 						}
 						NOT = {
 							state = 202
+						}
+						NOT = {
+							state = 93
+							is_core_of = POL
+							owner = {
+								OR = {
+									has_completed_focus = POL_seek_german_alignment
+									has_completed_focus = POL_beck_ribbentrop
+								}
+							}
 						}
 						OR = {
 							is_owned_by = ROOT
@@ -15621,7 +15694,7 @@ GER_influence_countries_cat = {
 			}
 		}
 
-		targets = { SLV CRO MAC MNT BOS HRZ SER ALB YUG GRE ROM MLD BUL KOS TRA }
+		targets = { SLV CRO MAC MNT BOS HRZ SER ALB YUG GRE ROM MLT BUL KOS TRA }
 
 		target_trigger = {
 			FROM = {
@@ -15704,7 +15777,7 @@ GER_influence_countries_cat = {
 			}
 		}
 
-		targets = { SLV CRO MAC MNT BOS HRZ SER ALB YUG GRE ROM MLD BUL KOS TRA }
+		targets = { SLV CRO MAC MNT BOS HRZ SER ALB YUG GRE ROM MLT BUL KOS TRA }
 
 		target_trigger = {
 			FROM = {
@@ -15789,7 +15862,7 @@ GER_influence_countries_cat = {
 			}
 		}
 
-		targets = { SLV CRO MAC MNT BOS HRZ SER ALB YUG GRE ROM MLD BUL KOS TRA }
+		targets = { SLV CRO MAC MNT BOS HRZ SER ALB YUG GRE ROM MLT BUL KOS TRA }
 
 		target_trigger = {
 			FROM = {
@@ -15878,7 +15951,7 @@ GER_invite_to_faction_cat = {
 			}
 		}
 
-		targets = { SWE NOR FIN DEN EST LAT LIT SMI ICE KAR PER IRQ SYR SAU EGY JOR LEB OMA YEM PAL KUW QAT UAE KUR SLV CRO MAC MNT BOS HRZ SER ALB YUG GRE ROM MLD BUL KOS TRA }
+		targets = { SWE NOR FIN DEN EST LAT LIT SMI ICE KAR PER IRQ SYR SAU EGY JOR LEB OMA YEM PAL KUW QAT UAE KUR SLV CRO MAC MNT BOS HRZ SER ALB YUG GRE ROM MLT BUL KOS TRA }
 
 		target_trigger = {
 			if = {
@@ -15970,7 +16043,7 @@ GER_invite_to_faction_cat = {
 							original_tag = YUG
 							original_tag = GRE
 							original_tag = ROM
-							original_tag = MLD
+							original_tag = MLT
 							original_tag = BUL
 							original_tag = KOS
 							original_tag = TRA
@@ -22629,10 +22702,6 @@ GER_the_fading_eagle_category = {
 		}
 	
 		visible = { 
-			any_country_with_original_tag = {
-				original_tag_to_check = ITA
-				is_subject_of = ROOT
-			}
 			ALB = {
 				is_in_faction_with = ROOT
 				is_subject = no
@@ -22689,10 +22758,7 @@ GER_the_fading_eagle_category = {
 		}
 	
 		visible = { 
-			any_country_with_original_tag = {
-				original_tag_to_check = ITA
-				is_subject_of = ROOT
-			}
+
 			MNT = {
 				is_in_faction_with = ROOT
 				is_subject = no
@@ -22749,10 +22815,6 @@ GER_the_fading_eagle_category = {
 		}
 	
 		visible = { 
-			any_country_with_original_tag = {
-				original_tag_to_check = ITA
-				is_subject_of = ROOT
-			}
 			CRO = {
 				is_in_faction_with = ROOT
 				is_subject = no
@@ -22809,10 +22871,6 @@ GER_the_fading_eagle_category = {
 		}
 	
 		visible = { 
-			any_country_with_original_tag = {
-				original_tag_to_check = ITA
-				is_subject_of = ROOT
-			}
 			SER = {
 				is_in_faction_with = ROOT
 				is_subject = no
@@ -22869,10 +22927,6 @@ GER_the_fading_eagle_category = {
 		}
 	
 		visible = { 
-			any_country_with_original_tag = {
-				original_tag_to_check = ITA
-				is_subject_of = ROOT
-			}
 			BOS = {
 				is_in_faction_with = ROOT
 				is_subject = no
@@ -22929,10 +22983,6 @@ GER_the_fading_eagle_category = {
 		}
 	
 		visible = { 
-			any_country_with_original_tag = {
-				original_tag_to_check = ITA
-				is_subject_of = ROOT
-			}
 			HRZ = {
 				is_in_faction_with = ROOT
 				is_subject = no
@@ -22989,10 +23039,6 @@ GER_the_fading_eagle_category = {
 		}
 	
 		visible = { 
-			any_country_with_original_tag = {
-				original_tag_to_check = ITA
-				is_subject_of = ROOT
-			}
 			MAC = {
 				is_in_faction_with = ROOT
 				is_subject = no
@@ -23049,10 +23095,6 @@ GER_the_fading_eagle_category = {
 		}
 	
 		visible = { 
-			any_country_with_original_tag = {
-				original_tag_to_check = ITA
-				is_subject_of = ROOT
-			}
 			SLV = {
 				is_in_faction_with = ROOT
 				is_subject = no
@@ -23109,10 +23151,6 @@ GER_the_fading_eagle_category = {
 		}
 	
 		visible = { 
-			any_country_with_original_tag = {
-				original_tag_to_check = ITA
-				is_subject_of = ROOT
-			}
 			KOS = {
 				is_in_faction_with = ROOT
 				is_subject = no
