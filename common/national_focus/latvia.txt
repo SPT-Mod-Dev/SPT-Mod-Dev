@@ -438,15 +438,25 @@ focus_tree = {
 			promote_character = LAT_fricis_menders
 			effect_tooltip = {
 				swap_ruler_traits = {
-
 					remove = subservient_democrat add = subservient_democrat_democratic
 				}
-
 			}
 			remove_ideas = democratic_opposition_idea_1
 			add_popularity = {
 				ideology = democratic
 				popularity = 0.1
+			}
+			hidden_effect = {
+				LAT_alberts_kvesis = {
+					remove_trait = {
+						trait = subservient_democrat
+						slot = political_advisor
+					}
+					add_trait = {
+						trait = subservient_democrat_democratic
+						slot = political_advisor
+					}	
+				}
 			}
 		}
 	}
@@ -1307,7 +1317,6 @@ focus_tree = {
 				remove_idea = LAT_paramilitary_idea_1
 				add_idea = LAT_paramilitary_idea_2
 			}
-			activate_decision = women_in_the_workforce
 		}
 	}
 	
@@ -1681,7 +1690,21 @@ focus_tree = {
 		}
 
 		bypass = {
+			fascism > 0.4
 			is_in_faction_with = GER
+		}
+
+		bypass_effect = {
+			set_politics = {
+				ruling_party = fascism
+				elections_allowed = no
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.15
+			}
+			remove_mission = LAT_perkonkrust_uprising
+			remove_perkonkrust_effect = yes
 		}
 
 		cancel_if_invalid = no
@@ -2851,7 +2874,7 @@ focus_tree = {
 			else = {
 				add_tech_bonus = {
 					name = underground_bonus
-					bonus = 1.0
+					bonus = 0.75
 					uses = 2
 					category = electronics
 				}

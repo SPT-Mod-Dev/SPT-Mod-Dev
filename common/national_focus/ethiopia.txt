@@ -16,8 +16,9 @@ focus_tree = {
 			original_tag = ETH
 			has_dlc = "By Blood Alone"
 			NOT = {
-				any_other_country = { 
-					original_tag = ETH # There can be only one...
+				any_other_country_with_original_tag_of = {
+					exists = yes
+					target = {ETH} #There can be only one...
 					has_government = ROOT # or four actually...
 				}
 			}
@@ -721,7 +722,7 @@ focus_tree = {
 		completion_reward = {
 			add_doctrine_cost_reduction = {
 				name = ETH_tactical_training 
-				cost_reduction = 0.75
+				cost_reduction = 0.50
 				uses = 2 
 				category = land_doctrine
 			}
@@ -777,7 +778,6 @@ focus_tree = {
 		search_filters = {}
 
 		completion_reward = {
-			hidden_effect = {
 				create_equipment_variant = {
 					name = "CR.32" #
 					type = small_plane_airframe_0
@@ -798,9 +798,8 @@ focus_tree = {
 					obsolete = yes
 					icon = "GFX_ITA_early_bomber_old_medium"
 				}
-			}
-			custom_effect_tooltip = ETH_copy_light_plane_tt
-			custom_effect_tooltip = ETH_copy_medium_plane_tt
+			#custom_effect_tooltip = ETH_copy_light_plane_tt #Obsolete tt now
+			#custom_effect_tooltip = ETH_copy_medium_plane_tt #Obsolete tt now
 		}
 	}
 	focus = {
@@ -1148,7 +1147,7 @@ focus_tree = {
 			add_tech_bonus = {
 				name = ETH_new_weapons_and_tactics_bonus
 				bonus = 0.5
-				uses = 4
+				uses = 3
 				category = infantry_weapons
 				category = armor
 				category = artillery
@@ -1210,8 +1209,10 @@ focus_tree = {
 		search_filters = {}
 
 		completion_reward = {
-			custom_effect_tooltip = ETH_available_as_air_chief_tt
+			#custom_effect_tooltip = ETH_available_as_air_chief_tt
+			custom_effect_tooltip = available_chief_of_airforce
 			show_ideas_tooltip = ETH_carl_gustav_von_rosen
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = ETH_bring_in_foreign_advisors_tt
 			add_to_variable = {	ETH_airforce_enemy_army_bonus_air_superiority_factor = -0.05 }
 			add_to_variable = {	ETH_airforce_air_doctrine_cost_factor = -0.05}
@@ -1637,6 +1638,7 @@ focus_tree = {
 			}
 		}
 	}
+
 	focus = {
 		id = ETH_expanding_the_railway_network
 		icon = GFX_focus_POL_warsaw_main_station
@@ -1688,10 +1690,12 @@ focus_tree = {
 					}
 				}
 			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			custom_effect_tooltip = available_industrial_concern
 			show_ideas_tooltip = ETH_cie
 		}
 	}
+
 	focus = {
 		id = ETH_taxing_the_nobility
 		icon = GFX_focus_mex_privatisation
@@ -1778,7 +1782,7 @@ focus_tree = {
 			add_stability = 0.03
 			custom_effect_tooltip = ETH_communal_agriculture_consumer_tt
 			add_to_variable = {
-				ETH_industrialization_consumer_goods_factor = -0.05
+				ETH_industrialization_consumer_goods_factor = -0.15
 			}
 		}
 	}
@@ -1890,7 +1894,7 @@ focus_tree = {
 			navy_experience = 35
 			add_tech_bonus = {
 				name = ETH_shipbuilding_bonus
-				bonus = 0.25
+				bonus = 0.5
 				uses = 1
 				category = dd_tech
 			}
@@ -2108,9 +2112,18 @@ focus_tree = {
 				}
 
 			}
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}	
+				custom_effect_tooltip = invites_mio_tt
+				show_mio_tooltip = ETH_hmmbi_organization
+			}
+			ELSE = {
 			custom_effect_tooltip = available_designer
 			show_ideas_tooltip = ETH_hmmbi
 		}
+	}
 	}
 	focus = {
 		id = ETH_invest_in_the_east
@@ -2212,9 +2225,18 @@ focus_tree = {
 					set_state_flag = ETH_can_improve_communication_state_flag
 				}
 			}
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}	
+				custom_effect_tooltip = invites_mio_tt
+				show_mio_tooltip = ETH_ncgf_organization
+			}
+			ELSE = {
 			custom_effect_tooltip = available_designer
 			show_ideas_tooltip = ETH_ncgf
 		}
+	}
 	}
 	focus = {
 		id = ETH_expand_the_coffee_industry
@@ -2409,7 +2431,10 @@ focus_tree = {
 		completion_reward = {
 			add_stability = 0.1
 			add_ideas = ETH_national_studs_idea
-			set_technology = { camelry = 1 }
+			set_technology = {
+				camelry = 1
+				popup = no
+			}	
 		}
 	}
 	focus = {
@@ -2435,6 +2460,7 @@ focus_tree = {
 			add_research_slot = 1
 		}
 	}
+
 	focus = {
 		id = ETH_invite_foreign_prospectors
 		icon = GFX_goal_generic_intelligence_exchange
@@ -2478,8 +2504,21 @@ focus_tree = {
 			custom_effect_tooltip = ETH_invite_foreign_prospectors_tt
 			custom_effect_tooltip = available_industrial_concern
 			show_ideas_tooltip = ETH_tenneco
-			custom_effect_tooltip = available_industrial_concern
 			show_ideas_tooltip = ETH_standard_oil_california
+			hidden_effect = {	#tracks whether the category should be visible
+				841 = {
+					set_state_flag = ETH_can_prospect_resources_state_flag
+				}
+				842 = {
+					set_state_flag = ETH_can_prospect_resources_state_flag
+				}
+				840 = {
+					set_state_flag = ETH_can_prospect_resources_state_flag
+				}
+				843 = {
+					set_state_flag = ETH_can_prospect_resources_state_flag
+				}
+			}
 		}
 	}
 
@@ -2507,6 +2546,13 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 
 		completion_reward = {
+			if = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				unlock_decision_category_tooltip = foreign_mio_decisions_category
+			}
+			else = {
 			custom_effect_tooltip = ETH_invite_foreign_industrialists_tt
 			IF = {
 				limit = {
@@ -2564,6 +2610,7 @@ focus_tree = {
 				}
 			}
 		}
+	}
 	}
 
 ### #  # ###      ## ###  ##   ##  #  # ###      ### ###  ##  #    ##     ### ### #  # ###  ##  ###  ###  ##  #  #     #   #  ##  ###  
@@ -2757,6 +2804,12 @@ focus_tree = {
 					instant_build = yes
 					province = 5010
 				}
+				if = {
+					limit = {	#(Above shouldnt need this check since it determines who is considered state controller)
+						var:global.province_controllers^8036 = {
+							tag = ROOT
+						}
+					}
 				custom_effect_tooltip = ETH_the_defense_of_addis_ababa_tt_2
 				add_building_construction = {
 					type = bunker
@@ -2766,6 +2819,7 @@ focus_tree = {
 				}
 			}
  		}
+ 	}
  	}
  	focus = {
  		id = ETH_the_hindenburg_wall
@@ -2802,6 +2856,12 @@ focus_tree = {
 					level = 1
 					instant_build = yes
 				}
+	 			IF = {
+	 				limit = {
+	 					ROOT = {
+	 						controls_province = 7980
+	 					}
+	 				}
  				custom_effect_tooltip = ETH_the_hindenburg_wall_tt_1
 	 			add_building_construction = {
 					type = bunker
@@ -2809,6 +2869,14 @@ focus_tree = {
 					instant_build = yes
 					province = 7980
 				}
+ 				}
+	 				
+				IF = {
+	 				limit = {
+	 					ROOT = {
+	 						controls_province = 7980
+	 					}
+	 				}
 				custom_effect_tooltip = ETH_the_hindenburg_wall_tt_2
 				add_building_construction = {
 					type = bunker
@@ -2816,6 +2884,8 @@ focus_tree = {
 					instant_build = yes
 					province = 13249
 				}
+			}
+
 			}
  		}
  	}
@@ -3053,6 +3123,13 @@ focus_tree = {
 
 		completion_reward = {
 			custom_effect_tooltip = ETH_rally_around_the_emperor_tt
+			hidden_effect = {
+				ETH_haile_selassie = {
+					remove_advisor_role = {
+						slot = political_advisor
+					}
+				}
+			}
 			custom_effect_tooltip = ETH_the_second_italo-ethiopian_war_tt
 			add_political_power = 50
 			add_popularity = {
@@ -3213,6 +3290,12 @@ focus_tree = {
 
  		completion_reward = {
  			custom_effect_tooltip = ETH_arms_purchases_tt
+ 			hidden_effect = {
+	 			remove_relation_rule_override = {
+	 				trigger = has_lon_arms_embargo
+	 				can_access_market = no
+	 			}
+	 		}
  		}
  	}
  	focus = {
@@ -3870,15 +3953,14 @@ focus_tree = {
 				limit = {
 					has_dlc = "No Step Back"
 				}
-				custom_effect_tooltip = ETH_light_tank_tt
-				hidden_effect = {
+				#custom_effect_tooltip = ETH_light_tank_tt #Obsolete tt now
 					create_equipment_variant = {
 						name = "L3/35"
 						type = light_tank_chassis_1
 						parent_version = 0
 						modules = {
 							main_armament_slot = tank_heavy_machine_gun
-							turret_type_slot = tank_light_three_man_tank_turret #SPTChange from fixed to 3 man
+						turret_type_slot = tank_light_fixed_superstructure_turret
 							suspension_type_slot = tank_bogie_suspension
 							armor_type_slot = tank_riveted_armor
 							engine_type_slot = tank_gasoline_engine
@@ -3890,9 +3972,7 @@ focus_tree = {
 						icon = "GFX_ITA_basic_light_tank_medium"
 					}
 				}
-			}
-			custom_effect_tooltip = ETH_aircraft_tt
-			hidden_effect = {
+			#custom_effect_tooltip = ETH_aircraft_tt #Obsolete tt now
 				create_equipment_variant = {
 					name = "CR.32" #
 					type = small_plane_airframe_0
@@ -3915,7 +3995,6 @@ focus_tree = {
 				}
 			}
 		}
-	}
 	focus = {
 		id = ETH_organize_regional_revolts
 		icon = GFX_goal_generic_occupy_states_ongoing_war
@@ -4173,11 +4252,12 @@ focus_tree = {
 					target = ROOT
 					value > 99
 				}
-				OR = {
-					owns_state = 454
-					any_country = {
-						is_subject_of = PREV
-						owns_state = 454
+				454 = {
+					owner = {
+						OR = {
+							tag = ENG
+							is_subject_of = ENG
+						}
 					}
 				}
 			}
@@ -4690,8 +4770,11 @@ focus_tree = {
 		y = 1
 		relative_position_id = ETH_a_federal_empire
 		cost = 10
+
 		available = {
+			is_subject = no
 		}
+
 		ai_will_do = {
 			base = 1
 			modifier = {
@@ -4742,6 +4825,7 @@ focus_tree = {
 		relative_position_id = ETH_restore_the_empire_of_axum
 		cost = 10
 		available = {
+			is_subject = no
 		}
 		ai_will_do = {
 			base = 1
@@ -5197,6 +5281,7 @@ focus_tree = {
 			create_equipment_variant = {
 				name = "He 51" #
 				type = small_plane_airframe_0
+				allow_without_tech = yes #Makes no difference since tech is granted above, but makes tooltip shorter and less confusing
 				modules = {
 					fixed_main_weapon_slot = light_mg_2x
 					engine_type_slot = engine_1_1x
@@ -5206,6 +5291,7 @@ focus_tree = {
 			create_equipment_variant = {
 				name = "DO 23" #
 				type = medium_plane_airframe_0
+				allow_without_tech = yes #Makes no difference since tech is granted above, but makes tooltip shorter and less confusing
 				modules = {
 					fixed_main_weapon_slot = medium_bomb_bay
 					fixed_auxiliary_weapon_slot_1 = empty
@@ -5272,6 +5358,7 @@ focus_tree = {
 					name = "Panzer I Ausf. A"
 					type = light_tank_chassis_1
 					parent_version = 0
+					allow_without_tech = yes #Makes no difference since tech is granted above, but makes tooltip shorter and less confusing
 					modules = {
 						main_armament_slot = tank_heavy_machine_gun
 						turret_type_slot = tank_light_one_man_tank_turret
@@ -5448,7 +5535,7 @@ focus_tree = {
 			IF = {
 				limit = { NOT = { has_dlc = "La Resistance"} }
 				add_tech_bonus = {
-					bonus = 0.75
+					bonus = 0.5
 					uses = 2
 					category = electronics
 				}
@@ -5550,7 +5637,6 @@ focus_tree = {
 		search_filters = {}
 
 		completion_reward = {
-			custom_effect_tooltip = TODO
 			ITA = {
 				every_owned_state = {
 					limit = {
@@ -5580,14 +5666,15 @@ focus_tree = {
 		}
 		available = {
 			SWE = { is_in_faction = no }
-			any_country = {
+			ITA = {
+				any_enemy_country = {
 				is_faction_leader = yes 
-				has_war_with = ITA 
 				NOT = {
 					any_allied_country = {
 						has_war_with = SWE
 					}
 				}
+			}
 			}
 			OR = {
 				is_government_in_exile = no 
@@ -6096,12 +6183,13 @@ focus_tree = {
 		completion_reward = {
 			#custom_effect_tooltip = rebellious_educator_tt
 			custom_effect_tooltip = ETH_the_new_administration_tt
-			hidden_effect ={
+			hidden_effect = {
 				ETH_senedu_gebru = {
 						set_character_flag = ETH_visible_advisor_flag
 				}
 				ETH_random_character = yes
-				ETH_random_character = yes}
+				ETH_random_character = yes
+			}
 		}
 	}
 
@@ -6343,13 +6431,13 @@ focus_tree = {
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = ETH_france_divided_tt
-				any_country = {
-					original_tag = FRA 
+				any_country_with_original_tag = {
+					original_tag_to_check = FRA 
 					exists = yes 
 					has_government = fascism
 				}
-				any_country = {
-					original_tag = FRA 
+				any_country_with_original_tag = {
+					original_tag_to_check = FRA 
 					exists = yes 
 					NOT = { has_government = fascism }
 				}
@@ -6677,7 +6765,7 @@ focus_tree = {
 			add_tech_bonus = {
 				name = ETH_mass_transit
 				bonus = 1
-				uses = 2
+				uses = 1
 				category = train_tech
 			}
 			ETH_BOP_decentralization_large_effect = yes
@@ -6704,7 +6792,7 @@ focus_tree = {
 			}
 			custom_effect_tooltip = ETH_communal_agriculture_consumer_tt
 			add_to_variable = {
-				ETH_industrialization_consumer_goods_factor = -0.05
+				ETH_industrialization_consumer_goods_factor = -0.15
 			}
 			ETH_BOP_decentralization_large_effect = yes
 		}
@@ -6755,7 +6843,8 @@ focus_tree = {
 				add_building_construction = {
 					type = bunker
 					province = {
-						id = 5010
+						all_provinces = yes
+						limit_to_victory_point > 8
 					}
 					level = 2
 					instant_build = yes
@@ -6883,8 +6972,15 @@ focus_tree = {
 					localization = ETH_mytishchi-ababa_plant
 				}	
 			}
+			IF = {
+				limit = { has_dlc = "Arms Against Tyranny" }
+				custom_effect_tooltip = available_industrial_concern 
+				custom_effect_tooltip = SOV_mytishchy_machine_building_plant_organization
+			}
+			ELSE = {
 			custom_effect_tooltip = available_designer
 			show_ideas_tooltip = SOV_mytishchy_machine_building_plant
+			}
 			ETH_BOP_centralization_large_effect = yes
 		}
 	}
@@ -6952,10 +7048,33 @@ focus_tree = {
 					modifier = ETH_SOV_trade 
 				} 
 			}
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}	
+				custom_effect_tooltip = invites_mio_tt
+				show_mio_tooltip = SOV_rubin_design_bureau_organization
+				show_mio_tooltip = SOV_mig_design_bureau_organization
+				show_mio_tooltip = SOV_gaz_organization
+
+				mio:SOV_rubin_design_bureau_organization = {
+					add_mio_size = 1
+				}
+				mio:SOV_mig_design_bureau_organization = {
+					add_mio_size = 1
+				}
+				mio:SOV_gaz_organization = {
+					add_mio_size = 1
+				}
+
+			}
+			ELSE = {
 			custom_effect_tooltip = available_designer
 			show_ideas_tooltip = SOV_rubin_design_bureau
 			show_ideas_tooltip = SOV_mig_design_bureau
 			show_ideas_tooltip = SOV_gaz
+			}
+			custom_effect_tooltip = available_industrial_concern
 			custom_effect_tooltip = ETH_stalingrad_tractor_factory_tt
 			IF = {
 				limit = { is_subject_of = SOV }
@@ -7072,11 +7191,19 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_ANNEXATION}
 
 		completion_reward = {
+
 				create_wargoal = {
 					type = puppet_wargoal_focus
 					target = SAU
 					expire = 0
 			} 
+
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = YEM
+				expire = 0
+			} 
+
 		}
 	}
 
@@ -7096,7 +7223,7 @@ focus_tree = {
 		completion_reward = {	
 			navy_experience = 35
 			add_tech_bonus = {
-				bonus = 0.25
+				bonus = 0.5
 				uses = 1
 				category = bb_tech
 			}		
@@ -7105,12 +7232,14 @@ focus_tree = {
 					has_dlc = "Man the Guns"
 					country_exists = SOV
 				}
+
 				create_ship = {
 					type = ship_hull_heavy_1
 					equipment_variant = "Marat Class"
 					creator = SOV
 					name = "Marat Class I"
 				}
+
 			}
 			if = {
 				limit = { not = { has_dlc = "Man the Guns" } }
@@ -7137,7 +7266,17 @@ focus_tree = {
 		
 		cost = 10
 		available = {
-			is_puppet = no 
+			is_subject = no 
+			IF = {
+				limit = {
+					has_dlc = "Gotterdammerung"
+				}
+				COG = {
+					NOT = {
+						has_completed_focus = COG_organization_of_african_unity
+					}
+				}
+			}
 		}
 		
 		search_filters = {}
@@ -7166,7 +7305,7 @@ focus_tree = {
 		relative_position_id = ETH_organization_of_african_unity
 		x = -1
 		y = 1
-		cost = 10
+		cost = 5
 		available = {}
 		search_filters = {}
 		completion_reward = {
@@ -7195,7 +7334,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		
-		cost = 10
+		cost = 5
 		available = {}
 		
 		search_filters = {}
@@ -7211,9 +7350,10 @@ focus_tree = {
 					hours = 1
 				}	
 			}
-			set_variable = { org_africa_central_bank_stability_factor = -0.05}
-			set_variable = { org_africa_central_bank_industrial_complex_factor = -0.1}
-			set_variable = { org_africa_central_bank_infrastructure_factor = -0.1}
+			#set_variable = { org_africa_central_bank_stability_factor = 0.05}
+			#set_variable = { org_africa_central_bank_industrial_complex_factor = 0.1}
+			#set_variable = { org_africa_central_bank_infrastructure_factor = 0.1}
+			set_african_central_bank_variables = yes
 			add_dynamic_modifier = {
 				modifier = african_union_central_bank_modifier
 			}
@@ -7236,6 +7376,8 @@ focus_tree = {
 		search_filters = {}
 
 		completion_reward = {
+
+			add_political_power = 100
 			custom_effect_tooltip = ETH_executive_council_tt
 			every_other_country = {
 				limit = {
@@ -7261,13 +7403,15 @@ focus_tree = {
 		y = 1
 		
 		cost = 10
-		available = {}
+		available = {
+			is_subject = no
+		}
 		
 		search_filters = {FOCUS_FILTER_ANNEXATION}
 
 		completion_reward = {
 			set_cosmetic_tag = ETH_African_Union
-			add_political_power = 100
+			add_political_power = 150
 			hidden_effect = {
 				set_country_flag = org_leader_is_african_union
 			}
@@ -7618,7 +7762,13 @@ focus_tree = {
 			is_subject_of = ITA
 			ITA = {
 				has_civil_war = no
+				OR = {
 				has_government = fascism
+					has_completed_focus = ITA_monarchia_d_italia
+					hidden_trigger = {
+						has_government = neutrality # if ITA has been couped to be a monarchy
+					}
+				}
 			}
 		}
 
@@ -7771,7 +7921,6 @@ focus_tree = {
 		}
 	}
 	focus = {
-		
 		id = ETH_exploit_french_weakness
 		icon = GFX_focus_attack_france
 		prerequisite = { focus = ETH_the_capital_victory_parade }
@@ -7783,13 +7932,13 @@ focus_tree = {
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = ETH_france_divided_tt
-				any_country = {
-					original_tag = FRA 
+				any_country_with_original_tag = {
+					original_tag_to_check = FRA 
 					exists = yes 
 					has_government = fascism
 				}
-				any_country = {
-					original_tag = FRA 
+				any_country_with_original_tag = {
+					original_tag_to_check = FRA 
 					exists = yes 
 					NOT = { has_government = fascism }
 				}
@@ -7815,7 +7964,13 @@ focus_tree = {
 			is_subject_of = ITA
 			ITA = {
 				has_civil_war = no
+				OR = {
 				has_government = fascism
+					has_completed_focus = ITA_monarchia_d_italia
+					hidden_trigger = {
+						has_government = neutrality # if ITA has been couped to be a monarchy
+					}
+				}
 			}
 		}
 
@@ -7838,7 +7993,13 @@ focus_tree = {
 			is_subject_of = ITA
 			ITA = {
 				has_civil_war = no
+				OR = {
 				has_government = fascism
+					has_completed_focus = ITA_monarchia_d_italia
+					hidden_trigger = {
+						has_government = neutrality # if ITA has been couped to be a monarchy
+					}
+				}
 			}
 		}
 
@@ -7950,7 +8111,13 @@ focus_tree = {
 			is_subject_of = ITA
 			ITA = {
 				has_civil_war = no
+				OR = {
 				has_government = fascism
+					has_completed_focus = ITA_monarchia_d_italia
+					hidden_trigger = {
+						has_government = neutrality # if ITA has been couped to be a monarchy
+					}
+				}
 			}
 		}
 
@@ -7975,7 +8142,13 @@ focus_tree = {
 			is_subject_of = ITA
 			ITA = {
 				has_civil_war = no
+				OR = {
 				has_government = fascism
+					has_completed_focus = ITA_monarchia_d_italia
+					hidden_trigger = {
+						has_government = neutrality # if ITA has been couped to be a monarchy
+					}
+				}
 			}
 		}
 
@@ -8160,7 +8333,13 @@ focus_tree = {
 			is_subject_of = ITA
 			ITA = {
 				has_civil_war = no
+				OR = {
 				has_government = fascism
+					has_completed_focus = ITA_monarchia_d_italia
+					hidden_trigger = {
+						has_government = neutrality # if ITA has been couped to be a monarchy
+					}
+				}
 			}
 		}
 
@@ -8179,6 +8358,20 @@ focus_tree = {
 				hours = 1
 			}
 			custom_effect_tooltip = ETH_outsourced_production_tt
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}	
+				custom_effect_tooltip = ETH_outsourced_production_air_tt
+				show_mio_tooltip = ITA_imam_organization
+				show_mio_tooltip = ITA_caproni_organization
+				show_mio_tooltip = ITA_macchi_organization
+				custom_effect_tooltip = ETH_outsourced_production_army_tt
+				show_mio_tooltip = ITA_fiat_organization
+				show_mio_tooltip = ITA_breda_organization
+				show_mio_tooltip = ITA_beretta_organization
+			}
+			ELSE = {
 			custom_effect_tooltip = ETH_outsourced_production_air_tt
 			show_ideas_tooltip = ETH_imam
 			show_ideas_tooltip = caproni_ETH
@@ -8187,6 +8380,7 @@ focus_tree = {
 			show_ideas_tooltip = fiat_ETH
 			show_ideas_tooltip = breda_ETH
 			show_ideas_tooltip = beretta_ETH
+			}
 			custom_effect_tooltip = ETH_outsourced_production_factories_tt
 		}
 	}
@@ -8338,7 +8532,13 @@ focus_tree = {
 			is_subject_of = ITA
 			ITA = {
 				has_civil_war = no
+				OR = {
 				has_government = fascism
+					has_completed_focus = ITA_monarchia_d_italia
+					hidden_trigger = {
+						has_government = neutrality # if ITA has been couped to be a monarchy
+					}
+				}
 			}
 		}
 
@@ -8378,7 +8578,13 @@ focus_tree = {
 			is_subject_of = ITA
 			ITA = {
 				has_civil_war = no
+				OR = {
 				has_government = fascism
+					has_completed_focus = ITA_monarchia_d_italia
+					hidden_trigger = {
+						has_government = neutrality # if ITA has been couped to be a monarchy
+					}
+				}
 			}
 		}
 
@@ -8451,7 +8657,13 @@ focus_tree = {
 			is_subject_of = ITA
 			ITA = {
 				has_civil_war = no
+				OR = {
 				has_government = fascism
+					has_completed_focus = ITA_monarchia_d_italia
+					hidden_trigger = {
+						has_government = neutrality # if ITA has been couped to be a monarchy
+					}
+				}
 			}
 		}
 
