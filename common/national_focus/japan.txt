@@ -12238,7 +12238,13 @@ focus_tree = {
 		}
 
 		available = {
-			has_tech = excavation1
+			# SPTchange more leniency on which exact tech
+			OR = {
+				# has_tech = excavation2 # SPTchange - lines up better with alu decisions
+				has_tech = excavation3
+				has_tech = excavation4
+				has_tech = excavation5
+			}
 			605 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
 			325 = { state_is_fully_controlled_by_ROOT_or_subject = yes }
 			597 = { state_is_fully_controlled_by_ROOT_or_subject = yes }

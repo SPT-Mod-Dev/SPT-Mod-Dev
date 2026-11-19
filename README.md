@@ -6,12 +6,22 @@
  - Swapped the 'Armored Train' and 'War Austerity Train' technologies
  - Amtracs now actually work with the MIO
  - Reduced the amount of convoys needed for fuel lend-lease by around a factor of 10
+ - AI no longer objects to attaché
 
 #### Germany
  - Added an event that adds militia that fires onces all hope seems lost
 
 #### Italy
  - Added the 'Fiat-S.P.A.' armored car MIO
+
+#### Japan
+ - The 'February 26th' event no longer has shogunate option
+ - Now has special forces cap day 1
+ - The 'Develop the Chinese Resources' focus and various recource decisions are now in line with previous excavation changes
+ - Sets compliance to 75% upon recieving Indochina
+
+#### United Kingdom
+ - The 'Mobilize African Irregulars' focus now gives 300 mastery instead of 200
 
 #### No Asia
  - UK now gets 15 civs and resource rights in some US states in mid 1940

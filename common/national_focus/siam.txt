@@ -5049,8 +5049,9 @@
 		}
 		available = {
 			# SPTchange to simplify things
-			JAP = {
-				has_completed_focus = JAP_occupy_indochina
+			custom_trigger_tooltip = {
+				tooltip = SPT_SIA_Japan_owns_Indochina_tt
+				JAP = { has_country_flag = SPT_JAP_owns_indochina }
 			}
 		}
 		#allow_branch = { 
@@ -5220,7 +5221,7 @@
 	focus = {
 		id = SIA_crack_down_of_foreign_merchants
 		icon = GFX_focus_SIA_crack_down_of_foreign_merchants
-		x = 4
+		x = 3
 		y = 0
 		relative_position_id = SIA_demand_the_return_of_lost_territory	
 		prerequisite = { focus = SIA_pan_thaiism }
@@ -8391,6 +8392,7 @@
 	}
 
 	focus = {
+		allow_branch = { always = no } # SPTchange
 		id = SIA_destroy_the_indochinese_ports
 		icon = GFX_goal_generic_air_naval_bomber
 		x = 2
