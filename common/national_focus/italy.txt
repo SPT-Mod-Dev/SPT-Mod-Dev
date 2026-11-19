@@ -944,11 +944,10 @@ focus_tree = {
 			if = {
 				limit = {
 					844 = { #JUBALAND
+						controller = {
 						OR = {
-							is_fully_controlled_by = ROOT
-							any_other_country = {
+								tag = ROOT
 								is_subject_of = ROOT
-								has_full_control_of_state = 559
 							}
 						}
 					}
@@ -3764,7 +3763,7 @@ focus_tree = {
 			}
 			add_tech_bonus = {
 				name = ITA_thermojet_research
-				ahead_reduction = 0.5
+				ahead_reduction = 1
 				bonus = 1.0
 				category = jet_technology
 				category = rocketry
@@ -3951,7 +3950,7 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = ITA_increase_artillery_production
-				bonus = 0.75
+				bonus = 0.5
 				uses = 2
 				category = artillery
 			}
@@ -4284,7 +4283,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = ITA_preserve_army_traditions
-		cost = 5
+		cost = 5 # SPTchange 10 -> 5
 		available = {
 			NOT = { has_global_flag = second_italo_ethiopian_war_flag }
 			#NTH_Manu: Should probably also require a completed focus in any of the ME political paths, so that it can unlock appropriate generals
@@ -4368,7 +4367,7 @@ focus_tree = {
 		x = 5
 		y = 1
 		relative_position_id = ITA_preserve_army_traditions
-		cost = 5
+		cost = 5 # SPTchange 10 -> 5
 		available = {
 		}
 
@@ -4453,7 +4452,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = ITA_army_leaders
-		cost = 5
+		cost = 5 # SPTchange 10 -> 5
 		available = {
 		}
 
@@ -4511,7 +4510,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = ITA_bersaglieri
-		cost = 5
+		cost = 5 # SPTchange 10 -> 5
 		available = {
 		}
 
@@ -4545,7 +4544,7 @@ focus_tree = {
 		x = 0
 		y = 2
 		relative_position_id = ITA_bersaglieri
-		cost = 5
+		cost = 5 # SPTchange 10 -> 5
 		available = {
 			has_tech = paratroopers
 		}
@@ -4661,7 +4660,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = ITA_superesercito
-		cost = 5
+		cost = 5 # SPTchange 10 -> 5
 		available = {
 			if = {
 				limit = {
@@ -4879,7 +4878,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = ITA_end_fiat_ansaldo_duopoly
-		cost = 5
+		cost = 5 # SPTchange 10 -> 5
 		available = {
 		}
 
@@ -5004,7 +5003,7 @@ focus_tree = {
 			has_full_control_of_state = 2
 		}
 
-		search_filters = {FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH}
+		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
 
@@ -5034,6 +5033,7 @@ focus_tree = {
 						instant_build = yes
 					}
 				}
+				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 			else = {
 				random_core_state = {
@@ -5154,7 +5154,6 @@ focus_tree = {
 						instant_build = yes
 					}
 				}
-				custom_effect_tooltip = generic_skip_one_line_tt
 			}
 			else = {
 				random_core_state = {
@@ -8930,7 +8929,7 @@ focus_tree = {
 
 			#Deescalation
 			add_to_variable = { ETH.ETH_war_escalation_level = -1 }
-			custom_effect_tooltip = ETH_war_deescalation_inc_tt
+			custom_effect_tooltip = ITA_war_deescalation_inc_tt
 		}
 	}
 
@@ -8945,6 +8944,10 @@ focus_tree = {
 		relative_position_id = ITA_triumph_in_africa_bba
 		cost = 5
 		available = {
+			OR = {
+				has_government = fascism
+				has_government = neutrality
+			}
 			has_full_control_of_state = 835
 			has_full_control_of_state = 836
 			has_full_control_of_state = 837
@@ -10958,6 +10961,12 @@ focus_tree = {
 			# }		
 		}
 
+		bypass = {
+			NOT = {
+				has_character = ITA_benito_mussolini
+			}
+		}
+
 		search_filters = {FOCUS_FILTER_BALANCE_OF_POWER}
 
 		completion_reward = {
@@ -10986,9 +10995,13 @@ focus_tree = {
 		cost = 5
 		available = {
 			has_character = ITA_italo_balbo
+			has_government = fascism
+			GER = {
+				NOT = {
+					has_completed_focus = GER_assassinate_mussolini
+				}
+			}
 		}
-
-		
 
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_RESEARCH FOCUS_FILTER_STABILITY FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_BALANCE_OF_POWER}
 
@@ -11049,6 +11062,12 @@ focus_tree = {
 		cost = 5
 		available = {
 			has_character = ITA_dino_grandi
+			has_government = fascism
+			GER = {
+				NOT = {
+					has_completed_focus = GER_assassinate_mussolini
+				}
+			}
 		}
 		
 		search_filters = {FOCUS_FILTER_POLITICAL FOCUS_FILTER_WAR_SUPPORT FOCUS_FILTER_STABILITY FOCUS_FILTER_BALANCE_OF_POWER}
@@ -13755,7 +13774,7 @@ focus_tree = {
 
 			division_template = { 
 				name = "Reggimento Corazzieri" 
-				division_names_group = ITA_INF_01 #TODO_Manu
+				division_names_group = ITA_INF_01
 
 				regiments = { 
 					cavalry = { x = 0 y = 0 }
@@ -14282,6 +14301,10 @@ focus_tree = {
 		relative_position_id = ITA_mare_nostrum_bba
 		cost = 5
 		available = {
+			any_controlled_state = {
+				resistance > 0
+				is_fully_controlled_by = ROOT
+			}
 		}
 
 		search_filters = {}
@@ -14495,12 +14518,31 @@ focus_tree = {
 				limit = {
 					has_dlc = "No Step Back"
 				}
+				if = {
+					limit = {
+						NOT = {
+							has_idea = ITA_hidden_super_heavy_tank_ns
+						}
+				}
 				custom_effect_tooltip = ITA_modern_musculus_military_industry_dm_tt
 				hidden_effect = {
 					add_ideas = ITA_hidden_super_heavy_tank_ns
+					}
 				}
 
+				if = {
+					limit = {
+						has_tech = super_heavy_tank_chassis
+					}
+					#SH template
 				ITA_add_modern_musculus_sh_tank_template_and_production = yes
+				}
+				else = {
+					custom_effect_tooltip = ITA_focus_sh_tank_template_tt
+					effect_tooltip = {
+						ITA_add_modern_musculus_sh_tank_template_and_production = yes
+					}
+				}
 			}
 			else = {
 				add_tech_bonus = {
@@ -14601,7 +14643,7 @@ focus_tree = {
 				create_equipment_variant = {
 					name = "Neptunus Class"
 					type = ship_hull_super_heavy_1
-					name_group = ITA_BB_HISTORICAL #TODO_Manu: Namelist?
+					name_group = ITA_BB_HISTORICAL
 					parent_version = 0
 					allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
 					modules = {
@@ -14688,7 +14730,7 @@ focus_tree = {
 				}
 				if = {
 					limit = {
-						NOT = { is_special_project_completed = sp_naval_ice_carrier }
+						NOT = { is_special_project_completed = sp:sp_naval_ice_carrier }
 					}
 					custom_effect_tooltip = ITA_modify_regia_marina_dynamic_modifier_ns_intro
 					add_to_variable = {
@@ -14710,11 +14752,9 @@ focus_tree = {
 		relative_position_id = ITA_mare_nostrum_bba
 		cost = 5
 		available = {
-			any_country = {
-				OR = {
-					original_tag = POR
-					original_tag = SPR
-				}
+			any_country_with_original_tag_of = {
+				target = {POR SPR}
+				
 				exists = yes
 				has_civil_war = no
 				is_in_faction = no
@@ -14781,7 +14821,7 @@ focus_tree = {
 		relative_position_id = ITA_iberian_protection
 		cost = 10
 		available = {
-			#NOT adding requirements here since it's a final focus and it would really overrcrowd tt
+			is_faction_leader = yes
 		}
 
 		search_filters = {}
@@ -15041,9 +15081,16 @@ focus_tree = {
 					has_dlc = "No Step Back"
 				}
 				
+				if = {
+					limit = {
+						NOT = {
+							has_idea = ITA_hidden_super_heavy_tank_ns
+						}
+					}
 				custom_effect_tooltip = ITA_modern_musculus_military_industry_dm_tt
 				hidden_effect = {
 					add_ideas = ITA_hidden_super_heavy_tank_ns
+					}
 				}
 
 				if = {
@@ -15727,6 +15774,10 @@ focus_tree = {
 		available = {
 			country_exists = AUS
 			NOT = { has_war_with = AUS }
+		}
+
+		bypass = {
+			has_guaranteed = AUS
 		}		 
 
 		search_filters = {} 
@@ -16081,8 +16132,8 @@ focus_tree = {
 		relative_position_id = ITA_italys_destiny
 		cost = 10
 		available = {
-			any_country = {
-				original_tag = SOV
+			any_country_with_original_tag = {
+				original_tag_to_check = SOV
 				exists = yes
 				NOT = { is_in_faction_with = ROOT }
 				NOT = { has_non_aggression_pact_with = ROOT }
@@ -16263,6 +16314,7 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_RESEARCH}
 
 		completion_reward = {
+			# SPTchange
 			GER = {
 				add_opinion_modifier = { target = ITA modifier = pact_of_steel_opinion }
 			}
@@ -16561,7 +16613,6 @@ focus_tree = {
 				popularity = 0.05
 			}
 			add_ideas = ITA_italian_irredentism_ns
-			#TODO_Manu: Might need to remove some/all of the claims below due to overlap with other focuses
 			add_named_threat = { threat = 4 name = ITA_italian_irredentism } #Comes from the old Claims in Yugoslavia focus
 			if = {
 				limit = {
@@ -16583,7 +16634,7 @@ focus_tree = {
 			add_state_claim = 269 #BRITISH SOMALILAND
 			add_state_claim = 735 #SAVOY
 			add_state_claim = 851 #VAR
-			add_state_claim = 185 #CORFU
+			#add_state_claim = 185 #CORFU
 			add_state_claim = 1 #CORSICA
 			add_state_claim = 116 #MALTA
 			add_state_claim = 846 #TICINO
@@ -16630,11 +16681,23 @@ focus_tree = {
 		y = 1
 		relative_position_id = ITA_italian_irredentism
 		cost = 10
+
+		bypass = {
+			is_subject = no
+			OR = {
+				FRA = { is_subject_of = ROOT }
+				FRA = { exists = no }
+				is_in_faction_with = FRA
+			}
+		}
+
 		available = {
 			is_subject = no
+			FRA = { exists = yes }
 			NOT = { is_in_faction_with = FRA }
 			NOT = { has_guaranteed = FRA }
 			NOT = { has_non_aggression_pact_with = FRA }
+			NOT = { FRA = { is_subject_of = ROOT } }
 		}
 
 		will_lead_to_war_with = FRA
@@ -16798,11 +16861,39 @@ focus_tree = {
 		y = 1
 		relative_position_id = ITA_italian_irredentism
 		cost = 5
+
+		select_effect = {
+			every_country = {
+				limit = {
+					NOT = { is_in_faction_with = ROOT }
+					original_tag = GRE
+				}
+				ROOT = {
+					add_ai_strategy = {
+						type = prepare_for_war
+						id = PREV
+						value = 50
+					}
+				}
+			}
+		}
+
+		bypass = {
+			is_subject = no
+			OR = {
+				GRE = { is_subject_of = ROOT }
+				GRE = { exists = no }
+				is_in_faction_with = GRE
+			}
+		}
+
 		available = {
 			is_subject = no
+			GRE = { exists = yes }
 			NOT = { is_in_faction_with = GRE }
 			NOT = { has_guaranteed = GRE }
 			NOT = { has_non_aggression_pact_with = GRE }
+			NOT = { GRE = { is_subject_of = ROOT } }
 		}
 
 		will_lead_to_war_with = GRE
@@ -16988,14 +17079,18 @@ focus_tree = {
 				}
 				OR = {
 					has_global_flag = scw_over
+					AND = {
+						has_global_flag = spanish_civil_war
 					NOT = { country_exists = SPA }
+					}
 				}
 			}
 			else = {
 				has_global_flag = spanish_civil_war
 				NOT = {
-					any_country = {
-						original_tag = SPR
+					any_country_with_original_tag = {
+						exists = yes
+						original_tag_to_check = SPR
 						OR = {
 							has_government = fascism
 							has_civil_war = yes
@@ -17010,8 +17105,9 @@ focus_tree = {
 				limit = {
 					NOT = { has_dlc = "La Resistance" }
 				}
-				any_other_country = {
-					original_tag = SPR
+				any_country_with_original_tag = {
+					exists = yes
+					original_tag_to_check = SPR
 					has_government = fascism
 					has_volunteers_amount_from = {
 						tag = ITA
@@ -17116,7 +17212,9 @@ focus_tree = {
 				limit = {
 					has_dlc = "La Resistance"
 				}
-				any_other_country = {
+				any_other_country_with_original_tag_of = {
+					exists = yes
+					target = {SPR }
 					OR = {
 						tag = SPA
 						tag = SPB
@@ -17125,8 +17223,9 @@ focus_tree = {
 				}
 			}
 			else = {
-				any_country = {
-					original_tag = SPR
+				any_country_with_original_tag = {
+					exists = yes
+					original_tag_to_check = SPR
 					OR = {
 						has_government = fascism
 						has_government = neutrality
@@ -17142,7 +17241,9 @@ focus_tree = {
 				limit = {
 					has_dlc = "La Resistance"
 				}
-				any_other_country = {
+				any_country_with_original_tag = {
+					exists = yes
+					original_tag_to_check = SPR # Add other triggers as needed
 					OR = {
 						tag = SPA
 						tag = SPB
@@ -17153,8 +17254,9 @@ focus_tree = {
 				}
 			}
 			else = {
-				any_country = {
-					original_tag = SPR
+				any_country_with_original_tag = {
+					exists = yes
+					original_tag_to_check = SPR
 					OR = {
 						has_government = fascism
 						has_government = neutrality
@@ -17203,8 +17305,9 @@ focus_tree = {
 				limit = {
 					NOT = { has_dlc = "La Resistance" }
 				}
-				any_other_country = {
-					original_tag = SPR
+				any_country_with_original_tag = {
+					exists = yes
+					original_tag_to_check = SPR
 					has_government = fascism
 					has_war = no
 					owns_state = 177
@@ -17226,8 +17329,9 @@ focus_tree = {
 				limit = {
 					NOT = { has_dlc = "La Resistance" }
 				}
-				any_other_country = {
-					original_tag = SPR
+				any_country_with_original_tag = {
+					exists = yes
+					original_tag_to_check = SPR
 					has_government = fascism
 					has_war_with = ROOT
 					owns_state = 177
@@ -17380,8 +17484,9 @@ focus_tree = {
 				#Puppet
 				if = {
 					limit = {
-						any_other_country = {
-							original_tag = ITA
+						any_country_with_original_tag = {
+							exists = yes
+							original_tag_to_check = ITA
 							has_war_with = ROOT
 							any_enemy_country = {
 								is_major = yes
@@ -17482,7 +17587,7 @@ focus_tree = {
 				}
 				division_template = { 
 					name = "Divisione Partigiana" 
-					division_names_group = ITA_INF_01 #TODO_Manu: New Namelist
+					division_names_group = ITA_INF_01
 					template_counter = 65
 					is_locked = yes
 					override_model = ITA_militia_alt_0_entity
@@ -17658,7 +17763,7 @@ focus_tree = {
 
 			division_template = { 
 				name = "Divisione di Carabinieri" 
-				division_names_group = ITA_INF_01 #TODO_Manu: Namelist
+				division_names_group = ITA_INF_01
 				template_counter = 3
 
 				regiments = { 
@@ -18773,7 +18878,7 @@ focus_tree = {
 			add_to_variable = { ITA_re_modifier_army_sub_unit_militia_defence_factor = 0.05 }
 			add_to_variable = { ITA_re_modifier_army_sub_unit_militia_max_org_factor = 0.05 }
 			add_to_variable = { ITA_re_modifier_army_sub_unit_blackshirt_assault_battalion_defence_factor = 0.05 }
-			add_to_variable = { ITA_re_modifier_army_sub_unit_blackshirt_assault_battalion_max_org_factor = 0.05 }
+			add_to_variable = { ITA_re_modifier_army_sub_unit_blackshirt_assault_battalion_max_org_factor = 0.05 } # SPTchange
 			#Custom tooltip based on Assault Battalions focus
 			if = {
 				limit = {
@@ -19194,7 +19299,15 @@ focus_tree = {
 				play_song = "bella_ciao"
 			}
 
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = obsolete_focus_branches_visibility
+						option = HIDE
+					}
+				}
 			mark_focus_tree_layout_dirty = yes
+			}
 		}
 	}
 
@@ -19496,8 +19609,10 @@ focus_tree = {
 				}
 			}
 			else = {
-				any_other_country = {
-					original_tag = SPR
+				any_other_country_with_original_tag_of = {
+					exists = yes
+					target = {SPR}
+
 					has_civil_war = yes
 					NOT = { has_war_with = ROOT }
 					OR = {
@@ -19589,8 +19704,6 @@ focus_tree = {
 			else = {
 				add_ideas = ITA_gruppi_di_difesa_della_donna_ns_no_lar
 			}
-
-			#TODO_Manu: Unlocks generation of female generals, admirals, aces, etc. Could add more female generals
 		}
 	}
 
@@ -20523,8 +20636,7 @@ focus_tree = {
 		cost = 5
 		bypass = {
 			NOT = {
-				any_other_country = {
-					is_in_faction_with = ROOT
+				any_allied_country = {
 					is_government_in_exile = no
 				}
 			}
@@ -20532,8 +20644,7 @@ focus_tree = {
 
 		available = {
 			has_government = communism
-			any_other_country = {
-				is_in_faction_with = ROOT
+			any_allied_country = {
 				is_government_in_exile = no
 			}
 		}
@@ -20732,6 +20843,7 @@ focus_tree = {
 
 			add_timed_idea = {
 				idea = ITA_the_fight_against_stalinism
+
 				days = 730
 			}
 		}
@@ -21285,8 +21397,9 @@ focus_tree = {
 				}
 			}
 			else = {
-				any_other_country = {
-					original_tag = SPR
+				any_other_country_with_original_tag_of = {
+					exists = yes
+					target = {SPR}
 					has_civil_war = yes
 					NOT = { has_war_with = ROOT }
 					OR = {
@@ -21370,7 +21483,6 @@ focus_tree = {
 			if = {
 				limit = {
 					NOT = { has_rule = can_send_volunteers } 
-
 				}
 				set_rule = { can_send_volunteers = yes }
 			}
@@ -21524,9 +21636,7 @@ focus_tree = {
 					has_government = democratic
 					is_subject = no
 				}
-				any_other_country = {
-					is_in_faction_with = ROOT
-				}
+				num_faction_members > 1
 			}
 		}
 
@@ -21614,9 +21724,7 @@ focus_tree = {
 				add_to_tech_sharing_group = ITA_program_for_scientific_cooperation
 				if = {
 					limit = {
-						any_other_country = {
-							is_in_faction_with = ROOT
-						}
+						num_faction_members > 1
 					}
 					every_other_country = {
 						limit = {
@@ -21633,9 +21741,7 @@ focus_tree = {
 			custom_effect_tooltip = ITA_scientific_cooperation_allies_ns_tt
 			if = {	
 				limit = {
-					any_other_country = {
-						is_in_faction_with = ROOT
-					}
+					num_faction_members > 1
 				}
 				custom_effect_tooltip = generic_current_effects
 				add_ideas = ITA_scientific_cooperation_ns
@@ -21781,11 +21887,10 @@ focus_tree = {
 		available = {
 			is_in_faction = no
 			is_subject = no
-			any_other_country = {
-				OR = {
-					tag = FRA
-					tag = ENG
-				}
+			any_other_country_of = {
+				exists = yes
+				target = {FRA ENG}
+				
 				NOT = { has_government = fascism }
 				is_faction_leader = yes
 				is_subject = no
@@ -21798,11 +21903,10 @@ focus_tree = {
 					}
 				}
 			}
-			any_other_country = { #Split for easier visualization in the tooltip
-				OR = {
-					tag = FRA
-					tag = ENG
-				}
+			any_other_country_of = {
+				exists = yes
+				target = {FRA ENG}
+				
 				has_opinion	= {
 					target = ROOT
 					value > 50
@@ -21923,7 +22027,7 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = ITA_military_agreements
-				bonus = 0.75
+				bonus = 0.5
 				uses = 2
 				category = armor 
 				category = artillery
@@ -21961,8 +22065,8 @@ focus_tree = {
 		relative_position_id = ITA_military_agreements
 		cost = 10
 		available = {
-			any_country = {
-				original_tag = SOV
+			any_country_with_original_tag = {
+				original_tag_to_check = SOV
 				exists = yes
 				NOT = { is_in_faction_with = ROOT }
 				NOT = { has_non_aggression_pact_with = ROOT }
@@ -22269,9 +22373,8 @@ focus_tree = {
 		}
 
 		available = {
-			OR = {
-				has_government = communism
-				has_government = neutrality
+			NOT = {
+				has_government = democratic
 			}
 		}
 
