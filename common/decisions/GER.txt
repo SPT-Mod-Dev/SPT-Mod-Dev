@@ -13726,6 +13726,18 @@ special_projects = {
 					}
 				}
 			}
+			# SPTchange - moved south sudetenland up to the other sudetenland states
+			972 = {
+				set_building_level = {
+					type = bunker
+					level = 0
+					province = {
+						all_provinces = yes
+						limit_to_border = no
+						level > 0
+					}
+				}
+			}
 			if = {
 				limit = {
 					72 = {
@@ -13801,14 +13813,15 @@ special_projects = {
 							}
 						}
 					}
-					972 = {
-						controller = {
-							OR = {
-								tag = ROOT
-								is_subject_of = ROOT
-							}
-						}
-					}
+					# SPTchange - idk why south sudetenland is included with carpathia
+					# 972 = {
+					# 	controller = {
+					# 		OR = {
+					# 			tag = ROOT
+					# 			is_subject_of = ROOT
+					# 		}
+					# 	}
+					# }
 				}
 				73 = {
 					set_building_level = {
@@ -13821,17 +13834,18 @@ special_projects = {
 						}
 					}
 				}
-				972 = {
-					set_building_level = {
-						type = bunker
-						level = 0
-						province = {
-							all_provinces = yes
-							limit_to_border = no
-							level > 0
-						}
-					}
-				}
+				# SPTchange - idk why south sudetenland is included with carpathia
+				# 972 = {
+				# 	set_building_level = {
+				# 		type = bunker
+				# 		level = 0
+				# 		province = {
+				# 			all_provinces = yes
+				# 			limit_to_border = no
+				# 			level > 0
+				# 		}
+				# 	}
+				# }
 			}
 		}
 		complete_effect = {
