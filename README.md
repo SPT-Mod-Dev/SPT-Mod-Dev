@@ -6,6 +6,7 @@
  - Updated to x.xx.x
     - Major differences
         - Kept Mass Assault and Large Unit Tactics the same as before regarding combat width reductions
+        - Tank chassis and module changes were kept the same as before (for now) 
  - Swapped the 'Armored Train' and 'War Austerity Train' technologies
  - Amtracs now actually work with the MIO
  - Reduced the amount of convoys needed for fuel lend-lease by around a factor of 10
