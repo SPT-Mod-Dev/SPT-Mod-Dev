@@ -6,15 +6,18 @@
 ### search_filters = {FOCUS_FILTER_MANPOWER}
 ### search_filters = {FOCUS_FILTER_ANNEXATION}
 ### search_filters = {FOCUS_FILTER_USA_CONGRESS}
+
 focus_tree = {
-	
 	id = usa_focus
+	
 	country = {
 		factor = 0
+		
 		modifier = {
 			add = 10
 			tag = USA
 		}
+		
 		modifier = {
 			add = 10
 			original_tag = USA
@@ -8293,83 +8296,104 @@ focus_tree = {
 		#	factor = 1
 		#}
 		completion_reward = {
-			650 = {
-				#Fortify naval bases
-				add_building_construction = {
-					type = coastal_bunker
-					province = 13067
-					level = 2
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = naval_base
-					province = 13067
-					level = 2
-					instant_build = yes
-				}
-			}
-			631 = {
-				#Fortify naval bases
-				add_building_construction = {
-					type = coastal_bunker
-					province = 13052
-					level = 2
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = naval_base
-					province = 13052
-					level = 2
-					instant_build = yes
+			if = {
+				limit = { 650 = { is_fully_controlled_by = ROOT } }
+				650 = {
+					#Fortify naval bases
+					add_building_construction = {
+						type = coastal_bunker
+						province = 13067
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						province = 13067
+						level = 2
+						instant_build = yes
+					}
 				}
 			}
-			632 = {
-				#Fortify naval bases
-				add_building_construction = {
-					type = coastal_bunker
-					province = 13047
-					level = 2
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = naval_base
-					province = 13047
-					level = 2
-					instant_build = yes
-				}
-			}
-			638 = {
-				#Fortify naval bases
-				add_building_construction = {
-					type = coastal_bunker
-					province = 12140
-					level = 2
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = naval_base
-					province = 12140
-					level = 2
-					instant_build = yes
+
+			if = {
+				limit = { 631 = { is_fully_controlled_by = ROOT } }
+				631 = {
+					#Fortify naval bases
+					add_building_construction = {
+						type = coastal_bunker
+						province = 13052
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						province = 13052
+						level = 2
+						instant_build = yes
+					}
 				}
 			}
-			642 = {
-				#Fortify naval bases
-				add_building_construction = {
-					type = coastal_bunker
-					province = 13050
-					level = 2
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = naval_base
-					province = 13050
-					level = 2
-					instant_build = yes
+			
+			if = { 
+				limit = { 632 = {is_fully_controlled_by = ROOT}} 
+				632 = {
+					#Fortify naval bases
+					add_building_construction = {
+						type = coastal_bunker
+						province = 13047
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						province = 13047
+						level = 2
+						instant_build = yes
+					}
 				}
 			}
+			
+			if = {
+				limit = { 638 = { is_fully_controlled_by = ROOT} }
+				638 = {
+					#Fortify naval bases
+					add_building_construction = {
+						type = coastal_bunker
+						province = 12140
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						province = 12140
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			
+			if = {
+				limit = { 642 = { is_fully_controlled_by = ROOT}}
+				642 = {
+					#Fortify naval bases
+					add_building_construction = {
+						type = coastal_bunker
+						province = 13050
+						level = 2
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = naval_base
+						province = 13050
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			
 		}
 	}
+
 
 	focus = {
 		id = SPT_USA_island_warfare
