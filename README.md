@@ -7,6 +7,7 @@
  - Amtracs now actually work with the MIO
  - Reduced the amount of convoys needed for fuel lend-lease by around a factor of 10
  - AI no longer objects to attaché
+ - Removed the supremacy for stab minigame and made it a hidden idea instead
 
 #### Germany
  - Added an event that adds militia that fires onces all hope seems lost
