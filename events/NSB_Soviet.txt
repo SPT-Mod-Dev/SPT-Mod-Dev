@@ -1726,7 +1726,13 @@ country_event = {
 				}
 				NOT = { has_country_flag = SOV_mig_design_bureau_dissolved_flag }
 			}
+			if = { # If no AAT -> Then remove designer (in case it was hired etc)
+				limit = {
+					NOT = { has_dlc = "Arms Against Tyranny" }
+			}
 			remove_ideas = SOV_mig_design_bureau
+			}
+
 			set_country_flag = SOV_mig_design_bureau_dissolved_flag
 			unlock_decision_tooltip = SOV_reinstate_mig_design_bureau
 		}
@@ -1739,7 +1745,13 @@ country_event = {
 				}
 				NOT = { has_country_flag = SOV_ilyushin_design_bureau_dissolved_flag }
 			}
+			if = { # If no AAT -> Then remove designer (in case it was hired etc)
+				limit = {
+					NOT = { has_dlc = "Arms Against Tyranny" }
+			}
 			remove_ideas = SOV_ilyushin_design_bureau
+			}
+
 			set_country_flag = SOV_ilyushin_design_bureau_dissolved_flag
 			unlock_decision_tooltip = SOV_reinstate_ilyushin_design_bureau
 		}
@@ -1752,14 +1764,84 @@ country_event = {
 				}
 				NOT = { has_country_flag = SOV_tupolev_design_bureau_dissolved_flag }
 			}
+			if = { # If no AAT -> Then remove designer (in case it was hired etc)
+				limit = {
+					NOT = { has_dlc = "Arms Against Tyranny" }
+			}
 			remove_ideas = SOV_tupolev_design_bureau
+			}
+
 			set_country_flag = SOV_tupolev_design_bureau_dissolved_flag
 			unlock_decision_tooltip = SOV_reinstate_tupolev_design_bureau
 		}
-		else= { #YAKOVLEV
+		else_if = {
+			limit = { #YAKOVLEV
+				NOT = { has_country_flag = SOV_yakovlev_design_bureau_dissolved_flag }
+			}
+			if = { # If no AAT -> Then remove designer (in case it was hired etc)
+				limit = {
+					NOT = { has_dlc = "Arms Against Tyranny" }
+				}
 			remove_ideas = SOV_yakovlev_design_bureau
+			}
+
 			set_country_flag = SOV_yakovlev_design_bureau_dissolved_flag
 			unlock_decision_tooltip = SOV_reinstate_yakovlev_design_bureau
+		}
+		else = { #RANDOMIZED VALUE FOR BUREAU HAS ALREADY BEEN DISSOLVED - Fallback to first non-dissolved bureau
+			if = { # MIG
+				limit = {
+					NOT = { has_country_flag = SOV_mig_design_bureau_dissolved_flag }
+				}
+				if = { # If no AAT -> Then remove designer (in case it was hired etc)
+					limit = {
+						NOT = { has_dlc = "Arms Against Tyranny" }
+					}
+					remove_ideas = SOV_mig_design_bureau
+				}
+
+				set_country_flag = SOV_mig_design_bureau_dissolved_flag
+				unlock_decision_tooltip = SOV_reinstate_mig_design_bureau
+			}
+			else_if = {
+				limit = { # ILYUSHIN
+					NOT = { has_country_flag = SOV_ilyushin_design_bureau_dissolved_flag }
+				}
+				if = { # If no AAT -> Then remove designer (in case it was hired etc)
+					limit = {
+						NOT = { has_dlc = "Arms Against Tyranny" }
+					}
+					remove_ideas = SOV_ilyushin_design_bureau
+				}
+
+				set_country_flag = SOV_ilyushin_design_bureau_dissolved_flag
+				unlock_decision_tooltip = SOV_reinstate_ilyushin_design_bureau
+			}
+			else_if = {
+				limit = { # TUPOLEV
+					NOT = { has_country_flag = SOV_tupolev_design_bureau_dissolved_flag }
+				}
+				if = { # If no AAT -> Then remove designer (in case it was hired etc)
+					limit = {
+						NOT = { has_dlc = "Arms Against Tyranny" }
+					}
+					remove_ideas = SOV_tupolev_design_bureau
+				}
+
+				set_country_flag = SOV_tupolev_design_bureau_dissolved_flag
+				unlock_decision_tooltip = SOV_reinstate_tupolev_design_bureau
+			}
+			else = { #YAKOVLEV
+				if = { # If no AAT -> Then remove designer (in case it was hired etc)
+					limit = {
+						NOT = { has_dlc = "Arms Against Tyranny" }
+					}
+					remove_ideas = SOV_yakovlev_design_bureau
+				}
+
+				set_country_flag = SOV_yakovlev_design_bureau_dissolved_flag
+				unlock_decision_tooltip = SOV_reinstate_yakovlev_design_bureau
+			}
 		}
 
 		#Update purged portraits in UI
@@ -2311,8 +2393,8 @@ country_event = {
 			base = 10
 			modifier = {
 				factor = 2
-				any_country = {
-					is_major = yes
+				any_collection_element = {
+					collection = game:all_majors
 					has_guaranteed = ROOT
 				}
 			}
@@ -3082,9 +3164,7 @@ country_event = {
 
 	option = { #Respect
 		name = NSB_soviet_foreign_politics_events.152.b
-		trigger = {
-			NOT = { ROOT = { tag = ITA } }
-		}
+		
 		ai_chance = {
 			base = 0
 			modifier = {
@@ -3113,9 +3193,16 @@ country_event = {
 						tag = FROM
 						ratio < 0.6
 					}
-					surrender_progress > 0.25
+					surrender_progress > 0.95
 				}
 			}
+		}
+
+		IF = {
+			limit = {
+				has_dlc = "Graveyard of Empires"
+			}
+			set_country_flag = PER_operation_countenance_flag
 		}
 
 		set_global_flag = SOV_soviet_invasion_of_iran_flag
@@ -3129,6 +3216,8 @@ country_event = {
 			transfer_state = 419 #Tibriz (AZB)
 			transfer_state = 420 #Gilan (AZB)
 			transfer_state = 416 #Khorasan
+			transfer_state = 1000 #East Azerbaijan
+			transfer_state = 1004 #North Khorasan
 			PER = {
 				give_resource_rights = { receiver = SOV state = 411 }
 				give_resource_rights = { receiver = SOV state = 412 }
@@ -3156,6 +3245,10 @@ country_event = {
 				is_in_faction_with = ENG
 			}
 			modifier = {
+				factor = 100
+				is_historical_focus_on = yes
+			}
+			modifier = {
 				factor = 2
 				has_opinion = {
 					target = FROM
@@ -3176,7 +3269,7 @@ country_event = {
 						tag = FROM
 						ratio < 0.6
 					}
-					surrender_progress > 0.25
+					surrender_progress > 0.95
 				}
 			}
 		}
@@ -3197,6 +3290,8 @@ country_event = {
 				transfer_state = 419 #Tibriz (AZB)
 				transfer_state = 420 #Gilan (AZB)
 				transfer_state = 416 #Khorasan
+				transfer_state = 1000 #East Azerbaijan
+				transfer_state = 1004 #North Khorasan
 			}
 			PER = {
 				give_resource_rights = { receiver = SOV state = 411 }
@@ -3212,6 +3307,8 @@ country_event = {
 			transfer_state = 419 #Tibriz (AZB)
 			transfer_state = 420 #Gilan (AZB)
 			transfer_state = 416 #Khorasan
+			transfer_state = 1000 #East Azerbaijan
+			transfer_state = 1004 #North Khorasan
 			PER = {
 				give_resource_rights = { receiver = SOV state = 411 }
 				give_resource_rights = { receiver = SOV state = 412 }
@@ -3238,6 +3335,10 @@ country_event = {
 			modifier = {
 				factor = 100
 				is_in_faction_with = FROM
+			}
+			modifier = {
+				factor = 100
+				is_historical_focus_on = yes
 			}
 			modifier = {
 				factor = 2
@@ -3275,6 +3376,13 @@ country_event = {
 				}
 			}
 		}
+
+		IF = {
+			limit = {
+				has_dlc = "Graveyard of Empires"
+			}
+			set_country_flag = PER_operation_countenance_flag
+		}
 		
 		set_global_flag = SOV_agreed_anglo_soviet_invasion_of_iran_flag
 
@@ -3288,6 +3396,8 @@ country_event = {
 				transfer_state = 419 #Tibriz (AZB)
 				transfer_state = 420 #Gilan (AZB)
 				transfer_state = 416 #Khorasan
+				transfer_state = 1000 #East Azerbaijan
+				transfer_state = 1004 #North Khorasan
 			}
 			PER = {
 				give_resource_rights = { receiver = SOV state = 411 }
@@ -3339,6 +3449,8 @@ country_event = {
 			transfer_state = 419 #Tibriz (AZB)
 			transfer_state = 420 #Gilan (AZB)
 			transfer_state = 416 #Khorasan
+			transfer_state = 1000 #East Azerbaijan
+			transfer_state = 1004 #North Khorasan
 			PER = {
 				give_resource_rights = { receiver = SOV state = 411 }
 				give_resource_rights = { receiver = SOV state = 412 }
@@ -3364,12 +3476,21 @@ country_event = {
 		activate_mission = SOV_preparations_for_operation_countenance
 		custom_effect_tooltip = SOV_preparations_for_operation_countenance_tt
 
+		IF = {
+			limit = {
+				has_dlc = "Graveyard of Empires"
+			}
+			set_country_flag = PER_operation_countenance_flag
+		}
+
 		effect_tooltip = {
 			custom_effect_tooltip = SOV_operation_countenance_successful_tt
 			puppet = PER
 			transfer_state = 419 #Tibriz (AZB)
 			transfer_state = 420 #Gilan (AZB)
 			transfer_state = 416 #Khorasan
+			transfer_state = 1000 #East Azerbaijan
+			transfer_state = 1004 #North Khorasan
 			PER = {
 				give_resource_rights = { receiver = SOV state = 411 }
 				give_resource_rights = { receiver = SOV state = 412 }
@@ -3391,6 +3512,8 @@ country_event = {
 		transfer_state = 419 #Tibriz (AZB)
 		transfer_state = 420 #Gilan (AZB)
 		transfer_state = 416 #Khorasan
+		transfer_state = 1000 #East Azerbaijan
+		transfer_state = 1004 #North Khorasan
 		PER = {
 			give_resource_rights = { receiver = SOV state = 411 }
 			give_resource_rights = { receiver = SOV state = 412 }
@@ -3414,6 +3537,8 @@ country_event = {
 		transfer_state = 419 #Tibriz (AZB)
 		transfer_state = 420 #Gilan (AZB)
 		transfer_state = 416 #Khorasan
+		transfer_state = 1000 #East Azerbaijan
+		transfer_state = 1004 #North Khorasan
 		PER = {
 			give_resource_rights = { receiver = SOV state = 411 }
 			give_resource_rights = { receiver = SOV state = 412 }
@@ -3660,6 +3785,12 @@ country_event = {
 					value > 75
 				}
 			}
+
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+
 			modifier = {
 				add = 0.5
 				OR = {
@@ -3739,7 +3870,7 @@ country_event = {
 		name = NSB_soviet_foreign_politics_events.210.c
 
 		ai_chance = {
-			base = 20
+			base = 100
 			modifier = {
 				factor = 2
 				is_historical_focus_on = yes
@@ -3925,13 +4056,13 @@ country_event = {
 			tag = FROM
 			#message = WE_CEDE_THEM_SOUTH_SAKHALIN_AND_KURIL_ISLANDS
 		}
-		FROM = {
 			537 = {
 				add_core_of = FROM
 			}
 			555 = {
 				add_core_of = FROM
 			}
+		FROM = {
 			transfer_state = 537
 			transfer_state = 555
 		}
@@ -4015,13 +4146,13 @@ country_event = {
 			tag = FROM
 			#message = WE_CEDE_THEM_SOUTH_SAKHALIN_AND_KURIL_ISLANDS
 		}
-		FROM = {
 			537 = {
 				add_core_of = FROM
 			}
 			555 = {
 				add_core_of = FROM
 			}
+		FROM = {
 			transfer_state = 537
 			transfer_state = 536 #Hokkaido
 			transfer_state = 555
@@ -6436,11 +6567,7 @@ country_event = {
 			}
 		}
 
-		add_timed_idea = { idea = SOV_soviet_german_trade_agreement days = 545 } #Technically 1 year but really 18 months for Soviet payment 
-		set_variable = { SOV_capital_for_soviet_imports = ROOT.capital } #Store capital where the dynamic modifier is set so that it can be removed easily later
-		capital_scope = {
-			add_dynamic_modifier = { modifier = SOV_soviet_imports }
-		}
+		add_timed_idea = { idea = SOV_soviet_german_trade_agreement days = 800 } #Technically 1 year but really 18 months for Soviet payment 
 
 		#Effects to Soviets
 		effect_tooltip = {
@@ -6759,6 +6886,47 @@ country_event = {
 				category = dd_tech
 			}
 		}
+		IF = {
+			limit = {
+				has_dlc = "No Step Back"
+			}
+			create_equipment_variant = {
+				name = "A-20"
+				type = medium_tank_chassis_1
+				parent_version = 0
+				allow_without_tech = no
+				modules = {
+					main_armament_slot = tank_small_cannon_2
+					turret_type_slot = tank_medium_two_man_tank_turret
+					suspension_type_slot = tank_christie_suspension
+					armor_type_slot = tank_welded_armor
+					engine_type_slot = tank_diesel_engine
+					special_type_slot_1 = sloped_armor
+				}
+				upgrades = {
+					tank_nsb_engine_upgrade = 8
+					tank_nsb_armor_upgrade = 2
+				}
+				icon = "GFX_SOV_basic_medium_tank_medium"
+			}
+			create_equipment_variant = {
+				name = "KV-1"
+				type = heavy_tank_chassis_1
+				parent_version = 0
+				modules = {
+					main_armament_slot = tank_medium_cannon
+					turret_type_slot = tank_heavy_three_man_tank_turret
+					suspension_type_slot = tank_torsion_bar_suspension
+					armor_type_slot = tank_welded_armor
+					engine_type_slot = tank_diesel_engine		
+				}
+				upgrades = {
+					tank_nsb_engine_upgrade = 10
+					tank_nsb_armor_upgrade = 9
+				}
+				icon = "GFX_SOV_improved_heavy_tank_medium"
+			}
+		}
 
 		add_tech_bonus = {
 			name = NSB_soviet_soviet_german_trade_agreement.1.t
@@ -6767,13 +6935,30 @@ country_event = {
 			category = air_equipment
 		}
 
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = ROOT
+				free_building_slots = {
+					building = industrial_complex
+					size > 1
+					include_locked = yes
+				}	
+			}
+			prioritize = { 217 202 195 }
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}	
+		}	
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+
 		#Effects to Germans
 		effect_tooltip = {
 			FROM = {
-				add_timed_idea = { idea = SOV_soviet_german_trade_agreement days = 545 } #Technically 1 year but really 18 months for Soviet payment 
-				capital_scope = {
-					add_dynamic_modifier = { modifier = SOV_soviet_imports }
-				}
+				add_timed_idea = { idea = SOV_soviet_german_trade_agreement days = 800 } 
 			}
 
 			add_opinion_modifier = {
@@ -7306,8 +7491,8 @@ country_event = {
 			}
 			modifier = {
 				factor = 4
-				any_country = {
-					is_major = yes
+				any_collection_element = {
+					collection = game:all_majors
 					has_guaranteed = POL
 				}
 			}
@@ -7473,7 +7658,7 @@ country_event = {
 
 		if = {
 			limit = {
-				NOT = { has_tech = nukes }
+				NOT = { is_special_project_completed = sp:sp_nuclear_bomb }
 			}
 			add_breakthrough_progress = {
 				specialization = specialization_nuclear
@@ -10834,8 +11019,8 @@ country_event = {
 			}
 			modifier = {
 				factor = 3 # Even less interested if already involved in a war with a major country
-				any_country = {
-					is_major = yes
+				any_collection_element = {
+					collection = game:all_majors
 					has_war_with = ROOT
 				}
 			}
@@ -11070,8 +11255,8 @@ country_event = {
 			}
 			modifier = {
 				factor = 2 # Even less interested if already involved in a war with a major country
-				any_country = {
-					is_major = yes
+				any_collection_element = {
+					collection = game:all_majors
 					has_war_with = ROOT
 				}
 			}
@@ -12625,8 +12810,8 @@ country_event = {
 			}
 			modifier = {
 				factor = 0.2
-				any_country = {
-					is_major = yes
+				any_collection_element = {
+					collection = game:all_majors
 					OR = {
 						has_wargoal_against = ROOT
 						has_war_with = ROOT
@@ -12831,7 +13016,7 @@ country_event = {
 
 	# Sounds good!
 	option = {
-		name = NSB_soviet_fascist_tsarist.7.a
+		name = NSB_soviet_fascist_tsarist.5.a
 		FROM = {
 			add_to_faction = ROOT
 			hidden_effect = {
@@ -12842,7 +13027,7 @@ country_event = {
 
 	# No thanks!
 	option = {
-		name = NSB_soviet_fascist_tsarist.7.b
+		name = NSB_soviet_fascist_tsarist.5.b
 		hidden_effect = {
 			country_event = { id = NSB_soviet_fascist_tsarist.10 }
 		}
@@ -13008,9 +13193,7 @@ country_event = {
 	# And there was much rejoicing!
 	option = {
 		name = NSB_soviet_fascist_tsarist.15.a
-		effect_tooltip = {
-			promote_character = SOV_patriarch_meletius
-		}
+		
 		news_event = { id = nsb_news.404 hours = 12 }
 	}
 }

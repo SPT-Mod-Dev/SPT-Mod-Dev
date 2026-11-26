@@ -223,7 +223,7 @@ country_event = {
 		name = soviet.5.a
 		create_wargoal = {
 			type = take_state
-			target = ROM
+			target = FROM
 			generator = { 78 }
 		}
 		hidden_effect = {
@@ -375,8 +375,30 @@ country_event = {
 		name = soviet.12.a
 		SOV = { 
 			transfer_state = 146
+			if = {
+				limit = {
+					FROM = {
+						original_tag = FIN
+		}
+				}
+				custom_effect_tooltip = FIN_remove_soviet_claims_in_other_states_tt
+		hidden_effect = {
+					FIN = {
+						every_core_state = {
+							limit = {
+								is_owned_by = PREV
+								is_claimed_by = ROOT
+							}
+							remove_claim_by = ROOT 
+						} 
+					}
+				}
+			}
 		}
 		hidden_effect = {
+			FROM = {
+				save_event_target_as = SOV_demanded_karelia_from
+			}
 			SOV = {
 				country_event = { days = 1 id = news.13 }
 			}
@@ -388,7 +410,24 @@ country_event = {
 country_event = {
 	id = soviet.13
 	title = soviet.13.t
-	desc = soviet.13.d
+	desc = {
+		text = soviet.13.d
+		trigger = {
+			FROM = {
+				original_tag = FIN
+			}
+		}
+	}
+	desc = {
+		text = soviet.13.d.2
+		trigger = {
+			FROM = {
+				NOT = {
+					original_tag = FIN
+				}
+			}
+		}
+	}
 	picture = GFX_report_event_soviet_tanks_snow
 	
 	is_triggered_only = yes
@@ -396,18 +435,20 @@ country_event = {
 	option = {
 		name = soviet.13.a
 		create_wargoal = {
-			type = take_claimed_state
-			target = FIN
-			generator = { 146 147 }
-		}
-		add_timed_idea = {
-			idea = No_retreat_allowed
-			days = 210
+			type = take_state
+			target = FROM
+			generator = { 146 }
 		}				
 		hidden_effect = {
+			if = {
+				limit = {
+					FROM = {
+						original_tag = FIN
+					}
+				}
 			SOV = {
 				country_event = { days = 1 id = news.12 }	
-				set_country_flag = winter_war_flag		
+				}
 			}
 		}
 	}
@@ -1439,7 +1480,7 @@ country_event = {
 }
 
 ## Purge - Fighting defensive war against major
-#country_event = { #------------------------------------> No longer happening (NSB) -> TODO_Manu: Maybe adapt it to NSB
+#country_event = { #------------------------------------> No longer happening (NSB)
 #	id = soviet.46
 #	title = soviet.46.t
 #	desc = soviet.46.d
@@ -2625,40 +2666,69 @@ country_event = {
 country_event = {
 	id = soviet.70
 	title = soviet.70.t
-	desc = soviet.70.d
+	desc = soviet.70.desc
 	picture = GFX_report_event_soviet_tanks
 
 	trigger = {
 		tag = POL
+		is_subject = no
 		NOT = { has_government = communism }
 		has_global_flag = yalta_agreed_flag
 		SOV = {
 			exists = yes
+			is_subject = no
 		}
 		OR = {
-			NOT = {GER = {has_government = fascism}}
-			GER = {exists = no}
+			NOT = { GER = { has_government = fascism } }
+			GER = { exists = no }
 		}
 	}
 	fire_only_once = yes
 	
 	option = {
 		name = soviet.70.a
+		ai_chance = {
+			base = 7
+		}
+
+		add_timed_idea = {
+			idea = communist_influence
+			days = 730
+		}	
+
 		SOV = {
 			country_event = {
 				id = soviet.71
 				days = 1
 			}
 		}
+
 	}
 	option = {
 		name = soviet.70.b
+		ai_chance = {
+			base = 3
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+
 		SOV = {
 			country_event = {
 				id = soviet.72
 				days = 1
 			}
 		}
+		effect_tooltip = {
+			SOV = {
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = ROOT
+				}
+			}
+		}
+
 	}
 }
 

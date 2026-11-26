@@ -22,8 +22,8 @@ country_event = {
 				has_war_with = FROM
 				NOT = { is_in_faction_with = FROM }
 				OR = {
-					any_other_country = {
-						is_major = yes
+					any_collection_element = {
+						collection = game:all_majors
 						NOT = { tag = SOV }
 						OR = {
 							is_in_faction_with = ROM
@@ -76,7 +76,7 @@ country_event = {
 			effect_tooltip = {
 				create_wargoal = {
 					type = take_state
-					target = ROM
+					target = ROOT
 					generator = { 78 }
 				}
 			}
@@ -216,7 +216,7 @@ country_event = {
 	id = romania.5
 	title = romania.5.t
 	desc = romania.5.d
-	picture = GFX_report_event_hitler_croatia_handshake
+	picture = [GetHitlerCroatianHandshakeEventPicture]
 	
 	is_triggered_only = yes
 	
@@ -250,7 +250,7 @@ country_event = {
 	id = romania.6
 	title = romania.6.t
 	desc = romania.6.d
-	picture = GFX_report_event_hitler_croatia_handshake
+	picture = GFX_report_event_generic_croatia_handshake
 	
 	trigger = {
 		has_country_flag = bessarabia_ceded

@@ -2286,7 +2286,11 @@ country_event = {
 		uncomplete_national_focus = {
 			focus = FIN_finno_soviet_pact
 		}
-		set_country_flag = FIN_soviet_refused_finno_soviet_pact_flag
+		set_country_flag = {
+			flag = FIN_soviet_refused_finno_soviet_pact_flag
+			value = 1
+			days = 180
+		}
 	}
 }
 
@@ -3170,7 +3174,18 @@ country_event = {
 # FIN proposes pact for Continuation War - Event for GER
 country_event = {
 	id = AAT_finland_continuation_war.01
-	title = AAT_finland_continuation_war.01.t
+	title = {
+		text = AAT_finland_continuation_war.01.t
+		trigger = {
+			has_global_flag = SOV_winter_war_flag
+		}
+	}
+	title = {
+		text = AAT_finland_continuation_war.01.t.2
+		trigger = {
+			NOT = { has_global_flag = SOV_winter_war_flag }
+		}
+	}
 	desc = AAT_finland_continuation_war.01.desc
 	picture = GFX_report_event_finnish_letter
 
@@ -3204,14 +3219,18 @@ country_event = {
 		effect_tooltip = {
 			FROM = {
 				give_military_access = ROOT
-			}
-			ROOT = { 
-				give_military_access = FROM
 				diplomatic_relation = { 
-					country = FROM
+					country = ROOT
+					relation = docking_rights 
+					active = yes
+			}
+				diplomatic_relation = { 
+					country = ROOT
 					relation = non_aggression_pact 
 					active = yes
 				}
+
+				
 			}
 
 			# FROM = {
@@ -3362,7 +3381,18 @@ country_event = {
 # GER agrees to the pact for Continuation War - Event for FIN
 country_event = {
 	id = AAT_finland_continuation_war.02
-	title = AAT_finland_continuation_war.02.t
+	title = {
+		text = AAT_finland_continuation_war.02.t
+		trigger = {
+			has_global_flag = SOV_winter_war_flag
+		}
+	}
+	title = {
+		text = AAT_finland_continuation_war.02.t.2
+		trigger = {
+			NOT = { has_global_flag = SOV_winter_war_flag }
+		}
+	}
 	desc = AAT_finland_continuation_war.02.desc
 	picture = GFX_report_event_FIN_finnish_german_pact
 
@@ -3466,7 +3496,18 @@ country_event = {
 # Pact for continuation war broken - Event for FIN & GER
 country_event = {
 	id = AAT_finland_continuation_war.04
-	title = AAT_finland_continuation_war.04.t
+	title = {
+		text = AAT_finland_continuation_war.04.t
+		trigger = {
+			has_global_flag = SOV_winter_war_flag
+		}
+	}
+	title = {
+		text = AAT_finland_continuation_war.04.t.2
+		trigger = {
+			NOT = { has_global_flag = SOV_winter_war_flag }
+		}
+	}
 	desc = AAT_finland_continuation_war.04.desc
 	picture = GFX_report_event_soviet_german_soldier_handshake
 
@@ -3531,7 +3572,18 @@ country_event = {
 # CONTINUATION WAR STARTS - Event for FIN
 country_event = {
 	id = AAT_finland_continuation_war.05
-	title = AAT_finland_continuation_war.05.t
+	title = {
+		text = AAT_finland_continuation_war.05.t
+		trigger = {
+			has_global_flag = SOV_winter_war_flag
+		}
+	}
+	title = {
+		text = AAT_finland_continuation_war.05.t.2
+		trigger = {
+			NOT = { has_global_flag = SOV_winter_war_flag }
+		}
+	}
 	desc = AAT_finland_continuation_war.05.desc
 	picture = GFX_report_event_FIN_continuation_war
 
@@ -4712,8 +4764,9 @@ country_event = {
 		KAR = {
 			if = {
 				limit = {
-					any_other_country = {
-						original_tag = SOV
+					any_other_country_with_original_tag_of = {
+						exists = yes
+						target = {SOV}
 						has_civil_war = yes
 					}
 				}
@@ -5005,13 +5058,12 @@ country_event = {
 			}
 		}
 
-		#TODO_Manu: Relation modifier so that FIN can send more volunteers to Karelia
-
 		KAR = {
 			if = {
 				limit = {
-					any_other_country = {
-						original_tag = SOV
+					any_other_country_with_original_tag_of = {
+						exists = yes
+						target = {SOV}
 						has_civil_war = yes
 					}
 				}
@@ -5453,8 +5505,7 @@ country_event = {
 		
 		is_subject = no
 
-		any_country = {
-			has_war_with = FIN
+		any_enemy_country = {
 			has_variable = FIN_white_death_target_country
 		}
 		
@@ -5859,8 +5910,7 @@ country_event = {
 		
 		is_subject = no
 
-		any_country = {
-			has_war_with = FIN
+		any_enemy_country = {
 			has_variable = FIN_white_death_target_country
 		}
 
@@ -5981,8 +6031,7 @@ country_event = {
 		
 		is_subject = no
 
-		any_country = {
-			has_war_with = FIN
+		any_enemy_country = {
 			has_variable = FIN_white_death_target_country
 		}
 
@@ -6103,8 +6152,7 @@ country_event = {
 		
 		is_subject = no
 
-		any_country = {
-			has_war_with = FIN
+		any_enemy_country = {
 			has_variable = FIN_white_death_target_country
 		}
 
@@ -6544,8 +6592,7 @@ country_event = {
 		
 		is_subject = no
 
-		any_country = {
-			has_war_with = FIN
+		any_enemy_country = {
 			has_variable = FIN_white_death_target_country
 		}
 
@@ -6603,8 +6650,7 @@ country_event = {
 		
 		is_subject = no
 
-		any_country = {
-			has_war_with = FIN
+		any_enemy_country = {
 			has_variable = FIN_white_death_target_country
 		}
 
@@ -6651,8 +6697,7 @@ country_event = {
 		
 		is_subject = no
 
-		any_country = {
-			has_war_with = FIN
+		any_enemy_country = {
 			has_variable = FIN_white_death_target_country
 		}
 
