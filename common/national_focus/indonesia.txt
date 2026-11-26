@@ -32,7 +32,7 @@ focus_tree = {
 		
 		modifier = {
 			add = 10
-			tag = INS # SPTchange
+			tag = INS
 			has_dlc = "Thunder at Our Gates"
 		}
 	}
@@ -4379,6 +4379,7 @@ focus_tree = {
 		}
 	}
 
+
 	focus = {
 		id = INS_minimum_program
 		icon = GFX_focus_AFG_helmand_river_authority
@@ -4439,6 +4440,11 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
+			set_rule = {
+				can_create_factions = yes
+			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
 
 			create_faction = INS_tan_malakas_faction
 		}
@@ -6496,8 +6502,13 @@ focus_tree = {
 			custom_effect_tooltip = INS_great_depression_tt
 			add_to_variable = { var = INS_great_depression_min_export value = 0.1 tooltip = min_export_tt }
 
+			if = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+					NOT = { has_market_access_with = JAP }
+				}
 			give_market_access = JAP
-			JAP = { give_market_access = INS }
+			}
 
 			if = {
 				limit = {
@@ -7198,12 +7209,43 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_HISTORICAL FOCUS_FILTER_STABILITY }
 		completion_reward = {
 			add_stability = 0.05
+			if = {
+				limit = {
+					has_government = neutrality
+				}
+
 			INS_a_t_van_starkenborgh_stachouwer = {
 				swap_country_leader_traits = {
 					remove = TAOG_liberal_colonial_leader
 					add = TAOG_liberal_colonial_leader_2
+						ideology = oligarchism
+					}
+					hidden_effect = {
+						swap_country_leader_traits = {
+							remove = TAOG_liberal_colonial_leader
+							add = TAOG_liberal_colonial_leader_2
+							ideology = conservatism
+						}
+					}
 				}
 			}
+			else = {
+				INS_a_t_van_starkenborgh_stachouwer = {
+					swap_country_leader_traits = {
+						remove = TAOG_liberal_colonial_leader
+						add = TAOG_liberal_colonial_leader_2
+						ideology = conservatism
+					}
+					hidden_effect = {
+						swap_country_leader_traits = {
+							remove = TAOG_liberal_colonial_leader
+							add = TAOG_liberal_colonial_leader_2
+							ideology = oligarchism
+						}
+					}
+				}
+			}
+			custom_effect_tooltip = generic_skip_one_line_tt
 			reduce_focus_completion_cost = {
 				focus = INSHOL_begin_negotiations_soetardjo
 				cost = 35

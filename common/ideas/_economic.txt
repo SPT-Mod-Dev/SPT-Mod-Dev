@@ -1050,7 +1050,7 @@ ideas = {
 		new_economic_policy_2 = {
 			name = new_economic_policy
 
-			picture = GER_aufrustung
+			picture = new_economic_policy
 
 			allowed = {
 				always = no
@@ -1326,6 +1326,13 @@ ideas = {
 			ai_will_do = {
    				factor = 1
 
+				modifier = {
+					original_tag = JAP
+					has_idea = export_focus
+					has_active_mission = JAP_government_faction_demands_trade_law_change
+					factor = 10
+				}
+
    				modifier = {
 					factor = 300
 
@@ -1437,6 +1444,13 @@ ideas = {
    				factor = 1
 
 				modifier = {
+					original_tag = JAP
+					has_idea = limited_exports
+					has_active_mission = JAP_government_faction_demands_trade_law_change
+					factor = 10
+				}
+
+				modifier = {
 					factor = 0
 
 					is_major = no
@@ -1511,6 +1525,7 @@ ideas = {
 							}
 						}
 					}
+					# SPTchange?
 					hidden_trigger = {
 						TAG = SOV
 						OR = {
@@ -1567,6 +1582,13 @@ ideas = {
 
 			ai_will_do = {
    				factor = 1
+
+				modifier = {
+					original_tag = JAP
+					has_idea = closed_economy
+					has_active_mission = JAP_government_faction_demands_trade_law_change
+					factor = 10
+				}
 
    				modifier = {
 					add = -1

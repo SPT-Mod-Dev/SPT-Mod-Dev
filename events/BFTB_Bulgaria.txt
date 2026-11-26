@@ -3190,6 +3190,73 @@ country_event = {
 	picture = GFX_report_event_generic_sign_treaty2 
 
 	is_triggered_only = yes
+
+	option = { #Refuse
+		name = bftb_bulgaria_rearmament.7.a
+
+		ai_chance = {
+			base = 5
+			modifier = {
+				factor = 5
+				has_opinion = {
+					target = BUL
+					value < 0
+				}
+			}
+			modifier = {
+				factor = 5
+				has_opinion = {
+					target = BUL
+					value < 50
+				}
+			}
+			modifier = {
+				factor = 5
+				NOT = { has_government = BUL }
+			}
+			modifier = {
+				factor = 10
+				BUL = { has_completed_focus = BUL_bulgarian_irredentism }
+			}
+			modifier = {
+				factor = 100
+				BUL = {
+					OR = {
+						has_war_with = ENG
+						AND = {
+							is_in_faction = yes
+							NOT = { is_in_faction_with = ROOT }
+						}	
+					}
+				}
+			}
+			modifier = { #Support IMRO is not cool bro
+				factor = 10
+				BUL = {	has_completed_focus = BUL_support_macedonian_organizations }
+			}
+			modifier = { #Your coop with IMRO is just too much
+				factor = 15
+				BUL = { has_idea = BUL_imro_05 }
+			}
+			modifier = {
+				factor = 5
+				BUL_has_some_sort_of_bogdan_filov = yes
+			}
+		}
+
+		effect_tooltip = {
+			BUL = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = BUL_refused_to_lift_arms_restrictions
+				}
+			}
+		}
+
+		BUL = { country_event = { id = bftb_bulgaria_rearmament.8 hours = 8 random_hours = 4 } }
+		custom_effect_tooltip = bftb_bulgaria_rearmament.1_refuse_tt
+	}
+
 	option = { #Accept
 		name = bftb_bulgaria_rearmament.7.b
 
@@ -4248,16 +4315,66 @@ country_event = {
 
 	option = {
 		name = bftb_bulgarian_claims.6.a
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 1.5
+				is_historical_focus_on = yes
+			}
+		}
 
-		effect_tooltip = {
 			every_state = {
 				limit = {
 					has_state_flag = BUL_bulgarian_claim_warranted_flag
 					is_controlled_by = ROOT		
+				NOT = {
+					is_core_of = ROOT
 				}
-				BUL = { set_state_controller = PREV }
+				}
+			BUL = {
+				transfer_state = PREV
+				hidden_effect = {
+					set_state_controller = PREV
+				}
 			}
 		}
+
+	}
+	option = {
+		name = bftb_bulgarian_claims.6.b
+		ai_chance = {
+			base = 0
+		}
+
+		BUL = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = BUL_hindered_planned_expansion
+			}
+		}
+
+		GER = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = BUL_hindered_planned_expansion
+			}	
+		}
+
+		hidden_effect = {
+			every_state = {
+				limit = {
+					has_state_flag = BUL_bulgarian_claim_warranted_flag
+					OR = {
+						is_controlled_by = GER
+						controller = {
+							is_in_faction_with = GER
+						}
+					}		
+				}
+				clr_state_flag = BUL_bulgarian_claim_warranted_flag
+			}
+		}
+
 	}
 }
 
@@ -5204,8 +5321,8 @@ country_event = {
 					has_capitulated = yes
 					is_subject = yes
 					surrender_progress > 0.4
-					any_other_country = {
-						is_major = yes
+					any_collection_element = {
+						collection = game:all_majors
 						has_war_with = PREV
 					}
 				}
@@ -5914,7 +6031,6 @@ country_event = {
 							fixed_ship_radar_slot = empty
 							fixed_ship_engine_slot = cruiser_ship_engine_2
 							fixed_ship_armor_slot = empty
-							front_1_custom_slot = ship_anti_air_1
 							mid_1_custom_slot = ship_torpedo_1
 							mid_2_custom_slot = ship_airplane_launcher_1
 							rear_1_custom_slot = ship_light_medium_battery_2
@@ -5937,7 +6053,6 @@ country_event = {
 						fixed_ship_radar_slot = empty
 						fixed_ship_engine_slot = cruiser_ship_engine_2
 						fixed_ship_armor_slot = empty
-						front_1_custom_slot = ship_anti_air_1
 						mid_1_custom_slot = ship_torpedo_1
 						mid_2_custom_slot = ship_airplane_launcher_1
 						rear_1_custom_slot = ship_light_medium_battery_2
@@ -7526,7 +7641,7 @@ country_event = {
 	id = bftb_bulgaria_balkan_federation.8
 	title = bftb_bulgaria_balkan_federation.8.t
 	desc = bftb_bulgaria_balkan_federation.8.desc
-	picture = GFX_report_event_hitler_handshake
+	picture = GFX_report_event_generic_handshake
 
 	is_triggered_only = yes
 

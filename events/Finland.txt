@@ -61,16 +61,19 @@ country_event = {
 			base = 75
 			modifier = {
 				factor = 0
+				OR = {
 				is_in_faction_with = FROM
+					is_subject_of = FROM
+				}
 			}
 		}
-		FROM.SOV = {
-			country_event = { id = soviet.13 days = 5 }
+		FROM = {
+			country_event = { days = 5 id = soviet.13 }
 			effect_tooltip = {
 				create_wargoal = {
 					type = take_state
-					target = FIN
-					generator = { 146 147 }
+					target = ROOT
+					generator = { 146 }
 				}
 			}
 		}
@@ -331,38 +334,18 @@ country_event = {
 		custom_effect_tooltip = finland.7.a_tt
 		effect_tooltip = {
 			SOV = { 
-				white_peace = {
-					tag = FIN 
-					message = FIN_agree_peace 
-				} 
-			}
+				white_peace = FIN
 			### TRANSFER STATES
 			#KARJALA
 			transfer_state = 146
-
+			}
 			#SALLA
 			if = {
 				limit = {
 					owns_state = 147
 				}
-				transfer_state = 147
+				SOV = { transfer_state = 147 }
 			}
-			#PETSAMO
-			if = {
-				limit = {
-					owns_state = 722
-				}
-				transfer_state = 722
-			}
-			#TODO_Manu: Old content removed claim on Petsamo. Pending removal
-			#if = {
-			#	limit = {
-			#		722 = {
-			#			is_claimed_by = SOV
-			#		}
-			#	}
-			#	SOV = { remove_state_claim = 722 }
-			#}
 		}
 
 		set_country_flag = FIN_reached_out_to_soviets_to_surrender_flag

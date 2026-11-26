@@ -3,14 +3,37 @@
 ### 4.4.1
 
 #### General
+ - Updated to x.xx.x
+    - Major differences
+        - Kept Mass Assault and Large Unit Tactics the same as before regarding combat width reductions
+        - Tank chassis and module changes were kept the same as before (for now) 
  - Swapped the 'Armored Train' and 'War Austerity Train' technologies
  - Amtracs now actually work with the MIO
  - Reduced the amount of convoys needed for fuel lend-lease by around a factor of 10
  - AI no longer objects to attaché
  - Removed the supremacy for stab minigame and made it a hidden idea instead
+ - Miltia stats nerfed
+    - Soft attack: -5% -> -10%
+    - Hard attack: 0% -> -10%
+    - Breakthrough: -5% -> -10%
+    - Defense: -10% -> -15%
+ - Irregulars stats nerfed
+    - Soft attack: -10% -> -15%
+    - Hard attack: 0% -> -15%
+    - Breakthrough: -10% -> -15%
+    - Defense: -15% -> -20%
+
+#### Doctrines
+ - Infantry
+    - 'Irregulars'
+        - Defense: +15% -> +10%
+ - Operations
+    - Guerilla War
+        - Militia and Irregulars defense: +20% -> +10%
 
 #### Germany
  - Added an event that adds militia that fires onces all hope seems lost
+ - The 'Dive Bombers' focus no longer gives an airplane design with engine 3
 
 #### Italy
  - Added the 'Fiat-S.P.A.' armored car MIO

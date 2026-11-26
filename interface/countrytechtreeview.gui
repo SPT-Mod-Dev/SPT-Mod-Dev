@@ -30,8 +30,6 @@ guiTypes = {
 		name = "countrytechtreeview"
 		position = { x=-3 y=78 }
 		size = { width = 100%% height = 100%% }
-		fade_time = 400
-		fade_type = linear
 
 		background = {
 			name = "Background"
@@ -3708,7 +3706,7 @@ guiTypes = {
 			iconType = {
 				name = "highlight_engineering_1"
 				spriteType = "GFX_tutorial_research_small_item_icon_glow"
-				position = { x=305 y=172}
+				position = { x=245 y=172}
 				hide = yes
 				alwaystransparent = yes
 			}
@@ -3895,6 +3893,20 @@ guiTypes = {
 			clicksound = click_close
 			pdx_tooltip = "CLOSE"
 		}
+
+		buttonType = {
+			name = "cycle_tab_next"
+			quadTextureSprite = "GFX_tiled_window_transparent"
+			size = { x = 1 y = 1 }
+			shortcut = "ctrl+TAB"
+		}
+
+		buttonType = {
+			name = "cycle_tab_prev"
+			quadTextureSprite = "GFX_tiled_window_transparent"
+			size = { x = 1 y = 1 }
+			shortcut = "ctrl+shift+TAB"
+		}
 	}
 
 	containerWindowType = {
@@ -4013,10 +4025,11 @@ guiTypes = {
 
 	containerWindowType = {
 		name = "technology_info_window"
-		position = { x=500 y=100 }
+		position = { x=150 y=130 }
 		size = { width = 550 height = 550 }
 		Orientation = UPPER_LEFT
 		moveable = yes
+		click_to_front = yes
 		#clipping = no
 		fade_time = 500
 		fade_type = linear
@@ -4117,7 +4130,7 @@ guiTypes = {
 			name = "research_with_xp"
 			quadTextureSprite = "GFX_button_123x34"
 			text = "RESEARCH_WITH_XP"
-			buttonFont = "hoi_20b"
+			buttonFont = "hoi_16mbs"
 			position = { x=390 y=87 }
 			shortcut = "RETURN"
 		}

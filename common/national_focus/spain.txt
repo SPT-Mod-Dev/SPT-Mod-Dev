@@ -1187,11 +1187,12 @@ focus_tree = {
 		x = 2
 		y = 1
 		relative_position_id = SPA_secure_the_national_defense_council
-		cost = 10
+		cost = 5
 
 		available_if_capitulated = yes
 
 		completion_reward = {
+			add_war_support = 0.05
 			custom_effect_tooltip = available_political_advisor
 			show_ideas_tooltip = SPR_SPA_jose_antonio_primo_de_rivera
 		}
@@ -2057,6 +2058,21 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
+
+			every_state = {
+				limit = {
+					NOT = {
+						OR = {
+							is_claimed_by = ROOT
+							is_core_of = ROOT
+							is_owned_by = ROOT
+						}
+					}
+					is_core_of = POR
+				}
+				add_claim_by = ROOT
+			}
+
 			if = {
 				limit = {
 					POR = {
@@ -2090,36 +2106,7 @@ focus_tree = {
 	focus = {
 		id = SPA_absorb_the_portuguese_empire
 		available = {
-			OR = {
-				AND = {
-					country_exists = MZB
-					MZB = {
-						NOT = { is_subject_of = ROOT }
-						NOT = { is_in_faction_with = ROOT }
-					}
-				}
-				AND = {
-					country_exists = ANG
-					ANG = {
-						NOT = { is_subject_of = ROOT }
-						NOT = { is_in_faction_with = ROOT }
-					}
-				}
-				AND = {
-					country_exists = GNB
-					GNB = {
-						NOT = { is_subject_of = ROOT }
-						NOT = { is_in_faction_with = ROOT }
-					}
-				}
-				AND = {
-					country_exists = BRA
-					BRA = {
-						NOT = { is_subject_of = ROOT }
-						NOT = { is_in_faction_with = ROOT }
-					}
-				}
-			}
+			
 		}
 		bypass = {
 		}
@@ -2134,6 +2121,31 @@ focus_tree = {
 		available_if_capitulated = yes
 
 		completion_reward = {
+
+			IF = {
+				limit = {
+					NOT = {
+						any_state = {
+							AND = {
+								is_core_of = POR
+								is_controlled_by = ROOT
+							}
+						}
+					}
+				}
+				custom_effect_tooltip = SPA_absorb_the_portuguese_empire_tt
+			}
+			every_state = {
+				limit = {
+					is_core_of = POR
+					NOT = { 
+						is_core_of = ROOT
+					}
+					is_controlled_by = ROOT
+				}
+				add_core_of = ROOT
+			}
+
 			if = {
 				limit = {
 					country_exists = BRA
@@ -2404,6 +2416,196 @@ focus_tree = {
 				    expire = 0
 				}
 			}
+		}
+	}
+
+	focus = {
+		id = SPA_embrace_pan_hispanism
+
+		icon = GFX_focus_CHL_promote_pan_hispanic_rhetoric
+
+		relative_position_id = SPA_retake_the_americas
+		x = 0
+		y = 1
+		cost = 10
+
+		prerequisite = {
+			focus = SPA_retake_the_americas
+		}
+
+		mutually_exclusive = {
+		} 
+		
+		ai_will_do = {
+			base = 2
+		}
+
+		available = {
+			has_government = fascism
+			is_subject = no
+			custom_trigger_tooltip = {
+				tooltip = SPA_embrace_pan_hispanism_tt
+				CHL = {
+					all_core_state = {
+						is_controlled_by = ROOT
+					}
+				}
+				ARG = {
+					all_core_state = {
+						is_controlled_by = ROOT
+					}
+				}
+				ECU = {
+					all_core_state = {
+						is_controlled_by = ROOT
+					}
+				}
+				PRU = {
+					all_core_state = {
+						is_controlled_by = ROOT
+					}
+				}
+				URG = {
+					all_core_state = {
+						is_controlled_by = ROOT
+					}
+				}
+				PAR = {
+					all_core_state = {
+						is_controlled_by = ROOT
+					}
+				}
+				BOL = {
+					all_core_state = {
+						is_controlled_by = ROOT
+					}
+				}
+				COL = {
+					all_core_state = {
+						is_controlled_by = ROOT
+					}
+				}
+				VEN = {
+					all_core_state = {
+						is_controlled_by = ROOT
+					}
+				}
+				PAN = {
+					all_core_state = {
+						is_controlled_by = ROOT
+					}
+				}
+				COS = {
+					all_core_state = {
+						is_controlled_by = ROOT
+					}
+				}
+				NIC = {
+					all_core_state = {
+						is_controlled_by = ROOT
+					}
+				}
+				HON = {
+					all_core_state = {
+						is_controlled_by = ROOT
+					}
+				}
+				ELS = {
+					all_core_state = {
+						is_controlled_by = ROOT
+					}
+				}
+				GUA = {
+					all_core_state = {
+						is_controlled_by = ROOT
+					}
+				}
+				MEX = {
+					all_core_state = {
+						is_controlled_by = ROOT
+					}
+				}
+				DOM = {
+					all_core_state = {
+						is_controlled_by = ROOT
+					}
+				}
+				CUB = {
+					all_core_state = {
+						is_controlled_by = ROOT
+					}
+				}
+				PUE = {
+					all_core_state = {
+						is_controlled_by = ROOT
+					}
+				}
+			}
+			AND = {
+				controls_state = 375
+				controls_state = 376
+				controls_state = 377
+				controls_state = 378
+				controls_state = 379
+				controls_state = 380
+				controls_state = 382
+				controls_state = 366
+			}
+		}
+
+		search_filters = { FOCUS_FILTER_MANPOWER }
+		
+		completion_reward = {
+
+			add_stability = -0.1
+			add_political_power = -100
+
+			every_state = {
+				limit = {
+					NOT = {
+						is_core_of = ROOT
+					}
+					OR = {
+						state = 375
+						state = 376
+						state = 377
+						state = 378
+						state = 379
+						state = 380
+						state = 382
+						state = 366
+						is_core_of = CHL 
+						is_core_of = ARG
+						is_core_of = URG
+						is_core_of = PAR
+						is_core_of = PRU
+						is_core_of = BOL
+						is_core_of = ECU
+						is_core_of = VEN
+						is_core_of = COL
+						is_core_of = PAN
+						is_core_of = COS
+						is_core_of = NIC
+						is_core_of = HON
+						is_core_of = ELS
+						is_core_of = GUA
+						is_core_of = MEX
+						is_core_of = CUB
+						is_core_of = DOM
+						is_core_of = PUE
+					}
+				}
+				add_core_of = ROOT
+			}
+
+			hidden_effect = {
+				news_event = { 
+					id = lar_spain.100
+					days = 1
+					random_days = 2
+				}
+			}
+
 		}
 	}
 
@@ -4158,7 +4360,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = SPA_fuse_the_parties
-		cost = 10
+		cost = 5
 
 		available_if_capitulated = yes
 
@@ -5118,12 +5320,31 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 		completion_reward = {
+			if = {
+				limit = {
+					ENG = { has_government = democratic }
+				}
+				effect_tooltip = {
 			290 = {
 				add_extra_state_shared_building_slots = 3
 				add_building_construction = {
 					type = industrial_complex
 					level = 2
 					instant_build = yes
+						}
+					}
+				}
+				custom_effect_tooltip = SPA_the_tangiers_enclave_tt
+				ENG = { country_event = { id = lar_spain.36 hours = 6 random_hours = 18 } }
+			}
+			else = {
+				290 = {
+					add_extra_state_shared_building_slots = 3
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
 				}
 			}
 		}
@@ -5133,8 +5354,10 @@ focus_tree = {
 		id = SPA_demand_french_north_africa
 		allow_branch = { always = no } # SPTChange reduce bloat
 		available = {
-			any_country = {
-				original_tag = FRA
+			any_country_with_original_tag = {
+				exists = yes
+				original_tag_to_check = FRA
+			
 				has_focus_tree = vichy_french_focus
 				owns_state = 461
 				owns_state = 462
@@ -5412,8 +5635,9 @@ focus_tree = {
 			add_state_claim = 772
 			IF = {
 				limit = {
-					any_country = {
-						original_tag = FRA
+					any_country_with_original_tag = {
+						exists = yes
+						original_tag_to_check = FRA
 						OR = {
 							owns_state = 557
 							owns_state = 272
@@ -7778,15 +8002,9 @@ focus_tree = {
 							militant_socialist
 						}
 					}
-					create_country_leader = {
-						name = "Anarchist Commune"
-						desc = "POLITICS_ANARCHIST_COMMUNE_DESC"
-						picture = "GFX_portrait_SPR_anarchist_commune"
-						expire = "1965.1.1"
+					promote_character = {
+						character = SPR_anarchist_commune
 						ideology = anarchism
-						traits = {
-							our_right_to_survive
-						}
 					}
 					add_popularity = {
 					    ideology = fascism
@@ -8164,6 +8382,7 @@ focus_tree = {
 		available = {
 		}
 		bypass = {
+			has_war_support > 0.99
 		}
 		prerequisite = { focus = SPR_all_must_bear_the_torch }
 		
@@ -8229,10 +8448,46 @@ focus_tree = {
 	}
 
 	focus = {
+		id = SPR_factory_and_plant_committees
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SPR_regional_defense_council_of_iberia }
+		prerequisite = { focus = SPR_torchbearers_of_tomorrow }
+		
+		icon = GFX_focus_SOV_merge_plants
+		x = 0
+		y = 1
+		relative_position_id = SPR_regional_defense_council_of_iberia
+		cost = 10
+
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			swap_ideas = {
+				remove_idea = SPR_torchbearers_of_tomorrow
+				add_idea = SPR_torchbearers_of_tomorrow_2
+			}
+		}
+	}
+
+	focus = {
 		id = SPR_the_inevitable_counterblow
 		available = {
 			has_country_leader = {
-				name = "Anarchist Commune"
+				character = SPR_anarchist_commune
 				ruling_only = yes
 			}
 		}
@@ -8252,7 +8507,14 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = SPR_recovering_from_civil_war_focus_tt
 			add_ideas = SPR_the_inevitable_counterblow
+			if = { # Target the Commune directly so the trait cannot land on another ruling leader
+				limit = {
+					has_character = SPR_anarchist_commune
+				}
+				SPR_anarchist_commune = {
 			add_country_leader_trait = anarchist_zeal
+				}
+			}
 			hidden_effect = {
 				news_event = { id = lar_news.22 hours = 6 }
 			}
@@ -8718,6 +8980,10 @@ focus_tree = {
 	focus = {
 		id = SPR_faith_in_the_cause
 		available = {
+			has_country_leader = {
+				character = SPR_anarchist_commune
+				ruling_only = yes
+			}
 		}
 		bypass = {
 		}
@@ -8733,6 +8999,14 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_WAR_SUPPORT}
 		completion_reward = {
 			add_war_support = 0.1
+			if = { # Target the Commune directly so the trait cannot land on another ruling leader
+				limit = {
+					has_character = SPR_anarchist_commune
+				}
+				SPR_anarchist_commune = {
+					add_country_leader_trait = protector_of_the_people
+				}
+			}
 		}
 	}
 
@@ -8752,7 +9026,7 @@ focus_tree = {
 		cost = 10
 
 		available_if_capitulated = yes
-		search_filters = {FOCUS_FILTER_RESEARCH}
+		search_filters = {FOCUS_FILTER_RESEARCH FOCUS_FILTER_MANPOWER}
 		completion_reward = {
 			add_doctrine_cost_reduction = {
 				name = SPA_doctrinal_advancements
@@ -8763,6 +9037,30 @@ focus_tree = {
 			swap_ideas = {
 				remove_idea = SPR_the_threats_abound_2
 				add_idea = SPR_the_threats_abound_3
+			}
+		}
+	}
+
+	focus = {
+		id = SPR_to_do_that_which_is_right
+		available = {
+		}
+		bypass = {
+		}
+		prerequisite = { focus = SPR_militarize_the_people }
+		
+		icon = GFX_focus_ITA_corpo_volontari_della_liberta
+		x = 2
+		y = 1
+		relative_position_id = SPR_militarize_the_people
+		cost = 10
+
+		available_if_capitulated = yes
+		search_filters = {FOCUS_FILTER_MANPOWER}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SPR_the_threats_abound_3
+				add_idea = SPR_the_threats_abound_4
 			}
 		}
 	}
@@ -10709,6 +11007,7 @@ focus_tree = {
 				limit = {
 					has_government = communism
 					is_in_faction = no
+					is_subject = no
 					NOT = {
 						capital_scope = {
 							OR = {
@@ -10720,7 +11019,9 @@ focus_tree = {
 				}
 				country_event = { id = generic.5 hours = 6 random_hours = 6 }
 			}
+
 		}
+
 	}
 
 	focus = {
@@ -10757,8 +11058,9 @@ focus_tree = {
 			}
 			if = {
 				limit = {
-					any_country = {
-						original_tag = SOV
+					any_country_with_original_tag = {
+						exists = yes
+						original_tag_to_check = SOV
 						has_government = communism
 						NOT = { has_completed_focus = SOV_the_right_opposition }
 					}
@@ -11026,8 +11328,15 @@ focus_tree = {
 	focus = {
 		id = SPR_support_french_communists
 		available = {
+			is_subject = no
 		}
 		bypass = {
+			FRA = {
+				OR = {
+					exists = no
+					is_ally_with = ROOT
+				}
+			}
 		}
 		prerequisite = { focus = SPR_modernize_the_armed_forces }
 
@@ -11036,6 +11345,8 @@ focus_tree = {
 		y = 1
 		relative_position_id = SPR_modernize_the_armed_forces
 		cost = 10
+
+		will_lead_to_war_with = FRA
 
 		available_if_capitulated = yes
 
@@ -11709,7 +12020,16 @@ focus_tree = {
 	focus = {
 		id = SPR_enlist_the_carabineros
 		available = {
-			has_idea = SPR_juan_negrin
+			custom_trigger_tooltip = {
+				tooltip = has_hired_juan_negrin_tt
+				OR = {
+					SPR_juan_negrin = {
+						is_hired_as_advisor = yes
+					}
+					has_idea_with_trait = gran_carabinero
+				}
+			}
+				
 		}
 		bypass = {
 			has_global_flag = scw_over
@@ -12204,7 +12524,7 @@ focus_tree = {
 		x = -1
 		y = 1
 		relative_position_id = SPR_those_who_would_not_help_us
-		cost = 10
+		cost = 5
 
 		available_if_capitulated = yes
 
@@ -12247,11 +12567,11 @@ focus_tree = {
 			}
 			else_if = {
 				limit = {
-					any_country = {
+					any_collection_element = {
+						collection = game:all_majors
 						has_government = democratic
 						is_faction_leader = yes
 						NOT = { has_war_with = ROOT }
-						is_major = yes
 					}
 				}
 				random_country = {
@@ -12345,7 +12665,7 @@ focus_tree = {
 		x = 1
 		y = 1
 		relative_position_id = SPR_enemies_of_our_enemy
-		cost = 10
+		cost = 5
 
 		available_if_capitulated = yes
 

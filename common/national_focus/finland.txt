@@ -1060,8 +1060,9 @@ focus_tree = {
 				has_government = democratic
 				has_government = communism
 			}
-			any_other_country = {
-				original_tag = SOV
+			any_country_with_original_tag = {
+				exists = yes
+				original_tag_to_check = SOV
 				has_government = communism
 				NOT = { has_war_with = ROOT }
 			}
@@ -1180,8 +1181,9 @@ focus_tree = {
 			custom_effect_tooltip = FIN_antagonize_the_soviets_event_tt
 			if = {
 				limit = {
-					any_other_country = {
-						is_major = yes
+					any_collection_element = {
+						collection = game:all_majors
+						NOT = { tag = ROOT }
 						NOT = { original_tag = SOV }
 						capital_scope = {
 							is_on_continent = europe
@@ -1208,6 +1210,41 @@ focus_tree = {
 					country_event = { id = AAT_finland_diplomacy.23 hours = 4 random_hours = 2 }
 				}
 			}
+
+			hidden_effect = {
+				# AI less friendly
+				add_ai_strategy = {
+					type = befriend 
+					id = SOV
+					value = -20
+				}
+				SOV = {
+					add_ai_strategy = {
+						type = befriend 
+						id = ROOT
+						value = -20
+					}
+					add_ai_strategy = {
+						type = send_volunteers_desire 
+						id = ROOT
+						value = -200
+					}
+				}
+
+				#AI less hostile
+				SOV = {
+					add_ai_strategy = {
+						type = antagonize 
+						id = ROOT
+						value = 30
+					}
+					add_ai_strategy = {
+						type = conquer 
+						id = ROOT
+						value = 30
+					}
+				}
+			}
 		}
 	}
 	
@@ -1230,10 +1267,12 @@ focus_tree = {
 				has_government = communism
 				has_government = democratic
 			}
-			any_other_country = {
-				original_tag = SOV
+			any_country_with_original_tag = {
+				exists = yes
+				original_tag_to_check = SOV
 				is_subject = no
 				has_government = communism
+				has_country_leader_ideology = stalinism
 				NOT = { has_war_with = ROOT }
 			}
 		}
@@ -1247,7 +1286,15 @@ focus_tree = {
 				popularity = 0.05
 			}
 
-			SOV = { country_event = { id = AAT_finland_diplomacy.20 hours = 6 random_hours = 2 } }
+			random_country_with_original_tag = {
+				original_tag_to_check = SOV
+				limit = {
+					has_government = communism
+					has_country_leader_ideology = stalinism
+					NOT = { has_war_with = ROOT }
+				}
+				country_event = { id = AAT_finland_diplomacy.20 hours = 6 random_hours = 2 }
+			}
 			custom_effect_tooltip = if_they_accept_tt
 			event_option_tooltip = AAT_finland_diplomacy.21.a
 		}
@@ -1680,8 +1727,9 @@ focus_tree = {
 			modifier = { #Let Soviet player enjoy Baltics tack
 				factor = 0.1
 				FIN_is_communist_ai = yes
-				any_other_country = {
-					original_tag = SOV
+				any_country_with_original_tag = {
+					exists = yes
+					original_tag_to_check = SOV
 					is_ai = no
 					has_completed_focus = SOV_baltic_security
 				}
@@ -2112,8 +2160,9 @@ focus_tree = {
 			modifier = {
 				factor = 100
 				FIN_is_communist_ai = yes
-				any_other_country = {
-					original_tag = SOV
+				any_country_with_original_tag = {
+					exists = yes
+					original_tag_to_check = SOV
 					is_faction_leader = yes
 					has_government = communism
 					NOT = { has_war_with = ROOT }
@@ -2130,8 +2179,9 @@ focus_tree = {
 			has_government = communism
 			has_civil_war = no
 			is_subject = no
-			any_other_country = {
-				original_tag = SOV
+			any_country_with_original_tag = {
+				exists = yes
+				original_tag_to_check = SOV
 				is_faction_leader = yes
 				has_government = communism
 				NOT = { has_war_with = ROOT }
@@ -2144,8 +2194,6 @@ focus_tree = {
 		search_filters = {}
 
 		completion_reward = {
-			#TODO_Manu: Possibly unlocks decision to form the Finnish Democratic Republic.
-
 			SOV = {
 				add_ai_strategy = {
 					type = befriend
@@ -2204,14 +2252,10 @@ focus_tree = {
 			}
 			has_civil_war = no
 			is_subject = no
-			any_other_country = {
-				OR = {
-					tag = SWE
-					tag = NOR
-					tag = DEN
-					tag = ICE
-					tag = SMI
-				}
+
+			any_country_of = {
+				exists = yes
+				target = {SWE NOR DEN ICE SMI}
 				FIN_country_can_be_invited_into_faction_socialist = yes
 			}
 		}
@@ -2251,16 +2295,16 @@ focus_tree = {
 					}
 					SWE = {
 						hidden_effect = {
-							SWE = {
+							ROOT = {
 								add_ai_strategy = {
 									type = befriend
-									id = ROOT
+									id = PREV
 									value = 50
 								}
 							}
 							add_ai_strategy = {
 								type = befriend
-								id = SWE
+								id = ROOT
 								value = 50
 							}
 							country_event = { id = generic.5 hours = 4 random_hours = 4 }
@@ -2278,16 +2322,16 @@ focus_tree = {
 					}
 					NOR = {
 						hidden_effect = {
-							NOR = {
+							ROOT = {
 								add_ai_strategy = {
 									type = befriend
-									id = ROOT
+									id = PREV
 									value = 50
 								}
 							}
 							add_ai_strategy = {
 								type = befriend
-								id = NOR
+								id = ROOT
 								value = 50
 							}
 							country_event = { id = generic.5 hours = 4 random_hours = 4 }
@@ -2305,16 +2349,16 @@ focus_tree = {
 					}
 					DEN = {
 						hidden_effect = {
-							DEN = {
+							ROOT = {
 								add_ai_strategy = {
 									type = befriend
-									id = ROOT
+									id = PREV
 									value = 50
 								}
 							}
 							add_ai_strategy = {
 								type = befriend
-								id = DEN
+								id = ROOT
 								value = 50
 							}
 							country_event = { id = generic.5 hours = 4 random_hours = 4 }
@@ -2332,16 +2376,16 @@ focus_tree = {
 					}
 					ICE = {
 						hidden_effect = {
-							ICE = {
+							ROOT = {
 								add_ai_strategy = {
 									type = befriend
-									id = ROOT
+									id = PREV
 									value = 50
 								}
 							}
 							add_ai_strategy = {
 								type = befriend
-								id = ICE
+								id = ROOT
 								value = 50
 							}
 							country_event = { id = generic.5 hours = 4 random_hours = 4 }
@@ -2359,16 +2403,16 @@ focus_tree = {
 					}
 					SMI = {
 						hidden_effect = {
-							SMI = {
+							ROOT = {
 								add_ai_strategy = {
 									type = befriend
-									id = ROOT
+									id = PREV
 									value = 50
 								}
 							}
 							add_ai_strategy = {
 								type = befriend
-								id = SMI
+								id = ROOT
 								value = 50
 							}
 							country_event = { id = generic.5 hours = 4 random_hours = 4 }
@@ -3582,16 +3626,16 @@ focus_tree = {
 					}
 					EST = {
 						hidden_effect = {
-							EST = {
+							ROOT = {
 								add_ai_strategy = {
 									type = befriend
-									id = ROOT
+									id = PREV
 									value = 50
 								}
 							}
 							add_ai_strategy = {
 								type = befriend
-								id = EST
+								id = ROOT
 								value = 50
 							}
 							country_event = { id = generic.5 hours = 4 random_hours = 4 }
@@ -3628,16 +3672,16 @@ focus_tree = {
 					}
 					LAT = {
 						hidden_effect = {
-							LAT = {
+							ROOT = {
 								add_ai_strategy = {
 									type = befriend
-									id = ROOT
+									id = PREV
 									value = 50
 								}
 							}
 							add_ai_strategy = {
 								type = befriend
-								id = LAT
+								id = ROOT
 								value = 50
 							}
 							country_event = { id = generic.5 hours = 4 random_hours = 4 }
@@ -3674,16 +3718,16 @@ focus_tree = {
 					}
 					LIT = {
 						hidden_effect = {
-							LIT = {
+							ROOT = {
 								add_ai_strategy = {
 									type = befriend
-									id = ROOT
+									id = PREV
 									value = 50
 								}
 							}
 							add_ai_strategy = {
 								type = befriend
-								id = LIT
+								id = ROOT
 								value = 50
 							}
 							country_event = { id = generic.5 hours = 4 random_hours = 4 }
@@ -3722,16 +3766,16 @@ focus_tree = {
 					log = "Invitation"
 					POL = {
 						hidden_effect = {
-							POL = {
+							ROOT = {
 								add_ai_strategy = {
 									type = befriend
-									id = ROOT
+									id = PREV
 									value = 50
 								}
 							}
 							add_ai_strategy = {
 								type = befriend
-								id = POL
+								id = ROOT
 								value = 50
 							}
 							country_event = { id = generic.5 hours = 4 random_hours = 4 }
@@ -3776,6 +3820,12 @@ focus_tree = {
 		cost = 10
 		available = {
 			is_subject = no
+			SMI = {
+				any_core_state = {
+					NOT = { is_core_of = ROOT }
+					NOT = { controller = { has_war_with = ROOT } }
+				}
+			}
 		}
 
 		search_filters = { FOCUS_FILTER_ANNEXATION }
@@ -3859,7 +3909,6 @@ focus_tree = {
 			}
 
 			custom_effect_tooltip = FIN_confederated_finno_russian_republics_dec_cat_tt
-
 			
 			if = {
 				limit = {
@@ -3871,7 +3920,6 @@ focus_tree = {
 				custom_effect_tooltip = available_chief_of_army
 				show_ideas_tooltip = FIN_toivo_antikainen
 			}
-
 
 			FIN_bop_high_increase_effect = yes
 		}
@@ -4223,9 +4271,9 @@ focus_tree = {
 		available = {
 			is_subject = no
 			country_exists = SOV
-			NOT = { is_in_faction_with = ENG }
-			NOT = { has_non_aggression_pact_with = ENG }
-			NOT = { has_guaranteed = ENG }
+			NOT = { is_in_faction_with = SOV }
+			NOT = { has_non_aggression_pact_with = SOV }
+			NOT = { has_guaranteed = SOV }
 		}
 
 		search_filters = { FOCUS_FILTER_WAR_SUPPORT }
@@ -5052,7 +5100,6 @@ focus_tree = {
 			always = no
 		}
 		available = {
-			
 			OR = {
 				has_country_leader = {
 					ruling_only = yes
@@ -5064,6 +5111,7 @@ focus_tree = {
 				}
 			}
 		}
+
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_BALANCE_OF_POWER FOCUS_FILTER_POLITICAL_CHARACTER FOCUS_FILTER_INDUSTRY FOCUS_FILTER_STABILITY }
 
 		completion_reward = {
@@ -5109,7 +5157,6 @@ focus_tree = {
 		cost = 10
 
 		allow_branch = {
-			has_dlc = "Arms Against Tyranny"
 			has_completed_focus = FIN_a_new_course_for_kokoomus
 			OR = {
 				has_country_leader = {
@@ -6498,7 +6545,7 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = FIN_modernize_the_industry
-				bonus = 0.50
+				bonus = 0.5
 				uses = 2
 				category = industry
 				category = electronics
@@ -7559,6 +7606,12 @@ focus_tree = {
 		cost = 10
 		available = {
 			is_subject = no
+			GER = {
+				OR = {
+					has_government = fascism
+					has_government = neutrality
+				}
+			}
 			if = {
 				limit = {
 					has_country_flag = FIN_germans_rejected_to_protect_finland_flag
@@ -11627,7 +11680,7 @@ focus_tree = {
 			add_tech_bonus = {
 				name = FIN_national_armor_focus
 				bonus = 0.5
-				uses = 2
+				uses = 1 # was 2
 				category = armor
 			}
 
@@ -14298,7 +14351,7 @@ focus_tree = {
 				navy_experience = 50
 				add_tech_bonus = {
 					name = FIN_sea_mines_strategy
-					bonus = 0.75
+					bonus = 0.5
 					uses = 2
 					category = dd_tech
 					category = ca_tech

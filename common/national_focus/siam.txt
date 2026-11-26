@@ -3314,9 +3314,9 @@
 					fixed_ship_anti_air_slot = ship_anti_air_1
 					fixed_ship_fire_control_system_slot = ship_fire_control_system_0
 					fixed_ship_radar_slot = empty
-					fixed_ship_engine_slot = light_ship_engine_2
-					fixed_ship_torpedo_slot = ship_torpedo_2
+					fixed_ship_engine_slot = cruiser_ship_engine_2
 					mid_1_custom_slot = ship_torpedo_2
+					mid_2_custom_slot = ship_torpedo_2
 					rear_1_custom_slot = ship_mine_layer_1
 				}
 				obsolete = yes
@@ -3726,8 +3726,7 @@
 		ai_will_do = {
 			factor = 50
 		}
-		available = {
-		}
+		available = { is_subject = no }
 		mutually_exclusive = { focus = SIA_join_the_allies focus = SIA_join_the_united_front }
 		#allow_branch = {
 		#}
@@ -5062,6 +5061,9 @@
 			controls_state = 1067
 			controls_state = 741
 			controls_state = 1068
+			controls_state = 1061
+			controls_state = 1064
+			controls_state = 1065
 			controls_state = 670
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -7841,6 +7843,7 @@
 
 	focus = {
 		id = SIA_directorate_of_aeronautical_engineering
+		text = SIA_directorate_of_aeronautical_engineering_focus
 		icon = GFX_focus_generic_air_research_boost
 		x = 4
 		y = 0
@@ -9762,7 +9765,7 @@
 		}
 		available = {
 			any_war_score > 8
-			is_ally_with = JAP
+			SIA_aligned_with_japan = yes
 		}
 		#allow_branch = {
 		#}

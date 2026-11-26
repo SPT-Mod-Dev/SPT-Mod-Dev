@@ -69,6 +69,10 @@ ideas = {
 				always = no
 			}
 
+			available = {
+				always = no
+			}
+
 			modifier = {
 				production_factory_efficiency_gain_factor = -0.15
 				production_factory_max_efficiency_factor = 0.05
@@ -85,6 +89,10 @@ ideas = {
 			picture = SOV_third_five_year_plan_ccp_2d_sov_compatibility # New GFX entry pointing to the original icon, so it can be safely overwritten by CCP 2D Sov Art without impacting other content using the same icon
 
 			allowed = {
+				always = no
+			}
+
+			available = {
 				always = no
 			}
 
@@ -111,10 +119,7 @@ ideas = {
 			allowed_civil_war = {
 				OR = {
 					SOV_is_right_opposition = yes
-					has_country_leader = {
-						character = SOV_iosif_stalin
-						ruling_only = yes
-					}
+					NOT = { tag = SOV } #Stalin/Beriya
 				}
 			}
 
@@ -155,7 +160,6 @@ ideas = {
 
 			modifier = {
 				drift_defence_factor = 0.5
-				operation_collaboration_government_cost = 1.0
 			}
 			rule = {
 				can_create_factions = yes
@@ -184,10 +188,7 @@ ideas = {
 			}
 
 			allowed_civil_war = {
-				has_country_leader = {
-					character = SOV_iosif_stalin
-					ruling_only = yes
-				}
+				NOT = { tag = SOV } #Go to Stalinist side
 			}
 
 			picture = generic_democratic_opposition
@@ -209,10 +210,7 @@ ideas = {
 			}
 
 			allowed_civil_war = {
-				has_country_leader = {
-					character = SOV_iosif_stalin
-					ruling_only = yes
-				}
+				NOT = { tag = SOV } #Go to Stalinist side
 			}
 
 			research_bonus = {
@@ -238,10 +236,7 @@ ideas = {
 			}
 
 			allowed_civil_war = {
-				has_country_leader = {
-					character = SOV_iosif_stalin
-					ruling_only = yes
-				}
+				NOT = { tag = SOV } #Go to Stalinist side
 			}
 
 			modifier = {
@@ -260,10 +255,7 @@ ideas = {
 			}
 
 			allowed_civil_war = {
-				has_country_leader = {
-					character = SOV_iosif_stalin
-					ruling_only = yes
-				}
+				NOT = { tag = SOV } #Go to Stalinist side
 			}
 
 			picture = SOV_purged_junior_army_officers
@@ -295,10 +287,7 @@ ideas = {
 			}
 
 			allowed_civil_war = {
-				has_country_leader = {
-					character = SOV_iosif_stalin
-					ruling_only = yes
-				}
+				NOT = { tag = SOV } #Go to Stalinist side
 			}
 
 			picture = SOV_purged_junior_army_officers
@@ -330,10 +319,7 @@ ideas = {
 			}
 
 			allowed_civil_war = {
-				has_country_leader = {
-					character = SOV_iosif_stalin
-					ruling_only = yes
-				}
+				NOT = { tag = SOV } #Go to Stalinist side
 			}
 
 			picture = SOV_purged_junior_army_officers
@@ -365,10 +351,7 @@ ideas = {
 			}
 
 			allowed_civil_war = {
-				has_country_leader = {
-					character = SOV_iosif_stalin
-					ruling_only = yes
-				}
+				NOT = { tag = SOV } #Go to Stalinist side
 			}
 
 			modifier = {
@@ -387,10 +370,7 @@ ideas = {
 			}
 
 			allowed_civil_war = {
-				has_country_leader = {
-					character = SOV_iosif_stalin
-					ruling_only = yes
-				}
+				NOT = { tag = SOV } #Go to Stalinist side
 			}
 
 			picture = SOV_shipyard_staff_purged
@@ -414,10 +394,7 @@ ideas = {
 			}
 
 			allowed_civil_war = {
-				has_country_leader = {
-					character = SOV_iosif_stalin
-					ruling_only = yes
-				}
+				NOT = { tag = SOV } #Go to Stalinist side
 			}
 
 			picture = SOV_purged_junior_navy_officers
@@ -440,10 +417,7 @@ ideas = {
 			}
 
 			allowed_civil_war = {
-				has_country_leader = {
-					character = SOV_iosif_stalin
-					ruling_only = yes
-				}
+				NOT = { tag = SOV } #Go to Stalinist side
 			}
 
 			picture = SOV_purged_junior_navy_officers
@@ -466,10 +440,7 @@ ideas = {
 			}
 
 			allowed_civil_war = {
-				has_country_leader = {
-					character = SOV_iosif_stalin
-					ruling_only = yes
-				}
+				NOT = { tag = SOV } #Go to Stalinist side
 			}
 
 			picture = SOV_purged_junior_navy_officers
@@ -493,10 +464,7 @@ ideas = {
 			}
 
 			allowed_civil_war = {
-				has_country_leader = {
-					character = SOV_iosif_stalin
-					ruling_only = yes
-				}
+				NOT = { tag = SOV } #Go to Stalinist side
 			}
 
 			modifier = {
@@ -514,10 +482,7 @@ ideas = {
 			}
 
 			allowed_civil_war = {
-				has_country_leader = {
-					character = SOV_iosif_stalin
-					ruling_only = yes
-				}
+				NOT = { tag = SOV } #Go to Stalinist side
 			}
 
 			picture = SOV_ground_based_training
@@ -912,7 +877,7 @@ ideas = {
 			modifier = {
 				stability_factor = 0.05
 				consumer_goods_factor = -0.06
-				global_building_slots = 0.1
+				global_building_slots = 1
 			}
 		}
 
@@ -1866,18 +1831,23 @@ ideas = {
 			}
 
 			on_remove = {
-				var:SOV_capital_for_soviet_imports = { #This is where the German capital is stored and where Soviet Imports state modifier was added
-					if = {
-						limit = {
-							has_dynamic_modifier = { modifier = SOV_soviet_imports }
-						}
-						remove_dynamic_modifier = { modifier = SOV_soviet_imports }
-					}
-				}
+				#var:SOV_capital_for_soviet_imports = { #This is where the German capital is stored and where Soviet Imports state modifier was added
+				#	if = {
+				#		limit = {
+				#			has_dynamic_modifier = { modifier = SOV_soviet_imports }
+				#		}
+				#		remove_dynamic_modifier = { modifier = SOV_soviet_imports }
+				#	}
+				#}
 			}
 
 			modifier = {
 				consumer_goods_factor = -0.10
+				country_resource_steel = 20 
+				country_resource_oil = 30
+				country_resource_chromium = 6
+				country_resource_rubber = 6
+				country_resource_tungsten = 4
 			}
 		}
 
@@ -3340,7 +3310,7 @@ ideas = {
 				army_core_attack_factor = 0.05
 
 				army_org_factor = 0.05
-				army_morale_factor = -0.1
+				army_morale_factor = 0.1
 			}
 		}
 
@@ -8939,7 +8909,7 @@ ideas = {
 			traits = { artillery_manufacturer }
 
 			modifier = {
-				production_factory_max_efficiency_factor = 0.02
+				production_factory_max_efficiency_factor = 0.05
 			}
 		}
 
@@ -9197,7 +9167,7 @@ ideas = {
 			traits = { infantry_equipment_manufacturer }
 
 			modifier = {
-				production_factory_max_efficiency_factor = 0.02
+				production_factory_max_efficiency_factor = 0.05
 			}
 		}
 
@@ -9457,7 +9427,7 @@ ideas = {
 			traits = { motorized_equipment_manufacturer }
 
 			modifier = {
-				production_factory_max_efficiency_factor = 0.02
+				production_factory_max_efficiency_factor = 0.05
 			}
 		}
 

@@ -2483,10 +2483,6 @@ country_event = {
 			}
 		}
 
-
-
-
-
 ###  ### ###  #  # ###  #   ###  ##   ##  #  #     ### ### ### ###  ##  ### 
 #  # #   #  # #  # #  # #    #  #  # #  # ## #     #   #   #   #   #  #  #  
 ###  ##  ###  #  # ###  #    #  #    #### # ##     ##  ##  ##  ##  #     #  
@@ -4510,11 +4506,7 @@ country_event = {
 		# 		country_event = { id = lar_spain.6 days = 7 }
 		# 		SPA = { country_event = { id = lar_spain.78 days = 7 random_days = 7 } } # Sanjurjo dies
 		# 	}
-		# }
-
-
-
-		
+		# }	
 		hidden_effect = {
 			# Marks gui as "dirty" so the code updates the layout to properly hide the unused branches
 			mark_focus_tree_layout_dirty = yes
@@ -6836,6 +6828,15 @@ country_event = {
 		hidden_effect = {
 			set_global_flag = SPR_anarchist_uprising_flag
 			set_global_flag = { flag = SPR_civil_war_startup value = 1 days = 3 } # Make AI avoid attacking for a few days
+			if = { # The Anarchist Commune always follows the anarchists out of the republic
+				limit = {
+					has_character = SPR_anarchist_commune
+				}
+				set_nationality = {
+					character = SPR_anarchist_commune
+					target_country = SPC
+				}
+			}
 			if = { #POUM UPRISING (SUPPORTED BY SOVIET RIGHT OPPOSITION)
 				limit = {
 					has_global_flag = SOV_covert_support_for_poum_flag
@@ -6955,15 +6956,9 @@ country_event = {
 						democratic = 2
 						neutrality = 58
 					}
-					create_country_leader = {
-						name = "Anarchist Commune"
-						desc = "POLITICS_ANARCHIST_COMMUNE_DESC"
-						picture = "GFX_portrait_SPR_anarchist_commune"
-						expire = "1965.1.1"
+					promote_character = {
+						character = SPR_anarchist_commune
 						ideology = anarchism
-						traits = {
-							our_right_to_survive
-						}
 					}
 				}
 			}
@@ -7346,15 +7341,9 @@ country_event = {
 				}
 				set_party_name = { ideology = neutrality long_name = SPR_neutrality_anarchism_party_long name = SPR_neutrality_anarchism_party }
 				set_party_name = { ideology = communism long_name = SPR_communism_independent_party_long name = SPR_communism_independent_party }
-				create_country_leader = {
-					name = "Anarchist Commune"
-					desc = "POLITICS_ANARCHIST_COMMUNE_DESC"
-					picture = "GFX_portrait_SPR_anarchist_commune"
-					expire = "1965.1.1"
+				promote_character = {
+					character = SPR_anarchist_commune
 					ideology = anarchism
-					traits = {
-						our_right_to_survive
-					}
 				}
 				unlock_national_focus = SPR_the_popular_front
 				if = {
@@ -7623,15 +7612,9 @@ country_event = {
 						militant_socialist
 					}
 				}
-				create_country_leader = {
-					name = "Anarchist Commune"
-					desc = "POLITICS_ANARCHIST_COMMUNE_DESC"
-					picture = "GFX_portrait_SPR_anarchist_commune"
-					expire = "1965.1.1"
+				promote_character = {
+					character = SPR_anarchist_commune
 					ideology = anarchism
-					traits = {
-						our_right_to_survive
-					}
 				}
 				add_popularity = {
 				    ideology = fascism
@@ -7704,7 +7687,7 @@ country_event = {
 				#    planning_skill = 2
 				#    logistics_skill = 3
 				#}
-				add_field_marshal_role = { #TODO_Manu: All these guys should be handled with the new char system
+				add_field_marshal_role = {
 					character = SPR_jose_rovira
 					traits = { infantry_officer politically_connected }
 					skill = 3
@@ -8481,15 +8464,9 @@ country_event = {
 				set_politics = {
 					ruling_party = neutrality
 				}
-				create_country_leader = {
-					name = "Anarchist Commune"
-					desc = "POLITICS_ANARCHIST_COMMUNE_DESC"
-					picture = "GFX_portrait_SPR_anarchist_commune"
-					expire = "1965.1.1"
+				promote_character = {
+					character = SPR_anarchist_commune
 					ideology = anarchism
-					traits = {
-						our_right_to_survive
-					}
 				}
 				add_popularity = {
 				    ideology = fascism
@@ -10356,8 +10333,9 @@ country_event = {
 	fire_only_once = yes
 
 	trigger = {
-		any_country = {
-			original_tag = SPR
+		any_country_with_original_tag = {
+			exists = yes
+			original_tag_to_check = SPR
 			OR = {
 				has_government = democratic
 				has_government = communism
@@ -10725,12 +10703,12 @@ country_event = {
 				NOT = { tag = FROM }
 			}
 			SPR = {
-				puppet = PREV
 				add_to_war = { 
 				    targeted_alliance = PREV
 				    enemy = FRA
 				    hostility_reason = asked_to_join
 				}
+				puppet = PREV
 			}
 		}
 	}
@@ -10848,8 +10826,8 @@ country_event = {
 			base = 100
 			modifier = {
 				factor = 0.33
-				any_country = {
-					is_major = yes
+				any_collection_element = {
+					collection = game:all_majors
 					has_war_with = ROOT
 				}
 			}
@@ -10877,8 +10855,8 @@ country_event = {
 			base = 0
 			modifier = {
 				add = 100
-				any_country = {
-					is_major = yes
+				any_collection_element = {
+					collection = game:all_majors
 					has_war_with = ROOT
 				}
 			}
@@ -11426,8 +11404,9 @@ country_event = {
 
 	trigger = {
 		tag = SOV
-		any_country = {
-			original_tag = SPR
+		any_country_with_original_tag = {
+			exists = yes
+			original_tag_to_check = SPR
 			focus_progress = {
 			    focus = SPR_subvert_soviet_control
 			    progress > 0.1
@@ -11447,8 +11426,8 @@ country_event = {
 			base = 100
 			modifier = {
 				factor = 0.33
-				any_country = {
-					is_major = yes
+				any_collection_element = {
+					collection = game:all_majors
 					has_war_with = ROOT
 				}
 			}
@@ -11557,8 +11536,8 @@ country_event = {
 			base = 0
 			modifier = {
 				add = 100
-				any_country = {
-					is_major = yes
+				any_collection_element = {
+					collection = game:all_majors
 					has_war_with = ROOT
 				}
 			}
@@ -11748,6 +11727,7 @@ country_event = {
 		tag = SPR
 		date > 1936.4.20
 		NOT = { has_global_flag = spanish_civil_war }
+		NOT = { has_country_flag = SPR_communist_civil_war }	#non-LaR: elected Franco
 	}
 
 	mean_time_to_happen = {
