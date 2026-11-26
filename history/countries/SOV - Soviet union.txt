@@ -339,6 +339,14 @@ if = {
 #		set_character_flag = SOV_aligned_the_exiles_flag
 #		set_character_flag = SOV_exiled_military_advisor_flag
 #	}
+SOV_bronislav_kaminski = {
+		set_character_flag = SOV_aligned_the_exiles_flag
+		set_character_flag = SOV_lokot_autonomy_character_flag
+	}
+	SOV_konstantin_voskoboinik = {
+		set_character_flag = SOV_aligned_the_exiles_flag
+		set_character_flag = SOV_lokot_autonomy_character_flag
+	}
 }
 
 #Initialize character flags Part III (aka who's in prison)
@@ -582,7 +590,7 @@ set_variable = { SOV_defense_industry_materiel_manufacturer_cost_factor = 0 } #-
 set_variable = { SOV_defense_industry_breakthrough_factor = 0 } #-> PC of Mortar Armament
 set_variable = { SOV_defense_industry_production_speed_coastal_bunker_factor = 0 } #-> Military Engineering University
 set_variable = { SOV_defense_industry_production_speed_bunker_factor = 0 } #-> Military Engineering University
-set_variable = { SOV_defense_industry_max_dig_in_factor = 0 } #-> Military Engineering University
+set_variable = { SOV_defense_industry_max_dig_in = 0 } #-> Military Engineering University
 set_variable = { SOV_defense_industry_army_artillery_defence_factor = 0 } #-> Military Engineering University
 
 
@@ -882,7 +890,12 @@ add_ideas = {
 	SOV_genrikh_yagoda #NKVD Chief (political advisor)
 }
 
+add_ideas = SOV_second_five_year_plan_fake_1936_ns
+
 1939.1.1 = {
+
+	remove_ideas = SOV_second_five_year_plan_fake_1936_ns
+	add_ideas = SOV_second_five_year_plan_fake_1939_ns
 
 	add_political_power = 1198
 	add_command_power = 100
@@ -1043,8 +1056,8 @@ add_ideas = {
 	add_opinion_modifier = { target = GER modifier = MR_pact }# pact 
 	set_global_flag = sov_yes_pact
 	add_state_claim = 146 #KARELIA (FIN)
-	add_state_claim = 147 #SALLA (FIN)
-	add_state_claim = 722 #PETSAMO (FIN)
+	#add_state_claim = 147 #SALLA (FIN) # Claim removed from MR pact (AAT)
+	#add_state_claim = 722 #PETSAMO (FIN) # Claim removed from MR pact (AAT)
 	add_state_claim = 13 #PÄRNU (EST)
 	add_state_claim = 191 #TARTU (EST)
 	add_state_claim = 811 #SAAREMAA (EST)
@@ -1378,6 +1391,18 @@ if = {
 	limit = {
 		has_dlc = "By Blood Alone"
 	}
+	create_equipment_variant = { #Tupolev ANT-23, twin-engine recoilless-gun prototype that never entered service, so it starts obsolete and equips no wings
+		name = "I-12"
+		type = medium_plane_fighter_airframe_0
+		modules = {
+			fixed_main_weapon_slot = aircraft_cannon_1_2x
+			fixed_auxiliary_weapon_slot_1 = empty
+			engine_type_slot = engine_1_2x
+			special_type_slot_1 = empty
+		}
+		obsolete = yes
+		icon = "GFX_SOV_heavy_fighter1_medium"
+	}
 	create_equipment_variant = { #Note: There is a copy of this variant in Finnish Scripted Effects file (FIN_purchase_soviet_equipment_for_cw). Any changes here should also be applied there
 		name = "I-15" #
 		type = small_plane_airframe_0
@@ -1401,6 +1426,7 @@ if = {
 	create_equipment_variant = {
 		name = "DB-3" #
 		type = medium_plane_airframe_0
+		design_team = mio:SOV_ilyushin_design_bureau_organization
 		modules = {
 			fixed_main_weapon_slot = medium_bomb_bay
 			fixed_auxiliary_weapon_slot_1 = bomb_locks
@@ -1459,6 +1485,7 @@ if = {
 	create_equipment_variant = {
 		name = "T-26TU mod. 1933"
 		type = light_tank_chassis_1
+		design_team = mio:SOV_okmo_organization
 		parent_version = 0
 		modules = {
 			main_armament_slot = tank_small_cannon
@@ -1474,9 +1501,10 @@ if = {
 		}
 		icon = "GFX_SOV_basic_light_tank_medium"
 	}
-	create_equipment_variant = {
+	create_equipment_variant = { #Note: There is a copy of this variant in Finnish National Focus file (FIN_bring_foreign_armor_experts). Any changes here should also be applied there
 		name = "BT-5"
 		type = light_tank_chassis_1
+		design_team = mio:SOV_morozov_design_bureau_organization
 		parent_version = 1
 		modules = {
 			main_armament_slot = tank_small_cannon
@@ -1489,11 +1517,13 @@ if = {
 			tank_nsb_engine_upgrade = 8
 			tank_nsb_armor_upgrade = 1
 		}
-		icon = "GFX_SOV_improved_light_tank_medium"
+		icon = "GFX_SOV_improved_light_tank_medium" #More similar to BT-7 than to T-26
+		model = "SOV_light_armor_entity" #More similar to BT-7 than to T-26
 	}
 	create_equipment_variant = {
 		name = "BT-7"
 		type = light_tank_chassis_2
+		design_team = mio:SOV_morozov_design_bureau_organization
 		parent_version = 0
 		modules = {
 			main_armament_slot = tank_small_cannon
@@ -1535,6 +1565,7 @@ if = {
 	create_equipment_variant = {
 		name = "T-35"
 		type = heavy_tank_chassis_0
+		design_team = mio:SOV_okmo_organization
 		parent_version = 0
 		modules = {
 			main_armament_slot = tank_close_support_gun
@@ -1552,7 +1583,7 @@ if = {
 		icon = "GFX_SOV_basic_heavy_tank_medium"
 	}
 	create_equipment_variant = {
-		name = "ISU-152"
+		name = "SU-152"
 		type = heavy_tank_destroyer_chassis_1
 		design_team = mio:SOV_kirov_organization
 		parent_version = 0
@@ -1893,7 +1924,7 @@ if = {
 			modules = {
 				fixed_main_weapon_slot = large_bomb_bay
 				fixed_auxiliary_weapon_slot_1 = large_bomb_bay
-				engine_type_slot = engine_2_4x
+				engine_type_slot = engine_3_4x #Increased tier due to thrust/weight issues
 				special_type_slot_1 = lmg_defense_turret
 				special_type_slot_2 = cannon_defense_turret_2x
 			}
@@ -2017,7 +2048,7 @@ if = {
 			type = medium_tank_chassis_1
 			parent_version = 0
 			modules = {
-				main_armament_slot = tank_small_cannon
+				main_armament_slot = tank_small_cannon_2
 				turret_type_slot = tank_medium_two_man_tank_turret
 				suspension_type_slot = tank_christie_suspension
 				armor_type_slot = tank_welded_armor

@@ -173,7 +173,7 @@ set_research_slots = 3
 
 ### COUNTRY LEADERS ###
 store_core_states_on_game_start = yes
-#Set Kokoomus as Non-Aligned party #TODO_Manu: I can now kill the old string and be done with this
+#Set Kokoomus as Non-Aligned party
 set_party_name = {
 	ideology = neutrality
 	name = FIN_neutrality_party_kokoomus
@@ -557,6 +557,8 @@ set_grand_doctrine = new_operational_integrity
 	complete_national_focus = FIN_jaeger_movement
 	complete_national_focus = FIN_salvaged_and_retooled
 	complete_national_focus = FIN_motti_tactics #35
+	complete_national_focus = FIN_arm_the_lotta_svard	#added to improve timings (ai has completed it at this point when starting from 1936)
+	#complete_national_focus = FIN_oy_alkoholiliike		#added here already commented out - feel free to uncomment if needed to correct focus timings (is completed by AI at this point when starting from 1936)
 
 	# FOCUS ADJUSTMENTS
 
@@ -594,12 +596,16 @@ set_grand_doctrine = new_operational_integrity
 	if = {
 		limit = { has_dlc = "By Blood Alone" }
 			set_air_oob = "FIN_1939_air_bba"
+			set_technology = { 
+				bba_early_transport_plane = 1 
+			}
 		else = {
 			set_air_oob = "FIN_1939_air_legacy"
 			set_technology = {
 				early_fighter = 1
 				early_bomber = 1
 				CAS1 = 1		
+				early_transport_plane = 1
 			}
 		}
 	}
