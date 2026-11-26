@@ -1284,6 +1284,7 @@ ideas = {
 		free_trade = {
 
 			available = {
+				NOT = { original_tag = SOV } # SPTchange
 				if = {
 					limit = {
 						original_tag = SPR
@@ -1391,6 +1392,7 @@ ideas = {
 
 			available = {
 
+				NOT = { original_tag = SOV } # SPTchange
 				if = {
 					limit = {
 						original_tag = CHI
@@ -1497,6 +1499,7 @@ ideas = {
 
 		limited_exports = {
 			available = {
+				NOT = { original_tag = SOV } # SPTchange
 				OR = {
 					AND = {
 						has_government = democratic
@@ -1526,13 +1529,13 @@ ideas = {
 						}
 					}
 					# SPTchange?
-					hidden_trigger = {
-						TAG = SOV
-						OR = {
-							has_idea = new_economic_policy
-							has_idea = new_economic_policy_2
-						}
-					}
+					# hidden_trigger = {
+					# 	TAG = SOV
+					# 	OR = {
+					# 		has_idea = new_economic_policy
+					# 		has_idea = new_economic_policy_2
+					# 	}
+					# }
 					if = {
 						limit = {
 							original_tag = RAJ
@@ -1752,6 +1755,7 @@ ideas = {
 
 
 			available = {
+				NOT = { original_tag = SOV } # SPTchange
 				has_war = yes
 
 				IF = {
@@ -1914,6 +1918,39 @@ ideas = {
 				resource_trade_cost_bonus_per_factory = 1
 			}
 
+			cancel_if_invalid = no
+
+		}
+
+		spt_soviet_eco = {
+
+			allowed = {
+				original_tag = SOV
+			}
+
+			visible = {
+				original_tag = SOV
+			}
+
+			available = {
+				original_tag = SOV
+			}
+			
+			picture = FIN_finnish_federation_of_trade_unions_heavy
+			rule = { can_access_market = no } #SPT
+			cost = 150
+			removal_cost = -1
+
+			modifier = {
+				min_export = 0.0
+				industrial_capacity_factory = 0.1
+				industrial_capacity_dockyard = 0.1
+				production_speed_buildings_factor = 0.1
+				research_speed_factor = 0.05
+				cic_construction_boost_factor = 0.1
+			}
+
+			# default = yes
 			cancel_if_invalid = no
 
 		}

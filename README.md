@@ -3,7 +3,7 @@
 ### 4.4.1
 
 #### General
- - Updated to x.xx.x
+ - Updated to 1.20.1
     - Major differences
         - Kept Mass Assault and Large Unit Tactics the same as before regarding combat width reductions
         - Tank chassis and module changes were kept the same as before (for now) 
@@ -12,6 +12,7 @@
  - Reduced the amount of convoys needed for fuel lend-lease by around a factor of 10
  - AI no longer objects to attaché
  - Removed the supremacy for stab minigame and made it a hidden idea instead
+ - All players at war will now get a friendly reminder to go Total Mobilization on January 1st 1940
  - Miltia stats nerfed
     - Soft attack: -5% -> -10%
     - Hard attack: 0% -> -10%
@@ -46,6 +47,12 @@
 
 #### United Kingdom
  - The 'Mobilize African Irregulars' focus now gives 300 mastery instead of 200
+
+#### Soviet Union
+ - Their economy is no longer dependend on Allied trade
+    - New trade law: "Soviet Autarky"
+        - Basically "Export Focus" with 0% resources to market
+        - +12 civilian factories as compensation
 
 #### No Asia
  - UK now gets 15 civs and resource rights in some US states in mid 1940

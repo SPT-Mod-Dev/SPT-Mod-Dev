@@ -1,20 +1,17 @@
 add_namespace = spt_no_asia
-add_namespace = spt_no_asia_news
 
 # fake marco polo bridge
 country_event = {
 	id = spt_no_asia.1
 	is_triggered_only = yes
+	fire_only_once = yes
 	hidden = yes
 	option = {
 		add_named_threat = {
 			threat = 5
 			name = SPT_no_asia_marco_polo_bridge_threat
 		}
-		every_country = {	
-			limit = {
-				is_ai = no
-			}				
+		PTF = {			
 			news_event = {
 				id = news.1
 				hours = 1
@@ -27,6 +24,7 @@ country_event = {
 country_event = {
 	id = spt_no_asia.2
 	is_triggered_only = yes
+	fire_only_once = yes
 	hidden = yes
 	option = {
 		add_named_threat = {
@@ -39,10 +37,7 @@ country_event = {
 				transfer_state_to = PTF
 			}
 		}
-		every_country = {	
-			limit = {
-				is_ai = no
-			}
+		PTF = {
 			news_event = {
 				id = news.210
 				hours = 1
@@ -89,8 +84,10 @@ country_event = {
 	}
 }
 
+# fake US lend lease act
 country_event = {
 	id = spt_no_asia.4
+	is_triggered_only = yes
 	hidden = yes
 	fire_only_once = yes
 	option = {
