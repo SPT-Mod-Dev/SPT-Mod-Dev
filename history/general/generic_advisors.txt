@@ -65,7 +65,7 @@ every_possible_country = {
 				}
 			}
 			ai_will_do = {
-				factor = 0
+				factor = 1
 			}
 		}
 		portraits = { 
@@ -76,7 +76,7 @@ every_possible_country = {
 
 every_possible_country = {
 	limit = {
-		NOT = { OR = { tag = GER tag = ENG tag = SOV original_tag = FRA tag = ITA tag = JAP tag = USA tag = AST tag = RAJ tag = CAN tag = SAF tag = CZE tag = PRC tag = CHI tag = MAN tag = MEX tag = HOL original_tag = SPR original_tag = POL tag = FIN tag = HUN } }
+		NOT = { OR = { tag = GER tag = ENG tag = SOV original_tag = FRA tag = ITA tag = JAP tag = USA tag = AST tag = RAJ tag = CAN tag = SAF tag = CZE tag = PRC tag = CHI tag = MAN tag = MEX tag = HOL original_tag = SPR original_tag = POL tag = FIN tag = ROM tag = HUN } }
 		is_dynamic_country = no
 		NOT = {
 			has_allowed_idea_with_traits = { idea = democratic_reformer characters = yes }
@@ -270,6 +270,10 @@ every_possible_country = {
 		IF = {
 			limit = { has_dlc = "No Compromise, No Surrender" }
 			NOT = { tag = PRC }
+		}
+		if = {
+			limit = { has_dlc = "To The Bitter End" }
+			NOT = { tag = ROM }
 		}
 
 		NOT = {

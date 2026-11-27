@@ -10444,6 +10444,7 @@ focus_tree = {
 						}
 						CZE = {
 							NOT = {
+								has_guaranteed = ROM
 								is_subject_of = ROM
 							}
 						}
@@ -12667,7 +12668,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		allow_branch = { always = no } # SPTchange
+		allow_branch = { always = no } # SPTchange - could bring it back but is probably still a shit focus
 		id = GER_subjugate_romanian_economy
 		icon = GFX_focus_GER_subjugate_romanian_economy
 		#prerequisite = { focus = GER_danzig_for_slovakia focus = GER_danzig_or_war }
@@ -12683,7 +12684,9 @@ focus_tree = {
 			ROM = {
 				fascism > 0.35
 				has_full_control_of_state = 46
-				NOT = { has_war_with = ROOT }
+				NOT = {
+					has_war_with = ROOT
+				}
 				OR = {
 					is_in_faction = no
 					is_in_faction_with = ROOT
@@ -12698,14 +12701,124 @@ focus_tree = {
 		completion_reward = {
 
 			ROM = {
+				if = {
+					limit = {
+						has_dlc = "To The Bitter End"
+						has_completed_focus = ROM_romanian_axis_membership
+						is_in_faction_with = ROOT
+					}
+					country_event = {
+						id = BA_romania_german_four_year_plan.41
+						days = 2
+					}
+				}
+				else_if = { # ROM asked to join but is not in the faction, e.g. we declined in BA_romania_german_four_year_plan.100
+					limit = {
+						has_dlc = "To The Bitter End"
+						has_completed_focus = ROM_romanian_axis_membership
+					}
 				country_event = { 
 					id = wuw_GER_diplomacy.111 
 					days = 2 
+					}
+				}
+				else_if = {
+					limit = {
+						has_dlc = "To The Bitter End"
+						AND = {
+							NOT = {
+								is_in_faction_with = ROOT
+							}
+						}
+					}
+					set_country_flag = ROM_four_year_plan_initiate_GER
+					country_event = {
+						id = BA_romania_german_four_year_plan.102
+						days = 2
+					}
+				}
+				else_if = {
+					limit = {
+						has_dlc = "To The Bitter End"
+					}
+					country_event = { 
+						id = wuw_GER_diplomacy.111 
+						days = 2 
+					}
+				}
+				else = {
+					country_event = { 
+						id = wuw_GER_diplomacy.111 
+						days = 2 
+					}
 				}
 			}
 
 			custom_effect_tooltip = if_they_accept_tt
 			effect_tooltip = {
+				if = {
+					limit = {
+						has_dlc = "To The Bitter End"
+						ROM = {
+							has_completed_focus = ROM_romanian_axis_membership
+							is_in_faction_with = ROOT
+						}
+					}
+					ROM = {
+						give_resource_rights = {
+							receiver = GER
+							state = 46
+							resources = { oil }
+						}
+						add_tech_bonus = {
+							name = ROM_romanian_axis_membership
+							ahead_reduction = 1
+							uses = 2
+							category = synth_resources
+						}
+						add_offsite_building = {
+							type = industrial_complex
+							level = 2
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						has_dlc = "To The Bitter End"
+						AND = {
+							ROM = {
+								NOT = {
+									is_in_faction_with = ROOT
+									has_completed_focus = ROM_romanian_axis_membership
+								}
+							}
+						}
+					}
+					ROM = {
+						give_resource_rights = {
+							receiver = GER
+							state = 46
+							resources = { oil }
+						}
+						add_tech_bonus = {
+							name = ROM_romanian_axis_membership
+							ahead_reduction = 1
+							uses = 2
+							category = synth_resources
+						}
+						add_offsite_building = {
+							type = industrial_complex
+							level = 2
+						}
+					}
+					custom_effect_tooltip = generic_skip_one_line_tt
+					custom_effect_tooltip = ROM_counter_proposal_tip_tt
+				}
+				else_if = {
+					limit = {
+						has_dlc = "To The Bitter End"
+
+					}
 				ROM = {
 					add_ideas = GER_development_of_economic_relations_ns
 					custom_effect_tooltip = generic_skip_one_line_tt
@@ -12721,6 +12834,24 @@ focus_tree = {
 					add_ideas = GER_align_romania
 				}
 				custom_effect_tooltip = war_will_cancel_deal_tt
+				}
+				else = {
+					ROM = {
+						add_ideas = GER_development_of_economic_relations_ns
+						custom_effect_tooltip = generic_skip_one_line_tt
+						add_opinion_modifier = {
+							target = ROOT
+							modifier = GER_trading_partners
+						}
+						add_opinion_modifier = {
+							target = ROOT
+							modifier = GER_align_romania
+						}	
+						custom_effect_tooltip = generic_skip_one_line_tt
+						add_ideas = GER_align_romania
+					}
+					custom_effect_tooltip = war_will_cancel_deal_tt
+				}
 			}
 
 		}

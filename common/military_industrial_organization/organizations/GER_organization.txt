@@ -26,6 +26,10 @@ GER_porsche_organization = {
 				original_tag = MEX
 				has_dlc = "Man the Guns"
 			}
+			AND = {
+				original_tag = IRQ 
+				has_dlc = "Graveyard of Empires"
+			}
 			NOR_AAT = yes
 			tag = DEN # SPTChange
 		}
@@ -274,6 +278,11 @@ GER_henschel_organization = {
 				original_tag = ETH
 				has_dlc = "By Blood Alone"
 			}
+			AND = {
+				tag = PER
+				has_dlc = "Graveyard of Empires"
+				has_dlc = "Arms Against Tyranny"
+			}
 			tag = DEN # SPTchange
 		}
 	}
@@ -282,6 +291,10 @@ GER_henschel_organization = {
 		IF = {
 			limit = { FROM = { original_tag = ETH } }
 			FROM = { has_completed_focus = ETH_invite_foreign_industrialists }
+		}
+		IF = {
+			limit = { FROM = { original_tag = PER } }
+			FROM = { has_completed_focus = PER_german_tanks }
 		}
 	}
 
@@ -615,7 +628,7 @@ GER_man_organization = {
 	add_trait = {
 		token = GER_mio_trait_schachtellaufwerk
 		name = GER_mio_trait_schachtellaufwerk
-		icon = GFX_generic_mio_department_icon_tank_medium_tank_quality
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_quality
 		special_trait_background = yes
 
 		position = { x=-1 y=1 }
@@ -1866,7 +1879,7 @@ GER_messerschmitt_organization = {
 		equipment_bonus = {
 			air_attack = 0.05
 			air_agility = 0.05
-			air_defence = 0.02
+			air_defence = 0.02 # SPTchange
 		} 
 	}
 
@@ -2256,7 +2269,8 @@ GER_focke_wulf_organization = {
 
 		equipment_bonus = {
 			air_defence = 0.05
-			maximum_speed = 0.02
+			# air_agility = 0.05
+			maximum_speed = 0.02 # SPTchange
 		}
 	}
 
@@ -2713,7 +2727,7 @@ GER_arado_flugzeugwerke_organization = {
 
 		available = {
 			FROM = {
-				has_tech = jet_engines
+				is_special_project_completed = sp:sp_air_jet_engine
 			}
 		}
 
@@ -3300,6 +3314,9 @@ GER_opel_organization = {
 			AND = {
 				original_tag = ROM
 				has_dlc = "Death or Dishonor"
+				NOT = {
+					has_dlc = "To The Bitter End"
+				}
 			}
 			AND = {
 				original_tag = BUL

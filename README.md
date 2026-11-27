@@ -7,6 +7,7 @@
     - Major differences
         - Kept Mass Assault and Large Unit Tactics the same as before regarding combat width reductions
         - Tank chassis and module changes were kept the same as before (for now) 
+        - Some Romania content is removed (See Romania section for specifics)
  - Swapped the 'Armored Train' and 'War Austerity Train' technologies
  - Amtracs now actually work with the MIO
  - Reduced the amount of convoys needed for fuel lend-lease by around a factor of 10
@@ -53,6 +54,13 @@
     - New trade law: "Soviet Autarky"
         - Basically "Export Focus" with 0% resources to market
         - +12 civilian factories as compensation
+
+#### Romania
+ - New focus tree
+    - Non-Aligned and Fascist paths
+    - Both industry paths
+ - Tweaked the International Cooperation mechanic
+    - Only works with Axis members (Germany, italy, Bulgaria and Hungary)
 
 #### No Asia
  - UK now gets 15 civs and resource rights in some US states in mid 1940
