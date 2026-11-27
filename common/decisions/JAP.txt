@@ -1937,16 +1937,16 @@ JAP_pacific_guardian = {
 
 		visible = {
 			has_completed_focus = JAP_pacific_guardian
+			INS = {
+				is_puppet = yes
+			}
 		}
 
-		#SPTchange?
 		available = {
-			HOL = {
-				#has_capitulated = yes
-				NOT =  { has_war_with = ROOT}
+			INS = {
+				OVERLORD = {
+					NOT = { has_war_with = ROOT }
 			}
-			"INS" = {
-				is_puppet_of = HOL
 			}
 		}
 
@@ -1967,10 +1967,12 @@ JAP_pacific_guardian = {
 		}
 
 		complete_effect = {
-			HOL = { 
+			INS = {
+				OVERLORD = {
 				country_event = { 
 					id = wtt_japan.1 
 					hours = 6
+					}
 				} 
 			}
 		}
@@ -1982,15 +1984,16 @@ JAP_pacific_guardian = {
 
 		visible = {
 			has_completed_focus = JAP_pacific_guardian
+			MAL = {
+				is_puppet = yes
+			}
 		}
 
 		available = {
-			ENG = {
-				#has_capitulated = yes
-				NOT =  { has_war_with = ROOT}
-			}
 			MAL = {
-				is_puppet_of = ENG
+				OVERLORD = {
+					NOT = { has_war_with = ROOT }
+				}
 			}
 		}
 
@@ -2011,13 +2014,15 @@ JAP_pacific_guardian = {
 		}
 
 		complete_effect = {
-			ENG = { 
+			MAL = {
+				OVERLORD = {
 				country_event = { 
 					id = wtt_japan.1 
 					hours = 6
 				} 
 			}
 		}
+	}
 	}
 
 	JAP_guardian_of_indochina = {
@@ -2029,10 +2034,10 @@ JAP_pacific_guardian = {
 		}
 
 		available = {
-			FRA = {
-				#has_capitulated = yes
-				NOT =  { has_war_with = ROOT}
-				OR = {
+			670 = {
+				controller = {
+					NOT = { tag = JAP }
+					NOT = { has_war_with = ROOT }
 					has_full_control_of_state = 670
 					has_full_control_of_state = 671
 					has_full_control_of_state = 286
@@ -2062,13 +2067,15 @@ JAP_pacific_guardian = {
 		}
 
 		complete_effect = {
-			FRA = { 
+			670 = {
+				controller = {
 				country_event = { 
 					id = wtt_japan.1 
 					hours = 3
 				} 
 			}
 		}
+	}
 	}
 
 	# Assume Guardianship over §Y[FROM.GetNameDef]§! (SEA verison guardian decision)
@@ -12333,7 +12340,7 @@ propaganda_efforts = {
 		ai_will_do = {
 			base = 0
 			modifier = {
-				add = 201
+				add = 100
 				has_war_support < 0.7
 			}
 		}
@@ -12388,7 +12395,7 @@ propaganda_efforts = {
 		ai_will_do = {
 			base = 0
 			modifier = {
-				add = 201
+				add = 100
 				has_war_support < 0.6
 			}
 		}

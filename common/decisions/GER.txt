@@ -4502,10 +4502,14 @@ GER_reichskommissariats = {
 				# tooltip = GER_reichskommissariat_highlighted_required_states
 				tooltip = SPT_GER_reichskommissariat_highlighted_required_states
 				93 = {
-					# SPTChange avoid encirclement and frontline fuckery
-					# is_controlled_by_ROOT_or_subject = yes
-					is_controlled_by_ROOT_or_ally = yes 
-					is_fully_controlled_by = controller
+					OR = { 
+						# SPTChange avoid encirclement and frontline fuckery
+						# is_controlled_by_ROOT_or_subject = yes
+						is_controlled_by_ROOT_or_ally = yes 
+						is_fully_controlled_by = controller
+						GER_is_volyn_kept_by_aligned_poland = yes
+					}
+					
 				}
 				199 = {
 					# SPTChange avoid encirclement and frontline fuckery
@@ -4601,23 +4605,10 @@ GER_reichskommissariats = {
 		}
 
 		highlight_states = {
-			highlight_state_targets = {
-				state = 93
-				state = 199
-				state = 201
-				state = 202
-				state = 193
-				state = 203
-				state = 197
-				state = 225
-				state = 259
-				state = 226
-				state = 196
-				state = 200
-				state = 221
-				state = 228
-				state = 227
-				state = 137
+			highlight_states_trigger = {
+				GER_is_RKU_state = yes
+				NOT = { GER_is_soviet_greater_romania_state = yes }
+				NOT = { GER_is_volyn_kept_by_aligned_poland = yes }
 			}
 		}
 
@@ -4683,14 +4674,7 @@ GER_reichskommissariats = {
 							state = 202
 						}
 						NOT = {
-							state = 93
-							is_core_of = POL
-							owner = {
-								OR = {
-									has_completed_focus = POL_seek_german_alignment
-									has_completed_focus = POL_beck_ribbentrop
-								}
-							}
+							GER_is_volyn_kept_by_aligned_poland = yes
 						}
 						OR = {
 							is_owned_by = ROOT
@@ -4708,6 +4692,9 @@ GER_reichskommissariats = {
 						}
 						NOT = {
 							state = 202
+						}
+						NOT = {
+							GER_is_volyn_kept_by_aligned_poland = yes
 						}
 						NOT = {
 							OR = {
@@ -4856,6 +4843,15 @@ GER_reichskommissariats = {
 					set_state_controller_to = RKU
 					add_claim_by = RKU
 					add_compliance = 20
+				}
+				93 = {
+					if = {
+						limit = {
+							is_owned_by = ROOT
+						}
+						transfer_state_to = RKU
+						add_compliance = 20
+					}
 				}
 			}	
 
