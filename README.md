@@ -62,6 +62,10 @@
  - Tweaked the International Cooperation mechanic
     - Only works with Axis members (Germany, italy, Bulgaria and Hungary)
 
+#### Mongolia
+ - Also uses the "Soviet Autarky" trade law
+    - Gets repeatable resource decisions for Aluminium, Steel and Chromium as compensation
+
 #### No Asia
  - UK now gets 15 civs and resource rights in some US states in mid 1940
 

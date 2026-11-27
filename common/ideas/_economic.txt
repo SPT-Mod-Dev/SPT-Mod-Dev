@@ -1284,7 +1284,12 @@ ideas = {
 		free_trade = {
 
 			available = {
-				NOT = { original_tag = SOV } # SPTchange
+				NOT = {
+					OR = {
+						original_tag = SOV
+						original_tag = MON
+					}
+				}
 				if = {
 					limit = {
 						original_tag = SPR
@@ -1392,7 +1397,12 @@ ideas = {
 
 			available = {
 
-				NOT = { original_tag = SOV } # SPTchange
+				NOT = {
+					OR = {
+						original_tag = SOV
+						original_tag = MON
+					}
+				}
 				if = {
 					limit = {
 						original_tag = CHI
@@ -1499,7 +1509,12 @@ ideas = {
 
 		limited_exports = {
 			available = {
-				NOT = { original_tag = SOV } # SPTchange
+				NOT = {
+					OR = {
+						original_tag = SOV
+						original_tag = MON
+					}
+				}
 				OR = {
 					AND = {
 						has_government = democratic
@@ -1766,7 +1781,12 @@ ideas = {
 
 
 			available = {
-				NOT = { original_tag = SOV } # SPTchange
+				NOT = {
+					OR = {
+						original_tag = SOV
+						original_tag = MON
+					}
+				}
 				has_war = yes
 
 				IF = {
@@ -1936,15 +1956,24 @@ ideas = {
 		spt_soviet_eco = {
 
 			allowed = {
-				original_tag = SOV
+				OR = {
+					original_tag = SOV
+					original_tag = MON
+				}
 			}
 
 			visible = {
-				original_tag = SOV
+				OR = {
+					original_tag = SOV
+					original_tag = MON
+				}
 			}
 
 			available = {
-				original_tag = SOV
+				OR = {
+					original_tag = SOV
+					original_tag = MON
+				}
 			}
 			
 			picture = FIN_finnish_federation_of_trade_unions_heavy
