@@ -1699,6 +1699,9 @@ country_event = {
     fire_only_once = yes
 
     immediate = {
-        sound_effect = "spt_total_mob"
+		if = {
+			limit = { has_war = yes }
+			sound_effect = "spt_total_mob"
+		}
     }
 }
