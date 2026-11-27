@@ -74,7 +74,15 @@ recruit_character = PRC_zhou_enlai
 recruit_character = PRC_liu_shaoqi
 recruit_character = PRC_dong_biwu
 recruit_character = PRC_deng_xiaoping
+if = {
+	limit = {
+		OR = {
+			has_dlc = "No Compromise, No Surrender"
+			has_dlc = "La Resistance"
+		}
+	}
 recruit_character = PRC_luo_ruiqing
+}
 recruit_character = PRC_kang_sheng
 
 IF = { #Recruit only if we have the dlc
@@ -339,9 +347,33 @@ IF = {
 
 add_opinion_modifier = { target = CHI modifier = hostile_status }
 
-
+if = {
+	limit = {
+		has_dlc = "No Compromise, No Surrender"
+	}
+	add_ideas = {
+		PRC_central_committee_1936_fake
+		PRC_the_chinese_red_army_1936_fake
+		PRC_agrarian_society_1936_fake
+	}
+}
 
 1939.1.1 = {
+	if = {
+		limit = {
+			has_dlc = "No Compromise, No Surrender"
+		}
+		remove_ideas = {
+			PRC_central_committee_1936_fake
+			PRC_the_chinese_red_army_1936_fake
+			PRC_agrarian_society_1936_fake
+		}
+		add_ideas = {
+			PRC_central_committee_1939_fake
+			PRC_the_chinese_red_army_1939_fake
+			PRC_agrarian_society_1939_fake
+		}
+	}
 
 	add_political_power = 1198
 	add_command_power = 100

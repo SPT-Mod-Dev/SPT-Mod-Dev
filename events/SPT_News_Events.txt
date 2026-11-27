@@ -11,3 +11,58 @@ news_event = { #mongolia annexes tannu tuva fr fr no cap skibidi
 		name = "Who annexes Tannu what?"
 	}
 }
+
+news_event = { 
+	id = spt_news.2 
+	title = "The United States signs the Lend-Lease Act"
+	desc = "With the signing of the Lend-Lease Act, the United States has committed to providing military aid to its allies in the fight against the Axis powers. This move is expected to significantly bolster the war efforts of nations resisting Axis aggression."
+	picture = GFX_news_event_generic_usa_treaty
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = "Aw shit, here we go again"
+		trigger = {
+			OR = {
+				TAG = FIN
+				TAG = SPR
+				TAG = GER
+				is_in_faction_with = GER
+			}
+		}
+	}
+	option = {
+		name = "Big daddy is bailing us out"
+		trigger = {
+			OR = {
+				TAG = BRA
+				TAG = ENG
+				is_in_faction_with = ENG
+			}
+		}
+	}
+	option = {
+		name = "Who cares"
+		trigger = {
+			OR = {
+				TAG = SOV
+				is_in_faction_with = SOV
+			}
+		}
+	}
+	option = {
+		name = "Why do i have this option? devs fix asap"
+		trigger = {
+			NOT = {
+				TAG = FIN
+                TAG = SPR
+                TAG = GER
+                is_in_faction_with = GER
+                TAG = BRA
+                TAG = ENG
+                is_in_faction_with = ENG
+                TAG = SOV
+                is_in_faction_with = SOV
+        	}
+		}
+	}
+}

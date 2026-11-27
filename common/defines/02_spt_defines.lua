@@ -23,6 +23,8 @@ NDefines.NMilitary.NAVAL_EQUIPMENT_RAMP_COST = 0
 NDefines.NCountry.SPECIAL_FORCES_CAP_MIN = 0
 NDefines.NCountry.SPECIAL_FORCES_CAP_BASE = 0
 NDefines.NCountry.AIR_SUPPLY_CONVERSION_SCALE = 0.03
+NDefines.NCountry.FUEL_LEASE_CONVOY_RATIO = 0.00002
+NDefines.NCountry.DEFAULT_COASTAL_PROTECTION_STABILITY = 0.0
 
 NDefines.NSupply.RAILWAY_CONVERSION_COOLDOWN = 5
 
@@ -41,7 +43,7 @@ NDefines.NMilitary.AIR_SUPPORT_BASE = 0.2 -- CAS bonus factor for air support mo
 -- xp = anti_air ^ 1.5
 NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_IMPACT = -0.25 -- effect on defense due to enemy air superiorty
 NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE = 0.5 -- more AA attack will approach this amount of help (diminishing returns)
-NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE_STEEPNESS = 80 -- how quickly defense approaches the max impact diminishing returns curve
+NDefines.NMilitary.ENEMY_AIR_SUPERIORITY_DEFENSE_STEEPNESS = 700 -- how quickly defense approaches the max impact diminishing returns curve
 -- NDefines.NAir.ANTI_AIR_ATTACK_TO_DAMAGE_REDUCTION_FACTOR = 0.4 -- Balancing value to convert equipment stat anti_air_attack to the damage reduction modifier apply to incoming air attacks against units with AA. Originally 1, then 2.5 after a formula change in 1.17.4
 -- NDefines.NAir.ANTI_AIR_MAXIMUM_DAMAGE_REDUCTION_FACTOR = 0.9 -- Maximum damage reduction factor applied to incoming air attacks against units with AA. Originally 0.75
 
@@ -144,5 +146,3 @@ NDefines.NMilitary.GENERAL_PROXIMITY_FAR = 7
 NDefines.NMilitary.GENERAL_PROXIMITY_DEFAULT = 3	
 
 NDefines.NFocus.MAX_SAVED_FOCUS_PROGRESS = 30
-
-NDefines.NIntel.INTEL_NETWORK_STATE_MODIFIER_STRENGTH_THRESHOLD = 999

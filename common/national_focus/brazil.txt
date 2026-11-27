@@ -102,7 +102,7 @@ focus_tree = {
 		x = 0
 		y = 1
 		relative_position_id = BRA_tribunal_de_seguranca_nacional
-		cost = 10
+		cost = 10 # SPTchange
 		ai_will_do = {
 			factor = 15
 		}
@@ -119,7 +119,7 @@ focus_tree = {
 
 		completion_reward = {
 			#custom_effect_tooltip = "TODO_JUNO: Add decision system"
-			add_war_support = 0.05
+			add_war_support = 0.05 # SPTchange
 			custom_effect_tooltip = BRA_modify_aotci_ns_intro
 			add_to_variable = {
 				BRA_coup_neutrality_factor = 0.2
@@ -140,7 +140,7 @@ focus_tree = {
 			factor = 5
 		}
 		allow_branch = {
-			always = no
+			always = no # SPTchange
 		}
 		available = {
 			NOT = {
@@ -470,7 +470,7 @@ focus_tree = {
 				custom_effect_tooltip = BRA_modify_estado_novo_ns_intro
 				add_to_variable = {
 					BRA_estado_novo_production_factory_max_efficiency_factor = 0.05
-					tooltip = industrial_capacity_factory_tt
+					tooltip = production_factory_max_efficiency_factor_tt
 				}
 				add_to_variable = {
 					BRA_estado_novo_consumer_goods_factor = -0.05
@@ -485,7 +485,7 @@ focus_tree = {
 				custom_effect_tooltip = BRA_modify_estado_moderno_ns_intro
 				add_to_variable = {
 					BRA_estado_moderno_production_factory_max_efficiency_factor = 0.05
-					tooltip = industrial_capacity_factory_tt
+					tooltip = production_factory_max_efficiency_factor_tt
 				}
 				add_to_variable = {
 					BRA_estado_moderno_consumer_goods_factor = -0.05
@@ -2445,8 +2445,9 @@ focus_tree = {
 			factor = 20
 		}
 		available = {	
-			any_other_country = {
-				original_tag = USA
+			any_country_with_original_tag = {
+				exists = yes
+				original_tag_to_check = USA
 				has_war_with_major = yes
 				has_government = democratic
 				NOT = {
@@ -2588,8 +2589,9 @@ focus_tree = {
 		
 		cost = 10
 		available = {
-			any_country = {
-				original_tag = GER
+			any_country_with_original_tag = {
+				exists = yes
+				original_tag_to_check = GER
 				NOT = {
 					has_government = BRA
 				}
@@ -3414,11 +3416,17 @@ focus_tree = {
 
 			navy_experience = 15
 
-			add_tech_bonus = {
+			add_mastery_bonus = {
 				name = BRA_german_sub_initiative
-				bonus = 0.75
+				bonus = 0.1
+				days = 180
+				track = submarines
+			}
+			add_doctrine_cost_reduction = {
+				name = BRA_german_sub_initiative
+				cost_reduction = 0.5
 				uses = 1
-				category = submarine_doctrine
+				category = naval_doctrine
 			}
 
 			add_tech_bonus = {
@@ -7443,8 +7451,8 @@ focus_tree = {
 			}
 		}
 		available = {
-			any_other_country = {
-				original_tag = POR
+			any_country_with_original_tag = {
+				original_tag_to_check = POR
 				exists = yes
 				is_subject = no
 			}
@@ -7710,8 +7718,8 @@ focus_tree = {
 			}
 		}
 		available = {
-			any_other_country = {
-				original_tag = BOL
+			any_country_with_original_tag = {
+				original_tag_to_check = BOL
 				exists = yes
 			}
 		}
@@ -7755,8 +7763,8 @@ focus_tree = {
 		}
 		will_lead_to_war_with = POR
 		available = {
-			any_other_country = {
-				original_tag = POR
+			any_country_with_original_tag = {
+				original_tag_to_check = POR
 				exists = yes
 			}
 		}
@@ -7802,8 +7810,8 @@ focus_tree = {
 		}
 		will_lead_to_war_with = POR
 		available = {
-			any_other_country = {
-				original_tag = POR
+			any_country_with_original_tag = {
+				original_tag_to_check = POR # Add other triggers as needed
 				exists = yes
 				OR = {
 					is_subject = no

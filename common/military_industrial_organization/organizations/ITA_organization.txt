@@ -1474,3 +1474,58 @@ ITA_ansaldo_train_organization = {
 	}
 
 }
+
+ITA_fiat_ac_organization = {
+	include = generic_armored_car_organization
+	icon = GFX_idea_fiat
+
+	allowed = {
+		original_tag = ITA
+		has_dlc = "La Resistance"
+	}
+
+	add_trait = {
+		token = ITA_mio_trait_ac_production_efficiency_gain
+		name = ITA_mio_trait_ac_production_efficiency_gain
+		icon = GFX_generic_mio_department_icon_armored_car_production
+		special_trait_background = yes
+
+		position = { x= -1 y= 1 }
+		relative_position_id = generic_mio_trait_standardized_components
+
+		all_parents = { generic_mio_trait_standardized_components }
+
+		production_bonus = {
+			production_cost_factor = -0.05
+		}
+
+		equipment_bonus = {
+			armor_value = -0.05
+		}
+
+		ai_will_do = {
+			base = 2
+		}
+	}
+
+	add_trait = {
+		token = ITA_mio_trait_ac_anti_infantry_machine_guns
+		name = ITA_mio_trait_ac_anti_infantry_machine_guns
+		icon = GFX_generic_mio_department_icon_tank_general_weapons
+		special_trait_background = yes
+
+		position = { x=0 y=1 }
+		relative_position_id = generic_mio_trait_long_barreled_guns
+
+		all_parents = { generic_mio_trait_long_barreled_guns }
+
+		equipment_bonus = {
+			soft_attack = 0.05
+			breakthrough = 0.05
+		}
+
+		ai_will_do = {
+			base = 2
+		}
+	}
+}

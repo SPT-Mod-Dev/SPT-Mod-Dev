@@ -307,6 +307,7 @@ country_event = {
 		save_global_event_target_as = free_france
 		GER = { country_event = france.14 }
 		#custom_effect_tooltip = france.10.b_tt  SPTChange hid tooltip
+		set_country_flag = GER_dont_seize_gold_reserves_flag #Can't allow Germany to seize out gold reserves just yet
 	}
 	option = { # Ask for British Union
 		trigger = {always = no} #SPTChange hid option
@@ -424,7 +425,10 @@ country_event = {
 	
 	option = { # Become Vichy
 		name = france.13.a
-		trigger = { is_ai = no }
+		trigger = {
+			is_ai = no
+			has_civil_war = no
+		}
 		set_country_flag = become_vichy
 		set_global_flag = fall_of_france
 		save_global_event_target_as = vichy_france
@@ -463,6 +467,12 @@ country_event = {
 	picture = GFX_report_event_german_parade_paris
 	
 	is_triggered_only = yes
+
+	trigger = {
+		FRA = {
+			has_civil_war = no
+		}
+	}
 	
 	option = { # Agree
 		trigger = {always = no} #SPTChange hid option
@@ -1707,7 +1717,7 @@ country_event = {
 	id = france.25
 	title = france.25.t
 	desc = france.25.d
-	picture = GFX_report_event_hitler_croatia_handshake
+	picture = GFX_report_event_generic_croatia_handshake
 
 	is_triggered_only	= yes	
 	option = { # Follow Britain's lead
@@ -1864,7 +1874,7 @@ country_event = {
 	id = france.26
 	title = france.26.t
 	desc = france.26.d
-	picture = GFX_report_event_hitler_croatia_handshake
+	picture = GFX_report_event_generic_croatia_handshake
 
 	is_triggered_only = yes
 

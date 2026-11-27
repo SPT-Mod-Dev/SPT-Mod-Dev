@@ -726,7 +726,6 @@ characters = {
 			advisor = {
 				slot = high_command
 				idea_token = HUN_ivan_hindy
-				ledger = army
 				allowed = {
 					original_tag = HUN
 				}
@@ -1009,8 +1008,6 @@ characters = {
 			slot = high_command
 
 			idea_token = HUN_vilmos_nagy
-
-			ledger = army
 
 			allowed = {
 				original_tag = HUN
@@ -1638,8 +1635,6 @@ characters = {
 
 				idea_token = HUN_ferenc_szombathelyi
 			
-				ledger = army
-
 				allowed = {
 					original_tag = HUN
 				}
@@ -1947,7 +1942,6 @@ characters = {
 			advisor = {
 				slot = high_command
 				idea_token = HUN_sandor_magyarossy
-				ledger = air
 				allowed = {
 					original_tag = HUN
 				}
@@ -1980,8 +1974,6 @@ characters = {
 
 				idea_token = HUN_sandor_magyarossy
 			
-				ledger = air
-
 				allowed = {
 					original_tag = HUN
 				}
@@ -2654,7 +2646,23 @@ characters = {
 				traits = {
 					war_industrialist 
 				}
-
+				ai_will_do = {
+					base = 1
+					modifier = {
+						factor = 0
+						OR = {
+							has_country_flag = HUN_AI_RANDOM_DEMOCRATIC
+							has_game_rule = {
+								rule = HUN_ai_behavior
+								option = DEMOCRATIC
+							}
+						}
+						is_subject = no
+						NOT = {
+							has_completed_focus = HUN_responsible_government
+						}
+					}
+				}
 			}
 
 		}
@@ -2920,11 +2928,19 @@ characters = {
 			}
 
 			traits = {
-				democratic_reformer 
+				HUN_democracy_advocate 
 			}
 
 			ai_will_do = {
 				base = 0
+				modifier = {
+					add = 100
+					is_subject = no
+					has_completed_focus = HUN_elect_a_democratic_king
+					NOT = {
+						has_completed_focus = HUN_responsible_government
+					}
+				}
 			}
 
 		}

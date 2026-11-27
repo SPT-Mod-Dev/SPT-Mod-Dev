@@ -134,6 +134,7 @@ focus_tree = {
 
 
 		completion_reward = {
+			add_political_power = 50
 			ITA = {
 				add_opinion_modifier = {
 					target = ROOT
@@ -380,7 +381,7 @@ focus_tree = {
 		allow_branch = {always = no}
 
 		available = {
-
+			is_subject = no
 		}
 
 		bypass = {
@@ -463,6 +464,66 @@ focus_tree = {
 						}
 					}
 				}
+
+
+				IF = {
+					limit = {
+						SLV = {
+							capital_scope = {
+								NOT = {
+									is_in_array = {
+										array = AUS.expansion_targets
+										value = THIS
+									}
+								}
+							} 
+						}
+						AUS = {
+							has_completed_focus = AUS_reclaiming_yugoslavian_territories
+						}
+					}
+
+					SLV = {
+						capital_scope = {
+							add_to_array = {
+								array = AUS.expansion_targets
+								value = THIS
+							}
+
+							log = "[THIS.GetName] Added to AUS expansion Array"
+						}
+					}
+					
+
+					IF = {
+						limit = {
+							CRO = {
+								capital_scope = {
+									is_in_array = {
+										array = AUS.expansion_targets
+										value = THIS
+									}
+								}
+							}
+							AUS = {
+								has_completed_focus = AUS_reclaiming_yugoslavian_territories
+							}
+						}
+
+						YUG = {
+							capital_scope = {
+								remove_from_array = {
+									array = AUS.expansion_targets
+									value = THIS
+								}
+
+								log = "[THIS.GetName] was removed from the array"
+							}
+						}
+
+						
+					}
+				}
 			}
 		}
 	}
@@ -490,6 +551,7 @@ focus_tree = {
 				controls_state = 852
 				controls_state = 163
 			}
+			is_subject = no
 		}
 
 		bypass = {
@@ -587,6 +649,64 @@ focus_tree = {
 						}
 					}
 				}
+
+				IF = {
+					limit = {
+						CRO = {
+							capital_scope = {
+								NOT = {
+									is_in_array = {
+										array = AUS.expansion_targets
+										value = THIS
+									}
+								}
+							}
+						}
+						AUS = {
+							has_completed_focus = AUS_reclaiming_yugoslavian_territories
+						}
+					}
+
+					CRO = {
+						capital_scope = {
+							add_to_array = {
+								array = AUS.expansion_targets
+								value = THIS
+							}
+
+							log = "[THIS.GetName] Added to AUS expansion Array"
+						}
+					}
+					
+
+					IF = {
+						limit = {
+							SLV = {
+								capital_scope = {
+									is_in_array = {
+										array = AUS.expansion_targets
+										value = THIS
+									}
+								}
+							}
+							AUS = {
+								has_completed_focus = AUS_reclaiming_yugoslavian_territories
+							}
+						}
+
+						YUG = {
+							capital_scope = {
+								remove_from_array = {
+									array = AUS.expansion_targets
+									value = THIS
+								}
+
+								set_state_flag = AUS_no_longer_expansion_target
+							}
+						}
+						
+					}
+				}
 			}
 		}
 	}
@@ -610,6 +730,7 @@ focus_tree = {
 		available = {
 			controls_state = 109
 			controls_state = 103
+			is_subject = no
 		}
 
 		bypass = {
@@ -734,6 +855,63 @@ focus_tree = {
 						}
 					}
 				}
+
+				IF = {
+					limit = {
+						CRO = {
+							capital_scope = {
+								NOT = {
+									is_in_array = {
+										array = AUS.expansion_targets
+										value = THIS
+									}
+								}
+							}
+						}
+						AUS = {
+							has_completed_focus = AUS_reclaiming_yugoslavian_territories
+						}
+					}
+
+					CRO = {
+						capital_scope = {
+							add_to_array = {
+								array = AUS.expansion_targets
+								value = THIS
+							}
+
+							log = "[THIS.GetName] Added to AUS expansion Array"
+						}
+					}
+					
+
+					IF = {
+						limit = {
+							SLV = {
+								capital_scope = {
+									is_in_array = {
+										array = AUS.expansion_targets
+										value = THIS
+									}
+								}
+							}
+							AUS = {
+								has_completed_focus = AUS_reclaiming_yugoslavian_territories
+							}
+						}
+
+						YUG = {
+							capital_scope = {
+								remove_from_array = {
+									array = AUS.expansion_targets
+									value = THIS
+								}
+
+								set_state_flag = AUS_no_longer_expansion_target
+							}
+						}
+					}
+				}
 			}
 		}
 	}
@@ -755,6 +933,7 @@ focus_tree = {
 
 		available = {
 			controls_state = 104
+			is_subject = no
 		}
 
 		bypass = {
@@ -865,6 +1044,7 @@ focus_tree = {
 		available = {
 			controls_state = 104
 			controls_state = 804
+			is_subject = no
 		}
 
 		bypass = {
@@ -996,6 +1176,7 @@ focus_tree = {
 				controls_state = 106
 				controls_state = 970
 			}
+			is_subject = no
 		}
 
 		bypass = {
@@ -1154,6 +1335,7 @@ focus_tree = {
 				controls_state = 764
 				controls_state = 45
 			}
+			is_subject = no
 		}
 
 		bypass = {
@@ -1251,6 +1433,7 @@ focus_tree = {
 				controls_state = 764
 				controls_state = 45
 			}
+			is_subject = no
 		}
 
 		bypass = {
@@ -1667,7 +1850,7 @@ focus_tree = {
 			remove_ideas = YUG_idea_croatian_opposition
 			add_timed_idea = {
 				idea = YUG_idea_croats_suppressed
-				days = 1060
+				days = 1060 # SPTchange
 			}
 		}
 	}
@@ -2000,10 +2183,10 @@ focus_tree = {
 					has_capitulated = no
 					is_faction_leader = yes
 				}
-				any_other_country = {
-					is_major = yes
+				ITA = {
+					NOT = { has_war_with = ROOT }
+					has_capitulated = no
 					has_government = fascism
-					is_faction_leader = yes
 				}
 			}
 			NOT = {
@@ -2015,7 +2198,11 @@ focus_tree = {
 		}
 
 		bypass = {
-			is_in_faction_with = GER
+			OR = {
+				is_subject = yes
+				is_in_faction_with = GER
+				is_in_faction_with = ITA
+			}
 		}
 
 		cancel_if_invalid = yes
@@ -2034,14 +2221,34 @@ focus_tree = {
 							is_faction_leader = yes
 						}
 					}
-					GER = { country_event = DOD_yugoslavia.70 }
-				}
-				else = {
-					get_best_alliance_match_fascism_effect = yes
-					var:best_leader = {
-						country_event = DOD_yugoslavia.70
+					GER = { 
+						country_event = {
+							id = DOD_yugoslavia.70 
+							hours = 6
+						}	
 					}
 				}
+				else_if = {
+					limit = {
+						ITA = {
+							exists = yes
+							has_capitulated = no
+							has_government = fascism
+						}
+					}
+					ITA = {
+						country_event = {
+							id = DOD_yugoslavia.70 
+							hours = 6
+						}	
+				}
+				}
+				#else = {
+				#	get_best_alliance_match_fascism_effect = yes
+				#	var:best_leader = {
+				#		country_event = DOD_yugoslavia.70
+				#	}
+				#}
 			}
 			effect_tooltip = {
 				if = {
@@ -2059,8 +2266,7 @@ focus_tree = {
 					}
 				}
 				else = {
-					get_best_alliance_match_fascism_effect = yes
-					var:best_leader = {
+					ITA = {
 						add_opinion_modifier = { target = YUG modifier = tripartite_pact_opinion }
 						reverse_add_opinion_modifier = { target = YUG modifier = tripartite_pact_opinion }
 					}
@@ -2149,6 +2355,7 @@ focus_tree = {
 		}
 
 		available = {
+			is_subject = no
 			OR = {
 				GER = {
 					NOT = { has_war_with = ROOT }
@@ -2220,10 +2427,13 @@ focus_tree = {
 
 		available = {
 			OR = {
-				owns_state = 106
-				any_country = {
+				106 = {
+					owner = {
+						OR = {
+							tag = ROOT
 					is_subject_of = ROOT
-					owns_state = 106
+						}
+					}
 				}
 				MAC = {
 					is_in_faction_with = ROOT
@@ -2234,10 +2444,13 @@ focus_tree = {
 
 		bypass = {
 			NOT = {
-				owns_state = 106
-				any_country = {
+				106 = {
+					owner = {
+						OR = {
+							tag = ROOT
 					is_subject_of = ROOT
-					owns_state = 106
+						}
+					}
 				}
 				MAC = {
 					is_in_faction_with = ROOT
@@ -2259,8 +2472,7 @@ focus_tree = {
 			}
 			else_if = {
 				limit = {
-					any_country = {
-						is_subject_of = ROOT
+					any_subject_country = {
 						owns_state = 106
 					}
 				}
@@ -2340,7 +2552,7 @@ focus_tree = {
 
 		available = {
 			ITA = {
-				is_in_faction_with = ROOT
+				is_ally_with = ROOT
 				NOT = { has_war_with = ROOT }
 				exists = yes
 				has_capitulated = no
@@ -2398,6 +2610,26 @@ focus_tree = {
 		completion_reward = {
 
 			add_ideas = YUG_idea_all_yugoslavian_regiments
+
+			IF = {
+				limit = {
+					NOT = {
+						OR = {
+							has_global_flag = SOV_flug_and_shteifon_went_to_germany_flag
+							has_global_flag = SOV_flug_and_shteifon_went_to_russia_flag
+						}
+					}
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				show_unit_leaders_tooltip = SOV_vasily_flug
+				show_unit_leaders_tooltip = SOV_boris_shteifon
+
+				hidden_effect = {
+					set_global_flag = SOV_flug_and_shteifon_decided_to_fight_for_yugoslavia_flag
+					set_country_flag = SOV_flug_and_shteifon_are_ready_to_serve_flag
+				}
+			}
+			
 		}
 	}
 
@@ -2423,6 +2655,10 @@ focus_tree = {
 
 		available = {
 			date > 1938.09.06
+			OR = {	#if fascist, dont remove the regent, because Peter wont replace him
+				has_government = democratic
+				has_government = neutrality
+			}
 		}
 
 		bypass = {
@@ -2469,6 +2705,7 @@ focus_tree = {
 		}
 
 		available = {
+			is_subject = no
 			OR = {
 				AND = {
 					has_country_leader = {
@@ -3025,6 +3262,7 @@ focus_tree = {
 		}
 
 		available = {
+			is_subject = no
 		}
 
 		bypass = {
@@ -3425,6 +3663,7 @@ focus_tree = {
 
 		available = {
 			communism > 0.4
+			is_subject = no
 		}
 
 		bypass = {
@@ -3472,6 +3711,7 @@ focus_tree = {
 
 		available = {
 			is_in_faction = no
+			is_subject = no
 			ANY_comintern_joinable = yes 
 			IF = {
 				limit = {
@@ -3600,6 +3840,7 @@ focus_tree = {
 
 		available = {
 			is_subject = no
+			is_in_faction = no
 		}
 
 		bypass = {
@@ -3704,7 +3945,7 @@ focus_tree = {
 
 	focus = {
 		id = YUG_invite_bulgaria
-		icon = GFX_goal_generic_alliance
+		icon = GFX_focus_generic_befriend_bulgaria
 		prerequisite = { focus = YUG_pan_slavic_workers_congress }
 		x = -1
 		y = 1
@@ -3725,6 +3966,7 @@ focus_tree = {
 				has_government = communism
 			}
 			is_faction_leader = yes
+			is_subject = no
 		}
 
 		bypass = {
@@ -3761,7 +4003,7 @@ focus_tree = {
 
 	focus = {
 		id = YUG_invite_albania
-		icon = GFX_goal_generic_alliance
+		icon = GFX_focus_generic_befriend_albania
 		prerequisite = { focus = YUG_pan_slavic_workers_congress }
 		x = 1
 		y = 1
@@ -3782,6 +4024,7 @@ focus_tree = {
 				has_government = communism
 			}
 			is_faction_leader = yes
+			is_subject = no
 		}
 
 		bypass = {
@@ -3856,7 +4099,7 @@ focus_tree = {
 
 	focus = {
 		id = YUG_invite_romania
-		icon = GFX_goal_generic_alliance
+		icon = GFX_focus_invite_romania
 		prerequisite = { focus = YUG_pan_balkan_workers_congress }
 		x = -2
 		y = 1
@@ -3877,6 +4120,7 @@ focus_tree = {
 				has_government = communism
 			}
 			is_faction_leader = yes
+			is_subject = no
 		}
 
 		bypass = {
@@ -3922,7 +4166,7 @@ focus_tree = {
 
 	focus = {
 		id = YUG_invite_greece
-		icon = GFX_goal_generic_alliance
+		icon = GFX_focus_generic_befriend_greece
 		prerequisite = { focus = YUG_pan_balkan_workers_congress }
 		x = 0
 		y = 1
@@ -3943,6 +4187,7 @@ focus_tree = {
 				has_government = communism
 			}
 			is_faction_leader = yes
+			is_subject = no
 		}
 
 		bypass = {
@@ -3988,7 +4233,7 @@ focus_tree = {
 
 	focus = {
 		id = YUG_invite_hungary
-		icon = GFX_goal_generic_alliance
+		icon = GFX_focus_generic_befriend_hungary
 		prerequisite = { focus = YUG_pan_balkan_workers_congress }
 		x = 2
 		y = 1
@@ -4009,6 +4254,7 @@ focus_tree = {
 				has_government = communism
 			}
 			is_faction_leader = yes
+			is_subject = no
 		}
 
 		bypass = {
@@ -4054,7 +4300,7 @@ focus_tree = {
 
 	focus = {
 		id = YUG_invite_turkey
-		icon = GFX_goal_generic_alliance
+		icon = GFX_focus_generic_befriend_turkey
 		prerequisite = { focus = YUG_invite_greece }
 		prerequisite = { focus = YUG_invite_hungary }
 		prerequisite = { focus = YUG_invite_romania }
@@ -4077,6 +4323,7 @@ focus_tree = {
 				has_government = communism
 			}
 			is_faction_leader = yes
+			is_subject = no
 		}
 
 		bypass = {
@@ -5349,7 +5596,22 @@ focus_tree = {
 
 
 		completion_reward = {
+
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				custom_effect_tooltip = available_mio_tt
+				show_mio_tooltip = YUG_ikarus_organization
+				mio:YUG_ikarus_organization = {
+					add_mio_size = 1
+					add_mio_funds = 500
+				}
+			}
+
+			else = {
 			custom_effect_tooltip = YUG_designer_tt
+			}
 
 			random_owned_controlled_state = {
 				prioritize = { 107 }
@@ -5395,7 +5657,23 @@ focus_tree = {
 
 
 		completion_reward = {
+
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				custom_effect_tooltip = available_mio_tt
+				show_mio_tooltip = YUG_rogozarski_organization
+				mio:YUG_rogozarski_organization = {
+					add_mio_size = 1
+					add_mio_funds = 500
+				}
+			}
+
+			else = {
 			custom_effect_tooltip = YUG_designer_tt
+			}
+
 			random_owned_controlled_state = {
 				prioritize = { 107 }
 				limit = {
@@ -5440,7 +5718,23 @@ focus_tree = {
 
 
 		completion_reward = {
+			
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				custom_effect_tooltip = available_mio_tt
+				show_mio_tooltip = YUG_zmaj_organization
+				mio:YUG_zmaj_organization = {
+					add_mio_size = 1
+					add_mio_funds = 500
+				}
+			}
+
+			else = {
 			custom_effect_tooltip = YUG_designer_tt
+			}
+
 			random_owned_controlled_state = {
 				prioritize = { 107 }
 				limit = {
@@ -5516,7 +5810,7 @@ focus_tree = {
 
 	focus = {
 		id = YUG_heavy_fighter_project
-		icon = GFX_goal_generic_air_fighter
+		icon = GFX_focus_usa_escort_fighters
 		prerequisite = { focus = YUG_the_ik_3 }
 		x = -1
 		y = 3
@@ -5554,7 +5848,7 @@ focus_tree = {
 
 	focus = {
 		id = YUG_bomber_project
-		icon = GFX_goal_generic_air_bomber
+		icon = GFX_focus_SWE_marauder_bombers
 		prerequisite = { focus = YUG_the_ik_3 }
 		x = 1
 		y = 3
@@ -6179,7 +6473,7 @@ focus_tree = {
 
 	focus = {
 		id = YUG_domestic_artillery_production
-		icon = GFX_goal_generic_construct_military
+		icon = GFX_goal_generic_army_artillery
 		prerequisite = { focus = YUG_small_arms }
 		x = 0
 		y = 1
@@ -6549,7 +6843,7 @@ focus_tree = {
 
 	focus = {
 		id = YUG_artillery_regiments
-		icon = GFX_goal_generic_army_artillery
+		icon = GFX_focus_SWE_let_fly_all_guns
 		prerequisite = { focus = YUG_supremacy_of_offense focus = YUG_supremacy_of_defense }
 		x = 0
 		y = 2
@@ -6873,7 +7167,7 @@ focus_tree = {
 
 	focus = {
 		id = YUG_expand_the_serbian_shipyards
-		icon = GFX_goal_generic_construct_naval_dockyard
+		icon = GFX_focus_POL_develop_polish_shipbuilding
 		mutually_exclusive = { focus = YUG_expand_the_split_shipyards }
 		x = 3
 		y = 0

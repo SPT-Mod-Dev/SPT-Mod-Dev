@@ -497,6 +497,7 @@ technologies = {
 			mot_recon
 			armored_car_recon
 			light_tank_recon
+
 		}
 		enable_subunits = {
 			limit = { has_dlc = "Thunder at Our Gates"}
@@ -534,7 +535,7 @@ technologies = {
 			}
 			
 			modifier = {
-				factor = 1.2
+				factor = 2
 				date > "1937.1.1"
 			}
 			
@@ -585,7 +586,7 @@ technologies = {
 			base = 1
 			
 			modifier = {
-				factor = 1.2
+				factor = 2
 				date > "1940.1.1"
 			}
 			
@@ -636,7 +637,7 @@ technologies = {
 			base = 1
 			
 			modifier = {
-				factor = 1.2
+				factor = 2
 				date > "1943.1.1"
 			}
 			
@@ -677,7 +678,7 @@ technologies = {
 			base = 1
 			
 			modifier = {
-				factor = 1.2
+				factor = 2
 				date > "1946.1.1"
 			}
 			
@@ -952,7 +953,6 @@ technologies = {
 				}
 			}
 		}
-
 		
 		path = {
 			leads_to_tech = tech_maintenance_company2
@@ -985,12 +985,12 @@ technologies = {
 			}
 			
 			modifier = {
-				factor = 1.2
+				factor = 2
 				date > "1938.1.1"
 			}
 			
 			modifier = {
-				factor = 1.2
+				factor = 3
 				date > "1939.1.1"
 			}
 
@@ -1041,17 +1041,17 @@ technologies = {
 			base = 1
 			
 			modifier = {
-				factor = 1.2
+				factor = 2
 				date > "1940.1.1"
 			}
 			
 			modifier = {
-				factor = 1.2
+				factor = 2
 				date > "1941.1.1"
 			}
 			
 			modifier = {
-				factor = 1.2
+				factor = 2
 				date > "1942.1.1"
 			}
 		}
@@ -1212,12 +1212,12 @@ technologies = {
 			}
 			
 			modifier = {
-				factor = 1.2
+				factor = 2
 				date > "1938.1.1"
 			}
 			
 			modifier = {
-				factor = 1.2
+				factor = 3
 				date > "1939.1.1"
 			}
 		}
@@ -1755,17 +1755,17 @@ technologies = {
 			base = 1
 			
 			modifier = {
-				factor = 1.2
+				factor = 2
 				date > "1937.1.1"
 			}
 			
 			modifier = {
-				factor = 1.2
+				factor = 2
 				date > "1938.1.1"
 			}
 			
 			modifier = {
-				factor = 1.2
+				factor = 2
 				date > "1939.1.1"
 			}
 		}
@@ -1807,17 +1807,17 @@ technologies = {
 			base = 1
 			
 			modifier = {
-				factor = 1.2
+				factor = 2
 				date > "1943.1.1"
 			}
 			
 			modifier = {
-				factor = 1.2
+				factor = 2
 				date > "1944.1.1"
 			}
 			
 			modifier = {
-				factor = 1.2
+				factor = 2
 				date > "1945.1.1"
 			}
 		}
@@ -1854,17 +1854,17 @@ technologies = {
 			base = 1
 			
 			modifier = {
-				factor = 1.2
+				factor = 2
 				date > "1946.1.1"
 			}
 			
 			modifier = {
-				factor = 1.2
+				factor = 2
 				date > "1947.1.1"
 			}
 			
 			modifier = {
-				factor = 1.2
+				factor = 2
 				date > "1948.1.1"
 			}
 		}
@@ -1974,7 +1974,13 @@ technologies = {
 		start_year = 1939
 		folder = {
 			name = support_folder
-			position = { x = 0 y = @1939 }
+			position = { x = 2 y = 3 } #SPTchange - was position = { x = 0 y = @1939 }
+		}
+
+		# SPTchange
+		path = {
+			leads_to_tech = railway_gun
+			research_cost_coeff = 1
 		}
 		
 		categories = {
@@ -2014,16 +2020,17 @@ technologies = {
 			has_dlc = "No Step Back"
 		}
 
-		path = {
-			leads_to_tech = railway_gun
-			research_cost_coeff = 1
-		}
+		# SPTchange
+		# path = {
+		# 	leads_to_tech = railway_gun
+		# 	research_cost_coeff = 1
+		# }
 
 		research_cost = 1.5
 		start_year = 1936
 		folder = {
 			name = support_folder
-			position = { x = 2 y = 3 }
+			position = { x = 0 y = @1939 } #SPTchange - was position = { x = 2 y = 3 }
 		}
 		
 		categories = {
@@ -2326,17 +2333,17 @@ technologies = {
 			base = 1
 
 			modifier = {
-				factor = 2
+				factor = 1.2
 				is_major = yes
 			}
 
 			modifier = {
-				factor = 2
+				factor = 1.2
 				date > "1939.1.1"
 			}
 
 			modifier = {
-				factor = 4
+				factor = 1.2
 				date > "1940.1.1"
 			}
 		}

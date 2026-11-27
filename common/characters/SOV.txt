@@ -521,6 +521,10 @@ characters = {
 			cost = 50
 			ai_will_do = {
 				base = 1
+				modifier = {
+					factor = 5
+					NOT = { has_character = SOV_semyon_timoshenko }
+				}
 			}
 		}
 
@@ -890,12 +894,22 @@ characters = {
 			planning_skill = 2
 			logistics_skill = 2
 			visible = {
+				OR = {
+					AND = {
 				has_global_flag = lokot_autonomy_has_been_established_flag
 				NOT = {
 					has_government = communism
 				}
 				NOT = {
 					has_global_flag = lokot_autonomy_has_been_crushed_flag
+						}
+					}
+					AND = {
+						has_completed_focus = SOV_the_hands_do
+						NOT = {
+							has_government = communism
+						}
+					}
 				}
 			}
 		}
@@ -917,12 +931,22 @@ characters = {
 			planning_skill = 1
 			logistics_skill = 1
 			visible = {
+				OR = {
+					AND = {
 				has_global_flag = lokot_autonomy_has_been_established_flag
 				NOT = {
 					has_government = communism
 				}
 				NOT = {
 					has_global_flag = lokot_autonomy_has_been_crushed_flag
+						}
+					}
+					AND = {
+						has_completed_focus = SOV_the_hands_do
+						NOT = {
+							has_government = communism
+						}
+					}
 				}
 			}
 		}
@@ -1743,6 +1767,10 @@ characters = {
 			cost = 100
 			ai_will_do = {
 				base = 0.5
+				modifier = {
+					factor = 5
+					NOT = { has_character = SOV_semyon_timoshenko }
+				}
 			}
 		}
 
@@ -1778,6 +1806,10 @@ characters = {
 			cost = 100
 			ai_will_do = {
 				base = 1
+				modifier = {
+					factor = 5
+					NOT = { has_character = SOV_semyon_timoshenko }
+				}
 			}
 		}
 
@@ -2317,7 +2349,6 @@ characters = {
 		advisor = {
 			slot = political_advisor
 			idea_token = SOV_genrikh_yagoda
-			removal_cost = -1
 			can_be_fired = no
 			allowed = {
 				original_tag = SOV
@@ -2369,7 +2400,6 @@ characters = {
 		advisor = {
 			slot = political_advisor
 			idea_token = SOV_nikolay_yezhov
-			removal_cost = -1
 			can_be_fired = no
 			allowed = {
 				original_tag = SOV
@@ -2417,7 +2447,6 @@ characters = {
 				slot = political_advisor
 				idea_token = SOV_lavrenty_beriya
 				name = SOV_lavrenty_beriya
-				removal_cost = -1
 				can_be_fired = no
 				allowed = {
 					original_tag = SOV
@@ -2469,7 +2498,6 @@ characters = {
 				slot = political_advisor
 				idea_token = SOV_lavrenty_beriya
 				name = SOV_lavrenty_beriya
-				removal_cost = -1
 				can_be_fired = no
 				allowed = {
 					original_tag = SOV
@@ -4205,9 +4233,9 @@ characters = {
 		}
 
 		scientist = {
-			traits = { scientist_trait_armored_specialist scientist_trait_brilliant_theorist }
+			traits = { scientist_trait_armored_specialist scientist_trait_brilliant_theorist } # SPTchange
 			skills = {
-				specialization_land = 2
+				specialization_land = 2 # SPTchange
 			}
 		}
 	}

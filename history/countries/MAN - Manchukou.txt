@@ -36,6 +36,7 @@ add_ideas = MAN_kwantung_veto
 add_ideas = MAN_low_legitimacy_5
 add_ideas = MAN_the_kangde_emperor
 
+
 recruit_character = MAN_aisin_gioro_puyi
 recruit_character = MAN_zhang_haipeng
 recruit_character = MAN_zhang_jinghui
@@ -139,7 +140,12 @@ set_convoys = 5
 
 
 	if = {
-		limit = { has_dlc = "Waking the Tiger" }
+		limit = {
+			has_dlc = "Waking the Tiger"
+			NOT = {
+				has_dlc = "No Compromise, No Surrender"
+			}
+		}
 
 		
 		#No bandits

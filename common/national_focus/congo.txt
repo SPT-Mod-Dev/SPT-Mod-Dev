@@ -2246,8 +2246,9 @@ focus_tree = {
 		}
 	
 		available = {
-			any_country = {
-				original_tag = BEL
+			any_country_with_original_tag = {
+				exists = yes
+				original_tag_to_check = BEL
 				has_subject = ROOT
 			}
 		}
@@ -2814,8 +2815,9 @@ focus_tree = {
 		}
 	
 		available = {
-			any_country = {
-				original_tag = BEL
+			any_country_with_original_tag = {
+				exists = yes
+				original_tag_to_check = BEL
 				has_subject = ROOT
 			}
 		}
@@ -2859,8 +2861,9 @@ focus_tree = {
 		}
 	
 		available = {
-			any_country = {
-				original_tag = BEL
+			any_country_with_original_tag = {
+				exists = yes
+				original_tag_to_check = BEL
 				has_subject = ROOT
 			}
 		}
@@ -2906,8 +2909,9 @@ focus_tree = {
 		}
 	
 		available = {
-			any_country = {
-				original_tag = BEL
+			any_country_with_original_tag = {
+				exists = yes
+				original_tag_to_check = BEL
 				has_subject = ROOT
 			}
 		}
@@ -2985,12 +2989,14 @@ focus_tree = {
 		}
 	
 		available = {
-			any_country = {
-				original_tag = BEL
+			any_country_with_original_tag = {
+				exists = yes
+				original_tag_to_check = BEL
 				has_subject = ROOT
 			}
 			any_country_with_original_tag = {
 				original_tag_to_check = SOV
+				exists = yes
 				has_government = communism
 				NOT = {
 					has_subject = ROOT
@@ -3091,12 +3097,14 @@ focus_tree = {
 		}
 	
 		available = {
-			any_country = {
-				original_tag = BEL
+			any_country_with_original_tag = {
+				exists = yes
+				original_tag_to_check = BEL
 				has_subject = ROOT
 			}
 			any_country_with_original_tag = {
 				original_tag_to_check = GER
+				exists = yes
 				OR = {
 					has_government = neutrality
 					has_government = fascism
@@ -3183,8 +3191,9 @@ focus_tree = {
 		}
 	
 		available = {
-			any_country = {
-				original_tag = BEL
+			any_country_with_original_tag = {
+				exists = yes
+				original_tag_to_check = BEL
 				has_subject = ROOT
 			}
 		}
@@ -3223,11 +3232,11 @@ focus_tree = {
 		}
 	
 		available = {
-			any_country = {
-				original_tag = BEL
+			any_country_with_original_tag = {
+				exists = yes
+				original_tag_to_check = BEL
 				has_subject = ROOT
 			}
-			has_civil_war = no
 		}
 	
 		completion_reward = { 
@@ -3258,10 +3267,12 @@ focus_tree = {
 		}
 	
 		available = {
-			any_country = {
-				original_tag = BEL
+			any_country_with_original_tag = {
+				exists = yes
+				original_tag_to_check = BEL
 				has_subject = ROOT
 			}
+			has_civil_war = no
 		}
 	
 		completion_reward = { 
@@ -5751,8 +5762,9 @@ focus_tree = {
 			has_government = communism
 			is_in_faction = no
 			is_subject = no
-			any_country = {
-				original_tag = SOV
+			any_country_with_original_tag = {
+				exists = yes
+				original_tag_to_check = SOV
 				has_government = communism
 				is_faction_leader = yes
 			}
@@ -5858,6 +5870,10 @@ focus_tree = {
 				hours = 2
 			}
 
+			hidden_effect = {
+				set_country_flag = org_founder_is_authoritarian_flag
+			}
+
 		}
 
 	}
@@ -5946,9 +5962,7 @@ focus_tree = {
 					hours = 1
 				}	
 			}
-			set_variable = { org_africa_central_bank_stability_factor = -0.05 }
-			set_variable = { org_africa_central_bank_industrial_complex_factor = -0.1 }
-			set_variable = { org_africa_central_bank_infrastructure_factor = -0.1 }
+			set_african_central_bank_variables = yes
 			custom_effect_tooltip = generic_skip_one_line_tt
 			add_dynamic_modifier = {
 				modifier = african_union_central_bank_modifier
@@ -5988,6 +6002,10 @@ focus_tree = {
 		}
 	
 		completion_reward = { 
+
+			add_political_power = 100
+
+			custom_effect_tooltip = generic_skip_one_line_tt
 			
 			custom_effect_tooltip = ETH_executive_council_tt
 			every_other_country = {
@@ -6041,7 +6059,7 @@ focus_tree = {
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
-			add_political_power = 100
+			add_political_power = 150
 
 			custom_effect_tooltip = generic_skip_one_line_tt
 
@@ -6145,14 +6163,28 @@ focus_tree = {
 		}
 	
 		available = {
+			OR = {
 			has_government = neutrality
+				has_government = fascism
+			}
 		}
 	
 		completion_reward = { 
 			
+			IF = {
+				limit = {
+					has_government = fascism
+				}
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.05
+				}	
+			}
+			ELSE = {
 			add_popularity = {
 				ideology = neutrality
 				popularity = 0.05
+				}
 			}	
 			
 			custom_effect_tooltip = generic_skip_one_line_tt

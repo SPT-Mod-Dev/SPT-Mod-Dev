@@ -94,6 +94,7 @@ characters = {
 		portraits = {
 			civilian = {
 				large = GFX_portrait_ger_wilhelm_iii
+				small = GFX_portrait_ger_wilhelm_iii_small	#army advisor icon - appears unused, not to be confused with national spirit GFX_idea_GER_wilhelm_iii
 			}	
 		}
 	}
@@ -1189,7 +1190,7 @@ characters = {
 		}
 	}
 
-	GER_alexander_von_falkenhausen = { #TODO_Manu: Deal with the von Falkenhausen plague situation, there are 11 more von Falkenhausen impostors
+	GER_alexander_von_falkenhausen = { #MM: Deal with the von Falkenhausen plague situation, there are 11 more von Falkenhausen impostors
 		name = CHI_alexander_von_falkenhausen
 		portraits = {
 			army = {
@@ -1588,7 +1589,7 @@ characters = {
 		}
 	}
 
-	GER_walther_wever = { #TODO_Manu: Died in June 1936, probably remove him
+	GER_walther_wever = { #MM: Died in June 1936, probably remove him
 		name = GER_walther_wever
 		portraits = {
 			army = {
@@ -1852,7 +1853,7 @@ characters = {
 				NOT = { has_completed_focus = GER_ascension_of_goring }
 			}
 			visible = {
-				always = no #TODO_Manu: Part of Inner Circle. REMOVE COMPLETELY IF NOT USED BY ALT-HIST
+				always = no #MM: Part of Inner Circle.
 				has_government = fascism
 				NOT = {
 					has_completed_focus = GER_oppose_hitler_ww
@@ -1959,7 +1960,7 @@ characters = {
 				original_tag = GER
 			}
 			available = {
-				NOT = { has_government = fascism } #TODO_Manu: Maybe political focuses?
+				NOT = { has_government = fascism }
 				has_completed_focus = GER_reorganize_the_luftwaffe
 			}
 			traits = {
@@ -2570,14 +2571,14 @@ characters = {
 				}
 			}
 			visible = {
-				always = no #TODO_Manu: Part of Inner Circle. REMOVE COMPLETELY IF NOT USED BY ALT-HIST
+				always = no #MM: Part of Inner Circle.
 				has_government = fascism
 				NOT = {
 					has_completed_focus = GER_oppose_hitler_ww
 				}
 			}
 			traits = {
-				GER_first_among_equals #TODO_Manu: Maybe change trait
+				GER_first_among_equals
 			}
 		}
 	}
@@ -2610,7 +2611,7 @@ characters = {
 				NOT = { has_completed_focus = GER_ascension_of_himmler }
 			}
 			visible = {
-				always = no #TODO_Manu: Part of Inner Circle. REMOVE COMPLETELY IF NOT USED BY ALT-HIST
+				always = no #MM: Part of Inner Circle.
 				has_government = fascism
 				NOT = {
 					has_completed_focus = GER_oppose_hitler_ww
@@ -2620,7 +2621,7 @@ characters = {
 				custom_effect_tooltip = GER_SS_himmler_recruit
 			}
 			traits = {
-				prince_of_terror #TODO_Manu: Probably change trait
+				prince_of_terror
 			}
 		}
 	}
@@ -2652,7 +2653,7 @@ characters = {
 				}
 			}
 			visible = {
-				always = no #TODO_Manu: Part of Inner Circle. REMOVE COMPLETELY IF NOT USED BY ALT-HIST
+				always = no #MM: Part of Inner Circle.
 				has_government = fascism
 				NOT = {
 					has_completed_focus = GER_oppose_hitler_ww
@@ -3187,19 +3188,6 @@ characters = {
 			}
 		}
 		# Will work as a dynamic modifier for the Reichskommissariat system
-		#advisor = {
-		#	slot = political_advisor
-		#	idea_token = GER_alfred_rosenberg
-		#	allowed = {
-		#		original_tag = GER
-		#	}
-		#	available = {
-		#		has_government = fascism
-		#	}
-		#	traits = {
-		#		#TODO_Manu: New trait
-		#	}
-		#}		
 	}
 
 	GER_hans_luther = {
@@ -3225,7 +3213,6 @@ characters = {
 			}
 			available = {
 				NOT = { has_government = fascism }
-				#NOT = { has_government = communism } # TODO_Manu: Also not available to commies?
 			}
 			traits = {
 				GER_former_reichsbank_president
@@ -4074,7 +4061,7 @@ characters = {
 				small = GFX_idea_von_braun
 			}
 		}
-		#advisor = { #TODO_Manu: Old Trait -> Remove
+		#advisor = { #MM: Old Theorist role -> Now Scientist
 		#	cost = 100
 		#	slot = theorist
 		#	idea_token = von_braun

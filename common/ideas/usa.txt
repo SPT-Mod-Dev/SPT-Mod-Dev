@@ -172,6 +172,39 @@ ideas = {
 				embargo_threshold_factor = 1.5
 			}
 		}
+		USA_neutrality_act_aat = {
+			name = USA_neutrality_act
+			picture = generic_production_bonus
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+			
+			on_add = {
+				
+			}
+			on_remove = {
+				remove_relation_rule_override = {
+					can_access_market = no
+					trigger = trade_partner_not_at_war
+				}
+			}
+
+			modifier = {
+				custom_modifier_tooltip = trade_partner_not_at_war_tt
+				join_faction_tension = 0.25
+				send_volunteers_tension = 0.5
+				guarantee_tension = 0.5
+				embargo_threshold_factor = 1.5
+				
+			}
+		}
 		# version if player went down limited intervention
 		USA_lend_lease_act_li = {
 			picture = generic_production_bonus
@@ -383,7 +416,7 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				max_planning = 0.05	
+				max_planning = 0.05	# SPTchange
 			}
 		}
 		USA_maritime_commission = {
@@ -742,6 +775,7 @@ ideas = {
 				drift_defence_factor = 0.2
 			}
 		}
+		# SPTchange
 		landons_clean_deal = {
 			
 			picture = new_deal
@@ -1003,7 +1037,7 @@ ideas = {
 			removal_cost = -1
 
 			modifier = {
-				specialization_nuclear_speed_factor = 0.05
+				specialization_nuclear_speed_factor = 0.1
 			}
 		}
 
@@ -2454,6 +2488,25 @@ ideas = {
 			
 			
 			allowed = {
+				original_tag = USA
+			}
+			
+
+			
+			research_bonus = {
+				naval_equipment = 0.15
+			}
+			
+			traits = { coastal_defence_naval_manufacturer }
+			
+			modifier = {
+			}
+		}
+		
+		electric_boat_company = {
+			
+			
+			allowed = {
 				OR = {
 					original_tag = USA
 					PHI_SEA = yes
@@ -2478,25 +2531,6 @@ ideas = {
 					}
 				}
 			}
-			
-			research_bonus = {
-				naval_equipment = 0.15
-			}
-			
-			traits = { coastal_defence_naval_manufacturer }
-			
-			modifier = {
-			}
-		}
-		
-		electric_boat_company = {
-			
-			
-			allowed = {
-				original_tag = USA
-			}
-			
-
 			
 			research_bonus = {
 				naval_equipment = 0.15

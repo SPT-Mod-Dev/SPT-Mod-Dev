@@ -1273,6 +1273,15 @@ country_event = {
 	picture = GFX_report_event_hungary_parliament
 	
 	is_triggered_only = yes
+	trigger = {
+		is_faction_leader = yes
+		FROM = {
+			is_subject = no
+		}
+		NOT = {
+			has_war_with = FROM
+		}
+	}
 
 	fire_only_once = yes
 
@@ -1321,6 +1330,15 @@ country_event = {
 	picture = GFX_report_event_hungary_parliament
 	
 	is_triggered_only = yes
+	trigger = {
+		is_subject = no
+		FROM = {
+			is_faction_leader = yes
+		}
+		NOT = {
+			has_war_with = FROM
+		}
+	}
 
 	fire_only_once = yes
 
@@ -2316,11 +2334,10 @@ country_event = {
 
 		every_state = {
 			limit = {
+				controller = {
 				OR = {
-					is_controlled_by = ROOT
-					any_country = {
+						tag = ROOT
 						is_subject_of = ROOT
-						controls_state = PREV
 					}
 				}
 				NOT = {
@@ -2536,11 +2553,10 @@ country_event = {
 
 		every_state = {
 			limit = {
+				controller = {
 				OR = {
-					is_controlled_by = ROOT
-					any_country = {
+						tag = ROOT
 						is_subject_of = ROOT
-						controls_state = PREV
 					}
 				}
 				NOT = {
@@ -2760,7 +2776,10 @@ country_event = {
 			promote_character = CZE_albrecht_franz
 		}
 
-		puppet = FROM 
+		puppet = {
+			target = FROM
+			end_wars = no
+		}
 
 		hidden_effect = {
 			set_country_flag = HUN_created_bohemian_monarchy 
@@ -3083,11 +3102,10 @@ country_event = {
 
 		every_state = {
 			limit = {
+				controller = {
 				OR = {
-					is_controlled_by = ROOT
-					any_country = {
+						tag = ROOT
 						is_subject_of = ROOT
-						controls_state = PREV
 					}
 				}
 				NOT = {
@@ -3289,11 +3307,10 @@ country_event = {
 
 		every_state = {
 			limit = {
+				controller = {
 				OR = {
-					is_controlled_by = ROOT
-					any_country = {
+						tag = ROOT
 						is_subject_of = ROOT
-						controls_state = PREV
 					}
 				}
 				NOT = {
@@ -3456,11 +3473,10 @@ country_event = {
 		LBV = {
 			every_core_state = {
 				limit = {
+					controller = {
 					OR = {
-						is_controlled_by = ROOT
-						any_country = {
+							tag = ROOT
 							is_subject_of = ROOT
-							controls_state = PREV
 						}
 					}
 					NOT = {

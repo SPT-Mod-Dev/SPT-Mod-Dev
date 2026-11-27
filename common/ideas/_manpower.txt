@@ -308,6 +308,13 @@ ideas = {
 						has_idea = AUS_treaty_of_saint_germain_en_laye
 					}
 				}
+				IF = {
+					limit = {
+						has_dlc	= "Graveyard of Empires"
+						original_tag = AFG
+					}
+					has_completed_focus = AFG_adopt_nufus
+				}
 			}
 
 			modifier = {
@@ -432,6 +439,21 @@ ideas = {
 						hidden_trigger = { always = no } #NEED TO HAVE AN ALWAYS AS AN END STATEMENT IF URE USING AN IF ELSE IN AN OR STATEMENT OTHERWISE THE EVALUATION BREAKS!!
 					}
 					SWE_rapid_mob_manpower_law_trigger = yes 
+					if = {
+						limit = {
+							original_tag = ROM
+							has_dlc = "To The Bitter End"
+							NOT = {
+								has_completed_focus = ROM_rile_up_the_farmers
+								has_completed_focus = ROM_the_general_election
+								has_completed_focus = ROM_agitate_the_masses
+							}
+						}
+						has_completed_focus = ROM_limited_intervention
+					}
+					else = {
+						hidden_trigger = { always = no } #NEED TO HAVE AN ALWAYS AS AN END STATEMENT IF URE USING AN IF ELSE IN AN OR STATEMENT OTHERWISE THE EVALUATION BREAKS!!
+					}
 					if = {
 						limit = {
 							original_tag = DEN
@@ -603,7 +625,13 @@ ideas = {
 						has_idea = AUS_treaty_of_saint_germain_en_laye
 					}
 				}
-
+				IF = {
+					limit = {
+						has_dlc	= "Graveyard of Empires"
+						original_tag = AFG
+					}
+					has_completed_focus = AFG_adopt_nufus
+				}				
 			}
 			ai_will_do = {
    				factor = 1
@@ -957,6 +985,13 @@ ideas = {
 					has_manpower < 2000000
 				}
 
+				modifier = { # germany needs this before russia, badly
+					factor = 10
+
+					original_tag = GER
+					date > 1941.1.1
+				}
+
 				modifier = {
 					factor = 0
 					NOT = { has_idea = extensive_conscription }
@@ -1178,6 +1213,13 @@ ideas = {
 					NOT = {
 						has_idea = AUS_treaty_of_saint_germain_en_laye
 					}
+				}
+				IF = {
+					limit = {
+						has_dlc	= "Graveyard of Empires"
+						original_tag = AFG
+					}
+					has_completed_focus = AFG_adopt_nufus
 				}
 			}
 
@@ -1434,6 +1476,13 @@ ideas = {
 					NOT = {
 						has_idea = AUS_treaty_of_saint_germain_en_laye
 					}
+				}
+				IF = {
+					limit = {
+						has_dlc	= "Graveyard of Empires"
+						original_tag = AFG
+					}
+					has_completed_focus = AFG_adopt_nufus
 				}
 			}
 

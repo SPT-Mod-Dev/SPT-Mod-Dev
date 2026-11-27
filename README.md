@@ -1,5 +1,74 @@
 # Saving Private Tryin' Historical MP Full Changelog
 
+### 4.4.1
+
+#### General
+ - Updated to 1.20.1
+    - Major differences
+        - Kept Mass Assault and Large Unit Tactics the same as before regarding combat width reductions
+        - Tank chassis and module changes were kept the same as before (for now) 
+        - Some Romania content is removed (See Romania section for specifics)
+ - Swapped the 'Armored Train' and 'War Austerity Train' technologies
+ - Amtracs now actually work with the MIO
+ - Reduced the amount of convoys needed for fuel lend-lease by around a factor of 10
+ - AI no longer objects to attaché
+ - Removed the supremacy for stab minigame and made it a hidden idea instead
+ - All players at war will now get a friendly reminder to go Total Mobilization on January 1st 1940
+ - Miltia stats nerfed
+    - Soft attack: -5% -> -10%
+    - Hard attack: 0% -> -10%
+    - Breakthrough: -5% -> -10%
+    - Defense: -10% -> -15%
+ - Irregulars stats nerfed
+    - Soft attack: -10% -> -15%
+    - Hard attack: 0% -> -15%
+    - Breakthrough: -10% -> -15%
+    - Defense: -15% -> -20%
+
+#### Doctrines
+ - Infantry
+    - 'Irregulars'
+        - Defense: +15% -> +10%
+ - Operations
+    - Guerilla War
+        - Militia and Irregulars defense: +20% -> +10%
+
+#### Germany
+ - Added an event that adds militia that fires onces all hope seems lost
+ - The 'Dive Bombers' focus no longer gives an airplane design with engine 3
+
+#### Italy
+ - Added the 'Fiat-S.P.A.' armored car MIO
+
+#### Japan
+ - The 'February 26th' event no longer has shogunate option
+ - Now has special forces cap day 1
+ - The 'Develop the Chinese Resources' focus and various recource decisions are now in line with previous excavation changes
+ - Sets compliance to 75% upon recieving Indochina
+
+#### United Kingdom
+ - The 'Mobilize African Irregulars' focus now gives 300 mastery instead of 200
+
+#### Soviet Union
+ - Their economy is no longer dependend on Allied trade
+    - New trade law: "Soviet Autarky"
+        - Basically "Export Focus" with 0% resources to market
+        - +12 civilian factories as compensation
+
+#### Romania
+ - New focus tree
+    - Non-Aligned and Fascist paths
+    - Both industry paths
+ - Tweaked the International Cooperation mechanic
+    - Only works with Axis members (Germany, italy, Bulgaria and Hungary)
+
+#### Mongolia
+ - Also uses the "Soviet Autarky" trade law
+    - Gets repeatable resource decisions for Aluminium, Steel and Chromium as compensation
+
+#### No Asia
+ - UK now gets 15 civs and resource rights in some US states in mid 1940
+
 ### 4.4.0 They said my special forces were weak
 
 #### General

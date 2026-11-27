@@ -292,7 +292,7 @@ ideas = {
 			
 			modifier = {
 				fascism_drift = 0.1
-				fascism_acceptance = 85
+				fascism_acceptance = 65
 			}
 		}
 
@@ -742,7 +742,7 @@ ideas = {
 			picture = generic_manpower_bonus
 	
 			modifier = {
-				conscription = 0.05
+				conscription = 0.02
 				resistance_damage_to_garrison = -0.1 
 			}
 		}
@@ -766,7 +766,8 @@ ideas = {
 			picture = generic_manpower_bonus
 	
 			modifier = {
-				conscription = 0.02
+				conscription = 0.01
+				mobilization_speed = 0.25
 			}
 		}
 	
@@ -790,6 +791,7 @@ ideas = {
 	
 			modifier = {
 				training_time_army_factor = -0.1
+				supply_combat_penalties_on_core_factor = -0.15
 			}
 		}
 	
@@ -813,6 +815,7 @@ ideas = {
 	
 			modifier = {
 				stability_factor = 0.05
+				weekly_manpower = 400
 			}
 		}
 	
@@ -948,6 +951,8 @@ ideas = {
 			
 			modifier = {
 				send_volunteer_divisions_required = -0.5
+				send_volunteer_factor = 0.1
+				send_volunteers_tension = -0.1
 			}
 		}
 
@@ -1337,6 +1342,14 @@ ideas = {
 				production_cost_max_ship_hull_heavy = 10000
 				production_cost_max_ship_hull_carrier = 9500
 			}
+
+			on_add = {
+				MTG_naval_treaty_sync_ui_membership_effect = yes
+			}
+
+			on_remove = {
+				MTG_naval_treaty_sync_ui_membership_effect = yes
+			}
 		}
 		MTG_naval_treaty_adherent_reduced = {
 
@@ -1357,6 +1370,14 @@ ideas = {
 				production_cost_max_ship_hull_heavy = 12000
 				production_cost_max_ship_hull_carrier = 10500
 			}
+
+			on_add = {
+				MTG_naval_treaty_sync_ui_membership_effect = yes
+			}
+
+			on_remove = {
+				MTG_naval_treaty_sync_ui_membership_effect = yes
+			}
 		}
 		MTG_naval_treaty_cheating = {
 			name = MTG_naval_treaty_adherent
@@ -1373,9 +1394,17 @@ ideas = {
 			picture = MTG_naval_treaty_adherent
 			
 			modifier = {
-				production_cost_max_ship_hull_cruiser = 5700
-				production_cost_max_ship_hull_heavy = 11500
-				production_cost_max_ship_hull_carrier = 10250
+				production_cost_max_ship_hull_cruiser = 6200
+				production_cost_max_ship_hull_heavy = 12500
+				production_cost_max_ship_hull_carrier = 11000
+			}
+
+			on_add = {
+				MTG_naval_treaty_sync_ui_membership_effect = yes
+			}
+
+			on_remove = {
+				MTG_naval_treaty_sync_ui_membership_effect = yes
 			}
 		}
 		MTG_naval_treaty_cheating_reduced = {
@@ -1393,9 +1422,17 @@ ideas = {
 			picture = MTG_naval_treaty_adherent_reduced
 			
 			modifier = {
-				production_cost_max_ship_hull_cruiser = 6500
-				production_cost_max_ship_hull_heavy = 14000
-				production_cost_max_ship_hull_carrier = 10750
+				production_cost_max_ship_hull_cruiser = 7000
+				production_cost_max_ship_hull_heavy = 15000
+				production_cost_max_ship_hull_carrier = 12000
+			}
+
+			on_add = {
+				MTG_naval_treaty_sync_ui_membership_effect = yes
+			}
+
+			on_remove = {
+				MTG_naval_treaty_sync_ui_membership_effect = yes
 			}
 		}
 
