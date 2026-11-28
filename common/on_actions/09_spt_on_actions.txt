@@ -12,6 +12,14 @@ on_actions = {
 			# 	SPT_april_fools_roll_the_dice = yes #april fools
 			# } bye bye april fools
 
+			# Total Mob notification
+			every_country = {
+                limit = {
+                    is_ai = no
+                }
+                country_event = { id = spt_notify.1 days = 1460  } # jan 1st 1940 - 1460 days
+			}
+
 			USA = {
 				SPT_USA_spin_the_wheel = yes
 			}
@@ -48,9 +56,19 @@ on_actions = {
 				set_rule = { can_join_factions = no }
 			}
 
-			#Tannu Tuva starts as a puppet to better work with Right Opp Planned Eco focus
+			# Tannu Tuva starts as a puppet to better work with Right Opp Planned Eco focus
 			SOV = {
 				puppet = TAN
+			}
+
+			# Closed eco comintern
+			SOV = {
+				add_ideas = spt_soviet_eco
+				add_offsite_building = { type = industrial_complex level = 12 }
+			}
+
+			MON = {
+				add_ideas = spt_soviet_eco
 			}
 
 			# No Asia shenanigans
@@ -188,7 +206,7 @@ on_actions = {
 				}
 			}
 			
-			#Gives all players training division
+			#Gives all players training division and Coastal Protection Stability
 			every_country = {
 				limit = {
 					is_ai = no
@@ -300,6 +318,7 @@ on_actions = {
 					}
 					priority = 2
 				}
+				add_ideas = spt_coastal_protection
 			}
 			#Researches trains for all players
 			every_country = {
@@ -543,6 +562,9 @@ on_actions = {
 			# Add more countries here/change to Limit - OR system
 
 			# SF cap
+			JAP = {
+				add_ideas = SPT_sf_cap_28N
+			}
 			USA = {
 				add_ideas = SPT_sf_cap_14N
 			}
@@ -1432,25 +1454,27 @@ on_actions = {
 		# 	}
 		# }
 	}
-	on_operation_completed = {
-		effect = {
-			FROM = {
-				save_event_target_as = victim_nation
-			}
-			THIS = {
-				save_event_target_as = this_operation
-			}
-			ROOT = {
-				save_event_target_as = root_test
-			}
-			ROOT = {
-				country_event = {
-					id = spt.99					#Operation Completed
-					days = 1
-				}
-			}
-		}
-	}
+
+	# Paradox added this themselves, yipee!
+	# on_operation_completed = {
+	# 	effect = {
+	# 		FROM = {
+	# 			save_event_target_as = victim_nation
+	# 		}
+	# 		THIS = {
+	# 			save_event_target_as = this_operation
+	# 		}
+	# 		ROOT = {
+	# 			save_event_target_as = root_test
+	# 		}
+	# 		ROOT = {
+	# 			country_event = {
+	# 				id = spt.99					#Operation Completed
+	# 				days = 1
+	# 			}
+	# 		}
+	# 	}
+	# }
 	
 	on_nuke_drop = {
 		effect = {
@@ -1975,6 +1999,8 @@ on_actions = {
             }
         }
     }
+
+	# Japan SF cap swapper
 	on_daily_JAP = {
 		effect = {
             if = {

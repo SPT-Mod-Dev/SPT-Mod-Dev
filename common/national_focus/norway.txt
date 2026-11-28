@@ -1042,8 +1042,10 @@ focus_tree = {
 					exists = yes 
 					NOT = { has_government = communism }
 				}
-				any_other_country = {
-					is_major = yes 
+
+				any_collection_element = {
+					collection = game:all_majors
+					NOT = { tag = ROOT }
 					has_wargoal_against = FIN 
 				}
 			}
@@ -1473,8 +1475,9 @@ focus_tree = {
 			}
 			else_if = {
 				limit = {
-					any_other_country = {
-						original_tag = SOV
+					any_country_with_original_tag = {
+						exists = yes
+						original_tag_to_check = SOV
 						has_government = communism
 						has_country_leader = {
 							character = SOV_lev_trotsky
@@ -1651,8 +1654,9 @@ focus_tree = {
 			}
 			else_if = { # Some sort of Stalin Adjacent SOV exists 
 				limit = {
-					any_other_country = { 
-						original_tag = SOV
+					any_country_with_original_tag = {
+						exists = yes
+						original_tag_to_check = SOV
 						has_government = communism
 						NOT = { has_completed_focus = SOV_the_left_opposition }
 						has_capitulated = no
@@ -1667,8 +1671,9 @@ focus_tree = {
 			else_if = { # Some other fascist 
 				limit = {
 					NOT = {
-						any_other_country = {
-							original_tag = SOV
+						any_country_with_original_tag = {
+							exists = yes
+							original_tag_to_check = SOV
 							has_government = communism
 							has_capitulated = no 		
 						}
@@ -1730,8 +1735,9 @@ focus_tree = {
 			}
 			else_if = { # Some sort of Stalin Adjacent SOV exists 
 				limit = {
-					any_other_country = { 
-						original_tag = SOV
+					any_country_with_original_tag = {
+						exists = yes
+						original_tag_to_check = SOV
 						has_government = communism
 						NOT = { has_completed_focus = SOV_the_left_opposition }
 						has_capitulated = no
@@ -1753,8 +1759,9 @@ focus_tree = {
 			else_if = { # Some other fascist 
 				limit = {
 					NOT = {
-						any_other_country = {
-							original_tag = SOV
+						any_country_with_original_tag = {
+							exists = yes
+							original_tag_to_check = SOV
 							has_government = communism
 							has_capitulated = no 		
 						}
@@ -2083,13 +2090,17 @@ focus_tree = {
 			is_subject = no
 			if = {
 				limit = {
-					any_other_country = { 
-						original_tag = GER 
+					any_other_country_with_original_tag_of = {
+						exists = yes
+						target = {GER}
+					
 						has_government = fascism
 					}
 				}
-				any_other_country = { 
-					original_tag = GER 
+				any_other_country_with_original_tag_of = {
+					exists = yes
+					target = {GER}
+					
 					has_government = fascism
 				}
 			}
@@ -2108,8 +2119,9 @@ focus_tree = {
 
 		bypass = {
 			NOT = {
-				any_other_country = {
-					is_major = yes 
+				any_collection_element = {
+					collection = game:all_majors
+					NOT = { tag = ROOT }
 					has_government = fascism 
 					has_capitulated = no 
 				}
@@ -2321,24 +2333,27 @@ focus_tree = {
 		cost = 10
 		available = {
 			is_subject = no
-			any_other_country = {
+			any_other_country_with_original_tag_of = {
+				exists = yes
+				target = { SOV }
 				has_government = communism 
-				original_tag = SOV
 				is_faction_leader = yes 
 			}
 		}
 		bypass = {
 			OR = {
 				NOT = {
-					any_other_country = {
+					any_other_country_with_original_tag_of = {
+						exists = yes
+						target = { SOV }
 						has_government = communism
-						original_tag = SOV
 						is_faction_leader = yes 
 					}
 				}
-				any_other_country = {
+				any_other_country_with_original_tag_of = {
+					exists = yes
+					target = { SOV }
 					has_government = communism
-					original_tag = SOV
 					is_faction_leader = yes 
 					is_in_faction_with = ROOT
 				}
@@ -4308,8 +4323,9 @@ focus_tree = {
 			find_biggest_fascist_bully = yes 
 			if = {
 				limit = {
-					any_other_country = {
-						original_tag = GER 
+					any_other_country_with_original_tag_of = {
+						exists = yes
+						target = {GER}
 						has_government = fascism 
 					}
 				}
@@ -4474,8 +4490,8 @@ focus_tree = {
 
 			IF = {
 				limit = {
-					any_other_country = {
-						original_tag = GER
+					any_other_country_with_original_tag_of = {
+						target = {GER}
 						has_government = fascism
 						exists = yes 
 						has_civil_war = no
@@ -4596,8 +4612,6 @@ focus_tree = {
 				has_global_flag = NOR_quislings_coup_happened 
 				#has_completed_focus = NOR_arrest_quisling
 			}
-			OR = {
-
 				IF = { # If Germany = Fascist Germany 
 					limit = {
 						GER = {
@@ -4624,8 +4638,8 @@ focus_tree = {
 				}
 				ELSE_IF = {
 					limit = {
-						any_other_country = {
-							original_tag = GER
+					any_other_country_with_original_tag_of = {
+						target = {GER}
 							has_government = fascism
 							exists = yes 
 							has_civil_war = no 
@@ -4633,9 +4647,10 @@ focus_tree = {
 					}
 					OR = { 
 						has_country_flag = NOR_rejected_by_fascist_bully
-						any_other_country = {
+					any_other_country_with_original_tag_of = {
+						target = {GER}
+
 							has_government = fascism
-							original_tag = GER
 							has_offensive_war_with = ROOT
 						}
 						check_variable = {
@@ -4652,7 +4667,6 @@ focus_tree = {
 		 				value = 10
 		 				compare = greater_than_or_equals 
 		 				tooltip = NOR_required_prep_fascist_TT
-		 			}
 				}
 			}
 		}
@@ -4699,8 +4713,8 @@ focus_tree = {
 		available = {
 			if = {
 				limit = {
-					any_other_country = {
-						original_tag = NOR
+					any_other_country_with_original_tag_of = {
+						target = {NOR}
 						exists = yes
 						NOT = { has_government = fascism }
 					}
@@ -5139,9 +5153,10 @@ focus_tree = {
 		bypass = {
 			OR = {
 				NORDIC_basic_joint_trigger = yes 
-				any_other_country = {
+				any_other_country_with_original_tag_of = {
+					exists = yes
+					target = { GER }
 					has_government = fascism 
-					original_tag = GER
 					is_in_faction_with = ROOT 
 				}
 				has_war_with = GER

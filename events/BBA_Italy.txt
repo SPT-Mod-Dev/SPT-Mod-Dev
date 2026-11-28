@@ -180,8 +180,7 @@ country_event = {
 		hidden_effect = {
 			if = {
 				limit = {
-					any_country = {
-						is_in_faction_with = ROOT
+					any_allied_country = {
 						has_war_with = FROM
 					}
 				}
@@ -2425,7 +2424,7 @@ country_event = {
 	id = BBA_italy_missiolinis.92
 	title = BBA_italy_missiolinis.92.t
 	desc = BBA_italy_missiolinis.92.desc
-	picture = GFX_report_event_hitler_handshake
+	picture = GFX_report_event_generic_handshake
 	
 	is_triggered_only = yes
 
@@ -2453,7 +2452,7 @@ country_event = {
 	id = BBA_italy_missiolinis.93
 	title = BBA_italy_missiolinis.93.t
 	desc = BBA_italy_missiolinis.93.desc
-	picture = GFX_report_event_hitler_handshake
+	picture = GFX_report_event_generic_handshake
 	
 	is_triggered_only = yes
 
@@ -5474,7 +5473,7 @@ country_event = {
 	option = { 
 		name = BBA_italy_bop.1.a
 
-		ITA_bop_high_decrease_effect = yes
+		ITA_bop_medium_decrease_effect = yes
 		ITA_bop_increase_lost_core_modifier = yes
 		custom_effect_tooltip = ITA_losing_cores_tt
 	}
@@ -5514,7 +5513,8 @@ country_event = {
 	option = { 
 		name = BBA_italy_bop.3.a
 
-		ITA_bop_high_increase_effect = yes	
+		ITA_bop_medium_increase_effect = yes	
+		ITA_bop_decrease_lost_core_modifier = yes
 		custom_effect_tooltip = ITA_reclaiming_cores_tt	
 	}
 }
@@ -5530,7 +5530,7 @@ country_event = {
 
 
 # Event to complete first focus in RSI branch without the RDS getting the popup
-country_event = { #TODO_Manu: Check if this solves the shit
+country_event = {
 	id = BBA_italy_civil_war.0
 	hidden = yes
 
@@ -5906,6 +5906,7 @@ country_event = {
 						has_state_flag = ITA_cw_state_split
 						is_owned_by = RSI
 					}
+					is_core_of = RDS
 				}
 			}
 		}
@@ -5952,6 +5953,7 @@ country_event = {
 							has_state_flag = ITA_cw_state_split
 							is_owned_by = RSI
 						}
+						is_core_of = RDS
 					}
 				}
 			}
@@ -5965,6 +5967,7 @@ country_event = {
 							has_state_flag = ITA_cw_state_split
 							is_owned_by = RSI
 						}
+						is_core_of = RDS
 					}
 					ROOT = { transfer_state = PREV }
 				}
@@ -6072,8 +6075,65 @@ country_event = {
 
 	option = { 
 		name = BBA_italy_council_deposes_duce.1.a
+
+		if = { #DEMOCRATIC Monarchy
+			limit = {
+				OR = {
+					has_completed_focus = ITA_christian_democracy
+					has_completed_focus = ITA_democratic_king
+				}
+			}
 		ITA_grand_council = {
+				set_character_name = ITA_grand_council_alt
+
+				if = {
+					limit = {
+						NOT = { has_ideology_group = democratic }
+					}
+					add_country_leader_role = {
+						promote_leader = yes
+						country_leader = {
+							ideology = conservatism
+							expire = 1965.1.1.1
+							traits = { the_grand_council } 
+						}
+					}
+				}
+				else = {
 			promote_character = yes
+				}
+			}
+			
+		}
+		else_if = { #MONARCHIST
+			limit = {
+				has_completed_focus = ITA_monarchia_d_italia
+			}
+			ITA_grand_council = {
+				set_character_name = ITA_grand_council_alt
+
+				if = {
+					limit = {
+						NOT = { has_ideology_group = neutrality }
+					}
+					add_country_leader_role = {
+						promote_leader = yes
+						country_leader = {
+							ideology = oligarchism
+							expire = 1965.1.1.1
+							traits = { the_grand_council } 
+						}
+					}
+				}
+				else = {
+					promote_character = yes
+				}
+			}
+		}
+		else = { #FASCIST
+			ITA_grand_council = {
+				promote_character = yes
+			}
 		}
 		hidden_effect = {
 			every_country = {
@@ -6968,7 +7028,7 @@ country_event = {
 				add_to_variable = { ITA_infantry_equipment_from_leftist_aid = 1000 }
 				add_to_variable = { ITA_support_equipment_from_leftist_aid = 100 }
 				add_to_variable = { ITA_trucks_from_leftist_aid = 50 }
-				add_to_variable = { ITA_consumer_goods_from_leftist_aid = -0.005 }
+				add_to_variable = { ITA_consumer_goods_from_leftist_aid = -0.02 }
 			}
 		}
 		FROM = {
@@ -7876,8 +7936,7 @@ country_event = {
 		hidden_effect = {
 			if = {
 				limit = {
-					any_country = {
-						is_in_faction_with = ROOT
+					any_allied_country = {
 						has_war_with = FROM
 					}
 				}
@@ -9901,7 +9960,7 @@ country_event = {
 	id = BBA_italy_interaction_events.5
 	title = BBA_italy_interaction_events.5.t 
 	desc = BBA_italy_interaction_events.5.desc
-	picture = GFX_report_event_hitler_croatia_handshake 
+	picture = GFX_report_event_generic_croatia_handshake 
 	
 	is_triggered_only = yes
 
@@ -10144,9 +10203,6 @@ country_event = {
 			ROOT = {
 				transfer_state = 852
 			}
-		}
-		hidden_effect = {
-			clr_country_flag = ITA_sent_dalmatian_demands
 		}
 	}
 }
@@ -11126,13 +11182,12 @@ country_event = {
 		}
 		IF = {
 			limit = {
+				45 = {
+					controller = {
 				OR = {
-					45 = {
-						is_controlled_by = ITA
-					}
-					any_country = {
+							tag = ITA
 						is_subject_of = ITA
-						controls_state = 45
+						}
 					}
 				}
 			}
@@ -11140,37 +11195,12 @@ country_event = {
 				transfer_state = 45
 			}
 		}
-		IF = { # SPTChange add West Banat
+		IF = {
 			limit = {
-				OR = {
-					764 = {
-						is_controlled_by = ITA
-					}
-					any_country = {
+				45 = {
+					controller = {
 						is_subject_of = ITA
-						controls_state = 764
 					}
-				}
-			}
-			HUN = {
-				transfer_state = 764
-			}
-		}
-		IF = {
-			limit = {
-				764 = {
-					is_claimed_by = ITA
-				}
-			}
-			764 = {
-				remove_claim_by = ITA
-			}
-		}
-		IF = {
-			limit = {
-				any_country = {
-					is_subject_of = ITA
-					controls_state = 45
 				}
 			}
 			random_country = {

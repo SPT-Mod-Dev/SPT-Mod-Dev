@@ -56,6 +56,13 @@ IF = {
 	}
 }
 
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	set_technology = { bicycle_infantry = 1 }
+}
+
 
 if = {
 	limit = { has_dlc = "By Blood Alone" }
@@ -286,6 +293,7 @@ set_variable = { BEL_belgian_resistance_resistance_target = 0.2 } #0.2
 #The Belgian Legion
 set_variable = { BEL_belgian_legion_army_infantry_attack_factor = 0 }
 set_variable = { BEL_belgian_legion_exile_manpower_factor = 0 }
+set_variable = { BEL_belgian_legion_weekly_manpower = 0 }
 
 #Rexist Legion
 set_variable = { BEL_rexist_legion_army_core_attack_factor = 0.1 }
@@ -315,6 +323,7 @@ if = {
 	recruit_character = BEL_achille_van_acker
 	recruit_character = BEL_king_leopold_iii
 	recruit_character = BEL_raoul_van_overstraeten
+	recruit_character = BEL_georges_deffontaine
 	recruit_character = BEL_oscar_michiels
 	recruit_character = BEL_victor_van_strydonck_de_burkel
 	recruit_character = BEL_jules_pire
@@ -436,9 +445,29 @@ IF = {
 	}
 }
 
-
+if = {
+	limit = {
+		has_dlc = "Gotterdammerung"
+	}
+	add_ideas = {
+		BEL_scars_of_ww1_ns_fake
+		BEL_corruption_ns_fake
+	}
+}
 
 1939.1.1 = {
+
+	if = {
+		limit = {
+			has_dlc = "Gotterdammerung"
+		}
+		remove_ideas = {
+			BEL_scars_of_ww1_ns_fake
+			BEL_corruption_ns_fake
+		}
+		add_ideas = BEL_corruption_ns_fake_2
+	}
+
 	add_ideas = {
 		limited_conscription
 	}
@@ -606,7 +635,7 @@ set_grand_doctrine = new_strategic_destruction
 
 set_politics = {
 	ruling_party = democratic
-	last_election = "1932.11.27"
+	last_election = "1936.1.1" #Was 1932.11.27 but changed to allow for Government Resigns focus to simulate this election.
 	election_frequency = 48
 	elections_allowed = yes
 }

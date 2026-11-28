@@ -1,4 +1,4 @@
-﻿capital = 16
+﻿capital = 16 # Paris/Ile de France
 
 if = {
 	limit = {
@@ -58,6 +58,30 @@ if = {
 	}
 }
 
+# SPTchange - no puppets ty
+# if = {
+# 	limit = {
+# 		OR = {
+# 			has_dlc = "Together for Victory"
+# 			has_dlc = "Man the Guns"
+# 		}
+# 	}
+# 	set_autonomy = {
+# 		target = SYR
+# 		autonomous_state = autonomy_colony
+# 		freedom_level = 0.5
+# 	}
+# 	set_autonomy = {
+# 		target = LEB
+# 		autonomous_state = autonomy_colony
+# 		freedom_level = 0.5
+# 	}
+# 	else = {
+# 		puppet = SYR
+# 		puppet = LEB
+# 	}
+# }
+
 set_research_slots = 3
 IF = {
 	limit = {
@@ -74,6 +98,17 @@ add_command_power = 20
 complete_special_project = {
 	project = sp:sp_naval_cruiser_submarine
 	scientist = FRA_henri_edmond_fouche
+}
+
+IF = {
+	limit = {
+		has_dlc = "Gotterdammerung"
+	}
+	complete_special_project = {
+		project = sp:sp_land_stronghold_network
+		scientist = FRA_louis_renault
+		state = 16
+	}
 }
 
 add_breakthrough_progress = {
@@ -220,6 +255,13 @@ if = {
 
 	add_political_power = 899
 	add_command_power = 100
+
+	set_politics = {
+		ruling_party = democratic
+		elections_allowed = yes
+		last_election = "1936.5.3"
+		election_frequency = 48
+	}
 
 	#adding ministers
 	add_ideas = {
@@ -742,6 +784,7 @@ if = {
 	create_equipment_variant = {
 		name = "FT mod. 31"
 		type = light_tank_chassis_0
+		design_team = mio:FRA_renault_organization
 		parent_version = 0
 		modules = {
 			main_armament_slot = tank_heavy_machine_gun
@@ -759,6 +802,7 @@ if = {
 	create_equipment_variant = {
 		name = "FT Char Cannon"
 		type = light_tank_chassis_0
+		design_team = mio:FRA_renault_organization
 		parent_version = 0
 		modules = {
 			main_armament_slot = tank_small_cannon
@@ -776,6 +820,7 @@ if = {
 	create_equipment_variant = { #Note: There is a copy of this variant in Finnish National Focus file (FIN_bring_foreign_armor_experts). Any changes here should also be applied there
 		name = "H-35" #due to similar design this also covers R-35
 		type = light_tank_chassis_1
+		design_team = mio:FRA_hotchkiss_organization
 		parent_version = 0
 		modules = {
 			main_armament_slot = tank_small_cannon
@@ -792,7 +837,8 @@ if = {
 	}
 	create_equipment_variant = {
 		name = "Char B1"
-		type = heavy_tank_chassis_0
+		type = heavy_tank_chassis_0 # SPTchange
+		design_team = mio:FRA_renault_organization
 		parent_version = 0
 		modules = {
 			main_armament_slot = tank_heavy_cannon #SPTChange howitzer to heavy
@@ -811,12 +857,12 @@ if = {
 	}
 
 	create_equipment_variant = {
-		name = "SOUMUA S35"
+		name = "SOMUA S35"
 		type = medium_tank_chassis_0
 		parent_version = 0
 		modules = {
+			main_armament_slot = tank_small_cannon_2
 			turret_type_slot = tank_medium_one_man_tank_turret
-			main_armament_slot = tank_small_cannon
 			suspension_type_slot = tank_bogie_suspension
 			armor_type_slot = tank_welded_armor
 			engine_type_slot = tank_gasoline_engine
@@ -890,7 +936,7 @@ if = {
 			front_1_custom_slot = ship_light_battery_sub
 			rear_1_custom_slot = ship_airplane_launcher_1
 		}
-		obsolete = yes
+		design_team = mio:FRA_acf_organization
 	}
 	create_equipment_variant = {
 		name = "Minerve Class"

@@ -1689,3 +1689,19 @@ country_event = {
 		}
     }
 }
+
+add_namespace = spt_notify
+
+country_event = {
+    id = spt_notify.1
+    hidden = yes
+    is_triggered_only = yes
+    fire_only_once = yes
+
+    immediate = {
+		if = {
+			limit = { has_war = yes }
+			sound_effect = "spt_total_mob"
+		}
+    }
+}

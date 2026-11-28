@@ -57,7 +57,7 @@ political_actions = {
 			factor = 1
 			modifier = {
 				factor = 0
-				any_other_country = { has_tech = nukes }
+				any_other_country = { is_special_project_completed = sp:sp_nuclear_bomb }
 			}
 		}
 	}
@@ -88,6 +88,7 @@ political_actions = {
 			stability_weekly = 0.005
 			consumer_goods_factor = 0.10
 			industrial_capacity_factory = -0.1
+			
 		}
 
 		days_remove = 180
@@ -419,8 +420,9 @@ propaganda_efforts = {
 				has_war_support < 0.3
 			}
 			modifier = {
-				add = 201 #ie; consider prio idea
+				add = 40
 				has_war = yes
+				has_war_support < 0.5
 				has_casualties_war_support < -0.25
 			}
 			modifier = {
@@ -478,7 +480,7 @@ propaganda_efforts = {
 		ai_will_do = {
 			base = 0
 			modifier = {
-				add = 201 #ie; consider prio idea
+				add = 100
 				has_war = yes
 				has_convoys_war_support < -0.29
 			}
@@ -548,7 +550,7 @@ propaganda_efforts = {
 				has_war_support < 0.35
 			}
 			modifier = {
-				add = 201 #ie; consider prio idea
+				add = 40
 				has_war = yes
 				has_bombing_war_support < -0.20
 			}
@@ -623,8 +625,17 @@ propaganda_efforts = {
 		ai_will_do = {
 			base = 0
 			modifier = {
-				add = 201
+				add = 100
+				OR = {
+					AND = {
+						has_war_support > 0.45
+						has_war_support < 0.5
+					}
+					AND = {
+						has_war_support > 0.55
 				has_war_support < 0.6
+					}
+				}
 			}
 		}
 	}
@@ -688,7 +699,7 @@ propaganda_efforts = {
 		ai_will_do = {
 			base = 0
 			modifier = {
-				add = 201
+				add = 100
 				has_war_support < 0.6
 			}
 		}
@@ -1670,6 +1681,10 @@ war_measures = {
 				surrender_progress > 0.6
 				factor = 10
 			}
+			modifier = {
+				has_capitulated = yes
+				factor = 0
+			}
 		}
 
 		modifier = {
@@ -1942,8 +1957,7 @@ war_measures = {
 				tag = AST #has a focus
 				tag = FRA #has a focus
 				tag = GER #has a focus
-				tag = AST #missing a focus??
-			}
+							}
 		}
 
 		available = {
@@ -1997,6 +2011,14 @@ war_measures = {
 				}
 				NOT = {
 					tag = INS #has a focus
+				}
+			}
+			IF = {
+				limit = {
+					has_dlc = "To The Bitter End"
+				}
+				NOT = {
+					tag = ROM #has a focus
 				}
 			}
 		}
@@ -3487,6 +3509,7 @@ foreign_support = {
 
 generic_purchase_old_ships_category = {
 	purchase_ships_eng = {
+		priority = 2	#group the destroyer ones together
 		cost = 50
 		icon = GFX_decision_generic_naval
 		fire_only_once = no
@@ -3526,15 +3549,59 @@ generic_purchase_old_ships_category = {
 			}			
 		}
 	}
+	purchase_ships_ita = {
+		priority = 2	#group the destroyer ones together
+		cost = 50
+		icon = GFX_decision_generic_naval
+		fire_only_once = no
+		visible = {
+			has_country_flag = generic_purchase_old_ships_flag
+			ITA = { 
+				NOT = { 
+					has_country_flag = sold_ships_to_us@ROOT
+					has_country_flag = negotiating_ship_purchase_flag@ROOT 
+				}
+			}
+			NOT = { has_war_with = ITA }
+		}
+		available = {
+			NOT = {
+				ITA = {
+					OR = {
+						has_civil_war = yes
+						has_capitulated = yes
+						has_opinion = {
+							target = FROM
+							value < 30
+						}
+					}					
+				}
+			}
+			
+		}
+		days_remove = 14
+		remove_effect = {
+			ITA = {
+				country_event = {
+					id = generic_purchase_ships_events.01
+					hours = 1
+				}
+				set_country_flag = negotiating_ship_purchase_flag@ROOT
+			}			
+		}
+	}
 	purchase_ships_sov = {
+		priority = 3
 		cost = 50
 		icon = GFX_decision_generic_naval
 		fire_only_once = no
 		visible = {
 			has_country_flag = generic_purchase_old_ships_flag
 			SOV = { 
+				NOT = {
 					has_country_flag = sold_ships_to_us@ROOT
 					has_country_flag = negotiating_ship_purchase_flag@ROOT 
+				}
 			}
 
 			NOT = { has_war_with = SOV}
@@ -3566,6 +3633,7 @@ generic_purchase_old_ships_category = {
 		}
 	}
 	purchase_ships_ger = {
+		priority = 1
 		cost = 50
 		icon = GFX_decision_generic_naval
 		fire_only_once = no
@@ -3607,6 +3675,7 @@ generic_purchase_old_ships_category = {
 		}
 	}
 	purchase_ships_usa = {
+		priority = 2	#group the destroyer ones together
 		cost = 50
 		icon = GFX_decision_generic_naval
 		fire_only_once = no

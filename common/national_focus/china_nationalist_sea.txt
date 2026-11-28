@@ -3944,6 +3944,15 @@ focus_tree = {
 					add = CHI_asian_unifier_and_liberator
 				}
 			}
+			else_if = {
+				limit = {
+					has_country_leader_with_trait = CHI_civilian_unifier_upgraded_2
+				}
+				swap_ruler_traits = {
+					remove = CHI_civilian_unifier_upgraded_2
+					add = CHI_asian_unifier_and_liberator
+				}
+			}
 			else = {
 				effect_tooltip = {
 					CHI_wang_jingwei = {
@@ -6916,8 +6925,10 @@ focus_tree = {
 
 		available = {
 			is_subject = no
-			any_other_country = {
-				is_literally_china_tooltip = yes
+			any_other_country_with_original_tag_of = {
+				exists = yes
+				target = constant:country_groups.literally_china
+				tooltip = is_literally_china_tt
 				OR = {
 					exists = no
 					is_subject_of = ROOT
@@ -7005,8 +7016,10 @@ focus_tree = {
 
 		available = {
 			is_subject = no
-			any_other_country = {
-				is_literally_china_tooltip = yes
+			any_other_country_with_original_tag_of = {
+				exists = yes
+				target = constant:country_groups.literally_china
+				tooltip = is_literally_china_tt
 				OR = {
 					exists = no
 					is_subject_of = ROOT

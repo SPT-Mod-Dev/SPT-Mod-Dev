@@ -105,6 +105,10 @@ country_event = {
 				}
 			}
 		}
+		
+		trigger = {
+			always = no #spt change - removed shogun path
+		}
 
 		custom_effect_tooltip = JAP_kodoha_coup_will_succeed_tt
 		
@@ -374,6 +378,98 @@ country_event = {
 
 }
 
+
+
+# Enemy landing on Taiwan (naval invasion or paradrop) raises the Takasago Volunteers
+# Triggered from JAP_takasago_volunteers_landing_check in JAP_scripted_effects.txt
+country_event = {
+	id = SEA_japan.2
+	title = SEA_japan.2.t
+	desc = SEA_japan.2.desc
+	picture = GFX_report_event_japanese_soldiers_01
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	immediate = {
+		hidden_effect = {
+			division_template = {
+				name = "Takasago Giyutai"		# Takasago Volunteers - indigenous Taiwanese volunteers raised on the island
+				is_locked = yes
+				template_counter = 109
+				role = infantry # front line defence, not garrison duty
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+				}
+				priority = 0
+			}
+
+			# create_unit only places on provinces friendly to the owner, so the enemy beachhead is skipped automatically
+			524 = { # Taiwan
+				create_unit = {
+					division = "name = \"1. Takasago Giyutai\" division_template = \"Takasago Giyutai\" start_experience_factor = 0.3 start_equipment_factor = 0.5"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"2. Takasago Giyutai\" division_template = \"Takasago Giyutai\" start_experience_factor = 0.3 start_equipment_factor = 0.5"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"3. Takasago Giyutai\" division_template = \"Takasago Giyutai\" start_experience_factor = 0.3 start_equipment_factor = 0.5"
+					owner = ROOT
+				}
+			}
+		}
+	}
+
+	option = {
+		name = SEA_japan.2.a
+		custom_effect_tooltip = JAP_takasago_volunteers_raised_tt
+	}
+}
+
+
+# First non-Japanese enemy landing on the Home Islands, naval or airborne, initiates Ketsu-Go
+# Triggered from JAP_home_islands_landing_check in JAP_scripted_effects.txt
+country_event = {
+	id = SEA_japan.3
+	title = SEA_japan.3.t
+	desc = SEA_japan.3.desc
+	picture = GFX_report_event_japanese_soldiers_02
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = SEA_japan.3.a
+
+		add_command_power = 50
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+
+		# Requisitioned civilian lorries, the ones the prefectures were told to hand over
+		add_equipment_to_stockpile = {
+			type = motorized_equipment_1
+			amount = 250
+			producer = ROOT
+		}
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+
+		add_ideas = JAP_ketsugo_field_expedients
+
+		custom_effect_tooltip = generic_skip_one_line_tt
+
+		JAP_small_army_faction_gain = yes
+	}
+}
 
 
 # Japan demands our Submission - event for MEN
@@ -5815,11 +5911,10 @@ country_event = {
 						state = 878
 						state = 516
 					}
+					owner = {
 					OR = {
-						is_owned_by = ROOT
-						any_country = {
+							tag = ROOT
 							is_subject_of = ROOT
-							owns_state = PREV
 						}
 					}
 				}
@@ -5926,11 +6021,10 @@ country_event = {
 					state = 878
 					state = 516
 				}
+				owner = {
 				OR = {
-					is_owned_by = FROM
-					any_country = {
+						tag = FROM
 						is_subject_of = FROM
-						owns_state = PREV
 					}
 				}
 			}
@@ -5961,6 +6055,9 @@ country_event = {
 			every_other_country = {
 				limit = {
 					is_in_faction_with = FROM
+					NOT = {
+						tag = FROM # So the Soviets themselves don't count 
+					}
 					is_subject = no
 					capital_scope = {
 						is_on_continent = asia
@@ -9141,6 +9238,12 @@ country_event = {
 
 	fire_only_once = yes 
 
+	immediate = {
+		hidden_effect = {
+			set_global_flag = JAP_pearl_harbor_raid_happened_flag
+		}
+	}
+
 	# This day will live on in infamy!
 	option = {
 		name = SEA_japan_foreign_policy.136.a
@@ -10822,8 +10925,9 @@ country_event = {
 		hidden_effect = {
 			IF = {
 				limit = {
-					any_country = {
-						original_tag = JAP
+					any_country_with_original_tag = {
+						exists = yes
+						original_tag_to_check = JAP
 						has_government = fascism
 						num_divisions < 20
 					}
@@ -11369,8 +11473,9 @@ country_event = {
 
 			IF = {
 				limit = {
-					any_country = {
-						original_tag = JAP
+					any_country_with_original_tag = {
+						exists = yes
+						original_tag_to_check = JAP
 						has_government = fascism
 						num_divisions < 20
 					}
@@ -13789,12 +13894,7 @@ country_event = { #Field more men
 				}
 				set_country_flag = JAP_has_less_than_1_and_a_half_mil_flag
 			}
-			ELSE_IF = {
-				limit = {
-					has_army_manpower = {
-						size < 1900000
-					}	
-				}
+			ELSE = {
 				set_country_flag = JAP_has_less_than_2mil_flag
 			}
 		}
@@ -13809,11 +13909,6 @@ country_event = { #More Trucks
 	picture = GFX_report_event_JAP_imperial_influence
 
 	is_triggered_only = yes
-
-	trigger = {
-		JAP_army_faction_is_tier_3_at_least = yes
-		check_variable = { JAP_num_of_faction_demands < 3 } #Don't have more than 2 Demands ongoing at the same time
-	}
 	
 	option = { 
 		name = SEA_imperial_influence_events.00.a #Intentional
@@ -14144,9 +14239,9 @@ country_event = { #Build Civilian Factories
 
 		activate_mission = JAP_zaibatsu_faction_demands_factories
 
-		#Basically, we want 5 more dockyards
+		#Basically, we want 5 more civilian factories
 		set_variable = { JAP_desired_civilian_factories = num_of_civilian_factories }
-		add_to_variable = { JAP_desired_naval_factories = 2 }
+		add_to_variable = { JAP_desired_civilian_factories = 4 }
 	}
 }
 
@@ -14527,6 +14622,12 @@ country_event = {
 	immediate = {
 		hidden_effect = {
 			set_country_flag = JAP_yamamoto_shot_down_flag
+			USA = {
+				country_event = {
+					id = SEA_japan_air_accidents_events.03
+					hours = 6
+				}
+			}
 		}
 	}
 
@@ -14574,6 +14675,12 @@ country_event = {
 	immediate = {
 		hidden_effect = {
 			set_country_flag = JAP_yamamoto_survived_flag
+			USA = {
+				country_event = {
+					id = SEA_japan_air_accidents_events.04
+					hours = 6
+				}
+			}
 		}
 	}
 
@@ -14590,6 +14697,65 @@ country_event = {
 			add_maneuver = 1
 		}
 		
+	}
+}
+
+# Operation Vengeance - USA is told the intercept killed Yamamoto
+country_event = {
+	id = SEA_japan_air_accidents_events.03
+	title = SEA_japan_air_accidents_events.03.t
+	desc = SEA_japan_air_accidents_events.03.desc
+	picture = GFX_report_event_fighters
+	
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = SEA_japan_air_accidents_events.03.a
+
+		custom_effect_tooltip = JAP_yamamoto_removed_from_high_command_tt
+
+		### Display only - mirrors the consequences applied in SEA_japan_air_accidents_events.01, keep the values in sync.
+		effect_tooltip = {
+			JAP = {
+				add_stability = -0.05
+				add_war_support = -0.05
+			}
+		}
+	}
+}
+
+# Operation Vengeance - USA is told the intercept failed
+country_event = {
+	id = SEA_japan_air_accidents_events.04
+	title = SEA_japan_air_accidents_events.04.t
+	desc = SEA_japan_air_accidents_events.04.desc
+	picture = GFX_report_event_fighters
+	
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = SEA_japan_air_accidents_events.04.a
+
+		custom_effect_tooltip = JAP_yamamoto_survives_tt
+
+		### Display only - mirrors the outcome applied in SEA_japan_air_accidents_events.02, keep the values in sync.
+		effect_tooltip = {
+			JAP = {
+				if = {
+					limit = {
+						has_character = JAP_isoroku_yamamoto
+					}
+					JAP_isoroku_yamamoto = {
+						add_coordination = 1
+						add_maneuver = 1
+					}
+				}
+			}
+		}
 	}
 }
 

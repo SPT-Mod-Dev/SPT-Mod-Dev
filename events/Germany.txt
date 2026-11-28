@@ -205,7 +205,7 @@ country_event = {
 	id = germany.6
 	title = germany.6.t
 	desc = germany.6.d
-	picture = GFX_report_event_hitler_croatia_handshake
+	picture = [GetHitlerCroatianHandshakeEventPicture]
 
 
 	is_triggered_only = yes
@@ -258,7 +258,7 @@ country_event = {
 		}
 		add_opinion_modifier = { target = GER modifier = MR_pact }# pact
 		custom_effect_tooltip = germany.11.a.tt
-		if = { #TODO_Manu: Possibly remove this too, Soviets have means to get this claim in FT
+		if = {
 			limit = {
 				NOT = { owns_state = 146 }
 			}
@@ -533,82 +533,90 @@ country_event = {
 			AND = {
 				OR = {
 					owns_state = 96
-					any_other_country = {
+					96 = { #Check state, do not check via any other country, less checks this way
+						owner = {
 						is_in_faction_with = GER
 						GER = {
 							is_faction_leader = yes
 						}
-						owns_state = 96
+						}
 					}
 				}
 				OR = {
 					owns_state = 95
-					any_other_country = {
+					95 = {
+						owner = {
 						is_in_faction_with = GER
 						GER = {
 							is_faction_leader = yes
 						}
-						owns_state = 95
+						}
 					}
 				}
 				OR = {
 					owns_state = 94
-					any_other_country = {
+					94 = {
+						owner = {
 						is_in_faction_with = GER
 						GER = {
 							is_faction_leader = yes
 						}
-						owns_state = 94
+						}
 					}
 				}
 				OR = {
 					owns_state = 93
-					any_other_country = {
+					93 = {
+						owner = {
 						is_in_faction_with = GER
 						GER = {
 							is_faction_leader = yes
 						}
-						owns_state = 93
+						}
 					}
 				}
 				OR = {
 					owns_state = 91
-					any_other_country = {
+					91 = {
+						owner = {
 						is_in_faction_with = GER
 						GER = {
 							is_faction_leader = yes
 						}
-						owns_state = 91
+						}
 					}
 				}
 				OR = {
 					owns_state = 97
-					any_other_country = {
+					97 = {
+						owner = {
 						is_in_faction_with = GER
 						GER = {
 							is_faction_leader = yes
 						}
-						owns_state = 97
+						}
 					}
 				}
 				OR = {
 					owns_state = 89
-					any_other_country = {
+					89 = {
+						owner = {
 						is_in_faction_with = GER
 						GER = {
 							is_faction_leader = yes
 						}
-						owns_state = 89
+						}
 					}
 				}
 				OR = {
 					owns_state = 784
-					any_other_country = {
+					784 = {
+						owner = {
 						is_in_faction_with = GER
 						GER = {
 							is_faction_leader = yes
 						}
-						owns_state = 784
+						}
 					}
 				}
 			}
@@ -617,82 +625,90 @@ country_event = {
 				AND = {
 					OR = {
 						controls_state = 96
-						any_other_country = {
+						96 = {
+							controller = {
 							is_in_faction_with = GER
 							GER = {
 								is_faction_leader = yes
 							}
-							controls_state = 96
+							}
 						}
 					}
 					OR = {
 						controls_state = 95
-						any_other_country = {
+						95 = {
+							controller = {
 							is_in_faction_with = GER
 							GER = {
 								is_faction_leader = yes
 							}
-							controls_state = 95
+							}
 						}
 					}
 					OR = {
 						controls_state = 94
-						any_other_country = {
+						94 = {
+							controller = {
 							is_in_faction_with = GER
 							GER = {
 								is_faction_leader = yes
 							}
-							controls_state = 94
+							}
 						}
 					}
 					OR = {
 						controls_state = 93
-						any_other_country = {
+						93 = {
+							controller = {
 							is_in_faction_with = GER
 							GER = {
 								is_faction_leader = yes
 							}
-							controls_state = 93
+							}
 						}
 					}
 					OR = {
 						controls_state = 91
-						any_other_country = {
+						91 = {
+							controller = {
 							is_in_faction_with = GER
 							GER = {
 								is_faction_leader = yes
 							}
-							controls_state = 91
+							}
 						}
 					}
 					OR = {
 						controls_state = 97
-						any_other_country = {
+						97 = {
+							controller = {
 							is_in_faction_with = GER
 							GER = {
 								is_faction_leader = yes
 							}
-							controls_state = 97
+							}
 						}
 					}
 					OR = {
 						controls_state = 89
-						any_other_country = {
+						89 = {
+							controller = {
 							is_in_faction_with = GER
 							GER = {
 								is_faction_leader = yes
 							}
-							controls_state = 89
+							}
 						}
 					}
 					OR = {
 						controls_state = 784
-						any_other_country = {
+						784 = {
+							controller = {
 							is_in_faction_with = GER
 							GER = {
 								is_faction_leader = yes
 							}
-							controls_state = 784
+							}
 						}
 					}
 				}
@@ -796,7 +812,7 @@ country_event = {
 			active = no
 		}
 		SOU = {
-			if = { #TODO_Manu: Possibly remove this too, Soviets have means to get this claim in FT
+			if = {
 				limit = {
 					NOT = { owns_state = 146 }
 				}
@@ -1077,7 +1093,7 @@ country_event = {
 			}
 		}
 		SOU = {
-			if = { #TODO_Manu: Possibly remove this too, Soviets have means to get this claim in FT
+			if = {
 				limit = {
 					NOT = { owns_state = 146 }
 				}
@@ -1278,7 +1294,7 @@ country_event = {
 				}
 			}
 			SOU = {
-				if = { #TODO_Manu: Possibly remove this too, Soviets have means to get this claim in FT
+				if = {
 					limit = {
 						NOT = { owns_state = 146 }
 					}
@@ -1737,7 +1753,7 @@ country_event = {
 	id = germany.24
 	title = germany.24.t
 	desc = germany.24.d
-	picture = GFX_report_event_hitler_china
+	picture = [GetHitlerChinaEventPicture]
 
 	is_triggered_only = yes
 
@@ -1905,7 +1921,7 @@ country_event = {
 	id = germany.28
 	title = germany.28.t
 	desc = germany.28.d
-	picture = GFX_report_event_hitler_parade
+	picture = GFX_report_event_soldiers_parade
 
 	is_triggered_only = yes
 
@@ -2058,8 +2074,9 @@ country_event = {
 				factor = 5 #i've got friends
 			}
 			modifier = {
-				any_other_country = {
-					is_major = yes
+				any_collection_element = {
+					collection = game:all_majors
+					NOT = { tag = ROOT }
 					has_guaranteed = AUS
 				}
 				factor = 5 #i've got big friends
@@ -2171,7 +2188,10 @@ country_event = {
 	title = germany.40.t
 	desc = {
 		text = germany.40.d
-		trigger = { NOT = { has_war_with = GER } }
+		trigger = {
+			NOT = { has_war_with = GER }
+			tag = ENG
+		}
 	}
 	desc = {
 		text = germany.40.d_2
@@ -2181,7 +2201,7 @@ country_event = {
 		text = germany.40.d_3
 		trigger = {
 			NOT = { has_war_with = GER }
-			tag = HOL
+			NOT = { tag = ENG }
 		}
 	}
 	picture = GFX_report_event_german_politician_speech
@@ -2256,22 +2276,25 @@ country_event = {
 					CZE = { is_subject_of = ROOT }
 				}
 			}
-		}
-		trigger = {
-			NOT = { has_war_with = GER }
-			is_puppet = no # can't do anything if puppet
-		}
-		# if = {
-		#	limit = {
-		#		has_completed_focus = ENG_no_further_appeasement
-		#	}
-		#	add_political_power = -200
-		# }
-		if = {
-			limit = {
-				tag = HOL
+			#Pfot
+			modifier = { #ROOT is less willing to accept the deal if Czech completed this focus
+				factor = 0.85
+				CZE = {
+					has_completed_focus = CZE_outreach_to_the_western_powers
+				}
 			}
-			ENG = { country_event = germany.40 }
+			modifier = { #ROOT is less willing to accept the deal if Czech completed this focus
+				factor = 0.60 #Was more worried about the fighter gap
+				CZE = {
+					has_completed_focus = CZE_supply_fighters_for_allies
+				}
+			}
+			modifier = { #ROOT is less willing to accept the deal if Czech completed this focus
+				factor = 0.45
+				CZE = {
+					has_completed_focus = CZE_demand_guarantees
+				}
+			}
 		}
 
 		#Send follow-up event to next country
@@ -2294,7 +2317,9 @@ country_event = {
 		}
 		else_if = {
 			limit = {
-				tag = HOL
+				NOT = {
+					tag = ENG
+				}
 			}
 			ENG = { 
 				country_event = {
@@ -2339,8 +2364,26 @@ country_event = {
 			remove_from_faction = CZE
 		}
 
+		if = {
+			limit = {
+				OR = {
+					original_tag = HOL
+					original_tag = BEL
+					original_tag = LUX
+					original_tag = FRA
+					original_tag = ENG
+					original_tag = IRE
+					original_tag = USA
+				}
+			}
 		CZE = {
 			add_opinion_modifier = { target = ROOT modifier = western_betrayal }
+			}
+		}
+		else = {
+			CZE = {
+				add_opinion_modifier = { target = ROOT modifier = refused_help }
+			}
 		}
 	}
 
@@ -2376,7 +2419,40 @@ country_event = {
 							CZE = {
 								has_completed_focus = CZE_supply_fighters_for_allies
 							}
+							ROM = {
+								has_completed_focus = ROM_back_czechoslovakia
+								OR = {
+									has_equipment = {
+										small_plane_airframe > 99
+									}
+									has_deployed_air_force_size = {
+										size > 99
+										type = fighter
+									}
+								}
+							}
 							has_war_with = GER
+						}
+					}
+				}
+			}
+			modifier = { #ROOT is more willing to support the Czechs if they completed this focus
+				add = 2 #Was more worried about the fighter gap
+				ROM = {
+					has_completed_focus = CZE_supply_fighters_for_allies
+				}
+			}
+			modifier = { #ROOT is more willing to support the Czechs if they completed this focus
+				add = 3 #Was more worried about the fighter gap
+				ROM = {
+					has_completed_focus = CZE_supply_fighters_for_allies
+					OR = {
+						has_equipment = {
+							small_plane_airframe > 99
+						}
+						has_deployed_air_force_size = {
+							size > 99
+							type = fighter
 						}
 					}
 				}
@@ -2478,6 +2554,10 @@ country_event = {
 			}
 		}
 
+		if = {
+			limit = {
+				tag = ENG
+			}
 		effect_tooltip = {
 			GER = {
 				create_wargoal = {
@@ -2486,11 +2566,6 @@ country_event = {
 					generator = { 69 } #Doesn't matter the exact state, CZE is guaranteed to control at least 1 Sudetenland state, and the generators don't show up in tooltips.
 				}
 			}
-		}
-
-		if = {
-			limit = {
-				tag = ENG
 			}
 			if = {
 				limit = {
@@ -2509,6 +2584,15 @@ country_event = {
 						id = germany.42
 						hours = 2
 					}
+				}
+			}
+		}
+		else = {	#If CZE's faction leader defends them, the event chain won't complete
+			GER = {
+				create_wargoal = {
+					type = take_state_focus
+					target = CZE
+					generator = { 69 } #Doesn't matter the exact state, CZE is guaranteed to control at least 1 Sudetenland state, and the generators don't show up in tooltips.
 				}
 			}
 		}
@@ -2702,6 +2786,34 @@ country_event = {
 							CZE = {		#PfOT
 								has_completed_focus = CZE_supply_fighters_for_allies
 							}
+							ROM = {		#TTBE
+								has_completed_focus = ROM_back_czechoslovakia
+								OR = {
+									has_equipment = {
+										small_plane_airframe > 99
+									}
+									has_deployed_air_force_size = {
+										size > 99
+										type = fighter
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			#TTBE
+			modifier = {
+				add = 1.75
+				ROM = {
+					has_completed_focus = ROM_back_czechoslovakia
+					OR = {
+						has_equipment = {
+							small_plane_airframe > 99
+						}
+						has_deployed_air_force_size = {
+							size > 99
+							type = fighter
 						}
 					}
 				}
@@ -3374,7 +3486,7 @@ country_event = {
 			generator = CZE.sudetenland_states_for_wargoal
 		}
 
-		if = { #TODO_Manu: This should never happen (the focus won't trigger this event chain if CZE is in faction with GER) - Left here for now but most likely remove it after full rework.
+		if = { #This should never happen (the focus won't trigger this event chain if CZE is in faction with GER) - Left here for now
 			limit = {
 				CZE = {
 					is_in_faction_with = GER
@@ -5013,8 +5125,21 @@ country_event = {
 					state = 71
 					state = 73
 				}
-				NOT = {
-					is_controlled_by = HUN
+				or = {
+					is_fully_controlled_by = ROOT
+					is_fully_controlled_by = CZE
+					AND = {
+						CZE = {
+							has_subject = SLO
+						}
+						is_fully_controlled_by = SLO
+					}
+					AND = {
+						CZE = {
+							has_subject = RUT
+						}
+						is_fully_controlled_by = RUT
+					}
 				}
 			}
 		}
@@ -5838,19 +5963,15 @@ country_event = {
 				OR = {
 					is_fully_controlled_by = FROM
 					is_fully_controlled_by = CZE
-					if = {
-						limit = {
+					AND = {
 							SLO = {
 								is_subject_of = CZE
-							}
 						}
 						is_fully_controlled_by = SLO
 					}
-					if = {
-						limit = {
+					AND = {
 							RUT = {
 								is_subject_of = CZE
-							}
 						}
 						is_fully_controlled_by = RUT
 					}
@@ -5929,6 +6050,14 @@ country_event = {
 					OR = {
 						is_owned_by = CZE
 						is_owned_by = GER
+						if = {
+							limit = {
+								RUT = {
+									is_subject_of = CZE
+								}
+							}
+							is_owned_by = RUT
+						}
 					}
 				}
 			}
@@ -5941,6 +6070,14 @@ country_event = {
 					OR = {
 						is_owned_by = CZE
 						is_owned_by = GER
+						if = {
+							limit = {
+								RUT = {
+									is_subject_of = CZE
+								}
+							}
+							is_owned_by = RUT
+						}
 					}
 				}
 			}
@@ -5952,14 +6089,6 @@ country_event = {
 					OR = {
 						is_owned_by = CZE
 						is_owned_by = GER
-						if = {
-							limit = {
-								RUT = {
-									is_subject_of = CZE
-								}
-							}
-							is_owned_by = RUT
-						}
 					}
 				}
 			}
@@ -5983,14 +6112,6 @@ country_event = {
 					OR = {
 						is_owned_by = CZE
 						is_owned_by = GER
-						if = {
-							limit = {
-								RUT = {
-									is_subject_of = CZE
-								}
-							}
-							is_owned_by = RUT
-						}
 					}
 				}
 			}
@@ -6773,6 +6894,8 @@ country_event = {
 				}
 			}
 		}
+
+		# SPTchange - idk why this event is here. duplicate in czech events maybe?
 		hidden_effect = {
 			#Czech Exile Events
 			if = {
@@ -7021,7 +7144,7 @@ country_event = {
 	id = germany.72
 	title = germany.72.t
 	desc = germany.72.d
-	picture = GFX_report_event_hitler_parade
+	picture = GFX_report_event_soldiers_parade
 
 	is_triggered_only = yes
 
@@ -8336,9 +8459,10 @@ country_event = {
 				has_war_with = ENG
 			}
 			NOT = {
-				any_other_country = {
+				TUR = {
+					any_enemy_country = {
 					is_in_faction_with = ENG
-					has_war_with = TUR
+					}
 				}
 			}
 			ENG = {
@@ -8654,9 +8778,10 @@ country_event = {
 				has_idea = anti_soviet_pact
 				NOT = { has_war_with = SOV }
 				is_subject = no
-				any_other_country = {
+				SOV = {
+					any_enemy_country = {
 					has_idea = anti_soviet_pact
-					has_war_with = SOV
+					}
 				}
 			}
 			country_event = { id = germany.85 days = 1 }
@@ -8819,8 +8944,9 @@ country_event = {
 			}
 			modifier = {
 				factor = 10
-				any_other_country = {
-					is_major = yes
+				any_collection_element = {
+					collection = game:all_majors
+					NOT = { tag = ROOT }
 					is_in_faction_with = POL
 				}
 			}
@@ -9087,7 +9213,13 @@ country_event = {
 				template = faction_template_regional_anti_democratic
 				name = the_berlin_moscow_axis
 			}
+
+			hidden_effect = {
 			add_to_faction = SOV
+			}
+			custom_effect_tooltip = germany.89.a.tt
+			custom_effect_tooltip = generic_skip_one_line_tt
+			
 			add_named_threat = { threat = 10 name = germany.89.t }
 			every_other_country = {
 				limit = {
@@ -9405,7 +9537,7 @@ country_event = {
 			add_named_threat = { threat = 5 name = GER_fate_of_yugoslavia }
 			annex_country = { target = YUG transfer_troops = no }
 			GER_yugoslavia_modify_mefo_bills_or_economy_of_conquest = yes
-			add_to_variable = { var = GER_mefo_bill_counter value = -5 }
+			add_to_variable = { var = GER_mefo_bill_counter value = -10 }
 		}
 	}
 
@@ -9451,7 +9583,7 @@ country_event = {
 			puppet = CRO
 			annex_country = { target = YUG transfer_troops = no }
 			custom_effect_tooltip = yugoslavia_mefo_bills_tt
-			add_to_variable = { var = GER_mefo_bill_counter value = -5 }
+			add_to_variable = { var = GER_mefo_bill_counter value = -10 }
 		}
 	}
 
@@ -9489,7 +9621,7 @@ country_event = {
 				news_event = { hours = 6 id = news.169 }
 			}
 			#custom_effect_tooltip = yugoslavia_mefo_bills_tt
-			#add_to_variable = { var = GER_mefo_bill_counter value = -5 }
+			#add_to_variable = { var = GER_mefo_bill_counter value = -10 }
 		}
 	}
 }
@@ -10550,6 +10682,7 @@ country_event = {
 			56 = { set_state_flag = yalta_wgr }
 			57 = { set_state_flag = yalta_wgr }
 			58 = { set_state_flag = yalta_wgr }
+			909 = { set_state_flag = yalta_wgr }
 			59 = { set_state_flag = yalta_wgr }
 		#	add_state_core = 42
 		#	add_state_core = 50
@@ -11304,8 +11437,9 @@ country_event = {
 			}
 			modifier = {
 				factor = 0
-				any_other_country = {
-					is_major = yes
+				any_collection_element = {
+					collection = game:all_majors
+					NOT = { tag = ROOT }
 					OR = {
 						has_guaranteed = CZE
 						is_in_faction_with = CZE
@@ -11780,11 +11914,11 @@ country_event = {
 		IF = {
 			limit = {
 				NOT = {
-					any_country = {
-						original_tag = GER 
-						has_government = democratic
-						is_subject = yes 
+					any_country_with_original_tag = {
+						original_tag_to_check =GER 
 						exists = yes 
+						is_subject = yes 
+						has_government = democratic
 					}
 				}
 				SOV = {
@@ -11861,11 +11995,11 @@ country_event = {
 		IF = {
 			limit = {
 				NOT = {
-					any_country = {
-						original_tag = GER 
-						has_government = democratic
-						is_subject = yes 
+					any_country_with_original_tag = {
+						original_tag_to_check = GER 
 						exists = yes 
+						is_subject = yes 
+						has_government = democratic
 					}
 				}
 				SOV = {
@@ -12048,9 +12182,10 @@ country_event = {
 	trigger = {
 		original_tag = GER
 		GER_has_mefo_bills = yes
-		any_other_country = {
-			has_war_with = GER
+		GER = {
+			any_enemy_country = {
 			NOT = { original_tag = GER }
+			}
 		}
 	}
 
@@ -12572,7 +12707,7 @@ country_event = { #Accepts deal
 	id = AAT_germany.3
 	title = AAT_germany.3.t
 	desc = AAT_germany.3.desc
-	picture = GFX_report_event_hitler_croatia_handshake
+	picture = [GetHitlerCroatianHandshakeEventPicture]
 
 	is_triggered_only = yes
 

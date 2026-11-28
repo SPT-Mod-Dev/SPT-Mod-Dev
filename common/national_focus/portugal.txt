@@ -146,8 +146,7 @@ focus_tree = {
 				add = 1
 				OR = {
 					has_government = democratic
-					any_country = {
-						is_in_faction_with = ROOT
+					any_allied_country = {
 						is_faction_leader = yes
 						has_government = democratic
 					}
@@ -696,19 +695,24 @@ focus_tree = {
 		search_filters = {FOCUS_FILTER_INDUSTRY}
 		completion_reward = { 
 			544 = {
-				add_extra_state_shared_building_slots = 4
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = infrastructure
 					level = 1
 					instant_build = yes
 				}
-
 				add_building_construction = {
 					type = industrial_complex
 					level = 1
 					instant_build = yes
 				}
-
+				add_resource = {
+					type = aluminium
+					amount = 6
+				}
+			}
+			897 = {
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = naval_base
 					level = 2
@@ -717,7 +721,7 @@ focus_tree = {
 				}
 				add_resource = {
 					type = aluminium
-					amount = 12
+					amount = 6
 				}
 			}
 		}
@@ -883,9 +887,21 @@ focus_tree = {
 					}
 				}
 			}
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				custom_effect_tooltip = available_mio_tt
+				show_mio_tooltip = POR_ogme_organization
+				mio:POR_ogme_organization = {
+					add_mio_funds = 500
+				}
+			}
+			ELSE = {
 			custom_effect_tooltip = available_designer
 			show_ideas_tooltip = ogme
 		}
+	}
 	}
 
 	focus = {
@@ -934,8 +950,21 @@ focus_tree = {
 					}
 				}
 			}
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				custom_effect_tooltip = available_mio_tt
+				show_mio_tooltip = POR_ogma_organization
+				mio:POR_ogma_organization = {
+					add_mio_funds = 500
+				}
+			}
+			ELSE = {
 			custom_effect_tooltip = available_designer
 			show_ideas_tooltip = ogma
+		}
+			
 		}
 	}
 
@@ -1239,8 +1268,21 @@ focus_tree = {
 					}
 				}
 			}
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				custom_effect_tooltip = available_mio_tt
+				show_mio_tooltip = POR_fma_organization
+				mio:POR_fma_organization = {
+					add_mio_funds = 500
+				}
+			}
+			ELSE = {
 			custom_effect_tooltip = available_designer
 			show_ideas_tooltip = fma
+		}
+			
 		}
 	}
 
@@ -1856,7 +1898,7 @@ focus_tree = {
 		    	}
 		    	add_tech_bonus = {
 		    		name = POR_merchant_marine_protection
-				    bonus = 1.0
+				    bonus = 0.5
 				    uses = 2
 				    category = asw_tech		   
 				}
@@ -1897,7 +1939,7 @@ focus_tree = {
 
 			add_tech_bonus = {
 				name = POR_submarine_effort
-			    bonus = 1.0
+			    bonus = 0.75
 			    uses = 2
 			    category = ss_tech			   
 			}
@@ -1923,7 +1965,7 @@ focus_tree = {
 		completion_reward = { 
 			add_tech_bonus = {
 				name = POR_fuzileiros
-			    bonus = 1.0
+			    bonus = 0.5
 			    uses = 2
 			    category = marine_tech			   
 			}
@@ -2085,7 +2127,7 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = POR_battleship_effort
-			    bonus = 1.0
+			    bonus = 0.75
 			    uses = 2
 			    category = bb_tech	   
 			}
@@ -2531,7 +2573,7 @@ focus_tree = {
 		completion_reward = { 
 			add_tech_bonus = {
 				name = POR_tropas_paraquedistas
-				bonus = 2.0
+				bonus = 1.0
 				uses = 1
 				category = para_tech
 			}
@@ -2911,7 +2953,7 @@ focus_tree = {
 		y = 3
 
 		relative_position_id = POR_nation_in_arms
-		cost = 10
+		cost = 5
 		completion_reward = { 	
 			SOV = {
 				country_event = { id = generic.2 hours = 4 }
@@ -3402,7 +3444,7 @@ focus_tree = {
 				custom_effect_tooltip = POR_the_iberian_socialist_union_cores_tt
 				if = { # Any Spanish Puppet will get annexed
 					limit = {
-						any_country = {
+						any_subject_country = {
 							OR = {
 								original_tag = SPR
 								tag = GLC
@@ -3410,7 +3452,6 @@ focus_tree = {
 								tag = CAT
 								tag = ADU
 							}
-							is_puppet_of = ROOT
 						}
 					}
 					hidden_effect = {
@@ -3629,19 +3670,9 @@ focus_tree = {
 		available = {
 			has_global_flag = scw_over
 			has_government = communism
-			any_country = {
-				OR = {
-					TAG = BRA TAG = MEX
-					TAG = COL TAG = ARG
-					TAG = PRU TAG = VEN
-					TAG = CHL TAG = GUA
-					TAG = ECU TAG = CUB
-					TAG = BOL TAG = HAI
-					TAG = DOM TAG = HON
-					TAG = PAR TAG = ELS
-					TAG = NIC TAG = COS
-					TAG = PAN TAG = URG						
-				}
+			any_country_of = {
+				exists = yes
+				target = {BRA COL PRU CHL ECU BOL DOM PAR NIC PAN MEX ARG VEN GUA CUB HAI HON ELS COS URG }
 				has_government = communism
 			}
 		}
@@ -3891,8 +3922,9 @@ focus_tree = {
 				has_government = democratic
 				has_government = communism
 			}
-			any_country = {
-				original_tag = SPR
+			any_country_with_original_tag = {
+				exists = yes
+				original_tag_to_check = SPR
 				NOT = { has_government = ROOT }
 				NOT = { is_in_faction_with = ROOT }
 			}
@@ -4148,7 +4180,7 @@ focus_tree = {
 			}
 			add_tech_bonus = {
 				name = POR_british_investment_in_mines
-			    bonus = 1.0
+			    bonus = 0.5
 			    uses = 2
 			    category = industry
 			}
@@ -4397,16 +4429,18 @@ focus_tree = {
 		id = POR_join_the_allies
 		available = {
 			is_in_faction = no
-			any_other_country = {
-				NOT = { has_war_with = ROOT }
+			any_collection_element = {
+				collection = game:all_majors
+				NOT = { tag = ROOT }
 				is_faction_leader = yes
-				is_major = yes
+				NOT = { has_war_with = ROOT }
 				has_government = democratic
 			}
 			NOT = {
-				any_other_country = {
+				POR = {
+					any_enemy_country = {
 					is_in_faction_with = ENG
-					has_war_with = POR
+					}
 				}
 			}			
 		}
@@ -4416,9 +4450,9 @@ focus_tree = {
 				is_in_faction_with = ENG
 				AND = {
 					is_in_faction = yes
-					any_other_country = {
+					any_allied_country = {
 						is_faction_leader = yes
-						is_in_faction_with = ROOT
+						NOT = {tag = ROOT}
 						has_government = democratic
 					}
 				}
@@ -4876,8 +4910,9 @@ focus_tree = {
 
 		available = {	
 			has_global_flag = scw_over
-			any_country = {
-				original_tag = SPR
+			any_country_with_original_tag = {
+				exists = yes
+				original_tag_to_check = SPR
 				NOT = { has_government = ROOT }
 				NOT = { is_in_faction_with = ROOT }
 			}
@@ -4992,8 +5027,8 @@ focus_tree = {
 						exists = yes
 						NOT = { has_war_with = ROOT }
 					}
-					any_country = {
-						is_major = yes
+					any_collection_element = {
+						collection = game:all_majors
 						has_war_with = ENG
 					}
 				}
@@ -5002,8 +5037,8 @@ focus_tree = {
 						exists = yes
 						NOT = { has_war_with = ROOT }
 					}
-					any_country = {
-						is_major = yes
+					any_collection_element = {
+						collection = game:all_majors
 						has_war_with = GER
 					}
 				}
@@ -5094,14 +5129,13 @@ focus_tree = {
 				exists = yes
 				NOT = {
 					has_war_with = ROOT 
-					any_other_country = {
-						is_in_faction_with = ENG
+					any_allied_country = {
 						has_war_with = ROOT
 					}
 				}
 			}
-			any_country = {
-				is_major = yes
+			any_collection_element = {
+				collection = game:all_majors
 				has_war_with = ENG
 			}
 		}
@@ -5152,8 +5186,8 @@ focus_tree = {
 						exists = yes
 						NOT = { has_war_with = ROOT }
 					}
-					any_country = {
-						is_major = yes
+					any_collection_element = {
+						collection = game:all_majors
 						has_war_with = ENG
 					}
 				}
@@ -5162,8 +5196,8 @@ focus_tree = {
 						exists = yes
 						NOT = { has_war_with = ROOT }
 					}
-					any_country = {
-						is_major = yes
+					any_collection_element = {
+						collection = game:all_majors
 						has_war_with = GER
 					}
 				}
@@ -5446,9 +5480,8 @@ focus_tree = {
 				NOT = { has_war_with = ROOT }
 			}
 			NOT = {
-				any_other_country = {
+				any_enemy_country = {
 					is_in_faction_with = GER
-					has_war_with = ROOT
 				}
 			}	
 		}

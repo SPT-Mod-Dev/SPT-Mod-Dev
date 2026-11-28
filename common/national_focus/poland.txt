@@ -1373,7 +1373,7 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = POL_modernising_the_cavalry
-				bonus = 3.0
+				bonus = 2.0
 				uses = 1
 				category = motorized_equipment
 			}
@@ -1568,6 +1568,35 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_INDUSTRY }
 		completion_reward = {
+			IF = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				IF = { 
+					limit = { has_country_flag = POL_somua_motors }
+					mio:FRA_somua_organization = {
+						add_mio_funds = 500
+						add_mio_funds_gain_factor = 0.1
+					}
+
+				}
+				IF = { 
+					limit = { has_country_flag = POL_vauxhall_motors }
+					mio:ENG_vauxhall_organization = {
+						add_mio_funds = 500
+						add_mio_funds_gain_factor = 0.1
+					}
+				}
+				IF = { 
+					limit = { has_country_flag = POL_ford_motors }
+					mio:USA_ford_motor_company_organization = {
+						add_mio_funds = 500
+						add_mio_funds_gain_factor = 0.1
+					}
+				}
+			}
+			ELSE = {
+
 			if = {
 				limit = {
 					has_idea = POL_vauxhall
@@ -1600,6 +1629,7 @@ focus_tree = {
 			}
 		}
 	}
+	}
 
 
 	############################
@@ -1616,7 +1646,7 @@ focus_tree = {
 		
 		x = 3
 		y = 1
-		cost = 10
+		cost = 5
 
 		ai_will_do = {
 			factor = 1
@@ -1673,13 +1703,29 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
+
+			IF = {
+				limit = {
+					NOT = {
+						has_dlc = "By Blood Alone"
+					}
+				}
 			add_tech_bonus = {
 				name = POL_fighter_modernisation
 				bonus = 1.0
 				uses = 1
 				category = light_fighter
 			}
-			#1x50% research bonus to fighter models
+			}
+			ELSE = {
+				add_tech_bonus = {
+					name = POL_fighter_modernisation
+					bonus = 1.0
+					uses = 1
+					category = light_air
+				}
+			}
+			
 		}
 	}
 
@@ -1708,7 +1754,6 @@ focus_tree = {
 				uses = 1
 				category = air_doctrine
 			}
-			#1x50% research bonus to Air Doctrine Research
 		}
 	}
 
@@ -1729,13 +1774,29 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
+
+			IF = {
+				limit = {
+					NOT = {
+						has_dlc = "By Blood Alone"
+					}
+				}
 			add_tech_bonus = {
 				name = POL_heavy_fighter_concept
 				bonus = 1.0
 				uses = 1				
 				category = cat_heavy_fighter
 			}
-			#1x 50% research bonus to Heavy Fighters
+			}
+			ELSE = {
+				add_tech_bonus = {
+					name = POL_heavy_fighter_concept
+					bonus = 1.0
+					uses = 1
+					category = medium_air
+				}
+			}
+
 		}
 	}
 
@@ -1756,13 +1817,35 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
+
+			IF = {
+				limit = {
+					NOT = {
+						has_dlc = "By Blood Alone"
+					}
+				}
 			add_tech_bonus = {
 				name = POL_naval_bomber_experiments
 				bonus = 1.0
 				uses = 1				
 				category = naval_bomber
 			}
-			#1x50% research bonus to NAV
+			}
+			ELSE = {
+				add_tech_bonus = {
+					name = POL_naval_bomber_experiments
+					bonus = 0.5
+					uses = 1				
+					category = light_air
+				}
+				add_tech_bonus = {
+					name = POL_naval_bomber_experiments
+					bonus = 0.75
+					uses = 1				
+					category = cat_air_bombs
+				}
+			}
+
 		}
 	}
 
@@ -1784,13 +1867,29 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
+
+			IF = {
+				limit = {
+					NOT = {
+						has_dlc = "By Blood Alone"
+					}
+				}
 			add_tech_bonus = {
 				name = POL_medium_bomber_focus
 				bonus = 1.0
 				uses = 1				
 				category = tactical_bomber
 			}
-			#1 x 50% research bonus to Tactical Bomber models
+			}
+			ELSE = {
+				add_tech_bonus = {
+					name = POL_medium_bomber_focus
+					bonus = 1.0
+					uses = 1
+					category = medium_air
+				}
+			}
+
 		}
 	}
 
@@ -1812,13 +1911,29 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
+
+			IF = {
+				limit = {
+					NOT = {
+						has_dlc = "By Blood Alone"
+					}
+				}
 			add_tech_bonus = {
 				name = POL_light_bomber_focus
 				bonus = 1.0
 				uses = 1				
 				category = cas_bomber
 			}
-			#1 x 50% research bonus to CAS
+			}
+			ELSE = {
+				add_tech_bonus = {
+					name = POL_light_bomber_focus
+					bonus = 1.0
+					uses = 1				
+					category = light_air
+				}
+			}
+
 		}
 	}
 
@@ -1879,7 +1994,7 @@ focus_tree = {
 				category = jet_technology
 				category = rocketry
 			}
-			#2x50% research to Rockets and Jet Engine Research
+
 		}
 	}
 
@@ -3488,7 +3603,7 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = POL_invest_anti_air
-				bonus = 1.0
+				bonus = 0.5
 				uses = 3
 				category = cat_anti_air
 			}
@@ -4894,7 +5009,15 @@ focus_tree = {
 			GER = {
 				OR = {
 					has_completed_focus = GER_anschluss
+					if = {
+						limit = {
+							NOT = { has_dlc = "Gotterdammerung" }
+						}
 					has_completed_focus = GER_oppose_hitler
+					}
+					else = {
+						has_completed_focus = GER_oppose_hitler_ww
+					}
 					exists = no
 				}
 			}
@@ -5852,7 +5975,7 @@ focus_tree = {
 			effect_tooltip = {
 				create_corps_commander = {
 					name = "Vladislav Korchits"
-					traits = { JAP_communist_sympathizer old_guard }
+					traits = { communist_sympathizer old_guard }
 					skill = 3
 					attack_skill = 2
 					defense_skill = 4
@@ -6208,16 +6331,17 @@ focus_tree = {
 		
 		available = {
 			FRA = {
-				NOT = { has_war_with = ROOT }
+				NOT = {
+					has_war_with = ROOT
+				}
+				all_allied_country = {
+					NOT = {
+						has_war_with = ROOT
+					}
+				}
 				OR = {
 					has_government = democratic
 					has_government = communism
-				}
-			}
-			NOT = {
-				any_other_country = {
-					is_in_faction_with = FRA
-					has_war_with = POL
 				}
 			}
 			is_in_faction = no
@@ -6455,18 +6579,50 @@ focus_tree = {
 		}
 
 		available_if_capitulated = yes
-		available = { has_government = communism }
+		available = { 
+			is_subject = no
+			has_government = communism
+			OR = {
+				EST  = { exists = yes }
+				LAT  = { exists = yes } 
+				LIT  = { exists = yes }
+			}
+		}
+
+		bypass = {
+			EST = {
+				OR = {
+					is_ally_with = ROOT
+					exists = no
+				}
+			}
+			LAT = {
+				OR = {
+					is_ally_with = ROOT
+					exists = no
+				}
+			} 
+			LIT = {
+				OR = {
+					is_ally_with = ROOT
+					exists = no
+				}
+			}
+		}
 
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 		completion_reward = {
 			if = {
 				limit = {
 					LIT = {
+						exists = yes
 						has_government = communism
 						is_in_faction = no
 					}
 				}
-				country_event = NSB_poland_communist_events.2
+				LIT = {
+					country_event = { id = NSB_poland_communist_events.2 hours = 12 }
+				}
 				custom_effect_tooltip = if_they_accept_tt
 				effect_tooltip = {
 					puppet = LIT
@@ -6487,11 +6643,14 @@ focus_tree = {
 			if = {
 				limit = {
 					LAT = {
+						exists = yes
 						has_government = communism
 						is_in_faction = no
 					}
 				}
-				country_event = NSB_poland_communist_events.2
+				LAT = {
+					country_event = { id = NSB_poland_communist_events.2 hours = 12 }
+				}
 				custom_effect_tooltip = if_they_accept_tt
 				effect_tooltip = {
 					puppet = LAT
@@ -6512,11 +6671,14 @@ focus_tree = {
 			if = {
 				limit = {
 					EST = {
+						exists = yes
 						has_government = communism
 						is_in_faction = no
 					}
 				}
-				country_event = NSB_poland_communist_events.2
+				EST = {
+					country_event = { id = NSB_poland_communist_events.2 hours = 12 }
+				}
 				custom_effect_tooltip = if_they_accept_tt
 				effect_tooltip = {
 					puppet = EST
@@ -7855,6 +8017,8 @@ focus_tree = {
 		prerequisite = { focus = POL_royal_hussars }
 		relative_position_id = POL_royal_hussars
 
+		will_lead_to_war_with = CZE
+
 		x = 0
 		y = 1
 		cost = 10
@@ -7897,6 +8061,21 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 		completion_reward = {
+			IF = {
+				limit = {
+					CZE = {
+						is_subject = yes
+						NOT = {
+							is_subject_of = ROOT
+						}
+					}
+				}
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = CZE
+				}	
+			}
+			ELSE = {
 			CZE = { country_event = { id = NSB_poland_monarchist_events.5 hours = 8 } }
 			custom_effect_tooltip = if_they_accept_tt
 			effect_tooltip = {
@@ -7907,6 +8086,8 @@ focus_tree = {
 					}
 				}
 			}
+			}
+			
 		}
 	}
 
@@ -8344,7 +8525,7 @@ focus_tree = {
 			}
 		}
 
-		available_if_capitulated = yes
+		#available_if_capitulated = yes
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		completion_reward = {
@@ -8485,6 +8666,27 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
+
+			custom_effect_tooltip = generic_skip_one_line_tt
+
+			custom_effect_tooltip = available_industrial_concern
+			show_ideas_tooltip = CZE_csd
+			if = {
+				limit = {
+					has_dlc = "Peace For Our Time"
+				}
+				custom_effect_tooltip = generic_skip_one_line_tt
+				if = {
+					limit = {
+						has_dlc = "Arms Against Tyranny"
+					}
+					unlock_military_industrial_organization_tooltip = mio:CZE_CKD_plzen_organization
+				}
+				else = {
+					custom_effect_tooltip = available_designer
+					show_ideas_tooltip = CZE_CKD_plzen
+				}
+			}
 		}
 	}
 
@@ -8544,6 +8746,27 @@ focus_tree = {
 					type = industrial_complex
 					level = 1
 					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					has_dlc = "Peace For Our Time"
+				}
+
+				custom_effect_tooltip = generic_skip_one_line_tt
+
+				custom_effect_tooltip = available_industrial_concern
+				show_ideas_tooltip = CZE_walter_co
+				custom_effect_tooltip = generic_skip_one_line_tt
+				if = {
+					limit = {
+						has_dlc = "Arms Against Tyranny"
+					}
+					unlock_military_industrial_organization_tooltip = mio:CZE_zbrojovka_vsetin_organization
+				}
+				else = {
+					custom_effect_tooltip = available_designer
+					show_ideas_tooltip = CZE_zbrojovka_vsetin
 				}
 			}
 		}
@@ -8606,6 +8829,30 @@ focus_tree = {
 					type = arms_factory
 					level = 1
 					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					has_dlc = "Peace For Our Time"
+				}
+
+				custom_effect_tooltip = generic_skip_one_line_tt
+
+				if = {
+					limit = {
+						has_dlc = "Arms Against Tyranny"
+					}
+					unlock_military_industrial_organization_tooltip = mio:CZE_skoda_plzen_tank_destroyer_organization
+					unlock_military_industrial_organization_tooltip = mio:CZE_ceska_zbrojovka_uhersky_brod_organization
+				}
+				else = {
+					custom_effect_tooltip = available_designer
+					show_ideas_tooltip = CZE_skoda_plzen_tank_destroyer
+
+					custom_effect_tooltip = generic_skip_one_line_tt
+
+					custom_effect_tooltip = available_designer
+					show_ideas_tooltip = CZE_ceska_zbrojovka_uhersky_brod
 				}
 			}
 		}
@@ -9606,6 +9853,7 @@ focus_tree = {
 						is_core_of = CZE
 						is_core_of = SLO
 						state = 5
+						state = 68
 						state = 763
 					}
 				}
@@ -12525,12 +12773,7 @@ focus_tree = {
 		available = {
 			is_subject = no
 			has_government = fascism
-			# Lithuania
-			custom_trigger_tooltip = {
-				tooltip = form_country_lithuania_required_states_tt
-				controls_state = 11
-				controls_state = 189
-			}
+			
 			# Poland
 			custom_trigger_tooltip = {
 				tooltip = form_country_poland_required_states_tt
@@ -12550,10 +12793,21 @@ focus_tree = {
 				controls_state = 96
 				controls_state = 784
 			}
+			
+			# Lithuania
 			OR = {
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = form_country_lithuania_required_states_tt
+						controls_state = 11
+						controls_state = 189
+						controls_state = 815
+						controls_state = 814
+					}			
 				core_compliance = {
 					occupied_country_tag = LIT
 					value > 65
+					}
 				}
 				AND = {
 					LIT = {
@@ -12930,7 +13184,7 @@ focus_tree = {
 			add_ideas = POL_anti_blitz_tactics
 			add_tech_bonus = {
 				name = POL_anti_tank_guns
-				bonus = 1.5
+				bonus = 1
 				uses = 2
 				category = cat_anti_tank
 			}
@@ -13296,6 +13550,7 @@ focus_tree = {
 	###MIEDZYMORZE###
 	#################
 	focus = {
+		allow_branch = { always = no }
 		id = POL_the_between_the_seas_concept
 		icon = GFX_goal_anschluss
 		available = {
@@ -13473,12 +13728,12 @@ focus_tree = {
 			OR = {
 				LAT = {
 					exists = yes
-					is_puppet = no
+					is_subject = no
 					NOT = { has_war_with = POL }
 				}
 				EST = {
 					exists = yes
-					is_puppet = no
+					is_subject = no
 					NOT = { has_war_with = POL }
 				}
 			}
@@ -13488,14 +13743,14 @@ focus_tree = {
 			LAT = {
 				OR = {
 					exists = no
-					is_puppet = yes
+					is_subject = yes
 					is_in_faction = yes
 				}
 			}
 			EST = {
 				OR = {
 					exists = no
-					is_puppet = yes
+					is_subject = yes
 					is_in_faction = yes
 				}
 			}
@@ -13658,6 +13913,7 @@ focus_tree = {
 		available = {
 			is_faction_leader = yes
 			FIN = {
+				is_subject = no
 				is_in_faction = no
 				NOT = { has_war_with = ROOT }
 			}
@@ -13683,9 +13939,18 @@ focus_tree = {
 			factor = 10
 		}
 		completion_reward = {
+			if = {
+				limit = {
+					FIN = { has_idea = FIN_the_lone_wolf }
+				}
+				custom_effect_tooltip = FIN_the_lone_wolf_no_faction_tt
+			}
+			else = {
 			FIN = {
 				country_event = { id = poland.16 days = 1 }
 			}
+			}
+
 			unlock_decision_tooltip = POL_diplomatic_mission_to_DEN
 			unlock_decision_tooltip = POL_diplomatic_mission_to_SWE
 			unlock_decision_tooltip = POL_diplomatic_mission_to_NOR
@@ -13699,8 +13964,10 @@ focus_tree = {
 		available = {
 			is_faction_leader = yes
 			DEN = {
+				is_subject = no
 				is_in_faction = no
 				NOT = { has_war_with = ROOT }
+				exists = yes
 			}
 		}
 
@@ -13725,9 +13992,11 @@ focus_tree = {
 		prerequisite = { focus = POL_finno_polish_pact }
 		available = {
 			is_faction_leader = yes
-			SWE = {
+			SWE= {
+				is_subject = no
 				is_in_faction = no
 				NOT = { has_war_with = ROOT }
+				exists = yes
 			}
 		}
 
@@ -13752,9 +14021,11 @@ focus_tree = {
 		prerequisite = { focus = POL_finno_polish_pact }
 		available = {
 			is_faction_leader = yes
-			NOR = {
+			NOR= {
+				is_subject = no
 				is_in_faction = no
 				NOT = { has_war_with = ROOT }
+				exists = yes
 			}
 		}
 
@@ -13779,6 +14050,12 @@ focus_tree = {
 		prerequisite = { focus = POL_the_between_the_seas_concept }
 		available = {
 			is_faction_leader = yes
+			CZE = {
+				is_subject = no
+			}
+			YUG = {
+				is_subject = no
+			}
 		}
 		bypass = {
 			CZE = {
@@ -13819,6 +14096,7 @@ focus_tree = {
 		available = {
 			is_faction_leader = yes
 			CZE = {
+				is_subject = no
 				is_in_faction = no
 				NOT = { has_war_with = ROOT }
 			}
@@ -13859,10 +14137,12 @@ focus_tree = {
 			is_faction_leader = yes
 			OR = {
 				AUS = {
+					is_subject = no
 					is_in_faction = no
 					NOT = { has_war_with = ROOT }
 				}
 				HUN = {
+					is_subject = no
 					is_in_faction = no
 					NOT = { has_war_with = ROOT }
 				}
@@ -13933,6 +14213,7 @@ focus_tree = {
 		available = {
 			is_faction_leader = yes
 			YUG = {
+				is_subject = no
 				is_in_faction = no
 				NOT = { has_war_with = ROOT }
 			}
@@ -13975,6 +14256,7 @@ focus_tree = {
 			is_faction_leader = yes
 			GRE = {
 				exists = yes
+				is_subject = no
 				is_in_faction = no
 				NOT = { has_war_with = ROOT }
 			}
@@ -14024,6 +14306,7 @@ focus_tree = {
 			is_faction_leader = yes
 			TUR = {
 				exists = yes
+				is_subject = no
 				is_in_faction = no
 				NOT = { has_war_with = ROOT }
 			}
@@ -14081,8 +14364,10 @@ focus_tree = {
 						}
 					}
 				}
+				is_subject = no
 				has_same_ideology = yes
 				NOT = { has_war_with = ROOT }
+				exists = yes
 			}
 		}
 
@@ -14895,6 +15180,7 @@ focus_tree = {
 				uses = 1
 				category = nuclear
 			}
+
 		}
 	}
 
@@ -15025,17 +15311,8 @@ focus_tree = {
 					clear = no
 					occupier = POL
 					occupied = DNZ
-				}
-				if = {
-					limit = {
-						NOT = {
-							85 = {
-								has_resistance = yes
-							}
-						}
 					}
 					start_resistance = DNZ
-				}
 				set_resistance = 40
 				set_compliance = 30
 				add_resistance_target = { 
@@ -15128,7 +15405,7 @@ focus_tree = {
 		completion_reward = {
 			add_tech_bonus = {
 				name = POL_study_foreign_built_ships
-				bonus = 1.0
+				bonus = 0.75
 				uses = 2
 				category = dd_tech
 			}
@@ -15212,6 +15489,9 @@ focus_tree = {
 	focus = {
 		id = POL_develop_gdansk_ship_building
 		icon = GFX_goal_generic_construct_naval_dockyard
+		available = {
+			has_full_control_of_state = 85
+		}
 		prerequisite = { focus = POL_ban_the_nazi_party }
 		x = 1
 		y = 1
@@ -15523,13 +15803,18 @@ focus_tree = {
 		available_if_capitulated = yes
 		search_filters = { FOCUS_FILTER_RESEARCH }
 		completion_reward = {
+			add_mastery_bonus = {
+				name = POL_commerce_attack
+				bonus = 0.1
+				days = 180
+				track = submarines
+			}
 			add_doctrine_cost_reduction = {
 				name = POL_commerce_attack
 				cost_reduction = 0.5
 				uses = 1
-				category = submarine_doctrine
+				category = naval_doctrine
 			}
-			#1x50% research bonus to Submarine Doctrine
 		}
 	}
 
@@ -15588,6 +15873,12 @@ focus_tree = {
 			if = { 
 				limit = {
 					NOT = { has_dlc = "Man the Guns" }
+				}
+				add_tech_bonus = {
+					name = POL_strike_force
+					bonus = 0.75
+					uses = 2
+					category = ca_tech
 				}
 				add_tech_bonus = {
 					name = POL_strike_force
